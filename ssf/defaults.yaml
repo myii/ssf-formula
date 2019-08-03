@@ -10,9 +10,9 @@ ssf_node_anchors:
             base: master
             pr: chore/standardise-structure
           commit:
-            # TODO: Replace the inline version number with a solution based upon getting the latest tag in the branch, i.e.
-            #       `git describe --abbrev=0 --tags`
-            #       Or may be even easier (and more sensible) to do via. `pre-commit_semantic-release.sh`
+            # NOTE: The version number in the `body` is automatically updated during the release phase
+            #       via. `pre-commit_semantic-release.sh`
+            #       An alternative method could be to use: `git describe --abbrev=0 --tags`
             title: 'chore: use `semantic-release` cross-formula standard structure'
             body: '* Automated using `ssf-formula` (v0.1.0-rc.6)'
           github:
