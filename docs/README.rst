@@ -15,7 +15,7 @@ ssf-formula
    :target: https://github.com/semantic-release/semantic-release
 
 A SaltStack formula that is used to manage other SaltStack formulas,
-particularly those that involve `semantic-release`, TOFS and `inspec`-based testing.
+particularly those that involve ``semantic-release``, TOFS and/or InSpec-based testing.
 
 .. contents:: **Table of Contents**
 
@@ -39,6 +39,27 @@ Contributing to this repo
 **Commit message formatting is significant!!**
 
 Please see :ref:`How to contribute <CONTRIBUTING>` for more details.
+
+Using this repo
+---------------
+
+Due to the nature of the ``git`` operations used by this formula,
+there are assumptions made about the local configuration:
+
+#. Each repo has two remotes and tracking branches such as provided by the `git fork
+   <https://github.com/tj/git-extras/blob/master/Commands.md#git-fork>`_
+   command (available in the ``git-extras`` package).
+
+#. A GitHub token is available, with the relevant permissions to create pull requests for each formula.
+
+   a. This token needs to be provided in the custom script, as mentioned in the `pillar.example
+      <https://github.com/myii/ssf-formula/blob/99b8c659aeacca1f5b3e60736fe496be1de97d76/pillar.example#L41-L44>`_
+      file.
+   #. The custom script is defined in the pillar/config.
+
+However, pull requests (for each formula) should not be submitted until the changes are reviewed and merged here first.
+When testing changes locally, use the pillar/config settings as `recommended
+<https://github.com/myii/ssf-formula/blob/99b8c659aeacca1f5b3e60736fe496be1de97d76/pillar.example#L28-L31>`_.
 
 Available states
 ----------------
