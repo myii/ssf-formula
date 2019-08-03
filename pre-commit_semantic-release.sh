@@ -33,4 +33,5 @@ cd ..
 ###############################################################################
 # (C) Update `ssf/defaults.yaml` with `${nextRelease.version}`
 ###############################################################################
-sed -i -e "s_^\(\s\+body: '\* Automated using \`ssf-formula\` (\).*\()'\)_\1${1}\2_" ssf/defaults.yaml
+V_REPR=v${1}
+sed -i -e "s_^\(\s\+body: '\* Automated using \`ssf-formula\` (\).*\()'\)_\1${V_REPR}\2_" ssf/defaults.yaml
