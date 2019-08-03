@@ -27,7 +27,7 @@ prepare-git-branch-for-{{ formula }}:
     - cwd: {{ ssf.formulas_path }}/{{ formula }}/
     - args: >-
         prepare-git-branch-for-{{ formula }}
-        {{ ssf.git.branch.upstream }}
+        {{ context.git.branch.upstream | d(ssf.git.branch.upstream) }}
         {{ context.git.branch.pr }}
         {{ context.git.commit.body | regex_escape }}
     - runas: {{ ssf.user }}

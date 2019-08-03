@@ -43,6 +43,16 @@ ssf:
         ### and simply add your personal token at the top of the script
         source: salt://ssf/files/your_directory/git/git_30_create_PR.sh
 
+  ### Any customisations to the formulas can be made here, e.g. for testing purposes
+  ### Usually, this is unnecessary but a likely override could be an upstream tracking
+  ### branch that doesn't match the value set above, i.e. `ssf:git:branch:upstream`.
+  semrel_formulas:
+    ssf:
+      context:
+        git:
+          branch:
+            upstream: master
+
   ### No formulas or files are active by default
   ### State the formulas and files to work through when running the formula
   active:
