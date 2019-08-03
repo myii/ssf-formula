@@ -1,0 +1,264 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+---
+ssf_node_anchors:
+  defaults:
+    formula: &formula_default
+      context: &context_default
+        git:
+          branch:
+            base: master
+            pr: chore/standardise-structure
+          commit:
+            # TODO: Replace the inline version number with a solution based upon getting the latest tag in the branch, i.e.
+            #       `git describe --abbrev=0 --tags`
+            #       Or may be even easier (and more sensible) to do via. `pre-commit_semantic-release.sh`
+            title: 'chore: use `semantic-release` cross-formula standard structure'
+            body: '* Automated using `ssf-formula` (v0.1.0-rc.6)'
+          github:
+            owner: saltstack-formulas
+            repo: ''
+        inspec_suites_kitchen: &isk_default
+          0: &isk_suite_default
+            name: default
+            # If both `includes` and `excludes` are provided,
+            # only `includes` will be considered, mimicking `kitchen list`
+            # Note: This applies automatically via. `kitchen.yml`
+            #       but is applied manually in the matrix (Travis/Cirrus)
+            # TODO: Use `kitchen list -b` output to define the matrix or too slow?
+            # Ref: https://github.com/test-kitchen/test-kitchen/blob/7ce894e74f828f9e36531cf2d74588dd74fbf240/lib/kitchen/config.rb#L183-L193
+            excludes: []
+            includes: []
+            inspec_yml:
+              summary: |-
+                Verify that the formula is setup and configured correctly
+              supports:
+                - debian
+                - ubuntu
+                - centos
+                - fedora
+                - opensuse
+                - suse
+                - freebsd
+                - amazon
+            provisioner:
+              dependencies: []
+              # Structure assumes `top.sls:base`
+              pillars:
+                - '*':
+                  - .
+              pillars_from_files:
+                - .sls: pillar.example
+              # Structure assumes `base`
+              state_top:
+                - '*':
+                  - .
+            verifier:
+              inspec_tests_path_prefix: test/integration
+              test_suite: .
+        inspec_suites_matrix:
+          - default
+        # Once system is in place, this value can be removed throughout the whole formula
+        old_ci_files: False
+        platforms:
+          # Could use `opensuse-leap` throughout since `/` never used at this end
+          # Would have to modify the `if` in the `kitchen.yml` template(s), though
+          # Also, may have to be careful with versions such as `18.04` being seen as numbers (for comparisons)
+          # [os           , os_ver, salt_ver, py_ver]
+          - [debian       ,  10   ,  develop,      3]
+          - [ubuntu       ,  18.04,  develop,      3]
+          - [centos       ,   7   ,  develop,      3]
+          - [fedora       ,  30   ,  develop,      3]
+          - [opensuse/leap,  15   ,  develop,      3]
+          - [amazonlinux  ,   2   ,  develop,      2]
+          - [debian       ,   9   ,   2019.2,      3]
+          - [ubuntu       ,  18.04,   2019.2,      3]
+          - [centos       ,   7   ,   2019.2,      3]
+          - [fedora       ,  30   ,   2019.2,      3]
+          - [opensuse/leap,  15   ,   2019.2,      3]
+          - [amazonlinux  ,   2   ,   2019.2,      2]
+          - [debian       ,   9   ,   2018.3,      2]
+          - [ubuntu       ,  16.04,   2018.3,      2]
+          - [centos       ,   7   ,   2018.3,      2]
+          - [fedora       ,  29   ,   2018.3,      2]
+          - [opensuse/leap,  15   ,   2018.3,      2]
+          - [amazonlinux  ,   2   ,   2018.3,      2]
+          - [debian       ,   8   ,   2017.7,      2]
+          - [ubuntu       ,  16.04,   2017.7,      2]
+          - [centos       ,   6   ,   2017.7,      2]
+          - [fedora       ,  29   ,   2017.7,      2]
+          - [opensuse/leap,  15   ,   2017.7,      2]
+          - [amazonlinux  ,   2   ,   2017.7,      2]
+        platforms_matrix:
+          # Comments in `platforms` apply here, too
+          # [os           , os_ver, salt_ver, py_ver, inspec_suite]
+          - [debian       ,  10   ,  develop,      3,      default]
+          - [ubuntu       ,  18.04,   2019.2,      3,      default]
+          - [amazonlinux  ,   2   ,   2019.2,      2,      default]
+          - [fedora       ,  29   ,   2018.3,      2,      default]
+          - [opensuse/leap,  15   ,   2018.3,      2,      default]
+          - [centos       ,   6   ,   2017.7,      2,      default]
+        script_kitchen:
+          bin: bin/kitchen
+          cmd: verify
+          pre: []
+          post: []
+        travis:
+          addons: {}
+          dist: xenial
+        use_cirrus_ci: False
+        use_tofs: False
+
+ssf:
+  active:
+    semrel_formulas: []
+    semrel_files: []
+  git:
+    branch:
+      upstream: upstream
+    commit:
+      options: ''
+    github:
+      user: ''
+      push_remote: origin
+      file_api_response: github_api_response
+    states:
+      prepare:
+        active: False
+        source: salt://ssf/files/default/git/git_10_prepare.sh
+      add_rm:
+        active: False
+        source: ''
+      commit_push:
+        active: False
+        source: salt://ssf/files/default/git/git_20_commit_push.sh
+      create_PR:
+        active: False
+        source: salt://ssf/files/default/git/git_30_create_PR.sh
+  semrel_formulas:
+    apt:
+      <<: *formula_default
+      context:
+        <<: *context_default
+        inspec_suites_kitchen:
+          <<: *isk_default
+          0:
+            <<: *isk_suite_default
+            name: repositories
+          1:
+            <<: *isk_suite_default
+            name: preferences
+    bind: *formula_default
+    cert: *formula_default
+    chrony: *formula_default
+    collectd: *formula_default
+    deepsea: *formula_default
+    dhcpd: *formula_default
+    fail2ban: *formula_default
+    golang: *formula_default
+    grafana: *formula_default
+    iptables:
+      <<: *formula_default
+      context:
+        <<: *context_default
+        inspec_suites_kitchen:
+          <<: *isk_default
+          1:
+            <<: *isk_suite_default
+            name: tables
+    keepalived: *formula_default
+    libvirt: *formula_default
+    locale:
+      <<: *formula_default
+      context:
+        <<: *context_default
+        inspec_suites_kitchen:
+          <<: *isk_default
+          1:
+            <<: *isk_suite_default
+            name: fedora
+    logrotate: *formula_default
+    mysql: *formula_default
+    nginx: *formula_default
+    openvpn: *formula_default
+    packages:
+      <<: *formula_default
+      context:
+        <<: *context_default
+        inspec_suites_kitchen:
+          <<: *isk_default
+          1:
+            <<: *isk_suite_default
+            name: deb
+          2:
+            <<: *isk_suite_default
+            name: ubu18
+          3:
+            <<: *isk_suite_default
+            name: ubu16
+          4:
+            <<: *isk_suite_default
+            name: fed
+          5:
+            <<: *isk_suite_default
+            name: sus
+          6:
+            <<: *isk_suite_default
+            name: rpm
+    php:
+      <<: *formula_default
+      context:
+        <<: *context_default
+        inspec_suites_kitchen:
+          <<: *isk_default
+          1:
+            <<: *isk_suite_default
+            name: debian
+          2:
+            <<: *isk_suite_default
+            name: redhat
+          3:
+            <<: *isk_suite_default
+            name: suse
+    postfix: *formula_default
+    postgres: *formula_default
+    prometheus: *formula_default
+    rkhunter:
+      <<: *formula_default
+      context:
+        <<: *context_default
+        inspec_suites_kitchen:
+          <<: *isk_default
+          1:
+            <<: *isk_suite_default
+            name: debian
+          2:
+            <<: *isk_suite_default
+            name: redhat
+          3:
+            <<: *isk_suite_default
+            name: suse
+    ssf: *formula_default
+    stack: *formula_default
+    sudoers: *formula_default
+    syslog-ng: *formula_default
+    sysstat: *formula_default
+    systemd: *formula_default
+    template: *formula_default
+    ufw: *formula_default
+    users: *formula_default
+    vault:
+      <<: *formula_default
+      context:
+        <<: *context_default
+        inspec_suites_kitchen:
+          <<: *isk_default
+          0:
+            <<: *isk_suite_default
+            name: install_binary
+          1:
+            <<: *isk_suite_default
+            name: dev_server
+          2:
+            <<: *isk_suite_default
+            name: prod_server

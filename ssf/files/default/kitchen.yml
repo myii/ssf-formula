@@ -1,0 +1,206 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+---
+{#- {%- from tplroot ~ "/libcontext.jinja" import format_context, format_kwargs, format_list with context %} #}
+{%- macro format_matcher(matcher_parent, width=10) %}
+{%-   filter indent(width) %}
+{%-     for mp in matcher_parent %}
+{%-       for matcher, matcher_specs in mp.items() %}
+'{{ matcher }}':
+{%-         for matcher_child in matcher_specs %}
+{%-           if matcher_child == '.' %}
+{%-             set matcher_child = semrel_formula %}
+{%-           elif matcher_child.startswith('.') %}
+{%-             set matcher_child = semrel_formula ~ matcher_child %}
+{%-           endif %}
+  - {{ matcher_child }}
+{%-         endfor %}
+{%-       endfor %}
+{%-     endfor %}
+{%-   endfilter %}
+{%- endmacro %}
+
+{%- macro format_includes_excludes(suite, clude_type) %}
+{%-   filter indent(4) %}
+{%-     set cludes = suite[clude_type] %}
+{%-     if cludes %}
+{{ clude_type }}:
+{#-       Centralise duplication from here and `libcimatrix.jinja` #}
+{%-       for platform in cludes %}
+{%-         set os       = platform[0] | d('') %}
+{%-         set os_ver   = platform[1] | d('') %}
+{%-         set salt_ver = platform[2] | d('') %}
+{%-         set py_ver   = platform[3] | d('') %}
+{#-         Concatenate the `INSTANCE` or set to `NONE` otherwise #}
+{%-         if not platform %}
+{%-           set instance = 'NONE' %}
+{%-         else %}
+{%-           set instance = '{0}-{1}-{2}-py{3}'.format(
+                os | replace('/', '-'),
+                os_ver | replace('.', ''),
+                salt_ver | replace('.', '-'),
+                py_ver,
+              ) %}
+{%-         endif %}
+  - {{ instance }}
+{%-       endfor %}
+{%-     endif %}
+{%-   endfilter %}
+{%- endmacro %}
+# For help on this file's format, see https://kitchen.ci/
+driver:
+  name: docker
+  use_sudo: false
+  privileged: true
+  run_command: /lib/systemd/systemd
+
+# Make sure the platforms listed below match up with
+# the `env.matrix` instances defined in `.travis.yml`
+platforms:
+{#- TODO: Replace this with new `amazonlinux` (but really need an `upstart`-based replacement) #}
+{#-       Get rid off `first_linebreak` then as well #}
+{%- set first_linebreak = '' %}
+{%- if semrel_formula == 'vault' %}
+  {%- set first_linebreak = '\n' %}
+  - name: amazonlinux
+    driver:
+      image: amazonlinux:1
+      platform: rhel
+      run_command: /sbin/init
+      provision_command:
+        - curl -L https://bootstrap.saltstack.com | sh -s -- -X     # install latest stable Salt
+{%- endif %}
+{#- Centralise duplication from here and `libcimatrix.jinja` #}
+{%- set prev_comment = '' %}
+{%- for platform in platforms %}
+{%-   set os       = platform[0] %}
+{%-   set os_ver   = platform[1] %}
+{%-   set salt_ver = platform[2] %}
+{%-   set py_ver   = platform[3] %}
+{#-   Display comment for each section (based on Salt version) #}
+{%-   set linebreak = '\n' %}
+{%-   set comment = '`{0}`'.format(salt_ver) %}
+{%-   if loop.index0 == 0 %}
+{%-     set linebreak = first_linebreak %}
+{%-   endif %}
+{%-   if prev_comment != comment %}
+{{ linebreak }}  ## SALT {{ comment }}
+{%-     set prev_comment = comment %}
+{%-   endif %}
+{#-   TODO: Should really do this `if` from `defaults.yaml` or `formulas.yaml`, just speeding things up right now #}
+{%-   if os == 'centos' and os_ver == 6 and semrel_formula == 'libvirt' %}
+  # Python2 version problem
+  # SaltStack runs under python 2.7 but system is python 2.6
+  # The python libvirt library can't be used
+  # - name: centos-6-2017-7-py2
+  #   driver:
+  #     image: netmanagers/salt-2017.7-py2:centos-6
+  #     run_command: /sbin/init
+{%-   else %}
+  - name: {{ os | replace('/', '-') }}-{{ os_ver | replace('.', '') }}-{{ salt_ver | replace('.', '-') }}-py{{ py_ver }}
+    driver:
+      image: netmanagers/salt-{{ salt_ver }}-py{{ py_ver }}:{{ os | replace('/', '-') }}-{{ os_ver }}
+      {%- if salt_ver == 'develop' %}
+      provision_command:
+        - curl -o bootstrap-salt.sh -L https://bootstrap.saltstack.com
+        - sh bootstrap-salt.sh -XdPbfrq -x python{{ py_ver }} git develop
+        {#- TODO: Should really do this whole `if` block from `defaults.yaml` or `formulas.yaml`, just speeding things up right now #}
+        {#-       Need to look at if this can be resolved from within the formulas themselves, though                               #}
+        {%- if semrel_formula == 'deepsea' %}
+        {%-   if os in ['centos', 'fedora'] %}
+        - yum install make -y
+        {#-   Duplicated `provision_command` due to `deepsea`, try to remove eventually #}
+        {%-   elif os == 'opensuse/leap' %}
+        - zypper -n in tar gzip
+        {%-   endif %}
+        {%- elif semrel_formula == 'golang' %}
+        {%-   if os in ['debian', 'ubuntu'] %}
+        # https://github.com/saltstack/salt/issues/39314
+        - apt-get remove python-boto3 -y
+        {%-   elif os == 'opensuse/leap' %}
+        # https://github.com/saltstack/salt/issues/39314
+        - zypper rm python-boto3 -y
+        {%-   endif %}
+        {%- endif %}
+      {%- endif %}
+      {#- TODO: Should really do this whole `if` block from `defaults.yaml` or `formulas.yaml`, just speeding things up right now #}
+      {%- if os == 'opensuse/leap' %}
+      {%-   if semrel_formula == 'deepsea' and salt_ver != 'develop' %}
+      {#-     Duplicated `provision_command` due to `deepsea`, try to remove eventually #}
+      provision_command:
+        - zypper -n in tar gzip
+      {%-   endif %}
+      run_command: /usr/lib/systemd/systemd
+      {%- elif os == 'centos' and os_ver == 6 %}
+      run_command: /sbin/init
+      {%- endif %}
+{%-   endif %}
+{%- endfor %}
+
+provisioner:
+  name: salt_solo
+  log_level: info
+  salt_install: none
+  require_chef: false
+  formula: {{ semrel_formula }}
+  salt_copy_filter:
+    - .kitchen
+    - .git
+
+verifier:
+  # https://www.inspec.io/
+  name: inspec
+  sudo: true
+  # cli, documentation, html, progress, json, json-min, json-rspec, junit
+  reporter:
+    - cli
+
+suites:
+  {%- for index in range(0, inspec_suites_kitchen | length) %}
+  {%-   set suite = inspec_suites_kitchen[index] %}
+  - name: {{ suite.name }}
+    {{- format_includes_excludes(suite, 'excludes') }}
+    {{- format_includes_excludes(suite, 'includes') }}
+    provisioner:
+      state_top:
+        base:
+          {{- format_matcher(suite.provisioner.state_top) }}
+      pillars:
+        top.sls:
+          base:
+            {{- format_matcher(suite.provisioner.pillars, width=12) }}
+      {#- pillars_from_files #}
+      {%- set pillars_from_files = suite.provisioner.pillars_from_files %}
+      {%- if pillars_from_files %}
+      pillars_from_files:
+        {%- for pff in pillars_from_files %}
+        {%-   for k, v in pff.items() %}
+        {%-     if k.startswith('.') %}
+        {%-       set k = semrel_formula ~ k %}
+        {%-     endif %}
+        {{ k }}: {{ v }}
+        {%-   endfor %}
+        {%- endfor %}
+      {%- endif %}
+      {#- dependencies #}
+      {%- set dependencies = suite.provisioner.dependencies %}
+      {%- if dependencies %}
+      dependencies:
+        {%- for dependency in dependencies %}
+        - name: {{ dependency.name }}
+        {%-   for k, v in dependency.items() %}
+        {%-     if k != 'name' %}
+          {{ k }}: {{ v }}
+        {%-     endif %}
+        {%-   endfor %}
+        {%- endfor %}
+      {%- endif %}
+    verifier:
+      inspec_tests:
+        {%- set inspec_tests_path_prefix = suite.verifier.inspec_tests_path_prefix %}
+        {%- set test_suite = suite.verifier.test_suite %}
+        {%- if test_suite == '.' %}
+        {%-   set test_suite = suite.name %}
+        {%- endif %}
+        - path: {{ inspec_tests_path_prefix }}/{{ test_suite }}
+  {%- endfor %}

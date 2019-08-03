@@ -1,0 +1,1115 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+---
+ssf_node_anchors:
+  defaults:
+    file: &file_default
+      mode: 644
+      template: ''
+    formula:
+      context:
+        inspec_suites_kitchen:
+          0:
+            includes: &includes_NONE
+              - []
+            inspec_yml:
+              supports_debian_ubuntu: &supports_debian_ubuntu
+                - debian
+                - ubuntu
+        platforms_old: &platforms_old
+          # [os           , os_ver, salt_ver, py_ver]
+          - [debian       ,   9   ,  develop,      3]
+          - [ubuntu       ,  18.04,  develop,      3]
+          - [centos       ,   7   ,  develop,      3]
+          - [fedora       ,  29   ,  develop,      3]
+          - [opensuse/leap,  15   ,  develop,      3]
+          - [debian       ,   9   ,   2019.2,      3]
+          - [ubuntu       ,  18.04,   2019.2,      3]
+          - [centos       ,   7   ,   2019.2,      3]
+          - [fedora       ,  29   ,   2019.2,      3]
+          - [opensuse/leap,  15   ,   2019.2,      3]
+          - [debian       ,   9   ,   2018.3,      2]
+          - [ubuntu       ,  16.04,   2018.3,      2]
+          - [centos       ,   7   ,   2018.3,      2]
+          - [fedora       ,  29   ,   2018.3,      2]
+          - [opensuse/leap,  42   ,   2018.3,      2]
+          - [debian       ,   8   ,   2017.7,      2]
+          - [ubuntu       ,  16.04,   2017.7,      2]
+          - [centos       ,   6   ,   2017.7,      2]
+          - [fedora       ,  28   ,   2017.7,      2]
+          - [opensuse/leap,  42   ,   2017.7,      2]
+        platforms_matrix_old: &platforms_matrix_old
+          # [os           , os_ver, salt_ver, py_ver, inspec_suite]
+          - [debian       ,   9   ,  develop,      3,      default]
+          - [ubuntu       ,  18.04,   2019.2,      3,      default]
+          - [centos       ,   7   ,   2019.2,      3,      default]
+          - [fedora       ,  29   ,   2018.3,      2,      default]
+          - [opensuse/leap,  42   ,   2018.3,      2,      default]
+          - [centos       ,   6   ,   2017.7,      2,      default]
+        platforms_old_osfamily_debian: &platforms_old_osfamily_debian
+          # [os           , os_ver, salt_ver, py_ver]
+          - [debian       ,   9   ,  develop,      3]
+          - [ubuntu       ,  18.04,  develop,      3]
+          - [debian       ,   9   ,   2019.2,      3]
+          - [ubuntu       ,  18.04,   2019.2,      3]
+          - [debian       ,   9   ,   2018.3,      2]
+          - [ubuntu       ,  16.04,   2018.3,      2]
+          - [debian       ,   8   ,   2017.7,      2]
+          - [ubuntu       ,  16.04,   2017.7,      2]
+        platforms_old_osfamily_redhat: &platforms_old_osfamily_redhat
+          # [os           , os_ver, salt_ver, py_ver]
+          - [centos       ,   7   ,  develop,      3]
+          - [fedora       ,  29   ,  develop,      3]
+          - [centos       ,   7   ,   2019.2,      3]
+          - [fedora       ,  29   ,   2019.2,      3]
+          - [centos       ,   7   ,   2018.3,      2]
+          - [fedora       ,  29   ,   2018.3,      2]
+          - [centos       ,   6   ,   2017.7,      2]
+          - [fedora       ,  28   ,   2017.7,      2]
+        platforms_old_osfamily_suse: &platforms_old_osfamily_suse
+          # [os           , os_ver, salt_ver, py_ver]
+          - [opensuse/leap,  15   ,  develop,      3]
+          - [opensuse/leap,  15   ,   2019.2,      3]
+          - [opensuse/leap,  42   ,   2018.3,      2]
+          - [opensuse/leap,  42   ,   2017.7,      2]
+        platforms_old_os_debian: &platforms_old_os_debian
+          # [os           , os_ver, salt_ver, py_ver]
+          - [debian       ,   9   ,  develop,      3]
+          - [debian       ,   9   ,   2019.2,      3]
+          - [debian       ,   9   ,   2018.3,      2]
+          - [debian       ,   8   ,   2017.7,      2]
+        platforms_old_os_ubuntu18: &platforms_old_os_ubuntu18
+          # [os           , os_ver, salt_ver, py_ver]
+          - [ubuntu       ,  18.04,  develop,      3]
+          - [ubuntu       ,  18.04,   2019.2,      3]
+        platforms_old_os_ubuntu16: &platforms_old_os_ubuntu16
+          # [os           , os_ver, salt_ver, py_ver]
+          - [ubuntu       ,  16.04,   2018.3,      2]
+          - [ubuntu       ,  16.04,   2017.7,      2]
+        platforms_old_os_fedora: &platforms_old_os_fedora
+          # [os           , os_ver, salt_ver, py_ver]
+          - [fedora       ,  29   ,  develop,      3]
+          - [fedora       ,  29   ,   2019.2,      3]
+          - [fedora       ,  29   ,   2018.3,      2]
+          - [fedora       ,  28   ,   2017.7,      2]
+        platforms_old_os_suse: &platforms_old_os_suse
+          # [os           , os_ver, salt_ver, py_ver]
+          - [opensuse/leap,  15   ,  develop,      3]
+          - [opensuse/leap,  15   ,   2019.2,      3]
+          - [opensuse/leap,  42   ,   2018.3,      2]
+          - [opensuse/leap,  42   ,   2017.7,      2]
+        platforms_old_os_centos: &platforms_old_os_centos
+          # [os           , os_ver, salt_ver, py_ver]
+          - [centos       ,   7   ,  develop,      3]
+          - [centos       ,   7   ,   2019.2,      3]
+          - [centos       ,   7   ,   2018.3,      2]
+          - [centos       ,   6   ,   2017.7,      2]
+        platforms_matrix_old_osfamily_suites: &platforms_matrix_old_osfamily_suites
+          # [os           , os_ver, salt_ver, py_ver, inspec_suite]
+          - [debian       ,   9   ,  develop,      3,       debian]
+          - [ubuntu       ,  18.04,   2019.2,      3,       debian]
+          - [centos       ,   7   ,   2019.2,      3,       redhat]
+          - [fedora       ,  29   ,   2018.3,      2,       redhat]
+          - [opensuse/leap,  42   ,   2018.3,      2,         suse]
+          - [centos       ,   6   ,   2017.7,      2,       redhat]
+      semrel_files: &semrel_files_default
+        bin/kitchen: &file__bin__kitchen
+          <<: *file_default
+          mode: 755
+        docs/CONTRIBUTING.rst: &file__docs__CONTRIBUTING--rst
+          <<: *file_default
+        docs/TOFS_pattern.rst: &file__docs__TOFS_pattern--rst
+          <<: *file_default
+        formula/libtofs.jinja: &file__formula__libtofs--jinja
+          <<: *file_default
+        inspec/inspec.yml: &file__inspec__inspec--yml
+          <<: *file_default
+          template: jinja
+        inspec/README.md: &file__inspec__README--md
+          <<: *file_default
+          template: jinja
+        .gitignore: &file__--gitignore
+          <<: *file_default
+        .cirrus.yml: &file__--cirrus--yml
+          <<: *file_default
+          template: jinja
+        .travis.yml: &file__--travis--yml
+          <<: *file_default
+          template: jinja
+        commitlint.config.js: &file__commitlint--config--js
+          <<: *file_default
+        Gemfile: &file__Gemfile
+          <<: *file_default
+        kitchen.yml: &file__kitchen--yml
+          <<: *file_default
+          template: jinja
+        pre-commit_semantic-release.sh: &file__pre-commit_semantic-release--sh
+          <<: *file_default
+          mode: 755
+        release-rules.js: &file__release-rules--js
+          <<: *file_default
+        release.config.js: &file__release--config--js
+          <<: *file_default
+
+ssf:
+  semrel_formulas:
+    apt:
+      context:
+        git:
+          github:
+            repo: apt-formula
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: |-
+                Verify that the apt repositories are configured correctly
+              supports: *supports_debian_ubuntu
+            provisioner:
+              pillars_from_files:
+                - .sls: test/salt/pillar/repositories.pillar.sls
+              state_top:
+                - '*':
+                  - .repositories
+                  - .update
+          1:
+            inspec_yml:
+              summary: |-
+                Verify that the apt preferences are configured correctly
+              supports: *supports_debian_ubuntu
+            provisioner:
+              pillars_from_files:
+                - .sls: test/salt/pillar/preferences.pillar.sls
+              state_top:
+                - '*':
+                  - .preferences
+        inspec_suites_matrix:
+          - repositories
+          - preferences
+        old_ci_files: True
+        platforms:
+          # [os           , os_ver, salt_ver, py_ver]
+          - [debian       ,   9   ,  develop,      3]
+          - [ubuntu       ,  18.04,  develop,      3]
+          - [debian       ,   9   ,   2019.2,      3]
+          - [ubuntu       ,  18.04,   2019.2,      3]
+          # - [debian       ,   9   ,   2018.3,      2]
+          # - [ubuntu       ,  16.04,   2018.3,      2]
+          # - [debian       ,   8   ,   2017.7,      2]
+          # - [ubuntu       ,  16.04,   2017.7,      2]
+        platforms_matrix:
+          # [os           , os_ver, salt_ver, py_ver, inspec_suite]
+          - [debian       ,   9   ,  develop,      3, repositories]
+          # - [ubuntu       ,  18.04,  develop,      3, repositories]
+          - [debian       ,   9   ,   2019.2,      3, repositories]
+          - [ubuntu       ,  18.04,   2019.2,      3, repositories]
+          - [debian       ,   9   ,  develop,      3,  preferences]
+          # - [ubuntu       ,  18.04,  develop,      3,  preferences]
+          - [debian       ,   9   ,   2019.2,      3,  preferences]
+          - [ubuntu       ,  18.04,   2019.2,      3,  preferences]
+      semrel_files: *semrel_files_default
+    bind:
+      context:
+        git:
+          github:
+            repo: bind-formula
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: |-
+                Verify that the bind formula is setup and configured correctly
+            provisioner:
+              pillars_from_files:
+                - .sls: test/salt/pillar/default.sls
+              state_top:
+                - '*':
+                  - .
+                  - .config
+        old_ci_files: True
+        platforms: *platforms_old
+        platforms_matrix:
+          # [os           , os_ver, salt_ver, py_ver, inspec_suite]
+          - [debian       ,   9   ,  develop,      3,      default]
+          - [ubuntu       ,  18.04,   2019.2,      3,      default]
+          - [centos       ,   7   ,   2019.2,      3,      default]
+          # - [fedora       ,  29   ,   2018.3,      2,      default]
+          - [opensuse/leap,  42   ,   2018.3,      2,      default]
+          - [centos       ,   6   ,   2017.7,      2,      default]
+      semrel_files: *semrel_files_default
+    cert:
+      context:
+        git:
+          github:
+            repo: cert-formula
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: |-
+                Verify that the cert formula is setup and configured correctly
+            provisioner:
+              dependencies:
+                - name: files
+                  path: ./test/salt
+                - name: states
+                  path: ./test/salt
+              pillars_from_files:
+                - .sls: test/salt/pillar/managed.sls
+              state_top:
+                - '*':
+                  - states/setup-certs-to-remove
+                  - .
+        old_ci_files: True
+        platforms: *platforms_old
+        platforms_matrix: *platforms_matrix_old
+      semrel_files: *semrel_files_default
+    chrony:
+      context:
+        git:
+          github:
+            repo: chrony-formula
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: |-
+                Verify that the chrony formula is setup and configured correctly
+        old_ci_files: True
+        platforms: *platforms_old
+        platforms_matrix:
+          # [os           , os_ver, salt_ver, py_ver, inspec_suite]
+          - [debian       ,   9   ,  develop,      3,      default]
+          - [ubuntu       ,  18.04,   2019.2,      3,      default]
+          - [centos       ,   7   ,   2019.2,      3,      default]
+          # - [fedora       ,  29   ,   2018.3,      2,      default]
+          - [opensuse/leap,  42   ,   2018.3,      2,      default]
+          - [centos       ,   6   ,   2017.7,      2,      default]
+        use_tofs: True
+      semrel_files: *semrel_files_default
+    collectd:
+      context:
+        git:
+          github:
+            repo: collectd-formula
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: |-
+                Verify that the collectd formula is setup and configured correctly
+            provisioner:
+              pillars_from_files:
+                - .sls: test/salt/default/pillar/collectd.sls
+              state_top:
+                - '*':
+                  - .
+        old_ci_files: True
+        platforms: *platforms_old
+        platforms_matrix: *platforms_matrix_old
+      semrel_files: *semrel_files_default
+    deepsea:
+      context:
+        git:
+          github:
+            repo: deepsea-formula
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: |-
+                Verify that the deepsea formula is setup and configured correctly
+        old_ci_files: True
+        platforms: *platforms_old
+        platforms_matrix:
+          # [os           , os_ver, salt_ver, py_ver, inspec_suite]
+          - [debian       ,   9   ,  develop,      3,      default]
+          - [ubuntu       ,  18.04,   2019.2,      3,      default]
+          - [centos       ,   7   ,   2019.2,      3,      default]
+          - [opensuse/leap,  15   ,   2019.2,      3,      default]
+          - [fedora       ,  29   ,   2018.3,      2,      default]
+          - [opensuse/leap,  42   ,   2018.3,      2,      default]
+          # - [centos       ,   6   ,   2017.7,      2,      default]
+        use_tofs: True
+      semrel_files: *semrel_files_default
+    dhcpd:
+      context:
+        git:
+          github:
+            repo: dhcpd-formula
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: |-
+                Verify that the dhcpd formula is setup and configured correctly
+              supports:
+                - debian
+                - ubuntu
+                - centos
+                - freebsd
+                - arch
+            provisioner:
+              state_top:
+                - '*':
+                  - .config
+        old_ci_files: True
+        platforms: *platforms_old
+        platforms_matrix:
+          # [os           , os_ver, salt_ver, py_ver, inspec_suite]
+          - [debian       ,   9   ,  develop,      3,      default]
+          - [ubuntu       ,  18.04,   2019.2,      3,      default]
+          - [centos       ,   7   ,   2019.2,      3,      default]
+          - [debian       ,   9   ,   2018.3,      2,      default]
+          - [centos       ,   6   ,   2017.7,      2,      default]
+      semrel_files: *semrel_files_default
+    fail2ban:
+      context:
+        git:
+          github:
+            repo: fail2ban-formula
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: |-
+                Verify that the fail2ban formula is setup and configured correctly
+            provisioner:
+              dependencies:
+                - name: misc
+                  path: test/salt/states
+              state_top:
+                - '*':
+                  - misc.fake_log_files
+                  - .
+        old_ci_files: True
+        platforms: *platforms_old
+        platforms_matrix: *platforms_matrix_old
+      semrel_files: *semrel_files_default
+    golang:
+      context:
+        git:
+          github:
+            repo: golang-formula
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: |-
+                Verify that the golang formula is setup and configured correctly
+        old_ci_files: True
+        platforms: *platforms_old
+        platforms_matrix: *platforms_matrix_old
+        use_tofs: True
+      semrel_files: *semrel_files_default
+    grafana:
+      context:
+        git:
+          github:
+            repo: grafana-formula
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: |-
+                Verify that the grafana formula is setup and configured correctly
+        old_ci_files: True
+        platforms: *platforms_old
+        platforms_matrix:
+          # [os           , os_ver, salt_ver, py_ver, inspec_suite]
+          - [debian       ,   9   ,  develop,      3,      default]
+          - [ubuntu       ,  18.04,  develop,      3,      default]
+          - [debian       ,   9   ,   2019.2,      3,      default]
+          - [ubuntu       ,  18.04,   2019.2,      3,      default]
+          - [debian       ,   9   ,   2018.3,      2,      default]
+          - [ubuntu       ,  16.04,   2017.7,      2,      default]
+        use_tofs: True
+      semrel_files: *semrel_files_default
+    iptables:
+      context:
+        git:
+          github:
+            repo: iptables-formula
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: |-
+                Verify that iptables is installed and configured correctly
+            provisioner:
+              pillars_from_files:
+                - .sls: test/salt/pillar/default.pillar.sls
+              state_top:
+                - '*':
+                  - .
+          1:
+            inspec_yml:
+              summary: |-
+                Verify that iptables is installed and configured using tables defined in pillars
+            provisioner:
+              pillars_from_files:
+                - .sls: test/salt/pillar/tables.pillar.sls
+              state_top:
+                - '*':
+                  - .
+                  - .tables
+        inspec_suites_matrix:
+          - default
+          - tables
+        old_ci_files: True
+        platforms: *platforms_old
+        platforms_matrix:
+          # [os           , os_ver, salt_ver, py_ver, inspec_suite]
+          - [debian       ,   9   ,  develop,      3,      default]
+          - [ubuntu       ,  18.04,   2019.2,      3,      default]
+          - [centos       ,   7   ,   2019.2,      3,      default]
+          - [fedora       ,  29   ,   2018.3,      2,      default]
+          - [opensuse/leap,  42   ,   2018.3,      2,      default]
+          - [opensuse/leap,  42   ,   2017.7,      2,       tables]
+      semrel_files: *semrel_files_default
+    keepalived:
+      context:
+        git:
+          github:
+            repo: keepalived-formula
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: |-
+                Verify that the keepalived formula is setup and configured correctly
+        old_ci_files: True
+        platforms: *platforms_old
+        platforms_matrix: *platforms_matrix_old
+        script_kitchen:
+          pre:
+            - sudo modprobe ip_vs
+        travis:
+          addons:
+            apt:
+              packages:
+                - ipvsadm
+        use_tofs: True
+      semrel_files: *semrel_files_default
+    libvirt:
+      context:
+        git:
+          github:
+            repo: libvirt-formula
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: |-
+                Verify that the libvirt formula is setup and configured correctly
+              supports:
+                - debian
+                - ubuntu
+                - centos
+                - fedora
+        old_ci_files: True
+        platforms:
+          # [os           , os_ver, salt_ver, py_ver]
+          - [amazonlinux  ,   2   ,  develop,      2]
+          - [debian       ,   9   ,   2019.2,      3]
+          - [ubuntu       ,  18.04,   2019.2,      3]
+          - [centos       ,   7   ,   2019.2,      3]
+          - [fedora       ,  29   ,   2019.2,      3]
+          - [opensuse/leap,  15   ,   2019.2,      3]
+          - [amazonlinux  ,   2   ,   2019.2,      2]
+          - [debian       ,   9   ,   2018.3,      2]
+          - [ubuntu       ,  16.04,   2018.3,      2]
+          - [centos       ,   7   ,   2018.3,      2]
+          - [fedora       ,  29   ,   2018.3,      2]
+          - [opensuse/leap,  42   ,   2018.3,      2]
+          - [debian       ,   8   ,   2017.7,      2]
+          - [ubuntu       ,  16.04,   2017.7,      2]
+          - [centos       ,   6   ,   2017.7,      2]
+          - [fedora       ,  28   ,   2017.7,      2]
+          - [opensuse/leap,  42   ,   2017.7,      2]
+          - [amazonlinux  ,   2   ,   2017.7,      2]
+        platforms_matrix:
+          # [os           , os_ver, salt_ver, py_ver, inspec_suite]
+          # - [amazonlinux  ,   2   ,  develop,      2,      default]
+          - [ubuntu       ,  18.04,   2019.2,      3,      default]
+          # - [amazonlinux  ,   2   ,   2019.2,      2,      default]
+          - [debian       ,   9   ,   2018.3,      2,      default]
+          - [centos       ,   7   ,   2018.3,      2,      default]
+          # - [ubuntu       ,  16.04,   2017.7,      2,      default]
+          - [fedora       ,  28   ,   2017.7,      2,      default]
+          # - [amazonlinux  ,   2   ,   2017.7,      2,      default]
+      semrel_files: *semrel_files_default
+    locale:
+      context:
+        git:
+          github:
+            repo: locale-formula
+        inspec_suites_kitchen:
+          0:
+            excludes: *platforms_old_os_fedora
+            inspec_yml:
+              summary: |-
+                Verify that the locale formula is setup and configured correctly
+            provisioner:
+              pillars_from_files:
+                - .sls: test/salt/pillar/default.sls
+          1:
+            includes: *platforms_old_os_fedora
+            provisioner:
+              pillars_from_files:
+                - .sls: test/salt/pillar/fedora.sls
+            verifier:
+              test_suite: default
+        inspec_suites_matrix:
+          - default
+          - fedora
+        old_ci_files: True
+        platforms: *platforms_old
+        platforms_matrix:
+          # [os           , os_ver, salt_ver, py_ver, inspec_suite]
+          - [debian       ,   9   ,  develop,      3,      default]
+          - [ubuntu       ,  18.04,   2019.2,      3,      default]
+          - [centos       ,   7   ,   2019.2,      3,      default]
+          - [fedora       ,  29   ,   2018.3,      2,       fedora]
+          - [opensuse/leap,  42   ,   2018.3,      2,      default]
+          - [centos       ,   6   ,   2017.7,      2,      default]
+      semrel_files: *semrel_files_default
+    logrotate:
+      context:
+        git:
+          github:
+            repo: logrotate-formula
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: |-
+                Verify that the logrotate formula is setup and configured correctly
+            provisioner:
+              dependencies:
+                - name: states
+                  path: ./test/salt
+              state_top:
+                - 'G@os_family:Suse':
+                  - states.cron
+                - '*':
+                  - .
+                  - .jobs
+        old_ci_files: True
+        platforms: *platforms_old
+        platforms_matrix: *platforms_matrix_old
+      semrel_files: *semrel_files_default
+    mysql:
+      context:
+        git:
+          github:
+            repo: mysql-formula
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: |-
+                Verify that the mysql formula is setup and configured correctly
+            provisioner:
+              pillars_from_files:
+                - .sls: test/salt/pillar/mysql.sls
+              state_top:
+                - '*':
+                  - .
+        platforms_matrix:
+          # [os           , os_ver, salt_ver, py_ver, inspec_suite]
+          - [debian       ,  10   ,  develop,      3,      default]
+          - [ubuntu       ,  18.04,  develop,      3,      default]
+          - [debian       ,   9   ,   2019.2,      3,      default]
+          - [ubuntu       ,  18.04,   2019.2,      3,      default]
+          - [debian       ,   9   ,   2018.3,      2,      default]
+          - [debian       ,   8   ,   2017.7,      2,      default]
+      semrel_files: *semrel_files_default
+    nginx:
+      context:
+        git:
+          github:
+            repo: nginx-formula
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: |-
+                Verify that the nginx formula is setup and configured correctly
+            provisioner:
+              pillars_from_files:
+                - .sls: test/salt/default/pillar/nginx.sls
+              state_top:
+                - '*':
+                  - .
+        old_ci_files: True
+        platforms: *platforms_old
+        platforms_matrix: *platforms_matrix_old
+        use_tofs: True
+      semrel_files: *semrel_files_default
+    openvpn:
+      context:
+        git:
+          github:
+            repo: openvpn-formula
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: |-
+                Verify that the openvpn formula is setup and configured correctly
+            provisioner:
+              pillars_from_files:
+                - .sls: test/integration/repositories/pillars.sls
+              state_top:
+                - '*':
+                  - .config
+        old_ci_files: True
+        platforms: *platforms_old
+        platforms_matrix:
+          # [os           , os_ver, salt_ver, py_ver, inspec_suite]
+          - [debian       ,   9   ,  develop,      3,      default]
+          - [debian       ,   9   ,   2019.2,      3,      default]
+          - [ubuntu       ,  18.04,   2019.2,      3,      default]
+          - [centos       ,   7   ,   2019.2,      3,      default]
+          - [centos       ,   6   ,   2017.7,      2,      default]
+      semrel_files: *semrel_files_default
+    php:
+      context:
+        git:
+          github:
+            repo: php-formula
+        inspec_suites_kitchen:
+          0:
+            # None of the platforms use `default` directly
+            includes: *includes_NONE
+            inspec_yml:
+              summary: |-
+                Verify that the php formula is setup and configured correctly
+            provisioner:
+              pillars_from_files: []
+          1:
+            includes: *platforms_old_osfamily_debian
+            provisioner:
+              pillars_from_files:
+                - .sls: test/salt/pillar/debian.sls
+            verifier:
+              test_suite: default
+          2:
+            includes: *platforms_old_osfamily_redhat
+            provisioner:
+              pillars_from_files:
+                - .sls: test/salt/pillar/redhat.sls
+            verifier:
+              test_suite: default
+          3:
+            includes: *platforms_old_osfamily_suse
+            provisioner:
+              pillars_from_files:
+                - .sls: test/salt/pillar/suse.sls
+            verifier:
+              test_suite: default
+        inspec_suites_matrix:
+          - default
+          - debian
+          - redhat
+          - suse
+        old_ci_files: True
+        platforms: *platforms_old
+        platforms_matrix: *platforms_matrix_old_osfamily_suites
+      semrel_files: *semrel_files_default
+    postfix:
+      context:
+        git:
+          github:
+            repo: postfix-formula
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: |-
+                Verify that the postfix formula is setup and configured correctly
+            provisioner:
+              pillars_from_files:
+                - .sls: test/salt/pillar/default.sls
+              state_top:
+                - '*':
+                  - .
+                  - .config
+        old_ci_files: True
+        platforms: *platforms_old
+        platforms_matrix: *platforms_matrix_old
+      semrel_files: *semrel_files_default
+    postgres:
+      context:
+        git:
+          github:
+            repo: postgres-formula
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: |-
+                Verify that the postgres formula is setup and configured correctly
+            provisioner:
+              pillars_from_files:
+                - .sls: test/salt/pillar/postgres.sls
+              state_top:
+                - '*':
+                  - .
+        old_ci_files: True
+        platforms: *platforms_old
+        platforms_matrix:
+          # [os           , os_ver, salt_ver, py_ver, inspec_suite]
+          - [debian       ,   9   ,  develop,      3,      default]
+          - [centos       ,   7   ,   2019.2,      3,      default]
+          - [fedora       ,  29   ,   2019.2,      3,      default]
+          - [ubuntu       ,  16.04,   2018.3,      2,      default]
+          - [opensuse/leap,  42   ,   2018.3,      2,      default]
+          - [centos       ,   6   ,   2017.7,      2,      default]
+        use_tofs: True
+      semrel_files: *semrel_files_default
+    prometheus:
+      context:
+        git:
+          github:
+            repo: prometheus-formula
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: |-
+                Verify that the prometheus formula is setup and configured correctly
+        old_ci_files: True
+        platforms: *platforms_old
+        platforms_matrix:
+          # [os           , os_ver, salt_ver, py_ver, inspec_suite]
+          - [debian       ,   9   ,  develop,      3,      default]
+          - [ubuntu       ,  18.04,  develop,      3,      default]
+          - [debian       ,   9   ,   2019.2,      3,      default]
+          - [ubuntu       ,  18.04,   2019.2,      3,      default]
+          - [debian       ,   9   ,   2018.3,      2,      default]
+          - [ubuntu       ,  16.04,   2017.7,      2,      default]
+        use_tofs: True
+      semrel_files: *semrel_files_default
+    rkhunter:
+      context:
+        git:
+          github:
+            repo: rkhunter-formula
+        inspec_suites_kitchen:
+          0:
+            # None of the platforms use `default` directly
+            includes: *includes_NONE
+            inspec_yml:
+              summary: |-
+                Verify that the rkhunter formula is setup and configured correctly
+            provisioner:
+              pillars_from_files: []
+          1:
+            includes: *platforms_old_osfamily_debian
+            provisioner:
+              pillars_from_files:
+                - .sls: test/salt/pillar/debian.sls
+            verifier:
+              test_suite: default
+          2:
+            includes: *platforms_old_osfamily_redhat
+            provisioner:
+              pillars_from_files:
+                - .sls: test/salt/pillar/redhat.sls
+            verifier:
+              test_suite: default
+          3:
+            includes: *platforms_old_osfamily_suse
+            provisioner:
+              pillars_from_files:
+                - .sls: test/salt/pillar/suse.sls
+            verifier:
+              test_suite: default
+        inspec_suites_matrix:
+          - default
+          - debian
+          - redhat
+          - suse
+        old_ci_files: True
+        platforms: *platforms_old
+        platforms_matrix: *platforms_matrix_old_osfamily_suites
+        use_cirrus_ci: True
+        use_tofs: True
+      semrel_files: *semrel_files_default
+    ssf:
+      context:
+        git:
+          github:
+            owner: myii
+            repo: ssf-formula
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: |-
+                Verify that the ssf formula is setup and configured correctly
+        inspec_suites_matrix: []
+        platforms: []
+        platforms_matrix: []
+        use_tofs: True
+      semrel_files:
+        docs/CONTRIBUTING.rst: *file__docs__CONTRIBUTING--rst
+        docs/TOFS_pattern.rst: *file__docs__TOFS_pattern--rst
+        formula/libtofs.jinja: *file__formula__libtofs--jinja
+        .gitignore: *file__--gitignore
+        .travis.yml: *file__--travis--yml
+        commitlint.config.js: *file__commitlint--config--js
+        Gemfile: *file__Gemfile
+        pre-commit_semantic-release.sh: *file__pre-commit_semantic-release--sh
+        release-rules.js: *file__release-rules--js
+        release.config.js: *file__release--config--js
+    stack:
+      context:
+        git:
+          github:
+            owner: claudekenni
+            repo: stack-formula
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: |-
+                Verify that the stack formula is setup and configured correctly
+              supports:
+                - debian
+                - ubuntu
+                - centos
+        use_tofs: True
+      semrel_files:
+        docs/TOFS_pattern.rst:
+          <<: *file__docs__TOFS_pattern--rst
+          dest_file: TOFS_pattern.rst
+        formula/libtofs.jinja:
+          <<: *file__formula__libtofs--jinja
+          dest_file: formula/macros.jinja
+        inspec/inspec.yml: *file__inspec__inspec--yml
+        inspec/README.md: *file__inspec__README--md
+        .gitignore: *file__--gitignore
+        Gemfile: *file__Gemfile
+    sudoers:
+      context:
+        git:
+          github:
+            repo: sudoers-formula
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: |-
+                Verify that the sudoers formula is setup and configured correctly
+            provisioner:
+              pillars:
+                - '*':
+                  - kitchen
+                  - .
+              pillars_from_files:
+                - kitchen.sls: test/salt/pillar/kitchen.sls
+                - .sls: test/salt/pillar/default.sls
+              state_top:
+                - '*':
+                  - .
+                  - .included
+        old_ci_files: True
+        platforms: *platforms_old
+        platforms_matrix: *platforms_matrix_old
+      semrel_files: *semrel_files_default
+    syslog-ng:
+      context:
+        git:
+          github:
+            repo: syslog-ng-formula
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: |-
+                Verify that the syslog_ng formula is setup and configured correctly
+            provisioner:
+              state_top:
+                - '*':
+                  - .config
+        old_ci_files: True
+        platforms: *platforms_old
+        platforms_matrix:
+          # [os           , os_ver, salt_ver, py_ver, inspec_suite]
+          - [debian       ,   9   ,  develop,      3,      default]
+          - [ubuntu       ,  18.04,  develop,      3,      default]
+          - [debian       ,   9   ,   2019.2,      3,      default]
+          - [ubuntu       ,  18.04,   2019.2,      3,      default]
+          - [debian       ,   9   ,   2018.3,      2,      default]
+        use_cirrus_ci: True
+      semrel_files:
+        <<: *semrel_files_default
+        inspec/inspec.yml:
+          <<: *file__inspec__inspec--yml
+          alt_semrel_formula: syslog_ng
+        kitchen.yml:
+          <<: *file__kitchen--yml
+          alt_semrel_formula: syslog_ng
+    sysstat:
+      context:
+        git:
+          github:
+            repo: sysstat-formula
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: |-
+                Verify that the sysstat formula is setup and configured correctly
+        old_ci_files: True
+        platforms: *platforms_old
+        platforms_matrix: *platforms_matrix_old
+        use_tofs: True
+      semrel_files: *semrel_files_default
+    systemd:
+      context:
+        git:
+          github:
+            repo: systemd-formula
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: |-
+                Verify that the systemd formula is setup and configured correctly
+            provisioner:
+              state_top:
+                - '*':
+                  - .
+                  - .networkd
+                  - .networkd.profiles
+                  - .units
+        old_ci_files: True
+        platforms:
+          # [os           , os_ver, salt_ver, py_ver]
+          - [debian       ,   9   ,  develop,      3]
+          - [ubuntu       ,  18.04,  develop,      3]
+          - [centos       ,   7   ,  develop,      3]
+          - [fedora       ,  29   ,  develop,      3]
+          - [opensuse/leap,  15   ,  develop,      3]
+          - [debian       ,   9   ,   2019.2,      3]
+          - [ubuntu       ,  18.04,   2019.2,      3]
+          - [centos       ,   7   ,   2019.2,      3]
+          - [fedora       ,  29   ,   2019.2,      3]
+          - [opensuse/leap,  15   ,   2019.2,      3]
+          - [debian       ,   9   ,   2018.3,      2]
+          - [ubuntu       ,  16.04,   2018.3,      2]
+          - [centos       ,   7   ,   2018.3,      2]
+          - [fedora       ,  29   ,   2018.3,      2]
+          - [opensuse/leap,  42   ,   2018.3,      2]
+          - [debian       ,   8   ,   2017.7,      2]
+          - [ubuntu       ,  16.04,   2017.7,      2]
+          # - [centos       ,   6   ,   2017.7,      2]
+          - [fedora       ,  28   ,   2017.7,      2]
+          - [opensuse/leap,  42   ,   2017.7,      2]
+        platforms_matrix:
+          # [os           , os_ver, salt_ver, py_ver, inspec_suite]
+          - [debian       ,   9   ,  develop,      3,      default]
+          - [ubuntu       ,  18.04,   2019.2,      3,      default]
+          - [centos       ,   7   ,   2019.2,      3,      default]
+          - [fedora       ,  29   ,   2018.3,      2,      default]
+          - [opensuse/leap,  42   ,   2018.3,      2,      default]
+          - [debian       ,   8   ,   2017.7,      2,      default]
+        use_tofs: True
+      semrel_files: *semrel_files_default
+    template:
+      context:
+        git:
+          branch:
+            base: develop
+            pr: ci/replace-eol-pre-salted-images
+          github:
+            repo: template-formula
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: |-
+                Verify that the template formula is setup and configured correctly
+        use_tofs: True
+      semrel_files: *semrel_files_default
+    ufw:
+      context:
+        git:
+          github:
+            repo: ufw-formula
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: |-
+                Verify that the ufw formula is setup and configured correctly
+            provisioner:
+              pillars_from_files:
+                - .sls: test/salt/pillar/default.sls
+              state_top:
+                - '*':
+                  - .
+        old_ci_files: True
+        platforms: *platforms_old
+        platforms_matrix:
+          # [os           , os_ver, salt_ver, py_ver, inspec_suite]
+          - [debian       ,   9   ,  develop,      3,      default]
+          - [ubuntu       ,  18.04,   2019.2,      3,      default]
+          - [centos       ,   7   ,   2019.2,      3,      default]
+          - [fedora       ,  29   ,   2018.3,      2,      default]
+          - [opensuse/leap,  42   ,   2018.3,      2,      default]
+          - [debian       ,   8   ,   2017.7,      2,      default]
+        travis:
+          # Facing errors with `xenial` at time of adding
+          # https://travis-ci.org/myii/ufw-formula/jobs/561205378#L906
+          dist: trusty
+        use_tofs: True
+      semrel_files: *semrel_files_default
+    vault:
+      context:
+        git:
+          github:
+            repo: vault-formula
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: |-
+                Verify that the vault binary is installed correctly
+            provisioner:
+              pillars_from_files:
+                - .sls: test/salt/pillar/install_binary.sls
+              state_top:
+                - '*':
+                  - .package
+          1:
+            inspec_yml:
+              summary: |-
+                Verify that the vault development server is setup and configured correctly
+            provisioner:
+              pillars_from_files:
+                - .sls: test/salt/pillar/dev_server.sls
+              state_top:
+                - '*':
+                  - .
+          2:
+            inspec_yml:
+              summary: |-
+                Verify that the vault production server is setup and configured correctly
+            provisioner:
+              pillars_from_files:
+                - .sls: test/salt/pillar/prod_server.sls
+              state_top:
+                - '*':
+                  - .
+        inspec_suites_matrix:
+          - ''
+        old_ci_files: True
+        platforms:
+          # [os           , os_ver, salt_ver, py_ver]
+          - [debian       ,   9   ,  develop,      3]
+          - [ubuntu       ,  18.04,  develop,      3]
+          - [centos       ,   7   ,  develop,      3]
+          - [fedora       ,  30   ,  develop,      3]
+          - [opensuse/leap,  15   ,  develop,      3]
+          - [debian       ,   9   ,   2019.2,      3]
+          - [ubuntu       ,  18.04,   2019.2,      3]
+          - [centos       ,   7   ,   2019.2,      3]
+          - [fedora       ,  30   ,   2019.2,      3]
+          - [opensuse/leap,  15   ,   2019.2,      3]
+          - [debian       ,   9   ,   2018.3,      2]
+          - [ubuntu       ,  16.04,   2018.3,      2]
+          - [centos       ,   7   ,   2018.3,      2]
+          - [fedora       ,  29   ,   2018.3,      2]
+          - [opensuse/leap,  42   ,   2018.3,      2]
+          - [debian       ,   8   ,   2017.7,      2]
+          - [ubuntu       ,  16.04,   2017.7,      2]
+          - [centos       ,   6   ,   2017.7,      2]
+          - [fedora       ,  29   ,   2017.7,      2]
+          - [opensuse/leap,  15   ,   2017.7,      2]
+        platforms_matrix:
+          # [os           , os_ver, salt_ver, py_ver, inspec_suite]
+          - [debian       ,   9   ,  develop,      3,           '']
+          - [ubuntu       ,  18.04,   2019.2,      3,           '']
+          - [centos       ,   7   ,   2019.2,      3,           '']
+          - [fedora       ,  29   ,   2018.3,      2,           '']
+          - [opensuse/leap,  42   ,   2018.3,      2,           '']
+          - [debian       ,   8   ,   2017.7,      2,           '']
+        script_kitchen:
+          cmd: test
+      semrel_files: *semrel_files_default

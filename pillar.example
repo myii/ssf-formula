@@ -1,0 +1,98 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+---
+ssf:
+  ### Your local configuration
+  formulas_path: /local/path/to/formulas/directory
+  user: your_user
+  group: your_group
+
+  git:
+    ### Override the tracking branch for the upstream repo
+    ### Default shown below will be used if left commented out
+    # branch:
+    #   upstream: upstream
+    ### Add extra options to the `git commit`, such as turning off GPG signing
+    commit:
+      options: '--no-gpg-sign'
+    ### Your GitHub configuration
+    github:
+      user: your_github_username
+      ### Remote to `git push` to
+      ### Default shown below will be used if left commented out
+      # push_remote: origin
+      ### Local file to capture the GitHub API response when automatically creating
+      ### the PR, prevents spamming the Salt output;
+      ### Default shown below will be used if left commented out
+      # file_api_response: github_api_response
+    ### All `git`-related states default to `False`; enable here as required
+    ### When testing this formula, the layout below is recommended:
+    ### - Branch is prepared and changes are added/removed
+    ### - Commit, push and PR creation are not performed
+    states:
+      prepare:
+        active: True
+      add_rm:
+        active: True
+      # commit_push:
+      #   active: True
+      create_PR:
+        # active: True
+        ### This is a necessary override since the default script does not
+        ### contain a GitHub API token; copy the file to `your_directory`
+        ### and simply add your personal token at the top of the script
+        source: salt://ssf/files/your_directory/git/git_30_create_PR.sh
+
+  ### No formulas or files are active by default
+  ### State the formulas and files to work through when running the formula
+  active:
+    semrel_formulas:
+      - apt
+      - bind
+      - cert
+      - chrony
+      - collectd
+      - deepsea
+      - dhcpd
+      - fail2ban
+      - golang
+      - grafana
+      - iptables
+      - keepalived
+      - libvirt
+      - locale
+      - logrotate
+      - mysql
+      - nginx
+      - openvpn
+      - php
+      - postfix
+      - postgres
+      - prometheus
+      - rkhunter
+      - ssf
+      - stack
+      - sudoers
+      - syslog-ng
+      - sysstat
+      - systemd
+      - template
+      - ufw
+      - vault
+    semrel_files:
+      - bin/kitchen
+      - docs/CONTRIBUTING.rst
+      - docs/TOFS_pattern.rst
+      - formula/libtofs.jinja
+      - inspec/inspec.yml
+      - inspec/README.md
+      - .gitignore
+      - .cirrus.yml
+      - .travis.yml
+      - commitlint.config.js
+      - Gemfile
+      - kitchen.yml
+      - pre-commit_semantic-release.sh
+      - release-rules.js
+      - release.config.js
+

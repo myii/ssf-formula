@@ -1,0 +1,9 @@
+name: {{ suite.name }}
+title: {{ semrel_formula }} formula
+maintainer: SaltStack Formulas
+license: Apache-2.0
+summary: {{ suite.inspec_yml.summary }}
+supports:
+{%- for platform in suite.inspec_yml.supports %}
+  - platform-name: {{ platform }}
+{%- endfor %}

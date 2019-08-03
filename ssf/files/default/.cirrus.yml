@@ -1,0 +1,18 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+---
+{%- from tplroot ~ "/libcimatrix.jinja" import format_ci_matrix with context %}
+docker_builder:
+  name: Test ${INSTANCE}
+  env:
+    matrix:
+      {{- format_ci_matrix(platforms, inspec_suites_kitchen, inspec_suites_matrix, platforms_matrix, semrel_formula, old_ci_files, width=6) }}
+  bundle_install_script: bundle install
+  verify_script:
+    {%- for pre_cmd in script_kitchen.pre %}
+    - {{ pre_cmd }}
+    {%- endfor %}
+    - {{ script_kitchen.bin }} {{ script_kitchen.cmd }} ${INSTANCE}
+    {%- for post_cmd in script_kitchen.post %}
+    - {{ post_cmd }}
+    {%- endfor %}
