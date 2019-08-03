@@ -846,7 +846,7 @@ ssf:
       context:
         git:
           branch:
-            pr: feat/manage-yamllint
+            pr: feat/update-TOFS-from-template-formula
           github:
             owner: myii
             repo: ssf-formula

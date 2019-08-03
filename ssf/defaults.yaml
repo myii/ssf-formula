@@ -14,8 +14,8 @@ ssf_node_anchors:
             #       release phase via. `pre-commit_semantic-release.sh`
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
-            title: 'feat(yamllint): include for this repo and apply rules throughout'
-            body: '* Semi-automated using `ssf-formula` (v0.5.0)'
+            title: 'chore: use `semantic-release` cross-formula standard structure'
+            body: '* Automated using `ssf-formula` (v0.6.0)'
           github:
             owner: saltstack-formulas
             repo: ''
