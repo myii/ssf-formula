@@ -1,5 +1,13 @@
 # Changelog
 
+# [0.1.0](https://github.com/myii/ssf-formula/compare/v0.1.0-rc.5...v0.1.0) (2019-08-03)
+
+
+### Features
+
+* **defaults:** update commit message version in `semantic-release` run ([f9b74e3](https://github.com/myii/ssf-formula/commit/f9b74e3))
+* **formulas:** allow formula-level upstream branch via. pillar/config ([5320c2e](https://github.com/myii/ssf-formula/commit/5320c2e))
+
 ## 0.1.0-rc.5 (2019-08-02)
 
 
