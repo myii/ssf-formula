@@ -2,8 +2,17 @@
 Changelog
 =========
 
-`0.1.0 <https://github.com/myii/ssf-formula/compare/v0.1.0-rc.5...v0.1.0>`_ (2019-08-03)
+`0.1.1 <https://github.com/myii/ssf-formula/compare/v0.1.0...v0.1.1>`_ (2019-08-03)
 ---------------------------------------------------------------------------------------
+
+Documentation
+^^^^^^^^^^^^^
+
+
+* **readme:** add initial ``Using this repo`` section (\ `ebfffcd <https://github.com/myii/ssf-formula/commit/ebfffcd>`_\ )
+
+`0.1.0 <https://github.com/myii/ssf-formula/compare/v0.1.0-rc.5...v0.1.0>`_ (2019-08-03)
+--------------------------------------------------------------------------------------------
 
 Features
 ^^^^^^^^
