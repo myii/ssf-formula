@@ -1,5 +1,17 @@
 # Changelog
 
+# [0.2.0](https://github.com/myii/ssf-formula/compare/v0.1.1...v0.2.0) (2019-08-03)
+
+
+### Bug Fixes
+
+* **defaults:** update commit message version in `semantic-release` run ([9382692](https://github.com/myii/ssf-formula/commit/9382692))
+
+
+### Features
+
+* **php:** update deprecation version number in `semantic-release` run ([8e2c546](https://github.com/myii/ssf-formula/commit/8e2c546)), closes [/github.com/saltstack-formulas/php-formula/pull/175#issuecomment-517492613](https://github.com//github.com/saltstack-formulas/php-formula/pull/175/issues/issuecomment-517492613) [/github.com/saltstack-formulas/php-formula/pull/185#issuecomment-517603898](https://github.com//github.com/saltstack-formulas/php-formula/pull/185/issues/issuecomment-517603898)
+
 ## [0.1.1](https://github.com/myii/ssf-formula/compare/v0.1.0...v0.1.1) (2019-08-03)
 
 
