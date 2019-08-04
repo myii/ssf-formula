@@ -1023,6 +1023,20 @@ ssf:
           dist: trusty
         use_tofs: True
       semrel_files: *semrel_files_default
+    users:
+      context:
+        git:
+          github:
+            repo: users-formula
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: |-
+                Verify that the users formula is setup and configured correctly
+            provisioner:
+              pillars_from_files:
+                - .sls: test/salt/pillar/default.sls
+      semrel_files: *semrel_files_default
     vault:
       context:
         git:
