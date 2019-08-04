@@ -2,6 +2,16 @@
 Changelog
 =========
 
+`0.4.0 <https://github.com/myii/ssf-formula/compare/v0.3.1...v0.4.0>`_ (2019-08-04)
+---------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **travis:** add ``yamllint`` check to ``commitlint`` stage (\ `8d154bb <https://github.com/myii/ssf-formula/commit/8d154bb>`_\ )
+* **yamllint:** include for this repo and apply rules throughout (\ `191dc69 <https://github.com/myii/ssf-formula/commit/191dc69>`_\ )
+
 `0.3.1 <https://github.com/myii/ssf-formula/compare/v0.3.0...v0.3.1>`_ (2019-08-04)
 ---------------------------------------------------------------------------------------
 
