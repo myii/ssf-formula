@@ -296,9 +296,6 @@ ssf:
             provisioner:
               pillars_from_files:
                 - .sls: test/salt/default/pillar/collectd.sls
-              state_top:
-                - '*':
-                  - .
         old_ci_files: True
         platforms: *platforms_old
         platforms_matrix: *platforms_matrix_old
@@ -428,9 +425,6 @@ ssf:
             provisioner:
               pillars_from_files:
                 - .sls: test/salt/pillar/default.pillar.sls
-              state_top:
-                - '*':
-                  - .
           1:
             inspec_yml:
               summary: |-
@@ -598,9 +592,6 @@ ssf:
             provisioner:
               pillars_from_files:
                 - .sls: test/salt/pillar/mysql.sls
-              state_top:
-                - '*':
-                  - .
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver, inspec_suite]
           - [debian       ,  10   ,  develop,      3,      default]
@@ -623,9 +614,6 @@ ssf:
             provisioner:
               pillars_from_files:
                 - .sls: test/salt/default/pillar/nginx.sls
-              state_top:
-                - '*':
-                  - .
         old_ci_files: True
         platforms: *platforms_old
         platforms_matrix: *platforms_matrix_old
@@ -735,9 +723,6 @@ ssf:
             provisioner:
               pillars_from_files:
                 - .sls: test/salt/pillar/postgres.sls
-              state_top:
-                - '*':
-                  - .
         old_ci_files: True
         platforms: *platforms_old
         platforms_matrix:
@@ -1022,9 +1007,6 @@ ssf:
             provisioner:
               pillars_from_files:
                 - .sls: test/salt/pillar/default.sls
-              state_top:
-                - '*':
-                  - .
         old_ci_files: True
         platforms: *platforms_old
         platforms_matrix:
@@ -1064,9 +1046,6 @@ ssf:
             provisioner:
               pillars_from_files:
                 - .sls: test/salt/pillar/dev_server.sls
-              state_top:
-                - '*':
-                  - .
           2:
             inspec_yml:
               summary: |-
@@ -1074,9 +1053,6 @@ ssf:
             provisioner:
               pillars_from_files:
                 - .sls: test/salt/pillar/prod_server.sls
-              state_top:
-                - '*':
-                  - .
         inspec_suites_matrix:
           - ''
         old_ci_files: True
