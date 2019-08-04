@@ -10,9 +10,10 @@ ssf_node_anchors:
             base: master
             pr: chore/standardise-structure
           commit:
-            # NOTE: The version number in the `body` is automatically updated during the release phase
-            #       via. `pre-commit_semantic-release.sh`
-            #       An alternative method could be to use: `git describe --abbrev=0 --tags`
+            # NOTE: The version number in the `body` is automatically updated during the
+            #       release phase via. `pre-commit_semantic-release.sh`
+            #       An alternative method could be to use:
+            #       `git describe --abbrev=0 --tags`
             title: 'chore: use `semantic-release` cross-formula standard structure'
             body: '* Automated using `ssf-formula` (v0.3.1)'
           github:
@@ -26,11 +27,12 @@ ssf_node_anchors:
             # Note: This applies automatically via. `kitchen.yml`
             #       but is applied manually in the matrix (Travis/Cirrus)
             # TODO: Use `kitchen list -b` output to define the matrix or too slow?
+            # yamllint disable-line rule:line-length
             # Ref: https://github.com/test-kitchen/test-kitchen/blob/7ce894e74f828f9e36531cf2d74588dd74fbf240/lib/kitchen/config.rb#L183-L193
             excludes: []
             includes: []
             inspec_yml:
-              summary: |-
+              summary: >-
                 Verify that the formula is setup and configured correctly
               supports:
                 - debian
@@ -46,24 +48,26 @@ ssf_node_anchors:
               # Structure assumes `top.sls:base`
               pillars:
                 - '*':
-                  - .
+                    - .
               pillars_from_files:
                 - .sls: pillar.example
               # Structure assumes `base`
               state_top:
                 - '*':
-                  - .
+                    - .
             verifier:
               inspec_tests_path_prefix: test/integration
               test_suite: .
         inspec_suites_matrix:
           - default
-        # Once system is in place, this value can be removed throughout the whole formula
-        old_ci_files: False
+        # Once system is in place, this value can be removed throughout
+        # the whole formula
+        old_ci_files: false
         platforms:
           # Could use `opensuse-leap` throughout since `/` never used at this end
           # Would have to modify the `if` in the `kitchen.yml` template(s), though
-          # Also, may have to be careful with versions such as `18.04` being seen as numbers (for comparisons)
+          # Also, may have to be careful with versions such as `18.04` being seen
+          # as numbers (for comparisons)
           # [os           , os_ver, salt_ver, py_ver]
           - [debian       ,  10   ,  develop,      3]
           - [ubuntu       ,  18.04,  develop,      3]
@@ -106,8 +110,8 @@ ssf_node_anchors:
         travis:
           addons: {}
           dist: xenial
-        use_cirrus_ci: False
-        use_tofs: False
+        use_cirrus_ci: false
+        use_tofs: false
 
 ssf:
   active:
@@ -124,16 +128,16 @@ ssf:
       file_api_response: github_api_response
     states:
       prepare:
-        active: False
+        active: false
         source: salt://ssf/files/default/git/git_10_prepare.sh
       add_rm:
-        active: False
+        active: false
         source: ''
       commit_push:
-        active: False
+        active: false
         source: salt://ssf/files/default/git/git_20_commit_push.sh
       create_PR:
-        active: False
+        active: false
         source: salt://ssf/files/default/git/git_30_create_PR.sh
   semrel_formulas:
     apt:

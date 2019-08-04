@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+---
 name: {{ suite.name }}
 title: {{ semrel_formula }} formula
 maintainer: SaltStack Formulas

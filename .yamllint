@@ -1,0 +1,15 @@
+extends: default
+
+ignore: |
+  ssf/files/default/.cirrus.yml
+  ssf/files/default/.travis.yml
+  ssf/files/default/kitchen.yml
+  ssf/files/default/inspec/inspec.yml
+
+rules:
+  commas:
+    ignore: |
+      ssf/defaults.yaml
+      ssf/formulas.yaml
+  line-length:
+    max: 88
