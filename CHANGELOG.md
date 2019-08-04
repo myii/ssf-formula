@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.1](https://github.com/myii/ssf-formula/compare/v0.3.0...v0.3.1) (2019-08-04)
+
+
+### Documentation
+
+* **template:** update `users-formula` PR link ([f235324](https://github.com/myii/ssf-formula/commit/f235324))
+
 # [0.3.0](https://github.com/myii/ssf-formula/compare/v0.2.1...v0.3.0) (2019-08-04)
 
 

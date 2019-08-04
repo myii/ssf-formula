@@ -14,7 +14,7 @@ ssf_node_anchors:
             #       via. `pre-commit_semantic-release.sh`
             #       An alternative method could be to use: `git describe --abbrev=0 --tags`
             title: 'chore: use `semantic-release` cross-formula standard structure'
-            body: '* Automated using `ssf-formula` (v0.3.0)'
+            body: '* Automated using `ssf-formula` (v0.3.1)'
           github:
             owner: saltstack-formulas
             repo: ''
