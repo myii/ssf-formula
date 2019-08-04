@@ -1,6 +1,7 @@
 extends: default
 
 ignore: |
+  node_modules/
   ssf/files/default/.cirrus.yml
   ssf/files/default/.travis.yml
   ssf/files/default/kitchen.yml
