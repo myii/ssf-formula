@@ -161,7 +161,7 @@ ssf:
         inspec_suites_kitchen:
           0:
             inspec_yml:
-              summary: |-
+              summary: >-
                 Verify that the apt repositories are configured correctly
               supports: *supports_debian_ubuntu
             provisioner:
@@ -169,11 +169,11 @@ ssf:
                 - .sls: test/salt/pillar/repositories.pillar.sls
               state_top:
                 - '*':
-                  - .repositories
-                  - .update
+                    - .repositories
+                    - .update
           1:
             inspec_yml:
-              summary: |-
+              summary: >-
                 Verify that the apt preferences are configured correctly
               supports: *supports_debian_ubuntu
             provisioner:
@@ -181,11 +181,11 @@ ssf:
                 - .sls: test/salt/pillar/preferences.pillar.sls
               state_top:
                 - '*':
-                  - .preferences
+                    - .preferences
         inspec_suites_matrix:
           - repositories
           - preferences
-        old_ci_files: True
+        old_ci_files: true
         platforms:
           # [os           , os_ver, salt_ver, py_ver]
           - [debian       ,   9   ,  develop,      3]
@@ -215,16 +215,16 @@ ssf:
         inspec_suites_kitchen:
           0:
             inspec_yml:
-              summary: |-
+              summary: >-
                 Verify that the bind formula is setup and configured correctly
             provisioner:
               pillars_from_files:
                 - .sls: test/salt/pillar/default.sls
               state_top:
                 - '*':
-                  - .
-                  - .config
-        old_ci_files: True
+                    - .
+                    - .config
+        old_ci_files: true
         platforms: *platforms_old
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver, inspec_suite]
@@ -243,7 +243,7 @@ ssf:
         inspec_suites_kitchen:
           0:
             inspec_yml:
-              summary: |-
+              summary: >-
                 Verify that the cert formula is setup and configured correctly
             provisioner:
               dependencies:
@@ -255,9 +255,9 @@ ssf:
                 - .sls: test/salt/pillar/managed.sls
               state_top:
                 - '*':
-                  - states/setup-certs-to-remove
-                  - .
-        old_ci_files: True
+                    - states/setup-certs-to-remove
+                    - .
+        old_ci_files: true
         platforms: *platforms_old
         platforms_matrix: *platforms_matrix_old
       semrel_files: *semrel_files_default
@@ -269,9 +269,9 @@ ssf:
         inspec_suites_kitchen:
           0:
             inspec_yml:
-              summary: |-
+              summary: >-
                 Verify that the chrony formula is setup and configured correctly
-        old_ci_files: True
+        old_ci_files: true
         platforms: *platforms_old
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver, inspec_suite]
@@ -281,7 +281,7 @@ ssf:
           # - [fedora       ,  29   ,   2018.3,      2,      default]
           - [opensuse/leap,  42   ,   2018.3,      2,      default]
           - [centos       ,   6   ,   2017.7,      2,      default]
-        use_tofs: True
+        use_tofs: true
       semrel_files: *semrel_files_default
     collectd:
       context:
@@ -291,12 +291,12 @@ ssf:
         inspec_suites_kitchen:
           0:
             inspec_yml:
-              summary: |-
+              summary: >-
                 Verify that the collectd formula is setup and configured correctly
             provisioner:
               pillars_from_files:
                 - .sls: test/salt/default/pillar/collectd.sls
-        old_ci_files: True
+        old_ci_files: true
         platforms: *platforms_old
         platforms_matrix: *platforms_matrix_old
       semrel_files: *semrel_files_default
@@ -308,9 +308,9 @@ ssf:
         inspec_suites_kitchen:
           0:
             inspec_yml:
-              summary: |-
+              summary: >-
                 Verify that the deepsea formula is setup and configured correctly
-        old_ci_files: True
+        old_ci_files: true
         platforms: *platforms_old
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver, inspec_suite]
@@ -321,7 +321,7 @@ ssf:
           - [fedora       ,  29   ,   2018.3,      2,      default]
           - [opensuse/leap,  42   ,   2018.3,      2,      default]
           # - [centos       ,   6   ,   2017.7,      2,      default]
-        use_tofs: True
+        use_tofs: true
       semrel_files: *semrel_files_default
     dhcpd:
       context:
@@ -331,7 +331,7 @@ ssf:
         inspec_suites_kitchen:
           0:
             inspec_yml:
-              summary: |-
+              summary: >-
                 Verify that the dhcpd formula is setup and configured correctly
               supports:
                 - debian
@@ -342,8 +342,8 @@ ssf:
             provisioner:
               state_top:
                 - '*':
-                  - .config
-        old_ci_files: True
+                    - .config
+        old_ci_files: true
         platforms: *platforms_old
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver, inspec_suite]
@@ -361,7 +361,7 @@ ssf:
         inspec_suites_kitchen:
           0:
             inspec_yml:
-              summary: |-
+              summary: >-
                 Verify that the fail2ban formula is setup and configured correctly
             provisioner:
               dependencies:
@@ -369,9 +369,9 @@ ssf:
                   path: test/salt/states
               state_top:
                 - '*':
-                  - misc.fake_log_files
-                  - .
-        old_ci_files: True
+                    - misc.fake_log_files
+                    - .
+        old_ci_files: true
         platforms: *platforms_old
         platforms_matrix: *platforms_matrix_old
       semrel_files: *semrel_files_default
@@ -383,12 +383,12 @@ ssf:
         inspec_suites_kitchen:
           0:
             inspec_yml:
-              summary: |-
+              summary: >-
                 Verify that the golang formula is setup and configured correctly
-        old_ci_files: True
+        old_ci_files: true
         platforms: *platforms_old
         platforms_matrix: *platforms_matrix_old
-        use_tofs: True
+        use_tofs: true
       semrel_files: *semrel_files_default
     grafana:
       context:
@@ -398,9 +398,9 @@ ssf:
         inspec_suites_kitchen:
           0:
             inspec_yml:
-              summary: |-
+              summary: >-
                 Verify that the grafana formula is setup and configured correctly
-        old_ci_files: True
+        old_ci_files: true
         platforms: *platforms_old
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver, inspec_suite]
@@ -410,7 +410,7 @@ ssf:
           - [ubuntu       ,  18.04,   2019.2,      3,      default]
           - [debian       ,   9   ,   2018.3,      2,      default]
           - [ubuntu       ,  16.04,   2017.7,      2,      default]
-        use_tofs: True
+        use_tofs: true
       semrel_files: *semrel_files_default
     iptables:
       context:
@@ -420,26 +420,27 @@ ssf:
         inspec_suites_kitchen:
           0:
             inspec_yml:
-              summary: |-
+              summary: >-
                 Verify that iptables is installed and configured correctly
             provisioner:
               pillars_from_files:
                 - .sls: test/salt/pillar/default.pillar.sls
           1:
             inspec_yml:
-              summary: |-
-                Verify that iptables is installed and configured using tables defined in pillars
+              summary: >-
+                Verify that iptables is installed and configured using tables defined
+                in pillars
             provisioner:
               pillars_from_files:
                 - .sls: test/salt/pillar/tables.pillar.sls
               state_top:
                 - '*':
-                  - .
-                  - .tables
+                    - .
+                    - .tables
         inspec_suites_matrix:
           - default
           - tables
-        old_ci_files: True
+        old_ci_files: true
         platforms: *platforms_old
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver, inspec_suite]
@@ -458,9 +459,9 @@ ssf:
         inspec_suites_kitchen:
           0:
             inspec_yml:
-              summary: |-
+              summary: >-
                 Verify that the keepalived formula is setup and configured correctly
-        old_ci_files: True
+        old_ci_files: true
         platforms: *platforms_old
         platforms_matrix: *platforms_matrix_old
         script_kitchen:
@@ -471,7 +472,7 @@ ssf:
             apt:
               packages:
                 - ipvsadm
-        use_tofs: True
+        use_tofs: true
       semrel_files: *semrel_files_default
     libvirt:
       context:
@@ -481,14 +482,14 @@ ssf:
         inspec_suites_kitchen:
           0:
             inspec_yml:
-              summary: |-
+              summary: >-
                 Verify that the libvirt formula is setup and configured correctly
               supports:
                 - debian
                 - ubuntu
                 - centos
                 - fedora
-        old_ci_files: True
+        old_ci_files: true
         platforms:
           # [os           , os_ver, salt_ver, py_ver]
           - [amazonlinux  ,   2   ,  develop,      2]
@@ -529,7 +530,7 @@ ssf:
           0:
             excludes: *platforms_old_os_fedora
             inspec_yml:
-              summary: |-
+              summary: >-
                 Verify that the locale formula is setup and configured correctly
             provisioner:
               pillars_from_files:
@@ -544,7 +545,7 @@ ssf:
         inspec_suites_matrix:
           - default
           - fedora
-        old_ci_files: True
+        old_ci_files: true
         platforms: *platforms_old
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver, inspec_suite]
@@ -563,7 +564,7 @@ ssf:
         inspec_suites_kitchen:
           0:
             inspec_yml:
-              summary: |-
+              summary: >-
                 Verify that the logrotate formula is setup and configured correctly
             provisioner:
               dependencies:
@@ -571,11 +572,11 @@ ssf:
                   path: ./test/salt
               state_top:
                 - 'G@os_family:Suse':
-                  - states.cron
+                    - states.cron
                 - '*':
-                  - .
-                  - .jobs
-        old_ci_files: True
+                    - .
+                    - .jobs
+        old_ci_files: true
         platforms: *platforms_old
         platforms_matrix: *platforms_matrix_old
       semrel_files: *semrel_files_default
@@ -587,7 +588,7 @@ ssf:
         inspec_suites_kitchen:
           0:
             inspec_yml:
-              summary: |-
+              summary: >-
                 Verify that the mysql formula is setup and configured correctly
             provisioner:
               pillars_from_files:
@@ -609,15 +610,15 @@ ssf:
         inspec_suites_kitchen:
           0:
             inspec_yml:
-              summary: |-
+              summary: >-
                 Verify that the nginx formula is setup and configured correctly
             provisioner:
               pillars_from_files:
                 - .sls: test/salt/default/pillar/nginx.sls
-        old_ci_files: True
+        old_ci_files: true
         platforms: *platforms_old
         platforms_matrix: *platforms_matrix_old
-        use_tofs: True
+        use_tofs: true
       semrel_files: *semrel_files_default
     openvpn:
       context:
@@ -627,15 +628,15 @@ ssf:
         inspec_suites_kitchen:
           0:
             inspec_yml:
-              summary: |-
+              summary: >-
                 Verify that the openvpn formula is setup and configured correctly
             provisioner:
               pillars_from_files:
                 - .sls: test/integration/repositories/pillars.sls
               state_top:
                 - '*':
-                  - .config
-        old_ci_files: True
+                    - .config
+        old_ci_files: true
         platforms: *platforms_old
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver, inspec_suite]
@@ -655,7 +656,7 @@ ssf:
             # None of the platforms use `default` directly
             includes: *includes_NONE
             inspec_yml:
-              summary: |-
+              summary: >-
                 Verify that the php formula is setup and configured correctly
             provisioner:
               pillars_from_files: []
@@ -685,7 +686,7 @@ ssf:
           - debian
           - redhat
           - suse
-        old_ci_files: True
+        old_ci_files: true
         platforms: *platforms_old
         platforms_matrix: *platforms_matrix_old_osfamily_suites
       semrel_files: *semrel_files_default
@@ -697,16 +698,16 @@ ssf:
         inspec_suites_kitchen:
           0:
             inspec_yml:
-              summary: |-
+              summary: >-
                 Verify that the postfix formula is setup and configured correctly
             provisioner:
               pillars_from_files:
                 - .sls: test/salt/pillar/default.sls
               state_top:
                 - '*':
-                  - .
-                  - .config
-        old_ci_files: True
+                    - .
+                    - .config
+        old_ci_files: true
         platforms: *platforms_old
         platforms_matrix: *platforms_matrix_old
       semrel_files: *semrel_files_default
@@ -718,12 +719,12 @@ ssf:
         inspec_suites_kitchen:
           0:
             inspec_yml:
-              summary: |-
+              summary: >-
                 Verify that the postgres formula is setup and configured correctly
             provisioner:
               pillars_from_files:
                 - .sls: test/salt/pillar/postgres.sls
-        old_ci_files: True
+        old_ci_files: true
         platforms: *platforms_old
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver, inspec_suite]
@@ -733,7 +734,7 @@ ssf:
           - [ubuntu       ,  16.04,   2018.3,      2,      default]
           - [opensuse/leap,  42   ,   2018.3,      2,      default]
           - [centos       ,   6   ,   2017.7,      2,      default]
-        use_tofs: True
+        use_tofs: true
       semrel_files: *semrel_files_default
     prometheus:
       context:
@@ -743,9 +744,9 @@ ssf:
         inspec_suites_kitchen:
           0:
             inspec_yml:
-              summary: |-
+              summary: >-
                 Verify that the prometheus formula is setup and configured correctly
-        old_ci_files: True
+        old_ci_files: true
         platforms: *platforms_old
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver, inspec_suite]
@@ -755,7 +756,7 @@ ssf:
           - [ubuntu       ,  18.04,   2019.2,      3,      default]
           - [debian       ,   9   ,   2018.3,      2,      default]
           - [ubuntu       ,  16.04,   2017.7,      2,      default]
-        use_tofs: True
+        use_tofs: true
       semrel_files: *semrel_files_default
     rkhunter:
       context:
@@ -767,7 +768,7 @@ ssf:
             # None of the platforms use `default` directly
             includes: *includes_NONE
             inspec_yml:
-              summary: |-
+              summary: >-
                 Verify that the rkhunter formula is setup and configured correctly
             provisioner:
               pillars_from_files: []
@@ -797,11 +798,11 @@ ssf:
           - debian
           - redhat
           - suse
-        old_ci_files: True
+        old_ci_files: true
         platforms: *platforms_old
         platforms_matrix: *platforms_matrix_old_osfamily_suites
-        use_cirrus_ci: True
-        use_tofs: True
+        use_cirrus_ci: true
+        use_tofs: true
       semrel_files: *semrel_files_default
     ssf:
       context:
@@ -812,12 +813,12 @@ ssf:
         inspec_suites_kitchen:
           0:
             inspec_yml:
-              summary: |-
+              summary: >-
                 Verify that the ssf formula is setup and configured correctly
         inspec_suites_matrix: []
         platforms: []
         platforms_matrix: []
-        use_tofs: True
+        use_tofs: true
       semrel_files:
         docs/CONTRIBUTING.rst: *file__docs__CONTRIBUTING--rst
         docs/TOFS_pattern.rst: *file__docs__TOFS_pattern--rst
@@ -838,13 +839,13 @@ ssf:
         inspec_suites_kitchen:
           0:
             inspec_yml:
-              summary: |-
+              summary: >-
                 Verify that the stack formula is setup and configured correctly
               supports:
                 - debian
                 - ubuntu
                 - centos
-        use_tofs: True
+        use_tofs: true
       semrel_files:
         docs/TOFS_pattern.rst:
           <<: *file__docs__TOFS_pattern--rst
@@ -864,21 +865,21 @@ ssf:
         inspec_suites_kitchen:
           0:
             inspec_yml:
-              summary: |-
+              summary: >-
                 Verify that the sudoers formula is setup and configured correctly
             provisioner:
               pillars:
                 - '*':
-                  - kitchen
-                  - .
+                    - kitchen
+                    - .
               pillars_from_files:
                 - kitchen.sls: test/salt/pillar/kitchen.sls
                 - .sls: test/salt/pillar/default.sls
               state_top:
                 - '*':
-                  - .
-                  - .included
-        old_ci_files: True
+                    - .
+                    - .included
+        old_ci_files: true
         platforms: *platforms_old
         platforms_matrix: *platforms_matrix_old
       semrel_files: *semrel_files_default
@@ -890,13 +891,13 @@ ssf:
         inspec_suites_kitchen:
           0:
             inspec_yml:
-              summary: |-
+              summary: >-
                 Verify that the syslog_ng formula is setup and configured correctly
             provisioner:
               state_top:
                 - '*':
-                  - .config
-        old_ci_files: True
+                    - .config
+        old_ci_files: true
         platforms: *platforms_old
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver, inspec_suite]
@@ -905,7 +906,7 @@ ssf:
           - [debian       ,   9   ,   2019.2,      3,      default]
           - [ubuntu       ,  18.04,   2019.2,      3,      default]
           - [debian       ,   9   ,   2018.3,      2,      default]
-        use_cirrus_ci: True
+        use_cirrus_ci: true
       semrel_files:
         <<: *semrel_files_default
         inspec/inspec.yml:
@@ -922,12 +923,12 @@ ssf:
         inspec_suites_kitchen:
           0:
             inspec_yml:
-              summary: |-
+              summary: >-
                 Verify that the sysstat formula is setup and configured correctly
-        old_ci_files: True
+        old_ci_files: true
         platforms: *platforms_old
         platforms_matrix: *platforms_matrix_old
-        use_tofs: True
+        use_tofs: true
       semrel_files: *semrel_files_default
     systemd:
       context:
@@ -937,16 +938,16 @@ ssf:
         inspec_suites_kitchen:
           0:
             inspec_yml:
-              summary: |-
+              summary: >-
                 Verify that the systemd formula is setup and configured correctly
             provisioner:
               state_top:
                 - '*':
-                  - .
-                  - .networkd
-                  - .networkd.profiles
-                  - .units
-        old_ci_files: True
+                    - .
+                    - .networkd
+                    - .networkd.profiles
+                    - .units
+        old_ci_files: true
         platforms:
           # [os           , os_ver, salt_ver, py_ver]
           - [debian       ,   9   ,  develop,      3]
@@ -977,7 +978,7 @@ ssf:
           - [fedora       ,  29   ,   2018.3,      2,      default]
           - [opensuse/leap,  42   ,   2018.3,      2,      default]
           - [debian       ,   8   ,   2017.7,      2,      default]
-        use_tofs: True
+        use_tofs: true
       semrel_files: *semrel_files_default
     template:
       context:
@@ -990,9 +991,9 @@ ssf:
         inspec_suites_kitchen:
           0:
             inspec_yml:
-              summary: |-
+              summary: >-
                 Verify that the template formula is setup and configured correctly
-        use_tofs: True
+        use_tofs: true
       semrel_files: *semrel_files_default
     ufw:
       context:
@@ -1002,12 +1003,12 @@ ssf:
         inspec_suites_kitchen:
           0:
             inspec_yml:
-              summary: |-
+              summary: >-
                 Verify that the ufw formula is setup and configured correctly
             provisioner:
               pillars_from_files:
                 - .sls: test/salt/pillar/default.sls
-        old_ci_files: True
+        old_ci_files: true
         platforms: *platforms_old
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver, inspec_suite]
@@ -1021,7 +1022,7 @@ ssf:
           # Facing errors with `xenial` at time of adding
           # https://travis-ci.org/myii/ufw-formula/jobs/561205378#L906
           dist: trusty
-        use_tofs: True
+        use_tofs: true
       semrel_files: *semrel_files_default
     users:
       context:
@@ -1031,7 +1032,7 @@ ssf:
         inspec_suites_kitchen:
           0:
             inspec_yml:
-              summary: |-
+              summary: >-
                 Verify that the users formula is setup and configured correctly
             provisioner:
               pillars_from_files:
@@ -1045,31 +1046,33 @@ ssf:
         inspec_suites_kitchen:
           0:
             inspec_yml:
-              summary: |-
+              summary: >-
                 Verify that the vault binary is installed correctly
             provisioner:
               pillars_from_files:
                 - .sls: test/salt/pillar/install_binary.sls
               state_top:
                 - '*':
-                  - .package
+                    - .package
           1:
             inspec_yml:
-              summary: |-
-                Verify that the vault development server is setup and configured correctly
+              summary: >-
+                Verify that the vault development server is setup and configured
+                correctly
             provisioner:
               pillars_from_files:
                 - .sls: test/salt/pillar/dev_server.sls
           2:
             inspec_yml:
-              summary: |-
-                Verify that the vault production server is setup and configured correctly
+              summary: >-
+                Verify that the vault production server is setup and configured
+                correctly
             provisioner:
               pillars_from_files:
                 - .sls: test/salt/pillar/prod_server.sls
         inspec_suites_matrix:
           - ''
-        old_ci_files: True
+        old_ci_files: true
         platforms:
           # [os           , os_ver, salt_ver, py_ver]
           - [debian       ,   9   ,  develop,      3]

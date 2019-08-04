@@ -21,8 +21,8 @@ ssf:
       ### Remote to `git push` to
       ### Default shown below will be used if left commented out
       # push_remote: origin
-      ### Local file to capture the GitHub API response when automatically creating
-      ### the PR, prevents spamming the Salt output;
+      ### Local file to capture the GitHub API response when automatically
+      ### creating the PR, prevents spamming the Salt output;
       ### Default shown below will be used if left commented out
       # file_api_response: github_api_response
     ### All `git`-related states default to `False`; enable here as required
@@ -31,13 +31,13 @@ ssf:
     ### - Commit, push and PR creation are not performed
     states:
       prepare:
-        active: True
+        active: true
       add_rm:
-        active: True
+        active: true
       # commit_push:
-      #   active: True
+      #   active: true
       create_PR:
-        # active: True
+        # active: true
         ### This is a necessary override since the default script does not
         ### contain a GitHub API token; copy the file to `your_directory`
         ### and simply add your personal token at the top of the script
@@ -106,4 +106,3 @@ ssf:
       - pre-commit_semantic-release.sh
       - release-rules.js
       - release.config.js
-
