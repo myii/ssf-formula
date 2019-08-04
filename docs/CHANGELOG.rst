@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`0.2.1 <https://github.com/myii/ssf-formula/compare/v0.2.0...v0.2.1>`_ (2019-08-04)
+---------------------------------------------------------------------------------------
+
+Code Refactoring
+^^^^^^^^^^^^^^^^
+
+
+* **state_top:** remove unnecessary entries (provided by ``defaults``\ ) (\ `5f229f2 <https://github.com/myii/ssf-formula/commit/5f229f2>`_\ )
+
 `0.2.0 <https://github.com/myii/ssf-formula/compare/v0.1.1...v0.2.0>`_ (2019-08-03)
 ---------------------------------------------------------------------------------------
 
