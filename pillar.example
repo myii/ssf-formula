@@ -88,6 +88,7 @@ ssf:
       - systemd
       - template
       - ufw
+      - users
       - vault
     semrel_files:
       - bin/kitchen
