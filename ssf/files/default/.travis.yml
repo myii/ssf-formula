@@ -6,7 +6,7 @@ stages:
   {%- if platforms and not use_cirrus_ci %}
   - test
   {%- endif %}
-  - commitlint
+  - lint
   - name: release
     if: branch = master AND type != pull_request
 {%- if platforms and not use_cirrus_ci %}
@@ -21,10 +21,12 @@ services:
 {%-   set travis_addons = travis.addons %}
 {%-   if travis_addons %}
 
+# yamllint disable rule:indentation
 addons:
 {%-     filter indent(2) %}
 {{ travis_addons | yaml(False) }}
 {%-     endfilter %}
+# yamllint enable rule:indentation
 {%-   endif %}
 
 # Make sure the instances listed below match up with
@@ -56,18 +58,37 @@ script:
   {%- endfor %}
 {%- endif %}
 
+{%- set yamllint_files = yamllint.check_files.default + yamllint.check_files.additional %}
+{#- Don't need to do this in index order but maintaining consistency with `kitchen.yml` #}
+{%- for index in range(0, inspec_suites_kitchen | length) %}
+{%-   set suite = inspec_suites_kitchen[index] %}
+{%-   set pillars_from_files = suite.provisioner.pillars_from_files %}
+{%-   for pff in pillars_from_files %}
+{%-     for k, v in pff.items() %}
+{%-       if v not in yamllint_files %}
+{%-         do yamllint_files.append(v) %}
+{%-       endif %}
+{%-     endfor %}
+{%-   endfor %}
+{%- endfor %}
+
 jobs:
   include:
-    # Define the commitlint stage
-    - stage: commitlint
+    # Define the `lint` stage (runs `yamllint` and `commitlint`)
+    - stage: lint
       language: node_js
       node_js: lts/*
       before_install: skip
       script:
+        # Install and run `yamllint`
+        - pip install --user yamllint
+        # yamllint disable-line rule:line-length
+        - yamllint -s {{ yamllint_files | join(' ') }}
+        # Install and run `commitlint`
         - npm install @commitlint/config-conventional -D
         - npm install @commitlint/travis-cli -D
         - commitlint-travis
-    # Define the release stage that runs semantic-release
+    # Define the release stage that runs `semantic-release`
     - stage: release
       language: node_js
       node_js: lts/*

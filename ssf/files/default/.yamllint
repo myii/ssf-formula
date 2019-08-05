@@ -1,0 +1,62 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+---
+{%- macro format_ignore(ignore_parent, first_ignores=[], width=4) %}
+{%-   filter indent(width) %}
+{%-     if ignore_parent.ignore is defined %}
+ignore: |
+  {%-     for first_ignore in first_ignores %}
+  {{ first_ignore }}
+  {%-     endfor %}
+  {%-     for file in ignore_parent.ignore %}
+  {{ file }}
+  {%-     endfor %}
+{%-     endif %}
+{%-   endfilter %}
+{%- endmacro %}
+# Extend the `{{ yamllint.extends }}` configuration provided by `yamllint`
+extends: {{ yamllint.extends }}
+
+# Files to ignore completely
+# 1. All YAML files under directory `node_modules/`, introduced during the Travis run
+{%- if semrel_formula == 'ssf' %}
+# 2. All Jinja templates under `ssf/files/` (result in `yamllint` syntax errors)
+#    Not disabling via. `*.yml` since we may end up with non-Jinja YAML files here
+{%- elif semrel_formula == 'mysql' %}
+# 2. Any YAML files using Jinja (result in `yamllint` syntax errors)
+{%- elif semrel_formula == 'postgres' %}
+# 2. All YAML files heavily reliant on Jinja; these can be tackled in a subsequent PR
+{%- endif %}
+{{- format_ignore(yamllint, first_ignores=['node_modules/'], width=0) }}
+
+rules:
+  {%- if yamllint.rules.get('commas') %}
+  commas:
+    {%- set yl_cm = yamllint.rules.get('commas') %}
+    {%- if semrel_formula == 'ssf' %}
+    # Allow separation between commas to achieve tabular layout under `platforms`
+    {%- endif %}
+    {{- format_ignore(yl_cm) }}
+  {%- endif %}
+
+  {%- if yamllint.rules.get('comments-indentation') %}
+  comments-indentation:
+    {%- set yl_ci = yamllint.rules.get('comments-indentation') %}
+    {{- format_ignore(yl_ci) }}
+  {%- endif %}
+
+  {%- if yamllint.rules.get('key-duplicates') %}
+  key-duplicates:
+    {%- set yl_kd = yamllint.rules.get('key-duplicates') %}
+    {{- format_ignore(yl_kd) }}
+  {%- endif %}
+
+  {#- Don't need the `if` here since we're always providing a `line-length` setting #}
+  line-length:
+    {%- set yl_ll = yamllint.rules.get('line-length') %}
+    {{- format_ignore(yl_ll) }}
+    {%- if yamllint.rules.get('line-length').max == yamllint.rules.get('line-length').bugbear %}
+    # Increase from default of `{{ yamllint.rules.get('line-length').default }}`
+    # Based on https://github.com/PyCQA/flake8-bugbear#opinionated-warnings (`B950`)
+    {%- endif %}
+    max: {{ yamllint.rules.get('line-length').max }}

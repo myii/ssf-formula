@@ -14,8 +14,8 @@ ssf_node_anchors:
             #       release phase via. `pre-commit_semantic-release.sh`
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
-            title: 'chore: use `semantic-release` cross-formula standard structure'
-            body: '* Automated using `ssf-formula` (v0.4.1)'
+            title: 'feat(yamllint): include for this repo and apply rules throughout'
+            body: '* Semi-automated using `ssf-formula` (v0.5.0)'
           github:
             owner: saltstack-formulas
             repo: ''
@@ -112,6 +112,43 @@ ssf_node_anchors:
           dist: xenial
         use_cirrus_ci: false
         use_tofs: false
+        yamllint:
+          check_files:
+            default:
+              - .
+              - .yamllint
+              - pillar.example
+            additional: []
+          extends: default
+          ignore: []
+          rules:
+            # yamllint disable rule:comments-indentation
+            # Commenting out all of the rules that haven't been implemented yet
+            # braces: {}
+            # brackets: {}
+            # colons: {}
+            commas: {}
+            # comments: {}
+            comments-indentation: {}
+            # document-end: {}
+            # document-start: {}
+            # empty-lines: {}
+            # empty-values: {}
+            # hyphens: {}
+            # indentation: {}
+            key-duplicates: {}
+            # key-ordering: {}
+            line-length:
+              bugbear: 88
+              default: 80
+              max: 88
+            # new-line-at-end-of-file: {}
+            # new-lines: {}
+            # octal-values: {}
+            # quoted-strings: {}
+            # trailing-spaces: {}
+            # truthy: {}
+            # yamllint enable rule:comments-indentation
 
 ssf:
   active:
@@ -248,7 +285,15 @@ ssf:
     syslog-ng: *formula_default
     sysstat: *formula_default
     systemd: *formula_default
-    template: *formula_default
+    template:
+      <<: *formula_default
+      context:
+        <<: *context_default
+        inspec_suites_kitchen:
+          <<: *isk_default
+          1:
+            <<: *isk_suite_default
+            name: centos6
     ufw: *formula_default
     users: *formula_default
     vault:

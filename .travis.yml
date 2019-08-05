@@ -2,21 +2,22 @@
 # vim: ft=yaml
 ---
 stages:
-  - commitlint
+  - lint
   - name: release
     if: branch = master AND type != pull_request
 
 jobs:
   include:
-    # Define the `commitlint` stage (runs `yamlllint` as well)
-    - stage: commitlint
+    # Define the `lint` stage (runs `yamllint` and `commitlint`)
+    - stage: lint
       language: node_js
       node_js: lts/*
       before_install: skip
       script:
         # Install and run `yamllint`
         - pip install --user yamllint
-        - yamllint . .yamllint pillar.example
+        # yamllint disable-line rule:line-length
+        - yamllint -s . .yamllint pillar.example
         # Install and run `commitlint`
         - npm install @commitlint/config-conventional -D
         - npm install @commitlint/travis-cli -D
