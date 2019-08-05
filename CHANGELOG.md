@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.1](https://github.com/myii/ssf-formula/compare/v0.4.0...v0.4.1) (2019-08-05)
+
+
+### Code Refactoring
+
+* **yamllint:** lint `.yamllint` as well; improve comments ([ac968c6](https://github.com/myii/ssf-formula/commit/ac968c6))
+
 # [0.4.0](https://github.com/myii/ssf-formula/compare/v0.3.1...v0.4.0) (2019-08-04)
 
 
