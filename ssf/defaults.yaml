@@ -17,8 +17,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length
-            title: 'feat(tofs): implementation for all file.managed'
-            body: '* Checked using https://github.com/myii/ssf-formula/pull/56'
+            title: 'feat(semantic-release): implement for this formula'
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/55'
             # yamllint enable rule:line-length
           github:
             owner: saltstack-formulas
@@ -394,6 +394,7 @@ ssf:
     syslog-ng: *formula_default
     sysstat: *formula_default
     systemd: *formula_default
+    telegraf: *formula_default
     template:
       <<: *formula_default
       context:

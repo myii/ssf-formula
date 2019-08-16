@@ -1464,6 +1464,30 @@ ssf:
         platforms_matrix: *platforms_matrix_systemd_only
         use_tofs: true
       semrel_files: *semrel_files_default
+    telegraf:
+      context:
+        git:
+          github:
+            owner: n-rodriguez
+            repo: telegraf-formula
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: >-
+                Verify that the telegraf formula is setup and configured correctly
+            provisioner:
+              pillars_from_files:
+                - .sls: test/salt/pillar/telegraf.sls
+        platforms_matrix:
+          # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
+          - [debian       ,  10   ,  develop,      3,         default]
+          - [ubuntu       ,  18.04,   2019.2,      3,         default]
+          - [centos       ,   7   ,   2019.2,      3,         default]
+          - [fedora       ,  30   ,   2019.2,      3,         default]
+          - [opensuse/leap,  15   ,   2018.3,      2,         default]
+          - [ubuntu       ,  16.04,   2017.7,      2,         default]
+        use_tofs: true
+      semrel_files: *semrel_files_default
     template:
       context:
         git:
