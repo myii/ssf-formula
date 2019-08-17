@@ -107,6 +107,7 @@ prepare-git-branch-for-{{ formula }}:
         suite: {{ suite | yaml }}
         travis: {{ context.travis | yaml }}
         use_cirrus_ci: {{ use_cirrus_ci }}
+        yamllint: {{ context.yamllint | yaml }}
     {%-       endif %}
     {%-       if ssf.git.states.prepare.active %}
     - require:

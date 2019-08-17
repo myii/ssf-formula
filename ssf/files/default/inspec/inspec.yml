@@ -5,7 +5,12 @@ name: {{ suite.name }}
 title: {{ semrel_formula }} formula
 maintainer: SaltStack Formulas
 license: Apache-2.0
-summary: {{ suite.inspec_yml.summary }}
+{%- set summary_heading = 'summary: ' %}
+{%- set summary_chars = summary_heading | length + suite.inspec_yml.summary | length %}
+{%- if summary_chars > yamllint.rules.get('line-length').max %}
+# yamllint disable-line rule:line-length
+{%- endif %}
+{{ summary_heading }}{{ suite.inspec_yml.summary }}
 supports:
 {%- for platform in suite.inspec_yml.supports %}
   - platform-name: {{ platform }}
