@@ -1,5 +1,12 @@
 # Changelog
 
+# [0.5.0](https://github.com/myii/ssf-formula/compare/v0.4.1...v0.5.0) (2019-08-17)
+
+
+### Features
+
+* **yamllint:** configure for all `semrel_formulas` ([bfad41d](https://github.com/myii/ssf-formula/commit/bfad41d))
+
 ## [0.4.1](https://github.com/myii/ssf-formula/compare/v0.4.0...v0.4.1) (2019-08-05)
 
 
