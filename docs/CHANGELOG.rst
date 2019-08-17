@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`0.6.0 <https://github.com/myii/ssf-formula/compare/v0.5.0...v0.6.0>`_ (2019-08-17)
+---------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **tofs:** update from latest ``template-formula`` version (\ `1ef5f6b <https://github.com/myii/ssf-formula/commit/1ef5f6b>`_\ )
+
 `0.5.0 <https://github.com/myii/ssf-formula/compare/v0.4.1...v0.5.0>`_ (2019-08-17)
 ---------------------------------------------------------------------------------------
 
