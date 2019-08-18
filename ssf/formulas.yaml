@@ -221,8 +221,6 @@ ssf:
     bind:
       context:
         git:
-          branch:
-            pr: bug/fix-tests-not-running
           github:
             repo: bind-formula
         inspec_suites_kitchen:
@@ -840,8 +838,6 @@ ssf:
     ssf:
       context:
         git:
-          branch:
-            pr: feat/update-TOFS-from-template-formula
           github:
             owner: myii
             repo: ssf-formula
