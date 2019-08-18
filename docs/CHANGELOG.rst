@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`0.7.0 <https://github.com/myii/ssf-formula/compare/v0.6.0...v0.7.0>`_ (2019-08-18)
+---------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **bind:** re-enable ``fedora`` (\ `9b2c99d <https://github.com/myii/ssf-formula/commit/9b2c99d>`_\ )
+
 `0.6.0 <https://github.com/myii/ssf-formula/compare/v0.5.0...v0.6.0>`_ (2019-08-17)
 ---------------------------------------------------------------------------------------
 
