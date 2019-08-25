@@ -67,6 +67,7 @@ ssf:
       - fail2ban
       - golang
       - grafana
+      - influxdb
       - iptables
       - keepalived
       - libvirt

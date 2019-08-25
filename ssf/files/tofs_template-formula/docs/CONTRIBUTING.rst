@@ -173,6 +173,7 @@ These formulas are already compatible with semantic-release:
 * `fail2ban-formula <https://github.com/saltstack-formulas/fail2ban-formula>`_
 * `golang-formula <https://github.com/saltstack-formulas/golang-formula>`_
 * `grafana-formula <https://github.com/saltstack-formulas/grafana-formula>`_
+* [`WIP <https://github.com/saltstack-formulas/influxdb-formula/pull/24>`_] `influxdb-formula <https://github.com/saltstack-formulas/influxdb-formula>`_
 * `iptables-formula <https://github.com/saltstack-formulas/iptables-formula>`_
 * `keepalived-formula <https://github.com/saltstack-formulas/keepalived-formula>`_
 * `libvirt-formula <https://github.com/saltstack-formulas/libvirt-formula>`_
@@ -194,7 +195,7 @@ These formulas are already compatible with semantic-release:
 * `systemd-formula <https://github.com/saltstack-formulas/systemd-formula>`_
 * `template-formula <https://github.com/saltstack-formulas/template-formula>`_
 * `ufw-formula <https://github.com/saltstack-formulas/ufw-formula>`_
-* [`WIP <https://github.com/saltstack-formulas/users-formula/pull/207>`_] `users-formula <https://github.com/saltstack-formulas/users-formula>`_
+* `users-formula <https://github.com/saltstack-formulas/users-formula>`_
 * `vault-formula <https://github.com/saltstack-formulas/vault-formula>`_
 
 Documentation

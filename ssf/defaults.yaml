@@ -14,8 +14,8 @@ ssf_node_anchors:
             #       release phase via. `pre-commit_semantic-release.sh`
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
-            title: 'ci(travis): re-enable `fedora`'
-            body: '* Automated using `ssf-formula` (v0.7.0)'
+            title: 'chore: use `semantic-release` cross-formula standard structure'
+            body: '* Automated using `ssf-formula` (v0.9.0)'
           github:
             owner: saltstack-formulas
             repo: ''
@@ -198,6 +198,7 @@ ssf:
     fail2ban: *formula_default
     golang: *formula_default
     grafana: *formula_default
+    influxdb: *formula_default
     iptables:
       <<: *formula_default
       context:
