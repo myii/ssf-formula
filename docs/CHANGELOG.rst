@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`0.8.0 <https://github.com/myii/ssf-formula/compare/v0.7.0...v0.8.0>`_ (2019-08-25)
+---------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **formula:** add ``influxdb-formula`` (\ `3b31495 <https://github.com/myii/ssf-formula/commit/3b31495>`_\ )
+
 `0.7.0 <https://github.com/myii/ssf-formula/compare/v0.6.0...v0.7.0>`_ (2019-08-18)
 ---------------------------------------------------------------------------------------
 
