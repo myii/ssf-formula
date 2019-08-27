@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`0.9.0 <https://github.com/myii/ssf-formula/compare/v0.8.0...v0.9.0>`_ (2019-08-27)
+---------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **formula:** add ``timezone-formula`` (\ `47007f5 <https://github.com/myii/ssf-formula/commit/47007f5>`_\ )
+
 `0.8.0 <https://github.com/myii/ssf-formula/compare/v0.7.0...v0.8.0>`_ (2019-08-25)
 ---------------------------------------------------------------------------------------
 
