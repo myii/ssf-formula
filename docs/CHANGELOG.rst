@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`0.12.0 <https://github.com/myii/ssf-formula/compare/v0.11.0...v0.12.0>`_ (2019-08-28)
+------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **formula:** add ``vsftpd-formula`` (\ `11c7ad8 <https://github.com/myii/ssf-formula/commit/11c7ad8>`_\ )
+
 `0.11.0 <https://github.com/myii/ssf-formula/compare/v0.10.0...v0.11.0>`_ (2019-08-28)
 ------------------------------------------------------------------------------------------
 
