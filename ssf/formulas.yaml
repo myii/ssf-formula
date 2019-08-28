@@ -312,6 +312,20 @@ ssf:
         platforms: *platforms_old
         platforms_matrix: *platforms_matrix_old
       semrel_files: *semrel_files_default
+    cron:
+      context:
+        git:
+          github:
+            repo: cron-formula
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: >-
+                Verify that the cron formula is setup and configured correctly
+            provisioner:
+              pillars_from_files:
+                - .sls: test/salt/pillar/cron.sls
+      semrel_files: *semrel_files_default
     deepsea:
       context:
         git:

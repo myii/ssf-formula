@@ -62,6 +62,7 @@ ssf:
       - cert
       - chrony
       - collectd
+      - cron
       - deepsea
       - dhcpd
       - fail2ban
