@@ -15,7 +15,7 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             title: 'chore: use `semantic-release` cross-formula standard structure'
-            body: '* Semi-automated using https://github.com/myii/ssf-formula/pull/13'
+            body: '* Semi-automated using https://github.com/myii/ssf-formula/pull/12'
           github:
             owner: saltstack-formulas
             repo: ''
@@ -193,6 +193,7 @@ ssf:
     cert: *formula_default
     chrony: *formula_default
     collectd: *formula_default
+    cron: *formula_default
     deepsea: *formula_default
     dhcpd: *formula_default
     fail2ban: *formula_default
