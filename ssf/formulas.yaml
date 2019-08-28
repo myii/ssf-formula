@@ -944,6 +944,28 @@ ssf:
         platforms: *platforms_old
         platforms_matrix: *platforms_matrix_old
       semrel_files: *semrel_files_default
+    sysctl:
+      context:
+        git:
+          github:
+            repo: sysctl-formula
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: >-
+                Verify that the sysctl formula is setup and configured correctly
+            provisioner:
+              pillars_from_files:
+                - .sls: test/salt/pillar/sysctl.sls
+        platforms_matrix:
+          # [os           , os_ver, salt_ver, py_ver, inspec_suite]
+          - [debian       ,  10   ,  develop,      3,      default]
+          - [ubuntu       ,  18.04,   2019.2,      3,      default]
+          - [amazonlinux  ,   2   ,   2019.2,      2,      default]
+          - [fedora       ,  29   ,   2018.3,      2,      default]
+          - [opensuse/leap,  15   ,   2018.3,      2,      default]
+          # - [centos       ,   6   ,   2017.7,      2,      default]
+      semrel_files: *semrel_files_default
     syslog-ng:
       context:
         git:

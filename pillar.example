@@ -84,6 +84,7 @@ ssf:
       - ssf
       - stack
       - sudoers
+      - sysctl
       - syslog-ng
       - sysstat
       - systemd
