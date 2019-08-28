@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`0.10.0 <https://github.com/myii/ssf-formula/compare/v0.9.0...v0.10.0>`_ (2019-08-28)
+-----------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **formula:** add ``sysctl-formula`` (\ `e0f6eff <https://github.com/myii/ssf-formula/commit/e0f6eff>`_\ )
+
 `0.9.0 <https://github.com/myii/ssf-formula/compare/v0.8.0...v0.9.0>`_ (2019-08-27)
 ---------------------------------------------------------------------------------------
 
