@@ -1,5 +1,12 @@
 # Changelog
 
+# [0.13.0](https://github.com/myii/ssf-formula/compare/v0.12.0...v0.13.0) (2019-08-29)
+
+
+### Features
+
+* **libvirt:** add openSUSE to supported platform ([513188a](https://github.com/myii/ssf-formula/commit/513188a)), closes [/github.com/saltstack-formulas/libvirt-formula/pull/53#discussion_r318455954](https://github.com//github.com/saltstack-formulas/libvirt-formula/pull/53/issues/discussion_r318455954)
+
 # [0.12.0](https://github.com/myii/ssf-formula/compare/v0.11.0...v0.12.0) (2019-08-28)
 
 
