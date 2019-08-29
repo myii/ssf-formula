@@ -536,6 +536,7 @@ ssf:
                 - ubuntu
                 - centos
                 - fedora
+                - opensuse
         old_ci_files: true
         platforms:
           # [os           , os_ver, salt_ver, py_ver]
