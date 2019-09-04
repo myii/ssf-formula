@@ -78,6 +78,12 @@ ssf_node_anchors:
           - [debian       ,   9   ,   2019.2,      3]
           - [debian       ,   9   ,   2018.3,      2]
           - [debian       ,   8   ,   2017.7,      2]
+        platforms_old_os_ubuntu: &platforms_old_os_ubuntu
+          # [os           , os_ver, salt_ver, py_ver]
+          - [ubuntu       ,  18.04,  develop,      3]
+          - [ubuntu       ,  18.04,   2019.2,      3]
+          - [ubuntu       ,  16.04,   2018.3,      2]
+          - [ubuntu       ,  16.04,   2017.7,      2]
         platforms_old_os_ubuntu18: &platforms_old_os_ubuntu18
           # [os           , os_ver, salt_ver, py_ver]
           - [ubuntu       ,  18.04,  develop,      3]
@@ -712,20 +718,48 @@ ssf:
             provisioner:
               pillars_from_files: []
           1:
-            includes: *platforms_old_osfamily_debian
+            includes: *platforms_old_os_debian
             provisioner:
               pillars_from_files:
                 - .sls: test/salt/pillar/debian.sls
+              state_top:
+                - '*':
+                    - .repo
+                    - .fpm.install
+                    - .fpm.config
+                    - .fpm.pools
+                    - .modules
+                    - .fpm.service
             verifier:
               test_suite: default
           2:
+            includes: *platforms_old_os_ubuntu
+            provisioner:
+              pillars:
+                - '*':
+                    - .
+                    - ubuntu
+              pillars_from_files:
+                - .sls: test/salt/pillar/debian.sls
+                - ubuntu.sls: test/salt/pillar/ubuntu.sls
+              state_top:
+                - '*':
+                    - .repo
+                    - .fpm.install
+                    - .fpm.config
+                    - .fpm.pools
+                    - .modules
+                    - .fpm.service
+            verifier:
+              test_suite: default
+          3:
             includes: *platforms_old_osfamily_redhat
             provisioner:
               pillars_from_files:
                 - .sls: test/salt/pillar/redhat.sls
             verifier:
               test_suite: default
-          3:
+          4:
             includes: *platforms_old_osfamily_suse
             provisioner:
               pillars_from_files:
@@ -735,11 +769,19 @@ ssf:
         inspec_suites_matrix:
           - default
           - debian
+          - ubuntu
           - redhat
           - suse
         old_ci_files: true
         platforms: *platforms_old
-        platforms_matrix: *platforms_matrix_old_osfamily_suites
+        platforms_matrix:
+          # [os           , os_ver, salt_ver, py_ver, inspec_suite]
+          - [debian       ,   9   ,  develop,      3,       debian]
+          - [ubuntu       ,  18.04,   2019.2,      3,       ubuntu]
+          - [centos       ,   7   ,   2019.2,      3,       redhat]
+          - [fedora       ,  29   ,   2018.3,      2,       redhat]
+          - [opensuse/leap,  42   ,   2018.3,      2,         suse]
+          - [centos       ,   6   ,   2017.7,      2,       redhat]
       semrel_files: *semrel_files_default
     postfix:
       context:

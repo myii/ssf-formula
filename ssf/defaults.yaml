@@ -14,8 +14,8 @@ ssf_node_anchors:
             #       release phase via. `pre-commit_semantic-release.sh`
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
-            title: 'chore: use `semantic-release` cross-formula standard structure'
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/17'
+            title: 'fix(yamllint): use separate suite for `ubuntu`'
+            body: '* Semi-automated using https://github.com/myii/ssf-formula/pull/18'
           github:
             owner: saltstack-formulas
             repo: ''
@@ -259,8 +259,11 @@ ssf:
             name: debian
           2:
             <<: *isk_suite_default
-            name: redhat
+            name: ubuntu
           3:
+            <<: *isk_suite_default
+            name: redhat
+          4:
             <<: *isk_suite_default
             name: suse
     postfix: *formula_default
