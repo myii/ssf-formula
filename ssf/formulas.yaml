@@ -474,6 +474,7 @@ ssf:
             provisioner:
               pillars_from_files:
                 - .sls: test/salt/pillar/influxdb.sls
+        use_tofs: true
       semrel_files: *semrel_files_default
     iptables:
       context:
