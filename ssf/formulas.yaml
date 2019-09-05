@@ -1202,6 +1202,8 @@ ssf:
         travis:
           # Facing errors with `xenial` at time of adding
           # https://travis-ci.org/myii/ufw-formula/jobs/561205378#L906
+          # Persisting with `bionic` as well
+          # https://travis-ci.org/myii/ufw-formula/jobs/581764920#L807
           dist: trusty
         use_tofs: true
       semrel_files: *semrel_files_default
