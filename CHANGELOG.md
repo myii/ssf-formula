@@ -1,5 +1,12 @@
 # Changelog
 
+# [0.15.0](https://github.com/myii/ssf-formula/compare/v0.14.0...v0.15.0) (2019-09-05)
+
+
+### Features
+
+* **formulas:** replace EOL pre-salted images ([23f3b80](https://github.com/myii/ssf-formula/commit/23f3b80))
+
 # [0.14.0](https://github.com/myii/ssf-formula/compare/v0.13.0...v0.14.0) (2019-09-05)
 
 
