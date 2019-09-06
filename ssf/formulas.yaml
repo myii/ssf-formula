@@ -1235,6 +1235,20 @@ ssf:
         script_kitchen:
           cmd: test
       semrel_files: *semrel_files_default
+    vim:
+      context:
+        git:
+          github:
+            repo: vim-formula
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: >-
+                Verify that the vim formula is setup and configured correctly
+            provisioner:
+              pillars_from_files:
+                - .sls: test/salt/pillar/vim.sls
+      semrel_files: *semrel_files_default
     vsftpd:
       context:
         git:
