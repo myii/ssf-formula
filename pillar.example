@@ -94,6 +94,7 @@ ssf:
       - ufw
       - users
       - vault
+      - vim
       - vsftpd
     semrel_files:
       - bin/kitchen
