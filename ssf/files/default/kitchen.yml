@@ -135,6 +135,12 @@ platforms:
       {%- elif os == 'centos' and os_ver == 6 %}
       run_command: /sbin/init
       {%- endif %}
+    {%- if [os, os_ver] == ['opensuse/leap', 15] %}
+    # Workaround to avoid intermittent failures on `opensuse-leap-15`:
+    # => SCP did not finish successfully (255):  (Net::SCP::Error)
+    transport:
+      max_ssh_sessions: 1
+    {%- endif %}
 {%-   endif %}
 {%- endfor %}
 
