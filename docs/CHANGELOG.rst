@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`0.16.0 <https://github.com/myii/ssf-formula/compare/v0.15.0...v0.16.0>`_ (2019-09-06)
+------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **formula:** add ``vim-formula`` (\ `851ed1f <https://github.com/myii/ssf-formula/commit/851ed1f>`_\ )
+
 `0.15.0 <https://github.com/myii/ssf-formula/compare/v0.14.0...v0.15.0>`_ (2019-09-05)
 ------------------------------------------------------------------------------------------
 
