@@ -13,9 +13,19 @@ ssf_node_anchors:
             includes: &includes_NONE
               - []
             inspec_yml:
+              depends_on_suite_share: &depends_on_suite_share
+                - name: share
+                  path: test/integration/share
               supports_debian_ubuntu: &supports_debian_ubuntu
                 - debian
                 - ubuntu
+              # yamllint disable-line rule:line-length
+              supports_debian_ubuntu_centos_fedora_opensuse: &supports_debian_ubuntu_centos_fedora_opensuse
+                - debian
+                - ubuntu
+                - centos
+                - fedora
+                - opensuse
         platforms_osfamily_debian: &platforms_osfamily_debian
           # [os           , os_ver, salt_ver, py_ver]
           - [debian       ,  10   ,  develop,      3]
@@ -545,17 +555,38 @@ ssf:
         inspec_suites_kitchen:
           0:
             inspec_yml:
+              depends: *depends_on_suite_share
               summary: >-
                 Verify that the libvirt formula is setup and configured correctly
-              supports:
-                - debian
-                - ubuntu
-                - centos
-                - fedora
-                - opensuse
+              supports: *supports_debian_ubuntu_centos_fedora_opensuse
+          1:
+            includes: *includes_NONE
+            inspec_yml:
+              summary: >-
+                shared resources
+              supports: *supports_debian_ubuntu_centos_fedora_opensuse
+          2:
+            includes:
+              # [os           , os_ver, salt_ver, py_ver]
+              - [debian       ,  10   ,  develop,      3]
+            inspec_yml:
+              depends: *depends_on_suite_share
+              summary: >-
+                Verify that the libvirt formula can cleanup correctly
+              supports: *supports_debian_ubuntu_centos_fedora_opensuse
+            provisioner:
+              state_top:
+                - '*':
+                    - .
+                    - .clean
+        inspec_suites_matrix:
+          - default
+          - share
+          - clean
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver, inspec_suite]
           - [debian       ,  10   ,  develop,      3,      default]
+          - [debian       ,  10   ,  develop,      3,        clean]
           - [ubuntu       ,  18.04,   2019.2,      3,      default]
           - [fedora       ,  30   ,   2019.2,      3,      default]
           # - [amazonlinux  ,   2   ,   2019.2,      2,      default]
