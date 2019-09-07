@@ -1,5 +1,14 @@
 # Changelog
 
+# [0.18.0](https://github.com/myii/ssf-formula/compare/v0.17.0...v0.18.0) (2019-09-07)
+
+
+### Features
+
+* **inspec.yml:** add `depends` handling ([a10e09d](https://github.com/myii/ssf-formula/commit/a10e09d))
+* **kitchen.yml:** prevent suite inclusion if `includes: *includes_NONE` ([326f531](https://github.com/myii/ssf-formula/commit/326f531))
+* **libvirt:** incorporate upstream changes ([dc1fe75](https://github.com/myii/ssf-formula/commit/dc1fe75))
+
 # [0.17.0](https://github.com/myii/ssf-formula/compare/v0.16.0...v0.17.0) (2019-09-07)
 
 
