@@ -184,6 +184,7 @@ suites:
         {%- endfor %}
       {%- endif %}
       {#- dependencies #}
+      {#- Centralise duplication from here and `inspec.yml` #}
       {%- set dependencies = suite.provisioner.dependencies %}
       {%- if dependencies %}
       dependencies:

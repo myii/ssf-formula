@@ -11,6 +11,19 @@ license: Apache-2.0
 # yamllint disable-line rule:line-length
 {%- endif %}
 {{ summary_heading }}{{ suite.inspec_yml.summary }}
+{#- Centralise duplication from here and `kitchen.yml` #}
+{%- set depends = suite.inspec_yml.depends %}
+{%- if depends %}
+depends:
+  {%- for depend in depends %}
+  - name: {{ depend.name }}
+  {%-   for k, v in depend.items() %}
+  {%-     if k != 'name' %}
+    {{ k }}: {{ v }}
+  {%-     endif %}
+  {%-   endfor %}
+  {%- endfor %}
+{%- endif %}
 supports:
 {%- for platform in suite.inspec_yml.supports %}
   - platform-name: {{ platform }}
