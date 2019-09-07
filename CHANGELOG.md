@@ -1,5 +1,12 @@
 # Changelog
 
+# [0.17.0](https://github.com/myii/ssf-formula/compare/v0.16.0...v0.17.0) (2019-09-07)
+
+
+### Features
+
+* **ufw:** replace EOL pre-salted images ([9909840](https://github.com/myii/ssf-formula/commit/9909840)), closes [#16](https://github.com/myii/ssf-formula/issues/16)
+
 # [0.16.0](https://github.com/myii/ssf-formula/compare/v0.15.0...v0.16.0) (2019-09-06)
 
 
