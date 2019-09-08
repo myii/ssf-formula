@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`0.18.1 <https://github.com/myii/ssf-formula/compare/v0.18.0...v0.18.1>`_ (2019-09-08)
+------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* **libvirt:** add missed custom inspec ``README`` template (\ `7378aab <https://github.com/myii/ssf-formula/commit/7378aab>`_\ ), closes `#24 <https://github.com/myii/ssf-formula/issues/24>`_
+
 `0.18.0 <https://github.com/myii/ssf-formula/compare/v0.17.0...v0.18.0>`_ (2019-09-07)
 ------------------------------------------------------------------------------------------
 
