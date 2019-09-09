@@ -14,8 +14,9 @@ ssf_node_anchors:
             #       release phase via. `pre-commit_semantic-release.sh`
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
-            title: 'chore: use `semantic-release` cross-formula standard structure'
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/24'
+            # yamllint disable-line rule:line-length
+            title: 'ci: use `dist: bionic` & apply `opensuse-leap-15` SCP error workaround'
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/22'
           github:
             owner: saltstack-formulas
             repo: ''
@@ -110,7 +111,7 @@ ssf_node_anchors:
           post: []
         travis:
           addons: {}
-          dist: xenial
+          dist: bionic
         use_cirrus_ci: false
         use_tofs: false
         yamllint:
