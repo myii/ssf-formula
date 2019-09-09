@@ -712,7 +712,7 @@ ssf:
                 Verify that the openvpn formula is setup and configured correctly
             provisioner:
               pillars_from_files:
-                - .sls: test/integration/repositories/pillars.sls
+                - .sls: test/salt/pillar/default.sls
               state_top:
                 - '*':
                     - .config
