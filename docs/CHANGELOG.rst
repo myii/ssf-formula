@@ -2,6 +2,21 @@
 Changelog
 =========
 
+`0.20.0 <https://github.com/myii/ssf-formula/compare/v0.19.0...v0.20.0>`_ (2019-09-09)
+------------------------------------------------------------------------------------------
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+* **travis:** use ``dist: bionic`` (\ `9fe22c3 <https://github.com/myii/ssf-formula/commit/9fe22c3>`_\ )
+
+Features
+^^^^^^^^
+
+
+* **openvpn:** use standard test pillar path (\ `05c5f93 <https://github.com/myii/ssf-formula/commit/05c5f93>`_\ ), closes `#27 <https://github.com/myii/ssf-formula/issues/27>`_
+
 `0.19.0 <https://github.com/myii/ssf-formula/compare/v0.18.1...v0.19.0>`_ (2019-09-09)
 ------------------------------------------------------------------------------------------
 
