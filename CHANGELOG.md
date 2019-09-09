@@ -1,5 +1,13 @@
 # Changelog
 
+# [0.19.0](https://github.com/myii/ssf-formula/compare/v0.18.1...v0.19.0) (2019-09-09)
+
+
+### Features
+
+* **kitchen:** use workaround to prevent `opensuse-leap-15` SCP failures ([f39bf10](https://github.com/myii/ssf-formula/commit/f39bf10))
+* **travis:** use `dist: bionic` ([310caff](https://github.com/myii/ssf-formula/commit/310caff))
+
 ## [0.18.1](https://github.com/myii/ssf-formula/compare/v0.18.0...v0.18.1) (2019-09-08)
 
 
