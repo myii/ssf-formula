@@ -15,8 +15,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable-line rule:line-length
-            title: 'chore: use standard test pillar path'
-            body: '* Semi-automated using https://github.com/myii/ssf-formula/pull/28'
+            title: 'ci(yamllint): add rule `empty-values`'
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/27'
           github:
             owner: saltstack-formulas
             repo: ''
@@ -135,7 +135,9 @@ ssf_node_anchors:
             # document-end: {}
             # document-start: {}
             # empty-lines: {}
-            # empty-values: {}
+            empty-values:
+              forbid-in-block-mappings: 'true'
+              forbid-in-flow-mappings: 'true'
             # hyphens: {}
             # indentation: {}
             key-duplicates: {}

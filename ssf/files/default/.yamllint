@@ -45,6 +45,13 @@ rules:
     {{- format_ignore(yl_ci) }}
   {%- endif %}
 
+  {#- Don't need the `if` here since we're always providing a `empty-values` setting #}
+  empty-values:
+    {%- set yl_ev = yamllint.rules.get('empty-values') %}
+    {{- format_ignore(yl_ev) }}
+    forbid-in-block-mappings: {{ yamllint.rules.get('empty-values').get('forbid-in-block-mappings') }}
+    forbid-in-flow-mappings: {{ yamllint.rules.get('empty-values').get('forbid-in-flow-mappings') }}
+
   {%- if yamllint.rules.get('key-duplicates') %}
   key-duplicates:
     {%- set yl_kd = yamllint.rules.get('key-duplicates') %}
