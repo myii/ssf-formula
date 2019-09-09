@@ -58,20 +58,6 @@ script:
   {%- endfor %}
 {%- endif %}
 
-{%- set yamllint_files = yamllint.check_files.default + yamllint.check_files.additional %}
-{#- Don't need to do this in index order but maintaining consistency with `kitchen.yml` #}
-{%- for index in range(0, inspec_suites_kitchen | length) %}
-{%-   set suite = inspec_suites_kitchen[index] %}
-{%-   set pillars_from_files = suite.provisioner.pillars_from_files %}
-{%-   for pff in pillars_from_files %}
-{%-     for k, v in pff.items() %}
-{%-       if v not in yamllint_files %}
-{%-         do yamllint_files.append(v) %}
-{%-       endif %}
-{%-     endfor %}
-{%-   endfor %}
-{%- endfor %}
-
 jobs:
   include:
     # Define the `lint` stage (runs `yamllint` and `commitlint`)
@@ -81,9 +67,9 @@ jobs:
       before_install: skip
       script:
         # Install and run `yamllint`
-        - pip install --user yamllint
-        # yamllint disable-line rule:line-length
-        - yamllint -s {{ yamllint_files | join(' ') }}
+        # Need at least `v1.17.0` for the `yaml-files` setting
+        - pip install --user yamllint>=1.17.0
+        - yamllint -s .
         # Install and run `commitlint`
         - npm install @commitlint/config-conventional -D
         - npm install @commitlint/travis-cli -D

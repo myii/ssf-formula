@@ -29,6 +29,19 @@ extends: {{ yamllint.extends }}
 {%- endif %}
 {{- format_ignore(yamllint, first_ignores=['node_modules/'], width=0) }}
 
+yaml-files:
+{%- set yl_yf = yamllint.get('yaml-files') %}
+{%- filter indent(2) %}
+# Default settings
+{{ yl_yf.default | yaml(False) }}
+# SaltStack Formulas additional settings
+{{ yl_yf.additional_ssf | yaml(False) }}
+{%- if yl_yf.additional %}
+# Formula-specific additional settings
+{{ yl_yf.additional | yaml(False) }}
+{%- endif %}
+{%- endfilter %}
+
 rules:
   {%- if yamllint.rules.get('commas') %}
   commas:

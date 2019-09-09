@@ -1048,10 +1048,6 @@ ssf:
           - [debian       ,   9   ,   2018.3,      2,      default]
           # - [ubuntu       ,  16.04,   2017.7,      2,      default]
         use_cirrus_ci: true
-        yamllint:
-          check_files:
-            additional:
-              - pillar.debian.example
       semrel_files:
         <<: *semrel_files_default
         inspec/inspec.yml:

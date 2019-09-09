@@ -15,7 +15,7 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable-line rule:line-length
-            title: 'ci(yamllint): add rule `empty-values`'
+            title: 'ci(yamllint): add rule `empty-values` & use new `yaml-files` setting'
             body: '* Automated using https://github.com/myii/ssf-formula/pull/27'
           github:
             owner: saltstack-formulas
@@ -115,14 +115,17 @@ ssf_node_anchors:
         use_cirrus_ci: false
         use_tofs: false
         yamllint:
-          check_files:
-            default:
-              - .
-              - .yamllint
-              - pillar.example
-            additional: []
           extends: default
           ignore: []
+          yaml-files:
+            default:
+              - '*.yaml'
+              - '*.yml'
+              - '.yamllint'
+            additional_ssf:
+              - '*.example'
+              - 'test/**/*.sls'
+            additional: []
           rules:
             # yamllint disable rule:comments-indentation
             # Commenting out all of the rules that haven't been implemented yet
