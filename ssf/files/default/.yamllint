@@ -1,13 +1,10 @@
 # -*- coding: utf-8 -*-
 # vim: ft=yaml
 ---
-{%- macro format_ignore(ignore_parent, first_ignores=[], width=4) %}
+{%- macro format_ignore(ignore_parent, width=4) %}
 {%-   filter indent(width) %}
 {%-     if ignore_parent.ignore is defined %}
 ignore: |
-  {%-     for first_ignore in first_ignores %}
-  {{ first_ignore }}
-  {%-     endfor %}
   {%-     for file in ignore_parent.ignore %}
   {{ file }}
   {%-     endfor %}
@@ -19,15 +16,21 @@ extends: {{ yamllint.extends }}
 
 # Files to ignore completely
 # 1. All YAML files under directory `node_modules/`, introduced during the Travis run
+# 2. Any SLS files under directory `test/`, which are actually state files
 {%- if semrel_formula == 'ssf' %}
-# 2. All Jinja templates under `ssf/files/` (result in `yamllint` syntax errors)
+# 3. All Jinja templates under `ssf/files/` (result in `yamllint` syntax errors)
 #    Not disabling via. `*.yml` since we may end up with non-Jinja YAML files here
 {%- elif semrel_formula == 'mysql' %}
-# 2. Any YAML files using Jinja (result in `yamllint` syntax errors)
+# 3. Any YAML files using Jinja (result in `yamllint` syntax errors)
 {%- elif semrel_formula == 'postgres' %}
-# 2. All YAML files heavily reliant on Jinja; these can be tackled in a subsequent PR
+# 3. All YAML files heavily reliant on Jinja; these can be tackled in a subsequent PR
 {%- endif %}
-{{- format_ignore(yamllint, first_ignores=['node_modules/'], width=0) }}
+{%- set yl_ignores = {'ignore':
+  yamllint.ignore.default +
+  yamllint.ignore.additional_ssf +
+  yamllint.ignore.additional
+} %}
+{{- format_ignore(yl_ignores, width=0) }}
 
 yaml-files:
 {%- set yl_yf = yamllint.get('yaml-files') %}

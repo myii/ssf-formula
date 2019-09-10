@@ -116,7 +116,12 @@ ssf_node_anchors:
         use_tofs: false
         yamllint:
           extends: default
-          ignore: []
+          ignore:
+            default:
+              - 'node_modules/'
+            additional_ssf:
+              - 'test/**/states/**/*.sls'
+            additional: []
           yaml-files:
             default:
               - '*.yaml'

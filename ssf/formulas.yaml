@@ -678,7 +678,8 @@ ssf:
           - [debian       ,   8   ,   2017.7,      2,      default]
         yamllint:
           ignore:
-            - mysql/supported_sections.yaml
+            additional:
+              - mysql/supported_sections.yaml
       semrel_files: *semrel_files_default
     nginx:
       context:
@@ -854,12 +855,13 @@ ssf:
         use_tofs: true
         yamllint:
           ignore:
-            - pillar.example
-            - postgres/codenamemap.yaml
-            - postgres/osfamilymap.yaml
-            - postgres/osmap.yaml
-            - postgres/repo.yaml
-            - test/salt/pillar/postgres.sls
+            additional:
+              - pillar.example
+              - postgres/codenamemap.yaml
+              - postgres/osfamilymap.yaml
+              - postgres/osmap.yaml
+              - postgres/repo.yaml
+              - test/salt/pillar/postgres.sls
       semrel_files: *semrel_files_default
     prometheus:
       context:
@@ -935,11 +937,12 @@ ssf:
         use_tofs: true
         yamllint:
           ignore:
-            - ssf/files/default/.cirrus.yml
-            - ssf/files/default/.travis.yml
-            - ssf/files/default/.yamllint
-            - ssf/files/default/kitchen.yml
-            - ssf/files/default/inspec/inspec.yml
+            additional:
+              - ssf/files/default/.cirrus.yml
+              - ssf/files/default/.travis.yml
+              - ssf/files/default/.yamllint
+              - ssf/files/default/kitchen.yml
+              - ssf/files/default/inspec/inspec.yml
           rules:
             commas:
               ignore:
