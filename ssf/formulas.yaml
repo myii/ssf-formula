@@ -143,6 +143,10 @@ ssf_node_anchors:
             rule:
               ignore_pillar_example: &ignore_pillar_example
                 - pillar.example
+              # yamllint disable-line rule:line-length
+              ignore_pillar_example_and_with_views_example: &ignore_pillar_example_and_with_views_example
+                - pillar.example
+                - pillar-with-views.example
       semrel_files: &semrel_files_default
         bin/kitchen: &file__bin__kitchen
           <<: *file_default
@@ -260,11 +264,11 @@ ssf:
         yamllint:
           rules:
             comments-indentation:
-              ignore: *ignore_pillar_example
+              ignore: *ignore_pillar_example_and_with_views_example
             key-duplicates:
               ignore: *ignore_pillar_example
             line-length:
-              ignore: *ignore_pillar_example
+              ignore: *ignore_pillar_example_and_with_views_example
       semrel_files: *semrel_files_default
     cert:
       context:
