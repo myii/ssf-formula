@@ -963,6 +963,31 @@ ssf:
         use_cirrus_ci: true
         use_tofs: true
       semrel_files: *semrel_files_default
+    # NOTE: Only using a basic entry for `salt-formula` for the time being,
+    #       since the use of Kitchen, InSpec & Travis is non-standard
+    salt:
+      context:
+        git:
+          github:
+            repo: salt-formula
+        use_tofs: true
+        yamllint:
+          ignore:
+            additional:
+              - salt/osfamilymap.yaml
+              - salt/osmap.yaml
+      semrel_files:
+        bin/kitchen: *file__bin__kitchen
+        docs/CONTRIBUTING.rst: *file__docs__CONTRIBUTING--rst
+        docs/TOFS_pattern.rst: *file__docs__TOFS_pattern--rst
+        formula/libtofs.jinja: *file__formula__libtofs--jinja
+        .gitignore: *file__--gitignore
+        .yamllint: *file__--yamllint
+        commitlint.config.js: *file__commitlint--config--js
+        Gemfile: *file__Gemfile
+        pre-commit_semantic-release.sh: *file__pre-commit_semantic-release--sh
+        release-rules.js: *file__release-rules--js
+        release.config.js: *file__release--config--js
     ssf:
       context:
         git:
