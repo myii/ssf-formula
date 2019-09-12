@@ -1,5 +1,19 @@
 # Changelog
 
+# [0.21.0](https://github.com/myii/ssf-formula/compare/v0.20.0...v0.21.0) (2019-09-12)
+
+
+### Code Refactoring
+
+* **yamllint:** restructure `ignores` like `yaml-files` ([534b0eb](https://github.com/myii/ssf-formula/commit/534b0eb))
+
+
+### Features
+
+* **bind:** add `yamllint` ignore rules for `pillar-with-views.example` ([5d3bbf1](https://github.com/myii/ssf-formula/commit/5d3bbf1)), closes [/github.com/myii/ssf-formula/pull/27#issuecomment-529735409](https://github.com//github.com/myii/ssf-formula/pull/27/issues/issuecomment-529735409)
+* **yamllint:** add rule `empty-values` ([e25c1ef](https://github.com/myii/ssf-formula/commit/e25c1ef))
+* **yamllint:** use new `yaml-files` setting ([ea3fbf3](https://github.com/myii/ssf-formula/commit/ea3fbf3))
+
 # [0.20.0](https://github.com/myii/ssf-formula/compare/v0.19.0...v0.20.0) (2019-09-09)
 
 
