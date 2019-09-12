@@ -1,13 +1,10 @@
 # -*- coding: utf-8 -*-
 # vim: ft=yaml
 ---
-{%- macro format_ignore(ignore_parent, first_ignores=[], width=4) %}
+{%- macro format_ignore(ignore_parent, width=4) %}
 {%-   filter indent(width) %}
 {%-     if ignore_parent.ignore is defined %}
 ignore: |
-  {%-     for first_ignore in first_ignores %}
-  {{ first_ignore }}
-  {%-     endfor %}
   {%-     for file in ignore_parent.ignore %}
   {{ file }}
   {%-     endfor %}
@@ -19,15 +16,34 @@ extends: {{ yamllint.extends }}
 
 # Files to ignore completely
 # 1. All YAML files under directory `node_modules/`, introduced during the Travis run
+# 2. Any SLS files under directory `test/`, which are actually state files
 {%- if semrel_formula == 'ssf' %}
-# 2. All Jinja templates under `ssf/files/` (result in `yamllint` syntax errors)
+# 3. All Jinja templates under `ssf/files/` (result in `yamllint` syntax errors)
 #    Not disabling via. `*.yml` since we may end up with non-Jinja YAML files here
 {%- elif semrel_formula == 'mysql' %}
-# 2. Any YAML files using Jinja (result in `yamllint` syntax errors)
+# 3. Any YAML files using Jinja (result in `yamllint` syntax errors)
 {%- elif semrel_formula == 'postgres' %}
-# 2. All YAML files heavily reliant on Jinja; these can be tackled in a subsequent PR
+# 3. All YAML files heavily reliant on Jinja; these can be tackled in a subsequent PR
 {%- endif %}
-{{- format_ignore(yamllint, first_ignores=['node_modules/'], width=0) }}
+{%- set yl_ignores = {'ignore':
+  yamllint.ignore.default +
+  yamllint.ignore.additional_ssf +
+  yamllint.ignore.additional
+} %}
+{{- format_ignore(yl_ignores, width=0) }}
+
+yaml-files:
+{%- set yl_yf = yamllint.get('yaml-files') %}
+{%- filter indent(2) %}
+# Default settings
+{{ yl_yf.default | yaml(False) }}
+# SaltStack Formulas additional settings
+{{ yl_yf.additional_ssf | yaml(False) }}
+{%- if yl_yf.additional %}
+# Formula-specific additional settings
+{{ yl_yf.additional | yaml(False) }}
+{%- endif %}
+{%- endfilter %}
 
 rules:
   {%- if yamllint.rules.get('commas') %}
@@ -44,6 +60,13 @@ rules:
     {%- set yl_ci = yamllint.rules.get('comments-indentation') %}
     {{- format_ignore(yl_ci) }}
   {%- endif %}
+
+  {#- Don't need the `if` here since we're always providing a `empty-values` setting #}
+  empty-values:
+    {%- set yl_ev = yamllint.rules.get('empty-values') %}
+    {{- format_ignore(yl_ev) }}
+    forbid-in-block-mappings: {{ yamllint.rules.get('empty-values').get('forbid-in-block-mappings') }}
+    forbid-in-flow-mappings: {{ yamllint.rules.get('empty-values').get('forbid-in-flow-mappings') }}
 
   {%- if yamllint.rules.get('key-duplicates') %}
   key-duplicates:

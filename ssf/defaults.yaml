@@ -15,8 +15,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable-line rule:line-length
-            title: 'chore: use standard test pillar path'
-            body: '* Semi-automated using https://github.com/myii/ssf-formula/pull/28'
+            title: 'ci(yamllint): add rule `empty-values` & use new `yaml-files` setting'
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/27'
           github:
             owner: saltstack-formulas
             repo: ''
@@ -115,14 +115,22 @@ ssf_node_anchors:
         use_cirrus_ci: false
         use_tofs: false
         yamllint:
-          check_files:
-            default:
-              - .
-              - .yamllint
-              - pillar.example
-            additional: []
           extends: default
-          ignore: []
+          ignore:
+            default:
+              - 'node_modules/'
+            additional_ssf:
+              - 'test/**/states/**/*.sls'
+            additional: []
+          yaml-files:
+            default:
+              - '*.yaml'
+              - '*.yml'
+              - '.yamllint'
+            additional_ssf:
+              - '*.example'
+              - 'test/**/*.sls'
+            additional: []
           rules:
             # yamllint disable rule:comments-indentation
             # Commenting out all of the rules that haven't been implemented yet
@@ -135,7 +143,9 @@ ssf_node_anchors:
             # document-end: {}
             # document-start: {}
             # empty-lines: {}
-            # empty-values: {}
+            empty-values:
+              forbid-in-block-mappings: 'true'
+              forbid-in-flow-mappings: 'true'
             # hyphens: {}
             # indentation: {}
             key-duplicates: {}

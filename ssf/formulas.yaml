@@ -143,6 +143,10 @@ ssf_node_anchors:
             rule:
               ignore_pillar_example: &ignore_pillar_example
                 - pillar.example
+              # yamllint disable-line rule:line-length
+              ignore_pillar_example_and_with_views_example: &ignore_pillar_example_and_with_views_example
+                - pillar.example
+                - pillar-with-views.example
       semrel_files: &semrel_files_default
         bin/kitchen: &file__bin__kitchen
           <<: *file_default
@@ -260,11 +264,11 @@ ssf:
         yamllint:
           rules:
             comments-indentation:
-              ignore: *ignore_pillar_example
+              ignore: *ignore_pillar_example_and_with_views_example
             key-duplicates:
               ignore: *ignore_pillar_example
             line-length:
-              ignore: *ignore_pillar_example
+              ignore: *ignore_pillar_example_and_with_views_example
       semrel_files: *semrel_files_default
     cert:
       context:
@@ -674,7 +678,8 @@ ssf:
           - [debian       ,   8   ,   2017.7,      2,      default]
         yamllint:
           ignore:
-            - mysql/supported_sections.yaml
+            additional:
+              - mysql/supported_sections.yaml
       semrel_files: *semrel_files_default
     nginx:
       context:
@@ -850,12 +855,13 @@ ssf:
         use_tofs: true
         yamllint:
           ignore:
-            - pillar.example
-            - postgres/codenamemap.yaml
-            - postgres/osfamilymap.yaml
-            - postgres/osmap.yaml
-            - postgres/repo.yaml
-            - test/salt/pillar/postgres.sls
+            additional:
+              - pillar.example
+              - postgres/codenamemap.yaml
+              - postgres/osfamilymap.yaml
+              - postgres/osmap.yaml
+              - postgres/repo.yaml
+              - test/salt/pillar/postgres.sls
       semrel_files: *semrel_files_default
     prometheus:
       context:
@@ -931,11 +937,12 @@ ssf:
         use_tofs: true
         yamllint:
           ignore:
-            - ssf/files/default/.cirrus.yml
-            - ssf/files/default/.travis.yml
-            - ssf/files/default/.yamllint
-            - ssf/files/default/kitchen.yml
-            - ssf/files/default/inspec/inspec.yml
+            additional:
+              - ssf/files/default/.cirrus.yml
+              - ssf/files/default/.travis.yml
+              - ssf/files/default/.yamllint
+              - ssf/files/default/kitchen.yml
+              - ssf/files/default/inspec/inspec.yml
           rules:
             commas:
               ignore:
@@ -1048,10 +1055,6 @@ ssf:
           - [debian       ,   9   ,   2018.3,      2,      default]
           # - [ubuntu       ,  16.04,   2017.7,      2,      default]
         use_cirrus_ci: true
-        yamllint:
-          check_files:
-            additional:
-              - pillar.debian.example
       semrel_files:
         <<: *semrel_files_default
         inspec/inspec.yml:
