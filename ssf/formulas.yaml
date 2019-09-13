@@ -823,6 +823,7 @@ ssf:
           - [fedora       ,  29   ,   2018.3,      2,       redhat]
           - [opensuse/leap,  15   ,   2018.3,      2,         suse]
           - [centos       ,   6   ,   2017.7,      2,       redhat]
+        use_tofs: true
       semrel_files: *semrel_files_default
     postfix:
       context:
