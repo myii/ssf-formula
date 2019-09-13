@@ -26,6 +26,12 @@ ssf_node_anchors:
                 - centos
                 - fedora
                 - opensuse
+            provisioner:
+              state_top_salt: &state_top_salt
+                - '*':
+                    - .pkgrepo
+                    - .master
+                    - .minion
         platforms_osfamily_debian: &platforms_osfamily_debian
           # [os           , os_ver, salt_ver, py_ver]
           - [debian       ,  10   ,  develop,      3]
@@ -998,31 +1004,157 @@ ssf:
         use_cirrus_ci: true
         use_tofs: true
       semrel_files: *semrel_files_default
-    # NOTE: Only using a basic entry for `salt-formula` for the time being,
-    #       since the use of Kitchen, InSpec & Travis is non-standard
     salt:
       context:
         git:
           github:
             repo: salt-formula
+        inspec_suites_kitchen:
+          0:
+            includes:
+              # [os           , os_ver, salt_ver, py_ver]
+              - [debian       ,   9   ,   2019.2,      3]
+              - [ubuntu       ,  18.04,   2019.2,      3]
+              - [centos       ,   7   ,   2019.2,      3]
+              - [fedora       ,  30   ,   2019.2,      3]
+              - [opensuse/leap,  15   ,   2019.2,      3]
+            inspec_yml:
+              summary: >-
+                Verify that Salt `v201902-py3` is setup and configured
+            provisioner:
+              pillars:
+                - '*':
+                    - .
+                    - v201902-py3
+              pillars_from_files:
+                - .sls: test/salt/pillar/salt.sls
+                - v201902-py3.sls: test/salt/pillar/v201902-py3.sls
+              state_top: *state_top_salt
+          1:
+            includes:
+              # [os           , os_ver, salt_ver, py_ver]
+              - [debian       ,   9   ,   2019.2,      2]
+              - [ubuntu       ,  18.04,   2019.2,      2]
+              - [centos       ,   7   ,   2019.2,      2]
+              - [opensuse/leap,  15   ,   2019.2,      2]
+              - [amazonlinux  ,   2   ,   2019.2,      2]
+            inspec_yml:
+              summary: >-
+                Verify that Salt `v201902-py2` is setup and configured
+            provisioner:
+              pillars:
+                - '*':
+                    - .
+                    - v201902-py2
+              pillars_from_files:
+                - .sls: test/salt/pillar/salt.sls
+                - v201902-py2.sls: test/salt/pillar/v201902-py2.sls
+              state_top: *state_top_salt
+          2:
+            includes:
+              # [os           , os_ver, salt_ver, py_ver]
+              - [debian       ,   9   ,   2018.3,      2]
+              - [ubuntu       ,  16.04,   2018.3,      2]
+              - [centos       ,   7   ,   2018.3,      2]
+              # Would need a forced version, Fedora could be pinned to `minor`, though
+              # - [fedora       ,  29   ,   2018.3,      2]
+              # - [opensuse/leap,  15   ,   2018.3,      2]
+              - [amazonlinux  ,   2   ,   2018.3,      2]
+            inspec_yml:
+              summary: >-
+                Verify that Salt `v201803-py2` is setup and configured
+            provisioner:
+              pillars:
+                - '*':
+                    - .
+                    - v201803-py2
+              pillars_from_files:
+                - .sls: test/salt/pillar/salt.sls
+                - v201803-py2.sls: test/salt/pillar/v201803-py2.sls
+              state_top: *state_top_salt
+          3:
+            includes:
+              # [os           , os_ver, salt_ver, py_ver]
+              - [debian       ,   8   ,   2017.7,      2]
+              - [ubuntu       ,  16.04,   2017.7,      2]
+              - [centos       ,   6   ,   2017.7,      2]
+              # Would need a forced version, Fedora could be pinned to `minor`, though
+              # - [fedora       ,  29   ,   2017.7,      2]
+              # - [opensuse/leap,  15   ,   2017.7,      2]
+              - [amazonlinux  ,   2   ,   2017.7,      2]
+            inspec_yml:
+              summary: >-
+                Verify that Salt `v201707-py2` is setup and configured
+            provisioner:
+              pillars:
+                - '*':
+                    - .
+                    - v201707-py2
+              pillars_from_files:
+                - .sls: test/salt/pillar/salt.sls
+                - v201707-py2.sls: test/salt/pillar/v201707-py2.sls
+              state_top: *state_top_salt
+        inspec_suites_matrix:
+          - v201902-py3
+          - v201902-py2
+          - v201803-py2
+          - v201707-py2
+        # "Reversed" the ordering here to get the slowest instances closer to the top
+        platforms:
+          # [os           , os_ver, salt_ver, py_ver]
+          - [debian       ,   8   ,   2017.7,      2]
+          - [ubuntu       ,  16.04,   2017.7,      2]
+          - [centos       ,   6   ,   2017.7,      2]
+          # - [fedora       ,  29   ,   2017.7,      2]
+          # - [opensuse/leap,  15   ,   2017.7,      2]
+          - [amazonlinux  ,   2   ,   2017.7,      2]
+          - [debian       ,   9   ,   2018.3,      2]
+          - [ubuntu       ,  16.04,   2018.3,      2]
+          - [centos       ,   7   ,   2018.3,      2]
+          # - [fedora       ,  29   ,   2018.3,      2]
+          # - [opensuse/leap,  15   ,   2018.3,      2]
+          - [amazonlinux  ,   2   ,   2018.3,      2]
+          - [debian       ,   9   ,   2019.2,      2]
+          - [ubuntu       ,  18.04,   2019.2,      2]
+          - [centos       ,   7   ,   2019.2,      2]
+          - [opensuse/leap,  15   ,   2019.2,      2]
+          - [amazonlinux  ,   2   ,   2019.2,      2]
+          - [debian       ,   9   ,   2019.2,      3]
+          - [ubuntu       ,  18.04,   2019.2,      3]
+          - [centos       ,   7   ,   2019.2,      3]
+          - [fedora       ,  30   ,   2019.2,      3]
+          - [opensuse/leap,  15   ,   2019.2,      3]
+        platforms_matrix:
+          # [os           , os_ver, salt_ver, py_ver, inspec_suite]
+          # - [debian       ,   8   ,   2017.7,      2,  v201707-py2]
+          - [ubuntu       ,  16.04,   2017.7,      2,  v201707-py2]
+          - [centos       ,   6   ,   2017.7,      2,  v201707-py2]
+          # # - [fedora       ,  29   ,   2017.7,      2,  v201707-py2]
+          # # - [opensuse/leap,  15   ,   2017.7,      2,  v201707-py2]
+          # - [amazonlinux  ,   2   ,   2017.7,      2,  v201707-py2]
+          # - [debian       ,   9   ,   2018.3,      2,  v201803-py2]
+          # - [ubuntu       ,  16.04,   2018.3,      2,  v201803-py2]
+          - [centos       ,   7   ,   2018.3,      2,  v201803-py2]
+          # # - [fedora       ,  29   ,   2018.3,      2,  v201803-py2]
+          # # - [opensuse/leap,  15   ,   2018.3,      2,  v201803-py2]
+          - [amazonlinux  ,   2   ,   2018.3,      2,  v201803-py2]
+          - [debian       ,   9   ,   2019.2,      2,  v201902-py2]
+          - [ubuntu       ,  18.04,   2019.2,      2,  v201902-py2]
+          # - [centos       ,   7   ,   2019.2,      2,  v201902-py2]
+          # - [opensuse/leap,  15   ,   2019.2,      2,  v201902-py2]
+          # - [amazonlinux  ,   2   ,   2019.2,      2,  v201902-py2]
+          # - [debian       ,   9   ,   2019.2,      3,  v201902-py3]
+          # - [ubuntu       ,  18.04,   2019.2,      3,  v201902-py3]
+          # - [centos       ,   7   ,   2019.2,      3,  v201902-py3]
+          - [fedora       ,  30   ,   2019.2,      3,  v201902-py3]
+          - [opensuse/leap,  15   ,   2019.2,      3,  v201902-py3]
         use_tofs: true
         yamllint:
           ignore:
             additional:
               - salt/osfamilymap.yaml
               - salt/osmap.yaml
-      semrel_files:
-        bin/kitchen: *file__bin__kitchen
-        docs/CONTRIBUTING.rst: *file__docs__CONTRIBUTING--rst
-        docs/TOFS_pattern.rst: *file__docs__TOFS_pattern--rst
-        formula/libtofs.jinja: *file__formula__libtofs--jinja
-        .gitignore: *file__--gitignore
-        .yamllint: *file__--yamllint
-        commitlint.config.js: *file__commitlint--config--js
-        Gemfile: *file__Gemfile
-        pre-commit_semantic-release.sh: *file__pre-commit_semantic-release--sh
-        release-rules.js: *file__release-rules--js
-        release.config.js: *file__release--config--js
+      semrel_files: *semrel_files_default
     ssf:
       context:
         git:
