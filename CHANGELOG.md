@@ -1,5 +1,17 @@
 # Changelog
 
+# [0.22.0](https://github.com/myii/ssf-formula/compare/v0.21.0...v0.22.0) (2019-09-13)
+
+
+### Continuous Integration
+
+* **yamllint:** add rule `empty-values` & use new `yaml-files` setting ([1d418e9](https://github.com/myii/ssf-formula/commit/1d418e9))
+
+
+### Features
+
+* **formula:** add `openssh-formula` ([cc13b86](https://github.com/myii/ssf-formula/commit/cc13b86))
+
 # [0.21.0](https://github.com/myii/ssf-formula/compare/v0.20.0...v0.21.0) (2019-09-12)
 
 
