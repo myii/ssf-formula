@@ -705,6 +705,21 @@ ssf:
           - [centos       ,   6   ,   2017.7,      2,      default]
         use_tofs: true
       semrel_files: *semrel_files_default
+    openssh:
+      context:
+        git:
+          github:
+            repo: openssh-formula
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: >-
+                Verify that the openssh formula is setup and configured correctly
+            provisioner:
+              pillars_from_files:
+                - .sls: test/salt/pillar/default.sls
+        use_tofs: true
+      semrel_files: *semrel_files_default
     openvpn:
       context:
         git:

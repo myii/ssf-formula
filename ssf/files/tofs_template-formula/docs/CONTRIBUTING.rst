@@ -182,6 +182,7 @@ These formulas are already compatible with semantic-release:
 * `logrotate-formula <https://github.com/saltstack-formulas/logrotate-formula>`_
 * `mysql-formula <https://github.com/saltstack-formulas/mysql-formula>`_
 * `nginx-formula <https://github.com/saltstack-formulas/nginx-formula>`_
+* `openssh-formula <https://github.com/saltstack-formulas/openssh-formula>`_
 * `openvpn-formula <https://github.com/saltstack-formulas/openvpn-formula>`_
 * [`WIP <https://github.com/saltstack-formulas/packages-formula/pull/54>`_] `packages-formula <https://github.com/saltstack-formulas/packages-formula>`_
 * `php-formula <https://github.com/saltstack-formulas/php-formula>`_

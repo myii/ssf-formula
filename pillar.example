@@ -76,6 +76,7 @@ ssf:
       - logrotate
       - mysql
       - nginx
+      - openssh
       - openvpn
       - php
       - postfix

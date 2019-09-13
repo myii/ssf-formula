@@ -15,8 +15,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable-line rule:line-length
-            title: 'ci(yamllint): add rule `empty-values` & use new `yaml-files` setting'
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/27'
+            title: 'feat(semantic-release): implement for this formula'
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/30'
           github:
             owner: saltstack-formulas
             repo: ''
@@ -246,6 +246,7 @@ ssf:
     logrotate: *formula_default
     mysql: *formula_default
     nginx: *formula_default
+    openssh: *formula_default
     openvpn: *formula_default
     packages:
       <<: *formula_default
