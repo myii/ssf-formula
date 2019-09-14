@@ -189,6 +189,7 @@ These formulas are already compatible with semantic-release:
 * `postfix-formula <https://github.com/saltstack-formulas/postfix-formula>`_
 * `postgres-formula <https://github.com/saltstack-formulas/postgres-formula>`_
 * `prometheus-formula <https://github.com/saltstack-formulas/prometheus-formula>`_
+* `redis-formula <https://github.com/saltstack-formulas/redis-formula>`_
 * `rkhunter-formula <https://github.com/saltstack-formulas/rkhunter-formula>`_
 * `salt-formula <https://github.com/saltstack-formulas/salt-formula>`_
 * `sudoers-formula <https://github.com/saltstack-formulas/sudoers-formula>`_

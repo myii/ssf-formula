@@ -14,8 +14,8 @@ ssf_node_anchors:
             #       release phase via. `pre-commit_semantic-release.sh`
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
-            title: 'feat(tofs): implementation for all file.managed'
-            body: '* Checked using https://github.com/myii/ssf-formula/pull/19'
+            title: 'feat(semantic-release): implement for this formula'
+            body: '* Semi-automated using https://github.com/myii/ssf-formula/pull/32'
           github:
             owner: saltstack-formulas
             repo: ''
@@ -292,6 +292,7 @@ ssf:
     postfix: *formula_default
     postgres: *formula_default
     prometheus: *formula_default
+    redis: *formula_default
     rkhunter:
       <<: *formula_default
       context:

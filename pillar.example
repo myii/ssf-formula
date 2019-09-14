@@ -82,6 +82,7 @@ ssf:
       - postfix
       - postgres
       - prometheus
+      - redis
       - rkhunter
       - ssf
       - stack
