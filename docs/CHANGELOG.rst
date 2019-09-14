@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`0.24.0 <https://github.com/myii/ssf-formula/compare/v0.23.0...v0.24.0>`_ (2019-09-14)
+------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **formula:** add ``redis-formula`` (\ `e5eefbf <https://github.com/myii/ssf-formula/commit/e5eefbf>`_\ )
+
 `0.23.0 <https://github.com/myii/ssf-formula/compare/v0.22.0...v0.23.0>`_ (2019-09-13)
 ------------------------------------------------------------------------------------------
 
