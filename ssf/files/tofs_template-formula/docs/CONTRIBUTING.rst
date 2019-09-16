@@ -198,7 +198,7 @@ These formulas are already compatible with semantic-release:
 #. `ntp-formula <https://github.com/saltstack-formulas/ntp-formula>`_
 #. `openssh-formula <https://github.com/saltstack-formulas/openssh-formula>`_
 #. `openvpn-formula <https://github.com/saltstack-formulas/openvpn-formula>`_
-#. [`WIP <https://github.com/saltstack-formulas/packages-formula/pull/54>`_] `packages-formula <https://github.com/saltstack-formulas/packages-formula>`_
+#. `packages-formula <https://github.com/saltstack-formulas/packages-formula>`_
 #. `php-formula <https://github.com/saltstack-formulas/php-formula>`_
 #. `postfix-formula <https://github.com/saltstack-formulas/postfix-formula>`_
 #. `postgres-formula <https://github.com/saltstack-formulas/postgres-formula>`_

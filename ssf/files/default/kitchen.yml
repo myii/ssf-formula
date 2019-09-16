@@ -102,6 +102,10 @@ image: netmanagers/salt-{{ salt_ver }}-py{{ py_ver }}:{{ os | replace('/', '-') 
 {%-       if os == 'opensuse/leap' %}
 {%-         do prov_cmds.append('- zypper -n in tar gzip') %}
 {%-       endif %}
+{%-     elif semrel_formula == 'packages' %}
+{%-       if [os, os_ver] in [['debian', 10], ['debian', 9]] %}
+{%-         do prov_cmds.append('- apt-get install -y snapd') %}
+{%-       endif %}
 {%-     endif %}
 {#-     Prepare the commands if available#}
 {%-     if prov_cmds %}

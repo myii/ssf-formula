@@ -31,6 +31,10 @@ ssf_node_anchors:
                 - fedora
                 - amazon
             provisioner:
+              dependencies_epel: &dependencies_epel
+                - name: 'epel'
+                  repo: 'git'
+                  source: 'https://github.com/saltstack-formulas/epel-formula.git'
               # dependencies_files: &dependencies_files
               #   - name: 'files'
               #     path: './test/salt'
@@ -103,34 +107,40 @@ ssf_node_anchors:
         #   # [os           , os_ver, salt_ver, py_ver]
         #   - [ubuntu       ,  16.04,   2018.3,      2]
         #   - [ubuntu       ,  16.04,   2017.7,      2]
-        # platforms_os_fedora: &platforms_os_fedora
-        #   # [os           , os_ver, salt_ver, py_ver]
-        #   - [fedora       ,  31   ,   master,      3]
-        #   - [fedora       ,  31   ,   2019.2,      3]
-        #   - [fedora       ,  30   ,   2018.3,      3]
-        #   - [fedora       ,  30   ,   2017.7,      2]
+        platforms_os_fedora: &platforms_os_fedora
+          # [os           , os_ver, salt_ver, py_ver]
+          - [fedora       ,  31   ,   master,      3]
+          - [fedora       ,  31   ,   2019.2,      3]
+          - [fedora       ,  30   ,   2018.3,      3]
+          - [fedora       ,  30   ,   2017.7,      2]
         # platforms_os_suse: &platforms_os_suse
         #   # [os           , os_ver, salt_ver, py_ver]
         #   - [opensuse/leap,  15.1 ,   master,      3]
         #   - [opensuse/leap,  15.1 ,   2019.2,      3]
         #   - [opensuse/leap,  15.1 ,   2018.3,      2]
         #   - [opensuse/leap,  15.1 ,   2017.7,      2]
-        # platforms_os_centos: &platforms_os_centos
-        #   # [os           , os_ver, salt_ver, py_ver]
-        #   - [centos       ,   8   ,   master,      3]
-        #   - [centos       ,   8   ,   2019.2,      3]
-        #   - [centos       ,   7   ,   2019.2,      2]
-        #   - [centos       ,   7   ,   2018.3,      2]
-        #   - [centos       ,   6   ,   2017.7,      2]
+        platforms_os_centos: &platforms_os_centos
+          # [os           , os_ver, salt_ver, py_ver]
+          - [centos       ,   8   ,   master,      3]
+          - [centos       ,   8   ,   2019.2,      3]
+          - [centos       ,   7   ,   2019.2,      2]
+          - [centos       ,   7   ,   2018.3,      2]
+          - [centos       ,   6   ,   2017.7,      2]
         platforms_os_centos6: &platforms_os_centos6
           # [os           , os_ver, salt_ver, py_ver]
           - [centos       ,   6   ,   2017.7,      2]
-        # platforms_os_amazonlinux: &platforms_os_amazonlinux
-        #   # [os           , os_ver, salt_ver, py_ver]
-        #   - [amazonlinux  ,   2   ,   master,      2]
-        #   - [amazonlinux  ,   2   ,   2019.2,      2]
-        #   - [amazonlinux  ,   2   ,   2018.3,      2]
-        #   - [amazonlinux  ,   2   ,   2017.7,      2]
+        platforms_os_amazonlinux: &platforms_os_amazonlinux
+          # [os           , os_ver, salt_ver, py_ver]
+          - [amazonlinux  ,   2   ,   master,      2]
+          - [amazonlinux  ,   2   ,   2019.2,      2]
+          - [amazonlinux  ,   2   ,   2018.3,      2]
+          - [amazonlinux  ,   2   ,   2017.7,      2]
+        platforms_os_arch_base: &platforms_os_arch_base
+          # [os           , os_ver, salt_ver, py_ver]
+          - [arch-base    , latest,   master,      2]
+          - [arch-base    , latest,   2019.2,      2]
+          - [arch-base    , latest,   2018.3,      2]
+          - [arch-base    , latest,   2017.7,      2]
         platforms_os_redhat_locale_specific: &platforms_os_redhat_locale_specific
           # [os           , os_ver, salt_ver, py_ver]
           - [centos       ,   8   ,   master,      3]
@@ -1355,6 +1365,107 @@ ssf:
           ignore:
             additional:
               - test/salt/pillar/default.sls
+      semrel_files: *semrel_files_default
+    packages:
+      context:
+        git:
+          github:
+            repo: 'packages-formula'
+        inspec_suites_kitchen:
+          0:
+            # None of the platforms use `default` directly
+            includes: *includes_NONE
+            inspec_yml:
+              summary: >-
+                Verify that the packages formula is setup and configured correctly
+            provisioner:
+              pillars_from_files: []
+          1:
+            includes: *platforms_os_debian
+            provisioner:
+              dependencies:
+                - name: 'node'
+                  repo: 'git'
+                  source: 'https://github.com/saltstack-formulas/node-formula.git'
+              pillars_from_files:
+                - .sls: 'test/salt/pillar/debian.sls'
+              state_top:
+                - '*':
+                    - node
+                    - .
+            verifier: *verifier_inspec_tests_default
+          2:
+            includes: *platforms_os_ubuntu
+            provisioner:
+              dependencies:
+                - name: 'golang'
+                  repo: 'git'
+                  source: 'https://github.com/saltstack-formulas/golang-formula.git'
+              pillars_from_files:
+                - .sls: 'test/salt/pillar/ubuntu.sls'
+              state_top:
+                - '*':
+                    - golang.package
+                    - .
+            verifier: *verifier_inspec_tests_default
+          3:
+            includes: *platforms_os_fedora
+            provisioner:
+              pillars_from_files:
+                - .sls: 'test/salt/pillar/fedora.sls'
+            verifier: *verifier_inspec_tests_default
+          4:
+            includes: *platforms_os_centos
+            provisioner:
+              dependencies: *dependencies_epel
+              pillars_from_files:
+                - .sls: 'test/salt/pillar/redhat.sls'
+              state_top:
+                - '*':
+                    - epel
+                    - .
+            verifier: *verifier_inspec_tests_default
+          5:
+            includes: *platforms_os_amazonlinux
+            provisioner:
+              dependencies: *dependencies_epel
+              pillars_from_files:
+                - .sls: 'test/salt/pillar/amazon.sls'
+              state_top:
+                - '*':
+                    - epel
+                    - .
+            verifier: *verifier_inspec_tests_default
+          6:
+            includes: *platforms_osfamily_suse
+            provisioner:
+              pillars_from_files:
+                - .sls: 'test/salt/pillar/opensuse.sls'
+            verifier: *verifier_inspec_tests_default
+          7:
+            includes: *platforms_os_arch_base
+            provisioner:
+              pillars_from_files:
+                - .sls: 'test/salt/pillar/arch.sls'
+            verifier: *verifier_inspec_tests_default
+        inspec_suites_matrix:
+          - default
+          - debian
+          - ubuntu
+          - fedora
+          - centos
+          - amazon
+          - suse
+          - arch
+        platforms_matrix:
+          # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
+          - [debian       ,  10   ,   master,      3,          debian]
+          - [ubuntu       ,  18.04,   2019.2,      3,          ubuntu]
+          - [opensuse/leap,  15.1 ,   2019.2,      3,            suse]
+          - [amazonlinux  ,   2   ,   2019.2,      2,          amazon]
+          - [fedora       ,  30   ,   2018.3,      3,          fedora]
+          - [centos       ,   7   ,   2018.3,      2,          centos]
+          - [arch-base    , latest,   2017.7,      2,            arch]
       semrel_files: *semrel_files_default
     php:
       context:
