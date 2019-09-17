@@ -14,8 +14,9 @@ ssf_node_anchors:
             #       release phase via. `pre-commit_semantic-release.sh`
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
-            title: 'ci(kitchen): use `openssh.config` as `state_top`'
-            body: '* Semi-automated using https://github.com/myii/ssf-formula/pull/33'
+            # yamllint disable-line rule:line-length
+            title: 'feat: use `semantic-release` cross-formula standard structure'
+            body: '* Semi-automated using https://github.com/myii/ssf-formula/pull/31'
           github:
             owner: saltstack-formulas
             repo: ''
@@ -308,6 +309,9 @@ ssf:
           3:
             <<: *isk_suite_default
             name: suse
+    # NOTE: Only using a basic entry for `salt-formula` for the time being,
+    #       since the use of Kitchen, InSpec & Travis is non-standard
+    salt: *formula_default
     ssf: *formula_default
     stack: *formula_default
     sudoers: *formula_default

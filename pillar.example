@@ -84,6 +84,7 @@ ssf:
       - prometheus
       - redis
       - rkhunter
+      - salt
       - ssf
       - stack
       - sudoers

@@ -22,7 +22,7 @@ extends: {{ yamllint.extends }}
 #    Not disabling via. `*.yml` since we may end up with non-Jinja YAML files here
 {%- elif semrel_formula == 'mysql' %}
 # 3. Any YAML files using Jinja (result in `yamllint` syntax errors)
-{%- elif semrel_formula == 'postgres' %}
+{%- elif semrel_formula in ['postgres', 'salt'] %}
 # 3. All YAML files heavily reliant on Jinja; these can be tackled in a subsequent PR
 {%- endif %}
 {%- set yl_ignores = {'ignore':
