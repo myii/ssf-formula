@@ -84,6 +84,7 @@ ssf:
       - grafana
       - influxdb
       - iptables
+      - iscsi
       - keepalived
       - libvirt
       - locale
