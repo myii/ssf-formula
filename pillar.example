@@ -65,6 +65,7 @@ ssf:
       - cron
       - deepsea
       - dhcpd
+      - exim
       - fail2ban
       - golang
       - grafana

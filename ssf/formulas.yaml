@@ -412,6 +412,22 @@ ssf:
           - [opensuse/leap,  15   ,   2018.3,      2,      default]
           - [centos       ,   6   ,   2017.7,      2,      default]
       semrel_files: *semrel_files_default
+    exim:
+      context:
+        git:
+          github:
+            repo: exim-formula
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: >-
+                Verify that the exim formula is setup and configured correctly
+              supports: *supports_debian_ubuntu
+            provisioner:
+              pillars_from_files:
+                - .sls: test/salt/pillar/exim.sls
+        platforms_matrix: *platforms_matrix_osfamily_debian
+      semrel_files: *semrel_files_default
     fail2ban:
       context:
         git:
