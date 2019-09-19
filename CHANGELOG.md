@@ -1,5 +1,12 @@
 # Changelog
 
+# [0.27.0](https://github.com/myii/ssf-formula/compare/v0.26.0...v0.27.0) (2019-09-19)
+
+
+### Features
+
+* **vault:** use `kitchen verify` instead of `kitchen test` ([6908095](https://github.com/myii/ssf-formula/commit/6908095)), closes [/github.com/saltstack-formulas/vault-formula/pull/35#issuecomment-510046931](https://github.com//github.com/saltstack-formulas/vault-formula/pull/35/issues/issuecomment-510046931) [/freenode.logbot.info/saltstack-formulas/20190711#c2390145](https://github.com//freenode.logbot.info/saltstack-formulas/20190711/issues/c2390145)
+
 # [0.26.0](https://github.com/myii/ssf-formula/compare/v0.25.0...v0.26.0) (2019-09-17)
 
 
