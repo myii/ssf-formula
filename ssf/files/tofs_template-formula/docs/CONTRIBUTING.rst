@@ -171,6 +171,7 @@ These formulas are already compatible with semantic-release:
 * `cron-formula <https://github.com/saltstack-formulas/cron-formula>`_
 * `deepsea-formula <https://github.com/saltstack-formulas/deepsea-formula>`_
 * `dhcpd-formula <https://github.com/saltstack-formulas/dhcpd-formula>`_
+* `exim-formula <https://github.com/saltstack-formulas/exim-formula>`_
 * `fail2ban-formula <https://github.com/saltstack-formulas/fail2ban-formula>`_
 * `golang-formula <https://github.com/saltstack-formulas/golang-formula>`_
 * `grafana-formula <https://github.com/saltstack-formulas/grafana-formula>`_

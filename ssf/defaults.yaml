@@ -15,8 +15,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length
-            title: 'ci(travis): use `kitchen verify` instead of `kitchen test`'
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/35'
+            title: 'feat(semantic-release): implement for this formula'
+            body: '* Checked using https://github.com/myii/ssf-formula/pull/37'
             # yamllint enable rule:line-length
           github:
             owner: saltstack-formulas
@@ -209,6 +209,7 @@ ssf:
     cron: *formula_default
     deepsea: *formula_default
     dhcpd: *formula_default
+    exim: *formula_default
     fail2ban: *formula_default
     golang: *formula_default
     grafana: *formula_default
