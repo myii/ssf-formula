@@ -1334,8 +1334,6 @@ ssf:
           - [fedora       ,  29   ,   2018.3,      2,           '']
           - [opensuse/leap,  15   ,   2018.3,      2,           '']
           - [centos       ,   6   ,   2017.7,      2,           '']
-        script_kitchen:
-          cmd: test
       semrel_files: *semrel_files_default
     vim:
       context:
