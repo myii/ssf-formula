@@ -1,5 +1,12 @@
 # Changelog
 
+# [0.29.0](https://github.com/myii/ssf-formula/compare/v0.28.0...v0.29.0) (2019-09-20)
+
+
+### Features
+
+* **formula:** add `apt-cacher-formula` ([d8f2aad](https://github.com/myii/ssf-formula/commit/d8f2aad))
+
 # [0.28.0](https://github.com/myii/ssf-formula/compare/v0.27.0...v0.28.0) (2019-09-19)
 
 
