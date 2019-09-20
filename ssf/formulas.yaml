@@ -244,6 +244,25 @@ ssf:
           - [debian       ,   9   ,   2019.2,      3,  preferences]
           - [ubuntu       ,  18.04,   2019.2,      3,  preferences]
       semrel_files: *semrel_files_default
+    apt-cacher:
+      context:
+        git:
+          github:
+            repo: apt-cacher-formula
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: >-
+                Verify that the apt-cacher formula is setup and configured correctly
+              supports: *supports_debian_ubuntu
+            provisioner:
+              pillars_from_files:
+                - .sls: test/salt/pillar/apt-cacher.sls
+              state_top:
+                - '*':
+                    - .ng.server
+        platforms_matrix: *platforms_matrix_osfamily_debian
+      semrel_files: *semrel_files_default
     bind:
       context:
         git:

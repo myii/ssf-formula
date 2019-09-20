@@ -164,6 +164,7 @@ Semantic release formulas
 These formulas are already compatible with semantic-release:
 
 * `apt-formula <https://github.com/saltstack-formulas/apt-formula>`_
+* `apt-cacher-formula <https://github.com/saltstack-formulas/apt-cacher-formula>`_
 * `bind-formula <https://github.com/saltstack-formulas/bind-formula>`_
 * `cert-formula <https://github.com/saltstack-formulas/cert-formula>`_
 * `chrony-formula <https://github.com/saltstack-formulas/chrony-formula>`_

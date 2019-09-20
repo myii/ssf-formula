@@ -58,6 +58,7 @@ ssf:
   active:
     semrel_formulas:
       - apt
+      - apt-cacher
       - bind
       - cert
       - chrony
