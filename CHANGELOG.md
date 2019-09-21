@@ -1,5 +1,12 @@
 # Changelog
 
+# [0.31.0](https://github.com/myii/ssf-formula/compare/v0.30.0...v0.31.0) (2019-09-21)
+
+
+### Features
+
+* **openvpn:** fix EPEL repo configuration for `Amazon Linux-2` ([0702630](https://github.com/myii/ssf-formula/commit/0702630))
+
 # [0.30.0](https://github.com/myii/ssf-formula/compare/v0.29.0...v0.30.0) (2019-09-21)
 
 
