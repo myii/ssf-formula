@@ -46,6 +46,13 @@ addons:
 {%-   endif %}
 env:
   matrix:
+    {%- if semrel_formula == 'salt' %}
+    # The ordering used below has been selected based on the time required in Travis
+    # The slower ones are kept as high up as possible, to run concurrently rather than
+    # slow down the entire run at the end (i.e. `centos-6` and `opensuse`)
+    # However, the groupings needed to be maintained in some semblance of order
+    # so this is a best-effort matrix, in the circumstances
+    {%- endif %}
     {{- format_ci_matrix(platforms, inspec_suites_kitchen, inspec_suites_matrix, platforms_matrix, semrel_formula, old_ci_files) }}
 
 script:

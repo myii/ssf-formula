@@ -15,8 +15,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length
-            title: 'feat(semantic-release): implement for this formula'
-            body: '* Checked using https://github.com/myii/ssf-formula/pull/39'
+            title: 'refactor(kitchen+travis+inspec): use pre-salted images'
+            body: '* Semi-automated using https://github.com/myii/ssf-formula/pull/36'
             # yamllint enable rule:line-length
           github:
             owner: saltstack-formulas
@@ -312,9 +312,24 @@ ssf:
           3:
             <<: *isk_suite_default
             name: suse
-    # NOTE: Only using a basic entry for `salt-formula` for the time being,
-    #       since the use of Kitchen, InSpec & Travis is non-standard
-    salt: *formula_default
+    salt:
+      <<: *formula_default
+      context:
+        <<: *context_default
+        inspec_suites_kitchen:
+          <<: *isk_default
+          0:
+            <<: *isk_suite_default
+            name: v201902-py3
+          1:
+            <<: *isk_suite_default
+            name: v201902-py2
+          2:
+            <<: *isk_suite_default
+            name: v201803-py2
+          3:
+            <<: *isk_suite_default
+            name: v201707-py2
     ssf: *formula_default
     stack: *formula_default
     sudoers: *formula_default
