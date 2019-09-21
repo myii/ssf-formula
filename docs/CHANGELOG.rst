@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`0.30.0 <https://github.com/myii/ssf-formula/compare/v0.29.0...v0.30.0>`_ (2019-09-21)
+------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **salt:** add remaining sections (Kitchen, InSpec & Travis) (\ `11186e9 <https://github.com/myii/ssf-formula/commit/11186e9>`_\ )
+
 `0.29.0 <https://github.com/myii/ssf-formula/compare/v0.28.0...v0.29.0>`_ (2019-09-20)
 ------------------------------------------------------------------------------------------
 
