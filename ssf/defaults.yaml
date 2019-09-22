@@ -9,7 +9,7 @@ ssf_node_anchors:
           branch:
             # TODO: `base` can be removed in favour of `github:remote:upstream:branch`
             base: master
-            pr: chore/local-use-only-to-push-to-main-branch
+            pr: chore/standardise-structure
             upstream: upstream
           commit:
             # NOTE: The version number in the `body` is automatically updated during the
@@ -17,8 +17,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length
-            title: 'ci(kitchen): change `log_level` to `debug` instead of `info`'
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/41'
+            title: 'ci(platform): add `arch-base-latest`'
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/40'
             # yamllint enable rule:line-length
           github:
             owner: saltstack-formulas
@@ -55,6 +55,7 @@ ssf_node_anchors:
                 - suse
                 - freebsd
                 - amazon
+                - arch
             provisioner:
               dependencies: []
               # Structure assumes `top.sls:base`
@@ -87,30 +88,35 @@ ssf_node_anchors:
           - [fedora       ,  30   ,  develop,      3]
           - [opensuse/leap,  15   ,  develop,      3]
           - [amazonlinux  ,   2   ,  develop,      2]
+          - [arch-base    , latest,  develop,      2]
           - [debian       ,   9   ,   2019.2,      3]
           - [ubuntu       ,  18.04,   2019.2,      3]
           - [centos       ,   7   ,   2019.2,      3]
           - [fedora       ,  30   ,   2019.2,      3]
           - [opensuse/leap,  15   ,   2019.2,      3]
           - [amazonlinux  ,   2   ,   2019.2,      2]
+          - [arch-base    , latest,   2019.2,      2]
           - [debian       ,   9   ,   2018.3,      2]
           - [ubuntu       ,  16.04,   2018.3,      2]
           - [centos       ,   7   ,   2018.3,      2]
           - [fedora       ,  29   ,   2018.3,      2]
           - [opensuse/leap,  15   ,   2018.3,      2]
           - [amazonlinux  ,   2   ,   2018.3,      2]
+          - [arch-base    , latest,   2018.3,      2]
           - [debian       ,   8   ,   2017.7,      2]
           - [ubuntu       ,  16.04,   2017.7,      2]
           - [centos       ,   6   ,   2017.7,      2]
           - [fedora       ,  29   ,   2017.7,      2]
           - [opensuse/leap,  15   ,   2017.7,      2]
           - [amazonlinux  ,   2   ,   2017.7,      2]
+          - [arch-base    , latest,   2017.7,      2]
         platforms_matrix:
           # Comments in `platforms` apply here, too
           # [os           , os_ver, salt_ver, py_ver, inspec_suite]
           - [debian       ,  10   ,  develop,      3,      default]
           - [ubuntu       ,  18.04,   2019.2,      3,      default]
           - [amazonlinux  ,   2   ,   2019.2,      2,      default]
+          - [arch-base    , latest,   2019.2,      2,      default]
           - [fedora       ,  29   ,   2018.3,      2,      default]
           - [opensuse/leap,  15   ,   2018.3,      2,      default]
           - [centos       ,   6   ,   2017.7,      2,      default]

@@ -125,8 +125,8 @@ platforms:
         {%- endif %}
       {%- endif %}
       {#- TODO: Should really do this whole `if` block from `defaults.yaml` or `formulas.yaml`, just speeding things up right now #}
-      {%- if os == 'opensuse/leap' %}
-      {%-   if semrel_formula == 'deepsea' and salt_ver != 'develop' %}
+      {%- if os in ['opensuse/leap', 'arch-base'] %}
+      {%-   if os == 'opensuse/leap' and semrel_formula == 'deepsea' and salt_ver != 'develop' %}
       {#-     Duplicated `provision_command` due to `deepsea`, try to remove eventually #}
       provision_command:
         - zypper -n in tar gzip
