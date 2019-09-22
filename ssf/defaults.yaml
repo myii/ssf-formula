@@ -7,20 +7,29 @@ ssf_node_anchors:
       context: &context_default
         git:
           branch:
+            # TODO: `base` can be removed in favour of `github:remote:upstream:branch`
             base: master
-            pr: chore/standardise-structure
+            pr: chore/local-use-only-to-push-to-main-branch
+            upstream: upstream
           commit:
             # NOTE: The version number in the `body` is automatically updated during the
             #       release phase via. `pre-commit_semantic-release.sh`
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length
-            title: 'fix(repo): provide EPEL repo configuration for `Amazon Linux-2`'
-            body: '* Semi-automated using https://github.com/myii/ssf-formula/pull/38'
+            title: 'ci(kitchen): change `log_level` to `debug` instead of `info`'
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/41'
             # yamllint enable rule:line-length
           github:
             owner: saltstack-formulas
             repo: ''
+            remote:
+              upstream:
+                name: upstream
+                branch: master
+              fork:
+                name: origin
+                branch: master
         inspec_suites_kitchen: &isk_default
           0: &isk_suite_default
             name: default
@@ -168,13 +177,10 @@ ssf:
     semrel_formulas: []
     semrel_files: []
   git:
-    branch:
-      upstream: upstream
     commit:
       options: ''
     github:
       user: ''
-      push_remote: origin
       file_api_response: github_api_response
     states:
       prepare:
@@ -186,6 +192,10 @@ ssf:
       commit_push:
         active: false
         source: salt://ssf/files/default/git/git_20_commit_push.sh
+        push:
+          active: false
+          # Push commit via. PR; if not, push directly to the repo's main branch
+          via_PR: true
       create_PR:
         active: false
         source: salt://ssf/files/default/git/git_30_create_PR.sh
