@@ -88,6 +88,7 @@ ssf:
       - libvirt
       - locale
       - logrotate
+      - lvm
       - mysql
       - nginx
       - openssh
