@@ -18,24 +18,24 @@ ssf:
     ### Your GitHub configuration
     github:
       user: your_github_username
-      ### Remote to `git push` to
-      ### Default shown below will be used if left commented out
-      # push_remote: origin
       ### Local file to capture the GitHub API response when automatically
       ### creating the PR, prevents spamming the Salt output;
       ### Default shown below will be used if left commented out
       # file_api_response: github_api_response
     ### All `git`-related states default to `False`; enable here as required
     ### When testing this formula, the layout below is recommended:
-    ### - Branch is prepared and changes are added/removed
-    ### - Commit, push and PR creation are not performed
+    ### - Branch is prepared, changes are added/removed and a commit is prepared
+    ### - The commit isn't pushed, neither directly nor via. a newly created PR
     states:
       prepare:
         active: true
       add_rm:
         active: true
-      # commit_push:
-      #   active: true
+      commit_push:
+        active: true
+      #   push:
+      #     active: true
+      #     via_PR: false
       create_PR:
         # active: true
         ### This is a necessary override since the default script does not
@@ -43,15 +43,27 @@ ssf:
         ### and simply add your personal token at the top of the script
         source: salt://ssf/files/your_directory/git/git_30_create_PR.sh
 
-  ### Any customisations to the formulas can be made here, e.g. for testing purposes
+  ### Any customisations to the formulas can be made here
   ### Usually, this is unnecessary but a likely override could be an upstream tracking
-  ### branch that doesn't match the value set above, i.e. `ssf:git:branch:upstream`.
+  ### branch that doesn't match the default values
   semrel_formulas:
     ssf:
       context:
         git:
+          # Override the names of the local tracking branches to use
           branch:
-            upstream: master
+            upstream: my_upstream_tracking_branch
+          github:
+            # Override the configuration of the remotes
+            remote:
+              # The upstream formula repo
+              upstream:
+                name: upstream
+                branch: master
+              # Your fork of the repo
+              fork:
+                name: origin
+                branch: master
 
   ### No formulas or files are active by default
   ### State the formulas and files to work through when running the formula

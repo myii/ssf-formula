@@ -27,7 +27,7 @@ prepare-git-branch-for-{{ formula }}:
     - cwd: {{ ssf.formulas_path }}/{{ formula }}/
     - args: >-
         prepare-git-branch-for-{{ formula }}
-        {{ context.git.branch.upstream | d(ssf.git.branch.upstream) }}
+        {{ context.git.branch.upstream }}
         {{ context.git.branch.pr }}
         {{ context.git.commit.body | regex_escape }}
     - runas: {{ ssf.user }}
@@ -138,25 +138,32 @@ prepare-git-branch-for-{{ formula }}:
 
 {#-   Stage 3: Run the script (`git` commands) to commit and push the branch #}
 {%-   if ssf.git.states.commit_push.active %}
+{%-     set push_opts = ssf.git.states.commit_push.push %}
 commit-and-push-{{ formula }}:
   cmd.script:
     - source: {{ ssf.git.states.commit_push.source }}
     - cwd: {{ ssf.formulas_path }}/{{ formula }}/
     - args: >-
         commit-and-push-{{ formula }}
+        {{ context.git.branch.upstream }}
         {{ context.git.branch.pr }}
         {{ context.git.commit.body | regex_escape }}
         {{ context.git.commit.title | regex_escape }}
         {{ context.git.commit.body | regex_escape }}
         {{ ssf.git.commit.options | regex_escape }}
-        {{ ssf.git.github.push_remote }}
+        {{ push_opts.active }}
+        {{ push_opts.via_PR }}
+        {{ context.git.github.remote.fork.name }}
+        {{ context.git.github.remote.fork.branch }}
+        {{ context.git.github.remote.upstream.name }}
+        {{ context.git.github.remote.upstream.branch }}
     - runas: {{ ssf.user }}
     - stateful: True
 {%-   endif %}
 
 
 {#-   Stage 4: Run the script (`curl` commands) to use the GitHub API to create the PR, if an existing PR isn't found #}
-{%-   if ssf.git.states.create_PR.active %}
+{%-   if ssf.git.states.create_PR.active and push_opts.active and push_opts.via_PR %}
 create-github-PR-for-{{ formula }}:
   cmd.script:
     - source: {{ ssf.git.states.create_PR.source }}
