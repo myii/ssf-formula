@@ -2,6 +2,25 @@
 Changelog
 =========
 
+`1.0.0 <https://github.com/myii/ssf-formula/compare/v0.31.0...v1.0.0>`_ (2019-09-23)
+----------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* allow pushing directly to upstream remote (\ `03d5a3b <https://github.com/myii/ssf-formula/commit/03d5a3b>`_\ )
+* **kitchen:** change ``log_level`` to ``debug`` instead of ``info`` (\ `be06bd8 <https://github.com/myii/ssf-formula/commit/be06bd8>`_\ )
+
+BREAKING CHANGES
+^^^^^^^^^^^^^^^^
+
+
+* Multiple arguments have been added to the ``commit_push``
+  shell script.  This includes logically reordering the arguments.
+* The pillar structure has been modified according to the
+  changes made.
+
 `0.31.0 <https://github.com/myii/ssf-formula/compare/v0.30.0...v0.31.0>`_ (2019-09-21)
 ------------------------------------------------------------------------------------------
 
