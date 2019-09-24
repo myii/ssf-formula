@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.1.0](https://github.com/myii/ssf-formula/compare/v1.0.0...v1.1.0) (2019-09-24)
+
+
+### Features
+
+* **platform:** add `arch-base-latest` ([a041b9c](https://github.com/myii/ssf-formula/commit/a041b9c)), closes [/freenode.logbot.info/saltstack-formulas/20190922#c2679402](https://github.com//freenode.logbot.info/saltstack-formulas/20190922/issues/c2679402)
+
 # [1.0.0](https://github.com/myii/ssf-formula/compare/v0.31.0...v1.0.0) (2019-09-23)
 
 
