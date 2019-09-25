@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.3.0](https://github.com/myii/ssf-formula/compare/v1.2.0...v1.3.0) (2019-09-25)
+
+
+### Features
+
+* **formula:** add `lvm-formula` ([c6fc6cc](https://github.com/myii/ssf-formula/commit/c6fc6cc))
+
 # [1.2.0](https://github.com/myii/ssf-formula/compare/v1.1.0...v1.2.0) (2019-09-25)
 
 
