@@ -101,6 +101,7 @@ ssf:
       - salt
       - ssf
       - stack
+      - stunnel
       - sudoers
       - sysctl
       - syslog-ng

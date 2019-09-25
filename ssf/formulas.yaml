@@ -1246,6 +1246,34 @@ ssf:
         inspec/README.md: *file__inspec__README--md
         .gitignore: *file__--gitignore
         Gemfile: *file__Gemfile
+    stunnel:
+      context:
+        git:
+          github:
+            repo: stunnel-formula
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: >-
+                Verify that the stunnel formula is setup and configured correctly
+              supports: *supports_debian_ubuntu
+            provisioner:
+              pillars_from_files:
+                - .sls: test/salt/pillar/stunnel.sls
+              state_top:
+                - '*':
+                    - .pillar_certs
+                    - .
+        platforms_matrix:
+          # Couldn't use `*platforms_matrix_osfamily_debian` because it is
+          # currently failing on both `ubuntu-16.04` and `debian-8`
+          # [os           , os_ver, salt_ver, py_ver, inspec_suite]
+          - [debian       ,  10   ,  develop,      3,      default]
+          - [ubuntu       ,  18.04,  develop,      3,      default]
+          - [debian       ,   9   ,   2019.2,      3,      default]
+          - [ubuntu       ,  18.04,   2019.2,      3,      default]
+          - [debian       ,   9   ,   2018.3,      2,      default]
+      semrel_files: *semrel_files_default
     sudoers:
       context:
         git:

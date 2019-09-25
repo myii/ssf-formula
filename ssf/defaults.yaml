@@ -17,8 +17,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length
-            title: 'ci(platform): add `arch-base-latest`'
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/40'
+            title: 'feat(semantic-release): implement for this formula'
+            body: '* Checked using https://github.com/myii/ssf-formula/pull/43'
             # yamllint enable rule:line-length
           github:
             owner: saltstack-formulas
@@ -348,6 +348,7 @@ ssf:
             name: v201707-py2
     ssf: *formula_default
     stack: *formula_default
+    stunnel: *formula_default
     sudoers: *formula_default
     sysctl: *formula_default
     syslog-ng: *formula_default
