@@ -18,7 +18,7 @@ ssf_node_anchors:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length
             title: 'feat(semantic-release): implement for this formula'
-            body: '* Checked using https://github.com/myii/ssf-formula/pull/43'
+            body: '* Checked using https://github.com/myii/ssf-formula/pull/42'
             # yamllint enable rule:line-length
           github:
             owner: saltstack-formulas
@@ -263,6 +263,7 @@ ssf:
             <<: *isk_suite_default
             name: fedora
     logrotate: *formula_default
+    lvm: *formula_default
     mysql: *formula_default
     nginx: *formula_default
     openssh: *formula_default
