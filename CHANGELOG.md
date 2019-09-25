@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.2.0](https://github.com/myii/ssf-formula/compare/v1.1.0...v1.2.0) (2019-09-25)
+
+
+### Features
+
+* **formula:** add `stunnel-formula` ([ea785a5](https://github.com/myii/ssf-formula/commit/ea785a5))
+
 # [1.1.0](https://github.com/myii/ssf-formula/compare/v1.0.0...v1.1.0) (2019-09-24)
 
 
