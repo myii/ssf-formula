@@ -51,7 +51,7 @@
 {#-             Only add a prefix if suite_name is given #}
 {%-             set prefix = '' %}
 {%-             if suite_name %}
-{%-               set prefix = suite_name ~ '-' %}
+{%-               set prefix = suite_name|replace('_', '-') ~ '-' %}
 {%-             endif %}
 {#-             This `if` block is temporary and should eventually be removed #}
 {%-             if old_ci_files and loop.index0 == 0 %}
