@@ -1378,17 +1378,8 @@ ssf:
               summary: >-
                 Verify that the syslog_ng formula is setup and configured correctly
             provisioner:
-              state_top:
-                - '*':
-                    - .config
-        platforms_matrix:
-          # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
-          - [debian       ,  10   ,  develop,      3,         default]
-          - [ubuntu       ,  18.04,  develop,      3,         default]
-          - [debian       ,   9   ,   2019.2,      3,         default]
-          - [ubuntu       ,  18.04,   2019.2,      3,         default]
-          - [debian       ,   9   ,   2018.3,      2,         default]
-          # - [ubuntu       ,  16.04,   2017.7,      2,         default]
+              pillars_from_files:
+                - .sls: test/salt/pillar/syslog_ng.sls
         use_cirrus_ci: true
       semrel_files:
         <<: *semrel_files_default
