@@ -112,14 +112,14 @@ ssf_node_anchors:
           - [arch-base    , latest,   2017.7,      2]
         platforms_matrix:
           # Comments in `platforms` apply here, too
-          # [os           , os_ver, salt_ver, py_ver, inspec_suite]
-          - [debian       ,  10   ,  develop,      3,      default]
-          - [ubuntu       ,  18.04,   2019.2,      3,      default]
-          - [amazonlinux  ,   2   ,   2019.2,      2,      default]
-          - [arch-base    , latest,   2019.2,      2,      default]
-          - [fedora       ,  29   ,   2018.3,      2,      default]
-          - [opensuse/leap,  15   ,   2018.3,      2,      default]
-          - [centos       ,   6   ,   2017.7,      2,      default]
+          # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
+          - [debian       ,  10   ,  develop,      3,         default]
+          - [ubuntu       ,  18.04,   2019.2,      3,         default]
+          - [amazonlinux  ,   2   ,   2019.2,      2,         default]
+          - [arch-base    , latest,   2019.2,      2,         default]
+          - [fedora       ,  29   ,   2018.3,      2,         default]
+          - [opensuse/leap,  15   ,   2018.3,      2,         default]
+          - [centos       ,   6   ,   2017.7,      2,         default]
         script_kitchen:
           bin: bin/kitchen
           cmd: verify
