@@ -13,63 +13,60 @@
 {#-       Work through each inspec suite defined for the formula, ordered by the suite number #}
 {%-       for index in range(0, inspec_suites_kitchen | length) %}
 {%-         set suite = inspec_suites_kitchen[index] %}
-{#-         Prepare `includes` and `excludes` #}
-{%-         set suite_name = '' %}
-{%-         set includes = [] %}
-{%-         set excludes = [] %}
+{#-         Only continue if the `suite.name` is present in the given matrix #}
 {%-         if suite.name in inspec_suites_matrix %}
 {%-           set suite_name = suite.name %}
 {%-           set includes = suite.includes %}
 {%-           set excludes = suite.excludes %}
-{%-         endif %}
-{%-         set platform_and_suite_name = platform + [suite_name] %}
+{%-           set platform_and_suite_name = platform + [suite_name] %}
 {#-         Prevent using a `platform_and_suite_name` more than once #}
 {#-         I.e. In case suite_name resolves to `''` multiple times #}
-{%-         if platform_and_suite_name not in platform_and_suite_names_done %}
-{%-           do platform_and_suite_names_done.append(platform_and_suite_name) %}
-{#-           Only continue depending on an appropriate combination of `includes` and `excludes`: #}
-{#-           |---|-----|-----|--------|                                                          #}
-{#-           | #	| inc	| exc	| result |                                                          #}
-{#-           |---|-----|-----|--------|                                                          #}
-{#-           | 1	|  y	| []	|  TRUE  |                                                          #}
-{#-           | 2	|  y	|  n	|  TRUE  |                                                          #}
-{#-           | 3	|  y	|  y	|  TRUE  |                                                          #}
-{#-           | 4	| []	| []	|  TRUE  |                                                          #}
-{#-           | 5	| []	|  n	|  TRUE  |                                                          #}
-{#-           | 6	| []	|  y	| FALSE  |                                                          #}
-{#-           | 7	|  n	| []	| FALSE  |                                                          #}
-{#-           | 8	|  n	|  n	| FALSE  |                                                          #}
-{#-           | 9	|  n	|  y	| FALSE  |                                                          #}
-{#-           |---|-----|-----|--------|                                                          #}
-{%-           if (platform in includes) or (not includes and platform not in excludes) %}
-{#-             Compare combined [platform] and [suite_name] to see if enabled in the matrix #}
-{%-             if platform_and_suite_name in platforms_matrix %}
-{%-               set comment = '' %}
-{%-             else %}
-{%-               set comment = '# ' %}
-{%-             endif %}
-{#-             Only add a prefix if suite_name is given #}
-{%-             set prefix = '' %}
-{%-             if suite_name %}
-{%-               set prefix = suite_name|replace('_', '-') ~ '-' %}
-{%-             endif %}
-{#-             This `if` block is temporary and should eventually be removed #}
-{%-             if old_ci_files and loop.index0 == 0 %}
-{%-               if semrel_formula == 'postgres' and os == 'ubuntu' and os_ver == 18.04 %}
-# TODO: Re-enable this once the `systemd` service can be restarted reliably
-{%-               elif semrel_formula == 'openvpn' and os == 'fedora' and os_ver == 29 and salt_ver == 2018.3 and py_ver == 2 %}
-# Currently fails with "Cipher 'AES-256-GCM' mode not supported"
+{%-           if platform_and_suite_name not in platform_and_suite_names_done %}
+{%-             do platform_and_suite_names_done.append(platform_and_suite_name) %}
+{#-             Only continue depending on an appropriate combination of `includes` and `excludes`: #}
+{#-             |---|-----|-----|--------|                                                          #}
+{#-             | #	| inc	| exc	| result |                                                          #}
+{#-             |---|-----|-----|--------|                                                          #}
+{#-             | 1	|  y	| []	|  TRUE  |                                                          #}
+{#-             | 2	|  y	|  n	|  TRUE  |                                                          #}
+{#-             | 3	|  y	|  y	|  TRUE  |                                                          #}
+{#-             | 4	| []	| []	|  TRUE  |                                                          #}
+{#-             | 5	| []	|  n	|  TRUE  |                                                          #}
+{#-             | 6	| []	|  y	| FALSE  |                                                          #}
+{#-             | 7	|  n	| []	| FALSE  |                                                          #}
+{#-             | 8	|  n	|  n	| FALSE  |                                                          #}
+{#-             | 9	|  n	|  y	| FALSE  |                                                          #}
+{#-             |---|-----|-----|--------|                                                          #}
+{%-             if (platform in includes) or (not includes and platform not in excludes) %}
+{#-               Compare combined [platform] and [suite_name] to see if enabled in the matrix #}
+{%-               if platform_and_suite_name in platforms_matrix %}
+{%-                 set comment = '' %}
+{%-               else %}
+{%-                 set comment = '# ' %}
 {%-               endif %}
-{%-             endif %}
-{#-             Concatenate the `INSTANCE` #}
-{%-             set instance = '{0}{1}-{2}-{3}-py{4}'.format(
-                  prefix,
-                  os | replace('/', '-'),
-                  os_ver | replace('.', ''),
-                  salt_ver | replace('.', '-'),
-                  py_ver,
-                ) %}
+{#-               Only add a prefix if suite_name is given #}
+{%-               set prefix = '' %}
+{%-               if suite_name %}
+{%-                 set prefix = suite_name|replace('_', '-') ~ '-' %}
+{%-               endif %}
+{#-               This `if` block is temporary and should eventually be removed #}
+{%-               if old_ci_files and loop.index0 == 0 %}
+{%-                 if semrel_formula == 'postgres' and os == 'ubuntu' and os_ver == 18.04 %}
+# TODO: Re-enable this once the `systemd` service can be restarted reliably
+{%-                 elif semrel_formula == 'openvpn' and os == 'fedora' and os_ver == 29 and salt_ver == 2018.3 and py_ver == 2 %}
+# Currently fails with "Cipher 'AES-256-GCM' mode not supported"
+{%-                 endif %}
+{%-               endif %}
+{#-               Concatenate the `INSTANCE` #}
+{%-               set instance = '{0}{1}-{2}-{3}-py{4}'.format(
+                    prefix,
+                    os | replace('/', '-'),
+                    os_ver | replace('.', ''),
+                    salt_ver | replace('.', '-'),
+                    py_ver,
+                  ) %}
 {{ comment }}- INSTANCE: {{ instance }}
+{%-             endif %}
 {%-           endif %}
 {%-         endif %}
 {#-       [End] for index in range(0, inspec_suites_kitchen | length) #}
