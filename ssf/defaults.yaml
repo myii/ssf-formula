@@ -17,8 +17,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length
-            title: 'feat(tofs): implementation for all file.managed'
-            body: '* Checked using https://github.com/myii/ssf-formula/pull/49'
+            title: 'ci(kitchen+travis): split suites across instances'
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/45'
             # yamllint enable rule:line-length
           github:
             owner: saltstack-formulas
@@ -421,5 +421,8 @@ ssf:
           2:
             <<: *isk_suite_default
             name: prod_server
+          3:
+            <<: *isk_suite_default
+            name: ''
     vim: *formula_default
     vsftpd: *formula_default

@@ -1595,17 +1595,21 @@ ssf:
             provisioner:
               pillars_from_files:
                 - .sls: test/salt/pillar/prod_server.sls
+          3: {}
         inspec_suites_matrix:
+          - install_binary
+          - dev_server
+          - prod_server
           - ''
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,  10   ,  develop,      3,              '']
-          - [ubuntu       ,  18.04,   2019.2,      3,              '']
-          - [fedora       ,  30   ,   2019.2,      3,              '']
-          - [amazonlinux  ,   2   ,   2019.2,      2,              '']
-          - [centos       ,   7   ,   2018.3,      2,              '']
-          - [opensuse/leap,  15   ,   2018.3,      2,              '']
-          - [arch-base    , latest,   2017.7,      2,              '']
+          - [ubuntu       ,  18.04,   2019.2,      3,     prod_server]
+          - [fedora       ,  30   ,   2019.2,      3,      dev_server]
+          - [amazonlinux  ,   2   ,   2019.2,      2,  install_binary]
+          - [centos       ,   7   ,   2018.3,      2,     prod_server]
+          - [opensuse/leap,  15   ,   2018.3,      2,      dev_server]
+          - [arch-base    , latest,   2017.7,      2,  install_binary]
       semrel_files: *semrel_files_default
     vim:
       context:
