@@ -116,6 +116,8 @@ ssf:
       - vim
       - vsftpd
     semrel_files:
+      - .github/ISSUE_TEMPLATE/bug_report.md
+      - .github/ISSUE_TEMPLATE/feature_request.md
       - bin/kitchen
       - docs/CONTRIBUTING.rst
       - docs/TOFS_pattern.rst

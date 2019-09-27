@@ -146,6 +146,12 @@ ssf_node_anchors:
                 - pillar.example
                 - pillar-with-views.example
       semrel_files: &semrel_files_default
+        # yamllint disable rule:line-length
+        .github/ISSUE_TEMPLATE/bug_report.md: &file__--github__ISSUE_TEMPLATE__bug_report--md
+          <<: *file_default
+        .github/ISSUE_TEMPLATE/feature_request.md: &file__--github__ISSUE_TEMPLATE__feature_request--md
+          <<: *file_default
+        # yamllint enable rule:line-length
         bin/kitchen: &file__bin__kitchen
           <<: *file_default
           mode: 755
@@ -1245,6 +1251,10 @@ ssf:
                 - ssf/defaults.yaml
                 - ssf/formulas.yaml
       semrel_files:
+        # yamllint disable rule:line-length
+        .github/ISSUE_TEMPLATE/bug_report.md: *file__--github__ISSUE_TEMPLATE__bug_report--md
+        .github/ISSUE_TEMPLATE/feature_request.md: *file__--github__ISSUE_TEMPLATE__feature_request--md
+        # yamllint enable rule:line-length
         docs/CONTRIBUTING.rst: *file__docs__CONTRIBUTING--rst
         docs/TOFS_pattern.rst: *file__docs__TOFS_pattern--rst
         formula/libtofs.jinja: *file__formula__libtofs--jinja
