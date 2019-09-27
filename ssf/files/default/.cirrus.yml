@@ -6,7 +6,7 @@ docker_builder:
   name: Test ${INSTANCE}
   env:
     matrix:
-      {{- format_ci_matrix(platforms, inspec_suites_kitchen, inspec_suites_matrix, platforms_matrix, platforms_matrix_commented_includes, semrel_formula, old_ci_files, width=6) }}
+      {{- format_ci_matrix(platforms, inspec_suites_kitchen, inspec_suites_matrix, platforms_matrix, platforms_matrix_commented_includes, semrel_formula, width=6) }}
   bundle_install_script: bundle install
   verify_script:
     {%- for pre_cmd in script_kitchen.pre %}
