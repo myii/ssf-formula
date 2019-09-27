@@ -2,6 +2,28 @@
 Changelog
 =========
 
+`1.4.0 <https://github.com/myii/ssf-formula/compare/v1.3.0...v1.4.0>`_ (2019-09-27)
+---------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* **libcimatrix:** convert any underscores to hyphens for suite names (\ `585ca2b <https://github.com/myii/ssf-formula/commit/585ca2b>`_\ )
+
+Features
+^^^^^^^^
+
+
+* allow explicit specification of empty suites (i.e. ``name: ''``\ ) (\ `220eb4a <https://github.com/myii/ssf-formula/commit/220eb4a>`_\ )
+* allow limiting commented instances when mimicking ``kitchen list`` (\ `e093ea3 <https://github.com/myii/ssf-formula/commit/e093ea3>`_\ )
+
+Styles
+^^^^^^
+
+
+* **inspec_suite:** increase column width for 15-character suite names (\ `813dc93 <https://github.com/myii/ssf-formula/commit/813dc93>`_\ )
+
 `1.3.0 <https://github.com/myii/ssf-formula/compare/v1.2.0...v1.3.0>`_ (2019-09-25)
 ---------------------------------------------------------------------------------------
 
