@@ -75,9 +75,6 @@ ssf_node_anchors:
               test_suite: .
         inspec_suites_matrix:
           - default
-        # Once system is in place, this value can be removed throughout
-        # the whole formula
-        old_ci_files: false
         platforms:
           # Could use `opensuse-leap` throughout since `/` never used at this end
           # Would have to modify the `if` in the `kitchen.yml` template(s), though
