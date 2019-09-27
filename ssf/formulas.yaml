@@ -1610,6 +1610,31 @@ ssf:
           - [centos       ,   7   ,   2018.3,      2,     prod_server]
           - [opensuse/leap,  15   ,   2018.3,      2,      dev_server]
           - [arch-base    , latest,   2017.7,      2,  install_binary]
+        # To deal with excessive instances when mimicking `kitchen list -b`
+        # If values are set, only use these as commented entries in the matrix
+        platforms_matrix_commented_includes:
+          # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
+          - [ubuntu       ,  18.04,  develop,      3,              '']
+          - [centos       ,   7   ,  develop,      3,              '']
+          - [fedora       ,  30   ,  develop,      3,              '']
+          - [opensuse/leap,  15   ,  develop,      3,              '']
+          - [amazonlinux  ,   2   ,  develop,      2,              '']
+          - [arch-base    , latest,  develop,      2,              '']
+          - [debian       ,   9   ,   2019.2,      3,              '']
+          - [centos       ,   7   ,   2019.2,      3,              '']
+          - [opensuse/leap,  15   ,   2019.2,      3,              '']
+          - [arch-base    , latest,   2019.2,      2,              '']
+          - [debian       ,   9   ,   2018.3,      2,              '']
+          - [ubuntu       ,  16.04,   2018.3,      2,              '']
+          - [fedora       ,  29   ,   2018.3,      2,              '']
+          - [amazonlinux  ,   2   ,   2018.3,      2,              '']
+          - [arch-base    , latest,   2018.3,      2,              '']
+          - [debian       ,   8   ,   2017.7,      2,              '']
+          - [ubuntu       ,  16.04,   2017.7,      2,              '']
+          - [centos       ,   6   ,   2017.7,      2,              '']
+          - [fedora       ,  29   ,   2017.7,      2,              '']
+          - [opensuse/leap,  15   ,   2017.7,      2,              '']
+          - [amazonlinux  ,   2   ,   2017.7,      2,              '']
       semrel_files: *semrel_files_default
     vim:
       context:
