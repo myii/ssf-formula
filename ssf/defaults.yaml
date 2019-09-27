@@ -37,7 +37,9 @@ ssf_node_anchors:
             # only `includes` will be considered, mimicking `kitchen list`
             # Note: This applies automatically via. `kitchen.yml`
             #       but is applied manually in the matrix (Travis/Cirrus)
-            # TODO: Use `kitchen list -b` output to define the matrix or too slow?
+            # Note: Cannot rely on `kitchen list` since there could end up being
+            #       far too many entries (e.g. `vault-formula` & `iptables-formula`)
+            #       Hence, the inclusion of `platforms_matrix_commented_includes`
             # yamllint disable-line rule:line-length
             # Ref: https://github.com/test-kitchen/test-kitchen/blob/7ce894e74f828f9e36531cf2d74588dd74fbf240/lib/kitchen/config.rb#L183-L193
             excludes: []
@@ -112,14 +114,17 @@ ssf_node_anchors:
           - [arch-base    , latest,   2017.7,      2]
         platforms_matrix:
           # Comments in `platforms` apply here, too
-          # [os           , os_ver, salt_ver, py_ver, inspec_suite]
-          - [debian       ,  10   ,  develop,      3,      default]
-          - [ubuntu       ,  18.04,   2019.2,      3,      default]
-          - [amazonlinux  ,   2   ,   2019.2,      2,      default]
-          - [arch-base    , latest,   2019.2,      2,      default]
-          - [fedora       ,  29   ,   2018.3,      2,      default]
-          - [opensuse/leap,  15   ,   2018.3,      2,      default]
-          - [centos       ,   6   ,   2017.7,      2,      default]
+          # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
+          - [debian       ,  10   ,  develop,      3,         default]
+          - [ubuntu       ,  18.04,   2019.2,      3,         default]
+          - [amazonlinux  ,   2   ,   2019.2,      2,         default]
+          - [arch-base    , latest,   2019.2,      2,         default]
+          - [fedora       ,  29   ,   2018.3,      2,         default]
+          - [opensuse/leap,  15   ,   2018.3,      2,         default]
+          - [centos       ,   6   ,   2017.7,      2,         default]
+        # To deal with excessive instances when mimicking `kitchen list -b`
+        # If values are set, only use these as commented entries in the matrix
+        platforms_matrix_commented_includes: []
         script_kitchen:
           bin: bin/kitchen
           cmd: verify

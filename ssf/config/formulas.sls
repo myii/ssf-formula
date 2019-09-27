@@ -46,41 +46,44 @@ prepare-git-branch-for-{{ formula }}:
 {%-     for index in range(0, inspec_suites_kitchen | length) %}
 {%-       set suite = inspec_suites_kitchen[index] %}
 {%-       set dest_file = semrel_file_specs.dest_file | d(semrel_file ) %}
-{%-       if dest_file.startswith('formula/') %}
-{#-         Replace 'formula/' with the actual name of the formula #}
-{%-         set dest_file = '{0}/{1}'.format(semrel_formula, dest_file.split('/')[-1]) %}
-{%-       elif dest_file.startswith('inspec/') %}
-{%-         set inspec_tests_path_prefix = suite.verifier.inspec_tests_path_prefix %}
-{%-         set test_suite = suite.verifier.test_suite %}
-{#-         The test suite to use may be a different than the suite's name, so need to point to it accordingly #}
-{%-         if test_suite not in ['.', suite.name] %}
-{%-           set dest_file = '' %}
-{%-         else %}
-{%-           set dest_file = '{0}/{1}/{2}'.format(inspec_tests_path_prefix, suite.name, dest_file.split('/')[-1]) %}
+{#-       Only manage files for the suite if the `suite.name` is set #}
+{#-       Or if dealing with CI files (where an empty `suite.name` is actually used) #}
+{%-       if suite.name or dest_file in ['.cirrus.yml', '.travis.yml'] %}
+{%-         if dest_file.startswith('formula/') %}
+{#-           Replace 'formula/' with the actual name of the formula #}
+{%-           set dest_file = '{0}/{1}'.format(semrel_formula, dest_file.split('/')[-1]) %}
+{%-         elif dest_file.startswith('inspec/') %}
+{%-           set inspec_tests_path_prefix = suite.verifier.inspec_tests_path_prefix %}
+{%-           set test_suite = suite.verifier.test_suite %}
+{#-           The test suite to use may be a different than the suite's name, so need to point to it accordingly #}
+{%-           if test_suite not in ['.', suite.name] %}
+{%-             set dest_file = '' %}
+{%-           else %}
+{%-             set dest_file = '{0}/{1}/{2}'.format(inspec_tests_path_prefix, suite.name, dest_file.split('/')[-1]) %}
+{%-           endif %}
 {%-         endif %}
-{%-       endif %}
-{%-       set dest = '{0}/{1}/{2}'.format(ssf.formulas_path, formula, dest_file) %}
-{#-       Only run the states for each suite if the same template is being used for each file (in each suite) #}
-{#-       Furthermore, only continue if the `dest_file` has actually been set #}
-{%-       if dest_file and dest_file not in dest_file_done %}
-{%-         do dest_file_done.append(dest_file) %}
+{%-         set dest = '{0}/{1}/{2}'.format(ssf.formulas_path, formula, dest_file) %}
+{#-         Only run the states for each suite if the same template is being used for each file (in each suite) #}
+{#-         Furthermore, only continue if the `dest_file` has actually been set #}
+{%-         if dest_file and dest_file not in dest_file_done %}
+{%-           do dest_file_done.append(dest_file) %}
 
-{#-         Add files by default #}
-{%-         set add_or_rm = ['add', 'add', 'managed'] %}
-{#-         Remove files if the file is `.cirrus.yml` and `use_cirrus_ci` is `False` #}
-{#-         Likewise, if running the state for TOFS files when `use_tofs` is `False` #}
-{%-         if (semrel_file == '.cirrus.yml' and not use_cirrus_ci) or
-               (semrel_file in ['docs/TOFS_pattern.rst', 'formula/libtofs.jinja'] and not use_tofs)
+{#-           Add files by default #}
+{%-           set add_or_rm = ['add', 'add', 'managed'] %}
+{#-           Remove files if the file is `.cirrus.yml` and `use_cirrus_ci` is `False` #}
+{#-           Likewise, if running the state for TOFS files when `use_tofs` is `False` #}
+{%-           if (semrel_file == '.cirrus.yml' and not use_cirrus_ci) or
+                 (semrel_file in ['docs/TOFS_pattern.rst', 'formula/libtofs.jinja'] and not use_tofs)
 %}
-{%-           set add_or_rm = ['rm', 'remove', 'absent'] %}
-{%-         endif %}
+{%-             set add_or_rm = ['rm', 'remove', 'absent'] %}
+{%-           endif %}
 
-{#-       Stage 2: Add or remove the file as necessary #}
+{#-           Stage 2: Add or remove the file as necessary #}
 {{ add_or_rm[1] }}-{{ formula }}-{{ dest_file }}:
   file.{{ add_or_rm[2] }}:
     - name: {{ dest }}
-    {#-     The rest of the settings only apply when adding files #}
-    {%-     if add_or_rm[0] == 'add' %}
+    {#-       The rest of the settings only apply when adding files #}
+    {%-       if add_or_rm[0] == 'add' %}
     - source: {{ files_switch([semrel_file],
                               default_files_switch=[formula_tofs_dir]
                  )
@@ -90,11 +93,11 @@ prepare-git-branch-for-{{ formula }}:
     - group: {{ ssf.group }}
     - makedirs: True
     - template: {{ template }}
-    {#-       Only send the `context` if a file template is being used #}
-    {%-       if template %}
+    {#-         Only send the `context` if a file template is being used #}
+    {%-         if template %}
     - context:
-        {#-     Using `| yaml` since `| json` (and `| tojson`) end up quoting the indexing for `inspec_suites_kitchen` #}
-        {#-     Maintaining the rest for consistency #}
+        {#-       Using `| yaml` since `| json` (and `| tojson`) end up quoting the indexing for `inspec_suites_kitchen` #}
+        {#-       Maintaining the rest for consistency #}
         tplroot: {{ tplroot }}
         semrel_formula: {{ semrel_file_specs.alt_semrel_formula | d(semrel_formula) }}
         formula: {{ formula }}
@@ -103,19 +106,20 @@ prepare-git-branch-for-{{ formula }}:
         old_ci_files: {{ context.old_ci_files }}
         platforms: {{ context.platforms | yaml }}
         platforms_matrix: {{ context.platforms_matrix | yaml }}
+        platforms_matrix_commented_includes: {{ context.platforms_matrix_commented_includes | yaml }}
         script_kitchen: {{ context.script_kitchen | yaml }}
         suite: {{ suite | yaml }}
         travis: {{ context.travis | yaml }}
         use_cirrus_ci: {{ use_cirrus_ci }}
         yamllint: {{ context.yamllint | yaml }}
-    {%-       endif %}
-    {%-       if ssf.git.states.prepare.active %}
+    {%-         endif %}
+    {%-         if ssf.git.states.prepare.active %}
     - require:
       - cmd: prepare-git-branch-for-{{ formula }}
+    {%-         endif %}
     {%-       endif %}
-    {%-     endif %}
 
-  {%-       if ssf.git.states.add_rm.active %}
+  {%-         if ssf.git.states.add_rm.active %}
   cmd.run:
     - name: |
         git {{ add_or_rm[0] }} {{ dest_file }}
@@ -123,10 +127,11 @@ prepare-git-branch-for-{{ formula }}:
     - runas: {{ ssf.user }}
     - onchanges:
       - file: {{ add_or_rm[1] }}-{{ formula }}-{{ dest_file }}
-    {%-       if ssf.git.states.commit_push.active %}
+    {%-         if ssf.git.states.commit_push.active %}
     - onchanges_in:
       - cmd: commit-and-push-{{ formula }}
-    {%-       endif %}
+    {%-         endif %}
+{%-           endif %}
 {%-         endif %}
 {%-       endif %}
 {#-     [End] for index in range(0, inspec_suites_kitchen | length) #}

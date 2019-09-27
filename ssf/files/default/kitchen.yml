@@ -165,8 +165,9 @@ verifier:
 suites:
   {%- for index in range(0, inspec_suites_kitchen | length) %}
   {%-   set suite = inspec_suites_kitchen[index] %}
-  {#-   Do not include the suite if `includes: *includes_NONE` has been set #}
-  {%-   if not (suite.includes and not suite.includes[0]) %}
+  {#-   Only include the suite if the `suite.name` is set #}
+  {#-   Furthermore, do not include if `includes: *includes_NONE` has been set #}
+  {%-   if suite.name and not (suite.includes and not suite.includes[0]) %}
   - name: {{ suite.name }}
     {{- format_includes_excludes(suite, 'excludes') }}
     {{- format_includes_excludes(suite, 'includes') }}
