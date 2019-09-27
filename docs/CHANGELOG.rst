@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.4.1 <https://github.com/myii/ssf-formula/compare/v1.4.0...v1.4.1>`_ (2019-09-27)
+---------------------------------------------------------------------------------------
+
+Code Refactoring
+^^^^^^^^^^^^^^^^
+
+
+* **\ ``old_ci_files``\ :** remove throughout since no longer used (\ `8c7ec00 <https://github.com/myii/ssf-formula/commit/8c7ec00>`_\ )
+
 `1.4.0 <https://github.com/myii/ssf-formula/compare/v1.3.0...v1.4.0>`_ (2019-09-27)
 ---------------------------------------------------------------------------------------
 
