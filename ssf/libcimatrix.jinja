@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # vim: ft=jinja
 
-{%- macro format_ci_matrix(platforms, inspec_suites_kitchen, inspec_suites_matrix, platforms_matrix, semrel_formula, old_ci_files=False, width=4) %}
+{%- macro format_ci_matrix(platforms, inspec_suites_kitchen, inspec_suites_matrix, platforms_matrix, platforms_matrix_commented_includes, semrel_formula, old_ci_files=False, width=4) %}
 {%-   filter indent(width) %}
 {#-     Centralise duplication from here and `kitchen.yml` #}
 {%-     set platform_and_suite_names_done = [] %}
@@ -38,34 +38,40 @@
 {#-             | 9	|  n	|  y	| FALSE  |                                                          #}
 {#-             |---|-----|-----|--------|                                                          #}
 {%-             if (platform in includes) or (not includes and platform not in excludes) %}
+{%-               set include_instance = True %}
 {#-               Compare combined [platform] and [suite_name] to see if enabled in the matrix #}
 {%-               if platform_and_suite_name in platforms_matrix %}
 {%-                 set comment = '' %}
 {%-               else %}
 {%-                 set comment = '# ' %}
-{%-               endif %}
-{#-               Only add a prefix if suite_name is given #}
-{%-               set prefix = '' %}
-{%-               if suite_name %}
-{%-                 set prefix = suite_name|replace('_', '-') ~ '-' %}
-{%-               endif %}
-{#-               This `if` block is temporary and should eventually be removed #}
-{%-               if old_ci_files and loop.index0 == 0 %}
-{%-                 if semrel_formula == 'postgres' and os == 'ubuntu' and os_ver == 18.04 %}
-# TODO: Re-enable this once the `systemd` service can be restarted reliably
-{%-                 elif semrel_formula == 'openvpn' and os == 'fedora' and os_ver == 29 and salt_ver == 2018.3 and py_ver == 2 %}
-# Currently fails with "Cipher 'AES-256-GCM' mode not supported"
+{%-                 if platforms_matrix_commented_includes and platform_and_suite_name not in platforms_matrix_commented_includes %}
+{%-                   set include_instance = False %}
 {%-                 endif %}
 {%-               endif %}
-{#-               Concatenate the `INSTANCE` #}
-{%-               set instance = '{0}{1}-{2}-{3}-py{4}'.format(
-                    prefix,
-                    os | replace('/', '-'),
-                    os_ver | replace('.', ''),
-                    salt_ver | replace('.', '-'),
-                    py_ver,
-                  ) %}
+{%-               if include_instance %}
+{#-                 Only add a prefix if suite_name is given #}
+{%-                 set prefix = '' %}
+{%-                 if suite_name %}
+{%-                   set prefix = suite_name|replace('_', '-') ~ '-' %}
+{%-                 endif %}
+{#-                 This `if` block is temporary and should eventually be removed #}
+{%-                 if old_ci_files and loop.index0 == 0 %}
+{%-                   if semrel_formula == 'postgres' and os == 'ubuntu' and os_ver == 18.04 %}
+# TODO: Re-enable this once the `systemd` service can be restarted reliably
+{%-                   elif semrel_formula == 'openvpn' and os == 'fedora' and os_ver == 29 and salt_ver == 2018.3 and py_ver == 2 %}
+# Currently fails with "Cipher 'AES-256-GCM' mode not supported"
+{%-                   endif %}
+{%-                 endif %}
+{#-                 Concatenate the `INSTANCE` #}
+{%-                 set instance = '{0}{1}-{2}-{3}-py{4}'.format(
+                      prefix,
+                      os | replace('/', '-'),
+                      os_ver | replace('.', ''),
+                      salt_ver | replace('.', '-'),
+                      py_ver,
+                    ) %}
 {{ comment }}- INSTANCE: {{ instance }}
+{%-               endif %}
 {%-             endif %}
 {%-           endif %}
 {%-         endif %}

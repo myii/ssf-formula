@@ -106,6 +106,7 @@ prepare-git-branch-for-{{ formula }}:
         old_ci_files: {{ context.old_ci_files }}
         platforms: {{ context.platforms | yaml }}
         platforms_matrix: {{ context.platforms_matrix | yaml }}
+        platforms_matrix_commented_includes: {{ context.platforms_matrix_commented_includes | yaml }}
         script_kitchen: {{ context.script_kitchen | yaml }}
         suite: {{ suite | yaml }}
         travis: {{ context.travis | yaml }}

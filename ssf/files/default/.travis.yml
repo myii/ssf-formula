@@ -53,7 +53,7 @@ env:
     # However, the groupings needed to be maintained in some semblance of order
     # so this is a best-effort matrix, in the circumstances
     {%- endif %}
-    {{- format_ci_matrix(platforms, inspec_suites_kitchen, inspec_suites_matrix, platforms_matrix, semrel_formula, old_ci_files) }}
+    {{- format_ci_matrix(platforms, inspec_suites_kitchen, inspec_suites_matrix, platforms_matrix, platforms_matrix_commented_includes, semrel_formula, old_ci_files) }}
 
 script:
   {%- for pre_cmd in script_kitchen.pre %}
