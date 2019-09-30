@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.5.0 <https://github.com/myii/ssf-formula/compare/v1.4.1...v1.5.0>`_ (2019-09-30)
+---------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **issues:** manage templates for all ``semrel_formulas`` (\ `65cd3a9 <https://github.com/myii/ssf-formula/commit/65cd3a9>`_\ )
+
 `1.4.1 <https://github.com/myii/ssf-formula/compare/v1.4.0...v1.4.1>`_ (2019-09-27)
 ---------------------------------------------------------------------------------------
 
