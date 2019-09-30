@@ -47,6 +47,61 @@
 {%-     endif %}
 {%-   endfilter %}
 {%- endmacro %}
+
+{%- macro format_driver_image(os, os_ver, salt_ver, py_ver) %}
+{%-   filter indent(6) %}
+image: netmanagers/salt-{{ salt_ver }}-py{{ py_ver }}:{{ os | replace('/', '-') }}-{{ os_ver }}
+{%-   endfilter %}
+{%- endmacro %}
+
+{%- macro format_driver_prov_cmds(os, os_ver, salt_ver, py_ver) %}
+{#-   TODO: Should really do this whole `if` block from `defaults.yaml` or `formulas.yaml`, just speeding things up right now #}
+{#-         Need to look at if this can be resolved from within the formulas themselves, though                               #}
+{%-   filter indent(6) %}
+{%-     set prov_cmds = [] %}
+{#-     Specific to `develop` #}
+{%-     if salt_ver == 'develop' %}
+{%-       do prov_cmds.append('- curl -o bootstrap-salt.sh -L https://bootstrap.saltstack.com') %}
+{%-       do prov_cmds.append('- sh bootstrap-salt.sh -XdPbfrq -x python{0} git {1}'.format(py_ver, salt_ver)) %}
+{%-       if semrel_formula == 'deepsea' %}
+{%-         if os in ['centos', 'fedora'] %}
+{%-           do prov_cmds.append('- yum install make -y') %}
+{%-         endif %}
+{%-       elif semrel_formula == 'golang' %}
+{%-         if os in ['debian', 'ubuntu'] %}
+{%-           do prov_cmds.append('# https://github.com/saltstack/salt/issues/39314') %}
+{%-           do prov_cmds.append('- apt-get remove python-boto3 -y') %}
+{%-         elif os == 'opensuse/leap' %}
+{%-           do prov_cmds.append('# https://github.com/saltstack/salt/issues/39314') %}
+{%-           do prov_cmds.append('- zypper rm python-boto3 -y') %}
+{%-         endif %}
+{%-       endif %}
+{%-     endif %}
+{#-     General for all Salt versions #}
+{%-     if semrel_formula == 'deepsea' %}
+{%-       if os == 'opensuse/leap' %}
+{%-         do prov_cmds.append('- zypper -n in tar gzip') %}
+{%-       endif %}
+{%-     endif %}
+{#-     Prepare the commands if available#}
+{%-     if prov_cmds %}
+provision_command:
+{%-       for prov_cmd in prov_cmds %}
+  {{ prov_cmd }}
+{%-       endfor %}
+{%-     endif %}
+{%-   endfilter %}
+{%- endmacro %}
+
+{%- macro format_driver_run_cmds(os, os_ver) %}
+{%-   filter indent(6) %}
+{%-     if os in ['opensuse/leap', 'arch-base'] %}
+run_command: /usr/lib/systemd/systemd
+{%-     elif [os, os_ver] == ['centos', 6] %}
+run_command: /sbin/init
+{%-     endif %}
+{%-   endfilter %}
+{%- endmacro %}
 # For help on this file's format, see https://kitchen.ci/
 driver:
   name: docker
@@ -100,41 +155,9 @@ platforms:
 {%-   else %}
   - name: {{ os | replace('/', '-') }}-{{ os_ver | replace('.', '') }}-{{ salt_ver | replace('.', '-') }}-py{{ py_ver }}
     driver:
-      image: netmanagers/salt-{{ salt_ver }}-py{{ py_ver }}:{{ os | replace('/', '-') }}-{{ os_ver }}
-      {%- if salt_ver == 'develop' %}
-      provision_command:
-        - curl -o bootstrap-salt.sh -L https://bootstrap.saltstack.com
-        - sh bootstrap-salt.sh -XdPbfrq -x python{{ py_ver }} git develop
-        {#- TODO: Should really do this whole `if` block from `defaults.yaml` or `formulas.yaml`, just speeding things up right now #}
-        {#-       Need to look at if this can be resolved from within the formulas themselves, though                               #}
-        {%- if semrel_formula == 'deepsea' %}
-        {%-   if os in ['centos', 'fedora'] %}
-        - yum install make -y
-        {#-   Duplicated `provision_command` due to `deepsea`, try to remove eventually #}
-        {%-   elif os == 'opensuse/leap' %}
-        - zypper -n in tar gzip
-        {%-   endif %}
-        {%- elif semrel_formula == 'golang' %}
-        {%-   if os in ['debian', 'ubuntu'] %}
-        # https://github.com/saltstack/salt/issues/39314
-        - apt-get remove python-boto3 -y
-        {%-   elif os == 'opensuse/leap' %}
-        # https://github.com/saltstack/salt/issues/39314
-        - zypper rm python-boto3 -y
-        {%-   endif %}
-        {%- endif %}
-      {%- endif %}
-      {#- TODO: Should really do this whole `if` block from `defaults.yaml` or `formulas.yaml`, just speeding things up right now #}
-      {%- if os in ['opensuse/leap', 'arch-base'] %}
-      {%-   if os == 'opensuse/leap' and semrel_formula == 'deepsea' and salt_ver != 'develop' %}
-      {#-     Duplicated `provision_command` due to `deepsea`, try to remove eventually #}
-      provision_command:
-        - zypper -n in tar gzip
-      {%-   endif %}
-      run_command: /usr/lib/systemd/systemd
-      {%- elif os == 'centos' and os_ver == 6 %}
-      run_command: /sbin/init
-      {%- endif %}
+      {{- format_driver_image(os, os_ver, salt_ver, py_ver) }}
+      {{- format_driver_prov_cmds(os, os_ver, salt_ver, py_ver) }}
+      {{- format_driver_run_cmds(os, os_ver) }}
     {%- if [os, os_ver] == ['opensuse/leap', 15] %}
     # Workaround to avoid intermittent failures on `opensuse-leap-15`:
     # => SCP did not finish successfully (255):  (Net::SCP::Error)
