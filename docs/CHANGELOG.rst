@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.10.0 <https://github.com/myii/ssf-formula/compare/v1.9.0...v1.10.0>`_ (2019-10-01)
+-----------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **dhcpd:** add remaining InSpec platforms (\ `68c3d0f <https://github.com/myii/ssf-formula/commit/68c3d0f>`_\ )
+
 `1.9.0 <https://github.com/myii/ssf-formula/compare/v1.8.0...v1.9.0>`_ (2019-10-01)
 ---------------------------------------------------------------------------------------
 
