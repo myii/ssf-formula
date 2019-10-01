@@ -136,6 +136,15 @@ ssf_node_anchors:
           - [opensuse/leap,  15   ,   2018.3,      2,         default]
           # - [centos       ,   6   ,   2017.7,      2,         default]
           - [amazonlinux  ,   2   ,   2017.7,      2,         default]
+        platforms_matrix_without_arch: &platforms_matrix_without_arch
+          # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
+          - [debian       ,  10   ,  develop,      3,         default]
+          - [ubuntu       ,  18.04,   2019.2,      3,         default]
+          - [amazonlinux  ,   2   ,   2019.2,      2,         default]
+          # - [arch-base    , latest,   2019.2,      2,         default]
+          - [fedora       ,  29   ,   2018.3,      2,         default]
+          - [opensuse/leap,  15   ,   2018.3,      2,         default]
+          - [centos       ,   6   ,   2017.7,      2,         default]
         yamllint:
           rules:
             rule:
@@ -284,6 +293,7 @@ ssf:
                 - '*':
                     - .
                     - .config
+        platforms_matrix: *platforms_matrix_without_arch
         yamllint:
           rules:
             comments-indentation:
@@ -365,6 +375,7 @@ ssf:
             provisioner:
               pillars_from_files:
                 - .sls: test/salt/pillar/cron.sls
+        platforms_matrix: *platforms_matrix_without_arch
       semrel_files: *semrel_files_default
     deepsea:
       context:
@@ -535,6 +546,7 @@ ssf:
             provisioner:
               pillars_from_files:
                 - .sls: test/salt/pillar/influxdb.sls
+        platforms_matrix: *platforms_matrix_without_arch
       semrel_files: *semrel_files_default
     iptables:
       context:
@@ -704,6 +716,7 @@ ssf:
                 - '*':
                     - .
                     - .jobs
+        platforms_matrix: *platforms_matrix_without_arch
       semrel_files: *semrel_files_default
     lvm:
       context:
@@ -809,6 +822,7 @@ ssf:
               state_top:
                 - '*':
                     - .config
+        platforms_matrix: *platforms_matrix_without_arch
         use_tofs: true
       semrel_files: *semrel_files_default
     openvpn:
@@ -1562,6 +1576,7 @@ ssf:
             provisioner:
               pillars_from_files:
                 - .sls: test/salt/pillar/default.sls
+        platforms_matrix: *platforms_matrix_without_arch
       semrel_files: *semrel_files_default
     vault:
       context:
@@ -1649,6 +1664,7 @@ ssf:
             provisioner:
               pillars_from_files:
                 - .sls: test/salt/pillar/vim.sls
+        platforms_matrix: *platforms_matrix_without_arch
       semrel_files: *semrel_files_default
     vsftpd:
       context:
