@@ -431,12 +431,6 @@ ssf:
             inspec_yml:
               summary: >-
                 Verify that the dhcpd formula is setup and configured correctly
-              supports:
-                - debian
-                - ubuntu
-                - centos
-                - freebsd
-                - arch
             provisioner:
               state_top:
                 - '*':
