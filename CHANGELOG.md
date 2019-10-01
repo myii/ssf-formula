@@ -1,5 +1,15 @@
 # Changelog
 
+# [1.8.0](https://github.com/myii/ssf-formula/compare/v1.7.0...v1.8.0) (2019-10-01)
+
+
+### Features
+
+* **vault:** limit commented instances to empty suite ([eee355b](https://github.com/myii/ssf-formula/commit/eee355b))
+* **vault:** split suites across instances leaving one running all ([e7483a3](https://github.com/myii/ssf-formula/commit/e7483a3)), closes [/github.com/saltstack-formulas/vault-formula/pull/43#issuecomment-533936364](https://github.com//github.com/saltstack-formulas/vault-formula/pull/43/issues/issuecomment-533936364)
+* **vault:** use specific Gemfile to restrict `inspec` version ([a9b7ff9](https://github.com/myii/ssf-formula/commit/a9b7ff9))
+* **vault): ci(travis:** apply suggestions from code review ([54ea2fb](https://github.com/myii/ssf-formula/commit/54ea2fb))
+
 # [1.7.0](https://github.com/myii/ssf-formula/compare/v1.6.0...v1.7.0) (2019-10-01)
 
 
