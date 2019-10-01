@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.9.0](https://github.com/myii/ssf-formula/compare/v1.8.0...v1.9.0) (2019-10-01)
+
+
+### Features
+
+* **platform:** add `arch-base-latest` (remaining, commented out) ([879e2c0](https://github.com/myii/ssf-formula/commit/879e2c0))
+
 # [1.8.0](https://github.com/myii/ssf-formula/compare/v1.7.0...v1.8.0) (2019-10-01)
 
 
