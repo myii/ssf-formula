@@ -65,6 +65,10 @@ image: netmanagers/salt-{{ salt_ver }}-py{{ py_ver }}:{{ os | replace('/', '-') 
 {%-     set prov_cmds = [] %}
 {#-     Specific to unsalted `opensuse/leap` #}
 {%-     if os == 'opensuse/leap' %}
+{%-       do prov_cmds.append('# yamllint disable-line rule:line-length') %}
+{%-       do prov_cmds.append(
+            '- zypper install -y glibc-locale net-tools net-tools-deprecated python-xml python{0}-pip'.format(py_ver)
+          ) %}
 {%-       do prov_cmds.append('- systemctl enable sshd.service') %}
 {%-     endif %}
 {#-     Specific to `develop` #}
