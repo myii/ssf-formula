@@ -51,7 +51,10 @@ prepare-git-branch-for-{{ formula }}:
 {%-       if suite.name or dest_file in ['.cirrus.yml', '.travis.yml'] %}
 {%-         if dest_file.startswith('formula/') %}
 {#-           Replace 'formula/' with the actual name of the formula #}
-{%-           set dest_file = '{0}/{1}'.format(semrel_formula, dest_file.split('/')[-1]) %}
+{%-           set dest_file = '{0}/{1}'.format(
+                semrel_file_specs.alt_semrel_formula | d(semrel_formula),
+                dest_file.split('/')[-1],
+              ) %}
 {%-         elif dest_file.startswith('inspec/') %}
 {%-           set inspec_tests_path_prefix = suite.verifier.inspec_tests_path_prefix %}
 {%-           set test_suite = suite.verifier.test_suite %}

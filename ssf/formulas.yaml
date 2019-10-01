@@ -1381,8 +1381,12 @@ ssf:
               pillars_from_files:
                 - .sls: test/salt/pillar/syslog_ng.sls
         use_cirrus_ci: true
+        use_tofs: true
       semrel_files:
         <<: *semrel_files_default
+        formula/libtofs.jinja:
+          <<: *file__formula__libtofs--jinja
+          alt_semrel_formula: syslog_ng
         inspec/inspec.yml:
           <<: *file__inspec__inspec--yml
           alt_semrel_formula: syslog_ng
