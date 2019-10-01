@@ -2,6 +2,21 @@
 Changelog
 =========
 
+`1.11.0 <https://github.com/myii/ssf-formula/compare/v1.10.0...v1.11.0>`_ (2019-10-01)
+------------------------------------------------------------------------------------------
+
+Code Refactoring
+^^^^^^^^^^^^^^^^
+
+
+* **kitchen:** use macros for each section under ``driver`` (\ `e386630 <https://github.com/myii/ssf-formula/commit/e386630>`_\ )
+
+Features
+^^^^^^^^
+
+
+* **kitchen:** use bootstrapped ``opensuse`` images until ``2019.2.2`` (\ `25946b0 <https://github.com/myii/ssf-formula/commit/25946b0>`_\ ), closes `/github.com/netmanagers/salt-image-builder/blob/d6e57f6b22570530a627c89a94fed02754a3197d/scripts/prepare.sh#L99 <https://github.com//github.com/netmanagers/salt-image-builder/blob/d6e57f6b22570530a627c89a94fed02754a3197d/scripts/prepare.sh/issues/L99>`_
+
 `1.10.0 <https://github.com/myii/ssf-formula/compare/v1.9.0...v1.10.0>`_ (2019-10-01)
 -----------------------------------------------------------------------------------------
 
