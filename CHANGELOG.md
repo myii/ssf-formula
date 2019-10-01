@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.11.1](https://github.com/myii/ssf-formula/compare/v1.11.0...v1.11.1) (2019-10-01)
+
+
+### Bug Fixes
+
+* **kitchen:** install required packages to bootstrapped `opensuse` ([3c436cb](https://github.com/myii/ssf-formula/commit/3c436cb)), closes [#52](https://github.com/myii/ssf-formula/issues/52)
+
 # [1.11.0](https://github.com/myii/ssf-formula/compare/v1.10.0...v1.11.0) (2019-10-01)
 
 
