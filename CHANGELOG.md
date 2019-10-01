@@ -1,5 +1,17 @@
 # Changelog
 
+# [1.7.0](https://github.com/myii/ssf-formula/compare/v1.6.0...v1.7.0) (2019-10-01)
+
+
+### Bug Fixes
+
+* **formulas:** use `alt_semrel_formula` if set for `formula/` path ([0732312](https://github.com/myii/ssf-formula/commit/0732312))
+
+
+### Features
+
+* **syslog-ng:** implement TOFS ([119239c](https://github.com/myii/ssf-formula/commit/119239c))
+
 # [1.6.0](https://github.com/myii/ssf-formula/compare/v1.5.0...v1.6.0) (2019-09-30)
 
 
