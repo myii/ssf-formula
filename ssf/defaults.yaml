@@ -17,8 +17,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length
-            title: 'chore(yamllint): update ignored paths and add `octal-values` [skip ci]'
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/59'
+            title: 'feat(tofs): implementation for all file.managed'
+            body: '* Checked using https://github.com/myii/ssf-formula/pull/54'
             # yamllint enable rule:line-length
           github:
             owner: saltstack-formulas
