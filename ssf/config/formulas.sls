@@ -53,7 +53,7 @@ prepare-git-branch-for-{{ formula }}:
 {#-           Replace 'formula/' with the actual name of the formula #}
 {%-           set dest_file = '{0}/{1}'.format(
                 semrel_file_specs.alt_semrel_formula | d(semrel_formula),
-                dest_file.split('/')[-1],
+                dest_file.split('/', 1)[1],
               ) %}
 {%-         elif dest_file.startswith('inspec/') %}
 {%-           set inspec_tests_path_prefix = suite.verifier.inspec_tests_path_prefix %}
