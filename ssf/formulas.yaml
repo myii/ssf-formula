@@ -1468,7 +1468,6 @@ ssf:
       context:
         git:
           github:
-            owner: n-rodriguez
             repo: telegraf-formula
         inspec_suites_kitchen:
           0:
