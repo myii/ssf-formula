@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.12.0](https://github.com/myii/ssf-formula/compare/v1.11.1...v1.12.0) (2019-10-03)
+
+
+### Features
+
+* **libvirt:** implement TOFS ([6d413b3](https://github.com/myii/ssf-formula/commit/6d413b3))
+
 ## [1.11.1](https://github.com/myii/ssf-formula/compare/v1.11.0...v1.11.1) (2019-10-01)
 
 
