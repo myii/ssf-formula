@@ -654,6 +654,7 @@ ssf:
           - [opensuse/leap,  15   ,   2018.3,      2,         default]
           - [fedora       ,  29   ,   2017.7,      2,         default]
           # - [centos       ,   6   ,   2017.7,      2,         default]
+        use_tofs: true
       semrel_files: *semrel_files_default
     locale:
       context:
