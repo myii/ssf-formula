@@ -127,6 +127,7 @@ ssf:
       - inspec/README.md
       - .gitignore
       - .cirrus.yml
+      - .salt-lint
       - .travis.yml
       - .yamllint
       - commitlint.config.js

@@ -22,8 +22,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length
-            title: 'feat(tofs): implementation for all file.managed'
-            body: '* Checked using https://github.com/myii/ssf-formula/pull/54'
+            title: 'ci: merge travis matrix, add `salt-lint` & `rubocop` to `lint` job'
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/60'
             # yamllint enable rule:line-length
           github:
             owner: saltstack-formulas
@@ -164,6 +164,7 @@ ssf_node_anchors:
         # To deal with excessive instances when mimicking `kitchen list -b`
         # If values are set, only use these as commented entries in the matrix
         platforms_matrix_commented_includes: []
+        salt_lint: {}
         script_kitchen:
           bin: bin/kitchen
           cmd: verify
@@ -187,6 +188,7 @@ ssf_node_anchors:
             default:
               - '*.yaml'
               - '*.yml'
+              - '.salt-lint'
               - '.yamllint'
             additional_ssf:
               - '*.example'
