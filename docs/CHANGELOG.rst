@@ -2,6 +2,16 @@
 Changelog
 =========
 
+`1.13.0 <https://github.com/myii/ssf-formula/compare/v1.12.0...v1.13.0>`_ (2019-10-04)
+------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **formula:** add ``telegraf-formula`` (\ `8c8f7c1 <https://github.com/myii/ssf-formula/commit/8c8f7c1>`_\ )
+* **telegraf:** update for formula's transfer to main org (\ `a570df2 <https://github.com/myii/ssf-formula/commit/a570df2>`_\ )
+
 `1.12.0 <https://github.com/myii/ssf-formula/compare/v1.11.1...v1.12.0>`_ (2019-10-03)
 ------------------------------------------------------------------------------------------
 
