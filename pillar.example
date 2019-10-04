@@ -108,6 +108,7 @@ ssf:
       - syslog-ng
       - sysstat
       - systemd
+      - telegraf
       - template
       - timezone
       - ufw
