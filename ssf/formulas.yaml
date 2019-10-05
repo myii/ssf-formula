@@ -461,6 +461,7 @@ ssf:
               pillars_from_files:
                 - .sls: test/salt/pillar/exim.sls
         platforms_matrix: *platforms_matrix_osfamily_debian
+        use_tofs: true
       semrel_files: *semrel_files_default
     fail2ban:
       context:
