@@ -17,8 +17,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length
-            title: 'feat(tofs): implementation for all file.managed'
-            body: '* Checked using https://github.com/myii/ssf-formula/pull/57'
+            title: 'chore(issues): update `Bug report` & `Feature request` templates [skip ci]'
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/58'
             # yamllint enable rule:line-length
           github:
             owner: saltstack-formulas
