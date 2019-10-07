@@ -2,6 +2,16 @@
 Changelog
 =========
 
+`1.16.0 <https://github.com/myii/ssf-formula/compare/v1.15.0...v1.16.0>`_ (2019-10-07)
+------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **yamllint:** add ``.kitchen/`` directory to paths to be ignored (\ `7038f15 <https://github.com/myii/ssf-formula/commit/7038f15>`_\ )
+* **yamllint:** add explicit settings for ``octal-values`` (\ `929ce19 <https://github.com/myii/ssf-formula/commit/929ce19>`_\ )
+
 `1.15.0 <https://github.com/myii/ssf-formula/compare/v1.14.0...v1.15.0>`_ (2019-10-07)
 ------------------------------------------------------------------------------------------
 
