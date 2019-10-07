@@ -176,6 +176,7 @@ ssf_node_anchors:
               - 'node_modules/'
             additional_ssf:
               - 'test/**/states/**/*.sls'
+              - '.kitchen/'
             additional: []
           yaml-files:
             default:
