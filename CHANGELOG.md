@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.15.0](https://github.com/myii/ssf-formula/compare/v1.14.0...v1.15.0) (2019-10-07)
+
+
+### Features
+
+* **issues:** update templates for all `semrel_formulas` ([4f73d94](https://github.com/myii/ssf-formula/commit/4f73d94))
+
 # [1.14.0](https://github.com/myii/ssf-formula/compare/v1.13.0...v1.14.0) (2019-10-05)
 
 
