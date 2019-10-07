@@ -1,5 +1,17 @@
 # Changelog
 
+# [1.17.0](https://github.com/myii/ssf-formula/compare/v1.16.0...v1.17.0) (2019-10-07)
+
+
+### Bug Fixes
+
+* **formulas:** use remainder of path after `formula/` ([426e55c](https://github.com/myii/ssf-formula/commit/426e55c))
+
+
+### Features
+
+* **apt-cacher:** implement TOFS ([e79a418](https://github.com/myii/ssf-formula/commit/e79a418))
+
 # [1.16.0](https://github.com/myii/ssf-formula/compare/v1.15.0...v1.16.0) (2019-10-07)
 
 
