@@ -84,3 +84,10 @@ rules:
     # Based on https://github.com/PyCQA/flake8-bugbear#opinionated-warnings (`B950`)
     {%- endif %}
     max: {{ yamllint.rules.get('line-length').max }}
+
+  {#- Don't need the `if` here since we're always providing a `octal-values` setting #}
+  octal-values:
+    {%- set yl_ov = yamllint.rules.get('octal-values') %}
+    {{- format_ignore(yl_ov) }}
+    forbid-implicit-octal: {{ yamllint.rules.get('octal-values').get('forbid-implicit-octal') }}
+    forbid-explicit-octal: {{ yamllint.rules.get('octal-values').get('forbid-explicit-octal') }}
