@@ -275,7 +275,12 @@ ssf:
                 - '*':
                     - .ng.server
         platforms_matrix: *platforms_matrix_osfamily_debian
-      semrel_files: *semrel_files_default
+        use_tofs: true
+      semrel_files:
+        <<: *semrel_files_default
+        formula/libtofs.jinja:
+          <<: *file__formula__libtofs--jinja
+          dest_file: formula/ng/libtofs.jinja
     bind:
       context:
         git:
@@ -503,7 +508,6 @@ ssf:
             inspec_yml:
               summary: >-
                 Verify that the golang formula is setup and configured correctly
-        use_tofs: true
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,  10   ,  develop,      3,         default]
@@ -514,6 +518,7 @@ ssf:
           - [fedora       ,  29   ,   2018.3,      2,         default]
           # - [opensuse/leap,  15   ,   2018.3,      2,         default]
           - [centos       ,   6   ,   2017.7,      2,         default]
+        use_tofs: true
       semrel_files: *semrel_files_default
     grafana:
       context:
