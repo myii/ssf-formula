@@ -3,6 +3,11 @@
 ---
 ssf_node_anchors:
   defaults:
+    common:
+      lint:
+        line_length:
+          bugbear: &line_length_bugbear 88
+          default: &line_length_default 80
     formula: &formula_default
       context: &context_default
         git:
@@ -207,9 +212,9 @@ ssf_node_anchors:
             key-duplicates: {}
             # key-ordering: {}
             line-length:
-              bugbear: 88
-              default: 80
-              max: 88
+              bugbear: *line_length_bugbear
+              default: *line_length_default
+              max: *line_length_bugbear
             # new-line-at-end-of-file: {}
             # new-lines: {}
             octal-values:
