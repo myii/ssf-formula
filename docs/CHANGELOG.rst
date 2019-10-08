@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.17.1 <https://github.com/myii/ssf-formula/compare/v1.17.0...v1.17.1>`_ (2019-10-08)
+------------------------------------------------------------------------------------------
+
+Code Refactoring
+^^^^^^^^^^^^^^^^
+
+
+* **yamllint:** use existing Jinja variables wherever possible (\ `90d9303 <https://github.com/myii/ssf-formula/commit/90d9303>`_\ )
+
 `1.17.0 <https://github.com/myii/ssf-formula/compare/v1.16.0...v1.17.0>`_ (2019-10-07)
 ------------------------------------------------------------------------------------------
 
