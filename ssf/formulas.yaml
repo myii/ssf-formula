@@ -181,6 +181,9 @@ ssf_node_anchors:
         .cirrus.yml: &file__--cirrus--yml
           <<: *file_default
           template: jinja
+        .rubocop.yml: &file__--rubocop--yml
+          <<: *file_default
+          template: jinja
         .salt-lint: &file__--salt-lint
           <<: *file_default
           template: jinja
@@ -1259,6 +1262,7 @@ ssf:
           ignore:
             additional:
               - ssf/files/default/.cirrus.yml
+              - ssf/files/default/.rubocop.yml
               - ssf/files/default/.salt-lint
               - ssf/files/default/.travis.yml
               - ssf/files/default/.yamllint
@@ -1278,6 +1282,7 @@ ssf:
         docs/TOFS_pattern.rst: *file__docs__TOFS_pattern--rst
         formula/libtofs.jinja: *file__formula__libtofs--jinja
         .gitignore: *file__--gitignore
+        .rubocop.yml: *file__--rubocop--yml
         .salt-lint: *file__--salt-lint
         .travis.yml: *file__--travis--yml
         .yamllint: *file__--yamllint
