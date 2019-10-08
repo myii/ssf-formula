@@ -262,6 +262,10 @@ ssf:
           # - [ubuntu       ,  18.04,  develop,      3,     preferences]
           - [debian       ,   9   ,   2019.2,      3,     preferences]
           - [ubuntu       ,  18.04,   2019.2,      3,     preferences]
+        rubocop:
+          Cops:
+            Metrics/BlockLength:
+              Max: 55
       semrel_files: *semrel_files_default
     apt-cacher:
       context:
@@ -1257,6 +1261,10 @@ ssf:
         inspec_suites_matrix: []
         platforms: []
         platforms_matrix: []
+        rubocop:
+          AllCops:
+            Exclude:
+              - 'ssf/files/**/*'
         use_tofs: true
         yamllint:
           ignore:
@@ -1551,6 +1559,10 @@ ssf:
           - [fedora       ,  29   ,   2018.3,      2,         default]
           - [opensuse/leap,  15   ,   2018.3,      2,         default]
           - [centos       ,   6   ,   2017.7,      2,         centos6]
+        rubocop:
+          Cops:
+            Metrics/BlockLength:
+              Max: 36
         use_tofs: true
       semrel_files: *semrel_files_default
     timezone:
