@@ -180,6 +180,7 @@ ssf_node_anchors:
         travis:
           addons: {}
           dist: bionic
+          use_single_job_for_linters: true
         use_cirrus_ci: false
         use_tofs: false
         yamllint:
