@@ -16,6 +16,7 @@ ignore: |
   .kitchen/
   ssf/files/default/.cirrus.yml
   ssf/files/default/.rubocop.yml
+  ssf/files/default/.salt-lint
   ssf/files/default/.travis.yml
   ssf/files/default/.yamllint
   ssf/files/default/kitchen.yml
@@ -25,6 +26,7 @@ yaml-files:
   # Default settings
   - '*.yaml'
   - '*.yml'
+  - .salt-lint
   - .yamllint
   # SaltStack Formulas additional settings
   - '*.example'
