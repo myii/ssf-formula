@@ -75,8 +75,10 @@ prepare-git-branch-for-{{ formula }}:
 {%-           set add_or_rm = ['add', 'add', 'managed'] %}
 {#-           Remove files if the file is `.cirrus.yml` and `use_cirrus_ci` is `False` #}
 {#-           Likewise, if running the state for TOFS files when `use_tofs` is `False` #}
+{#-           Also remove the local issues templates to use the org-level templates instead #}
 {%-           if (semrel_file == '.cirrus.yml' and not use_cirrus_ci) or
-                 (semrel_file in ['docs/TOFS_pattern.rst', 'formula/libtofs.jinja'] and not use_tofs)
+                 (semrel_file in ['docs/TOFS_pattern.rst', 'formula/libtofs.jinja'] and not use_tofs) or
+                 (semrel_file.startswith('.github/ISSUE_TEMPLATE/'))
 %}
 {%-             set add_or_rm = ['rm', 'remove', 'absent'] %}
 {%-           endif %}
