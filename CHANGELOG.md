@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.19.1](https://github.com/myii/ssf-formula/compare/v1.19.0...v1.19.1) (2019-10-10)
+
+
+### Code Refactoring
+
+* **issues:** remove all templates and references thereto ([](https://github.com/myii/ssf-formula/commit/8bc7342))
+
 # [1.19.0](https://github.com/myii/ssf-formula/compare/v1.18.0...v1.19.0) (2019-10-10)
 
 
