@@ -76,13 +76,21 @@ jobs:
       name: '{{ name_linters }}'
       before_install: skip
       script:
+        {%- set pip_cmd = 'pip' %}
+        {%- set pkgs_for_salt_lint = 'salt-lint' %}
+        {%- if semrel_formula == 'ufw' %}
+        {%-   set pip_cmd = 'pip3' %}
+        {%-   set pkgs_for_salt_lint = pkgs_for_salt_lint ~ ' PyYAML==4.2b4' %}
+        # Need to use `pip3` due to using `{{ travis.dist }}` on Travis
+        - sudo apt-get install python3-pip python3-setuptools python3-wheel -y
+        {%- endif %}
         # Install and run `salt-lint`
-        - pip install --user salt-lint
+        - {{ pip_cmd }} install --user {{ pkgs_for_salt_lint }}
         - git ls-files | grep '\.sls$\|\.jinja$\|\.j2$\|\.tmpl$'
                        | xargs -I {} salt-lint {}
         # Install and run `yamllint`
         # Need at least `v1.17.0` for the `yaml-files` setting
-        - pip install --user yamllint>=1.17.0
+        - {{ pip_cmd }} install --user yamllint>=1.17.0
         - yamllint -s .
         {%- if travis.use_single_job_for_linters %}
         {{-   format_rubocop_linter() }}
