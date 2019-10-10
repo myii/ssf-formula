@@ -116,6 +116,7 @@ ssf:
       - vault
       - vim
       - vsftpd
+      - zabbix
     semrel_files:
       - bin/kitchen
       - docs/CONTRIBUTING.rst

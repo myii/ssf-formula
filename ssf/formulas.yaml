@@ -1746,3 +1746,45 @@ ssf:
               pillars_from_files:
                 - .sls: test/salt/pillar/vsftpd.sls
       semrel_files: *semrel_files_default
+    zabbix:
+      context:
+        git:
+          github:
+            repo: zabbix-formula
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: >-
+                Verify that the zabbix formula is setup and configured correctly
+            provisioner:
+              pillars_from_files:
+                - .sls: test/salt/pillar/default.sls
+              state_top:
+                - '*':
+                    - .agent.repo
+                    - .agent.conf
+                    - .server.repo
+                    - .server.conf
+                    - .frontend.repo
+                    - .frontend.conf
+        platforms_matrix:
+          # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
+          - [debian       ,  10   ,  develop,      3,         default]
+          - [debian       ,   9   ,   2019.2,      3,         default]
+          - [ubuntu       ,  18.04,   2019.2,      3,         default]
+          - [fedora       ,  30   ,   2019.2,      3,         default]
+          - [ubuntu       ,  16.04,   2018.3,      2,         default]
+          # - [fedora       ,  29   ,   2018.3,      2,         default]
+          - [centos       ,   6   ,   2017.7,      2,         default]
+        rubocop:
+          Cops:
+            Metrics/BlockLength:
+              Max: 28
+        # Enable this in a subsequent PR, since it's an old version,
+        # which is already active (needs to be checked for regressions)
+        # use_tofs: true
+        yamllint:
+          rules:
+            key-duplicates:
+              ignore: *ignore_pillar_example
+      semrel_files: *semrel_files_default
