@@ -1,5 +1,36 @@
 # Changelog
 
+# [1.18.0](https://github.com/myii/ssf-formula/compare/v1.17.1...v1.18.0) (2019-10-10)
+
+
+### Bug Fixes
+
+* **bin/kitchen:** fix `rubocop` errors ([](https://github.com/myii/ssf-formula/commit/58881a7))
+* **gemfile:** fix `rubocop` errors ([](https://github.com/myii/ssf-formula/commit/e0ec88a))
+* **salt-lint:** fix errors ([](https://github.com/myii/ssf-formula/commit/5890b8a))
+
+
+### Code Refactoring
+
+* **defaults:** use node anchors for common `line_length` values ([](https://github.com/myii/ssf-formula/commit/ac9b7a5))
+
+
+### Continuous Integration
+
+* merge travis matrix, add `salt-lint` & `rubocop` to `lint` job ([](https://github.com/myii/ssf-formula/commit/2dac9b0))
+
+
+### Features
+
+* **rubocop:** add per-formula overrides ([](https://github.com/myii/ssf-formula/commit/212edf0))
+* **rubocop:** include for this repo ([](https://github.com/myii/ssf-formula/commit/f4fc3c1))
+* **salt-lint:** add per-formula overrides (via. TOFS) ([](https://github.com/myii/ssf-formula/commit/9ec9b1e))
+* **salt-lint:** include for this repo ([](https://github.com/myii/ssf-formula/commit/1d9636e))
+* **travis:** update for new structure of merging the `lint` stage ([](https://github.com/myii/ssf-formula/commit/dbee3f7))
+* **travis:** use `env` and `name` for improved display in Travis ([](https://github.com/myii/ssf-formula/commit/8d86eb4)), closes [/github.com/saltstack-formulas/template-formula/pull/175#discussion_r332613933](https://github.com//github.com/saltstack-formulas/template-formula/pull/175/issues/discussion_r332613933)
+* **travis:** use conditional to provide one or two lint jobs ([](https://github.com/myii/ssf-formula/commit/5c2f134))
+* **ufw:** add specific `pip3` customisations to `.travis.yml` ([](https://github.com/myii/ssf-formula/commit/c3acbd1))
+
 ## [1.17.1](https://github.com/myii/ssf-formula/compare/v1.17.0...v1.17.1) (2019-10-08)
 
 

@@ -2,6 +2,42 @@
 Changelog
 =========
 
+`1.18.0 <https://github.com/myii/ssf-formula/compare/v1.17.1...v1.18.0>`_ (2019-10-10)
+------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* **bin/kitchen:** fix ``rubocop`` errors (\ ` <https://github.com/myii/ssf-formula/commit/58881a7>`_\ )
+* **gemfile:** fix ``rubocop`` errors (\ ` <https://github.com/myii/ssf-formula/commit/e0ec88a>`_\ )
+* **salt-lint:** fix errors (\ ` <https://github.com/myii/ssf-formula/commit/5890b8a>`_\ )
+
+Code Refactoring
+^^^^^^^^^^^^^^^^
+
+
+* **defaults:** use node anchors for common ``line_length`` values (\ ` <https://github.com/myii/ssf-formula/commit/ac9b7a5>`_\ )
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+* merge travis matrix, add ``salt-lint`` & ``rubocop`` to ``lint`` job (\ ` <https://github.com/myii/ssf-formula/commit/2dac9b0>`_\ )
+
+Features
+^^^^^^^^
+
+
+* **rubocop:** add per-formula overrides (\ ` <https://github.com/myii/ssf-formula/commit/212edf0>`_\ )
+* **rubocop:** include for this repo (\ ` <https://github.com/myii/ssf-formula/commit/f4fc3c1>`_\ )
+* **salt-lint:** add per-formula overrides (via. TOFS) (\ ` <https://github.com/myii/ssf-formula/commit/9ec9b1e>`_\ )
+* **salt-lint:** include for this repo (\ ` <https://github.com/myii/ssf-formula/commit/1d9636e>`_\ )
+* **travis:** update for new structure of merging the ``lint`` stage (\ ` <https://github.com/myii/ssf-formula/commit/dbee3f7>`_\ )
+* **travis:** use ``env`` and ``name`` for improved display in Travis (\ ` <https://github.com/myii/ssf-formula/commit/8d86eb4>`_\ ), closes `/github.com/saltstack-formulas/template-formula/pull/175#discussion_r332613933 <https://github.com//github.com/saltstack-formulas/template-formula/pull/175/issues/discussion_r332613933>`_
+* **travis:** use conditional to provide one or two lint jobs (\ ` <https://github.com/myii/ssf-formula/commit/5c2f134>`_\ )
+* **ufw:** add specific ``pip3`` customisations to ``.travis.yml`` (\ ` <https://github.com/myii/ssf-formula/commit/c3acbd1>`_\ )
+
 `1.17.1 <https://github.com/myii/ssf-formula/compare/v1.17.0...v1.17.1>`_ (2019-10-08)
 ------------------------------------------------------------------------------------------
 
