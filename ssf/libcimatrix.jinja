@@ -1,7 +1,16 @@
 # -*- coding: utf-8 -*-
 # vim: ft=jinja
 
-{%- macro format_ci_matrix(platforms, inspec_suites_kitchen, inspec_suites_matrix, platforms_matrix, platforms_matrix_commented_includes, semrel_formula, width=4) %}
+{%- macro format_ci_matrix(
+              platforms,
+              inspec_suites_kitchen,
+              inspec_suites_matrix,
+              platforms_matrix,
+              platforms_matrix_commented_includes,
+              semrel_formula,
+              width=4,
+              use_new_travis_format=False
+          ) %}
 {%-   filter indent(width) %}
 {#-     Centralise duplication from here and `kitchen.yml` #}
 {%-     set platform_and_suite_names_done = [] %}
@@ -25,17 +34,17 @@
 {%-             do platform_and_suite_names_done.append(platform_and_suite_name) %}
 {#-             Only continue depending on an appropriate combination of `includes` and `excludes`: #}
 {#-             |---|-----|-----|--------|                                                          #}
-{#-             | #	| inc	| exc	| result |                                                          #}
+{#-             | # | inc | exc | result |                                                          #}
 {#-             |---|-----|-----|--------|                                                          #}
-{#-             | 1	|  y	| []	|  TRUE  |                                                          #}
-{#-             | 2	|  y	|  n	|  TRUE  |                                                          #}
-{#-             | 3	|  y	|  y	|  TRUE  |                                                          #}
-{#-             | 4	| []	| []	|  TRUE  |                                                          #}
-{#-             | 5	| []	|  n	|  TRUE  |                                                          #}
-{#-             | 6	| []	|  y	| FALSE  |                                                          #}
-{#-             | 7	|  n	| []	| FALSE  |                                                          #}
-{#-             | 8	|  n	|  n	| FALSE  |                                                          #}
-{#-             | 9	|  n	|  y	| FALSE  |                                                          #}
+{#-             | 1 |  y  | []  |  TRUE  |                                                          #}
+{#-             | 2 |  y  |  n  |  TRUE  |                                                          #}
+{#-             | 3 |  y  |  y  |  TRUE  |                                                          #}
+{#-             | 4 | []  | []  |  TRUE  |                                                          #}
+{#-             | 5 | []  |  n  |  TRUE  |                                                          #}
+{#-             | 6 | []  |  y  | FALSE  |                                                          #}
+{#-             | 7 |  n  | []  | FALSE  |                                                          #}
+{#-             | 8 |  n  |  n  | FALSE  |                                                          #}
+{#-             | 9 |  n  |  y  | FALSE  |                                                          #}
 {#-             |---|-----|-----|--------|                                                          #}
 {%-             if (platform in includes) or (not includes and platform not in excludes) %}
 {%-               set include_instance = True %}
@@ -47,6 +56,11 @@
 {%-                 if platforms_matrix_commented_includes and platform_and_suite_name not in platforms_matrix_commented_includes %}
 {%-                   set include_instance = False %}
 {%-                 endif %}
+{%-               endif %}
+{#-               Define `instance_and_env`, modified for new Travis format #}
+{%-               set instance_and_env = 'INSTANCE: ' %}
+{%-               if use_new_travis_format %}
+{%-                 set instance_and_env = 'env: INSTANCE=' %}
 {%-               endif %}
 {%-               if include_instance %}
 {#-                 Only add a prefix if suite_name is given #}
@@ -62,7 +76,7 @@
                       salt_ver | replace('.', '-'),
                       py_ver,
                     ) %}
-{{ comment }}- INSTANCE: {{ instance }}
+{{ comment }}- {{ instance_and_env }}{{ instance }}
 {%-               endif %}
 {%-             endif %}
 {%-           endif %}

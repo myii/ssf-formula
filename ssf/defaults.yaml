@@ -3,6 +3,11 @@
 ---
 ssf_node_anchors:
   defaults:
+    common:
+      lint:
+        line_length:
+          bugbear: &line_length_bugbear 88
+          default: &line_length_default 80
     formula: &formula_default
       context: &context_default
         git:
@@ -17,8 +22,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length
-            title: 'feat(tofs): implementation for all file.managed'
-            body: '* Checked using https://github.com/myii/ssf-formula/pull/54'
+            title: 'ci: merge travis matrix, add `salt-lint` & `rubocop` to `lint` job'
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/60'
             # yamllint enable rule:line-length
           github:
             owner: saltstack-formulas
@@ -159,6 +164,14 @@ ssf_node_anchors:
         # To deal with excessive instances when mimicking `kitchen list -b`
         # If values are set, only use these as commented entries in the matrix
         platforms_matrix_commented_includes: []
+        rubocop:
+          AllCops: {}
+          Cops:
+            Metrics/LineLength:
+              Bugbear: *line_length_bugbear
+              Default: *line_length_default
+              Max: *line_length_bugbear
+        salt_lint: {}
         script_kitchen:
           bin: bin/kitchen
           cmd: verify
@@ -167,6 +180,7 @@ ssf_node_anchors:
         travis:
           addons: {}
           dist: bionic
+          use_single_job_for_linters: true
         use_cirrus_ci: false
         use_tofs: false
         yamllint:
@@ -182,6 +196,7 @@ ssf_node_anchors:
             default:
               - '*.yaml'
               - '*.yml'
+              - '.salt-lint'
               - '.yamllint'
             additional_ssf:
               - '*.example'
@@ -207,9 +222,9 @@ ssf_node_anchors:
             key-duplicates: {}
             # key-ordering: {}
             line-length:
-              bugbear: 88
-              default: 80
-              max: 88
+              bugbear: *line_length_bugbear
+              default: *line_length_default
+              max: *line_length_bugbear
             # new-line-at-end-of-file: {}
             # new-lines: {}
             octal-values:

@@ -1,0 +1,16 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+---
+# General overrides used across formulas in the org
+Metrics/LineLength:
+  # Increase from default of `80`
+  # Based on https://github.com/PyCQA/flake8-bugbear#opinionated-warnings (`B950`)
+  Max: 88
+
+# General settings across all cops in this formula
+AllCops:
+  # Files to ignore completely
+  Exclude:
+    - ssf/files/**/*
+
+# Any offenses that should be fixed, e.g. collected via. `rubocop --auto-gen-config`

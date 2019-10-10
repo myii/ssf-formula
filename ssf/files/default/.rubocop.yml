@@ -1,0 +1,37 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+---
+# General overrides used across formulas in the org
+{%- set MLL = 'Metrics/LineLength' %}
+{{ MLL }}:
+  {%- set rbcp_MLL = rubocop.Cops.get(MLL) %}
+  {%- if rbcp_MLL.Max == rbcp_MLL.Bugbear %}
+  # Increase from default of `{{ rbcp_MLL.Default }}`
+  # Based on https://github.com/PyCQA/flake8-bugbear#opinionated-warnings (`B950`)
+  {%- endif %}
+  Max: {{ rbcp_MLL.Max }}
+
+{%- if rubocop.AllCops %}
+
+# General settings across all cops in this formula
+AllCops:
+  {#- This is purposefully simplistic for the time being,
+      until (if ever) more advanced configuration is necessary #}
+  {%- if rubocop.AllCops.Exclude %}
+  # Files to ignore completely
+  Exclude:
+    {%- for path in rubocop.AllCops.Exclude %}
+    - {{ path }}
+    {%- endfor %}
+  {%- endif %}
+{%- endif %}
+
+# Any offenses that should be fixed, e.g. collected via. `rubocop --auto-gen-config`
+{%- for cop, config in rubocop.Cops.items() if cop not in [MLL] %}
+{{ cop }}:
+  {#- This is purposefully simplistic for the time being,
+      until (if ever) more advanced configuration is necessary #}
+  {%- for k, v in config.items() %}
+  {{ k }}: {{ v }}
+  {%- endfor %}
+{%- endfor %}

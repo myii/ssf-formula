@@ -7,7 +7,7 @@
 {%- import_yaml tplroot ~ "/defaults.yaml" as defaults %}
 {%- import_yaml tplroot ~ "/formulas.yaml" as formulas %}
 
-{## Merge the formulas ##}
+{#- Merge the formulas #}
 {%- do salt['defaults.merge'](defaults, formulas) %}
 
 {#- Merge the ssf config (e.g. from pillar) #}

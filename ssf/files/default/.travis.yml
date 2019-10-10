@@ -2,20 +2,35 @@
 # vim: ft=yaml
 ---
 {%- from tplroot ~ "/libcimatrix.jinja" import format_ci_matrix with context %}
+
+{%- macro format_allow_failures(use_single_job_for_linters) %}
+{%-   filter indent(2) %}
+{%-     if not use_single_job_for_linters %}
+allow_failures:
+  - env: Lint_rubocop
+fast_finish: true
+{%-     endif %}
+{%-   endfilter %}
+{%- endmacro %}
+
+{%- macro format_rubocop_linter() %}
+{%-   filter indent(8) %}
+# Install and run `rubocop`
+- gem install rubocop
+- rubocop -d
+{%-   endfilter %}
+{%- endmacro %}
+
+{%- set comment_linters = '# Run all of the linters in a single job' %}
+{%- set name_linters = 'Lint: salt-lint, yamllint, rubocop & commitlint' %}
+{%- if not travis.use_single_job_for_linters %}
+{%-   set comment_linters = comment_linters ~ ' (except `rubocop`)' %}
+{%-   set name_linters = 'Lint: salt-lint, yamllint & commitlint' %}
+{%- endif %}
+## Machine config
 dist: {{ travis.dist }}
-stages:
-  {%- if platforms and not use_cirrus_ci %}
-  - test
-  {%- endif %}
-  - lint
-  - name: release
-    if: branch = master AND type != pull_request
 {%- if platforms and not use_cirrus_ci %}
-
 sudo: required
-cache: bundler
-language: ruby
-
 services:
   - docker
 {%-   set travis_addons = travis.addons %}
@@ -29,62 +44,106 @@ addons:
 # yamllint enable rule:indentation
 {%-   endif %}
 
-# Make sure the instances listed below match up with
-# the `platforms` defined in `kitchen.yml`
-{%-   if semrel_formula == 'template' %}
-# NOTE: Please try to select up to six instances that add some meaningful
-#       testing of the formula's behaviour. If possible, try to refrain from
-#       the classical "chosing all the instances because I want to test on
-#       another/all distro/s" trap: it will just add time to the testing (see
-#       the discussion on #121).  As an example, the set chosen below covers
-#       the most used distros families, systemd and non-systemd and the latest
-#       three supported Saltstack versions with python2 and 3.
-#       As for `kitchen.yml`, that should still contain all of the platforms,
-#       to allow for comprehensive local testing
-#       Ref: https://github.com/saltstack-formulas/template-formula/issues/118
-#       Ref: https://github.com/saltstack-formulas/template-formula/issues/121
-{%-   endif %}
-env:
-  matrix:
-    {%- if semrel_formula == 'salt' %}
-    # The ordering used below has been selected based on the time required in Travis
-    # The slower ones are kept as high up as possible, to run concurrently rather than
-    # slow down the entire run at the end (i.e. `centos-6` and `opensuse`)
-    # However, the groupings needed to be maintained in some semblance of order
-    # so this is a best-effort matrix, in the circumstances
-    {%- endif %}
-    {{- format_ci_matrix(platforms, inspec_suites_kitchen, inspec_suites_matrix, platforms_matrix, platforms_matrix_commented_includes, semrel_formula) }}
+## Language and cache config
+language: ruby
+cache: bundler
 
+## Script to run for the test stage
 script:
   {%- for pre_cmd in script_kitchen.pre %}
   - {{ pre_cmd }}
   {%- endfor %}
-  - {{ script_kitchen.bin }} {{ script_kitchen.cmd }} ${INSTANCE}
+  - {{ script_kitchen.bin }} {{ script_kitchen.cmd }} "${INSTANCE}"
   {%- for post_cmd in script_kitchen.post %}
   - {{ post_cmd }}
   {%- endfor %}
 {%- endif %}
 
+## Stages and jobs matrix
+stages:
+  - test
+  - name: release
+    if: branch = master AND type != pull_request
 jobs:
+  {{- format_allow_failures(travis.use_single_job_for_linters) }}
   include:
-    # Define the `lint` stage (runs `yamllint` and `commitlint`)
-    - stage: lint
-      language: node_js
+    ## Define the test stage that runs the linters (and testing matrix, if applicable)
+
+    {{ comment_linters }}
+    - language: node_js
       node_js: lts/*
+      env: Lint
+      name: '{{ name_linters }}'
       before_install: skip
       script:
+        {%- set pip_cmd = 'pip' %}
+        {%- set pkgs_for_salt_lint = 'salt-lint' %}
+        {%- if semrel_formula == 'ufw' %}
+        {%-   set pip_cmd = 'pip3' %}
+        {%-   set pkgs_for_salt_lint = pkgs_for_salt_lint ~ ' PyYAML==4.2b4' %}
+        # Need to use `pip3` due to using `{{ travis.dist }}` on Travis
+        - sudo apt-get install python3-pip python3-setuptools python3-wheel -y
+        {%- endif %}
+        # Install and run `salt-lint`
+        - {{ pip_cmd }} install --user {{ pkgs_for_salt_lint }}
+        - git ls-files | grep '\.sls$\|\.jinja$\|\.j2$\|\.tmpl$'
+                       | xargs -I {} salt-lint {}
         # Install and run `yamllint`
         # Need at least `v1.17.0` for the `yaml-files` setting
-        - pip install --user yamllint>=1.17.0
+        - {{ pip_cmd }} install --user yamllint>=1.17.0
         - yamllint -s .
+        {%- if travis.use_single_job_for_linters %}
+        {{-   format_rubocop_linter() }}
+        {%- endif %}
         # Install and run `commitlint`
         - npm install @commitlint/config-conventional -D
         - npm install @commitlint/travis-cli -D
         - commitlint-travis
-    # Define the release stage that runs `semantic-release`
+    {%- if not travis.use_single_job_for_linters %}
+    # Run the `rubocop` linter in a separate job that is allowed to fail
+    # Once these lint errors are fixed, this can be merged into a single job
+    - language: node_js
+      node_js: lts/*
+      env: Lint_rubocop
+      name: 'Lint: rubocop'
+      before_install: skip
+      script:
+        {{-   format_rubocop_linter() }}
+    {%- endif %}
+
+    {%- if platforms and not use_cirrus_ci %}
+
+    ## Define the rest of the matrix based on Kitchen testing
+    # Make sure the instances listed below match up with
+    # the `platforms` defined in `kitchen.yml`
+    {%-   if semrel_formula == 'template' %}
+    # NOTE: Please try to select up to six instances that add some meaningful
+    #       testing of the formula's behaviour. If possible, try to refrain from
+    #       the classical "chosing all the instances because I want to test on
+    #       another/all distro/s" trap: it will just add time to the testing (see
+    #       the discussion on #121).  As an example, the set chosen below covers
+    #       the most used distros families, systemd and non-systemd and the latest
+    #       three supported Saltstack versions with python2 and 3.
+    #       As for `kitchen.yml`, that should still contain all of the platforms,
+    #       to allow for comprehensive local testing
+    #       Ref: https://github.com/saltstack-formulas/template-formula/issues/118
+    #       Ref: https://github.com/saltstack-formulas/template-formula/issues/121
+    {%-   elif semrel_formula == 'salt' %}
+    # The ordering used below has been selected based on the time required in Travis
+    # The slower ones are kept as high up as possible, to run concurrently rather than
+    # slow down the entire run at the end (i.e. `centos-6` and `opensuse`)
+    # However, the groupings needed to be maintained in some semblance of order
+    # so this is a best-effort matrix, in the circumstances
+    {%-   endif %}
+    {{- format_ci_matrix(platforms, inspec_suites_kitchen, inspec_suites_matrix, platforms_matrix, platforms_matrix_commented_includes, semrel_formula, use_new_travis_format=True) }}
+    {%- endif %}
+
+    ## Define the release stage that runs `semantic-release`
     - stage: release
       language: node_js
       node_js: lts/*
+      env: Release
+      name: 'Run semantic-release inc. file updates to AUTHORS, CHANGELOG & FORMULA'
       before_install: skip
       script:
         # Update `AUTHORS.md`
