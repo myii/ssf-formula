@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.19.0 <https://github.com/myii/ssf-formula/compare/v1.18.0...v1.19.0>`_ (2019-10-10)
+------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **issues:** remove templates for all ``semrel_formulas`` (\ ` <https://github.com/myii/ssf-formula/commit/487e962>`_\ )
+
 `1.18.0 <https://github.com/myii/ssf-formula/compare/v1.17.1...v1.18.0>`_ (2019-10-10)
 ------------------------------------------------------------------------------------------
 
