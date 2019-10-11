@@ -1654,7 +1654,6 @@ ssf:
               pillars_from_files:
                 - .sls: test/salt/pillar/default.sls
         platforms_matrix: *platforms_matrix_without_arch
-        travis: *travis_do_not_use_single_job_for_linters
       semrel_files: *semrel_files_default
     vault:
       context:
