@@ -978,7 +978,6 @@ ssf:
                 - '*':
                     - .
                     - .config
-        travis: *travis_do_not_use_single_job_for_linters
         yamllint:
           rules:
             key-duplicates:
