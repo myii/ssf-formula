@@ -1265,7 +1265,6 @@ ssf:
           # - [centos       ,   7   ,   2019.2,      3,     v201902-py3]
           - [fedora       ,  30   ,   2019.2,      3,     v201902-py3]
           - [opensuse/leap,  15   ,   2019.2,      3,     v201902-py3]
-        travis: *travis_do_not_use_single_job_for_linters
         use_tofs: true
         yamllint:
           ignore:
