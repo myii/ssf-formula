@@ -1018,7 +1018,6 @@ ssf:
               - postgres/osmap.yaml
               - postgres/repo.yaml
               - test/salt/pillar/postgres.sls
-        travis: *travis_do_not_use_single_job_for_linters
       semrel_files: *semrel_files_default
     prometheus:
       context:
