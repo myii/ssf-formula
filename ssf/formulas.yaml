@@ -1057,7 +1057,6 @@ ssf:
           - [debian       ,   9   ,   2018.3,      2,         default]
           - [ubuntu       ,  16.04,   2018.3,      2,         default]
           - [centos       ,   6   ,   2017.7,      2,         default]
-        travis: *travis_do_not_use_single_job_for_linters
       semrel_files: *semrel_files_default
     rkhunter:
       context:
