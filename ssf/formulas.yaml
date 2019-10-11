@@ -1398,7 +1398,10 @@ ssf:
                 - '*':
                     - .
                     - .included
-        travis: *travis_do_not_use_single_job_for_linters
+        rubocop:
+          Cops:
+            Metrics/BlockLength:
+              Max: 41
       semrel_files: *semrel_files_default
     sysctl:
       context:
