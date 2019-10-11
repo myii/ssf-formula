@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.20.0](https://github.com/myii/ssf-formula/compare/v1.19.1...v1.20.0) (2019-10-11)
+
+
+### Features
+
+* **postgres:** merge `rubocop` linter into main `lint` job ([](https://github.com/myii/ssf-formula/commit/cf05242))
+
 ## [1.19.1](https://github.com/myii/ssf-formula/compare/v1.19.0...v1.19.1) (2019-10-10)
 
 
