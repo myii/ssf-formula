@@ -623,7 +623,6 @@ ssf:
           pre:
             - sudo modprobe ip_vs
         travis:
-          <<: *travis_do_not_use_single_job_for_linters
           addons:
             apt:
               packages:
