@@ -23,7 +23,7 @@ ssf_node_anchors:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length
             title: 'ci(travis): merge `rubocop` linter into main `lint` job'
-            body: '* Semi-automated using https://github.com/myii/ssf-formula/pull/64'
+            body: '* Semi-automated using https://github.com/myii/ssf-formula/pull/65'
             # yamllint enable rule:line-length
           github:
             owner: saltstack-formulas

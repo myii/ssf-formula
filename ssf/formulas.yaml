@@ -282,7 +282,6 @@ ssf:
                 - '*':
                     - .ng.server
         platforms_matrix: *platforms_matrix_osfamily_debian
-        travis: *travis_do_not_use_single_job_for_linters
         use_tofs: true
       semrel_files:
         <<: *semrel_files_default
@@ -351,7 +350,6 @@ ssf:
             inspec_yml:
               summary: >-
                 Verify that the chrony formula is setup and configured correctly
-        travis: *travis_do_not_use_single_job_for_linters
         use_tofs: true
       semrel_files: *semrel_files_default
     collectd:
@@ -377,7 +375,6 @@ ssf:
           - [fedora       ,  29   ,   2018.3,      2,         default]
           - [opensuse/leap,  15   ,   2018.3,      2,         default]
           - [centos       ,   6   ,   2017.7,      2,         default]
-        travis: *travis_do_not_use_single_job_for_linters
       semrel_files: *semrel_files_default
     cron:
       context:
@@ -393,7 +390,6 @@ ssf:
               pillars_from_files:
                 - .sls: test/salt/pillar/cron.sls
         platforms_matrix: *platforms_matrix_without_arch
-        travis: *travis_do_not_use_single_job_for_linters
       semrel_files: *semrel_files_default
     deepsea:
       context:
@@ -437,7 +433,6 @@ ssf:
           # - [opensuse/leap,  15   ,   2017.7,      2,         default]
           # # - [amazonlinux  ,   2   ,   2017.7,      2,         default]
           # # - [arch-base    , latest,   2017.7,      2,         default]
-        travis: *travis_do_not_use_single_job_for_linters
         use_tofs: true
       semrel_files: *semrel_files_default
     dhcpd:
@@ -481,7 +476,6 @@ ssf:
               pillars_from_files:
                 - .sls: test/salt/pillar/exim.sls
         platforms_matrix: *platforms_matrix_osfamily_debian
-        travis: *travis_do_not_use_single_job_for_linters
         use_tofs: true
       semrel_files: *semrel_files_default
     fail2ban:
@@ -513,7 +507,6 @@ ssf:
           # - [fedora       ,  29   ,   2018.3,      2,         default]
           - [opensuse/leap,  15   ,   2018.3,      2,         default]
           - [centos       ,   6   ,   2017.7,      2,         default]
-        travis: *travis_do_not_use_single_job_for_linters
       semrel_files: *semrel_files_default
     golang:
       context:
@@ -566,7 +559,6 @@ ssf:
               pillars_from_files:
                 - .sls: test/salt/pillar/influxdb.sls
         platforms_matrix: *platforms_matrix_without_arch
-        travis: *travis_do_not_use_single_job_for_linters
       semrel_files: *semrel_files_default
     iptables:
       context:
@@ -626,7 +618,6 @@ ssf:
           pre:
             - sudo modprobe ip_vs
         travis:
-          <<: *travis_do_not_use_single_job_for_linters
           addons:
             apt:
               packages:
@@ -719,7 +710,6 @@ ssf:
           - [fedora       ,  29   ,   2018.3,      2,          fedora]
           - [opensuse/leap,  15   ,   2018.3,      2,         default]
           - [centos       ,   6   ,   2017.7,      2,         default]
-        travis: *travis_do_not_use_single_job_for_linters
       semrel_files: *semrel_files_default
     logrotate:
       context:
@@ -742,7 +732,6 @@ ssf:
                     - .
                     - .jobs
         platforms_matrix: *platforms_matrix_without_arch
-        travis: *travis_do_not_use_single_job_for_linters
       semrel_files: *semrel_files_default
     lvm:
       context:
@@ -780,7 +769,6 @@ ssf:
           # - [centos       ,   6   ,   2017.7,      2,         default]
           - [amazonlinux  ,   2   ,   2017.7,      2,         default]
           # # - [arch-base    , latest,   2017.7,      2,         default]
-        travis: *travis_do_not_use_single_job_for_linters
       semrel_files: *semrel_files_default
     mysql:
       context:
@@ -803,7 +791,6 @@ ssf:
           - [ubuntu       ,  18.04,   2019.2,      3,         default]
           - [debian       ,   9   ,   2018.3,      2,         default]
           - [debian       ,   8   ,   2017.7,      2,         default]
-        travis: *travis_do_not_use_single_job_for_linters
         yamllint:
           ignore:
             additional:
@@ -979,7 +966,6 @@ ssf:
                 - '*':
                     - .
                     - .config
-        travis: *travis_do_not_use_single_job_for_linters
         yamllint:
           rules:
             key-duplicates:
@@ -1058,7 +1044,6 @@ ssf:
           - [debian       ,   9   ,   2018.3,      2,         default]
           - [ubuntu       ,  16.04,   2018.3,      2,         default]
           - [centos       ,   6   ,   2017.7,      2,         default]
-        travis: *travis_do_not_use_single_job_for_linters
       semrel_files: *semrel_files_default
     rkhunter:
       context:
@@ -1376,7 +1361,6 @@ ssf:
           - [debian       ,   9   ,   2019.2,      3,         default]
           - [ubuntu       ,  18.04,   2019.2,      3,         default]
           - [debian       ,   9   ,   2018.3,      2,         default]
-        travis: *travis_do_not_use_single_job_for_linters
       semrel_files: *semrel_files_default
     sudoers:
       context:
@@ -1400,7 +1384,10 @@ ssf:
                 - '*':
                     - .
                     - .included
-        travis: *travis_do_not_use_single_job_for_linters
+        rubocop:
+          Cops:
+            Metrics/BlockLength:
+              Max: 41
       semrel_files: *semrel_files_default
     sysctl:
       context:
@@ -1424,7 +1411,6 @@ ssf:
           - [fedora       ,  29   ,   2018.3,      2,         default]
           - [opensuse/leap,  15   ,   2018.3,      2,         default]
           # - [centos       ,   6   ,   2017.7,      2,         default]
-        travis: *travis_do_not_use_single_job_for_linters
       semrel_files: *semrel_files_default
     syslog-ng:
       context:
@@ -1514,7 +1500,10 @@ ssf:
           - [amazonlinux  ,   2   ,   2017.7,      2]
           - [arch-base    , latest,   2017.7,      2]
         platforms_matrix: *platforms_matrix_systemd_only
-        travis: *travis_do_not_use_single_job_for_linters
+        rubocop:
+          Cops:
+            Metrics/BlockLength:
+              Max: 41
         use_tofs: true
       semrel_files: *semrel_files_default
     telegraf:
@@ -1538,7 +1527,6 @@ ssf:
           - [fedora       ,  30   ,   2019.2,      3,         default]
           - [opensuse/leap,  15   ,   2018.3,      2,         default]
           - [ubuntu       ,  16.04,   2017.7,      2,         default]
-        travis: *travis_do_not_use_single_job_for_linters
         use_tofs: true
       semrel_files: *semrel_files_default
     template:
@@ -1608,7 +1596,6 @@ ssf:
             provisioner:
               pillars_from_files:
                 - .sls: test/salt/pillar/timezone.sls
-        travis: *travis_do_not_use_single_job_for_linters
       semrel_files: *semrel_files_default
     ufw:
       context:
@@ -1655,7 +1642,6 @@ ssf:
               pillars_from_files:
                 - .sls: test/salt/pillar/default.sls
         platforms_matrix: *platforms_matrix_without_arch
-        travis: *travis_do_not_use_single_job_for_linters
       semrel_files: *semrel_files_default
     vault:
       context:
@@ -1745,7 +1731,6 @@ ssf:
               pillars_from_files:
                 - .sls: test/salt/pillar/vim.sls
         platforms_matrix: *platforms_matrix_without_arch
-        travis: *travis_do_not_use_single_job_for_linters
       semrel_files: *semrel_files_default
     vsftpd:
       context:
@@ -1760,5 +1745,4 @@ ssf:
             provisioner:
               pillars_from_files:
                 - .sls: test/salt/pillar/vsftpd.sls
-        travis: *travis_do_not_use_single_job_for_linters
       semrel_files: *semrel_files_default
