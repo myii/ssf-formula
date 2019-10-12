@@ -1509,7 +1509,10 @@ ssf:
           - [amazonlinux  ,   2   ,   2017.7,      2]
           - [arch-base    , latest,   2017.7,      2]
         platforms_matrix: *platforms_matrix_systemd_only
-        travis: *travis_do_not_use_single_job_for_linters
+        rubocop:
+          Cops:
+            Metrics/BlockLength:
+              Max: 41
         use_tofs: true
       semrel_files: *semrel_files_default
     telegraf:
