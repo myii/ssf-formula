@@ -2,6 +2,39 @@
 Changelog
 =========
 
+`1.21.0 <https://github.com/myii/ssf-formula/compare/v1.20.0...v1.21.0>`_ (2019-10-12)
+------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **apt-cacher:** merge ``rubocop`` linter into main ``lint`` job (\ ` <https://github.com/myii/ssf-formula/commit/a799f8b>`_\ )
+* **chrony:** merge ``rubocop`` linter into main ``lint`` job (\ ` <https://github.com/myii/ssf-formula/commit/b9bceb4>`_\ )
+* **collectd:** merge ``rubocop`` linter into main ``lint`` job (\ ` <https://github.com/myii/ssf-formula/commit/9ba1a3f>`_\ )
+* **cron:** merge ``rubocop`` linter into main ``lint`` job (\ ` <https://github.com/myii/ssf-formula/commit/187ccf4>`_\ )
+* **deepsea:** merge ``rubocop`` linter into main ``lint`` job (\ ` <https://github.com/myii/ssf-formula/commit/5f6af1e>`_\ )
+* **exim:** merge ``rubocop`` linter into main ``lint`` job (\ ` <https://github.com/myii/ssf-formula/commit/3094eff>`_\ )
+* **fail2ban:** merge ``rubocop`` linter into main ``lint`` job (\ ` <https://github.com/myii/ssf-formula/commit/9348835>`_\ )
+* **influxdb:** merge ``rubocop`` linter into main ``lint`` job (\ ` <https://github.com/myii/ssf-formula/commit/1226b01>`_\ )
+* **keepalived:** merge ``rubocop`` linter into main ``lint`` job (\ ` <https://github.com/myii/ssf-formula/commit/7ab18a1>`_\ )
+* **locale:** merge ``rubocop`` linter into main ``lint`` job (\ ` <https://github.com/myii/ssf-formula/commit/74ab8f8>`_\ )
+* **logrotate:** merge ``rubocop`` linter into main ``lint`` job (\ ` <https://github.com/myii/ssf-formula/commit/0207488>`_\ )
+* **lvm:** merge ``rubocop`` linter into main ``lint`` job (\ ` <https://github.com/myii/ssf-formula/commit/5ea9558>`_\ )
+* **mysql:** merge ``rubocop`` linter into main ``lint`` job (\ ` <https://github.com/myii/ssf-formula/commit/923acd6>`_\ )
+* **postfix:** merge ``rubocop`` linter into main ``lint`` job (\ ` <https://github.com/myii/ssf-formula/commit/f38ef8d>`_\ )
+* **redis:** merge ``rubocop`` linter into main ``lint`` job (\ ` <https://github.com/myii/ssf-formula/commit/2346b38>`_\ )
+* **salt:** merge ``rubocop`` linter into main ``lint`` job (\ ` <https://github.com/myii/ssf-formula/commit/482cfce>`_\ )
+* **stunnel:** merge ``rubocop`` linter into main ``lint`` job (\ ` <https://github.com/myii/ssf-formula/commit/731776e>`_\ )
+* **sudoers:** merge ``rubocop`` linter into main ``lint`` job (\ ` <https://github.com/myii/ssf-formula/commit/7f0c48d>`_\ )
+* **sysctl:** merge ``rubocop`` linter into main ``lint`` job (\ ` <https://github.com/myii/ssf-formula/commit/d6bffd0>`_\ )
+* **systemd:** merge ``rubocop`` linter into main ``lint`` job (\ ` <https://github.com/myii/ssf-formula/commit/ad03ed9>`_\ )
+* **telegraf:** merge ``rubocop`` linter into main ``lint`` job (\ ` <https://github.com/myii/ssf-formula/commit/4e491e7>`_\ )
+* **timezone:** merge ``rubocop`` linter into main ``lint`` job (\ ` <https://github.com/myii/ssf-formula/commit/44c8c7f>`_\ )
+* **users:** merge ``rubocop`` linter into main ``lint`` job (\ ` <https://github.com/myii/ssf-formula/commit/6e4cb64>`_\ )
+* **vim:** merge ``rubocop`` linter into main ``lint`` job (\ ` <https://github.com/myii/ssf-formula/commit/717eac4>`_\ )
+* **vsftpd:** merge ``rubocop`` linter into main ``lint`` job (\ ` <https://github.com/myii/ssf-formula/commit/5c9fe9a>`_\ )
+
 `1.20.0 <https://github.com/myii/ssf-formula/compare/v1.19.1...v1.20.0>`_ (2019-10-11)
 ------------------------------------------------------------------------------------------
 
