@@ -478,7 +478,6 @@ ssf:
               pillars_from_files:
                 - .sls: test/salt/pillar/exim.sls
         platforms_matrix: *platforms_matrix_osfamily_debian
-        travis: *travis_do_not_use_single_job_for_linters
         use_tofs: true
       semrel_files: *semrel_files_default
     fail2ban:
