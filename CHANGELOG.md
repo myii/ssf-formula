@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.24.0](https://github.com/myii/ssf-formula/compare/v1.23.0...v1.24.0) (2019-10-12)
+
+
+### Features
+
+* **formula:** add `iscsi-formula` ([](https://github.com/myii/ssf-formula/commit/7aca225))
+
 # [1.23.0](https://github.com/myii/ssf-formula/compare/v1.22.0...v1.23.0) (2019-10-12)
 
 
