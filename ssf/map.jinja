@@ -11,7 +11,7 @@
 {%- do salt['defaults.merge'](defaults, formulas) %}
 
 {#- Merge the ssf config (e.g. from pillar) #}
-{%- set config = salt['config.get'](tplroot, default={}, merge='recurse') or {} %}
+{%- set config = salt['config.get'](tplroot, default={}, merge=None) or {} %}
 {%- do salt['defaults.merge'](defaults[tplroot], config) %}
 
 {#- Prepare the export #}
