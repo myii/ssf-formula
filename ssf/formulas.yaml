@@ -350,7 +350,6 @@ ssf:
             inspec_yml:
               summary: >-
                 Verify that the chrony formula is setup and configured correctly
-        travis: *travis_do_not_use_single_job_for_linters
         use_tofs: true
       semrel_files: *semrel_files_default
     collectd:
