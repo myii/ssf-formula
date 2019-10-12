@@ -6,12 +6,24 @@
 {#- Start imports as #}
 {%- import_yaml tplroot ~ "/defaults.yaml" as defaults %}
 {%- import_yaml tplroot ~ "/formulas.yaml" as formulas %}
+{%- set config = salt['config.get'](tplroot, default={}, merge=None) or {} %}
+
+{#- Reduce dict sizes before merging, by removing formulas that aren't active #}
+{%- for k, v in defaults[tplroot].semrel_formulas.items() %}
+{%-   if k not in config.active.semrel_formulas %}
+{%-     do defaults[tplroot].semrel_formulas.pop(k, None) %}
+{%-   endif %}
+{%- endfor %}
+{%- for k, v in formulas[tplroot].semrel_formulas.items() %}
+{%-   if k not in config.active.semrel_formulas %}
+{%-     do formulas[tplroot].semrel_formulas.pop(k, None) %}
+{%-   endif %}
+{%- endfor %}
 
 {#- Merge the formulas #}
 {%- do salt['defaults.merge'](defaults, formulas) %}
 
 {#- Merge the ssf config (e.g. from pillar) #}
-{%- set config = salt['config.get'](tplroot, default={}, merge=None) or {} %}
 {%- do salt['defaults.merge'](defaults[tplroot], config) %}
 
 {#- Prepare the export #}
