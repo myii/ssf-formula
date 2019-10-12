@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.23.0 <https://github.com/myii/ssf-formula/compare/v1.22.0...v1.23.0>`_ (2019-10-12)
+------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **zabbix:** use ``fedora-29`` instead of ``fedora-30`` (for reliability) (\ ` <https://github.com/myii/ssf-formula/commit/5aaf188>`_\ ), closes `/github.com/saltstack-formulas/zabbix-formula/pull/130#issuecomment-541303953 <https://github.com//github.com/saltstack-formulas/zabbix-formula/pull/130/issues/issuecomment-541303953>`_
+
 `1.22.0 <https://github.com/myii/ssf-formula/compare/v1.21.0...v1.22.0>`_ (2019-10-12)
 ------------------------------------------------------------------------------------------
 
