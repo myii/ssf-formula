@@ -22,8 +22,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length
-            title: 'ci(travis): use `fedora-29` instead of `fedora-30` (for reliability)'
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/67'
+            title: 'feat(semantic-release): complete for this formula'
+            body: '* Semi-automated using https://github.com/myii/ssf-formula/pull/62'
             # yamllint enable rule:line-length
           github:
             owner: saltstack-formulas
@@ -297,6 +297,15 @@ ssf:
           1:
             <<: *isk_suite_default
             name: tables
+    iscsi:
+      <<: *formula_default
+      context:
+        <<: *context_default
+        inspec_suites_kitchen:
+          <<: *isk_default
+          1:
+            <<: *isk_suite_default
+            name: centarch
     keepalived: *formula_default
     libvirt:
       <<: *formula_default
