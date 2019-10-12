@@ -209,6 +209,7 @@ These formulas are already compatible with semantic-release:
 * `vault-formula <https://github.com/saltstack-formulas/vault-formula>`_
 * `vim-formula <https://github.com/saltstack-formulas/vim-formula>`_
 * `vsftpd-formula <https://github.com/saltstack-formulas/vsftpd-formula>`_
+* `zabbix-formula <https://github.com/saltstack-formulas/zabbix-formula>`_
 
 Documentation
 -------------

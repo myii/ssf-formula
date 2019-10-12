@@ -22,8 +22,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length
-            title: 'ci(travis): merge `rubocop` linter into main `lint` job'
-            body: '* Semi-automated using https://github.com/myii/ssf-formula/pull/65'
+            title: 'feat(semantic-release): implement for this formula'
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/66'
             # yamllint enable rule:line-length
           github:
             owner: saltstack-formulas
@@ -445,3 +445,4 @@ ssf:
             name: ''
     vim: *formula_default
     vsftpd: *formula_default
+    zabbix: *formula_default
