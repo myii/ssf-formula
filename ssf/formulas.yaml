@@ -1606,7 +1606,6 @@ ssf:
             provisioner:
               pillars_from_files:
                 - .sls: test/salt/pillar/timezone.sls
-        travis: *travis_do_not_use_single_job_for_linters
       semrel_files: *semrel_files_default
     ufw:
       context:
