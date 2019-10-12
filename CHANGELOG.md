@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.22.0](https://github.com/myii/ssf-formula/compare/v1.21.0...v1.22.0) (2019-10-12)
+
+
+### Features
+
+* **formula:** add `zabbix-formula` ([](https://github.com/myii/ssf-formula/commit/6e0bfae))
+
 # [1.21.0](https://github.com/myii/ssf-formula/compare/v1.20.0...v1.21.0) (2019-10-12)
 
 
