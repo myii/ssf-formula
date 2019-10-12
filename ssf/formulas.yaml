@@ -1367,7 +1367,6 @@ ssf:
           - [debian       ,   9   ,   2019.2,      3,         default]
           - [ubuntu       ,  18.04,   2019.2,      3,         default]
           - [debian       ,   9   ,   2018.3,      2,         default]
-        travis: *travis_do_not_use_single_job_for_linters
       semrel_files: *semrel_files_default
     sudoers:
       context:
