@@ -710,7 +710,6 @@ ssf:
           - [fedora       ,  29   ,   2018.3,      2,          fedora]
           - [opensuse/leap,  15   ,   2018.3,      2,         default]
           - [centos       ,   6   ,   2017.7,      2,         default]
-        travis: *travis_do_not_use_single_job_for_linters
       semrel_files: *semrel_files_default
     logrotate:
       context:
