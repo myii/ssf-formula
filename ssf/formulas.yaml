@@ -282,7 +282,6 @@ ssf:
                 - '*':
                     - .ng.server
         platforms_matrix: *platforms_matrix_osfamily_debian
-        travis: *travis_do_not_use_single_job_for_linters
         use_tofs: true
       semrel_files:
         <<: *semrel_files_default
