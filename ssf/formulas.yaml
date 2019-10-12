@@ -434,7 +434,6 @@ ssf:
           # - [opensuse/leap,  15   ,   2017.7,      2,         default]
           # # - [amazonlinux  ,   2   ,   2017.7,      2,         default]
           # # - [arch-base    , latest,   2017.7,      2,         default]
-        travis: *travis_do_not_use_single_job_for_linters
         use_tofs: true
       semrel_files: *semrel_files_default
     dhcpd:
