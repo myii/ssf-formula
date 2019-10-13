@@ -2,6 +2,18 @@
 Changelog
 =========
 
+`1.25.1 <https://github.com/myii/ssf-formula/compare/v1.25.0...v1.25.1>`_ (2019-10-13)
+------------------------------------------------------------------------------------------
+
+Performance Improvements
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+* **map.jinja:** reduce re-looping required for removing inactive files (\ ` <https://github.com/myii/ssf-formula/commit/194e793>`_\ )
+* **map.jinja:** remove ``recurse`` merging strategy for ``config.get`` (\ ` <https://github.com/myii/ssf-formula/commit/190a357>`_\ )
+* **map.jinja:** remove inactive files from formulas dict before merging (\ ` <https://github.com/myii/ssf-formula/commit/7fb97fe>`_\ )
+* **map.jinja:** remove inactive formulas from each dict before merging (\ ` <https://github.com/myii/ssf-formula/commit/d462a93>`_\ )
+
 `1.25.0 <https://github.com/myii/ssf-formula/compare/v1.24.0...v1.25.0>`_ (2019-10-13)
 ------------------------------------------------------------------------------------------
 
