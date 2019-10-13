@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.26.0 <https://github.com/myii/ssf-formula/compare/v1.25.1...v1.26.0>`_ (2019-10-13)
+------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **template:** remove all references to the ``develop`` branch (\ ` <https://github.com/myii/ssf-formula/commit/4d578cc>`_\ )
+
 `1.25.1 <https://github.com/myii/ssf-formula/compare/v1.25.0...v1.25.1>`_ (2019-10-13)
 ------------------------------------------------------------------------------------------
 
