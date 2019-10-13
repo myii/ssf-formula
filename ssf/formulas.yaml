@@ -1622,12 +1622,7 @@ ssf:
     template:
       context:
         git:
-          branch:
-            base: develop
           github:
-            remote:
-              upstream:
-                branch: develop
             repo: template-formula
         inspec_suites_kitchen:
           0:
