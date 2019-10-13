@@ -1,5 +1,17 @@
 # Changelog
 
+# [1.25.0](https://github.com/myii/ssf-formula/compare/v1.24.0...v1.25.0) (2019-10-13)
+
+
+### Documentation
+
+* **contributing:** update link to `iscsi-formula` [skip ci] ([](https://github.com/myii/ssf-formula/commit/ef98daf))
+
+
+### Features
+
+* **zabbix:** upgrade pre-existing TOFS ([](https://github.com/myii/ssf-formula/commit/803ffdf))
+
 # [1.24.0](https://github.com/myii/ssf-formula/compare/v1.23.0...v1.24.0) (2019-10-12)
 
 
