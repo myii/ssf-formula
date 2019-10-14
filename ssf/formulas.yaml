@@ -291,6 +291,7 @@ ssf:
               state_top:
                 - '*':
                     - .ng.server
+                    - .ng.client
         platforms_matrix: *platforms_matrix_osfamily_debian
         use_tofs: true
       semrel_files:
