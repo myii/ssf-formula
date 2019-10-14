@@ -22,7 +22,7 @@ COMMENT='Command `'${STATE}'` run'
 
 # Prepare git options depending on if a commit was found or not
 COMMIT=$(git log -n1 | grep "${COMMIT_GREP}")
-if [ "${COMMIT}" ]; then
+if [ ! -z "${COMMIT}" ]; then
     AMEND='--amend'
     FORCE='-f'
 else

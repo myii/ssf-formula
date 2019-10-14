@@ -23,7 +23,7 @@ COMMENT='Command `'${STATE}'` run'
 # Only create the PR if it doesn't already exist
 # If it already exists, the `git push` done earlier will have updated the PR already
 PR_EXISTS=$(curl -i https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/pulls | grep "${GH_USER}:${BRANCH_PR}")
-if [ "${PR_EXISTS}" ]; then
+if [ ! -z "${PR_EXISTS}" ]; then
     CHANGED=False
 else
     curl -H "Authorization: bearer ${GH_TOKEN}" -d '
