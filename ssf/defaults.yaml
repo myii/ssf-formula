@@ -13,9 +13,9 @@ ssf_node_anchors:
         git:
           branch:
             # TODO: `base` can be removed in favour of `github:remote:upstream:branch`
-            base: master
-            pr: chore/standardise-structure
-            upstream: upstream
+            base: 'master'
+            pr: 'chore/standardise-structure'
+            upstream: 'upstream'
           commit:
             # NOTE: The version number in the `body` is automatically updated during the
             #       release phase via. `pre-commit_semantic-release.sh`
@@ -26,18 +26,18 @@ ssf_node_anchors:
             body: '* Semi-automated using https://github.com/myii/ssf-formula/pull/63'
             # yamllint enable rule:line-length
           github:
-            owner: saltstack-formulas
+            owner: 'saltstack-formulas'
             repo: ''
             remote:
               upstream:
-                name: upstream
-                branch: master
+                name: 'upstream'
+                branch: 'master'
               fork:
-                name: origin
-                branch: master
+                name: 'origin'
+                branch: 'master'
         inspec_suites_kitchen: &isk_default
           0: &isk_suite_default
-            name: default
+            name: 'default'
             # If both `includes` and `excludes` are provided,
             # only `includes` will be considered, mimicking `kitchen list`
             # Note: This applies automatically via. `kitchen.yml`
@@ -70,14 +70,14 @@ ssf_node_anchors:
                 - '*':
                     - .
               pillars_from_files:
-                - .sls: pillar.example
+                - .sls: 'pillar.example'
               # Structure assumes `base`
               state_top:
                 - '*':
                     - .
             verifier:
-              inspec_tests_path_prefix: test/integration
-              test_suite: .
+              inspec_tests_path_prefix: 'test/integration'
+              test_suite: '.'
         inspec_suites_matrix:
           - default
         platforms:
@@ -173,18 +173,18 @@ ssf_node_anchors:
               Max: *line_length_bugbear
         salt_lint: {}
         script_kitchen:
-          bin: bin/kitchen
-          cmd: verify
+          bin: 'bin/kitchen'
+          cmd: 'verify'
           pre: []
           post: []
         travis:
           addons: {}
-          dist: bionic
+          dist: 'bionic'
           use_single_job_for_linters: true
         use_cirrus_ci: false
         use_tofs: false
         yamllint:
-          extends: default
+          extends: 'default'
           ignore:
             default:
               - 'node_modules/'
@@ -244,24 +244,24 @@ ssf:
       options: ''
     github:
       user: ''
-      file_api_response: github_api_response
+      file_api_response: 'github_api_response'
     states:
       prepare:
         active: false
-        source: salt://ssf/files/default/git/git_10_prepare.sh
+        source: 'salt://ssf/files/default/git/git_10_prepare.sh'
       add_rm:
         active: false
         source: ''
       commit_push:
         active: false
-        source: salt://ssf/files/default/git/git_20_commit_push.sh
+        source: 'salt://ssf/files/default/git/git_20_commit_push.sh'
         push:
           active: false
           # Push commit via. PR; if not, push directly to the repo's main branch
           via_PR: true
       create_PR:
         active: false
-        source: salt://ssf/files/default/git/git_30_create_PR.sh
+        source: 'salt://ssf/files/default/git/git_30_create_PR.sh'
   semrel_formulas:
     apt:
       <<: *formula_default
@@ -271,10 +271,10 @@ ssf:
           <<: *isk_default
           0:
             <<: *isk_suite_default
-            name: repositories
+            name: 'repositories'
           1:
             <<: *isk_suite_default
-            name: preferences
+            name: 'preferences'
     apt-cacher: *formula_default
     bind: *formula_default
     cert: *formula_default
@@ -296,7 +296,7 @@ ssf:
           <<: *isk_default
           1:
             <<: *isk_suite_default
-            name: tables
+            name: 'tables'
     iscsi:
       <<: *formula_default
       context:
@@ -305,7 +305,7 @@ ssf:
           <<: *isk_default
           1:
             <<: *isk_suite_default
-            name: centarch
+            name: 'centarch'
     keepalived: *formula_default
     libvirt:
       <<: *formula_default
@@ -315,10 +315,10 @@ ssf:
           <<: *isk_default
           1:
             <<: *isk_suite_default
-            name: share
+            name: 'share'
           2:
             <<: *isk_suite_default
-            name: clean
+            name: 'clean'
     locale:
       <<: *formula_default
       context:
@@ -327,7 +327,7 @@ ssf:
           <<: *isk_default
           1:
             <<: *isk_suite_default
-            name: fedora
+            name: 'fedora'
     logrotate: *formula_default
     lvm: *formula_default
     mysql: *formula_default
@@ -342,22 +342,22 @@ ssf:
           <<: *isk_default
           1:
             <<: *isk_suite_default
-            name: deb
+            name: 'deb'
           2:
             <<: *isk_suite_default
-            name: ubu18
+            name: 'ubu18'
           3:
             <<: *isk_suite_default
-            name: ubu16
+            name: 'ubu16'
           4:
             <<: *isk_suite_default
-            name: fed
+            name: 'fed'
           5:
             <<: *isk_suite_default
-            name: sus
+            name: 'sus'
           6:
             <<: *isk_suite_default
-            name: rpm
+            name: 'rpm'
     php:
       <<: *formula_default
       context:
@@ -366,16 +366,16 @@ ssf:
           <<: *isk_default
           1:
             <<: *isk_suite_default
-            name: debian
+            name: 'debian'
           2:
             <<: *isk_suite_default
-            name: ubuntu
+            name: 'ubuntu'
           3:
             <<: *isk_suite_default
-            name: redhat
+            name: 'redhat'
           4:
             <<: *isk_suite_default
-            name: suse
+            name: 'suse'
     postfix: *formula_default
     postgres: *formula_default
     prometheus: *formula_default
@@ -388,13 +388,13 @@ ssf:
           <<: *isk_default
           1:
             <<: *isk_suite_default
-            name: debian
+            name: 'debian'
           2:
             <<: *isk_suite_default
-            name: redhat
+            name: 'redhat'
           3:
             <<: *isk_suite_default
-            name: suse
+            name: 'suse'
     salt:
       <<: *formula_default
       context:
@@ -403,16 +403,16 @@ ssf:
           <<: *isk_default
           0:
             <<: *isk_suite_default
-            name: v201902-py3
+            name: 'v201902-py3'
           1:
             <<: *isk_suite_default
-            name: v201902-py2
+            name: 'v201902-py2'
           2:
             <<: *isk_suite_default
-            name: v201803-py2
+            name: 'v201803-py2'
           3:
             <<: *isk_suite_default
-            name: v201707-py2
+            name: 'v201707-py2'
     ssf: *formula_default
     stack: *formula_default
     stunnel: *formula_default
@@ -430,7 +430,7 @@ ssf:
           <<: *isk_default
           1:
             <<: *isk_suite_default
-            name: centos6
+            name: 'centos6'
     timezone: *formula_default
     ufw: *formula_default
     users: *formula_default
@@ -442,13 +442,13 @@ ssf:
           <<: *isk_default
           0:
             <<: *isk_suite_default
-            name: install_binary
+            name: 'install_binary'
           1:
             <<: *isk_suite_default
-            name: dev_server
+            name: 'dev_server'
           2:
             <<: *isk_suite_default
-            name: prod_server
+            name: 'prod_server'
           3:
             <<: *isk_suite_default
             name: ''
