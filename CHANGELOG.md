@@ -1,5 +1,18 @@
 # Changelog
 
+# [1.27.0](https://github.com/myii/ssf-formula/compare/v1.26.0...v1.27.0) (2019-10-14)
+
+
+### Documentation
+
+* **readme:** update link to `CONTRIBUTING` [skip ci] ([](https://github.com/myii/ssf-formula/commit/0b3be25))
+
+
+### Features
+
+* **contributing:** remove from all `semrel_formulas` ([](https://github.com/myii/ssf-formula/commit/96f09d4))
+* **zabbix:** add TOFS override for `.salt-lint` [skip ci] ([](https://github.com/myii/ssf-formula/commit/1e46502))
+
 # [1.26.0](https://github.com/myii/ssf-formula/compare/v1.25.1...v1.26.0) (2019-10-13)
 
 
