@@ -3,9 +3,9 @@
 ---
 ssf:
   ### Your local configuration
-  formulas_path: /local/path/to/formulas/directory
-  user: your_user
-  group: your_group
+  formulas_path: '/local/path/to/formulas/directory'
+  user: 'your_user'
+  group: 'your_group'
 
   git:
     ### Override the tracking branch for the upstream repo
@@ -17,7 +17,7 @@ ssf:
       options: '--no-gpg-sign'
     ### Your GitHub configuration
     github:
-      user: your_github_username
+      user: 'your_github_username'
       ### Local file to capture the GitHub API response when automatically
       ### creating the PR, prevents spamming the Salt output;
       ### Default shown below will be used if left commented out
@@ -41,7 +41,7 @@ ssf:
         ### This is a necessary override since the default script does not
         ### contain a GitHub API token; copy the file to `your_directory`
         ### and simply add your personal token at the top of the script
-        source: salt://ssf/files/your_directory/git/git_30_create_PR.sh
+        source: 'salt://ssf/files/your_directory/git/git_30_create_PR.sh'
 
   ### Any customisations to the formulas can be made here
   ### Usually, this is unnecessary but a likely override could be an upstream tracking
@@ -52,18 +52,18 @@ ssf:
         git:
           # Override the names of the local tracking branches to use
           branch:
-            upstream: my_upstream_tracking_branch
+            upstream: 'my_upstream_tracking_branch'
           github:
             # Override the configuration of the remotes
             remote:
               # The upstream formula repo
               upstream:
-                name: upstream
-                branch: master
+                name: 'upstream'
+                branch: 'master'
               # Your fork of the repo
               fork:
-                name: origin
-                branch: master
+                name: 'origin'
+                branch: 'master'
 
   ### No formulas or files are active by default
   ### State the formulas and files to work through when running the formula

@@ -14,8 +14,8 @@ ssf_node_anchors:
               - []
             inspec_yml:
               depends_on_suite_share: &depends_on_suite_share
-                - name: share
-                  path: test/integration/share
+                - name: 'share'
+                  path: 'test/integration/share'
               supports_debian_ubuntu: &supports_debian_ubuntu
                 - debian
                 - ubuntu
@@ -179,34 +179,34 @@ ssf_node_anchors:
           <<: *file_default
         inspec/inspec.yml: &file__inspec__inspec--yml
           <<: *file_default
-          template: jinja
+          template: 'jinja'
         inspec/README.md: &file__inspec__README--md
           <<: *file_default
-          template: jinja
+          template: 'jinja'
         .gitignore: &file__--gitignore
           <<: *file_default
         .cirrus.yml: &file__--cirrus--yml
           <<: *file_default
-          template: jinja
+          template: 'jinja'
         .rubocop.yml: &file__--rubocop--yml
           <<: *file_default
-          template: jinja
+          template: 'jinja'
         .salt-lint: &file__--salt-lint
           <<: *file_default
-          template: jinja
+          template: 'jinja'
         .travis.yml: &file__--travis--yml
           <<: *file_default
-          template: jinja
+          template: 'jinja'
         .yamllint: &file__--yamllint
           <<: *file_default
-          template: jinja
+          template: 'jinja'
         commitlint.config.js: &file__commitlint--config--js
           <<: *file_default
         Gemfile: &file__Gemfile
           <<: *file_default
         kitchen.yml: &file__kitchen--yml
           <<: *file_default
-          template: jinja
+          template: 'jinja'
         pre-commit_semantic-release.sh: &file__pre-commit_semantic-release--sh
           <<: *file_default
           mode: 755
@@ -221,7 +221,7 @@ ssf:
       context:
         git:
           github:
-            repo: apt-formula
+            repo: 'apt-formula'
         inspec_suites_kitchen:
           0:
             inspec_yml:
@@ -230,7 +230,7 @@ ssf:
               supports: *supports_debian_ubuntu
             provisioner:
               pillars_from_files:
-                - .sls: test/salt/pillar/repositories.pillar.sls
+                - .sls: 'test/salt/pillar/repositories.pillar.sls'
               state_top:
                 - '*':
                     - .repositories
@@ -242,7 +242,7 @@ ssf:
               supports: *supports_debian_ubuntu
             provisioner:
               pillars_from_files:
-                - .sls: test/salt/pillar/preferences.pillar.sls
+                - .sls: 'test/salt/pillar/preferences.pillar.sls'
               state_top:
                 - '*':
                     - .preferences
@@ -278,7 +278,7 @@ ssf:
       context:
         git:
           github:
-            repo: apt-cacher-formula
+            repo: 'apt-cacher-formula'
         inspec_suites_kitchen:
           0:
             inspec_yml:
@@ -287,7 +287,7 @@ ssf:
               supports: *supports_debian_ubuntu
             provisioner:
               pillars_from_files:
-                - .sls: test/salt/pillar/apt-cacher.sls
+                - .sls: 'test/salt/pillar/apt-cacher.sls'
               state_top:
                 - '*':
                     - .ng.server
@@ -298,12 +298,12 @@ ssf:
         <<: *semrel_files_default
         formula/libtofs.jinja:
           <<: *file__formula__libtofs--jinja
-          dest_file: formula/ng/libtofs.jinja
+          dest_file: 'formula/ng/libtofs.jinja'
     bind:
       context:
         git:
           github:
-            repo: bind-formula
+            repo: 'bind-formula'
         inspec_suites_kitchen:
           0:
             inspec_yml:
@@ -311,7 +311,7 @@ ssf:
                 Verify that the bind formula is setup and configured correctly
             provisioner:
               pillars_from_files:
-                - .sls: test/salt/pillar/default.sls
+                - .sls: 'test/salt/pillar/default.sls'
               state_top:
                 - '*':
                     - .
@@ -331,7 +331,7 @@ ssf:
       context:
         git:
           github:
-            repo: cert-formula
+            repo: 'cert-formula'
         inspec_suites_kitchen:
           0:
             inspec_yml:
@@ -339,12 +339,12 @@ ssf:
                 Verify that the cert formula is setup and configured correctly
             provisioner:
               dependencies:
-                - name: files
-                  path: ./test/salt
-                - name: states
-                  path: ./test/salt
+                - name: 'files'
+                  path: './test/salt'
+                - name: 'states'
+                  path: './test/salt'
               pillars_from_files:
-                - .sls: test/salt/pillar/managed.sls
+                - .sls: 'test/salt/pillar/managed.sls'
               state_top:
                 - '*':
                     - states/setup-certs-to-remove
@@ -355,7 +355,7 @@ ssf:
       context:
         git:
           github:
-            repo: chrony-formula
+            repo: 'chrony-formula'
         inspec_suites_kitchen:
           0:
             inspec_yml:
@@ -367,7 +367,7 @@ ssf:
       context:
         git:
           github:
-            repo: collectd-formula
+            repo: 'collectd-formula'
         inspec_suites_kitchen:
           0:
             inspec_yml:
@@ -375,7 +375,7 @@ ssf:
                 Verify that the collectd formula is setup and configured correctly
             provisioner:
               pillars_from_files:
-                - .sls: test/salt/default/pillar/collectd.sls
+                - .sls: 'test/salt/default/pillar/collectd.sls'
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,  10   ,  develop,      3,         default]
@@ -391,7 +391,7 @@ ssf:
       context:
         git:
           github:
-            repo: cron-formula
+            repo: 'cron-formula'
         inspec_suites_kitchen:
           0:
             inspec_yml:
@@ -399,14 +399,14 @@ ssf:
                 Verify that the cron formula is setup and configured correctly
             provisioner:
               pillars_from_files:
-                - .sls: test/salt/pillar/cron.sls
+                - .sls: 'test/salt/pillar/cron.sls'
         platforms_matrix: *platforms_matrix_without_arch
       semrel_files: *semrel_files_default
     deepsea:
       context:
         git:
           github:
-            repo: deepsea-formula
+            repo: 'deepsea-formula'
         inspec_suites_kitchen:
           0:
             inspec_yml:
@@ -450,7 +450,7 @@ ssf:
       context:
         git:
           github:
-            repo: dhcpd-formula
+            repo: 'dhcpd-formula'
         inspec_suites_kitchen:
           0:
             inspec_yml:
@@ -476,7 +476,7 @@ ssf:
       context:
         git:
           github:
-            repo: exim-formula
+            repo: 'exim-formula'
         inspec_suites_kitchen:
           0:
             inspec_yml:
@@ -485,7 +485,7 @@ ssf:
               supports: *supports_debian_ubuntu
             provisioner:
               pillars_from_files:
-                - .sls: test/salt/pillar/exim.sls
+                - .sls: 'test/salt/pillar/exim.sls'
         platforms_matrix: *platforms_matrix_osfamily_debian
         use_tofs: true
       semrel_files: *semrel_files_default
@@ -493,7 +493,7 @@ ssf:
       context:
         git:
           github:
-            repo: fail2ban-formula
+            repo: 'fail2ban-formula'
         inspec_suites_kitchen:
           0:
             inspec_yml:
@@ -501,8 +501,8 @@ ssf:
                 Verify that the fail2ban formula is setup and configured correctly
             provisioner:
               dependencies:
-                - name: misc
-                  path: test/salt/states
+                - name: 'misc'
+                  path: 'test/salt/states'
               state_top:
                 - '*':
                     - misc.fake_log_files
@@ -523,7 +523,7 @@ ssf:
       context:
         git:
           github:
-            repo: golang-formula
+            repo: 'golang-formula'
         inspec_suites_kitchen:
           0:
             inspec_yml:
@@ -546,7 +546,7 @@ ssf:
       context:
         git:
           github:
-            repo: grafana-formula
+            repo: 'grafana-formula'
         inspec_suites_kitchen:
           0:
             inspec_yml:
@@ -560,7 +560,7 @@ ssf:
       context:
         git:
           github:
-            repo: influxdb-formula
+            repo: 'influxdb-formula'
         inspec_suites_kitchen:
           0:
             inspec_yml:
@@ -568,14 +568,14 @@ ssf:
                 Verify that the influxdb formula is setup and configured correctly
             provisioner:
               pillars_from_files:
-                - .sls: test/salt/pillar/influxdb.sls
+                - .sls: 'test/salt/pillar/influxdb.sls'
         platforms_matrix: *platforms_matrix_without_arch
       semrel_files: *semrel_files_default
     iptables:
       context:
         git:
           github:
-            repo: iptables-formula
+            repo: 'iptables-formula'
         inspec_suites_kitchen:
           0:
             inspec_yml:
@@ -583,7 +583,7 @@ ssf:
                 Verify that iptables is installed and configured correctly
             provisioner:
               pillars_from_files:
-                - .sls: test/salt/pillar/default.pillar.sls
+                - .sls: 'test/salt/pillar/default.pillar.sls'
           1:
             inspec_yml:
               summary: >-
@@ -591,7 +591,7 @@ ssf:
                 in pillars
             provisioner:
               pillars_from_files:
-                - .sls: test/salt/pillar/tables.pillar.sls
+                - .sls: 'test/salt/pillar/tables.pillar.sls'
               state_top:
                 - '*':
                     - .
@@ -619,7 +619,7 @@ ssf:
       context:
         git:
           github:
-            repo: iscsi-formula
+            repo: 'iscsi-formula'
         inspec_suites_kitchen:
           0:
             excludes: *platforms_os_centos_and_arch
@@ -628,16 +628,16 @@ ssf:
                 Verify that the iscsi formula is setup and configured correctly
             provisioner:
               dependencies:
-                - name: lvm
-                  repo: git
-                  source: https://github.com/saltstack-formulas/lvm-formula.git
+                - name: 'lvm'
+                  repo: 'git'
+                  source: 'https://github.com/saltstack-formulas/lvm-formula.git'
               pillars:
                 - '*':
                     - lvm
                     - .
               pillars_from_files:
-                - lvm.sls: test/salt/pillar/lvm.example
-                - .sls: test/salt/pillar/pillar.example
+                - lvm.sls: 'test/salt/pillar/lvm.example'
+                - .sls: 'test/salt/pillar/pillar.example'
               state_top:
                 - '*':
                     - lvm.install
@@ -649,21 +649,21 @@ ssf:
             includes: *platforms_os_centos_and_arch
             provisioner:
               dependencies:
-                - name: users
-                  repo: git
-                  source: https://github.com/saltstack-formulas/users-formula.git
-                - name: lvm
-                  repo: git
-                  source: https://github.com/saltstack-formulas/lvm-formula.git
+                - name: 'users'
+                  repo: 'git'
+                  source: 'https://github.com/saltstack-formulas/users-formula.git'
+                - name: 'lvm'
+                  repo: 'git'
+                  source: 'https://github.com/saltstack-formulas/lvm-formula.git'
               pillars:
                 - '*':
                     - users
                     - lvm
                     - .
               pillars_from_files:
-                - users.sls: test/salt/pillar/users.arch
-                - lvm.sls: test/salt/pillar/lvm.example
-                - .sls: test/salt/pillar/pillar.travis
+                - users.sls: 'test/salt/pillar/users.arch'
+                - lvm.sls: 'test/salt/pillar/lvm.example'
+                - .sls: 'test/salt/pillar/pillar.travis'
               state_top:
                 - '*':
                     - users
@@ -673,7 +673,7 @@ ssf:
                     - .
                     - .clean
             verifier:
-              test_suite: default
+              test_suite: 'default'
         inspec_suites_matrix:
           - default
           - centarch
@@ -699,7 +699,7 @@ ssf:
       context:
         git:
           github:
-            repo: keepalived-formula
+            repo: 'keepalived-formula'
         inspec_suites_kitchen:
           0:
             inspec_yml:
@@ -719,7 +719,7 @@ ssf:
       context:
         git:
           github:
-            repo: libvirt-formula
+            repo: 'libvirt-formula'
         inspec_suites_kitchen:
           0:
             inspec_yml:
@@ -770,7 +770,7 @@ ssf:
       context:
         git:
           github:
-            repo: locale-formula
+            repo: 'locale-formula'
         inspec_suites_kitchen:
           0:
             excludes: *platforms_os_fedora
@@ -779,14 +779,14 @@ ssf:
                 Verify that the locale formula is setup and configured correctly
             provisioner:
               pillars_from_files:
-                - .sls: test/salt/pillar/default.sls
+                - .sls: 'test/salt/pillar/default.sls'
           1:
             includes: *platforms_os_fedora
             provisioner:
               pillars_from_files:
-                - .sls: test/salt/pillar/fedora.sls
+                - .sls: 'test/salt/pillar/fedora.sls'
             verifier:
-              test_suite: default
+              test_suite: 'default'
         inspec_suites_matrix:
           - default
           - fedora
@@ -805,7 +805,7 @@ ssf:
       context:
         git:
           github:
-            repo: logrotate-formula
+            repo: 'logrotate-formula'
         inspec_suites_kitchen:
           0:
             inspec_yml:
@@ -813,8 +813,8 @@ ssf:
                 Verify that the logrotate formula is setup and configured correctly
             provisioner:
               dependencies:
-                - name: states
-                  path: ./test/salt
+                - name: 'states'
+                  path: './test/salt'
               state_top:
                 - 'G@os_family:Suse':
                     - states.cron
@@ -827,7 +827,7 @@ ssf:
       context:
         git:
           github:
-            repo: lvm-formula
+            repo: 'lvm-formula'
         inspec_suites_kitchen:
           0:
             inspec_yml:
@@ -835,7 +835,7 @@ ssf:
                 Verify that the lvm formula is setup and configured correctly
             provisioner:
               pillars_from_files:
-                - .sls: test/salt/pillar/pillar.example
+                - .sls: 'test/salt/pillar/pillar.example'
               state_top:
                 - '*':
                     - .clean
@@ -864,7 +864,7 @@ ssf:
       context:
         git:
           github:
-            repo: mysql-formula
+            repo: 'mysql-formula'
         inspec_suites_kitchen:
           0:
             inspec_yml:
@@ -872,7 +872,7 @@ ssf:
                 Verify that the mysql formula is setup and configured correctly
             provisioner:
               pillars_from_files:
-                - .sls: test/salt/pillar/mysql.sls
+                - .sls: 'test/salt/pillar/mysql.sls'
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,  10   ,  develop,      3,         default]
@@ -890,7 +890,7 @@ ssf:
       context:
         git:
           github:
-            repo: nginx-formula
+            repo: 'nginx-formula'
         inspec_suites_kitchen:
           0:
             inspec_yml:
@@ -898,7 +898,7 @@ ssf:
                 Verify that the nginx formula is setup and configured correctly
             provisioner:
               pillars_from_files:
-                - .sls: test/salt/default/pillar/nginx.sls
+                - .sls: 'test/salt/default/pillar/nginx.sls'
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,  10   ,  develop,      3,         default]
@@ -916,7 +916,7 @@ ssf:
       context:
         git:
           github:
-            repo: openssh-formula
+            repo: 'openssh-formula'
         inspec_suites_kitchen:
           0:
             inspec_yml:
@@ -924,7 +924,7 @@ ssf:
                 Verify that the openssh formula is setup and configured correctly
             provisioner:
               pillars_from_files:
-                - .sls: test/salt/pillar/default.sls
+                - .sls: 'test/salt/pillar/default.sls'
               state_top:
                 - '*':
                     - .config
@@ -936,7 +936,7 @@ ssf:
       context:
         git:
           github:
-            repo: openvpn-formula
+            repo: 'openvpn-formula'
         inspec_suites_kitchen:
           0:
             inspec_yml:
@@ -944,7 +944,7 @@ ssf:
                 Verify that the openvpn formula is setup and configured correctly
             provisioner:
               pillars_from_files:
-                - .sls: test/salt/pillar/default.sls
+                - .sls: 'test/salt/pillar/default.sls'
               state_top:
                 - '*':
                     - .config
@@ -964,7 +964,7 @@ ssf:
       context:
         git:
           github:
-            repo: php-formula
+            repo: 'php-formula'
         inspec_suites_kitchen:
           0:
             # None of the platforms use `default` directly
@@ -978,7 +978,7 @@ ssf:
             includes: *platforms_os_debian
             provisioner:
               pillars_from_files:
-                - .sls: test/salt/pillar/debian.sls
+                - .sls: 'test/salt/pillar/debian.sls'
               state_top:
                 - '*':
                     - .repo
@@ -988,7 +988,7 @@ ssf:
                     - .modules
                     - .fpm.service
             verifier:
-              test_suite: default
+              test_suite: 'default'
           2:
             includes: *platforms_os_ubuntu
             provisioner:
@@ -997,8 +997,8 @@ ssf:
                     - .
                     - ubuntu
               pillars_from_files:
-                - .sls: test/salt/pillar/debian.sls
-                - ubuntu.sls: test/salt/pillar/ubuntu.sls
+                - .sls: 'test/salt/pillar/debian.sls'
+                - ubuntu.sls: 'test/salt/pillar/ubuntu.sls'
               state_top:
                 - '*':
                     - .repo
@@ -1008,21 +1008,21 @@ ssf:
                     - .modules
                     - .fpm.service
             verifier:
-              test_suite: default
+              test_suite: 'default'
           3:
             includes: *platforms_osfamily_redhat
             provisioner:
               pillars_from_files:
-                - .sls: test/salt/pillar/redhat.sls
+                - .sls: 'test/salt/pillar/redhat.sls'
             verifier:
-              test_suite: default
+              test_suite: 'default'
           4:
             includes: *platforms_osfamily_suse
             provisioner:
               pillars_from_files:
-                - .sls: test/salt/pillar/suse.sls
+                - .sls: 'test/salt/pillar/suse.sls'
             verifier:
-              test_suite: default
+              test_suite: 'default'
         inspec_suites_matrix:
           - default
           - debian
@@ -1043,7 +1043,7 @@ ssf:
       context:
         git:
           github:
-            repo: postfix-formula
+            repo: 'postfix-formula'
         inspec_suites_kitchen:
           0:
             inspec_yml:
@@ -1051,7 +1051,7 @@ ssf:
                 Verify that the postfix formula is setup and configured correctly
             provisioner:
               pillars_from_files:
-                - .sls: test/salt/pillar/default.sls
+                - .sls: 'test/salt/pillar/default.sls'
               state_top:
                 - '*':
                     - .
@@ -1065,7 +1065,7 @@ ssf:
       context:
         git:
           github:
-            repo: postgres-formula
+            repo: 'postgres-formula'
         inspec_suites_kitchen:
           0:
             inspec_yml:
@@ -1073,7 +1073,7 @@ ssf:
                 Verify that the postgres formula is setup and configured correctly
             provisioner:
               pillars_from_files:
-                - .sls: test/salt/pillar/postgres.sls
+                - .sls: 'test/salt/pillar/postgres.sls'
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,  10   ,  develop,      3,         default]
@@ -1099,7 +1099,7 @@ ssf:
       context:
         git:
           github:
-            repo: prometheus-formula
+            repo: 'prometheus-formula'
         inspec_suites_kitchen:
           0:
             inspec_yml:
@@ -1113,7 +1113,7 @@ ssf:
       context:
         git:
           github:
-            repo: redis-formula
+            repo: 'redis-formula'
         inspec_suites_kitchen:
           0:
             inspec_yml:
@@ -1139,7 +1139,7 @@ ssf:
       context:
         git:
           github:
-            repo: rkhunter-formula
+            repo: 'rkhunter-formula'
         inspec_suites_kitchen:
           0:
             # None of the platforms use `default` directly
@@ -1153,23 +1153,23 @@ ssf:
             includes: *platforms_osfamily_debian
             provisioner:
               pillars_from_files:
-                - .sls: test/salt/pillar/debian.sls
+                - .sls: 'test/salt/pillar/debian.sls'
             verifier:
-              test_suite: default
+              test_suite: 'default'
           2:
             includes: *platforms_osfamily_redhat
             provisioner:
               pillars_from_files:
-                - .sls: test/salt/pillar/redhat.sls
+                - .sls: 'test/salt/pillar/redhat.sls'
             verifier:
-              test_suite: default
+              test_suite: 'default'
           3:
             includes: *platforms_osfamily_suse
             provisioner:
               pillars_from_files:
-                - .sls: test/salt/pillar/suse.sls
+                - .sls: 'test/salt/pillar/suse.sls'
             verifier:
-              test_suite: default
+              test_suite: 'default'
         inspec_suites_matrix:
           - default
           - debian
@@ -1191,7 +1191,7 @@ ssf:
       context:
         git:
           github:
-            repo: salt-formula
+            repo: 'salt-formula'
         inspec_suites_kitchen:
           0:
             includes:
@@ -1210,8 +1210,8 @@ ssf:
                     - .
                     - v201902-py3
               pillars_from_files:
-                - .sls: test/salt/pillar/salt.sls
-                - v201902-py3.sls: test/salt/pillar/v201902-py3.sls
+                - .sls: 'test/salt/pillar/salt.sls'
+                - v201902-py3.sls: 'test/salt/pillar/v201902-py3.sls'
               state_top: *state_top_salt
           1:
             includes:
@@ -1231,8 +1231,8 @@ ssf:
                     - .
                     - v201902-py2
               pillars_from_files:
-                - .sls: test/salt/pillar/salt.sls
-                - v201902-py2.sls: test/salt/pillar/v201902-py2.sls
+                - .sls: 'test/salt/pillar/salt.sls'
+                - v201902-py2.sls: 'test/salt/pillar/v201902-py2.sls'
               state_top: *state_top_salt
           2:
             includes:
@@ -1254,8 +1254,8 @@ ssf:
                     - .
                     - v201803-py2
               pillars_from_files:
-                - .sls: test/salt/pillar/salt.sls
-                - v201803-py2.sls: test/salt/pillar/v201803-py2.sls
+                - .sls: 'test/salt/pillar/salt.sls'
+                - v201803-py2.sls: 'test/salt/pillar/v201803-py2.sls'
               state_top: *state_top_salt
           3:
             includes:
@@ -1277,8 +1277,8 @@ ssf:
                     - .
                     - v201707-py2
               pillars_from_files:
-                - .sls: test/salt/pillar/salt.sls
-                - v201707-py2.sls: test/salt/pillar/v201707-py2.sls
+                - .sls: 'test/salt/pillar/salt.sls'
+                - v201707-py2.sls: 'test/salt/pillar/v201707-py2.sls'
               state_top: *state_top_salt
         inspec_suites_matrix:
           - v201902-py3
@@ -1351,8 +1351,8 @@ ssf:
       context:
         git:
           github:
-            owner: myii
-            repo: ssf-formula
+            owner: 'myii'
+            repo: 'ssf-formula'
         inspec_suites_kitchen:
           0:
             inspec_yml:
@@ -1399,8 +1399,8 @@ ssf:
       context:
         git:
           github:
-            owner: claudekenni
-            repo: stack-formula
+            owner: 'claudekenni'
+            repo: 'stack-formula'
         inspec_suites_kitchen:
           0:
             inspec_yml:
@@ -1415,10 +1415,10 @@ ssf:
       semrel_files:
         docs/TOFS_pattern.rst:
           <<: *file__docs__TOFS_pattern--rst
-          dest_file: TOFS_pattern.rst
+          dest_file: 'TOFS_pattern.rst'
         formula/libtofs.jinja:
           <<: *file__formula__libtofs--jinja
-          dest_file: formula/macros.jinja
+          dest_file: 'formula/macros.jinja'
         inspec/inspec.yml: *file__inspec__inspec--yml
         inspec/README.md: *file__inspec__README--md
         .gitignore: *file__--gitignore
@@ -1427,7 +1427,7 @@ ssf:
       context:
         git:
           github:
-            repo: stunnel-formula
+            repo: 'stunnel-formula'
         inspec_suites_kitchen:
           0:
             inspec_yml:
@@ -1436,7 +1436,7 @@ ssf:
               supports: *supports_debian_ubuntu
             provisioner:
               pillars_from_files:
-                - .sls: test/salt/pillar/stunnel.sls
+                - .sls: 'test/salt/pillar/stunnel.sls'
               state_top:
                 - '*':
                     - .pillar_certs
@@ -1455,7 +1455,7 @@ ssf:
       context:
         git:
           github:
-            repo: sudoers-formula
+            repo: 'sudoers-formula'
         inspec_suites_kitchen:
           0:
             inspec_yml:
@@ -1467,8 +1467,8 @@ ssf:
                     - kitchen
                     - .
               pillars_from_files:
-                - kitchen.sls: test/salt/pillar/kitchen.sls
-                - .sls: test/salt/pillar/default.sls
+                - kitchen.sls: 'test/salt/pillar/kitchen.sls'
+                - .sls: 'test/salt/pillar/default.sls'
               state_top:
                 - '*':
                     - .
@@ -1482,7 +1482,7 @@ ssf:
       context:
         git:
           github:
-            repo: sysctl-formula
+            repo: 'sysctl-formula'
         inspec_suites_kitchen:
           0:
             inspec_yml:
@@ -1490,7 +1490,7 @@ ssf:
                 Verify that the sysctl formula is setup and configured correctly
             provisioner:
               pillars_from_files:
-                - .sls: test/salt/pillar/sysctl.sls
+                - .sls: 'test/salt/pillar/sysctl.sls'
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,  10   ,  develop,      3,         default]
@@ -1505,7 +1505,7 @@ ssf:
       context:
         git:
           github:
-            repo: syslog-ng-formula
+            repo: 'syslog-ng-formula'
         inspec_suites_kitchen:
           0:
             inspec_yml:
@@ -1513,7 +1513,7 @@ ssf:
                 Verify that the syslog_ng formula is setup and configured correctly
             provisioner:
               pillars_from_files:
-                - .sls: test/salt/pillar/syslog_ng.sls
+                - .sls: 'test/salt/pillar/syslog_ng.sls'
         travis: *travis_do_not_use_single_job_for_linters
         use_cirrus_ci: true
         use_tofs: true
@@ -1521,18 +1521,18 @@ ssf:
         <<: *semrel_files_default
         formula/libtofs.jinja:
           <<: *file__formula__libtofs--jinja
-          alt_semrel_formula: syslog_ng
+          alt_semrel_formula: 'syslog_ng'
         inspec/inspec.yml:
           <<: *file__inspec__inspec--yml
-          alt_semrel_formula: syslog_ng
+          alt_semrel_formula: 'syslog_ng'
         kitchen.yml:
           <<: *file__kitchen--yml
-          alt_semrel_formula: syslog_ng
+          alt_semrel_formula: 'syslog_ng'
     sysstat:
       context:
         git:
           github:
-            repo: sysstat-formula
+            repo: 'sysstat-formula'
         inspec_suites_kitchen:
           0:
             inspec_yml:
@@ -1545,7 +1545,7 @@ ssf:
       context:
         git:
           github:
-            repo: systemd-formula
+            repo: 'systemd-formula'
         inspec_suites_kitchen:
           0:
             inspec_yml:
@@ -1599,7 +1599,7 @@ ssf:
       context:
         git:
           github:
-            repo: telegraf-formula
+            repo: 'telegraf-formula'
         inspec_suites_kitchen:
           0:
             inspec_yml:
@@ -1607,7 +1607,7 @@ ssf:
                 Verify that the telegraf formula is setup and configured correctly
             provisioner:
               pillars_from_files:
-                - .sls: test/salt/pillar/telegraf.sls
+                - .sls: 'test/salt/pillar/telegraf.sls'
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,  10   ,  develop,      3,         default]
@@ -1622,7 +1622,7 @@ ssf:
       context:
         git:
           github:
-            repo: template-formula
+            repo: 'template-formula'
         inspec_suites_kitchen:
           0:
             excludes: *platforms_os_centos6
@@ -1635,8 +1635,8 @@ ssf:
                     - .
                     - define_roles
               pillars_from_files:
-                - .sls: pillar.example
-                - define_roles.sls: test/salt/pillar/define_roles.sls
+                - .sls: 'pillar.example'
+                - define_roles.sls: 'test/salt/pillar/define_roles.sls'
           1:
             includes: *platforms_os_centos6
             provisioner:
@@ -1645,10 +1645,10 @@ ssf:
                     - .
                     - define_roles
               pillars_from_files:
-                - .sls: test/salt/pillar/centos6.sls
-                - define_roles.sls: test/salt/pillar/define_roles.sls
+                - .sls: 'test/salt/pillar/centos6.sls'
+                - define_roles.sls: 'test/salt/pillar/define_roles.sls'
             verifier:
-              test_suite: default
+              test_suite: 'default'
         inspec_suites_matrix:
           - default
           - centos6
@@ -1671,7 +1671,7 @@ ssf:
       context:
         git:
           github:
-            repo: timezone-formula
+            repo: 'timezone-formula'
         inspec_suites_kitchen:
           0:
             inspec_yml:
@@ -1679,13 +1679,13 @@ ssf:
                 Verify that the timezone formula is setup and configured correctly
             provisioner:
               pillars_from_files:
-                - .sls: test/salt/pillar/timezone.sls
+                - .sls: 'test/salt/pillar/timezone.sls'
       semrel_files: *semrel_files_default
     ufw:
       context:
         git:
           github:
-            repo: ufw-formula
+            repo: 'ufw-formula'
         inspec_suites_kitchen:
           0:
             inspec_yml:
@@ -1693,7 +1693,7 @@ ssf:
                 Verify that the ufw formula is setup and configured correctly
             provisioner:
               pillars_from_files:
-                - .sls: test/salt/pillar/default.sls
+                - .sls: 'test/salt/pillar/default.sls'
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
           - [ubuntu       ,  18.04,  develop,      3,         default]
@@ -1709,14 +1709,14 @@ ssf:
           # https://travis-ci.org/myii/ufw-formula/jobs/561205378#L906
           # Persisting with `bionic` as well
           # https://travis-ci.org/myii/ufw-formula/jobs/581764920#L807
-          dist: trusty
+          dist: 'trusty'
         use_tofs: true
       semrel_files: *semrel_files_default
     users:
       context:
         git:
           github:
-            repo: users-formula
+            repo: 'users-formula'
         inspec_suites_kitchen:
           0:
             inspec_yml:
@@ -1724,14 +1724,14 @@ ssf:
                 Verify that the users formula is setup and configured correctly
             provisioner:
               pillars_from_files:
-                - .sls: test/salt/pillar/default.sls
+                - .sls: 'test/salt/pillar/default.sls'
         platforms_matrix: *platforms_matrix_without_arch
       semrel_files: *semrel_files_default
     vault:
       context:
         git:
           github:
-            repo: vault-formula
+            repo: 'vault-formula'
         inspec_suites_kitchen:
           0:
             inspec_yml:
@@ -1739,7 +1739,7 @@ ssf:
                 Verify that the vault binary is installed correctly
             provisioner:
               pillars_from_files:
-                - .sls: test/salt/pillar/install_binary.sls
+                - .sls: 'test/salt/pillar/install_binary.sls'
               state_top:
                 - '*':
                     - .package
@@ -1750,7 +1750,7 @@ ssf:
                 correctly
             provisioner:
               pillars_from_files:
-                - .sls: test/salt/pillar/dev_server.sls
+                - .sls: 'test/salt/pillar/dev_server.sls'
           2:
             inspec_yml:
               summary: >-
@@ -1758,7 +1758,7 @@ ssf:
                 correctly
             provisioner:
               pillars_from_files:
-                - .sls: test/salt/pillar/prod_server.sls
+                - .sls: 'test/salt/pillar/prod_server.sls'
           3: {}
         inspec_suites_matrix:
           # - install_binary
@@ -1805,7 +1805,7 @@ ssf:
       context:
         git:
           github:
-            repo: vim-formula
+            repo: 'vim-formula'
         inspec_suites_kitchen:
           0:
             inspec_yml:
@@ -1813,14 +1813,14 @@ ssf:
                 Verify that the vim formula is setup and configured correctly
             provisioner:
               pillars_from_files:
-                - .sls: test/salt/pillar/vim.sls
+                - .sls: 'test/salt/pillar/vim.sls'
         platforms_matrix: *platforms_matrix_without_arch
       semrel_files: *semrel_files_default
     vsftpd:
       context:
         git:
           github:
-            repo: vsftpd-formula
+            repo: 'vsftpd-formula'
         inspec_suites_kitchen:
           0:
             inspec_yml:
@@ -1828,13 +1828,13 @@ ssf:
                 Verify that the vsftpd formula is setup and configured correctly
             provisioner:
               pillars_from_files:
-                - .sls: test/salt/pillar/vsftpd.sls
+                - .sls: 'test/salt/pillar/vsftpd.sls'
       semrel_files: *semrel_files_default
     zabbix:
       context:
         git:
           github:
-            repo: zabbix-formula
+            repo: 'zabbix-formula'
         inspec_suites_kitchen:
           0:
             inspec_yml:
@@ -1842,7 +1842,7 @@ ssf:
                 Verify that the zabbix formula is setup and configured correctly
             provisioner:
               pillars_from_files:
-                - .sls: test/salt/pillar/default.sls
+                - .sls: 'test/salt/pillar/default.sls'
               state_top:
                 - '*':
                     - .agent.repo
