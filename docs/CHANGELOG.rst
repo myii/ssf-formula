@@ -2,6 +2,27 @@
 Changelog
 =========
 
+`1.29.0 <https://github.com/myii/ssf-formula/compare/v1.28.0...v1.29.0>`_ (2019-10-14)
+------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* **salt:** merge ``rubocop`` linter into main ``lint`` job [skip ci] (\ ` <https://github.com/myii/ssf-formula/commit/7aeedb0>`_\ )
+
+Features
+^^^^^^^^
+
+
+* **apt-cacher:** updated ``state_top`` from formula [skip ci] (\ ` <https://github.com/myii/ssf-formula/commit/06f8f34>`_\ ), closes `/github.com/saltstack-formulas/apt-cacher-formula/pull/19#issuecomment-537991315 <https://github.com//github.com/saltstack-formulas/apt-cacher-formula/pull/19/issues/issuecomment-537991315>`_
+
+Styles
+^^^^^^
+
+
+* **yamllint:** apply rule ``quoted-strings`` throughout the formula (\ ` <https://github.com/myii/ssf-formula/commit/9e17692>`_\ )
+
 `1.28.0 <https://github.com/myii/ssf-formula/compare/v1.27.0...v1.28.0>`_ (2019-10-14)
 ------------------------------------------------------------------------------------------
 
