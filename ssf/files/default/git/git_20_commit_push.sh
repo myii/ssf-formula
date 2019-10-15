@@ -10,8 +10,8 @@ COMMIT_GREP=${4}
 COMMIT_TITLE=${5}
 COMMIT_BODY=${6}
 COMMIT_OPTIONS=${7}
-PUSH_ACTIVE=${8}
-PUSH_VIA_PR=${9}
+PUSH_ACTIVE=$(echo ${8} | tr "[:upper:]" "[:lower:]")
+PUSH_VIA_PR=$(echo ${9} | tr "[:upper:]" "[:lower:]")
 REMOTE_FORK_NAME=${10}
 REMOTE_FORK_BRANCH=${11}
 REMOTE_UPSTREAM_NAME=${12}
@@ -32,8 +32,8 @@ fi
 
 # Perform actions
 git commit ${AMEND} "${COMMIT_OPTIONS}" -m "${COMMIT_TITLE}" -m "${COMMIT_BODY}"
-if [ "${PUSH_ACTIVE}" = "True" ]; then
-    if [ "${PUSH_VIA_PR}" = "True" ]; then
+if ${PUSH_ACTIVE}; then
+    if ${PUSH_VIA_PR}; then
         git push ${FORCE} -u ${REMOTE_FORK_NAME} ${BRANCH_PR}
     else
         git checkout ${BRANCH_UPSTREAM}
