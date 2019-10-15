@@ -1438,11 +1438,7 @@ ssf:
           Cops:
             Metrics/BlockLength:
               Max: 27
-        # yamllint disable rule:comments-indentation
-        # Enable this in a subsequent PR, since it's an old version,
-        # which is already active (needs to be checked for regressions)
-        # use_tofs: true
-        # yamllint enable rule:comments-indentation
+        use_tofs: true
       semrel_files: *semrel_files_default
     stunnel:
       context:
