@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.31.0](https://github.com/myii/ssf-formula/compare/v1.30.0...v1.31.0) (2019-10-15)
+
+
+### Features
+
+* **cron:** add `arch-base-latest` ([](https://github.com/myii/ssf-formula/commit/47f7346))
+
 # [1.30.0](https://github.com/myii/ssf-formula/compare/v1.29.0...v1.30.0) (2019-10-15)
 
 
