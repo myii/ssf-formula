@@ -8,7 +8,7 @@ BRANCH_UPSTREAM=${2}
 BRANCH_PR=${3}
 COMMIT_GREP=${4}
 # Prepare initial state line variables
-CHANGED=True
+CHANGED='True'
 COMMENT='Command `'${STATE}'` run'
 
 # Check if PR branch already exists
@@ -22,7 +22,7 @@ fi
 
 # Perform actions depending on if a commit was found or not
 if [ ! -z "${COMMIT}" ]; then
-    CHANGED=False
+    CHANGED='False'
 else
     git checkout ${BRANCH_UPSTREAM}
     git pull

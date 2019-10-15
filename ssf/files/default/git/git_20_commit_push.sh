@@ -17,7 +17,7 @@ REMOTE_FORK_BRANCH=${11}
 REMOTE_UPSTREAM_NAME=${12}
 REMOTE_UPSTREAM_BRANCH=${13}
 # Prepare initial state line variables
-CHANGED=True
+CHANGED='True'
 COMMENT='Command `'${STATE}'` run'
 
 # Prepare git options depending on if a commit was found or not

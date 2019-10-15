@@ -17,14 +17,14 @@ COMMIT_TITLE=${7}
 COMMIT_BODY=${8}
 FILE_API_RESPONSE=${9}
 # Prepare initial state line variables
-CHANGED=True
+CHANGED='True'
 COMMENT='Command `'${STATE}'` run'
 
 # Only create the PR if it doesn't already exist
 # If it already exists, the `git push` done earlier will have updated the PR already
 PR_EXISTS=$(curl -i https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/pulls | grep "${GH_USER}:${BRANCH_PR}")
 if [ ! -z "${PR_EXISTS}" ]; then
-    CHANGED=False
+    CHANGED='False'
 else
     curl -H "Authorization: bearer ${GH_TOKEN}" -d '
         {
