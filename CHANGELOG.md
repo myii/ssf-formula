@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.32.0](https://github.com/myii/ssf-formula/compare/v1.31.0...v1.32.0) (2019-10-15)
+
+
+### Features
+
+* **formula:** add `strongswan-formula` ([](https://github.com/myii/ssf-formula/commit/82248be))
+
 # [1.31.0](https://github.com/myii/ssf-formula/compare/v1.30.0...v1.31.0) (2019-10-15)
 
 
