@@ -1,0 +1,96 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+---
+{%- macro format_ignore(ignore_parent, width=4) %}
+{%-   filter indent(width) %}
+{%-     if ignore_parent.ignore is defined %}
+ignore: |
+  {%-     for file in ignore_parent.ignore %}
+  {{ file }}
+  {%-     endfor %}
+{%-     endif %}
+{%-   endfilter %}
+{%- endmacro %}
+# Extend the `{{ yamllint.extends }}` configuration provided by `yamllint`
+extends: '{{ yamllint.extends }}'
+
+# Files to ignore completely
+# 1. All YAML files under directory `node_modules/`, introduced during the Travis run
+# 2. Any SLS files under directory `test/`, which are actually state files
+# 3. Any YAML files under directory `.kitchen/`, introduced during local testing
+{%- if semrel_formula == 'ssf' %}
+# 4. All Jinja templates under `ssf/files/` (result in `yamllint` syntax errors)
+#    Not disabling via. `*.yml` since we may end up with non-Jinja YAML files here
+{%- elif semrel_formula == 'mysql' %}
+# 4. Any YAML files using Jinja (result in `yamllint` syntax errors)
+{%- elif semrel_formula in ['postgres', 'salt'] %}
+# 4. All YAML files heavily reliant on Jinja; these can be tackled in a subsequent PR
+{%- endif %}
+{%- set yl_ignores = {'ignore':
+  yamllint.ignore.default +
+  yamllint.ignore.additional_ssf +
+  yamllint.ignore.additional
+} %}
+{{- format_ignore(yl_ignores, width=0) }}
+
+yaml-files:
+{%- set yl_yf = yamllint.get('yaml-files') %}
+{%- filter indent(2) %}
+# Default settings
+{{ yl_yf.default | yaml(False) }}
+# SaltStack Formulas additional settings
+{{ yl_yf.additional_ssf | yaml(False) }}
+{%- if yl_yf.additional %}
+# Formula-specific additional settings
+{{ yl_yf.additional | yaml(False) }}
+{%- endif %}
+{%- endfilter %}
+
+rules:
+  {%- if yamllint.rules.get('commas') %}
+  commas:
+    {%- set yl_cm = yamllint.rules.get('commas') %}
+    {%- if semrel_formula == 'ssf' %}
+    # Allow separation between commas to achieve tabular layout under `platforms`
+    {%- endif %}
+    {{- format_ignore(yl_cm) }}
+  {%- endif %}
+
+  {%- if yamllint.rules.get('comments-indentation') %}
+  comments-indentation:
+    {%- set yl_ci = yamllint.rules.get('comments-indentation') %}
+    {{- format_ignore(yl_ci) }}
+  {%- endif %}
+
+  {#- Don't need the `if` here since we're always providing a `empty-values` setting #}
+  empty-values:
+    {%- set yl_ev = yamllint.rules.get('empty-values') %}
+    {{- format_ignore(yl_ev) }}
+    forbid-in-block-mappings: {{ yl_ev.get('forbid-in-block-mappings') }}
+    forbid-in-flow-mappings: {{ yl_ev.get('forbid-in-flow-mappings') }}
+
+  {%- if yamllint.rules.get('key-duplicates') %}
+  key-duplicates:
+    {%- set yl_kd = yamllint.rules.get('key-duplicates') %}
+    {{- format_ignore(yl_kd) }}
+  {%- endif %}
+
+  {#- Don't need the `if` here since we're always providing a `line-length` setting #}
+  line-length:
+    {%- set yl_ll = yamllint.rules.get('line-length') %}
+    {{- format_ignore(yl_ll) }}
+    {%- if yl_ll.max == yl_ll.bugbear %}
+    # Increase from default of `{{ yl_ll.default }}`
+    # Based on https://github.com/PyCQA/flake8-bugbear#opinionated-warnings (`B950`)
+    {%- endif %}
+    max: {{ yl_ll.max }}
+
+  {#- Don't need the `if` here since we're always providing a `octal-values` setting #}
+  octal-values:
+    {%- set yl_ov = yamllint.rules.get('octal-values') %}
+    {{- format_ignore(yl_ov) }}
+    forbid-implicit-octal: {{ yl_ov.get('forbid-implicit-octal') }}
+    forbid-explicit-octal: {{ yl_ov.get('forbid-explicit-octal') }}
+  {#- TODO: When centralising, arrange this section as all of the others above #}
+  quoted-strings:
+    quote-type: 'single'
