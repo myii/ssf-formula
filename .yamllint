@@ -21,6 +21,8 @@ ignore: |
   ssf/files/default/.yamllint
   ssf/files/default/kitchen.yml
   ssf/files/default/inspec/inspec.yml
+  ssf/files/tofs_ssf-formula/.travis.yml
+  ssf/files/tofs_ssf-formula/.yamllint
 
 yaml-files:
   # Default settings
