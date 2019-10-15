@@ -1424,6 +1424,26 @@ ssf:
         inspec/README.md: *file__inspec__README--md
         .gitignore: *file__--gitignore
         Gemfile: *file__Gemfile
+    strongswan:
+      context:
+        git:
+          github:
+            repo: 'strongswan-formula'
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: >-
+                Verify that the strongswan formula is setup and configured correctly
+        rubocop:
+          Cops:
+            Metrics/BlockLength:
+              Max: 27
+        # yamllint disable rule:comments-indentation
+        # Enable this in a subsequent PR, since it's an old version,
+        # which is already active (needs to be checked for regressions)
+        # use_tofs: true
+        # yamllint enable rule:comments-indentation
+      semrel_files: *semrel_files_default
     stunnel:
       context:
         git:
