@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.30.0 <https://github.com/myii/ssf-formula/compare/v1.29.0...v1.30.0>`_ (2019-10-15)
+------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **ssf:** add TOFS overrides to ensure ``quoted-strings`` rule fulfilled (\ ` <https://github.com/myii/ssf-formula/commit/a021f56>`_\ ), closes `#71 <https://github.com/myii/ssf-formula/issues/71>`_
+
 `1.29.0 <https://github.com/myii/ssf-formula/compare/v1.28.0...v1.29.0>`_ (2019-10-14)
 ------------------------------------------------------------------------------------------
 
