@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.33.0 <https://github.com/myii/ssf-formula/compare/v1.32.0...v1.33.0>`_ (2019-10-15)
+------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **strongswan:** upgrade pre-existing TOFS (\ ` <https://github.com/myii/ssf-formula/commit/b10572a>`_\ )
+
 `1.32.0 <https://github.com/myii/ssf-formula/compare/v1.31.0...v1.32.0>`_ (2019-10-15)
 ------------------------------------------------------------------------------------------
 
