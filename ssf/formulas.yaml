@@ -400,7 +400,6 @@ ssf:
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/cron.sls'
-        platforms_matrix: *platforms_matrix_without_arch
       semrel_files: *semrel_files_default
     deepsea:
       context:
