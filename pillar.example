@@ -103,6 +103,7 @@ ssf:
       - salt
       - ssf
       - stack
+      - strongswan
       - stunnel
       - sudoers
       - sysctl
