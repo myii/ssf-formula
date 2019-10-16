@@ -555,6 +555,32 @@ ssf:
         travis: *travis_do_not_use_single_job_for_linters
         use_tofs: true
       semrel_files: *semrel_files_default
+    haproxy:
+      context:
+        git:
+          github:
+            repo: 'haproxy-formula'
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: >-
+                Verify that the haproxy formula is setup and configured correctly
+            provisioner:
+              dependencies:
+                - name: 'hosts'
+                  path: 'test/salt/formulas'
+              pillars:
+                - '*':
+                    - hosts
+                    - .
+              pillars_from_files:
+                - hosts.sls: 'test/salt/pillar/hosts.sls'
+                - .sls: 'test/salt/pillar/haproxy.sls'
+              state_top:
+                - '*':
+                    - hosts
+                    - .
+      semrel_files: *semrel_files_default
     influxdb:
       context:
         git:

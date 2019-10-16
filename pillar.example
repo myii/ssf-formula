@@ -82,6 +82,7 @@ ssf:
       - fail2ban
       - golang
       - grafana
+      - haproxy
       - influxdb
       - iptables
       - iscsi
