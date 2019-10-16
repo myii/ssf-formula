@@ -471,6 +471,34 @@ ssf:
           - [centos       ,   6   ,   2017.7,      2,         default]
         travis: *travis_do_not_use_single_job_for_linters
       semrel_files: *semrel_files_default
+    docker:
+      context:
+        git:
+          github:
+            repo: 'docker-formula'
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: >-
+                Verify that the docker formula is setup and configured correctly
+            provisioner:
+              state_top:
+                - '*':
+                    - .
+                    - .containers
+        platforms_matrix:
+          # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
+          - [debian       ,  10   ,  develop,      3,         default]
+          - [debian       ,   9   ,   2019.2,      3,         default]
+          - [ubuntu       ,  18.04,   2019.2,      3,         default]
+          - [arch-base    , latest,   2019.2,      2,         default]
+          - [debian       ,   9   ,   2018.3,      2,         default]
+          - [ubuntu       ,  16.04,   2017.7,      2,         default]
+        yamllint:
+          ignore:
+            additional:
+              - docker/osfamilymap.yaml
+      semrel_files: *semrel_files_default
     exim:
       context:
         git:
