@@ -22,8 +22,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length
-            title: 'refactor(tofs): upgrade for all file.managed'
-            body: '* Semi-automated using https://github.com/myii/ssf-formula/pull/75'
+            title: 'feat(semantic-release): implement for this formula'
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/78'
             # yamllint enable rule:line-length
           github:
             owner: 'saltstack-formulas'
@@ -283,6 +283,7 @@ ssf:
     cron: *formula_default
     deepsea: *formula_default
     dhcpd: *formula_default
+    docker: *formula_default
     exim: *formula_default
     fail2ban: *formula_default
     golang: *formula_default
