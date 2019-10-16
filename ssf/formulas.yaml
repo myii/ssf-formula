@@ -155,6 +155,15 @@ ssf_node_anchors:
           - [fedora       ,  29   ,   2018.3,      2,         default]
           - [opensuse/leap,  15   ,   2018.3,      2,         default]
           - [centos       ,   6   ,   2017.7,      2,         default]
+        platforms_matrix_without_fedora: &platforms_matrix_without_fedora
+          # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
+          - [debian       ,  10   ,  develop,      3,         default]
+          - [ubuntu       ,  18.04,   2019.2,      3,         default]
+          - [amazonlinux  ,   2   ,   2019.2,      2,         default]
+          - [arch-base    , latest,   2019.2,      2,         default]
+          # - [fedora       ,  29   ,   2018.3,      2,         default]
+          - [opensuse/leap,  15   ,   2018.3,      2,         default]
+          - [centos       ,   6   ,   2017.7,      2,         default]
         # yamllint disable-line rule:line-length
         travis_do_not_use_single_job_for_linters: &travis_do_not_use_single_job_for_linters
           use_single_job_for_linters: false
@@ -1185,6 +1194,24 @@ ssf:
         travis: *travis_do_not_use_single_job_for_linters
         use_cirrus_ci: true
         use_tofs: true
+      semrel_files: *semrel_files_default
+    rsyncd:
+      context:
+        git:
+          github:
+            repo: 'rsyncd-formula'
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: >-
+                Verify that the rsyncd formula is setup and configured correctly
+            provisioner:
+              pillars_from_files:
+                - .sls: 'test/salt/pillar/rsyncd.sls'
+              state_top:
+                - '*':
+                    - .config
+        platforms_matrix: *platforms_matrix_without_fedora
       semrel_files: *semrel_files_default
     salt:
       context:

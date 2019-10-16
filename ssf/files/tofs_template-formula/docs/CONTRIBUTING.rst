@@ -195,6 +195,7 @@ These formulas are already compatible with semantic-release:
 * `prometheus-formula <https://github.com/saltstack-formulas/prometheus-formula>`_
 * `redis-formula <https://github.com/saltstack-formulas/redis-formula>`_
 * `rkhunter-formula <https://github.com/saltstack-formulas/rkhunter-formula>`_
+* `rsyncd-formula <https://github.com/saltstack-formulas/rsyncd-formula>`_
 * `salt-formula <https://github.com/saltstack-formulas/salt-formula>`_
 * `strongswan-formula <https://github.com/saltstack-formulas/strongswan-formula>`_
 * `stunnel-formula <https://github.com/saltstack-formulas/stunnel-formula>`_
