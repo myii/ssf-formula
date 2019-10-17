@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.34.0](https://github.com/myii/ssf-formula/compare/v1.33.1...v1.34.0) (2019-10-17)
+
+
+### Features
+
+* **formula:** add `docker-formula` ([](https://github.com/myii/ssf-formula/commit/918c0f6))
+
 ## [1.33.1](https://github.com/myii/ssf-formula/compare/v1.33.0...v1.33.1) (2019-10-17)
 
 
