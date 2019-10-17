@@ -2,6 +2,22 @@
 Changelog
 =========
 
+`1.33.1 <https://github.com/myii/ssf-formula/compare/v1.33.0...v1.33.1>`_ (2019-10-17)
+------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* **git:** tighten up scripts to avoid inconsistencies (\ ` <https://github.com/myii/ssf-formula/commit/778c7bb>`_\ )
+
+Code Refactoring
+^^^^^^^^^^^^^^^^
+
+
+* **git:** quote ``True`` and ``False`` where used as strings (\ ` <https://github.com/myii/ssf-formula/commit/ad115ec>`_\ )
+* **git:** use boolean versions of ``PUSH_ACTIVE`` and ``PUSH_VIA_PR`` (\ ` <https://github.com/myii/ssf-formula/commit/817f0d3>`_\ )
+
 `1.33.0 <https://github.com/myii/ssf-formula/compare/v1.32.0...v1.33.0>`_ (2019-10-15)
 ------------------------------------------------------------------------------------------
 
