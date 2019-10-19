@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.35.0](https://github.com/myii/ssf-formula/compare/v1.34.0...v1.35.0) (2019-10-19)
+
+
+### Features
+
+* **ufw:** remove `PyYAML` requirement for `salt-lint` in `.travis.yml` ([](https://github.com/myii/ssf-formula/commit/6d3b391))
+
 # [1.34.0](https://github.com/myii/ssf-formula/compare/v1.33.1...v1.34.0) (2019-10-17)
 
 
