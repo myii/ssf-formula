@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.36.0](https://github.com/myii/ssf-formula/compare/v1.35.0...v1.36.0) (2019-10-22)
+
+
+### Features
+
+* **formula:** add `apache-formula` ([](https://github.com/myii/ssf-formula/commit/88f4f50))
+
 # [1.35.0](https://github.com/myii/ssf-formula/compare/v1.34.0...v1.35.0) (2019-10-19)
 
 
