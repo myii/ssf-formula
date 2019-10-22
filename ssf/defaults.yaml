@@ -22,8 +22,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length
-            title: 'ci(travis): remove `PyYAML` workaround since fixed in `salt-lint` v0.0.9'
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/80'
+            title: 'feat(semantic-release): implement for this formula'
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/79'
             # yamllint enable rule:line-length
           github:
             owner: 'saltstack-formulas'
@@ -263,6 +263,7 @@ ssf:
         active: false
         source: 'salt://ssf/files/default/git/git_30_create_PR.sh'
   semrel_formulas:
+    apache: *formula_default
     apt:
       <<: *formula_default
       context:

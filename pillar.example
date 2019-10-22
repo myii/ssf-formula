@@ -69,6 +69,7 @@ ssf:
   ### State the formulas and files to work through when running the formula
   active:
     semrel_formulas:
+      - apache
       - apt
       - apt-cacher
       - bind
