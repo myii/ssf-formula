@@ -21,12 +21,18 @@ fast_finish: true
 {%-   endfilter %}
 {%- endmacro %}
 
+{#-   Prepare variables used for linters #}
 {%- set comment_linters = '# Run all of the linters in a single job' %}
 {%- set name_linters = 'Lint: salt-lint, yamllint, rubocop & commitlint' %}
 {%- if not travis.use_single_job_for_linters %}
 {%-   set comment_linters = comment_linters ~ ' (except `rubocop`)' %}
 {%-   set name_linters = 'Lint: salt-lint, yamllint & commitlint' %}
 {%- endif %}
+{#-   Prepare variable used for `saltcheck` #}
+{%-   set use_saltcheck = False %}
+{%-   if semrel_formula in ['cron'] %}
+{%-     set use_saltcheck = True %}
+{%-   endif %}
 ## Machine config
 dist: {{ travis.dist }}
 {%- if platforms and not use_cirrus_ci %}
@@ -53,10 +59,40 @@ script:
   {%- for pre_cmd in script_kitchen.pre %}
   - {{ pre_cmd }}
   {%- endfor %}
+  {%- if use_saltcheck %}
+  # yamllint disable rule:line-length
+  # Converge and verify the instance; `saltcheck` relies upon the `converge` as well
+  {%- endif %}
   - {{ script_kitchen.bin }} {{ script_kitchen.cmd }} "${INSTANCE}"
   {%- for post_cmd in script_kitchen.post %}
   - {{ post_cmd }}
   {%- endfor %}
+  {%- if use_saltcheck %}
+  # If a `develop` instance, get the appropriate version of `saltcheck.py` (temporary)
+  {%-   if semrel_formula in ['cron'] %}
+  # Likewise, use a custom `cron.py` temporarily until the upstream PR is merged:
+  # - https://github.com/saltstack/salt/pull/55016
+  {%-   endif %}
+  - if [ ! -z $(echo "${INSTANCE}" | grep \\-develop-) ]; then
+      bin/kitchen exec "${INSTANCE}" -c
+        "sudo curl -o \$(find /usr/lib/ -type d -name modules | grep packages/salt/modules)/saltcheck.py
+        https://raw.githubusercontent.com/myii/salt/fix/add-retcode/salt/modules/saltcheck.py";
+      {%- if semrel_formula in ['cron'] %}
+      bin/kitchen exec "${INSTANCE}" -c
+        "sudo curl -o \$(find /usr/lib/ -type d -name modules | grep packages/salt/modules)/cron.py
+        https://raw.githubusercontent.com/myii/salt/fix/add-retcode/salt/modules/cron.py";
+      {%- endif %}
+    fi
+  # If a `develop` instance, run all of the `saltcheck` tests
+  - if [ ! -z $(echo "${INSTANCE}" | grep \\-develop-) ]; then
+      bin/kitchen exec "${INSTANCE}" -c
+        "sudo salt-call
+        --config-dir=/tmp/kitchen/etc/salt
+        saltcheck.run_state_tests
+        cron check_all=True";
+    fi
+  # yamllint enable rule:line-length
+  {%- endif %}
 {%- endif %}
 
 ## Stages and jobs matrix
@@ -76,6 +112,7 @@ jobs:
       name: '{{ name_linters }}'
       before_install: skip
       script:
+        {#- Prepare variable used for `pip` #}
         {%- set pip_cmd = 'pip' %}
         {%- if semrel_formula == 'ufw' %}
         {%-   set pip_cmd = 'pip3' %}
@@ -83,9 +120,14 @@ jobs:
         # [Py2/InsecurePlatformWarning] Tornado requires an up-to-date SSL module.
         - sudo apt-get install python3-pip python3-setuptools python3-wheel -y
         {%- endif %}
+        {#- Prepare variable used for file types to pipe to `salt-lint` #}
+        {%- set salt_lint_files = '\.sls$\|\.jinja$\|\.j2$\|\.tmpl$' %}
+        {%- if use_saltcheck %}
+        {%-   set salt_lint_files = salt_lint_files ~ '\|\.tst$' %}
+        {%- endif %}
         # Install and run `salt-lint`
         - {{ pip_cmd }} install --user salt-lint
-        - git ls-files | grep '\.sls$\|\.jinja$\|\.j2$\|\.tmpl$'
+        - git ls-files | grep '{{ salt_lint_files }}'
                        | xargs -I {} salt-lint {}
         # Install and run `yamllint`
         # Need at least `v1.17.0` for the `yaml-files` setting
