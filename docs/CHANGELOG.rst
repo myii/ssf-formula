@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.37.0 <https://github.com/myii/ssf-formula/compare/v1.36.0...v1.37.0>`_ (2019-10-23)
+------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **salt-lint:** update ``.salt-lint`` configs for ``v0.0.10`` (\ ` <https://github.com/myii/ssf-formula/commit/5f34e06>`_\ )
+
 `1.36.0 <https://github.com/myii/ssf-formula/compare/v1.35.0...v1.36.0>`_ (2019-10-22)
 ------------------------------------------------------------------------------------------
 
