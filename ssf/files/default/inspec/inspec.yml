@@ -26,5 +26,5 @@ depends:
 {%- endif %}
 supports:
 {%- for platform in suite.inspec_yml.supports %}
-  - platform-name: {{ platform }}
+  - {{ 'platform-name' if platform != 'windows' else 'platform' }}: {{ platform }}
 {%- endfor %}
