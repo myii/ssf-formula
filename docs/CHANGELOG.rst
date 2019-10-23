@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.38.0 <https://github.com/myii/ssf-formula/compare/v1.37.0...v1.38.0>`_ (2019-10-23)
+------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **saltcheck:** add support in ``.travis.yml`` templates (\ ` <https://github.com/myii/ssf-formula/commit/112b916>`_\ )
+
 `1.37.0 <https://github.com/myii/ssf-formula/compare/v1.36.0...v1.37.0>`_ (2019-10-23)
 ------------------------------------------------------------------------------------------
 
