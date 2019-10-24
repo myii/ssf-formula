@@ -2,6 +2,21 @@
 Changelog
 =========
 
+`1.39.0 <https://github.com/myii/ssf-formula/compare/v1.38.0...v1.39.0>`_ (2019-10-24)
+------------------------------------------------------------------------------------------
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+* **travis:** update ``salt-lint`` config for ``v0.0.10`` [skip ci] (\ ` <https://github.com/myii/ssf-formula/commit/78e286c>`_\ )
+
+Features
+^^^^^^^^
+
+
+* **kitchen:** use ``debian-10-master-py3`` instead of ``develop`` (\ ` <https://github.com/myii/ssf-formula/commit/6f00a7e>`_\ ), closes `/travis-ci.org/myii/template-formula/jobs/602164511#L447-L451 <https://github.com//travis-ci.org/myii/template-formula/jobs/602164511/issues/L447-L451>`_
+
 `1.38.0 <https://github.com/myii/ssf-formula/compare/v1.37.0...v1.38.0>`_ (2019-10-23)
 ------------------------------------------------------------------------------------------
 
