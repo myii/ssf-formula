@@ -22,8 +22,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length
-            title: 'ci(kitchen): use `debian-10-master-py3` instead of `develop` [skip ci]'
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/84'
+            title: 'feat(semantic-release): implement for this formula'
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/85'
             # yamllint enable rule:line-length
           github:
             owner: 'saltstack-formulas'
@@ -309,6 +309,21 @@ ssf:
             <<: *isk_suite_default
             name: 'centarch'
     keepalived: *formula_default
+    letsencrypt:
+      <<: *formula_default
+      context:
+        <<: *context_default
+        inspec_suites_kitchen:
+          <<: *isk_default
+          0:
+            <<: *isk_suite_default
+            name: 'git'
+          1:
+            <<: *isk_suite_default
+            name: 'deb'
+          2:
+            <<: *isk_suite_default
+            name: 'rpm'
     libvirt:
       <<: *formula_default
       context:

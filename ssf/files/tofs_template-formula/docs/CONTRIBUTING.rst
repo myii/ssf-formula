@@ -182,6 +182,7 @@ These formulas are already compatible with semantic-release:
 * `iptables-formula <https://github.com/saltstack-formulas/iptables-formula>`_
 * `iscsi-formula <https://github.com/saltstack-formulas/iscsi-formula>`_
 * `keepalived-formula <https://github.com/saltstack-formulas/keepalived-formula>`_
+* `letsencrypt-formula <https://github.com/saltstack-formulas/letsencrypt-formula>`_
 * `libvirt-formula <https://github.com/saltstack-formulas/libvirt-formula>`_
 * `locale-formula <https://github.com/saltstack-formulas/locale-formula>`_
 * `logrotate-formula <https://github.com/saltstack-formulas/logrotate-formula>`_
