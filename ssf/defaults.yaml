@@ -87,18 +87,18 @@ ssf_node_anchors:
           # as numbers (for comparisons)
           # [os           , os_ver, salt_ver, py_ver]
 
-          ### `develop-py3` => `master-py3`
+          ### `master-py3`
           - [debian       ,  10   ,   master,      3]
-          # - [debian       ,   9   ,  develop,      3]  # unmaintained
-          - [ubuntu       ,  18.04,  develop,      3]
-          - [centos       ,   7   ,  develop,      3]
-          - [fedora       ,  30   ,  develop,      3]
-          # - [fedora       ,  29   ,  develop,      3]  # unmaintained
-          - [opensuse/leap,  15   ,  develop,      3]
+          # - [debian       ,   9   ,   master,      3]  # unmaintained
+          - [ubuntu       ,  18.04,   master,      3]
+          - [centos       ,   7   ,   master,      3]
+          - [fedora       ,  30   ,   master,      3]
+          # - [fedora       ,  29   ,   master,      3]  # unmaintained
+          - [opensuse/leap,  15   ,   master,      3]
 
-          ### `develop-py2`
-          - [amazonlinux  ,   2   ,  develop,      2]
-          - [arch-base    , latest,  develop,      2]
+          ### ` master-py2`
+          - [amazonlinux  ,   2   ,   master,      2]
+          - [arch-base    , latest,   master,      2]
 
           ### `2019.2-py3`
           - [debian       ,   9   ,   2019.2,      3]    # unmaintained (resolve)
