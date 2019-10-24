@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.40.0 <https://github.com/myii/ssf-formula/compare/v1.39.0...v1.40.0>`_ (2019-10-24)
+------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **formula:** add ``letsencrypt-formula`` (\ ` <https://github.com/myii/ssf-formula/commit/39bd576>`_\ )
+
 `1.39.0 <https://github.com/myii/ssf-formula/compare/v1.38.0...v1.39.0>`_ (2019-10-24)
 ------------------------------------------------------------------------------------------
 
