@@ -88,6 +88,7 @@ ssf:
       - iptables
       - iscsi
       - keepalived
+      - letsencrypt
       - libvirt
       - locale
       - logrotate
