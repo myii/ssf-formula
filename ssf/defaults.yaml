@@ -22,8 +22,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length
-            title: 'ci(travis): run customised `saltcheck` tests on `develop` instances'
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/83'
+            title: 'ci(kitchen): use `debian-10-master-py3` instead of `develop` [skip ci]'
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/84'
             # yamllint enable rule:line-length
           github:
             owner: 'saltstack-formulas'
@@ -87,8 +87,8 @@ ssf_node_anchors:
           # as numbers (for comparisons)
           # [os           , os_ver, salt_ver, py_ver]
 
-          ### `develop-py3`
-          - [debian       ,  10   ,  develop,      3]
+          ### `develop-py3` => `master-py3`
+          - [debian       ,  10   ,   master,      3]
           # - [debian       ,   9   ,  develop,      3]  # unmaintained
           - [ubuntu       ,  18.04,  develop,      3]
           - [centos       ,   7   ,  develop,      3]
@@ -154,7 +154,7 @@ ssf_node_anchors:
         platforms_matrix:
           # Comments in `platforms` apply here, too
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
-          - [debian       ,  10   ,  develop,      3,         default]
+          - [debian       ,  10   ,   master,      3,         default]
           - [ubuntu       ,  18.04,   2019.2,      3,         default]
           - [amazonlinux  ,   2   ,   2019.2,      2,         default]
           - [arch-base    , latest,   2019.2,      2,         default]

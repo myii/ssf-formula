@@ -71,8 +71,8 @@ image: netmanagers/salt-{{ salt_ver }}-py{{ py_ver }}:{{ os | replace('/', '-') 
           ) %}
 {%-       do prov_cmds.append('- systemctl enable sshd.service') %}
 {%-     endif %}
-{#-     Specific to `develop` #}
-{%-     if salt_ver == 'develop' %}
+{#-     Specific to `develop` (and the introduction of `master`) #}
+{%-     if salt_ver in ['develop', 'master'] %}
 {%-       if os != 'opensuse/leap' %}
 {%-         do prov_cmds.append('- curl -o bootstrap-salt.sh -L https://bootstrap.saltstack.com') %}
 {%-         do prov_cmds.append('- sh bootstrap-salt.sh -XdPbfrq -x python{0} git {1}'.format(py_ver, salt_ver)) %}
@@ -148,8 +148,12 @@ platforms:
 {%-   set salt_ver = platform[2] %}
 {%-   set py_ver   = platform[3] %}
 {#-   Display comment for each section (based on Salt version) #}
+{#-   Temporarily need to merge `develop` and `master` until the transition is complete #}
 {%-   set linebreak = '\n' %}
 {%-   set comment = '`{0}`'.format(salt_ver) %}
+{%-   if salt_ver in ['develop', 'master'] %}
+{%-     set comment = '`develop` => `master`' %}
+{%-   endif %}
 {%-   if loop.index0 == 0 %}
 {%-     set linebreak = first_linebreak %}
 {%-   endif %}

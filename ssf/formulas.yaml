@@ -34,7 +34,7 @@ ssf_node_anchors:
                     - .minion
         platforms_osfamily_debian: &platforms_osfamily_debian
           # [os           , os_ver, salt_ver, py_ver]
-          - [debian       ,  10   ,  develop,      3]
+          - [debian       ,  10   ,   master,      3]
           - [ubuntu       ,  18.04,  develop,      3]
           - [debian       ,   9   ,   2019.2,      3]
           - [ubuntu       ,  18.04,   2019.2,      3]
@@ -64,7 +64,7 @@ ssf_node_anchors:
           - [opensuse/leap,  15   ,   2017.7,      2]
         platforms_os_debian: &platforms_os_debian
           # [os           , os_ver, salt_ver, py_ver]
-          - [debian       ,  10   ,  develop,      3]
+          - [debian       ,  10   ,   master,      3]
           - [debian       ,   9   ,   2019.2,      3]
           - [debian       ,   9   ,   2018.3,      2]
           - [debian       ,   8   ,   2017.7,      2]
@@ -121,7 +121,7 @@ ssf_node_anchors:
           - [arch-base    , latest,   2017.7,      2]
         platforms_matrix_osfamily_suites: &platforms_matrix_osfamily_suites
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
-          - [debian       ,  10   ,  develop,      3,          debian]
+          - [debian       ,  10   ,   master,      3,          debian]
           - [ubuntu       ,  18.04,   2019.2,      3,          debian]
           - [amazonlinux  ,   2   ,   2019.2,      2,          redhat]
           - [fedora       ,  29   ,   2018.3,      2,          redhat]
@@ -129,7 +129,7 @@ ssf_node_anchors:
           - [centos       ,   6   ,   2017.7,      2,          redhat]
         platforms_matrix_osfamily_debian: &platforms_matrix_osfamily_debian
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
-          - [debian       ,  10   ,  develop,      3,         default]
+          - [debian       ,  10   ,   master,      3,         default]
           - [ubuntu       ,  18.04,  develop,      3,         default]
           - [debian       ,   9   ,   2019.2,      3,         default]
           - [ubuntu       ,  18.04,   2019.2,      3,         default]
@@ -137,7 +137,7 @@ ssf_node_anchors:
           - [ubuntu       ,  16.04,   2017.7,      2,         default]
         platforms_matrix_systemd_only: &platforms_matrix_systemd_only
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
-          - [debian       ,  10   ,  develop,      3,         default]
+          - [debian       ,  10   ,   master,      3,         default]
           - [ubuntu       ,  18.04,   2019.2,      3,         default]
           - [centos       ,   7   ,   2019.2,      3,         default]
           # - [amazonlinux  ,   2   ,   2019.2,      2,         default]
@@ -148,7 +148,7 @@ ssf_node_anchors:
           - [amazonlinux  ,   2   ,   2017.7,      2,         default]
         platforms_matrix_without_arch: &platforms_matrix_without_arch
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
-          - [debian       ,  10   ,  develop,      3,         default]
+          - [debian       ,  10   ,   master,      3,         default]
           - [ubuntu       ,  18.04,   2019.2,      3,         default]
           - [amazonlinux  ,   2   ,   2019.2,      2,         default]
           # - [arch-base    , latest,   2019.2,      2,         default]
@@ -237,7 +237,7 @@ ssf:
         platforms_matrix:
           # Comments in `platforms` apply here, too
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
-          - [debian       ,  10   ,  develop,      3,         default]
+          - [debian       ,  10   ,   master,      3,         default]
           - [ubuntu       ,  18.04,   2019.2,      3,         default]
           - [amazonlinux  ,   2   ,   2019.2,      2,         default]
           # - [arch-base    , latest,   2019.2,      2,         default]
@@ -279,7 +279,7 @@ ssf:
           - preferences
         platforms:
           # [os           , os_ver, salt_ver, py_ver]
-          - [debian       ,  10   ,  develop,      3]
+          - [debian       ,  10   ,   master,      3]
           - [ubuntu       ,  18.04,  develop,      3]
           - [debian       ,   9   ,   2019.2,      3]
           - [ubuntu       ,  18.04,   2019.2,      3]
@@ -289,7 +289,7 @@ ssf:
           # - [ubuntu       ,  16.04,   2017.7,      2]
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
-          - [debian       ,  10   ,  develop,      3,    repositories]
+          - [debian       ,  10   ,   master,      3,    repositories]
           # - [ubuntu       ,  18.04,  develop,      3,    repositories]
           - [debian       ,   9   ,   2019.2,      3,    repositories]
           - [ubuntu       ,  18.04,   2019.2,      3,    repositories]
@@ -406,7 +406,7 @@ ssf:
                 - .sls: 'test/salt/default/pillar/collectd.sls'
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
-          - [debian       ,  10   ,  develop,      3,         default]
+          - [debian       ,  10   ,   master,      3,         default]
           - [ubuntu       ,  18.04,   2019.2,      3,         default]
           - [centos       ,   7   ,   2019.2,      3,         default]
           # - [amazonlinux  ,   2   ,   2019.2,      2,         default]
@@ -443,7 +443,7 @@ ssf:
           # Note, keeping this "working out" because difficult to resolve for this repo
           # One `#` where working but not using, two `# #` for not working at all
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
-          # # - [debian       ,  10   ,  develop,      3,         default]
+          # # - [debian       ,  10   ,   master,      3,         default]
           - [ubuntu       ,  18.04,  develop,      3,         default]
           # - [centos       ,   7   ,  develop,      3,         default]
           # - [fedora       ,  30   ,  develop,      3,         default]
@@ -489,7 +489,7 @@ ssf:
                     - .config
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
-          - [debian       ,  10   ,  develop,      3,         default]
+          - [debian       ,  10   ,   master,      3,         default]
           - [ubuntu       ,  18.04,   2019.2,      3,         default]
           - [amazonlinux  ,   2   ,   2019.2,      2,         default]
           # - [arch-base    , latest,   2019.2,      2,         default]
@@ -516,7 +516,7 @@ ssf:
                     - .containers
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
-          - [debian       ,  10   ,  develop,      3,         default]
+          - [debian       ,  10   ,   master,      3,         default]
           - [debian       ,   9   ,   2019.2,      3,         default]
           - [ubuntu       ,  18.04,   2019.2,      3,         default]
           - [arch-base    , latest,   2019.2,      2,         default]
@@ -564,7 +564,7 @@ ssf:
                     - .
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
-          - [debian       ,  10   ,  develop,      3,         default]
+          - [debian       ,  10   ,   master,      3,         default]
           - [ubuntu       ,  18.04,   2019.2,      3,         default]
           # - [amazonlinux  ,   2   ,   2019.2,      2,         default]
           - [arch-base    , latest,   2019.2,      2,         default]
@@ -586,7 +586,7 @@ ssf:
                 Verify that the golang formula is setup and configured correctly
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
-          - [debian       ,  10   ,  develop,      3,         default]
+          - [debian       ,  10   ,   master,      3,         default]
           - [ubuntu       ,  18.04,   2019.2,      3,         default]
           - [amazonlinux  ,   2   ,   2019.2,      2,         default]
           # - [arch-base    , latest,   2019.2,      2,         default]
@@ -656,7 +656,7 @@ ssf:
           - tables
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
-          - [debian       ,  10   ,  develop,      3,         default]
+          - [debian       ,  10   ,   master,      3,         default]
           - [ubuntu       ,  18.04,   2019.2,      3,         default]
           - [amazonlinux  ,   2   ,   2019.2,      2,         default]
           - [arch-base    , latest,   2019.2,      2,         default]
@@ -734,7 +734,7 @@ ssf:
           - centarch
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
-          - [debian       ,  10   ,  develop,      3,         default]
+          - [debian       ,  10   ,   master,      3,         default]
           - [centos       ,   7   ,  develop,      3,        centarch]
           - [ubuntu       ,  18.04,   2019.2,      3,         default]
           - [centos       ,   7   ,   2019.2,      3,        centarch]
@@ -791,7 +791,7 @@ ssf:
           2:
             includes:
               # [os           , os_ver, salt_ver, py_ver]
-              - [debian       ,  10   ,  develop,      3]
+              - [debian       ,  10   ,   master,      3]
             inspec_yml:
               depends: *depends_on_suite_share
               summary: >-
@@ -808,8 +808,8 @@ ssf:
           - clean
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
-          - [debian       ,  10   ,  develop,      3,         default]
-          - [debian       ,  10   ,  develop,      3,           clean]
+          - [debian       ,  10   ,   master,      3,         default]
+          - [debian       ,  10   ,   master,      3,           clean]
           - [ubuntu       ,  18.04,   2019.2,      3,         default]
           - [fedora       ,  30   ,   2019.2,      3,         default]
           # - [amazonlinux  ,   2   ,   2019.2,      2,         default]
@@ -847,7 +847,7 @@ ssf:
           - fedora
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
-          - [debian       ,  10   ,  develop,      3,         default]
+          - [debian       ,  10   ,   master,      3,         default]
           - [ubuntu       ,  18.04,   2019.2,      3,         default]
           - [centos       ,   7   ,   2019.2,      3,         default]
           # - [amazonlinux  ,   2   ,   2019.2,      2,         default]
@@ -901,7 +901,7 @@ ssf:
           # Keeping hold of this "working out" for future reference
           # One `#` where working but not using, two `# #` for not working at all
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
-          - [debian       ,  10   ,  develop,      3,         default]
+          - [debian       ,  10   ,   master,      3,         default]
           # - [amazonlinux  ,   2   ,  develop,      2,         default]
           # # - [arch-base    , latest,  develop,      2,         default]
           - [ubuntu       ,  18.04,   2019.2,      3,         default]
@@ -930,7 +930,7 @@ ssf:
                 - .sls: 'test/salt/pillar/mysql.sls'
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
-          - [debian       ,  10   ,  develop,      3,         default]
+          - [debian       ,  10   ,   master,      3,         default]
           - [ubuntu       ,  18.04,  develop,      3,         default]
           - [debian       ,   9   ,   2019.2,      3,         default]
           - [ubuntu       ,  18.04,   2019.2,      3,         default]
@@ -956,7 +956,7 @@ ssf:
                 - .sls: 'test/salt/default/pillar/nginx.sls'
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
-          - [debian       ,  10   ,  develop,      3,         default]
+          - [debian       ,  10   ,   master,      3,         default]
           - [ubuntu       ,  18.04,   2019.2,      3,         default]
           - [centos       ,   7   ,   2019.2,      3,         default]
           # - [amazonlinux  ,   2   ,   2019.2,      2,         default]
@@ -1005,7 +1005,7 @@ ssf:
                     - .config
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
-          - [debian       ,  10   ,  develop,      3,         default]
+          - [debian       ,  10   ,   master,      3,         default]
           - [ubuntu       ,  18.04,   2019.2,      3,         default]
           - [amazonlinux  ,   2   ,   2019.2,      2,         default]
           # - [arch-base    , latest,   2019.2,      2,         default]
@@ -1085,7 +1085,7 @@ ssf:
           - redhat
           - suse
         platforms_matrix:
-          - [debian       ,  10   ,  develop,      3,       debian]
+          - [debian       ,  10   ,   master,      3,       debian]
           - [ubuntu       ,  18.04,   2019.2,      3,       ubuntu]
           - [amazonlinux  ,   2   ,   2019.2,      2,       redhat]
           - [fedora       ,  29   ,   2018.3,      2,       redhat]
@@ -1131,7 +1131,7 @@ ssf:
                 - .sls: 'test/salt/pillar/postgres.sls'
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
-          - [debian       ,  10   ,  develop,      3,         default]
+          - [debian       ,  10   ,   master,      3,         default]
           - [centos       ,   7   ,   2019.2,      3,         default]
           - [fedora       ,  30   ,   2019.2,      3,         default]
           # - [amazonlinux  ,   2   ,   2019.2,      2,         default]
@@ -1181,7 +1181,7 @@ ssf:
                     - .server
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
-          - [debian       ,  10   ,  develop,      3,         default]
+          - [debian       ,  10   ,   master,      3,         default]
           - [centos       ,   7   ,   2019.2,      3,         default]
           - [fedora       ,  30   ,   2019.2,      3,         default]
           # - [amazonlinux  ,   2   ,   2019.2,      2,         default]
@@ -1232,7 +1232,7 @@ ssf:
           - suse
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
-          - [debian       ,  10   ,  develop,      3,          debian]
+          - [debian       ,  10   ,   master,      3,          debian]
           - [ubuntu       ,  18.04,   2019.2,      3,          debian]
           - [centos       ,   7   ,   2019.2,      3,          redhat]
           - [fedora       ,  29   ,   2018.3,      2,          redhat]
@@ -1518,7 +1518,7 @@ ssf:
           # Couldn't use `*platforms_matrix_osfamily_debian` because it is
           # currently failing on both `ubuntu-16.04` and `debian-8`
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
-          - [debian       ,  10   ,  develop,      3,         default]
+          - [debian       ,  10   ,   master,      3,         default]
           - [ubuntu       ,  18.04,  develop,      3,         default]
           - [debian       ,   9   ,   2019.2,      3,         default]
           - [ubuntu       ,  18.04,   2019.2,      3,         default]
@@ -1566,7 +1566,7 @@ ssf:
                 - .sls: 'test/salt/pillar/sysctl.sls'
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
-          - [debian       ,  10   ,  develop,      3,         default]
+          - [debian       ,  10   ,   master,      3,         default]
           - [ubuntu       ,  18.04,   2019.2,      3,         default]
           - [amazonlinux  ,   2   ,   2019.2,      2,         default]
           - [arch-base    , latest,   2019.2,      2,         default]
@@ -1633,7 +1633,7 @@ ssf:
                     - .units
         platforms:
           # [os           , os_ver, salt_ver, py_ver]
-          - [debian       ,  10   ,  develop,      3]
+          - [debian       ,  10   ,   master,      3]
           - [ubuntu       ,  18.04,  develop,      3]
           - [centos       ,   7   ,  develop,      3]
           - [fedora       ,  30   ,  develop,      3]
@@ -1683,7 +1683,7 @@ ssf:
                 - .sls: 'test/salt/pillar/telegraf.sls'
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
-          - [debian       ,  10   ,  develop,      3,         default]
+          - [debian       ,  10   ,   master,      3,         default]
           - [ubuntu       ,  18.04,   2019.2,      3,         default]
           - [centos       ,   7   ,   2019.2,      3,         default]
           - [fedora       ,  30   ,   2019.2,      3,         default]
@@ -1727,7 +1727,7 @@ ssf:
           - centos6
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
-          - [debian       ,  10   ,  develop,      3,         default]
+          - [debian       ,  10   ,   master,      3,         default]
           - [ubuntu       ,  18.04,   2019.2,      3,         default]
           - [amazonlinux  ,   2   ,   2019.2,      2,         default]
           - [arch-base    , latest,   2019.2,      2,         default]
@@ -1840,7 +1840,7 @@ ssf:
           - ''
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
-          - [debian       ,  10   ,  develop,      3,              '']
+          - [debian       ,  10   ,   master,      3,              '']
           - [ubuntu       ,  18.04,   2019.2,      3,     prod_server]
           - [fedora       ,  30   ,   2019.2,      3,     prod_server]
           - [amazonlinux  ,   2   ,   2019.2,      2,     prod_server]
@@ -1926,7 +1926,7 @@ ssf:
                     - .frontend.conf
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
-          - [debian       ,  10   ,  develop,      3,         default]
+          - [debian       ,  10   ,   master,      3,         default]
           - [debian       ,   9   ,   2019.2,      3,         default]
           - [ubuntu       ,  18.04,   2019.2,      3,         default]
           # - [fedora       ,  30   ,   2019.2,      3,         default]
