@@ -158,8 +158,8 @@ platforms:
       {{- format_driver_image(os, os_ver, salt_ver, py_ver) }}
       {{- format_driver_prov_cmds(os, os_ver, salt_ver, py_ver) }}
       {{- format_driver_run_cmds(os, os_ver) }}
-    {%- if [os, os_ver] == ['opensuse/leap', 15] %}
-    # Workaround to avoid intermittent failures on `opensuse-leap-15`:
+    {%- if [os, os_ver] == ['opensuse/leap', 15.1] %}
+    # Workaround to avoid intermittent failures on `opensuse-leap-15.1`:
     # => SCP did not finish successfully (255):  (Net::SCP::Error)
     transport:
       max_ssh_sessions: 1
