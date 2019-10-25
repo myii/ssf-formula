@@ -120,14 +120,9 @@ jobs:
         # [Py2/InsecurePlatformWarning] Tornado requires an up-to-date SSL module.
         - sudo apt-get install python3-pip python3-setuptools python3-wheel -y
         {%- endif %}
-        {#- Prepare variable used for file types to pipe to `salt-lint` #}
-        {%- set salt_lint_files = '\.sls$\|\.jinja$\|\.j2$\|\.tmpl$' %}
-        {%- if use_saltcheck %}
-        {%-   set salt_lint_files = salt_lint_files ~ '\|\.tst$' %}
-        {%- endif %}
         # Install and run `salt-lint`
         - {{ pip_cmd }} install --user salt-lint
-        - git ls-files | grep '{{ salt_lint_files }}'
+        - git ls-files | grep '\.sls$\|\.jinja$\|\.j2$\|\.tmpl$\|\.tst$'
                        | xargs -I {} salt-lint {}
         # Install and run `yamllint`
         # Need at least `v1.17.0` for the `yaml-files` setting
