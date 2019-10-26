@@ -23,7 +23,7 @@ ssf_node_anchors:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length
             title: 'feat(semantic-release): implement for this formula'
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/87'
+            body: '* Checked using https://github.com/myii/ssf-formula/pull/88'
             # yamllint enable rule:line-length
           github:
             owner: 'saltstack-formulas'
@@ -381,6 +381,7 @@ ssf:
     postfix: *formula_default
     postgres: *formula_default
     prometheus: *formula_default
+    rabbitmq: *formula_default
     redis: *formula_default
     rkhunter:
       <<: *formula_default

@@ -102,6 +102,7 @@ ssf:
       - postfix
       - postgres
       - prometheus
+      - rabbitmq
       - redis
       - rkhunter
       - salt
