@@ -189,6 +189,7 @@ These formulas are already compatible with semantic-release:
 * `lvm-formula <https://github.com/saltstack-formulas/lvm-formula>`_
 * `mysql-formula <https://github.com/saltstack-formulas/mysql-formula>`_
 * `nginx-formula <https://github.com/saltstack-formulas/nginx-formula>`_
+* `ntp-formula <https://github.com/saltstack-formulas/ntp-formula>`_
 * `openssh-formula <https://github.com/saltstack-formulas/openssh-formula>`_
 * `openvpn-formula <https://github.com/saltstack-formulas/openvpn-formula>`_
 * [`WIP <https://github.com/saltstack-formulas/packages-formula/pull/54>`_] `packages-formula <https://github.com/saltstack-formulas/packages-formula>`_

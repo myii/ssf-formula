@@ -95,6 +95,7 @@ ssf:
       - lvm
       - mysql
       - nginx
+      - ntp
       - openssh
       - openvpn
       - php
