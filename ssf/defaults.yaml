@@ -93,8 +93,8 @@ ssf_node_anchors:
           - [centos       ,   8   ,   master,      3]
           - [fedora       ,  31   ,   master,      3]
           - [opensuse/leap,  15.1 ,   master,      3]
-          - [amazonlinux  ,   2   ,   master,      3]
           ### ` master-py2`
+          - [amazonlinux  ,   2   ,   master,      2]
           - [arch-base    , latest,   master,      2]
 
           ### `2019.2-py3`
@@ -106,10 +106,10 @@ ssf_node_anchors:
           # - [centos       ,   7   ,   2019.2,      3]
           - [fedora       ,  31   ,   2019.2,      3]
           - [opensuse/leap,  15.1 ,   2019.2,      3]
-          - [amazonlinux  ,   2   ,   2019.2,      3]
           ### `2019.2-py2`
           # - [ubuntu       ,  18.04,   2019.2,      2]
           - [centos       ,   7   ,   2019.2,      2]
+          - [amazonlinux  ,   2   ,   2019.2,      2]
           - [arch-base    , latest,   2019.2,      2]
 
           ### `2018.3-py3`
@@ -141,7 +141,7 @@ ssf_node_anchors:
           - [debian       ,  10   ,   master,      3,         default]
           - [ubuntu       ,  18.04,   2019.2,      3,         default]
           - [opensuse/leap,  15.1 ,   2019.2,      3,         default]
-          - [amazonlinux  ,   2   ,   2019.2,      3,         default]
+          - [amazonlinux  ,   2   ,   2019.2,      2,         default]
           - [fedora       ,  30   ,   2018.3,      3,         default]
           - [arch-base    , latest,   2018.3,      2,         default]
           - [centos       ,   6   ,   2017.7,      2,         default]
