@@ -873,9 +873,9 @@ ssf:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,  10   ,   master,      3,             deb]
           - [ubuntu       ,  18.04,   2019.2,      3,             git]
-          - [centos       ,   8   ,   2019.2,      3,             rpm]
+          - [centos       ,   8   ,   2019.2,      3,             git]
           - [arch-base    , latest,   2019.2,      2,             git]
-          - [fedora       ,  30   ,   2018.3,      3,             rpm]
+          - [fedora       ,  30   ,   2018.3,      3,             git]
           - [opensuse/leap,  15.1 ,   2018.3,      2,             git]
           - [amazonlinux  ,   2   ,   2017.7,      2,             rpm]
       semrel_files: *semrel_files_default
