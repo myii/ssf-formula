@@ -50,11 +50,7 @@
 
 {%- macro format_driver_image(os, os_ver, salt_ver, py_ver) %}
 {%-   filter indent(6) %}
-{%-     if os == 'opensuse/leap' %}
-image: {{ os }}:{{ os_ver }}
-{%-     else %}
 image: netmanagers/salt-{{ salt_ver }}-py{{ py_ver }}:{{ os | replace('/', '-') }}-{{ os_ver }}
-{%-     endif %}
 {%-   endfilter %}
 {%- endmacro %}
 
@@ -63,20 +59,10 @@ image: netmanagers/salt-{{ salt_ver }}-py{{ py_ver }}:{{ os | replace('/', '-') 
 {#-         Need to look at if this can be resolved from within the formulas themselves, though                               #}
 {%-   filter indent(6) %}
 {%-     set prov_cmds = [] %}
-{#-     Specific to unsalted `opensuse/leap` #}
-{%-     if os == 'opensuse/leap' %}
-{%-       do prov_cmds.append('# yamllint disable-line rule:line-length') %}
-{%-       do prov_cmds.append(
-            '- zypper install -y glibc-locale net-tools net-tools-deprecated python-xml python{0}-pip'.format(py_ver)
-          ) %}
-{%-       do prov_cmds.append('- systemctl enable sshd.service') %}
-{%-     endif %}
-{#-     Specific to `develop` (and the introduction of `master`) #}
-{%-     if salt_ver in ['develop', 'master'] %}
-{%-       if os != 'opensuse/leap' %}
-{%-         do prov_cmds.append('- curl -o bootstrap-salt.sh -L https://bootstrap.saltstack.com') %}
-{%-         do prov_cmds.append('- sh bootstrap-salt.sh -XdPbfrq -x python{0} git {1}'.format(py_ver, salt_ver)) %}
-{%-       endif %}
+{#-     Specific to `master` #}
+{%-     if salt_ver == 'master' %}
+{%-       do prov_cmds.append('- curl -o bootstrap-salt.sh -L https://bootstrap.saltstack.com') %}
+{%-       do prov_cmds.append('- sh bootstrap-salt.sh -XdPbfrq -x python{0} git {1}'.format(py_ver, salt_ver)) %}
 {%-       if semrel_formula == 'deepsea' %}
 {%-         if os in ['centos', 'fedora'] %}
 {%-           do prov_cmds.append('- yum install make -y') %}
@@ -148,12 +134,8 @@ platforms:
 {%-   set salt_ver = platform[2] %}
 {%-   set py_ver   = platform[3] %}
 {#-   Display comment for each section (based on Salt version) #}
-{#-   Temporarily need to merge `develop` and `master` until the transition is complete #}
 {%-   set linebreak = '\n' %}
 {%-   set comment = '`{0}`'.format(salt_ver) %}
-{%-   if salt_ver in ['develop', 'master'] %}
-{%-     set comment = '`develop` => `master`' %}
-{%-   endif %}
 {%-   if loop.index0 == 0 %}
 {%-     set linebreak = first_linebreak %}
 {%-   endif %}
@@ -176,11 +158,8 @@ platforms:
       {{- format_driver_image(os, os_ver, salt_ver, py_ver) }}
       {{- format_driver_prov_cmds(os, os_ver, salt_ver, py_ver) }}
       {{- format_driver_run_cmds(os, os_ver) }}
-    {%- if [os, os_ver] == ['opensuse/leap', 15] %}
-    provisioner:
-      salt_bootstrap_options: -XdPfrq -x python{{ py_ver }} git {{ salt_ver }}
-      salt_install: bootstrap
-    # Workaround to avoid intermittent failures on `opensuse-leap-15`:
+    {%- if [os, os_ver] == ['opensuse/leap', 15.1] %}
+    # Workaround to avoid intermittent failures on `opensuse-leap-15.1`:
     # => SCP did not finish successfully (255):  (Net::SCP::Error)
     transport:
       max_ssh_sessions: 1
