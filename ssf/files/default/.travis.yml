@@ -132,8 +132,8 @@ jobs:
         {{-   format_rubocop_linter() }}
         {%- endif %}
         # Install and run `commitlint`
-        - npm install @commitlint/config-conventional -D
-        - npm install @commitlint/travis-cli -D
+        - npm i -D @commitlint/config-conventional
+                   @commitlint/travis-cli
         - commitlint-travis
     {%- if not travis.use_single_job_for_linters %}
     # Run the `rubocop` linter in a separate job that is allowed to fail
@@ -188,9 +188,9 @@ jobs:
         - maintainer contributor
 
         # Install all dependencies required for `semantic-release`
-        - npm install @semantic-release/changelog@3 -D
-        - npm install @semantic-release/exec@3 -D
-        - npm install @semantic-release/git@7 -D
+        - npm i -D @semantic-release/changelog@3
+                   @semantic-release/exec@3
+                   @semantic-release/git@7
       deploy:
         provider: script
         skip_cleanup: true
