@@ -26,6 +26,10 @@ ssf_node_anchors:
                 - centos
                 - fedora
                 - opensuse
+              supports_centos_fedora_amazon: &supports_centos_fedora_amazon
+                - centos
+                - fedora
+                - amazon
             provisioner:
               state_top_salt: &state_top_salt
                 - '*':
@@ -559,6 +563,50 @@ ssf:
           ignore:
             additional:
               - docker/osfamilymap.yaml
+      semrel_files: *semrel_files_default
+    epel:
+      context:
+        git:
+          github:
+            repo: 'epel-formula'
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: >-
+                Verify that the epel formula is setup and configured correctly
+              supports: *supports_centos_fedora_amazon
+            provisioner:
+              pillars_from_files:
+                - .sls: 'test/salt/pillar/default.sls'
+        platforms:
+          # Later, consider using for all *platforms_osfamily_redhat
+          # [os           , os_ver, salt_ver, py_ver]
+          - [amazonlinux  ,   1   ,   master,      2]
+          - [centos       ,   8   ,   master,      3]
+          - [fedora       ,  31   ,   master,      3]
+          - [amazonlinux  ,   2   ,   master,      2]
+          - [amazonlinux  ,   1   ,   2019.2,      2]
+          - [centos       ,   8   ,   2019.2,      3]
+          - [fedora       ,  31   ,   2019.2,      3]
+          - [amazonlinux  ,   2   ,   2019.2,      2]
+          - [centos       ,   7   ,   2019.2,      2]
+          - [amazonlinux  ,   1   ,   2018.3,      2]
+          - [fedora       ,  30   ,   2018.3,      3]
+          - [centos       ,   7   ,   2018.3,      2]
+          - [amazonlinux  ,   2   ,   2018.3,      2]
+          - [amazonlinux  ,   1   ,   2017.7,      2]
+          - [centos       ,   6   ,   2017.7,      2]
+          - [fedora       ,  30   ,   2017.7,      2]
+          - [amazonlinux  ,   2   ,   2017.7,      2]
+        platforms_matrix:
+          # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
+          - [centos       ,   8   ,   master,      3,         default]
+          # - [fedora       ,  31   ,   master,      3,         default]
+          - [amazonlinux  ,   1   ,   2019.2,      2,         default]
+          - [amazonlinux  ,   2   ,   2019.2,      2,         default]
+          - [centos       ,   7   ,   2019.2,      2,         default]
+          # - [fedora       ,  30   ,   2018.3,      3,         default]
+          - [centos       ,   6   ,   2017.7,      2,         default]
       semrel_files: *semrel_files_default
     exim:
       context:

@@ -80,6 +80,7 @@ ssf:
       - deepsea
       - dhcpd
       - docker
+      - epel
       - exim
       - fail2ban
       - golang
