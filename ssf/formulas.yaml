@@ -1080,6 +1080,27 @@ ssf:
         travis: *travis_do_not_use_single_job_for_linters
         use_tofs: true
       semrel_files: *semrel_files_default
+    ntp:
+      context:
+        git:
+          github:
+            repo: 'ntp-formula'
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: >-
+                Verify that the ntp formula is setup and configured correctly
+            provisioner:
+              pillars_from_files:
+                - .sls: 'test/salt/pillar/default.sls'
+              state_top:
+                - '*':
+                    - .ng
+        yamllint:
+          rules:
+            key-duplicates:
+              ignore: *ignore_pillar_example
+      semrel_files: *semrel_files_default
     openssh:
       context:
         git:
