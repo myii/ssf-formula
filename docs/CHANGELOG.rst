@@ -2,6 +2,52 @@
 Changelog
 =========
 
+`1.41.0 <https://github.com/myii/ssf-formula/compare/v1.40.0...v1.41.0>`_ (2019-10-31)
+------------------------------------------------------------------------------------------
+
+Code Refactoring
+^^^^^^^^^^^^^^^^
+
+
+* **formula:** update all references from ``develop`` => ``master`` (\ ` <https://github.com/myii/ssf-formula/commit/f1adcaf>`_\ )
+* **kitchen:** update ``opensuse-leap`` references from ``15`` => ``15.1`` (\ ` <https://github.com/myii/ssf-formula/commit/e5ee8aa>`_\ )
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+* **amazon:** use ``py2`` until ``py3`` images can be prepared (revert later) (\ ` <https://github.com/myii/ssf-formula/commit/9b1be95>`_\ )
+
+Features
+^^^^^^^^
+
+
+* **deepsea:** disable failing platform in matrix for ``2019.2.2`` (\ ` <https://github.com/myii/ssf-formula/commit/5c1a318>`_\ )
+* **defaults:** upgrade platforms support after ``2019.2.2`` release (\ ` <https://github.com/myii/ssf-formula/commit/6221763>`_\ )
+* **formulas:** upgrade platforms support after ``2019.2.2`` release (\ ` <https://github.com/myii/ssf-formula/commit/cad8888>`_\ )
+* **iscsi:** disable failing platforms in matrix for ``2019.2.2`` (\ ` <https://github.com/myii/ssf-formula/commit/bb48374>`_\ )
+* **letsencrypt:** adjust matrix for ``2019.2.2`` (\ ` <https://github.com/myii/ssf-formula/commit/b27c0ae>`_\ )
+* **libvirt:** adjust matrix for ``2019.2.2`` (\ ` <https://github.com/myii/ssf-formula/commit/a054c08>`_\ )
+* **locale:** adjust suites, platforms and matrix for ``2019.2.2`` (\ ` <https://github.com/myii/ssf-formula/commit/d73690a>`_\ )
+* **lvm:** disable failing platforms in matrix for ``2019.2.2`` (\ ` <https://github.com/myii/ssf-formula/commit/96f61dc>`_\ )
+* **salt:** adjust platforms and matrix for ``2019.2.2`` (\ ` <https://github.com/myii/ssf-formula/commit/13d1d4b>`_\ )
+* **sysctl:** adjust matrix for ``2019.2.2`` (\ ` <https://github.com/myii/ssf-formula/commit/2862c17>`_\ )
+* **systemd:** disable failing platform in matrix for ``2019.2.2`` (\ ` <https://github.com/myii/ssf-formula/commit/8e03ecb>`_\ )
+* **timezone:** adjust matrix for ``2019.2.2`` (\ ` <https://github.com/myii/ssf-formula/commit/ad8cd88>`_\ )
+* **ufw:** disable failing platforms in matrix for ``2019.2.2`` (\ ` <https://github.com/myii/ssf-formula/commit/6e495ef>`_\ )
+
+Reverts
+^^^^^^^
+
+
+* **kitchen:** "use bootstrapped ``opensuse`` images until ``2019.2.2``\ " (\ ` <https://github.com/myii/ssf-formula/commit/5e88b44>`_\ )
+
+Tests
+^^^^^
+
+
+* **salt-lint:** check ``.tst`` files across all formulas (\ ` <https://github.com/myii/ssf-formula/commit/88f3309>`_\ )
+
 `1.40.0 <https://github.com/myii/ssf-formula/compare/v1.39.0...v1.40.0>`_ (2019-10-24)
 ------------------------------------------------------------------------------------------
 
