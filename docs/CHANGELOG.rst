@@ -2,6 +2,21 @@
 Changelog
 =========
 
+`1.44.1 <https://github.com/myii/ssf-formula/compare/v1.44.0...v1.44.1>`_ (2019-10-31)
+------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* **release.config.js:** use full commit hash in commit link (\ `0b6e505 <https://github.com/myii/ssf-formula/commit/0b6e5052a9c2b2048000b53de4d8f1f040c447ac>`_\ )
+
+Code Refactoring
+^^^^^^^^^^^^^^^^
+
+
+* **ssf:** merge changes from default ``.travis.yml`` template (\ `d29e5cd <https://github.com/myii/ssf-formula/commit/d29e5cdb79fff7fd88066b2c7dd96bda843a0525>`_\ )
+
 `1.44.0 <https://github.com/myii/ssf-formula/compare/v1.43.0...v1.44.0>`_ (2019-10-31)
 ------------------------------------------------------------------------------------------
 
