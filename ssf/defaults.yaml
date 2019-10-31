@@ -328,7 +328,7 @@ ssf:
           <<: *isk_default
           1:
             <<: *isk_suite_default
-            name: 'fedora'
+            name: 'redhat'
     logrotate: *formula_default
     lvm: *formula_default
     mysql: *formula_default

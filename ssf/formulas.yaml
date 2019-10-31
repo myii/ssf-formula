@@ -85,12 +85,12 @@ ssf_node_anchors:
         #   # [os           , os_ver, salt_ver, py_ver]
         #   - [ubuntu       ,  16.04,   2018.3,      2]
         #   - [ubuntu       ,  16.04,   2017.7,      2]
-        platforms_os_fedora: &platforms_os_fedora
-          # [os           , os_ver, salt_ver, py_ver]
-          - [fedora       ,  31   ,   master,      3]
-          - [fedora       ,  31   ,   2019.2,      3]
-          - [fedora       ,  30   ,   2018.3,      3]
-          - [fedora       ,  30   ,   2017.7,      2]
+        # platforms_os_fedora: &platforms_os_fedora
+        #   # [os           , os_ver, salt_ver, py_ver]
+        #   - [fedora       ,  31   ,   master,      3]
+        #   - [fedora       ,  31   ,   2019.2,      3]
+        #   - [fedora       ,  30   ,   2018.3,      3]
+        #   - [fedora       ,  30   ,   2017.7,      2]
         # platforms_os_suse: &platforms_os_suse
         #   # [os           , os_ver, salt_ver, py_ver]
         #   - [opensuse/leap,  15.1 ,   master,      3]
@@ -113,6 +113,18 @@ ssf_node_anchors:
         #   - [amazonlinux  ,   2   ,   2019.2,      2]
         #   - [amazonlinux  ,   2   ,   2018.3,      2]
         #   - [amazonlinux  ,   2   ,   2017.7,      2]
+        platforms_os_redhat_locale_specific: &platforms_os_redhat_locale_specific
+          # [os           , os_ver, salt_ver, py_ver]
+          - [centos       ,   8   ,   master,      3]
+          - [fedora       ,  31   ,   master,      3]
+          - [amazonlinux  ,   2   ,   master,      2]
+          - [centos       ,   8   ,   2019.2,      3]
+          - [fedora       ,  31   ,   2019.2,      3]
+          - [amazonlinux  ,   2   ,   2019.2,      2]
+          - [fedora       ,  30   ,   2018.3,      3]
+          - [amazonlinux  ,   2   ,   2018.3,      2]
+          - [fedora       ,  30   ,   2017.7,      2]
+          - [amazonlinux  ,   2   ,   2017.7,      2]
         platforms_os_centos_and_arch: &platforms_os_centos_and_arch
           # [os           , os_ver, salt_ver, py_ver]
           - [centos       ,   8   ,   master,      3]
@@ -925,7 +937,7 @@ ssf:
             repo: 'locale-formula'
         inspec_suites_kitchen:
           0:
-            excludes: *platforms_os_fedora
+            excludes: *platforms_os_redhat_locale_specific
             inspec_yml:
               summary: >-
                 Verify that the locale formula is setup and configured correctly
@@ -933,24 +945,23 @@ ssf:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/default.sls'
           1:
-            includes: *platforms_os_fedora
+            includes: *platforms_os_redhat_locale_specific
             provisioner:
               pillars_from_files:
-                - .sls: 'test/salt/pillar/fedora.sls'
+                - .sls: 'test/salt/pillar/redhat.sls'
             verifier:
               test_suite: 'default'
         inspec_suites_matrix:
           - default
-          - fedora
+          - redhat
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,  10   ,   master,      3,         default]
           - [ubuntu       ,  18.04,   2019.2,      3,         default]
-          - [centos       ,   8   ,   2019.2,      3,         default]
-          # - [amazonlinux  ,   2   ,   2019.2,      2,         default]
-          - [arch-base    , latest,   2019.2,      2,         default]
-          - [fedora       ,  30   ,   2018.3,      3,          fedora]
-          - [opensuse/leap,  15.1 ,   2018.3,      2,         default]
+          - [fedora       ,  31   ,   2019.2,      3,          redhat]
+          - [opensuse/leap,  15.1 ,   2019.2,      3,         default]
+          - [amazonlinux  ,   2   ,   2018.3,      2,          redhat]
+          - [arch-base    , latest,   2018.3,      2,         default]
           - [centos       ,   6   ,   2017.7,      2,         default]
       semrel_files: *semrel_files_default
     logrotate:
