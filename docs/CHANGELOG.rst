@@ -2,6 +2,17 @@
 Changelog
 =========
 
+`1.44.0 <https://github.com/myii/ssf-formula/compare/v1.43.0...v1.44.0>`_ (2019-10-31)
+------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **release.config.js:** use full commit hash in commit link (\ ` <https://github.com/myii/ssf-formula/commit/478ff37>`_\ )
+* **ssf:** remove TOFS overrides for updating ``ssf/defaults.yaml`` (\ ` <https://github.com/myii/ssf-formula/commit/a1a02f4>`_\ )
+* **travis:** merge ``npm install`` commands and use shortened form (\ ` <https://github.com/myii/ssf-formula/commit/56c4b84>`_\ )
+
 `1.43.0 <https://github.com/myii/ssf-formula/compare/v1.42.0...v1.43.0>`_ (2019-10-31)
 ------------------------------------------------------------------------------------------
 
