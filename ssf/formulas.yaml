@@ -1889,8 +1889,8 @@ ssf:
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
           - [ubuntu       ,  18.04,   master,      3,         default]
-          - [debian       ,  10   ,   2019.2,      3,         default]  # CHECK
-          - [centos       ,   8   ,   2019.2,      3,         default]
+          # # - [debian       ,  10   ,   2019.2,      3,         default]
+          # # - [centos       ,   8   ,   2019.2,      3,         default]
           - [fedora       ,  30   ,   2018.3,      3,         default]
           - [opensuse/leap,  15.1 ,   2018.3,      2,         default]
           - [arch-base    , latest,   2018.3,      2,         default]
