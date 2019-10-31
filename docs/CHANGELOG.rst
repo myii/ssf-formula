@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.43.0 <https://github.com/myii/ssf-formula/compare/v1.42.0...v1.43.0>`_ (2019-10-31)
+------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **formula:** add ``rabbitmq-formula`` (\ ` <https://github.com/myii/ssf-formula/commit/81f6609>`_\ )
+
 `1.42.0 <https://github.com/myii/ssf-formula/compare/v1.41.0...v1.42.0>`_ (2019-10-31)
 ------------------------------------------------------------------------------------------
 
