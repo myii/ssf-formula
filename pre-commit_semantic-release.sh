@@ -28,10 +28,3 @@ sed -i -e '1,4s/-/=/g' CHANGELOG.rst
 
 # Return back to the main directory
 cd ..
-
-
-###############################################################################
-# (C) Update `ssf/defaults.yaml` with `${nextRelease.version}`
-###############################################################################
-V_REPR=v${1}
-sed -i -e "s_^\(\s\+body: '\* Automated using \`ssf-formula\` (\).*\()'\)_\1${V_REPR}\2_" ssf/defaults.yaml

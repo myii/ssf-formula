@@ -22,7 +22,7 @@ jobs:
       script:
         # Install and run `salt-lint`
         - pip install --user salt-lint
-        - git ls-files | grep '\.sls$\|\.jinja$\|\.j2$\|\.tmpl$'
+        - git ls-files | grep '\.sls$\|\.jinja$\|\.j2$\|\.tmpl$\|\.tst$'
                        | xargs -I {} salt-lint {}
         # Install and run `yamllint`
         # Need at least `v1.17.0` for the `yaml-files` setting
@@ -32,8 +32,8 @@ jobs:
         - gem install rubocop
         - rubocop -d
         # Install and run `commitlint`
-        - npm install @commitlint/config-conventional -D
-        - npm install @commitlint/travis-cli -D
+        - npm i -D @commitlint/config-conventional
+                   @commitlint/travis-cli
         - commitlint-travis
 
     ## Define the release stage that runs `semantic-release`
@@ -50,9 +50,9 @@ jobs:
         - maintainer contributor
 
         # Install all dependencies required for `semantic-release`
-        - npm install @semantic-release/changelog@3 -D
-        - npm install @semantic-release/exec@3 -D
-        - npm install @semantic-release/git@7 -D
+        - npm i -D @semantic-release/changelog@3
+                   @semantic-release/exec@3
+                   @semantic-release/git@7
       deploy:
         provider: 'script'
         skip_cleanup: true
