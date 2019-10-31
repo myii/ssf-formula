@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.42.0](https://github.com/myii/ssf-formula/compare/v1.41.0...v1.42.0) (2019-10-31)
+
+
+### Features
+
+* **formula:** add `ntp-formula` ([](https://github.com/myii/ssf-formula/commit/dc1d015))
+
 # [1.41.0](https://github.com/myii/ssf-formula/compare/v1.40.0...v1.41.0) (2019-10-31)
 
 
