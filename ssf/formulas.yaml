@@ -470,6 +470,8 @@ ssf:
         platforms_matrix:
           # Note, keeping this "working out" because difficult to resolve for this repo
           # One `#` where working but not using, two `# #` for not working at all
+          # Update: the lines the have been modified due to `2019.2.2` can no longer
+          #         be guaranteed (i.e. working or not)
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
           # # - [debian       ,  10   ,   master,      3,         default]
           - [ubuntu       ,  18.04,   master,      3,         default]
@@ -482,7 +484,7 @@ ssf:
           - [debian       ,   9   ,   2019.2,      3,         default]
           # - [ubuntu       ,  18.04,   2019.2,      3,         default]
           # - [centos       ,   8   ,   2019.2,      3,         default]
-          - [fedora       ,  31   ,   2019.2,      3,         default]
+          # # - [fedora       ,  31   ,   2019.2,      3,         default]
           # # - [opensuse/leap,  15.1 ,   2019.2,      3,         default]
           # # - [amazonlinux  ,   2   ,   2019.2,      2,         default]
           # - [centos       ,   7   ,   2019.2,      2,         default]
