@@ -68,12 +68,12 @@ script:
   - {{ post_cmd }}
   {%- endfor %}
   {%- if use_saltcheck %}
-  # If a `develop` instance, get the appropriate version of `saltcheck.py` (temporary)
+  # If a `master` instance, get the appropriate version of `saltcheck.py` (temporary)
   {%-   if semrel_formula in ['cron'] %}
   # Likewise, use a custom `cron.py` temporarily until the upstream PR is merged:
   # - https://github.com/saltstack/salt/pull/55016
   {%-   endif %}
-  - if [ ! -z $(echo "${INSTANCE}" | grep \\-develop-) ]; then
+  - if [ ! -z $(echo "${INSTANCE}" | grep \\-master-) ]; then
       bin/kitchen exec "${INSTANCE}" -c
         "sudo curl -o \$(find /usr/lib/ -type d -name modules | grep packages/salt/modules)/saltcheck.py
         https://raw.githubusercontent.com/myii/salt/fix/add-retcode/salt/modules/saltcheck.py";
@@ -83,8 +83,8 @@ script:
         https://raw.githubusercontent.com/myii/salt/fix/add-retcode/salt/modules/cron.py";
       {%- endif %}
     fi
-  # If a `develop` instance, run all of the `saltcheck` tests
-  - if [ ! -z $(echo "${INSTANCE}" | grep \\-develop-) ]; then
+  # If a `master` instance, run all of the `saltcheck` tests
+  - if [ ! -z $(echo "${INSTANCE}" | grep \\-master-) ]; then
       bin/kitchen exec "${INSTANCE}" -c
         "sudo salt-call
         --config-dir=/tmp/kitchen/etc/salt
@@ -120,14 +120,9 @@ jobs:
         # [Py2/InsecurePlatformWarning] Tornado requires an up-to-date SSL module.
         - sudo apt-get install python3-pip python3-setuptools python3-wheel -y
         {%- endif %}
-        {#- Prepare variable used for file types to pipe to `salt-lint` #}
-        {%- set salt_lint_files = '\.sls$\|\.jinja$\|\.j2$\|\.tmpl$' %}
-        {%- if use_saltcheck %}
-        {%-   set salt_lint_files = salt_lint_files ~ '\|\.tst$' %}
-        {%- endif %}
         # Install and run `salt-lint`
         - {{ pip_cmd }} install --user salt-lint
-        - git ls-files | grep '{{ salt_lint_files }}'
+        - git ls-files | grep '\.sls$\|\.jinja$\|\.j2$\|\.tmpl$\|\.tst$'
                        | xargs -I {} salt-lint {}
         # Install and run `yamllint`
         # Need at least `v1.17.0` for the `yaml-files` setting
