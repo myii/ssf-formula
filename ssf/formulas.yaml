@@ -1010,15 +1010,17 @@ ssf:
           # Everything else working, even if lines have been removed
           # Keeping hold of this "working out" for future reference
           # One `#` where working but not using, two `# #` for not working at all
+          # Update: the lines the have been modified due to `2019.2.2` can no longer
+          #         be guaranteed (i.e. working or not)
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,  10   ,   master,      3,         default]
           # - [amazonlinux  ,   2   ,   master,      2,         default]
           # # - [arch-base    , latest,   master,      2,         default]
           - [ubuntu       ,  18.04,   2019.2,      3,         default]
-          - [fedora       ,  31   ,   2019.2,      3,         default]
+          # # - [fedora       ,  31   ,   2019.2,      3,         default]
           # - [amazonlinux  ,   2   ,   2019.2,      2,         default]
           # # - [arch-base    , latest,   2019.2,      2,         default]
-          - [centos       ,   7   ,   2018.3,      2,         default]
+          # # - [centos       ,   7   ,   2018.3,      2,         default]
           - [opensuse/leap,  15.1 ,   2018.3,      2,         default]
           # # - [arch-base    , latest,   2018.3,      2,         default]
           # - [centos       ,   6   ,   2017.7,      2,         default]
