@@ -2009,7 +2009,76 @@ ssf:
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/default.sls'
-        platforms_matrix: *platforms_matrix_without_arch
+          1:
+            inspec_yml:
+              summary: >-
+                Verify that the `.vimrc` file is configured correctly for
+                specified users
+            provisioner:
+              dependencies:
+                - name: 'vim'
+                  repo: 'git'
+                  source: 'https://github.com/saltstack-formulas/vim-formula.git'
+              pillars:
+                - '*':
+                    - .
+                    - vimrc
+              pillars_from_files:
+                - .sls: 'test/salt/pillar/default.sls'
+                - vimrc.sls: 'test/salt/pillar/vimrc.sls'
+              state_top:
+                - '*':
+                    - .vimrc
+            verifier:
+              inspec_tests:
+                - default
+                - .
+        inspec_suites_matrix:
+          - default
+          - vimrc
+        platforms_matrix:
+          # Based on `*platforms_matrix_without_arch`
+          - [debian       ,  10   ,   master,      3,           vimrc]
+          - [ubuntu       ,  18.04,   2019.2,      3,         default]
+          - [opensuse/leap,  15.1 ,   2019.2,      3,         default]
+          - [amazonlinux  ,   2   ,   2019.2,      2,         default]
+          - [fedora       ,  30   ,   2018.3,      3,         default]
+          # - [arch-base    , latest,   2018.3,      2,         default]
+          - [centos       ,   6   ,   2017.7,      2,         default]
+        # To deal with excessive instances when mimicking `kitchen list -b`
+        # If values are set, only use these as commented entries in the matrix
+        platforms_matrix_commented_includes:
+          # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
+          - [debian       ,  10   ,   master,      3,         default]
+          - [ubuntu       ,  18.04,   master,      3,         default]
+          - [centos       ,   8   ,   master,      3,         default]
+          - [fedora       ,  31   ,   master,      3,         default]
+          - [opensuse/leap,  15.1 ,   master,      3,         default]
+          - [amazonlinux  ,   2   ,   master,      2,         default]
+          - [arch-base    , latest,   master,      2,         default]
+          - [debian       ,  10   ,   2019.2,      3,         default]
+          - [debian       ,   9   ,   2019.2,      3,         default]
+          - [ubuntu       ,  18.04,   2019.2,      3,         default]
+          - [centos       ,   8   ,   2019.2,      3,         default]
+          - [fedora       ,  31   ,   2019.2,      3,         default]
+          - [opensuse/leap,  15.1 ,   2019.2,      3,         default]
+          - [centos       ,   7   ,   2019.2,      2,         default]
+          - [amazonlinux  ,   2   ,   2019.2,      2,         default]
+          - [arch-base    , latest,   2019.2,      2,         default]
+          - [fedora       ,  30   ,   2018.3,      3,         default]
+          - [debian       ,   9   ,   2018.3,      2,         default]
+          - [ubuntu       ,  16.04,   2018.3,      2,         default]
+          - [centos       ,   7   ,   2018.3,      2,         default]
+          - [opensuse/leap,  15.1 ,   2018.3,      2,         default]
+          - [amazonlinux  ,   2   ,   2018.3,      2,         default]
+          - [arch-base    , latest,   2018.3,      2,         default]
+          - [debian       ,   8   ,   2017.7,      2,         default]
+          - [ubuntu       ,  16.04,   2017.7,      2,         default]
+          - [centos       ,   6   ,   2017.7,      2,         default]
+          - [fedora       ,  30   ,   2017.7,      2,         default]
+          - [opensuse/leap,  15.1 ,   2017.7,      2,         default]
+          - [amazonlinux  ,   2   ,   2017.7,      2,         default]
+          - [arch-base    , latest,   2017.7,      2,         default]
       semrel_files: *semrel_files_default
     vault:
       context:
