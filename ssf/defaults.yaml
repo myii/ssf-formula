@@ -77,7 +77,8 @@ ssf_node_anchors:
                     - .
             verifier:
               inspec_tests_path_prefix: 'test/integration'
-              test_suite: '.'
+              inspec_tests:
+                - .
         inspec_suites_matrix:
           - default
         platforms:

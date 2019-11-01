@@ -36,6 +36,9 @@ ssf_node_anchors:
                     - .pkgrepo
                     - .master
                     - .minion
+            verifier: &verifier_inspec_tests_default
+              inspec_tests:
+                - default
         platforms_osfamily_debian: &platforms_osfamily_debian
           # [os           , os_ver, salt_ver, py_ver]
           - [debian       ,  10   ,   master,      3]
@@ -808,8 +811,7 @@ ssf:
                     - lvm.pv.create
                     - .
                     - .clean
-            verifier:
-              test_suite: 'default'
+            verifier: *verifier_inspec_tests_default
         inspec_suites_matrix:
           - default
           - centarch
@@ -1000,8 +1002,7 @@ ssf:
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/redhat.sls'
-            verifier:
-              test_suite: 'default'
+            verifier: *verifier_inspec_tests_default
         inspec_suites_matrix:
           - default
           - redhat
@@ -1242,8 +1243,7 @@ ssf:
                     - .fpm.pools
                     - .modules
                     - .fpm.service
-            verifier:
-              test_suite: 'default'
+            verifier: *verifier_inspec_tests_default
           2:
             includes: *platforms_os_ubuntu
             provisioner:
@@ -1262,22 +1262,19 @@ ssf:
                     - .fpm.pools
                     - .modules
                     - .fpm.service
-            verifier:
-              test_suite: 'default'
+            verifier: *verifier_inspec_tests_default
           3:
             includes: *platforms_osfamily_redhat
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/redhat.sls'
-            verifier:
-              test_suite: 'default'
+            verifier: *verifier_inspec_tests_default
           4:
             includes: *platforms_osfamily_suse
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/suse.sls'
-            verifier:
-              test_suite: 'default'
+            verifier: *verifier_inspec_tests_default
         inspec_suites_matrix:
           - default
           - debian
@@ -1421,22 +1418,19 @@ ssf:
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/debian.sls'
-            verifier:
-              test_suite: 'default'
+            verifier: *verifier_inspec_tests_default
           2:
             includes: *platforms_osfamily_redhat
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/redhat.sls'
-            verifier:
-              test_suite: 'default'
+            verifier: *verifier_inspec_tests_default
           3:
             includes: *platforms_osfamily_suse
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/suse.sls'
-            verifier:
-              test_suite: 'default'
+            verifier: *verifier_inspec_tests_default
         inspec_suites_matrix:
           - default
           - debian
@@ -1929,8 +1923,7 @@ ssf:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/centos6.sls'
                 - define_roles.sls: 'test/salt/pillar/define_roles.sls'
-            verifier:
-              test_suite: 'default'
+            verifier: *verifier_inspec_tests_default
         inspec_suites_matrix:
           - default
           - centos6

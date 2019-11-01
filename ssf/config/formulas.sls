@@ -57,9 +57,16 @@ prepare-git-branch-for-{{ formula }}:
               ) %}
 {%-         elif dest_file.startswith('inspec/') %}
 {%-           set inspec_tests_path_prefix = suite.verifier.inspec_tests_path_prefix %}
-{%-           set test_suite = suite.verifier.test_suite %}
 {#-           The test suite to use may be a different than the suite's name, so need to point to it accordingly #}
-{%-           if test_suite not in ['.', suite.name] %}
+{#-           Due to the `Scoping Behavior` of Jinja, can't use a straight `set` here, refer back to:
+              * https://jinja.palletsprojects.com/en/2.10.x/templates/#assignments
+              Unable to use `namespace` with the current version of Jinja so simulating with a `dict` instead #}
+{%-           set matching_test_suite = {'found': False} %}
+{%-           for test_suite in suite.verifier.inspec_tests if test_suite in ['.', suite.name] %}
+{%-               do matching_test_suite.update({'found': True}) %}
+{%-           endfor %}
+{#-           Now use that to set the `dest_file` accordingly #}
+{%-           if not matching_test_suite.found %}
 {%-             set dest_file = '' %}
 {%-           else %}
 {%-             set dest_file = '{0}/{1}/{2}'.format(inspec_tests_path_prefix, suite.name, dest_file.split('/')[-1]) %}

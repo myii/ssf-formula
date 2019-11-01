@@ -239,10 +239,11 @@ suites:
     verifier:
       inspec_tests:
         {%- set inspec_tests_path_prefix = suite.verifier.inspec_tests_path_prefix %}
-        {%- set test_suite = suite.verifier.test_suite %}
-        {%- if test_suite == '.' %}
-        {%-   set test_suite = suite.name %}
-        {%- endif %}
+        {%- for test_suite in suite.verifier.inspec_tests %}
+        {%-   if test_suite == '.' %}
+        {%-     set test_suite = suite.name %}
+        {%-   endif %}
         - path: {{ inspec_tests_path_prefix }}/{{ test_suite }}
+        {%- endfor %}
   {%-   endif %}
   {%- endfor %}
