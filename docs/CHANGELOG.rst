@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.45.0 <https://github.com/myii/ssf-formula/compare/v1.44.1...v1.45.0>`_ (2019-11-02)
+------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **salt-lint:** improve ``salt-lint`` invocation (better performance) (\ `ecc81b0 <https://github.com/myii/ssf-formula/commit/ecc81b04a1ca458916f83e0a3eac386c308d7d18>`_\ ), closes `/github.com/warpnet/salt-lint/issues/72#issuecomment-548738115 <https://github.com//github.com/warpnet/salt-lint/issues/72/issues/issuecomment-548738115>`_
+
 `1.44.1 <https://github.com/myii/ssf-formula/compare/v1.44.0...v1.44.1>`_ (2019-10-31)
 ------------------------------------------------------------------------------------------
 
