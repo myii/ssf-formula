@@ -50,6 +50,10 @@
 
 {%- macro format_driver_image(os, os_ver, salt_ver, py_ver) %}
 {%-   filter indent(6) %}
+{#-     Temporary use of `develop` instead of `master` until it is available #}
+{%-     if [os, os_ver, salt_ver] == ['amazonlinux', 2, 'master'] %}
+{%-       set salt_ver = 'develop' %}
+{%-     endif %}
 image: netmanagers/salt-{{ salt_ver }}-py{{ py_ver }}:{{ os | replace('/', '-') }}-{{ os_ver }}
 {%-   endfilter %}
 {%- endmacro %}
@@ -61,6 +65,10 @@ image: netmanagers/salt-{{ salt_ver }}-py{{ py_ver }}:{{ os | replace('/', '-') 
 {%-     set prov_cmds = [] %}
 {#-     Specific to `master` #}
 {%-     if salt_ver == 'master' %}
+{#-       Temporary use of `develop` instead of `master` until it is available #}
+{%-       if [os, os_ver, salt_ver] == ['amazonlinux', 2, 'master'] %}
+{%-         set salt_ver = 'develop' %}
+{%-       endif %}
 {%-       do prov_cmds.append('- curl -o bootstrap-salt.sh -L https://bootstrap.saltstack.com') %}
 {%-       do prov_cmds.append('- sh bootstrap-salt.sh -XdPbfrq -x python{0} git {1}'.format(py_ver, salt_ver)) %}
 {%-       if semrel_formula == 'deepsea' %}
@@ -153,6 +161,10 @@ platforms:
   #     image: netmanagers/salt-2017.7-py2:centos-6
   #     run_command: /sbin/init
 {%-   else %}
+  {%-   if [os, os_ver, salt_ver] == ['amazonlinux', 2, 'master'] %}
+  # Use the `develop` image temporarily until the `master` image is available
+  # Not changing the name to minimise disruption across all of the formulas
+  {%-   endif %}
   - name: {{ os | replace('/', '-') }}-{{ os_ver | replace('.', '') }}-{{ salt_ver | replace('.', '-') }}-py{{ py_ver }}
     driver:
       {{- format_driver_image(os, os_ver, salt_ver, py_ver) }}
