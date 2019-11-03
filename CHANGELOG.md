@@ -1,5 +1,17 @@
 # Changelog
 
+# [1.46.0](https://github.com/myii/ssf-formula/compare/v1.45.0...v1.46.0) (2019-11-03)
+
+
+### Features
+
+* **amazonlinux:** use `develop` image until `master` is ready ([f7fb78d](https://github.com/myii/ssf-formula/commit/f7fb78df73fe2058b15051a22f2800651e32a40d))
+
+
+### Performance Improvements
+
+* **travis:** improve `salt-lint` invocation [skip ci] ([29b8913](https://github.com/myii/ssf-formula/commit/29b8913dd59789b61b2687756f7c3275bf908fb6))
+
 # [1.45.0](https://github.com/myii/ssf-formula/compare/v1.44.1...v1.45.0) (2019-11-02)
 
 
