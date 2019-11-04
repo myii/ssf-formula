@@ -2,6 +2,16 @@
 Changelog
 =========
 
+`1.47.0 <https://github.com/myii/ssf-formula/compare/v1.46.0...v1.47.0>`_ (2019-11-04)
+------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **formula:** add ``epel-formula`` (\ `2814ea0 <https://github.com/myii/ssf-formula/commit/2814ea09637ab86dacb4325a0378afbdd19380c6>`_\ )
+* **kitchen:** use bootstrapped ``amazonlinux-1`` images (\ `b51be37 <https://github.com/myii/ssf-formula/commit/b51be37dd9cf38b7de698d89f5c17d48e08d6d4b>`_\ )
+
 `1.46.0 <https://github.com/myii/ssf-formula/compare/v1.45.0...v1.46.0>`_ (2019-11-03)
 ------------------------------------------------------------------------------------------
 
