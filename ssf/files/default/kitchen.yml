@@ -54,7 +54,12 @@
 {%-     if [os, os_ver, salt_ver] == ['amazonlinux', 2, 'master'] %}
 {%-       set salt_ver = 'develop' %}
 {%-     endif %}
+{#-     Use bootstrapped images for `amazonlinux-1` #}
+{%-     if [os, os_ver] == ['amazonlinux', 1] %}
+image: {{ os }}:{{ os_ver }}
+{%-     else %}
 image: netmanagers/salt-{{ salt_ver }}-py{{ py_ver }}:{{ os | replace('/', '-') }}-{{ os_ver }}
+{%-     endif %}
 {%-   endfilter %}
 {%- endmacro %}
 
@@ -69,8 +74,11 @@ image: netmanagers/salt-{{ salt_ver }}-py{{ py_ver }}:{{ os | replace('/', '-') 
 {%-       if [os, os_ver, salt_ver] == ['amazonlinux', 2, 'master'] %}
 {%-         set salt_ver = 'develop' %}
 {%-       endif %}
-{%-       do prov_cmds.append('- curl -o bootstrap-salt.sh -L https://bootstrap.saltstack.com') %}
-{%-       do prov_cmds.append('- sh bootstrap-salt.sh -XdPbfrq -x python{0} git {1}'.format(py_ver, salt_ver)) %}
+{#-       Append the `prov_cmds` for pre-salted images (i.e. non-bootstrap) #}
+{%-       if [os, os_ver] != ['amazonlinux', 1] %}
+{%-         do prov_cmds.append('- curl -o bootstrap-salt.sh -L https://bootstrap.saltstack.com') %}
+{%-         do prov_cmds.append('- sh bootstrap-salt.sh -XdPbfrq -x python{0} git {1}'.format(py_ver, salt_ver)) %}
+{%-       endif %}
 {%-       if semrel_formula == 'deepsea' %}
 {%-         if os in ['centos', 'fedora'] %}
 {%-           do prov_cmds.append('- yum install make -y') %}
@@ -105,7 +113,7 @@ provision_command:
 {%-   filter indent(6) %}
 {%-     if os in ['opensuse/leap', 'arch-base'] %}
 run_command: /usr/lib/systemd/systemd
-{%-     elif [os, os_ver] == ['centos', 6] %}
+{%-     elif [os, os_ver] in [['amazonlinux', 1], ['centos', 6]] %}
 run_command: /sbin/init
 {%-     endif %}
 {%-   endfilter %}
@@ -170,7 +178,11 @@ platforms:
       {{- format_driver_image(os, os_ver, salt_ver, py_ver) }}
       {{- format_driver_prov_cmds(os, os_ver, salt_ver, py_ver) }}
       {{- format_driver_run_cmds(os, os_ver) }}
-    {%- if [os, os_ver] == ['opensuse/leap', 15.1] %}
+    {%- if [os, os_ver] == ['amazonlinux', 1] %}
+    provisioner:
+      salt_bootstrap_options: -XdPfq -x python{{ py_ver }} git {{ salt_ver }}
+      salt_install: bootstrap
+    {%- elif [os, os_ver] == ['opensuse/leap', 15.1] %}
     # Workaround to avoid intermittent failures on `opensuse-leap-15.1`:
     # => SCP did not finish successfully (255):  (Net::SCP::Error)
     transport:
