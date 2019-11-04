@@ -128,20 +128,6 @@ driver:
 # Make sure the platforms listed below match up with
 # the `env.matrix` instances defined in `.travis.yml`
 platforms:
-{#- TODO: Replace this with new `amazonlinux` (but really need an `upstart`-based replacement) #}
-{#-       Get rid off `first_linebreak` then as well #}
-{%- set first_linebreak = '' %}
-{%- if semrel_formula == 'vault' %}
-  {%- set first_linebreak = '\n' %}
-  - name: amazonlinux
-    driver:
-      image: amazonlinux:1
-      platform: rhel
-      run_command: /sbin/init
-      provision_command:
-        # install latest stable Salt
-        - curl -L https://bootstrap.saltstack.com | sh -s -- -X
-{%- endif %}
 {#- Centralise duplication from here and `libcimatrix.jinja` #}
 {%- set prev_comment = '' %}
 {%- for platform in platforms %}
@@ -153,7 +139,7 @@ platforms:
 {%-   set linebreak = '\n' %}
 {%-   set comment = '`{0}`'.format(salt_ver) %}
 {%-   if loop.index0 == 0 %}
-{%-     set linebreak = first_linebreak %}
+{%-     set linebreak = '' %}
 {%-   endif %}
 {%-   if prev_comment != comment %}
 {{ linebreak }}  ## SALT {{ comment }}
