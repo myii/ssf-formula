@@ -48,14 +48,14 @@
 {%-   endfilter %}
 {%- endmacro %}
 
-{%- macro format_driver_image(os, os_ver, salt_ver, py_ver) %}
+{%- macro format_driver_image(os, os_ver, salt_ver, py_ver, pre_salted) %}
 {%-   filter indent(6) %}
 {#-     Temporary use of `develop` instead of `master` until it is available #}
 {%-     if [os, os_ver, salt_ver] == ['amazonlinux', 2, 'master'] %}
 {%-       set salt_ver = 'develop' %}
 {%-     endif %}
-{#-     Use bootstrapped images for `amazonlinux-1` #}
-{%-     if [os, os_ver] == ['amazonlinux', 1] %}
+{#-     Use bootstrapped images where not already pre-salted #}
+{%-     if not pre_salted %}
 image: {{ os }}:{{ os_ver }}
 {%-     else %}
 image: netmanagers/salt-{{ salt_ver }}-py{{ py_ver }}:{{ os | replace('/', '-') }}-{{ os_ver }}
@@ -63,22 +63,22 @@ image: netmanagers/salt-{{ salt_ver }}-py{{ py_ver }}:{{ os | replace('/', '-') 
 {%-   endfilter %}
 {%- endmacro %}
 
-{%- macro format_driver_prov_cmds(os, os_ver, salt_ver, py_ver) %}
+{%- macro format_driver_prov_cmds(os, os_ver, salt_ver, py_ver, pre_salted) %}
 {#-   TODO: Should really do this whole `if` block from `defaults.yaml` or `formulas.yaml`, just speeding things up right now #}
 {#-         Need to look at if this can be resolved from within the formulas themselves, though                               #}
 {%-   filter indent(6) %}
 {%-     set prov_cmds = [] %}
-{#-     Specific to `master` #}
-{%-     if salt_ver == 'master' %}
+{#-     Specific to `master` or bootstrapped images #}
+{%-     if salt_ver == 'master' or not pre_salted %}
 {#-       Temporary use of `develop` instead of `master` until it is available #}
 {%-       if [os, os_ver, salt_ver] == ['amazonlinux', 2, 'master'] %}
 {%-         set salt_ver = 'develop' %}
 {%-       endif %}
-{#-       Append the `prov_cmds` for pre-salted images (i.e. non-bootstrap) #}
-{%-       if [os, os_ver] != ['amazonlinux', 1] %}
-{%-         do prov_cmds.append('- curl -o bootstrap-salt.sh -L https://bootstrap.saltstack.com') %}
-{%-         do prov_cmds.append('- sh bootstrap-salt.sh -XdPbfrq -x python{0} git {1}'.format(py_ver, salt_ver)) %}
-{%-       endif %}
+{#-       Use the appropriate bootstrap options for pre-salted images vs. bootstrapped images #}
+{%-       set bootstrap_options = 'XdPbfrq' if pre_salted else 'XdPfq' %}
+{%-       do prov_cmds.append('- curl -o bootstrap-salt.sh -L https://bootstrap.saltstack.com') %}
+{%-       do prov_cmds.append('- sh bootstrap-salt.sh -{0} -x python{1} git {2}'.format(bootstrap_options, py_ver, salt_ver)) %}
+{#-       Add formula-specific provision commands #}
 {%-       if semrel_formula == 'deepsea' %}
 {%-         if os in ['centos', 'fedora'] %}
 {%-           do prov_cmds.append('- yum install make -y') %}
@@ -128,20 +128,6 @@ driver:
 # Make sure the platforms listed below match up with
 # the `env.matrix` instances defined in `.travis.yml`
 platforms:
-{#- TODO: Replace this with new `amazonlinux` (but really need an `upstart`-based replacement) #}
-{#-       Get rid off `first_linebreak` then as well #}
-{%- set first_linebreak = '' %}
-{%- if semrel_formula == 'vault' %}
-  {%- set first_linebreak = '\n' %}
-  - name: amazonlinux
-    driver:
-      image: amazonlinux:1
-      platform: rhel
-      run_command: /sbin/init
-      provision_command:
-        # install latest stable Salt
-        - curl -L https://bootstrap.saltstack.com | sh -s -- -X
-{%- endif %}
 {#- Centralise duplication from here and `libcimatrix.jinja` #}
 {%- set prev_comment = '' %}
 {%- for platform in platforms %}
@@ -149,11 +135,12 @@ platforms:
 {%-   set os_ver   = platform[1] %}
 {%-   set salt_ver = platform[2] %}
 {%-   set py_ver   = platform[3] %}
+{%-   set pre_salted = [os, os_ver] not in [['amazonlinux', 1]] %}
 {#-   Display comment for each section (based on Salt version) #}
 {%-   set linebreak = '\n' %}
 {%-   set comment = '`{0}`'.format(salt_ver) %}
 {%-   if loop.index0 == 0 %}
-{%-     set linebreak = first_linebreak %}
+{%-     set linebreak = '' %}
 {%-   endif %}
 {%-   if prev_comment != comment %}
 {{ linebreak }}  ## SALT {{ comment }}
@@ -175,14 +162,10 @@ platforms:
   {%-   endif %}
   - name: {{ os | replace('/', '-') }}-{{ os_ver | replace('.', '') }}-{{ salt_ver | replace('.', '-') }}-py{{ py_ver }}
     driver:
-      {{- format_driver_image(os, os_ver, salt_ver, py_ver) }}
-      {{- format_driver_prov_cmds(os, os_ver, salt_ver, py_ver) }}
+      {{- format_driver_image(os, os_ver, salt_ver, py_ver, pre_salted) }}
+      {{- format_driver_prov_cmds(os, os_ver, salt_ver, py_ver, pre_salted) }}
       {{- format_driver_run_cmds(os, os_ver) }}
-    {%- if [os, os_ver] == ['amazonlinux', 1] %}
-    provisioner:
-      salt_bootstrap_options: -XdPfq -x python{{ py_ver }} git {{ salt_ver }}
-      salt_install: bootstrap
-    {%- elif [os, os_ver] == ['opensuse/leap', 15.1] %}
+    {%- if [os, os_ver] == ['opensuse/leap', 15.1] %}
     # Workaround to avoid intermittent failures on `opensuse-leap-15.1`:
     # => SCP did not finish successfully (255):  (Net::SCP::Error)
     transport:
