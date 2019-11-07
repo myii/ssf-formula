@@ -1,5 +1,13 @@
 # Changelog
 
+# [1.48.0](https://github.com/myii/ssf-formula/compare/v1.47.0...v1.48.0) (2019-11-07)
+
+
+### Features
+
+* **kitchen:** use `provision_command` for `amazonlinux-1` images ([b7835f2](https://github.com/myii/ssf-formula/commit/b7835f2717cb7abcd8a1391c974a4d404a41f02d)), closes [/github.com/saltstack-formulas/vault-formula/pull/50#pullrequestreview-312037893](https://github.com//github.com/saltstack-formulas/vault-formula/pull/50/issues/pullrequestreview-312037893)
+* **vault:** use bootstrapped `amazonlinux-1` images ([df1b8d6](https://github.com/myii/ssf-formula/commit/df1b8d646d8a51a5ef1696b7b8f60760de9a06de)), closes [#92](https://github.com/myii/ssf-formula/issues/92)
+
 # [1.47.0](https://github.com/myii/ssf-formula/compare/v1.46.0...v1.47.0) (2019-11-04)
 
 
