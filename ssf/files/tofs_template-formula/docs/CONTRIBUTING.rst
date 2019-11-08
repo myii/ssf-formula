@@ -177,6 +177,7 @@ These formulas are already compatible with semantic-release:
 * `epel-formula <https://github.com/saltstack-formulas/epel-formula>`_
 * `exim-formula <https://github.com/saltstack-formulas/exim-formula>`_
 * `fail2ban-formula <https://github.com/saltstack-formulas/fail2ban-formula>`_
+* `firewalld-formula <https://github.com/saltstack-formulas/firewalld-formula>`_
 * `golang-formula <https://github.com/saltstack-formulas/golang-formula>`_
 * `grafana-formula <https://github.com/saltstack-formulas/grafana-formula>`_
 * `influxdb-formula <https://github.com/saltstack-formulas/influxdb-formula>`_

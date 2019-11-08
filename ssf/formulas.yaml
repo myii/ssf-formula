@@ -658,6 +658,24 @@ ssf:
           - [opensuse/leap,  15.1 ,   2018.3,      2,         default]
           - [centos       ,   6   ,   2017.7,      2,         default]
       semrel_files: *semrel_files_default
+    firewalld:
+      context:
+        git:
+          github:
+            repo: 'firewalld-formula'
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: >-
+                Verify that the firewalld formula is setup and configured correctly
+        platforms_matrix:
+          # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
+          - [ubuntu       ,  18.04,   master,      3,         default]
+          - [debian       ,   9   ,   2019.2,      3,         default]
+          - [opensuse/leap,  15.1 ,   2019.2,      3,         default]
+          - [amazonlinux  ,   2   ,   2018.3,      2,         default]
+          - [ubuntu       ,  16.04,   2017.7,      2,         default]
+      semrel_files: *semrel_files_default
     golang:
       context:
         git:
