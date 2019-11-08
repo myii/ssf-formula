@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.49.0 <https://github.com/myii/ssf-formula/compare/v1.48.0...v1.49.0>`_ (2019-11-08)
+------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **openvpn:** implement Windows testing using ``kitchen-vagrant`` (\ `d083ff2 <https://github.com/myii/ssf-formula/commit/d083ff2573be1ca993ed4873d6a928d2247d964e>`_\ )
+
 `1.48.0 <https://github.com/myii/ssf-formula/compare/v1.47.0...v1.48.0>`_ (2019-11-07)
 ------------------------------------------------------------------------------------------
 
