@@ -2,6 +2,16 @@
 Changelog
 =========
 
+`1.50.0 <https://github.com/myii/ssf-formula/compare/v1.49.0...v1.50.0>`_ (2019-11-08)
+------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **users:** add ``vimrc`` suite (\ `9851593 <https://github.com/myii/ssf-formula/commit/98515932034fcda6bb0057f502d2aff3066079ba>`_\ )
+* **verifier:** use list to allow providing multiple test suites (\ `124148d <https://github.com/myii/ssf-formula/commit/124148dbfe28bed144446bad09a012d6fd8689b0>`_\ )
+
 `1.49.0 <https://github.com/myii/ssf-formula/compare/v1.48.0...v1.49.0>`_ (2019-11-08)
 ------------------------------------------------------------------------------------------
 
