@@ -2,6 +2,21 @@
 Changelog
 =========
 
+`1.52.0 <https://github.com/myii/ssf-formula/compare/v1.51.0...v1.52.0>`_ (2019-11-09)
+------------------------------------------------------------------------------------------
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+* **travis:** use build config validation (beta) (\ `6357ad5 <https://github.com/myii/ssf-formula/commit/6357ad53d95fd27a4d5b9cc5a16fe21c2e417bea>`_\ )
+
+Features
+^^^^^^^^
+
+
+* **formula:** add ``firewalld-formula`` (\ `b920030 <https://github.com/myii/ssf-formula/commit/b920030a8185752fcf3f289354cc333961a866dd>`_\ )
+
 `1.51.0 <https://github.com/myii/ssf-formula/compare/v1.50.0...v1.51.0>`_ (2019-11-09)
 ------------------------------------------------------------------------------------------
 
