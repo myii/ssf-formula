@@ -83,6 +83,7 @@ ssf:
       - epel
       - exim
       - fail2ban
+      - firewalld
       - golang
       - grafana
       - influxdb
