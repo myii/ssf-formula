@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.53.0 <https://github.com/myii/ssf-formula/compare/v1.52.0...v1.53.0>`_ (2019-11-09)
+------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **contributing:** use an ordered list for the ``semrel`` formulas (\ `ef4ef19 <https://github.com/myii/ssf-formula/commit/ef4ef19e0d469a8d5b3bd21d3ba28c19abed68bd>`_\ )
+
 `1.52.0 <https://github.com/myii/ssf-formula/compare/v1.51.0...v1.52.0>`_ (2019-11-09)
 ------------------------------------------------------------------------------------------
 
