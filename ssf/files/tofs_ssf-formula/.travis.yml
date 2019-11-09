@@ -35,6 +35,7 @@ fast_finish: true
 {%-   endif %}
 ## Machine config
 dist: '{{ travis.dist }}'
+version: '~> 1.0'
 {%- if platforms and not use_cirrus_ci %}
 sudo: required
 services:
