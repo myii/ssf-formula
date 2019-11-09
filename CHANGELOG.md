@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.51.0](https://github.com/myii/ssf-formula/compare/v1.50.0...v1.51.0) (2019-11-09)
+
+
+### Features
+
+* **kitchen:** use `stable` for `amazonlinux-1` bootstrap ([3bd1091](https://github.com/myii/ssf-formula/commit/3bd10918b6237bb04bd7c314ac469eaeb465ecb7)), closes [/github.com/saltstack-formulas/vault-formula/pull/50#discussion_r344262345](https://github.com//github.com/saltstack-formulas/vault-formula/pull/50/issues/discussion_r344262345) [/github.com/saltstack-formulas/vault-formula/pull/50#discussion_r344290629](https://github.com//github.com/saltstack-formulas/vault-formula/pull/50/issues/discussion_r344290629)
+
 # [1.50.0](https://github.com/myii/ssf-formula/compare/v1.49.0...v1.50.0) (2019-11-08)
 
 
