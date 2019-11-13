@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.55.0](https://github.com/myii/ssf-formula/compare/v1.54.0...v1.55.0) (2019-11-13)
+
+
+### Features
+
+* **formulas.sls:** automate `branch_pr` name when not pushing via. PR ([dc05288](https://github.com/myii/ssf-formula/commit/dc052884094d1f1fd8f2e9ec86f6f60894e57e48))
+
 # [1.54.0](https://github.com/myii/ssf-formula/compare/v1.53.0...v1.54.0) (2019-11-13)
 
 
