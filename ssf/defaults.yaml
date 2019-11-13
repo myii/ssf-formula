@@ -22,8 +22,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length
-            title: 'ci(travis): apply changes from build config validation [skip ci]'
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/98'
+            title: 'ci(kitchen+travis): add `latest` suite'
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/99'
             # yamllint enable rule:line-length
           github:
             owner: 'saltstack-formulas'
@@ -384,7 +384,15 @@ ssf:
     postfix: *formula_default
     postgres: *formula_default
     prometheus: *formula_default
-    rabbitmq: *formula_default
+    rabbitmq:
+      <<: *formula_default
+      context:
+        <<: *context_default
+        inspec_suites_kitchen:
+          <<: *isk_default
+          1:
+            <<: *isk_suite_default
+            name: 'latest'
     redis: *formula_default
     rkhunter:
       <<: *formula_default
