@@ -17,6 +17,12 @@
 {#-   Determine the TOFS override directory for the current formula #}
 {#-   Can't use `formula` directly because some formula names are used as top-level pillar/config keys, such as `users-formula` #}
 {%-   set formula_tofs_dir = 'tofs_' ~ formula %}
+{%-   set branch_pr = context.git.branch.pr %}
+{%-   if not ssf.git.states.commit_push.push.via_PR %}
+{%-     set branch_pr = salt['system.get_system_date_time']() | replace(' ', '')
+                                                              | replace(':', '')
+                                                              | replace('-', '')  %}
+{%-   endif %}
 
 
 {#-   Stage 1: Run the script (`git` commands) to prepare the (new) branch for adding/removing files to the changeset #}
@@ -28,7 +34,7 @@ prepare-git-branch-for-{{ formula }}:
     - args: >-
         prepare-git-branch-for-{{ formula }}
         {{ context.git.branch.upstream }}
-        {{ context.git.branch.pr }}
+        {{ branch_pr }}
         {{ context.git.commit.body | regex_escape }}
     - runas: {{ ssf.user }}
     - stateful: True
@@ -164,7 +170,7 @@ commit-and-push-{{ formula }}:
     - args: >-
         commit-and-push-{{ formula }}
         {{ context.git.branch.upstream }}
-        {{ context.git.branch.pr }}
+        {{ branch_pr }}
         {{ context.git.commit.body | regex_escape }}
         {{ context.git.commit.title | regex_escape }}
         {{ context.git.commit.body | regex_escape }}
@@ -192,7 +198,7 @@ create-github-PR-for-{{ formula }}:
         {{ formula }}
         {{ context.git.branch.base }}
         {{ ssf.git.github.user }}
-        {{ context.git.branch.pr }}
+        {{ branch_pr }}
         {{ context.git.commit.title | regex_escape }}
         {{ context.git.commit.body | regex_escape }}
         {{ ssf.git.github.file_api_response }}
