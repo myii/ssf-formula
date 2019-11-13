@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.54.0 <https://github.com/myii/ssf-formula/compare/v1.53.0...v1.54.0>`_ (2019-11-13)
+------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **travis:** use build config validation (beta) (\ `4a11f97 <https://github.com/myii/ssf-formula/commit/4a11f975bce549f89d0290e6a02ae062061e959f>`_\ )
+
 `1.53.0 <https://github.com/myii/ssf-formula/compare/v1.52.0...v1.53.0>`_ (2019-11-09)
 ------------------------------------------------------------------------------------------
 
