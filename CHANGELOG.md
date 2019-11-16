@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.56.1](https://github.com/myii/ssf-formula/compare/v1.56.0...v1.56.1) (2019-11-16)
+
+
+### Bug Fixes
+
+* **travis:** use deprecated `skip_cleanup` for the time being ([5a92bd2](https://github.com/myii/ssf-formula/commit/5a92bd28c75ef4661c896dc0a7c3e66ed423593e))
+
 # [1.56.0](https://github.com/myii/ssf-formula/compare/v1.55.0...v1.56.0) (2019-11-16)
 
 
