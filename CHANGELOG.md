@@ -1,5 +1,17 @@
 # Changelog
 
+# [1.56.0](https://github.com/myii/ssf-formula/compare/v1.55.0...v1.56.0) (2019-11-16)
+
+
+### Continuous Integration
+
+* **travis:** reinstate deprecated `skip_cleanup` ([81c27e9](https://github.com/myii/ssf-formula/commit/81c27e9e06ec852459e326f576da2c51170af171))
+
+
+### Features
+
+* **travis:** apply changes from build config validation ([1c26e6d](https://github.com/myii/ssf-formula/commit/1c26e6d50b402fea7762710421df89c6377b6b6d))
+
 # [1.55.0](https://github.com/myii/ssf-formula/compare/v1.54.0...v1.55.0) (2019-11-13)
 
 
