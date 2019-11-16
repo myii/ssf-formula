@@ -2,8 +2,14 @@
 # vim: ft=yaml
 ---
 ## Machine config
+os: 'linux'
+arch: 'amd64'
 dist: 'bionic'
 version: '~> 1.0'
+
+## Language and cache config
+language: 'ruby'
+cache: 'bundler'
 
 ## Stages and jobs matrix
 stages:
@@ -56,7 +62,6 @@ jobs:
                    @semantic-release/git@7
       deploy:
         provider: 'script'
-        skip_cleanup: true
-        script:
-          # Run `semantic-release`
-          - npx semantic-release@15
+        cleanup: false
+        # Run `semantic-release`
+        script: 'npx semantic-release@15'
