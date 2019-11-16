@@ -34,15 +34,24 @@ fast_finish: true
 {%-     set use_saltcheck = True %}
 {%-   endif %}
 ## Machine config
-dist: {{ travis.dist }}
+os: 'linux'
+arch: 'amd64'
+dist: '{{ travis.dist }}'
 version: '~> 1.0'
+
+## Language and cache config
+language: 'ruby'
+cache: 'bundler'
+
 {%- if platforms and not use_cirrus_ci %}
-sudo: required
+
+## Services config
 services:
   - docker
 {%-   set travis_addons = travis.addons %}
 {%-   if travis_addons %}
 
+## Addons config
 # yamllint disable rule:indentation
 addons:
 {%-     filter indent(2) %}
@@ -50,10 +59,6 @@ addons:
 {%-     endfilter %}
 # yamllint enable rule:indentation
 {%-   endif %}
-
-## Language and cache config
-language: ruby
-cache: bundler
 
 ## Script to run for the test stage
 script:
@@ -99,19 +104,19 @@ script:
 ## Stages and jobs matrix
 stages:
   - test
-  - name: release
-    if: branch = master AND type != pull_request
+  - name: 'release'
+    if: 'branch = master AND type != pull_request'
 jobs:
   {{- format_allow_failures(travis.use_single_job_for_linters) }}
   include:
     ## Define the test stage that runs the linters (and testing matrix, if applicable)
 
     {{ comment_linters }}
-    - language: node_js
-      node_js: lts/*
-      env: Lint
+    - language: 'node_js'
+      node_js: 'lts/*'
+      env: 'Lint'
       name: '{{ name_linters }}'
-      before_install: skip
+      before_install: 'skip'
       script:
         {#- Prepare variable used for `pip` #}
         {%- set pip_cmd = 'pip' %}
@@ -176,12 +181,12 @@ jobs:
     {%- endif %}
 
     ## Define the release stage that runs `semantic-release`
-    - stage: release
-      language: node_js
-      node_js: lts/*
-      env: Release
+    - stage: 'release'
+      language: 'node_js'
+      node_js: 'lts/*'
+      env: 'Release'
       name: 'Run semantic-release inc. file updates to AUTHORS, CHANGELOG & FORMULA'
-      before_install: skip
+      before_install: 'skip'
       script:
         # Update `AUTHORS.md`
         - export MAINTAINER_TOKEN=${GH_TOKEN}
@@ -193,8 +198,7 @@ jobs:
                    @semantic-release/exec@3
                    @semantic-release/git@7
       deploy:
-        provider: script
-        skip_cleanup: true
-        script:
-          # Run `semantic-release`
-          - npx semantic-release@15
+        provider: 'script'
+        cleanup: false
+        # Run `semantic-release`
+        script: 'npx semantic-release@15'
