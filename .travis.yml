@@ -62,6 +62,6 @@ jobs:
                    @semantic-release/git@7
       deploy:
         provider: 'script'
-        cleanup: false
+        skip_cleanup: true
         # Run `semantic-release`
         script: 'npx semantic-release@15'
