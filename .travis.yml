@@ -62,6 +62,8 @@ jobs:
                    @semantic-release/git@7
       deploy:
         provider: 'script'
+        # Using deprecated `skip_cleanup` until `cleanup: false` works reliably
+        # cleanup: false
         skip_cleanup: true
         # Run `semantic-release`
         script: 'npx semantic-release@15'
