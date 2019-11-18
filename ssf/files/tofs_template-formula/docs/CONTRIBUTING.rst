@@ -216,6 +216,7 @@ These formulas are already compatible with semantic-release:
 #. `timezone-formula <https://github.com/saltstack-formulas/timezone-formula>`_
 #. `ufw-formula <https://github.com/saltstack-formulas/ufw-formula>`_
 #. `users-formula <https://github.com/saltstack-formulas/users-formula>`_
+#. `varnish-formula <https://github.com/saltstack-formulas/varnish-formula>`_
 #. `vault-formula <https://github.com/saltstack-formulas/vault-formula>`_
 #. `vim-formula <https://github.com/saltstack-formulas/vim-formula>`_
 #. `vsftpd-formula <https://github.com/saltstack-formulas/vsftpd-formula>`_

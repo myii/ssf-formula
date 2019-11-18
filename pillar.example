@@ -123,6 +123,7 @@ ssf:
       - timezone
       - ufw
       - users
+      - varnish
       - vault
       - vim
       - vsftpd
