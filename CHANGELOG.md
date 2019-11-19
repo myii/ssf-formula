@@ -1,5 +1,17 @@
 # Changelog
 
+# [1.57.0](https://github.com/myii/ssf-formula/compare/v1.56.1...v1.57.0) (2019-11-19)
+
+
+### Continuous Integration
+
+* **travis:** opt-in to `dpl v2` to complete build config validation ([1af7a81](https://github.com/myii/ssf-formula/commit/1af7a810fe8737445e8a5f06c6be2a1cafeac429)), closes [/github.com/travis-ci/dpl/issues/1138#issuecomment-554988130](https://github.com//github.com/travis-ci/dpl/issues/1138/issues/issuecomment-554988130)
+
+
+### Features
+
+* **rabbitmq:** add `latest` suite ([8df7a31](https://github.com/myii/ssf-formula/commit/8df7a319587e8d31d75e6f08346a4e0c6ae7c531)), closes [/github.com/saltstack-formulas/rabbitmq-formula/pull/53#issuecomment-553480289](https://github.com//github.com/saltstack-formulas/rabbitmq-formula/pull/53/issues/issuecomment-553480289)
+
 ## [1.56.1](https://github.com/myii/ssf-formula/compare/v1.56.0...v1.56.1) (2019-11-16)
 
 
