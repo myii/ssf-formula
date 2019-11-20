@@ -96,6 +96,7 @@ ssf:
       - logrotate
       - lvm
       - mysql
+      - nfs
       - nginx
       - ntp
       - openssh
