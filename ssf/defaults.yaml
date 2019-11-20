@@ -22,8 +22,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length
-            title: 'ci(kitchen+travis): add `latest` suite'
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/99'
+            title: 'ci(travis): opt-in to `dpl v2` to complete build config validation [skip ci]'
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/100'
             # yamllint enable rule:line-length
           github:
             owner: 'saltstack-formulas'
