@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.59.0](https://github.com/myii/ssf-formula/compare/v1.58.0...v1.59.0) (2019-11-20)
+
+
+### Features
+
+* **formula:** add `nfs-formula` ([1bb87db](https://github.com/myii/ssf-formula/commit/1bb87db767b55fb3cd89948257d8bd0387a86ef0))
+
 # [1.58.0](https://github.com/myii/ssf-formula/compare/v1.57.0...v1.58.0) (2019-11-20)
 
 
