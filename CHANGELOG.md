@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.58.0](https://github.com/myii/ssf-formula/compare/v1.57.0...v1.58.0) (2019-11-20)
+
+
+### Features
+
+* **travis:** opt-in to `dpl v2` to complete build config validation ([b0e36eb](https://github.com/myii/ssf-formula/commit/b0e36eb68fd1f7f43514973baca123418eb373b9)), closes [/github.com/travis-ci/dpl/issues/1138#issuecomment-554988130](https://github.com//github.com/travis-ci/dpl/issues/1138/issues/issuecomment-554988130)
+
 # [1.57.0](https://github.com/myii/ssf-formula/compare/v1.56.1...v1.57.0) (2019-11-19)
 
 
