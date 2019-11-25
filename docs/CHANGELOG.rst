@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.60.0 <https://github.com/myii/ssf-formula/compare/v1.59.0...v1.60.0>`_ (2019-11-25)
+------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **formula:** add ``varnish-formula`` (\ `2be173a <https://github.com/myii/ssf-formula/commit/2be173a9a919377fd7d968bfb29ac8727c781f1c>`_\ )
+
 `1.59.0 <https://github.com/myii/ssf-formula/compare/v1.58.0...v1.59.0>`_ (2019-11-20)
 ------------------------------------------------------------------------------------------
 
