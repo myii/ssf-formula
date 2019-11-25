@@ -2140,6 +2140,58 @@ ssf:
           - [amazonlinux  ,   2   ,   2017.7,      2,         default]
           - [arch-base    , latest,   2017.7,      2,         default]
       semrel_files: *semrel_files_default
+    varnish:
+      context:
+        git:
+          github:
+            repo: 'varnish-formula'
+        inspec_suites_kitchen:
+          0:
+            excludes: *platforms_osfamily_suse
+            inspec_yml:
+              summary: >-
+                Verify that the varnish formula is setup and configured correctly
+            provisioner:
+              pillars:
+                - '*':
+                    - .
+                    - default
+              pillars_from_files:
+                - .sls: 'test/salt/pillar/varnish.sls'
+                - default.sls: 'test/salt/pillar/default.sls'
+              state_top:
+                - '*':
+                    - .ng
+          1:
+            includes: *platforms_osfamily_suse
+            provisioner:
+              pillars:
+                - '*':
+                    - .
+                    - suse
+              pillars_from_files:
+                - .sls: 'test/salt/pillar/varnish.sls'
+                - suse.sls: 'test/salt/pillar/suse.sls'
+              state_top:
+                - '*':
+                    - .ng
+            verifier: *verifier_inspec_tests_default
+        inspec_suites_matrix:
+          - default
+          - suse
+        platforms_matrix:
+          # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
+          - [debian       ,  10   ,   master,      3,         default]
+          - [ubuntu       ,  18.04,   2019.2,      3,         default]
+          - [opensuse/leap,  15.1 ,   2019.2,      3,            suse]
+          - [amazonlinux  ,   2   ,   2019.2,      2,         default]
+          - [fedora       ,  30   ,   2018.3,      3,         default]
+          - [arch-base    , latest,   2018.3,      2,         default]
+          - [centos       ,   6   ,   2017.7,      2,         default]
+      #   # Enable this in a subsequent PR, since it's an old version,
+      #   # which is already active (needs to be checked for regressions)
+      #   use_tofs: true
+      semrel_files: *semrel_files_default
     vault:
       context:
         git:
