@@ -79,6 +79,7 @@ ssf:
       - cron
       - deepsea
       - dhcpd
+      - django
       - docker
       - epel
       - exim

@@ -23,7 +23,7 @@ ssf_node_anchors:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length
             title: 'feat(semantic-release): implement for this formula'
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/102'
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/103'
             # yamllint enable rule:line-length
           github:
             owner: 'saltstack-formulas'
@@ -269,6 +269,7 @@ ssf:
     cron: *formula_default
     deepsea: *formula_default
     dhcpd: *formula_default
+    django: *formula_default
     docker: *formula_default
     epel: *formula_default
     exim: *formula_default

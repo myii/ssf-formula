@@ -173,6 +173,7 @@ These formulas are already compatible with semantic-release:
 #. `cron-formula <https://github.com/saltstack-formulas/cron-formula>`_
 #. `deepsea-formula <https://github.com/saltstack-formulas/deepsea-formula>`_
 #. `dhcpd-formula <https://github.com/saltstack-formulas/dhcpd-formula>`_
+#. `django-formula <https://github.com/saltstack-formulas/django-formula>`_
 #. `docker-formula <https://github.com/saltstack-formulas/docker-formula>`_
 #. `epel-formula <https://github.com/saltstack-formulas/epel-formula>`_
 #. `exim-formula <https://github.com/saltstack-formulas/exim-formula>`_
