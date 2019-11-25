@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.61.0 <https://github.com/myii/ssf-formula/compare/v1.60.0...v1.61.0>`_ (2019-11-25)
+------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **formula:** add ``django-formula`` (\ `6da7f7a <https://github.com/myii/ssf-formula/commit/6da7f7a36300603e40250d6fa473674e3ab8824a>`_\ )
+
 `1.60.0 <https://github.com/myii/ssf-formula/compare/v1.59.0...v1.60.0>`_ (2019-11-25)
 ------------------------------------------------------------------------------------------
 
