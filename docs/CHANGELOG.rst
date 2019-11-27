@@ -2,6 +2,22 @@
 Changelog
 =========
 
+`1.63.0 <https://github.com/myii/ssf-formula/compare/v1.62.0...v1.63.0>`_ (2019-11-27)
+------------------------------------------------------------------------------------------
+
+Code Refactoring
+^^^^^^^^^^^^^^^^
+
+
+* **travis:** use pathspecs for ``git ls-files`` instead of ``grep`` (\ `615e3b2 <https://github.com/myii/ssf-formula/commit/615e3b2e598d8e91bca5ba8d681778af61429c9e>`_\ ), closes `/github.com/saltstack-formulas/template-formula/pull/181#discussion_r351421463 <https://github.com//github.com/saltstack-formulas/template-formula/pull/181/issues/discussion_r351421463>`_
+
+Features
+^^^^^^^^
+
+
+* **shellcheck:** apply fixes throughout this repo (\ `1ea7fbb <https://github.com/myii/ssf-formula/commit/1ea7fbb21ca889d124f2c5b210999e2a13588117>`_\ )
+* **travis:** run ``shellcheck`` during lint job (\ `f52eb37 <https://github.com/myii/ssf-formula/commit/f52eb378987ac0cacaf3a079ca03067107173661>`_\ ), closes `/github.com/saltstack-formulas/template-formula/pull/180#issuecomment-558612422 <https://github.com//github.com/saltstack-formulas/template-formula/pull/180/issues/issuecomment-558612422>`_
+
 `1.62.0 <https://github.com/myii/ssf-formula/compare/v1.61.0...v1.62.0>`_ (2019-11-27)
 ------------------------------------------------------------------------------------------
 
