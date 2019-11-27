@@ -22,8 +22,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length
-            title: 'feat: update deprecation version number in `semantic-release` run'
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/104'
+            title: 'ci(travis): quote pathspecs used with `git ls-files` [skip ci]'
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/107'
             # yamllint enable rule:line-length
           github:
             owner: 'saltstack-formulas'
