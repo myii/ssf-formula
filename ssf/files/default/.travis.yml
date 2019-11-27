@@ -23,10 +23,10 @@ fast_finish: true
 
 {#-   Prepare variables used for linters #}
 {%- set comment_linters = '# Run all of the linters in a single job' %}
-{%- set name_linters = 'Lint: salt-lint, yamllint, rubocop & commitlint' %}
+{%- set name_linters = 'Lint: salt-lint, yamllint, rubocop, shellcheck & commitlint' %}
 {%- if not travis.use_single_job_for_linters %}
 {%-   set comment_linters = comment_linters ~ ' (except `rubocop`)' %}
-{%-   set name_linters = 'Lint: salt-lint, yamllint & commitlint' %}
+{%-   set name_linters = 'Lint: salt-lint, yamllint, shellcheck & commitlint' %}
 {%- endif %}
 {#-   Prepare variable used for `saltcheck` #}
 {%-   set use_saltcheck = False %}
@@ -128,8 +128,8 @@ jobs:
         {%- endif %}
         # Install and run `salt-lint`
         - {{ pip_cmd }} install --user salt-lint
-        - git ls-files | grep '\.sls$\|\.jinja$\|\.j2$\|\.tmpl$\|\.tst$'
-                       | xargs salt-lint
+        - git ls-files -- *.sls *.jinja *.j2 *.tmpl *.tst
+                        | xargs salt-lint
         # Install and run `yamllint`
         # Need at least `v1.17.0` for the `yaml-files` setting
         - {{ pip_cmd }} install --user yamllint>=1.17.0
@@ -137,6 +137,10 @@ jobs:
         {%- if travis.use_single_job_for_linters %}
         {{-   format_rubocop_linter() }}
         {%- endif %}
+        # Run `shellcheck` (already pre-installed in Travis)
+        - shellcheck --version
+        - git ls-files -- *.sh *.bash *.ksh
+                        | xargs shellcheck
         # Install and run `commitlint`
         - npm i -D @commitlint/config-conventional
                    @commitlint/travis-cli
