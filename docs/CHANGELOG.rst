@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.62.0 <https://github.com/myii/ssf-formula/compare/v1.61.0...v1.62.0>`_ (2019-11-27)
+------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **django:** use default matrix after ``centos-6`` image fix (\ `bafdf12 <https://github.com/myii/ssf-formula/commit/bafdf1270c58dc1511767d18bdba2388d00fc08f>`_\ )
+
 `1.61.0 <https://github.com/myii/ssf-formula/compare/v1.60.0...v1.61.0>`_ (2019-11-25)
 ------------------------------------------------------------------------------------------
 
