@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.64.0 <https://github.com/myii/ssf-formula/compare/v1.63.0...v1.64.0>`_ (2019-11-27)
+------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **fail2ban:** add notification about upcoming ``ng`` promotion (\ `8c91168 <https://github.com/myii/ssf-formula/commit/8c91168b1c091bd3c6f8d35b7c0074fc4833bc41>`_\ ), closes `/github.com/saltstack-formulas/fail2ban-formula/issues/34#issuecomment-539986988 <https://github.com//github.com/saltstack-formulas/fail2ban-formula/issues/34/issues/issuecomment-539986988>`_
+
 `1.63.0 <https://github.com/myii/ssf-formula/compare/v1.62.0...v1.63.0>`_ (2019-11-27)
 ------------------------------------------------------------------------------------------
 
