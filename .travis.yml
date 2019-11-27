@@ -24,7 +24,7 @@ jobs:
     - language: 'node_js'
       node_js: 'lts/*'
       env: 'Lint'
-      name: 'Lint: salt-lint, yamllint, rubocop & commitlint'
+      name: 'Lint: salt-lint, yamllint, rubocop, shellcheck & commitlint'
       before_install: 'skip'
       script:
         # Install and run `salt-lint`
@@ -38,6 +38,10 @@ jobs:
         # Install and run `rubocop`
         - gem install rubocop
         - rubocop -d
+        # Run `shellcheck` (already pre-installed in Travis)
+        - shellcheck --version
+        - git ls-files | grep '\.sh$\|\.bash$\|\.ksh$'
+                       | xargs shellcheck
         # Install and run `commitlint`
         - npm i -D @commitlint/config-conventional
                    @commitlint/travis-cli

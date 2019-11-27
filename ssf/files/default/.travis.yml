@@ -23,10 +23,10 @@ fast_finish: true
 
 {#-   Prepare variables used for linters #}
 {%- set comment_linters = '# Run all of the linters in a single job' %}
-{%- set name_linters = 'Lint: salt-lint, yamllint, rubocop & commitlint' %}
+{%- set name_linters = 'Lint: salt-lint, yamllint, rubocop, shellcheck & commitlint' %}
 {%- if not travis.use_single_job_for_linters %}
 {%-   set comment_linters = comment_linters ~ ' (except `rubocop`)' %}
-{%-   set name_linters = 'Lint: salt-lint, yamllint & commitlint' %}
+{%-   set name_linters = 'Lint: salt-lint, yamllint, shellcheck & commitlint' %}
 {%- endif %}
 {#-   Prepare variable used for `saltcheck` #}
 {%-   set use_saltcheck = False %}
@@ -137,6 +137,10 @@ jobs:
         {%- if travis.use_single_job_for_linters %}
         {{-   format_rubocop_linter() }}
         {%- endif %}
+        # Run `shellcheck` (already pre-installed in Travis)
+        - shellcheck --version
+        - git ls-files | grep '\.sh$\|\.bash$\|\.ksh$'
+                       | xargs shellcheck
         # Install and run `commitlint`
         - npm i -D @commitlint/config-conventional
                    @commitlint/travis-cli
