@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.64.1 <https://github.com/myii/ssf-formula/compare/v1.64.0...v1.64.1>`_ (2019-11-27)
+------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* **travis:** quote pathspecs used with ``git ls-files`` (\ `be75d2d <https://github.com/myii/ssf-formula/commit/be75d2d4720faf7226a33b64c8dfb5927bba88ac>`_\ ), closes `/github.com/saltstack-formulas/template-formula/pull/181#discussion_r351491871 <https://github.com//github.com/saltstack-formulas/template-formula/pull/181/issues/discussion_r351491871>`_
+
 `1.64.0 <https://github.com/myii/ssf-formula/compare/v1.63.0...v1.64.0>`_ (2019-11-27)
 ------------------------------------------------------------------------------------------
 
