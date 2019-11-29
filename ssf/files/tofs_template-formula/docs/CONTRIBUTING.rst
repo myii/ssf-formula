@@ -190,6 +190,7 @@ These formulas are already compatible with semantic-release:
 #. `locale-formula <https://github.com/saltstack-formulas/locale-formula>`_
 #. `logrotate-formula <https://github.com/saltstack-formulas/logrotate-formula>`_
 #. `lvm-formula <https://github.com/saltstack-formulas/lvm-formula>`_
+#. `mongodb-formula <https://github.com/saltstack-formulas/mongodb-formula>`_
 #. `mysql-formula <https://github.com/saltstack-formulas/mysql-formula>`_
 #. `nfs-formula <https://github.com/saltstack-formulas/nfs-formula>`_
 #. `nginx-formula <https://github.com/saltstack-formulas/nginx-formula>`_
