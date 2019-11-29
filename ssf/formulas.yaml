@@ -1110,6 +1110,29 @@ ssf:
           - [amazonlinux  ,   2   ,   2017.7,      2,         default]
           # # - [arch-base    , latest,   2017.7,      2,         default]
       semrel_files: *semrel_files_default
+    mongodb:
+      context:
+        git:
+          github:
+            repo: 'mongodb-formula'
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: >-
+                Verify that the mongodb formula is setup and configured correctly
+            provisioner:
+              pillars_from_files:
+                - .sls: 'test/salt/pillar/default.sls'
+        platforms_matrix: *platforms_matrix_osfamily_debian
+        yamllint:
+          ignore:
+            additional:
+              - mongodb/oscodemap.yaml
+              - mongodb/osmap.yaml
+          rules:
+            key-duplicates:
+              ignore: *ignore_pillar_example
+      semrel_files: *semrel_files_default
     mysql:
       context:
         git:
