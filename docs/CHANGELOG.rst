@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.65.0 <https://github.com/myii/ssf-formula/compare/v1.64.1...v1.65.0>`_ (2019-11-29)
+------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **formula:** add ``mongodb-formula`` (\ `1bec85b <https://github.com/myii/ssf-formula/commit/1bec85b85b6f6a5b148cbbb7e3458134ed66f5cb>`_\ )
+
 `1.64.1 <https://github.com/myii/ssf-formula/compare/v1.64.0...v1.64.1>`_ (2019-11-27)
 ------------------------------------------------------------------------------------------
 
