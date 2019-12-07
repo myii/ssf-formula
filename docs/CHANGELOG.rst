@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.65.1 <https://github.com/myii/ssf-formula/compare/v1.65.0...v1.65.1>`_ (2019-12-07)
+------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* **map.jinja:** fix error ``dictionary changed size during iteration`` (\ `a61a03a <https://github.com/myii/ssf-formula/commit/a61a03aaee58694cfcdd596108c797b8214cf0d0>`_\ ), closes `#69 <https://github.com/myii/ssf-formula/issues/69>`_
+
 `1.65.0 <https://github.com/myii/ssf-formula/compare/v1.64.1...v1.65.0>`_ (2019-11-29)
 ------------------------------------------------------------------------------------------
 
