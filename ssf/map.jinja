@@ -9,17 +9,17 @@
 {%- set config = salt['config.get'](tplroot, default={}, merge=None) or {} %}
 
 {#- Reduce dict sizes before merging, by removing formulas that aren't active #}
-{%- for k, v in defaults[tplroot].semrel_formulas.items() %}
+{%- for k, v in defaults[tplroot].semrel_formulas.copy().items() %}
 {%-   if k not in config.active.semrel_formulas %}
 {%-     do defaults[tplroot].semrel_formulas.pop(k, None) %}
 {%-   endif %}
 {%- endfor %}
-{%- for k, v in formulas[tplroot].semrel_formulas.items() %}
+{%- for k, v in formulas[tplroot].semrel_formulas.copy().items() %}
 {%-   if k not in config.active.semrel_formulas %}
 {%-     do formulas[tplroot].semrel_formulas.pop(k, None) %}
 {%-   else %}
 {#-     Reduce dict sizes further, by removing files that aren't active #}
-{%-     for f_k, f_v in v.semrel_files.items() %}
+{%-     for f_k, f_v in v.semrel_files.copy().items() %}
 {%-       if f_k not in config.active.semrel_files %}
 {%-         do formulas[tplroot].semrel_formulas[k].semrel_files.pop(f_k, None) %}
 {%-       endif %}
