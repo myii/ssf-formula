@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.65.2](https://github.com/myii/ssf-formula/compare/v1.65.1...v1.65.2) (2019-12-08)
+
+
+### Bug Fixes
+
+* **kitchen:** use `namespace` for `prev_comment` in `for` loop ([3ea50d3](https://github.com/myii/ssf-formula/commit/3ea50d3292e6b1a4d7ffb7fcb269dcade4702937))
+
 ## [1.65.1](https://github.com/myii/ssf-formula/compare/v1.65.0...v1.65.1) (2019-12-07)
 
 
