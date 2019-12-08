@@ -133,7 +133,7 @@ driver:
 # the `env.matrix` instances defined in `.travis.yml`
 platforms:
 {#- Centralise duplication from here and `libcimatrix.jinja` #}
-{%- set prev_comment = '' %}
+{%- set ns_platforms = namespace(prev_comment='') %}
 {%- for platform in platforms %}
 {%-   set os       = platform[0] %}
 {%-   set os_ver   = platform[1] %}
@@ -146,9 +146,9 @@ platforms:
 {%-   if loop.index0 == 0 %}
 {%-     set linebreak = '' %}
 {%-   endif %}
-{%-   if prev_comment != comment %}
+{%-   if ns_platforms.prev_comment != comment %}
 {{ linebreak }}  ## SALT {{ comment }}
-{%-     set prev_comment = comment %}
+{%-     set ns_platforms.prev_comment = comment %}
 {%-   endif %}
 {#-   TODO: Should really do this `if` from `defaults.yaml` or `formulas.yaml`, just speeding things up right now #}
 {%-   if os == 'centos' and os_ver == 6 and semrel_formula == 'libvirt' %}
