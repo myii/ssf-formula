@@ -23,7 +23,7 @@ ssf_node_anchors:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length
             title: 'feat(semantic-release): implement for this formula'
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/108'
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/109'
             # yamllint enable rule:line-length
           github:
             owner: 'saltstack-formulas'
@@ -277,6 +277,7 @@ ssf:
     firewalld: *formula_default
     golang: *formula_default
     grafana: *formula_default
+    icinga2: *formula_default
     influxdb: *formula_default
     iptables:
       <<: *formula_default

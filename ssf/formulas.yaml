@@ -728,6 +728,37 @@ ssf:
         travis: *travis_do_not_use_single_job_for_linters
         use_tofs: true
       semrel_files: *semrel_files_default
+    icinga2:
+      context:
+        git:
+          github:
+            repo: 'icinga2-formula'
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: >-
+                Verify that the icinga2 formula is setup and configured correctly
+            provisioner:
+              dependencies:
+                - name: 'postgres'
+                  repo: 'git'
+                  source: 'https://github.com/saltstack-formulas/postgres-formula.git'
+              pillars:
+                - '*':
+                    # - postgres
+                    - .
+              pillars_from_files:
+                # - postgres.sls: 'test/salt/pillar/postgres.sls'
+                - .sls: 'test/salt/pillar/default.sls'
+              state_top:
+                - '*':
+                    - .icinga-web2
+        platforms_matrix: *platforms_matrix_osfamily_debian
+        yamllint:
+          ignore:
+            additional:
+              - icinga2/osfamilymap.yaml
+      semrel_files: *semrel_files_default
     influxdb:
       context:
         git:
