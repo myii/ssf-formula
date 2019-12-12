@@ -181,6 +181,7 @@ These formulas are already compatible with semantic-release:
 #. `firewalld-formula <https://github.com/saltstack-formulas/firewalld-formula>`_
 #. `golang-formula <https://github.com/saltstack-formulas/golang-formula>`_
 #. `grafana-formula <https://github.com/saltstack-formulas/grafana-formula>`_
+#. `icinga2-formula <https://github.com/saltstack-formulas/icinga2-formula>`_
 #. `influxdb-formula <https://github.com/saltstack-formulas/influxdb-formula>`_
 #. `iptables-formula <https://github.com/saltstack-formulas/iptables-formula>`_
 #. `iscsi-formula <https://github.com/saltstack-formulas/iscsi-formula>`_

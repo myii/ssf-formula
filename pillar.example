@@ -87,6 +87,7 @@ ssf:
       - firewalld
       - golang
       - grafana
+      - icinga2
       - influxdb
       - iptables
       - iscsi
