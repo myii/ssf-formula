@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.66.0](https://github.com/myii/ssf-formula/compare/v1.65.2...v1.66.0) (2019-12-12)
+
+
+### Features
+
+* **formula:** add `icinga2-formula` ([f055e2f](https://github.com/myii/ssf-formula/commit/f055e2fa28e8c12e81eeee446cb8ba38682e5059))
+
 ## [1.65.2](https://github.com/myii/ssf-formula/compare/v1.65.1...v1.65.2) (2019-12-08)
 
 
