@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.67.0](https://github.com/myii/ssf-formula/compare/v1.66.0...v1.67.0) (2019-12-16)
+
+
+### Features
+
+* **gemfile:** restrict `train` gem version until upstream fix ([26dc8a3](https://github.com/myii/ssf-formula/commit/26dc8a3222b4d660a62677e8c9171682c0943fea)), closes [/github.com/inspec/train/pull/544#issuecomment-566055052](https://github.com//github.com/inspec/train/pull/544/issues/issuecomment-566055052)
+
 # [1.66.0](https://github.com/myii/ssf-formula/compare/v1.65.2...v1.66.0) (2019-12-12)
 
 
