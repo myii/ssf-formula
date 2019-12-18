@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.68.0](https://github.com/myii/ssf-formula/compare/v1.67.0...v1.68.0) (2019-12-18)
+
+
+### Features
+
+* **apt:** add `unattended` suite ([d579722](https://github.com/myii/ssf-formula/commit/d5797229ab4d176fb0950e908ec347a4b2a02565))
+
 # [1.67.0](https://github.com/myii/ssf-formula/compare/v1.66.0...v1.67.0) (2019-12-16)
 
 
