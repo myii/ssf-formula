@@ -22,8 +22,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length
-            title: 'ci(travis): condense jobs by using a multi-suite job'
-            body: '* Semi-automated using https://github.com/myii/ssf-formula/pull/111'
+            title: 'ci(travis): use `major.minor` for `semantic-release` version [skip ci]'
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/112'
             # yamllint enable rule:line-length
           github:
             owner: 'saltstack-formulas'
