@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.69.0](https://github.com/myii/ssf-formula/compare/v1.68.0...v1.69.0) (2019-12-22)
+
+
+### Features
+
+* **travis:** use `major.minor` for `semantic-release` version ([0f2c9d2](https://github.com/myii/ssf-formula/commit/0f2c9d25edd2a613daf32d2175a3720273e4fb44)), closes [/github.com/saltstack-formulas/bind-formula/issues/143#issuecomment-568197176](https://github.com//github.com/saltstack-formulas/bind-formula/issues/143/issues/issuecomment-568197176) [/travis-ci.com/saltstack-formulas/bind-formula/jobs/269513751#L266-L267](https://github.com//travis-ci.com/saltstack-formulas/bind-formula/jobs/269513751/issues/L266-L267)
+
 # [1.68.0](https://github.com/myii/ssf-formula/compare/v1.67.0...v1.68.0) (2019-12-18)
 
 
