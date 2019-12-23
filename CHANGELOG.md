@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.71.0](https://github.com/myii/ssf-formula/compare/v1.70.0...v1.71.0) (2019-12-23)
+
+
+### Features
+
+* **rabbitmq:** add new `config_files` state to suites ([ac490a7](https://github.com/myii/ssf-formula/commit/ac490a75dea921cfde992bec37a8c4a1cfae834f))
+
 # [1.70.0](https://github.com/myii/ssf-formula/compare/v1.69.0...v1.70.0) (2019-12-23)
 
 
