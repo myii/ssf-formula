@@ -23,7 +23,7 @@ ssf_node_anchors:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length
             title: 'ci(kitchen): standardise structure [skip ci]'
-            body: '* Checked using https://github.com/myii/ssf-formula/pull/114'
+            body: '* Checked using https://github.com/myii/ssf-formula/pull/115'
             # yamllint enable rule:line-length
           github:
             owner: 'saltstack-formulas'

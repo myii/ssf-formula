@@ -31,6 +31,17 @@ ssf_node_anchors:
                 - fedora
                 - amazon
             provisioner:
+              # dependencies_files: &dependencies_files
+              #   - name: 'files'
+              #     path: './test/salt'
+              dependencies_states: &dependencies_states
+                - name: 'states'
+                  path: './test/salt'
+              dependencies_files_and_states: &dependencies_files_and_states
+                - name: 'files'
+                  path: './test/salt'
+                - name: 'states'
+                  path: './test/salt'
               state_top_salt: &state_top_salt
                 - '*':
                     - .pkgrepo
@@ -412,11 +423,7 @@ ssf:
               summary: >-
                 Verify that the cert formula is setup and configured correctly
             provisioner:
-              dependencies:
-                - name: 'files'
-                  path: './test/salt'
-                - name: 'states'
-                  path: './test/salt'
+              dependencies: *dependencies_files_and_states
               pillars_from_files:
                 - .sls: 'test/salt/pillar/managed.sls'
               state_top:
@@ -1101,9 +1108,7 @@ ssf:
               summary: >-
                 Verify that the logrotate formula is setup and configured correctly
             provisioner:
-              dependencies:
-                - name: 'states'
-                  path: './test/salt'
+              dependencies: *dependencies_states
               state_top:
                 - 'G@os_family:Suse':
                     - states.cron
@@ -1495,20 +1500,18 @@ ssf:
               summary: >-
                 Verify that the rabbitmq formula is setup and configured correctly
             provisioner:
-              dependencies:
-                - name: 'files'
-                  path: './test/salt'
+              dependencies: *dependencies_files_and_states
               state_top:
                 - '*':
+                    - states.files
                     - .
                     - .config_files
           1:
             provisioner:
-              dependencies:
-                - name: 'files'
-                  path: './test/salt'
+              dependencies: *dependencies_files_and_states
               state_top:
                 - '*':
+                    - states.files
                     - .latest
                     - .config_files
             verifier: *verifier_inspec_tests_default
