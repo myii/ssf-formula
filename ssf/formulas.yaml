@@ -1494,11 +1494,23 @@ ssf:
             inspec_yml:
               summary: >-
                 Verify that the rabbitmq formula is setup and configured correctly
+            provisioner:
+              dependencies:
+                - name: 'files'
+                  path: './test/salt'
+              state_top:
+                - '*':
+                    - .
+                    - .config_files
           1:
             provisioner:
+              dependencies:
+                - name: 'files'
+                  path: './test/salt'
               state_top:
                 - '*':
                     - .latest
+                    - .config_files
             verifier: *verifier_inspec_tests_default
         inspec_suites_matrix:
           - default
