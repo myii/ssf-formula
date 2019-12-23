@@ -27,6 +27,9 @@ AllCops:
 {%- endif %}
 
 # Any offenses that should be fixed, e.g. collected via. `rubocop --auto-gen-config`
+{%- if semrel_formula == 'template' %}
+# <REMOVEME
+{%- endif %}
 {%- for cop, config in rubocop.Cops.items() if cop not in [MLL] %}
 {{ cop }}:
   {#- This is purposefully simplistic for the time being,
@@ -35,3 +38,6 @@ AllCops:
   {{ k }}: {{ v }}
   {%- endfor %}
 {%- endfor %}
+{%- if semrel_formula == 'template' %}
+# REMOVEME>
+{%- endif %}
