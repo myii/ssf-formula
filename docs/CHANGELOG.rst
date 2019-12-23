@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.72.0 <https://github.com/myii/ssf-formula/compare/v1.71.0...v1.72.0>`_ (2019-12-23)
+------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **rabbitmq:** manage env file (\ `c7eb80b <https://github.com/myii/ssf-formula/commit/c7eb80bd677b3a9a82cae8c7b00ec657b59ca9fc>`_\ )
+
 `1.71.0 <https://github.com/myii/ssf-formula/compare/v1.70.0...v1.71.0>`_ (2019-12-23)
 ------------------------------------------------------------------------------------------
 
