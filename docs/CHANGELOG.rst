@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.70.0 <https://github.com/myii/ssf-formula/compare/v1.69.0...v1.70.0>`_ (2019-12-23)
+------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **template:** improve reusability (\ `491791c <https://github.com/myii/ssf-formula/commit/491791cbe8702a5f8b81b848ada8905cd0e9a440>`_\ )
+
 `1.69.0 <https://github.com/myii/ssf-formula/compare/v1.68.0...v1.69.0>`_ (2019-12-22)
 ------------------------------------------------------------------------------------------
 
