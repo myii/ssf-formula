@@ -1054,14 +1054,11 @@ ssf:
           - [debian       ,  10   ,   master,      3,         default]
           - [debian       ,  10   ,   master,      3,           clean]
           - [ubuntu       ,  18.04,   2019.2,      3,         default]
-          # - [fedora       ,  31   ,   2019.2,      3,         default]
-          - [opensuse/leap,  15.1 ,   2019.2,      3,         default]
-          # - [amazonlinux  ,   2   ,   2019.2,      2,         default]
-          # - [arch-base    , latest,   2019.2,      2,         default]
-          - [fedora       ,  30   ,   2018.3,      3,         default]
-          - [centos       ,   7   ,   2018.3,      2,         default]
-          - [fedora       ,  30   ,   2017.7,      2,         default]
-          # - [centos       ,   6   ,   2017.7,      2,         default]
+          - [centos       ,   8   ,   2019.2,      3,         default]
+          - [fedora       ,  31   ,   2019.2,      3,         default]
+          - [opensuse/leap,  15.1 ,   2018.3,      2,         default]
+          - [ubuntu       ,  16.04,   2018.3,      2,         default]
+          - [amazonlinux  ,   2   ,   2017.7,      2,         default]
         use_tofs: true
       semrel_files: *semrel_files_default
     locale:
