@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.73.0 <https://github.com/myii/ssf-formula/compare/v1.72.0...v1.73.0>`_ (2020-01-07)
+------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **libvirt:** update Travis matrix after recent platform fixes (\ `631074d <https://github.com/myii/ssf-formula/commit/631074d424741e621989c0840990ddeb47248542>`_\ )
+
 `1.72.0 <https://github.com/myii/ssf-formula/compare/v1.71.0...v1.72.0>`_ (2019-12-23)
 ------------------------------------------------------------------------------------------
 
