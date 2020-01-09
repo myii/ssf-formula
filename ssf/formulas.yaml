@@ -1153,6 +1153,21 @@ ssf:
           - [amazonlinux  ,   2   ,   2017.7,      2,         default]
           # # - [arch-base    , latest,   2017.7,      2,         default]
       semrel_files: *semrel_files_default
+    mattermost:
+      context:
+        git:
+          github:
+            owner: 'kjkeane'
+            repo: 'mattermost-formula'
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: >-
+                Verify that the mattermost formula is setup and configured correctly
+            provisioner:
+              pillars_from_files:
+                - .sls: 'test/salt/default/pillar/mattermost.sls'
+      semrel_files: *semrel_files_default
     mongodb:
       context:
         git:
