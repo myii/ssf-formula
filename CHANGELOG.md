@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.74.0](https://github.com/myii/ssf-formula/compare/v1.73.0...v1.74.0) (2020-01-11)
+
+
+### Features
+
+* **fail2ban:** use `fail2ban.ng` in Kitchen ([5a5df71](https://github.com/myii/ssf-formula/commit/5a5df71e17a8cf502a4d8db54928fcd3bce91618)), closes [/github.com/saltstack-formulas/fail2ban-formula/issues/35#issuecomment-573162677](https://github.com//github.com/saltstack-formulas/fail2ban-formula/issues/35/issues/issuecomment-573162677)
+
 # [1.73.0](https://github.com/myii/ssf-formula/compare/v1.72.0...v1.73.0) (2020-01-07)
 
 
