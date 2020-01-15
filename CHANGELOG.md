@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.75.0](https://github.com/myii/ssf-formula/compare/v1.74.0...v1.75.0) (2020-01-15)
+
+
+### Features
+
+* **fail2ban:** promote `ng` ([4b10d9c](https://github.com/myii/ssf-formula/commit/4b10d9cd2d61101ff2537eb145a478f00f9010e8))
+
 # [1.74.0](https://github.com/myii/ssf-formula/compare/v1.73.0...v1.74.0) (2020-01-11)
 
 
