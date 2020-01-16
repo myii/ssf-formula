@@ -97,6 +97,7 @@ ssf:
       - locale
       - logrotate
       - lvm
+      - mattermost
       - mongodb
       - mysql
       - nfs
