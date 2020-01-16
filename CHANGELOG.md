@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.76.0](https://github.com/myii/ssf-formula/compare/v1.75.0...v1.76.0) (2020-01-16)
+
+
+### Features
+
+* **formula:** add `mattermost-formula` ([710a27f](https://github.com/myii/ssf-formula/commit/710a27fb0671db5ae1eef8613c23250c8a317a5d)), closes [/freenode.logbot.info/saltstack-formulas/20200108#c3052081-c3052088](https://github.com//freenode.logbot.info/saltstack-formulas/20200108/issues/c3052081-c3052088)
+
 # [1.75.0](https://github.com/myii/ssf-formula/compare/v1.74.0...v1.75.0) (2020-01-15)
 
 
