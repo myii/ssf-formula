@@ -755,6 +755,17 @@ ssf:
         travis: *travis_do_not_use_single_job_for_linters
         use_tofs: true
       semrel_files: *semrel_files_default
+    hostsfile:
+      context:
+        git:
+          github:
+            repo: 'hostsfile-formula'
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: >-
+                Verify that the hostsfile formula is setup and configured correctly
+      semrel_files: *semrel_files_default
     icinga2:
       context:
         git:
