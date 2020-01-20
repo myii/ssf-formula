@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.79.0 <https://github.com/myii/ssf-formula/compare/v1.78.0...v1.79.0>`_ (2020-01-20)
+------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **formula:** add ``hostsfile-formula`` (\ `c33c1ea <https://github.com/myii/ssf-formula/commit/c33c1ea96db6c0b395f80c25bf78da5dcf0a2449>`_\ )
+
 `1.78.0 <https://github.com/myii/ssf-formula/compare/v1.77.0...v1.78.0>`_ (2020-01-20)
 ------------------------------------------------------------------------------------------
 
