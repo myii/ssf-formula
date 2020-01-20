@@ -17,13 +17,13 @@ ssf_node_anchors:
             pr: 'chore/standardise-structure'
             upstream: 'upstream'
           commit:
-            # NOTE: The version number in the `body` is automatically updated during the
-            #       release phase via. `pre-commit_semantic-release.sh`
+            # NOTE: The version number in the `body` is automatically updated during
+            #       the release phase via. `pre-commit_semantic-release.sh`
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length
-            title: 'refactor(semantic-release): standardise structure for this formula'
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/117'
+            title: 'feat(semantic-release): update for this formula'
+            body: '* Updated using https://github.com/myii/ssf-formula/pull/34'
             # yamllint enable rule:line-length
           github:
             owner: 'saltstack-formulas'
@@ -358,22 +358,25 @@ ssf:
           <<: *isk_default
           1:
             <<: *isk_suite_default
-            name: 'deb'
+            name: 'debian'
           2:
             <<: *isk_suite_default
-            name: 'ubu18'
+            name: 'ubuntu'
           3:
             <<: *isk_suite_default
-            name: 'ubu16'
+            name: 'fedora'
           4:
             <<: *isk_suite_default
-            name: 'fed'
+            name: 'centos'
           5:
             <<: *isk_suite_default
-            name: 'sus'
+            name: 'amazon'
           6:
             <<: *isk_suite_default
-            name: 'rpm'
+            name: 'suse'
+          7:
+            <<: *isk_suite_default
+            name: 'arch'
     php:
       <<: *formula_default
       context:
