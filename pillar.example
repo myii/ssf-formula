@@ -87,6 +87,7 @@ ssf:
       - firewalld
       - golang
       - grafana
+      - hostsfile
       - icinga2
       - influxdb
       - iptables
