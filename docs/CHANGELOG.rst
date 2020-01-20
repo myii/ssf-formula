@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.77.0 <https://github.com/myii/ssf-formula/compare/v1.76.0...v1.77.0>`_ (2020-01-20)
+------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **formula:** add ``packages-formula`` (\ `66fc6cb <https://github.com/myii/ssf-formula/commit/66fc6cb5883cfe37c095508f313bb250729a9992>`_\ )
+
 `1.76.0 <https://github.com/myii/ssf-formula/compare/v1.75.0...v1.76.0>`_ (2020-01-16)
 ------------------------------------------------------------------------------------------
 
