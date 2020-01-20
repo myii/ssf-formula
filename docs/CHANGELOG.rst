@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.78.0 <https://github.com/myii/ssf-formula/compare/v1.77.0...v1.78.0>`_ (2020-01-20)
+------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **mattermost:** adjust Travis matrix to use ``systemd`` platforms only (\ `adaef37 <https://github.com/myii/ssf-formula/commit/adaef37d0550dc1f3383ea16c56cf4a614dd7753>`_\ )
+
 `1.77.0 <https://github.com/myii/ssf-formula/compare/v1.76.0...v1.77.0>`_ (2020-01-20)
 ------------------------------------------------------------------------------------------
 
