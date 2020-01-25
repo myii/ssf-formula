@@ -95,7 +95,7 @@ ssf_node_anchors:
           - [fedora       ,  31   ,   master,      3]
           - [opensuse/leap,  15.1 ,   master,      3]
           ### ` master-py2`
-          - [amazonlinux  ,   2   ,   master,      2]
+          - [amazonlinux  ,   2   ,   master,      3]
           - [arch-base    , latest,   master,      2]
 
           ### `2019.2-py3`
@@ -110,7 +110,7 @@ ssf_node_anchors:
           ### `2019.2-py2`
           # - [ubuntu       ,  18.04,   2019.2,      2]
           - [centos       ,   7   ,   2019.2,      2]
-          - [amazonlinux  ,   2   ,   2019.2,      2]
+          - [amazonlinux  ,   2   ,   2019.2,      3]
           - [arch-base    , latest,   2019.2,      2]
 
           ### `2018.3-py3`
@@ -124,7 +124,7 @@ ssf_node_anchors:
           - [centos       ,   7   ,   2018.3,      2]
           # - [centos       ,   6   ,   2018.3,      2]
           - [opensuse/leap,  15.1 ,   2018.3,      2]
-          - [amazonlinux  ,   2   ,   2018.3,      2]
+          - [amazonlinux  ,   1   ,   2018.3,      2]
           - [arch-base    , latest,   2018.3,      2]
 
           ### `2017.7-py2`
@@ -133,7 +133,7 @@ ssf_node_anchors:
           - [centos       ,   6   ,   2017.7,      2]
           - [fedora       ,  30   ,   2017.7,      2]
           - [opensuse/leap,  15.1 ,   2017.7,      2]
-          - [amazonlinux  ,   2   ,   2017.7,      2]
+          - [amazonlinux  ,   1   ,   2017.7,      2]
           - [arch-base    , latest,   2017.7,      2]
 
         platforms_matrix:
@@ -142,7 +142,7 @@ ssf_node_anchors:
           - [debian       ,  10   ,   master,      3,         default]
           - [ubuntu       ,  18.04,   2019.2,      3,         default]
           - [opensuse/leap,  15.1 ,   2019.2,      3,         default]
-          - [amazonlinux  ,   2   ,   2019.2,      2,         default]
+          - [amazonlinux  ,   2   ,   2019.2,      3,         default]
           - [fedora       ,  30   ,   2018.3,      3,         default]
           - [arch-base    , latest,   2018.3,      2,         default]
           - [centos       ,   6   ,   2017.7,      2,         default]
