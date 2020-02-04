@@ -2202,25 +2202,31 @@ ssf:
             excludes: *platforms_os_centos6
             inspec_yml:
               summary: >-
-                Verify that the template formula is setup and configured correctly
+                Verify that the TEMPLATE formula is setup and configured correctly
             provisioner:
               pillars:
                 - '*':
-                    - .
+                    - TEMPLATE
                     - define_roles
               pillars_from_files:
-                - .sls: 'pillar.example'
+                - TEMPLATE.sls: 'pillar.example'
                 - define_roles.sls: 'test/salt/pillar/define_roles.sls'
+              state_top:
+                - '*':
+                    - TEMPLATE
           1:
             includes: *platforms_os_centos6
             provisioner:
               pillars:
                 - '*':
-                    - .
+                    - TEMPLATE
                     - define_roles
               pillars_from_files:
-                - .sls: 'test/salt/pillar/centos6.sls'
+                - TEMPLATE.sls: 'test/salt/pillar/centos6.sls'
                 - define_roles.sls: 'test/salt/pillar/define_roles.sls'
+              state_top:
+                - '*':
+                    - TEMPLATE
             verifier: *verifier_inspec_tests_default
         inspec_suites_matrix:
           - default
@@ -2239,7 +2245,17 @@ ssf:
             Metrics/BlockLength:
               Max: 36
         use_tofs: true
-      semrel_files: *semrel_files_default
+      semrel_files:
+        <<: *semrel_files_default
+        formula/libtofs.jinja:
+          <<: *file__formula__libtofs--jinja
+          alt_semrel_formula: 'TEMPLATE'
+        inspec/inspec.yml:
+          <<: *file__inspec__inspec--yml
+          alt_semrel_formula: 'TEMPLATE'
+        kitchen.yml:
+          <<: *file__kitchen--yml
+          alt_semrel_formula: 'TEMPLATE'
     timezone:
       context:
         git:
