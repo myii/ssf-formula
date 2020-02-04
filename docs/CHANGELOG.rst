@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.80.0 <https://github.com/myii/ssf-formula/compare/v1.79.0...v1.80.0>`_ (2020-02-04)
+------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **template:** update to use ``TEMPLATE`` for reusability (\ `d5c68e5 <https://github.com/myii/ssf-formula/commit/d5c68e53c4d05bcef044b4614385a5aa3f968db0>`_\ )
+
 `1.79.0 <https://github.com/myii/ssf-formula/compare/v1.78.0...v1.79.0>`_ (2020-01-20)
 ------------------------------------------------------------------------------------------
 
