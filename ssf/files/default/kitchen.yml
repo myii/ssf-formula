@@ -50,10 +50,6 @@
 
 {%- macro format_driver_image(os, os_ver, salt_ver, py_ver, pre_salted) %}
 {%-   filter indent(6) %}
-{#-     Temporary use of `develop` instead of `master` until it is available #}
-{%-     if [os, os_ver, salt_ver] == ['amazonlinux', 2, 'master'] %}
-{%-       set salt_ver = 'develop' %}
-{%-     endif %}
 {#-     Use bootstrapped images where not already pre-salted #}
 {%-     if not pre_salted %}
 image: {{ os }}:{{ os_ver }}
@@ -68,16 +64,12 @@ image: netmanagers/salt-{{ salt_ver }}-py{{ py_ver }}:{{ os | replace('/', '-') 
 {#-         Need to look at if this can be resolved from within the formulas themselves, though                               #}
 {%-   filter indent(6) %}
 {%-     set prov_cmds = [] %}
-{#-     Specific to `master` or bootstrapped images #}
-{%-     if salt_ver == 'master' or not pre_salted %}
-{#-       Temporary use of `develop` instead of `master` until it is available #}
-{%-       if [os, os_ver, salt_ver] == ['amazonlinux', 2, 'master'] %}
-{%-         set salt_ver = 'develop' %}
-{%-       endif %}
-{#-       Use the appropriate bootstrap options for pre-salted images vs. bootstrapped images #}
-{%-       set bootstrap_options = 'XdPbfrq' if pre_salted else 'XdPfq' %}
-{#-       Use the appropriate bootstrap method depending on the Salt version #}
-{%-       set bootstrap_method = 'git' if salt_ver in ['master', 'develop'] else 'stable' %}
+{#-     Specific to bootstrapped images #}
+{%-     if not pre_salted %}
+{#-       Use the appropriate bootstrap options for bootstrapped images #}
+{%-       set bootstrap_options = 'XdPfq' %}
+{#-       Use the appropriate bootstrap method #}
+{%-       set bootstrap_method = 'stable' %}
 {%-       do prov_cmds.append('- curl -o bootstrap-salt.sh -L https://bootstrap.saltstack.com') %}
 {%-       do prov_cmds.append('- sh bootstrap-salt.sh -{0} -x python{1} {2} {3}'.format(
               bootstrap_options, py_ver, bootstrap_method, salt_ver
@@ -143,7 +135,8 @@ platforms:
 {%-   set os_ver   = platform[1] %}
 {%-   set salt_ver = platform[2] %}
 {%-   set py_ver   = platform[3] %}
-{%-   set pre_salted = [os, os_ver] not in [['amazonlinux', 1]] %}
+{#-   Was used for `[['amazonlinux', 1]]` but now leaving blank in case it's needed in the future #}
+{%-   set pre_salted = [os, os_ver] not in [[]] %}
 {#-   Display comment for each section (based on Salt version) #}
 {%-   set linebreak = '\n' %}
 {%-   set comment = '`{0}`'.format(salt_ver) %}
@@ -164,10 +157,6 @@ platforms:
   #     image: netmanagers/salt-2017.7-py2:centos-6
   #     run_command: /sbin/init
 {%-   else %}
-  {%-   if [os, os_ver, salt_ver] == ['amazonlinux', 2, 'master'] %}
-  # Use the `develop` image temporarily until the `master` image is available
-  # Not changing the name to minimise disruption across all of the formulas
-  {%-   endif %}
   - name: {{ os | replace('/', '-') }}-{{ os_ver | replace('.', '') }}-{{ salt_ver | replace('.', '-') }}-py{{ py_ver }}
     driver:
       {{- format_driver_image(os, os_ver, salt_ver, py_ver, pre_salted) }}
