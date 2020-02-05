@@ -64,12 +64,12 @@ image: netmanagers/salt-{{ salt_ver }}-py{{ py_ver }}:{{ os | replace('/', '-') 
 {#-         Need to look at if this can be resolved from within the formulas themselves, though                               #}
 {%-   filter indent(6) %}
 {%-     set prov_cmds = [] %}
-{#-     Specific to `master` or bootstrapped images #}
-{%-     if salt_ver == 'master' or not pre_salted %}
-{#-       Use the appropriate bootstrap options for pre-salted images vs. bootstrapped images #}
-{%-       set bootstrap_options = 'XdPbfrq' if pre_salted else 'XdPfq' %}
-{#-       Use the appropriate bootstrap method depending on the Salt version #}
-{%-       set bootstrap_method = 'git' if salt_ver in ['master'] else 'stable' %}
+{#-     Specific to bootstrapped images #}
+{%-     if not pre_salted %}
+{#-       Use the appropriate bootstrap options for bootstrapped images #}
+{%-       set bootstrap_options = 'XdPfq' %}
+{#-       Use the appropriate bootstrap method #}
+{%-       set bootstrap_method = 'stable' %}
 {%-       do prov_cmds.append('- curl -o bootstrap-salt.sh -L https://bootstrap.saltstack.com') %}
 {%-       do prov_cmds.append('- sh bootstrap-salt.sh -{0} -x python{1} {2} {3}'.format(
               bootstrap_options, py_ver, bootstrap_method, salt_ver
