@@ -1,5 +1,13 @@
 # Changelog
 
+# [1.81.0](https://github.com/myii/ssf-formula/compare/v1.80.0...v1.81.0) (2020-02-05)
+
+
+### Features
+
+* **amazonlinux:** update for `1` & `2` and remove temporary `develop` ([ce5e13a](https://github.com/myii/ssf-formula/commit/ce5e13a6636b90bc0a983d2790e08fe35b44dd15))
+* **kitchen:** avoid using bootstrap for `master` instances ([16de460](https://github.com/myii/ssf-formula/commit/16de460014f0413e18d41f25cc7f12a2aaf824b2)), closes [/github.com/saltstack/salt-bootstrap/pull/1424#issuecomment-581997903](https://github.com//github.com/saltstack/salt-bootstrap/pull/1424/issues/issuecomment-581997903)
+
 # [1.80.0](https://github.com/myii/ssf-formula/compare/v1.79.0...v1.80.0) (2020-02-04)
 
 
