@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.82.0](https://github.com/myii/ssf-formula/compare/v1.81.0...v1.82.0) (2020-02-07)
+
+
+### Features
+
+* **gemfile:** update for formulas with Vagrant testing ([21fdf1f](https://github.com/myii/ssf-formula/commit/21fdf1f2070949efdc26bc88031380ecac9b8b5a))
+
 # [1.81.0](https://github.com/myii/ssf-formula/compare/v1.80.0...v1.81.0) (2020-02-05)
 
 
