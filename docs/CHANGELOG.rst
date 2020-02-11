@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.83.0 <https://github.com/myii/ssf-formula/compare/v1.82.0...v1.83.0>`_ (2020-02-11)
+------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **gemfile:** remove ``rspec-retry`` gem in formulas where unused (\ `32b74a2 <https://github.com/myii/ssf-formula/commit/32b74a2653c3da728df224a076bf34f5614d1865>`_\ )
+
 `1.82.0 <https://github.com/myii/ssf-formula/compare/v1.81.0...v1.82.0>`_ (2020-02-07)
 ------------------------------------------------------------------------------------------
 
