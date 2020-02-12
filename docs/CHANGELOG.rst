@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.84.0 <https://github.com/myii/ssf-formula/compare/v1.83.0...v1.84.0>`_ (2020-02-12)
+------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* workaround issues with newly introduced ``amazonlinux-1`` (\ `387bde5 <https://github.com/myii/ssf-formula/commit/387bde5c3780c59ef4f546f17e2b265c117a05b6>`_\ )
+
 `1.83.0 <https://github.com/myii/ssf-formula/compare/v1.82.0...v1.83.0>`_ (2020-02-11)
 ------------------------------------------------------------------------------------------
 
