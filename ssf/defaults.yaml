@@ -22,8 +22,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "ci(gemfile): remove unused '`'rspec-retry'`' gem [skip ci]"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/126'
+            title: "ci: workaround issues with newly introduced '`'amazonlinux-1'`' [skip ci]"
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/127'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'

@@ -197,11 +197,11 @@ ssf_node_anchors:
           - [ubuntu       ,  18.04,   2019.2,      3,         default]
           # # - [centos       ,   8   ,   2019.2,      3,         default]
           - [opensuse/leap,  15.1 ,   2019.2,      3,         default]
-          # - [amazonlinux  ,   2   ,   2019.2,      3,         default]
+          - [amazonlinux  ,   2   ,   2019.2,      3,         default]
           - [fedora       ,  30   ,   2018.3,      3,         default]
           - [arch-base    , latest,   2018.3,      2,         default]
           # - [centos       ,   6   ,   2017.7,      2,         default]
-          - [amazonlinux  ,   1   ,   2017.7,      2,         default]
+          # - [amazonlinux  ,   1   ,   2017.7,      2,         default]
         platforms_matrix_without_arch: &platforms_matrix_without_arch
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,  10   ,   master,      3,         default]
@@ -623,22 +623,7 @@ ssf:
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/default.sls'
-        platforms:
-          # Later, consider using for all *platforms_osfamily_redhat
-          # [os           , os_ver, salt_ver, py_ver]
-          - [centos       ,   8   ,   master,      3]
-          - [fedora       ,  31   ,   master,      3]
-          - [amazonlinux  ,   2   ,   master,      3]
-          - [centos       ,   8   ,   2019.2,      3]
-          - [fedora       ,  31   ,   2019.2,      3]
-          - [amazonlinux  ,   2   ,   2019.2,      3]
-          - [centos       ,   7   ,   2019.2,      2]
-          - [fedora       ,  30   ,   2018.3,      3]
-          - [centos       ,   7   ,   2018.3,      2]
-          - [amazonlinux  ,   1   ,   2018.3,      2]
-          - [centos       ,   6   ,   2017.7,      2]
-          - [fedora       ,  30   ,   2017.7,      2]
-          - [amazonlinux  ,   1   ,   2017.7,      2]
+        platforms: *platforms_osfamily_redhat
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
           - [centos       ,   8   ,   master,      3,         default]
@@ -710,9 +695,11 @@ ssf:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
           - [ubuntu       ,  18.04,   master,      3,         default]
           - [debian       ,   9   ,   2019.2,      3,         default]
-          - [opensuse/leap,  15.1 ,   2019.2,      3,         default]
-          - [amazonlinux  ,   1   ,   2018.3,      2,         default]
-          - [ubuntu       ,  16.04,   2017.7,      2,         default]
+          - [fedora       ,  31   ,   2019.2,      3,         default]
+          - [amazonlinux  ,   2   ,   2019.2,      3,         default]
+          - [opensuse/leap,  15.1 ,   2018.3,      2,         default]
+          - [arch-base    , latest,   2018.3,      2,         default]
+          # - [ubuntu       ,  16.04,   2017.7,      2,         default]
       semrel_files: *semrel_files_default
     golang:
       context:
@@ -920,8 +907,8 @@ ssf:
           - [ubuntu       ,  18.04,   2019.2,      3,         default]
           # # - [centos       ,   8   ,   2019.2,      3,        centarch]
           - [opensuse/leap,  15.1 ,   2019.2,      3,         default]
-          - [arch-base    , latest,   2019.2,      2,        centarch]
-          - [amazonlinux  ,   1   ,   2018.3,      2,         default]
+          - [amazonlinux  ,   2   ,   2019.2,      3,         default]
+          - [arch-base    , latest,   2018.3,      2,        centarch]
         use_tofs: true
         yamllint:
           ignore:
@@ -1025,10 +1012,10 @@ ssf:
           - [debian       ,  10   ,   master,      3,             deb]
           - [ubuntu       ,  18.04,   2019.2,      3,             git]
           - [centos       ,   8   ,   2019.2,      3,             git]
+          - [amazonlinux  ,   2   ,   2019.2,      3,             rpm]
           - [arch-base    , latest,   2019.2,      2,             git]
           - [fedora       ,  30   ,   2018.3,      3,             git]
           - [opensuse/leap,  15.1 ,   2018.3,      2,             git]
-          - [amazonlinux  ,   1   ,   2017.7,      2,             rpm]
       semrel_files: *semrel_files_default
     libvirt:
       context:
@@ -1075,7 +1062,6 @@ ssf:
           - [fedora       ,  31   ,   2019.2,      3,         default]
           - [opensuse/leap,  15.1 ,   2018.3,      2,         default]
           - [ubuntu       ,  16.04,   2018.3,      2,         default]
-          - [amazonlinux  ,   1   ,   2017.7,      2,         default]
         use_tofs: true
       semrel_files: *semrel_files_default
     locale:
@@ -1106,8 +1092,8 @@ ssf:
           - [debian       ,  10   ,   master,      3,         default]
           - [ubuntu       ,  18.04,   2019.2,      3,         default]
           - [fedora       ,  31   ,   2019.2,      3,          redhat]
-          - [opensuse/leap,  15.1 ,   2019.2,      3,         default]
-          - [amazonlinux  ,   1   ,   2018.3,      2,          redhat]
+          - [amazonlinux  ,   2   ,   2019.2,      3,          redhat]
+          - [opensuse/leap,  15.1 ,   2018.3,      2,         default]
           - [arch-base    , latest,   2018.3,      2,         default]
           - [centos       ,   6   ,   2017.7,      2,         default]
       semrel_files: *semrel_files_default
@@ -1161,13 +1147,12 @@ ssf:
           # # - [arch-base    , latest,   master,      2,         default]
           - [ubuntu       ,  18.04,   2019.2,      3,         default]
           # # - [fedora       ,  31   ,   2019.2,      3,         default]
-          # - [amazonlinux  ,   2   ,   2019.2,      3,         default]
+          - [amazonlinux  ,   2   ,   2019.2,      3,         default]
           # # - [arch-base    , latest,   2019.2,      2,         default]
           # # - [centos       ,   7   ,   2018.3,      2,         default]
           - [opensuse/leap,  15.1 ,   2018.3,      2,         default]
           # # - [arch-base    , latest,   2018.3,      2,         default]
           # - [centos       ,   6   ,   2017.7,      2,         default]
-          - [amazonlinux  ,   1   ,   2017.7,      2,         default]
           # # - [arch-base    , latest,   2017.7,      2,         default]
       semrel_files: *semrel_files_default
     mattermost:
@@ -1191,9 +1176,9 @@ ssf:
           - [debian       ,  10   ,   master,      3,         default]
           - [ubuntu       ,  18.04,   2019.2,      3,         default]
           - [centos       ,   8   ,   2019.2,      3,         default]
+          - [amazonlinux  ,   2   ,   2019.2,      3,         default]
           - [fedora       ,  30   ,   2018.3,      3,         default]
           - [arch-base    , latest,   2018.3,      2,         default]
-          - [amazonlinux  ,   1   ,   2017.7,      2,         default]
       semrel_files: *semrel_files_default
     mongodb:
       context:
@@ -1266,9 +1251,9 @@ ssf:
           - [ubuntu       ,  18.04,   2019.2,      3,         default]
           - [centos       ,   8   ,   2019.2,      3,         default]
           - [opensuse/leap,  15.1 ,   2019.2,      3,         default]
+          - [amazonlinux  ,   2   ,   2019.2,      3,         default]
           - [fedora       ,  30   ,   2018.3,      3,         default]
           - [arch-base    , latest,   2018.3,      2,         default]
-          - [amazonlinux  ,   1   ,   2017.7,      2,         default]
       semrel_files: *semrel_files_default
     nginx:
       context:
@@ -2064,10 +2049,8 @@ ssf:
           - [ubuntu       ,  18.04,   2019.2,      3,         default]
           - [centos       ,   8   ,   2019.2,      3,         default]
           - [fedora       ,  31   ,   2019.2,      3,         default]
-          # - [fedora       ,  30   ,   2018.3,      3,         default]
+          - [amazonlinux  ,   2   ,   2019.2,      3,         default]
           - [opensuse/leap,  15.1 ,   2018.3,      2,         default]
-          - [amazonlinux  ,   1   ,   2018.3,      2,         default]
-          # - [centos       ,   6   ,   2017.7,      2,         default]
           - [arch-base    , latest,   2017.7,      2,         default]
       semrel_files: *semrel_files_default
     syslog-ng:
@@ -2149,14 +2132,14 @@ ssf:
           - [ubuntu       ,  16.04,   2018.3,      2]
           - [centos       ,   7   ,   2018.3,      2]
           - [opensuse/leap,  15.1 ,   2018.3,      2]
-          - [amazonlinux  ,   1   ,   2018.3,      2]
+          # - [amazonlinux  ,   1   ,   2018.3,      2]
           - [arch-base    , latest,   2018.3,      2]
           - [debian       ,   8   ,   2017.7,      2]
           - [ubuntu       ,  16.04,   2017.7,      2]
           # - [centos       ,   6   ,   2017.7,      2]
           - [fedora       ,  30   ,   2017.7,      2]
           - [opensuse/leap,  15.1 ,   2017.7,      2]
-          - [amazonlinux  ,   1   ,   2017.7,      2]
+          # - [amazonlinux  ,   1   ,   2017.7,      2]
           - [arch-base    , latest,   2017.7,      2]
         platforms_matrix: *platforms_matrix_systemd_only
         rubocop:
