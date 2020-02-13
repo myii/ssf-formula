@@ -22,8 +22,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "ci: workaround issues with newly introduced '`'amazonlinux-1'`' [skip ci]"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/127'
+            title: "ci(kitchen+travis+inspec): fix '`'amazonlinux-2-py3'`' [skip ci]"
+            body: '* Semi-automated using https://github.com/myii/ssf-formula/pull/128'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
