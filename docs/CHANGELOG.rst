@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.85.0 <https://github.com/myii/ssf-formula/compare/v1.84.0...v1.85.0>`_ (2020-02-13)
+------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **salt:** fix ``amazonlinux-2-py3`` (kitchen+travis+inspec) (\ `e5353af <https://github.com/myii/ssf-formula/commit/e5353afd572953b27c2e163c917a4dc75f3510e3>`_\ )
+
 `1.84.0 <https://github.com/myii/ssf-formula/compare/v1.83.0...v1.84.0>`_ (2020-02-12)
 ------------------------------------------------------------------------------------------
 
