@@ -1742,6 +1742,7 @@ ssf:
               - [centos       ,   8   ,   2019.2,      3]
               # - [fedora       ,  31   ,   2019.2,      3]
               - [opensuse/leap,  15.1 ,   2019.2,      3]
+              - [amazonlinux  ,   2   ,   2019.2,      3]
             inspec_yml:
               summary: >-
                 Verify that Salt `v201902-py3` is setup and configured
@@ -1759,7 +1760,6 @@ ssf:
               # [os           , os_ver, salt_ver, py_ver]
               - [ubuntu       ,  18.04,   2019.2,      2]
               - [centos       ,   7   ,   2019.2,      2]
-              - [amazonlinux  ,   2   ,   2019.2,      3]
               - [arch-base    , latest,   2019.2,      2]
             inspec_yml:
               summary: >-
@@ -1866,7 +1866,7 @@ ssf:
           # # - [arch-base    , latest,   2018.3,      2,       v201803-py2]
           - [ubuntu       ,  18.04,   2019.2,      2,     v201902-py2]
           # - [centos       ,   7   ,   2019.2,      2,     v201902-py2]
-          - [amazonlinux  ,   2   ,   2019.2,      3,     v201902-py2]
+          - [amazonlinux  ,   2   ,   2019.2,      3,     v201902-py3]
           # # - [arch-base    , latest,   2019.2,      2,       v201902-py2]
           - [debian       ,  10   ,   2019.2,      3,     v201902-py3]
           # - [debian       ,   9   ,   2019.2,      3,     v201902-py3]
