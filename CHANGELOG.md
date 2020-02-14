@@ -1,5 +1,17 @@
 # Changelog
 
+# [1.88.0](https://github.com/myii/ssf-formula/compare/v1.87.0...v1.88.0) (2020-02-14)
+
+
+### Bug Fixes
+
+* **libtofs:** fix typo ([634365e](https://github.com/myii/ssf-formula/commit/634365ee5ffb5810b473d7386e20d0f13ceda865))
+
+
+### Features
+
+* **libtofs:** “files_switch” mess up the variable exported by “map.jinja” ([c56ed35](https://github.com/myii/ssf-formula/commit/c56ed3571cc2361f0d7207d81eec94264bbe2349))
+
 # [1.87.0](https://github.com/myii/ssf-formula/compare/v1.86.0...v1.87.0) (2020-02-14)
 
 
