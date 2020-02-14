@@ -22,8 +22,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "fix(libtofs): “files_switch” mess up the variable exported by “map.jinja” [skip ci]"
-            body: '* Checked using https://github.com/myii/ssf-formula/pull/131'
+            title: "chore(gitignore): update from the '`'template-formula'`' [skip ci]"
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/132'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
