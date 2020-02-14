@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.87.0](https://github.com/myii/ssf-formula/compare/v1.86.0...v1.87.0) (2020-02-14)
+
+
+### Features
+
+* **gitignore:** track TOFS override files (`salt` & `template`) ([0ef6415](https://github.com/myii/ssf-formula/commit/0ef64153626c1017dc70b79a70f7dc933c84fa3b))
+
 # [1.86.0](https://github.com/myii/ssf-formula/compare/v1.85.0...v1.86.0) (2020-02-14)
 
 
