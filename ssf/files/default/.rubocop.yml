@@ -2,14 +2,14 @@
 # vim: ft=yaml
 ---
 # General overrides used across formulas in the org
-{%- set MLL = 'Metrics/LineLength' %}
-{{ MLL }}:
-  {%- set rbcp_MLL = rubocop.Cops.get(MLL) %}
-  {%- if rbcp_MLL.Max == rbcp_MLL.Bugbear %}
-  # Increase from default of `{{ rbcp_MLL.Default }}`
+{%- set LLL = 'Layout/LineLength' %}
+{{ LLL }}:
+  {%- set rbcp_LLL = rubocop.Cops.get(LLL) %}
+  {%- if rbcp_LLL.Max == rbcp_LLL.Bugbear %}
+  # Increase from default of `{{ rbcp_LLL.Default }}`
   # Based on https://github.com/PyCQA/flake8-bugbear#opinionated-warnings (`B950`)
   {%- endif %}
-  Max: {{ rbcp_MLL.Max }}
+  Max: {{ rbcp_LLL.Max }}
 
 {%- if rubocop.AllCops %}
 
@@ -30,7 +30,7 @@ AllCops:
 {%- if semrel_formula == 'template' %}
 # <REMOVEME
 {%- endif %}
-{%- for cop, config in rubocop.Cops.items() if cop not in [MLL] %}
+{%- for cop, config in rubocop.Cops.items() if cop not in [LLL] %}
 {{ cop }}:
   {#- This is purposefully simplistic for the time being,
       until (if ever) more advanced configuration is necessary #}
