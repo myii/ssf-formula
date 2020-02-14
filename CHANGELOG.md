@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.89.0](https://github.com/myii/ssf-formula/compare/v1.88.0...v1.89.0) (2020-02-14)
+
+
+### Features
+
+* **gitignore:** standardise from the `template-formula` ([100906b](https://github.com/myii/ssf-formula/commit/100906bf7316c1370ab002cce6b16ae11f2bdc2c)), closes [#130](https://github.com/myii/ssf-formula/issues/130)
+
 # [1.88.0](https://github.com/myii/ssf-formula/compare/v1.87.0...v1.88.0) (2020-02-14)
 
 
