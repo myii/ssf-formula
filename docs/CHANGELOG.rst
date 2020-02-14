@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.86.0 <https://github.com/myii/ssf-formula/compare/v1.85.0...v1.86.0>`_ (2020-02-14)
+------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **rubocop:** move ``LineLength`` cop from ``Metrics`` to ``Layout`` (\ `f6b21ad <https://github.com/myii/ssf-formula/commit/f6b21ad1a4e34d804ca32a554233d05c4b7720dc>`_\ )
+
 `1.85.0 <https://github.com/myii/ssf-formula/compare/v1.84.0...v1.85.0>`_ (2020-02-13)
 ------------------------------------------------------------------------------------------
 
