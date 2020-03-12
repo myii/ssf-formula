@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.91.0](https://github.com/myii/ssf-formula/compare/v1.90.0...v1.91.0) (2020-03-12)
+
+
+### Features
+
+* **zabbix:** adjust Travis matrix after updating test version numbers ([a681508](https://github.com/myii/ssf-formula/commit/a681508ce082ba9d0e441f71fe26e5f8d5374475))
+
 # [1.90.0](https://github.com/myii/ssf-formula/compare/v1.89.0...v1.90.0) (2020-03-12)
 
 
