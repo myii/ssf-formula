@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.90.0](https://github.com/myii/ssf-formula/compare/v1.89.0...v1.90.0) (2020-03-12)
+
+
+### Features
+
+* **telegraf:** adjust to new working matrix after `pytoml` changes ([a4812b3](https://github.com/myii/ssf-formula/commit/a4812b33ea95c5ec523ee266b09a8b907f2e59f1))
+
 # [1.89.0](https://github.com/myii/ssf-formula/compare/v1.88.0...v1.89.0) (2020-02-14)
 
 
