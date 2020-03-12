@@ -2590,9 +2590,10 @@ ssf:
           - [debian       ,   9   ,   2019.2,      3,         default]
           - [ubuntu       ,  18.04,   2019.2,      3,         default]
           # - [fedora       ,  31   ,   2019.2,      3,         default]
-          - [fedora       ,  30   ,   2018.3,      3,         default]
+          # - [fedora       ,  30   ,   2018.3,      3,         default]
           - [ubuntu       ,  16.04,   2018.3,      2,         default]
-          - [centos       ,   6   ,   2017.7,      2,         default]
+          - [debian       ,   8   ,   2017.7,      2,         default]
+          # - [centos       ,   6   ,   2017.7,      2,         default]
         rubocop:
           Cops:
             Metrics/BlockLength:
