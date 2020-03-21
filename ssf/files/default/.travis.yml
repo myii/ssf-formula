@@ -174,12 +174,6 @@ jobs:
     #       to allow for comprehensive local testing
     #       Ref: https://github.com/saltstack-formulas/template-formula/issues/118
     #       Ref: https://github.com/saltstack-formulas/template-formula/issues/121
-    {%-   elif semrel_formula == 'salt' %}
-    # The ordering used below has been selected based on the time required in Travis
-    # The slower ones are kept as high up as possible, to run concurrently rather than
-    # slow down the entire run at the end (i.e. `centos-6` and `opensuse`)
-    # However, the groupings needed to be maintained in some semblance of order
-    # so this is a best-effort matrix, in the circumstances
     {%-   endif %}
     {{- format_ci_matrix(platforms, inspec_suites_kitchen, inspec_suites_matrix, platforms_matrix, platforms_matrix_commented_includes, semrel_formula, use_new_travis_format=True) }}
     {%- endif %}
