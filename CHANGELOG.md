@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.92.0](https://github.com/myii/ssf-formula/compare/v1.91.0...v1.92.0) (2020-03-21)
+
+
+### Features
+
+* **salt:** adjust matrix to add `3000` & remove `2017.7` ([8129158](https://github.com/myii/ssf-formula/commit/8129158bc5486f8fead631e30bfd345bd5efb4f9))
+
 # [1.91.0](https://github.com/myii/ssf-formula/compare/v1.90.0...v1.91.0) (2020-03-12)
 
 
