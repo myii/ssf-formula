@@ -538,6 +538,27 @@ ssf:
           - [opensuse/leap,  15.1 ,   2018.3,      2,         default]
           - [centos       ,   6   ,   2017.7,      2,         default]
       semrel_files: *semrel_files_default
+    consul:
+      context:
+        git:
+          github:
+            repo: 'consul-formula'
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: >-
+                Verify that the consul formula is setup and configured correctly
+            provisioner:
+              pillars:
+                - '*':
+                    - base
+                    - .
+              pillars_from_files:
+                - base.sls: 'pillar.example'
+                - .sls: 'test/salt/pillar/default.sls'
+        platforms: *platforms_new
+        platforms_matrix: *platforms_matrix_new
+      semrel_files: *semrel_files_default
     cron:
       context:
         git:

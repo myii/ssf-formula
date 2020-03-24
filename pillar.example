@@ -76,6 +76,7 @@ ssf:
       - cert
       - chrony
       - collectd
+      - consul
       - cron
       - deepsea
       - dhcpd
