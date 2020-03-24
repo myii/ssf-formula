@@ -1,5 +1,13 @@
 # Changelog
 
+# [1.93.0](https://github.com/myii/ssf-formula/compare/v1.92.0...v1.93.0) (2020-03-24)
+
+
+### Features
+
+* **platforms:** prepare node anchors for new platforms and matrix ([42a2990](https://github.com/myii/ssf-formula/commit/42a2990dd070a1ea169cdc5b6e5520f3f2145f4d))
+* **timezone:** use `platforms_new` & `platforms_matrix_new` ([866ffb7](https://github.com/myii/ssf-formula/commit/866ffb7f935968a5489f86bf3baf0de8c6e10704))
+
 # [1.92.0](https://github.com/myii/ssf-formula/compare/v1.91.0...v1.92.0) (2020-03-21)
 
 
