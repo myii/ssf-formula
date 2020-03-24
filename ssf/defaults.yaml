@@ -22,8 +22,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "ci(kitchen+travis): adjust matrix to add '`'3000'`' & remove '`'2017.7'`'"
-            body: '* Semi-automated using https://github.com/myii/ssf-formula/pull/136'
+            title: "ci(kitchen+travis): adjust matrix to add '`'3000'`' & remove '`'2017.7'`' [skip ci]"
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/138'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
