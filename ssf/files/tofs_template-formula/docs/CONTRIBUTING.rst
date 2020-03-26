@@ -170,6 +170,7 @@ These formulas are already compatible with semantic-release:
 #. `cert-formula <https://github.com/saltstack-formulas/cert-formula>`_
 #. `chrony-formula <https://github.com/saltstack-formulas/chrony-formula>`_
 #. `collectd-formula <https://github.com/saltstack-formulas/collectd-formula>`_
+#. `consul-formula <https://github.com/saltstack-formulas/consul-formula>`_
 #. `cron-formula <https://github.com/saltstack-formulas/cron-formula>`_
 #. `deepsea-formula <https://github.com/saltstack-formulas/deepsea-formula>`_
 #. `dhcpd-formula <https://github.com/saltstack-formulas/dhcpd-formula>`_
