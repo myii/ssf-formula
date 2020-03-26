@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.95.0 <https://github.com/myii/ssf-formula/compare/v1.94.0...v1.95.0>`_ (2020-03-26)
+------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **formula:** add ``consul-formula`` (\ `408776c <https://github.com/myii/ssf-formula/commit/408776c21f104bc22f4aaac2768ebcd78b4c5c6e>`_\ )
+
 `1.94.0 <https://github.com/myii/ssf-formula/compare/v1.93.0...v1.94.0>`_ (2020-03-24)
 ------------------------------------------------------------------------------------------
 
