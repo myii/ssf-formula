@@ -12,6 +12,7 @@
 {%-   set context = semrel_formula_specs.context %}
 {%-   set inspec_suites_kitchen = context.inspec_suites_kitchen %}
 {%-   set use_cirrus_ci = context.use_cirrus_ci %}
+{%-   set use_libsaltcli = context.use_libsaltcli %}
 {%-   set use_tofs = context.use_tofs %}
 {%-   set formula = context.git.github.repo %}
 {#-   Determine the TOFS override directory for the current formula #}
@@ -87,9 +88,11 @@ prepare-git-branch-for-{{ formula }}:
 {#-           Add files by default #}
 {%-           set add_or_rm = ['add', 'add', 'managed'] %}
 {#-           Remove files if the file is `.cirrus.yml` and `use_cirrus_ci` is `False` #}
+{#-           Or if the file is `libsaltcli.jinja` and `use_libsaltcli` is `False` #}
 {#-           Likewise, if running the state for TOFS files when `use_tofs` is `False` #}
 {#-           Also remove the local `CONTRIBUTING` file to use the org-level file instead #}
 {%-           if (semrel_file == '.cirrus.yml' and not use_cirrus_ci) or
+                 (semrel_file == 'libsaltcli.jinja' and not use_libsaltcli) or
                  (semrel_file in ['docs/TOFS_pattern.rst', 'formula/libtofs.jinja'] and not use_tofs) or
                  (semrel_file in ['docs/CONTRIBUTING.rst'])
 %}

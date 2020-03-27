@@ -22,8 +22,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: 'feat(semantic-release): implement for this formula'
-            body: '* Checked using https://github.com/myii/ssf-formula/pull/137'
+            title: "refactor(libsaltcli): use the '`'opts'`' dict throughout [skip ci]"
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/139'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
@@ -167,6 +167,7 @@ ssf_node_anchors:
           dist: 'bionic'
           use_single_job_for_linters: true
         use_cirrus_ci: false
+        use_libsaltcli: false
         use_tofs: false
         yamllint:
           extends: 'default'
