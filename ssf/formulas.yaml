@@ -291,6 +291,8 @@ ssf_node_anchors:
           <<: *file_default
         docs/TOFS_pattern.rst: &file__docs__TOFS_pattern--rst
           <<: *file_default
+        formula/libsaltcli.jinja: &file__formula__libsaltcli--jinja
+          <<: *file_default
         formula/libtofs.jinja: &file__formula__libtofs--jinja
           <<: *file_default
         inspec/inspec.yml: &file__inspec__inspec--yml
@@ -1143,6 +1145,7 @@ ssf:
           - [fedora       ,  31   ,   2019.2,      3,         default]
           - [opensuse/leap,  15.1 ,   2018.3,      2,         default]
           - [ubuntu       ,  16.04,   2018.3,      2,         default]
+        use_libsaltcli: true
         use_tofs: true
       semrel_files: *semrel_files_default
     locale:
@@ -2321,9 +2324,13 @@ ssf:
           Cops:
             Metrics/BlockLength:
               Max: 36
+        use_libsaltcli: true
         use_tofs: true
       semrel_files:
         <<: *semrel_files_default
+        formula/libsaltcli.jinja:
+          <<: *file__formula__libsaltcli--jinja
+          alt_semrel_formula: 'TEMPLATE'
         formula/libtofs.jinja:
           <<: *file__formula__libtofs--jinja
           alt_semrel_formula: 'TEMPLATE'
