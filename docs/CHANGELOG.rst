@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.96.0 <https://github.com/myii/ssf-formula/compare/v1.95.0...v1.96.0>`_ (2020-03-29)
+------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **libsaltcli.jinja:** manage file for ``libvirt`` & ``template`` formulas (\ `2da697e <https://github.com/myii/ssf-formula/commit/2da697ef09054c177477cc57ba81dbf637b65324>`_\ )
+
 `1.95.0 <https://github.com/myii/ssf-formula/compare/v1.94.0...v1.95.0>`_ (2020-03-26)
 ------------------------------------------------------------------------------------------
 
