@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.97.0](https://github.com/myii/ssf-formula/compare/v1.96.0...v1.97.0) (2020-03-30)
+
+
+### Features
+
+* **logrotate:** fix Kitchen to ensure `cron` installed on `Debian` ([1f6a9b5](https://github.com/myii/ssf-formula/commit/1f6a9b5961a2ef6fabadca5306474aa4ad64fa90))
+
 # [1.96.0](https://github.com/myii/ssf-formula/compare/v1.95.0...v1.96.0) (2020-03-29)
 
 
