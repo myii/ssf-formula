@@ -22,8 +22,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "ci(kitchen): ensure '`'cron'`' installed on '`'Debian'`'"
-            body: '* Checked using https://github.com/myii/ssf-formula/pull/140'
+            title: "ci(kitchen): reinstall '`'udev'`' since removed from pre-salted images"
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/141'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
