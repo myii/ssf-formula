@@ -96,7 +96,14 @@ image: netmanagers/salt-{{ salt_ver }}-py{{ py_ver }}:{{ os | replace('/', '-') 
 {%-       endif %}
 {%-     elif semrel_formula == 'packages' %}
 {%-       if [os, os_ver] in [['debian', 10], ['debian', 9]] %}
+{%-         do prov_cmds.append('- apt-get install --reinstall -y udev') %}
 {%-         do prov_cmds.append('- apt-get install -y snapd') %}
+{%-       endif %}
+{%-     elif semrel_formula == 'systemd' %}
+{%-       if os in ['fedora'] %}
+{%-         do prov_cmds.append('- dnf -y reinstall udev') %}
+{%-       elif os in ['arch-base'] %}
+{%-         do prov_cmds.append('- pacman --noconfirm -Syu systemd') %}
 {%-       endif %}
 {%-     endif %}
 {#-     Prepare the commands if available#}
