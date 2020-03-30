@@ -1194,7 +1194,7 @@ ssf:
             provisioner:
               dependencies: *dependencies_states
               state_top:
-                - 'G@os_family:Suse':
+                - 'G@os_family:Suse or G@os:Debian':
                     - states.cron
                 - '*':
                     - .
