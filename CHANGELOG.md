@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.98.0](https://github.com/myii/ssf-formula/compare/v1.97.0...v1.98.0) (2020-03-30)
+
+
+### Features
+
+* **kitchen:** reinstall `udev` since removed from pre-salted images ([344fef2](https://github.com/myii/ssf-formula/commit/344fef2b4f3c2d31f30e8b321d370e7ff921d8dd))
+
 # [1.97.0](https://github.com/myii/ssf-formula/compare/v1.96.0...v1.97.0) (2020-03-30)
 
 
