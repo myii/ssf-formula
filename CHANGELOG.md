@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.99.0](https://github.com/myii/ssf-formula/compare/v1.98.0...v1.99.0) (2020-03-31)
+
+
+### Features
+
+* **zabbix:** adjust matrix to add `3000` & remove `2017.7` ([16f5cc7](https://github.com/myii/ssf-formula/commit/16f5cc77b4cbf93e698cdae07fbdecc769e620e5))
+
 # [1.98.0](https://github.com/myii/ssf-formula/compare/v1.97.0...v1.98.0) (2020-03-30)
 
 
