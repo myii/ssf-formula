@@ -2732,7 +2732,7 @@ ssf:
         platforms: *platforms_new
         platforms_matrix:
           - [debian       ,  10   ,   master,      3,         default]
-          # - [fedora       ,  31   ,   master,      3,         default]
+          - [fedora       ,  31   ,   master,      3,         default]
           - [ubuntu       ,  18.04,   3000.1,      3,         default]
           - [debian       ,   9   ,   2019.2,      3,         default]
           - [ubuntu       ,  16.04,   2019.2,      3,         default]
