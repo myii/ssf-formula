@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.101.0](https://github.com/myii/ssf-formula/compare/v1.100.0...v1.101.0) (2020-04-01)
+
+
+### Features
+
+* **formulas:** adjust matrix to update `3000` to `3000.1` ([703f0f2](https://github.com/myii/ssf-formula/commit/703f0f24257c8e9651adb2168ca0d7d415b1941b))
+
 # [1.100.0](https://github.com/myii/ssf-formula/compare/v1.99.0...v1.100.0) (2020-04-01)
 
 
