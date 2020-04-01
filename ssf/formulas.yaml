@@ -66,15 +66,15 @@ ssf_node_anchors:
           ### ` master-py2`
           - [arch-base    , latest,   master,      2]
 
-          ### `3000-py3`
-          - [debian       ,  10   ,     3000,      3]
-          - [ubuntu       ,  18.04,     3000,      3]
-          - [centos       ,   8   ,     3000,      3]
-          - [fedora       ,  31   ,     3000,      3]
-          - [opensuse/leap,  15.1 ,     3000,      3]
-          - [amazonlinux  ,   2   ,     3000,      3]
-          ### ` 3000-py2`
-          - [arch-base    , latest,     3000,      2]
+          ### `3000.1-py3`
+          - [debian       ,  10   ,   3000.1,      3]
+          - [ubuntu       ,  18.04,   3000.1,      3]
+          - [centos       ,   8   ,   3000.1,      3]
+          - [fedora       ,  31   ,   3000.1,      3]
+          - [opensuse/leap,  15.1 ,   3000.1,      3]
+          - [amazonlinux  ,   2   ,   3000.1,      3]
+          ### ` 3000.1-py2`
+          - [arch-base    , latest,   3000.1,      2]
 
           ### `2019.2-py3`
           - [debian       ,  10   ,   2019.2,      3]
@@ -108,9 +108,9 @@ ssf_node_anchors:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,  10   ,   master,      3,         default]
           - [centos       ,   8   ,   master,      3,         default]
-          - [ubuntu       ,  18.04,     3000,      3,         default]
-          - [opensuse/leap,  15.1 ,     3000,      3,         default]
-          - [amazonlinux  ,   2   ,     3000,      3,         default]
+          - [ubuntu       ,  18.04,   3000.1,      3,         default]
+          - [opensuse/leap,  15.1 ,   3000.1,      3,         default]
+          - [amazonlinux  ,   2   ,   3000.1,      3,         default]
           - [fedora       ,  31   ,   2019.2,      3,         default]
           - [arch-base    , latest,   2018.3,      2,         default]
 
@@ -149,7 +149,7 @@ ssf_node_anchors:
         platforms_osfamily_suse_new: &platforms_osfamily_suse_new
           # [os           , os_ver, salt_ver, py_ver]
           - [opensuse/leap,  15.1 ,   master,      3]
-          - [opensuse/leap,  15.1 ,     3000,      3]
+          - [opensuse/leap,  15.1 ,   3000.1,      3]
           - [opensuse/leap,  15.1 ,   2019.2,      3]
           - [opensuse/leap,  15.1 ,   2018.3,      2]
         platforms_os_debian: &platforms_os_debian
@@ -1826,12 +1826,12 @@ ssf:
           0:
             includes:
               # [os           , os_ver, salt_ver, py_ver]
-              - [debian       ,  10   ,     3000,      3]
-              - [ubuntu       ,  18.04,     3000,      3]
-              - [centos       ,   8   ,     3000,      3]
-              - [fedora       ,  31   ,     3000,      3]
-              - [opensuse/leap,  15.1 ,     3000,      3]
-              - [amazonlinux  ,   2   ,     3000,      3]
+              - [debian       ,  10   ,   3000.1,      3]
+              - [ubuntu       ,  18.04,   3000.1,      3]
+              - [centos       ,   8   ,   3000.1,      3]
+              - [fedora       ,  31   ,   3000.1,      3]
+              - [opensuse/leap,  15.1 ,   3000.1,      3]
+              - [amazonlinux  ,   2   ,   3000.1,      3]
             inspec_yml:
               summary: >-
                 Verify that Salt `v3000-py3` is setup and configured
@@ -1847,7 +1847,7 @@ ssf:
           1:
             includes:
               # [os           , os_ver, salt_ver, py_ver]
-              - [arch-base    , latest,     3000,      2]
+              - [arch-base    , latest,   3000.1,      2]
             inspec_yml:
               summary: >-
                 Verify that Salt `v3000-py2` is setup and configured
@@ -1929,13 +1929,13 @@ ssf:
           - v201803-py2
         platforms:
           # [os           , os_ver, salt_ver, py_ver]
-          - [debian       ,  10   ,     3000,      3]
-          - [ubuntu       ,  18.04,     3000,      3]
-          - [centos       ,   8   ,     3000,      3]
-          - [fedora       ,  31   ,     3000,      3]
-          - [opensuse/leap,  15.1 ,     3000,      3]
-          - [amazonlinux  ,   2   ,     3000,      3]
-          - [arch-base    , latest,     3000,      2]
+          - [debian       ,  10   ,   3000.1,      3]
+          - [ubuntu       ,  18.04,   3000.1,      3]
+          - [centos       ,   8   ,   3000.1,      3]
+          - [fedora       ,  31   ,   3000.1,      3]
+          - [opensuse/leap,  15.1 ,   3000.1,      3]
+          - [amazonlinux  ,   2   ,   3000.1,      3]
+          - [arch-base    , latest,   3000.1,      2]
           - [debian       ,  10   ,   2019.2,      3]
           - [debian       ,   9   ,   2019.2,      3]
           - [ubuntu       ,  18.04,   2019.2,      3]
@@ -1955,13 +1955,13 @@ ssf:
           - [arch-base    , latest,   2018.3,      2]
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
-          - [debian       ,  10   ,     3000,      3,     v3000-py3]
-          - [ubuntu       ,  18.04,     3000,      3,     v3000-py3]
-          - [centos       ,   8   ,     3000,      3,     v3000-py3]
-          - [fedora       ,  31   ,     3000,      3,     v3000-py3]
-          # - [opensuse/leap,  15.1 ,     3000,      3,     v3000-py3]
-          - [amazonlinux  ,   2   ,     3000,      3,     v3000-py3]
-          # # - [arch-base    , latest,     3000,      2,     v3000-py2]
+          - [debian       ,  10   ,   3000.1,      3,     v3000-py3]
+          - [ubuntu       ,  18.04,   3000.1,      3,     v3000-py3]
+          - [centos       ,   8   ,   3000.1,      3,     v3000-py3]
+          - [fedora       ,  31   ,   3000.1,      3,     v3000-py3]
+          # - [opensuse/leap,  15.1 ,   3000.1,      3,     v3000-py3]
+          - [amazonlinux  ,   2   ,   3000.1,      3,     v3000-py3]
+          # # - [arch-base    , latest,   3000.1,      2,     v3000-py2]
           # - [debian       ,  10   ,   2019.2,      3,     v201902-py3]
           - [debian       ,   9   ,   2019.2,      3,     v201902-py3]
           # - [ubuntu       ,  18.04,   2019.2,      3,     v201902-py3]
@@ -2320,9 +2320,9 @@ ssf:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,  10   ,   master,      3,         default]
           - [centos       ,   8   ,   master,      3,         default]
-          - [ubuntu       ,  18.04,     3000,      3,         default]
-          - [opensuse/leap,  15.1 ,     3000,      3,         default]
-          - [amazonlinux  ,   2   ,     3000,      3,         default]
+          - [ubuntu       ,  18.04,   3000.1,      3,         default]
+          - [opensuse/leap,  15.1 ,   3000.1,      3,         default]
+          - [amazonlinux  ,   2   ,   3000.1,      3,         default]
           - [fedora       ,  31   ,   2019.2,      3,         default]
           - [arch-base    , latest,   2019.2,      2,         default]
           - [centos       ,   6   ,   2018.3,      2,         centos6]
@@ -2521,10 +2521,9 @@ ssf:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,  10   ,   master,      3,         default]
           - [centos       ,   8   ,   master,      3,         default]
-          - [opensuse/leap,  15.1 ,   master,      3,            suse]
-          - [ubuntu       ,  18.04,     3000,      3,         default]
-          # - [opensuse/leap,  15.1 ,     3000,      3,            suse]
-          - [amazonlinux  ,   2   ,     3000,      3,         default]
+          - [ubuntu       ,  18.04,   3000.1,      3,         default]
+          - [opensuse/leap,  15.1 ,   3000.1,      3,            suse]
+          - [amazonlinux  ,   2   ,   3000.1,      3,         default]
           - [fedora       ,  31   ,   2019.2,      3,         default]
           - [arch-base    , latest,   2018.3,      2,         default]
       #   # Enable this in a subsequent PR, since it's an old version,
@@ -2693,7 +2692,7 @@ ssf:
         platforms_matrix:
           - [debian       ,  10   ,   master,      3,         default]
           # - [fedora       ,  31   ,   master,      3,         default]
-          - [ubuntu       ,  18.04,     3000,      3,         default]
+          - [ubuntu       ,  18.04,   3000.1,      3,         default]
           - [debian       ,   9   ,   2019.2,      3,         default]
           - [ubuntu       ,  16.04,   2019.2,      3,         default]
           - [debian       ,   8   ,   2018.3,      2,         default]
