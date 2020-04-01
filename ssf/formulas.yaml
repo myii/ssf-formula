@@ -789,6 +789,10 @@ ssf:
           - [opensuse/leap,  15.1 ,   2018.3,      2,         default]
           - [arch-base    , latest,   2018.3,      2,         default]
           # - [ubuntu       ,  16.04,   2017.7,      2,         default]
+        rubocop:
+          Cops:
+            Metrics/BlockLength:
+              Max: 39
       semrel_files: *semrel_files_default
     golang:
       context:
