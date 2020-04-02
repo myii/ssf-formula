@@ -137,8 +137,8 @@ ssf:
       - zabbix
     semrel_files:
       - bin/kitchen
-      - docs/CONTRIBUTING.rst
       - docs/TOFS_pattern.rst
+      - formula/libsaltcli.jinja
       - formula/libtofs.jinja
       - inspec/inspec.yml
       - inspec/README.md
