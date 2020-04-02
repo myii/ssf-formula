@@ -198,6 +198,7 @@ These formulas are already compatible with semantic-release:
 #. `nfs-formula <https://github.com/saltstack-formulas/nfs-formula>`_
 #. `nginx-formula <https://github.com/saltstack-formulas/nginx-formula>`_
 #. `ntp-formula <https://github.com/saltstack-formulas/ntp-formula>`_
+#. `openldap-formula <https://github.com/saltstack-formulas/openldap-formula>`_
 #. `openssh-formula <https://github.com/saltstack-formulas/openssh-formula>`_
 #. `openvpn-formula <https://github.com/saltstack-formulas/openvpn-formula>`_
 #. `packages-formula <https://github.com/saltstack-formulas/packages-formula>`_
