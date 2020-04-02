@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.102.0](https://github.com/myii/ssf-formula/compare/v1.101.0...v1.102.0) (2020-04-02)
+
+
+### Features
+
+* **firewalld:** relax rubocop `Metrics/BlockLength` for new tests ([326baf4](https://github.com/myii/ssf-formula/commit/326baf4bd5517d7f762888700acf0ebb1a3e8b26))
+
 # [1.101.0](https://github.com/myii/ssf-formula/compare/v1.100.0...v1.101.0) (2020-04-01)
 
 
