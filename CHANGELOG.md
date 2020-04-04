@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.104.1](https://github.com/myii/ssf-formula/compare/v1.104.0...v1.104.1) (2020-04-04)
+
+
+### Bug Fixes
+
+* **libsaltcli.jinja:** ensure file isn't added when it shouldn't be ([4021dee](https://github.com/myii/ssf-formula/commit/4021deeeb2ddfacdbe3ca08a494f70d2893fdb0d))
+
 # [1.104.0](https://github.com/myii/ssf-formula/compare/v1.103.0...v1.104.0) (2020-04-04)
 
 
