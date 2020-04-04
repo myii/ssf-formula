@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.104.0](https://github.com/myii/ssf-formula/compare/v1.103.0...v1.104.0) (2020-04-04)
+
+
+### Features
+
+* **zabbix:** enable `fedora` testing ([52ebfbb](https://github.com/myii/ssf-formula/commit/52ebfbb1f294a21bd13dc8a524f0ec50682060bf))
+
 # [1.103.0](https://github.com/myii/ssf-formula/compare/v1.102.0...v1.103.0) (2020-04-04)
 
 
