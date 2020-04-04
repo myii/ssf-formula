@@ -92,7 +92,7 @@ prepare-git-branch-for-{{ formula }}:
 {#-           Likewise, if running the state for TOFS files when `use_tofs` is `False` #}
 {#-           Also remove the local `CONTRIBUTING` file to use the org-level file instead #}
 {%-           if (semrel_file == '.cirrus.yml' and not use_cirrus_ci) or
-                 (semrel_file == 'libsaltcli.jinja' and not use_libsaltcli) or
+                 (semrel_file == 'formula/libsaltcli.jinja' and not use_libsaltcli) or
                  (semrel_file in ['docs/TOFS_pattern.rst', 'formula/libtofs.jinja'] and not use_tofs) or
                  (semrel_file in ['docs/CONTRIBUTING.rst'])
 %}
