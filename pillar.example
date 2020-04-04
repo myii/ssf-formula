@@ -105,6 +105,7 @@ ssf:
       - nfs
       - nginx
       - ntp
+      - openldap
       - openssh
       - openvpn
       - packages

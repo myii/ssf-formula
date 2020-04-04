@@ -1396,6 +1396,43 @@ ssf:
             key-duplicates:
               ignore: *ignore_pillar_example
       semrel_files: *semrel_files_default
+    openldap:
+      context:
+        git:
+          github:
+            repo: 'openldap-formula'
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: >-
+                Verify that the openldap formula is setup and configured correctly
+            provisioner:
+              pillars_from_files:
+                - .sls: 'test/salt/pillar/default.sls'
+        platforms: *platforms_new
+        platforms_matrix:
+          # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
+          - [debian       ,  10   ,   master,      3,         default]
+          # Unavailable for `centos-8`
+          # https://bugs.centos.org/view.php?id=16959
+          # # - [centos       ,   8   ,   master,      3,         default]
+          - [fedora       ,  31   ,   master,      3,         default]
+          - [ubuntu       ,  18.04,   3000.1,      3,         default]
+          - [opensuse/leap,  15.1 ,   3000.1,      3,         default]
+          # TLS certificates error preventing the service from starting:
+          #   Could not get the realpath: No such file or directory
+          # # - [amazonlinux  ,   2   ,   3000.1,      3,         default]
+          - [debian       ,   9   ,   2019.2,      3,         default]
+          - [ubuntu       ,  16.04,   2019.2,      3,         default]
+          # Docker/Systemd problem:
+          #   ... and PID file is not owned by root. Refusing.
+          # # - [centos       ,   7   ,   2019.2,      3,         default]
+          # - [fedora       ,  31   ,   2019.2,      3,         default]
+          - [centos       ,   6   ,   2018.3,      2,         default]
+          # Not configured at all for `arch-base`
+          # https://wiki.archlinux.org/index.php/OpenLDAP
+          # # - [arch-base    , latest,   2018.3,      2,         default]
+      semrel_files: *semrel_files_default
     openssh:
       context:
         git:
