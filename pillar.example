@@ -104,6 +104,7 @@ ssf:
       - mysql
       - nfs
       - nginx
+      - nifi
       - ntp
       - openldap
       - openssh
