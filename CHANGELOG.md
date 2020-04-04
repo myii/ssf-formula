@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.103.0](https://github.com/myii/ssf-formula/compare/v1.102.0...v1.103.0) (2020-04-04)
+
+
+### Features
+
+* **formula:** add `openldap-formula` ([554248a](https://github.com/myii/ssf-formula/commit/554248abdceeaea54144978931b6d6706831dc2b))
+
 # [1.102.0](https://github.com/myii/ssf-formula/compare/v1.101.0...v1.102.0) (2020-04-02)
 
 
