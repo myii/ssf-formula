@@ -111,6 +111,7 @@ ssf:
       - nfs
       - nginx
       - nifi
+      - node
       - ntp
       - openldap
       - openssh
