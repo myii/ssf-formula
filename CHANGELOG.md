@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.105.0](https://github.com/myii/ssf-formula/compare/v1.104.1...v1.105.0) (2020-04-05)
+
+
+### Features
+
+* **formula:** add `nifi-formula` ([b9f0b9e](https://github.com/myii/ssf-formula/commit/b9f0b9ee2609c85c61136969e637dbb89e00b296))
+
 ## [1.104.1](https://github.com/myii/ssf-formula/compare/v1.104.0...v1.104.1) (2020-04-04)
 
 
