@@ -5,6 +5,8 @@
 {%- set tplroot = tpldir.split('/')[0] %}
 {%- from tplroot ~ "/map.jinja" import ssf with context %}
 {%- from tplroot ~ "/libtofs.jinja" import files_switch with context %}
+{%- set running_as_root = opts.get('user', '') == 'root' %}
+{%- do salt['log.debug']('[ssf] running_as_root: ' ~ running_as_root) %}
 
 {#- Work through each formula, which is in the `active` list via. pillar/config #}
 {%- for semrel_formula, semrel_formula_specs in ssf.semrel_formulas.items() if semrel_formula in ssf.active.semrel_formulas %}
@@ -37,7 +39,9 @@ prepare-git-branch-for-{{ formula }}:
         {{ context.git.branch.upstream }}
         {{ branch_pr }}
         {{ context.git.commit.body | regex_escape }}
+    {%- if running_as_root %}
     - runas: {{ ssf.user }}
+    {%- endif %}
     - stateful: True
 {%-   endif %}
 
@@ -146,7 +150,9 @@ prepare-git-branch-for-{{ formula }}:
     - name: |
         git {{ add_or_rm[0] }} {{ dest_file }}
     - cwd: {{ ssf.formulas_path }}/{{ formula }}/
+    {%- if running_as_root %}
     - runas: {{ ssf.user }}
+    {%- endif %}
     - onchanges:
       - file: {{ add_or_rm[1] }}-{{ formula }}-{{ dest_file }}
     {%-         if ssf.git.states.commit_push.active %}
@@ -185,7 +191,9 @@ commit-and-push-{{ formula }}:
         {{ context.git.github.remote.upstream.name }}
         {{ context.git.github.remote.upstream.branch }}
         {{ ssf.git.commit.author }}
+    {%- if running_as_root %}
     - runas: {{ ssf.user }}
+    {%- endif %}
     - stateful: True
 {%-   endif %}
 
@@ -206,7 +214,9 @@ create-github-PR-for-{{ formula }}:
         {{ context.git.commit.title | regex_escape }}
         {{ context.git.commit.body | regex_escape }}
         {{ ssf.git.github.file_api_response }}
+    {%- if running_as_root %}
     - runas: {{ ssf.user }}
+    {%- endif %}
     - stateful: True
     {%- if ssf.git.states.commit_push.active %}
     - onchanges:
