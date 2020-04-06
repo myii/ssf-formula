@@ -642,6 +642,7 @@ ssf:
             provisioner:
               state_top:
                 - '*':
+                    - .yaml_dump
                     - .config
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
