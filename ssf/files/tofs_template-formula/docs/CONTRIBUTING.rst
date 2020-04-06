@@ -197,6 +197,7 @@ These formulas are already compatible with semantic-release:
 #. `mysql-formula <https://github.com/saltstack-formulas/mysql-formula>`_
 #. `nfs-formula <https://github.com/saltstack-formulas/nfs-formula>`_
 #. `nginx-formula <https://github.com/saltstack-formulas/nginx-formula>`_
+#. `nifi-formula <https://github.com/saltstack-formulas/nifi-formula>`_
 #. `ntp-formula <https://github.com/saltstack-formulas/ntp-formula>`_
 #. `openldap-formula <https://github.com/saltstack-formulas/openldap-formula>`_
 #. `openssh-formula <https://github.com/saltstack-formulas/openssh-formula>`_

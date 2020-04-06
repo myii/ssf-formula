@@ -1379,7 +1379,6 @@ ssf:
       context:
         git:
           github:
-            owner: 'codeboyQ2n5ha45'
             repo: 'nifi-formula'
         inspec_suites_kitchen:
           0:
