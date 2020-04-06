@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.106.0](https://github.com/myii/ssf-formula/compare/v1.105.0...v1.106.0) (2020-04-06)
+
+
+### Features
+
+* **nifi:** update for formula's transfer to main org ([f97189a](https://github.com/myii/ssf-formula/commit/f97189a811a0922e49e256320d06c3c13ada082a))
+
 # [1.105.0](https://github.com/myii/ssf-formula/compare/v1.104.1...v1.105.0) (2020-04-05)
 
 
