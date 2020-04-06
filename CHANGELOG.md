@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.107.0](https://github.com/myii/ssf-formula/compare/v1.106.0...v1.107.0) (2020-04-06)
+
+
+### Features
+
+* **dhcpd:** add `yaml_dump` state to Kitchen ([4781464](https://github.com/myii/ssf-formula/commit/4781464f1276ea9af8dda2e9ccc147f41d7e9e84))
+
 # [1.106.0](https://github.com/myii/ssf-formula/compare/v1.105.0...v1.106.0) (2020-04-06)
 
 
