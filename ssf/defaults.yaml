@@ -23,7 +23,7 @@ ssf_node_anchors:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
             title: "ci(kitchen+travis): adjust matrix to add '`'3000.1'`' & remove '`'2017.7'`'"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/153'
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/154'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
