@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.108.0 <https://github.com/myii/ssf-formula/compare/v1.107.0...v1.108.0>`_ (2020-04-09)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **dhcpd:** adjust matrix to add ``3000.1`` & remove ``2017.7`` (\ `bce7e1b <https://github.com/myii/ssf-formula/commit/bce7e1b6f272b44165b3aee969c45c336d417265>`_\ )
+
 `1.107.0 <https://github.com/myii/ssf-formula/compare/v1.106.0...v1.107.0>`_ (2020-04-06)
 ---------------------------------------------------------------------------------------------
 
