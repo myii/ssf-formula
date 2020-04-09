@@ -184,6 +184,7 @@ commit-and-push-{{ formula }}:
         {{ context.git.github.remote.fork.branch }}
         {{ context.git.github.remote.upstream.name }}
         {{ context.git.github.remote.upstream.branch }}
+        {{ ssf.git.commit.author }}
     - runas: {{ ssf.user }}
     - stateful: True
 {%-   endif %}

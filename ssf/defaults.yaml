@@ -227,6 +227,7 @@ ssf:
     semrel_files: []
   git:
     commit:
+      author: ''
       options: ''
     github:
       user: ''
