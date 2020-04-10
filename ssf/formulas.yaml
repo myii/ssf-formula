@@ -1460,6 +1460,10 @@ ssf:
           # Not configured at all for `arch-base`
           # https://wiki.archlinux.org/index.php/OpenLDAP
           # # - [arch-base    , latest,   2018.3,      2,         default]
+        rubocop:
+          Cops:
+            Metrics/BlockLength:
+              Max: 30
       semrel_files: *semrel_files_default
     openssh:
       context:
