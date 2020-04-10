@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.110.0 <https://github.com/myii/ssf-formula/compare/v1.109.0...v1.110.0>`_ (2020-04-10)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **openldap:** override ``Metrics/BlockLength`` cop (\ `3b85059 <https://github.com/myii/ssf-formula/commit/3b85059cd7a91aa8d7a9d46fcd95e46988c585e6>`_\ )
+
 `1.109.0 <https://github.com/myii/ssf-formula/compare/v1.108.0...v1.109.0>`_ (2020-04-10)
 ---------------------------------------------------------------------------------------------
 
