@@ -14,6 +14,12 @@ ssf:
     #   upstream: upstream
     ### Add extra options to the `git commit`, such as turning off GPG signing
     commit:
+      # Use this to modify the author of the commit propagated throughout the
+      # affected formulas.  Override via. pillar/config.  A blank value here
+      # avoids using the `--author` setting entirely, which is the default.
+      # The enclosed double-quotes are required to avoid the following error:
+      #   -bash: syntax error near unexpected token `newline'
+      author: '"Foo Bar <foobar@example.com>"'
       options: '--no-gpg-sign'
     ### Your GitHub configuration
     github:

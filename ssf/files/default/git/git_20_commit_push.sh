@@ -17,6 +17,7 @@ REMOTE_FORK_NAME=${10}
 # REMOTE_FORK_BRANCH=${11}
 REMOTE_UPSTREAM_NAME=${12}
 REMOTE_UPSTREAM_BRANCH=${13}
+COMMIT_AUTHOR=${14}
 # Prepare initial state line variables
 CHANGED='True'
 COMMENT='Command `'${STATE}'` run'
@@ -33,8 +34,14 @@ fi
 
 # Perform actions
 # Disabling `SC2086` where double-quoting an empty variable introduces errors
-# shellcheck disable=SC2086
-git commit ${AMEND} "${COMMIT_OPTIONS}" -m "${COMMIT_TITLE}" -m "${COMMIT_BODY}"
+if [ -z "${COMMIT_AUTHOR}" ]; then
+    # shellcheck disable=SC2086
+    git commit ${AMEND} "${COMMIT_OPTIONS}" -m "${COMMIT_TITLE}" -m "${COMMIT_BODY}"
+else
+    # shellcheck disable=SC2086
+    git commit ${AMEND} "${COMMIT_OPTIONS}" -m "${COMMIT_TITLE}" -m "${COMMIT_BODY}" --author="'${COMMIT_AUTHOR}'"
+fi
+
 if ${PUSH_ACTIVE}; then
     if ${PUSH_VIA_PR}; then
         # shellcheck disable=SC2086
