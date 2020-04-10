@@ -2,6 +2,16 @@
 Changelog
 =========
 
+`1.109.0 <https://github.com/myii/ssf-formula/compare/v1.108.0...v1.109.0>`_ (2020-04-10)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **author:** allow setting the author for the propagation commit (\ `659a768 <https://github.com/myii/ssf-formula/commit/659a768399983ee0084900822a6a33cc9f29bb3b>`_\ )
+* **vault:** adjust matrix to add ``3000.1`` & remove ``2017.7`` (\ `48d0dc2 <https://github.com/myii/ssf-formula/commit/48d0dc270f7c8c9c3b665023b89821e5898e5580>`_\ )
+
 `1.108.0 <https://github.com/myii/ssf-formula/compare/v1.107.0...v1.108.0>`_ (2020-04-09)
 ---------------------------------------------------------------------------------------------
 
