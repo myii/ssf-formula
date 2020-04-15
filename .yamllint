@@ -50,5 +50,10 @@ rules:
   octal-values:
     forbid-implicit-octal: true
     forbid-explicit-octal: true
-  quoted-strings:
-    quote-type: 'single'
+  # yamllint disable rule:comments-indentation
+  # Disable this rule for the time being due to numerous violations detected after
+  # update to `1.22.0` (Fix quoted-strings rule not working on sequences items), see:
+  # https://github.com/adrienverge/yamllint/blob/master/CHANGELOG.rst#1220-2020-04-13
+  # quoted-strings:
+  #   quote-type: 'single'
+  # yamllint enable rule:comments-indentation
