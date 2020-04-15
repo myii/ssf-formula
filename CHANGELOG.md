@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.111.0](https://github.com/myii/ssf-formula/compare/v1.110.0...v1.111.0) (2020-04-15)
+
+
+### Features
+
+* **formula:** add `node-formula` ([e5c6890](https://github.com/myii/ssf-formula/commit/e5c6890f7bb0c31e7789ba4a9adbb62727dd7335))
+
 # [1.110.0](https://github.com/myii/ssf-formula/compare/v1.109.0...v1.110.0) (2020-04-10)
 
 
