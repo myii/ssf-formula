@@ -1861,6 +1861,34 @@ ssf:
               - postgres/repo.yaml
               - test/salt/pillar/postgres.sls
       semrel_files: *semrel_files_default
+    powerdns:
+      context:
+        git:
+          github:
+            repo: 'powerdns-formula'
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: >-
+                Verify that the powerdns formula is setup and configured correctly
+        inspec_suites_matrix: []
+        platforms: []
+        platforms_matrix: []
+        yamllint:
+          ignore:
+            additional:
+              - sls.example
+      semrel_files:
+        .gitignore: *file__--gitignore
+        .rubocop.yml: *file__--rubocop--yml
+        .salt-lint: *file__--salt-lint
+        .travis.yml: *file__--travis--yml
+        .yamllint: *file__--yamllint
+        commitlint.config.js: *file__commitlint--config--js
+        Gemfile: *file__Gemfile
+        pre-commit_semantic-release.sh: *file__pre-commit_semantic-release--sh
+        release-rules.js: *file__release-rules--js
+        release.config.js: *file__release--config--js
     prometheus:
       context:
         git:

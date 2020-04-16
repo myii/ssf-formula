@@ -207,6 +207,7 @@ These formulas are already compatible with semantic-release:
 #. `php-formula <https://github.com/saltstack-formulas/php-formula>`_
 #. `postfix-formula <https://github.com/saltstack-formulas/postfix-formula>`_
 #. `postgres-formula <https://github.com/saltstack-formulas/postgres-formula>`_
+#. `powerdns-formula <https://github.com/saltstack-formulas/powerdns-formula>`_
 #. `prometheus-formula <https://github.com/saltstack-formulas/prometheus-formula>`_
 #. `rabbitmq-formula <https://github.com/saltstack-formulas/rabbitmq-formula>`_
 #. `redis-formula <https://github.com/saltstack-formulas/redis-formula>`_
