@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.111.1](https://github.com/myii/ssf-formula/compare/v1.111.0...v1.111.1) (2020-04-16)
+
+
+### Bug Fixes
+
+* allow running as non-root user ([260782c](https://github.com/myii/ssf-formula/commit/260782c249b5fdd80221e0ff57e1e1fcefe2388f))
+
 # [1.111.0](https://github.com/myii/ssf-formula/compare/v1.110.0...v1.111.0) (2020-04-15)
 
 
