@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.112.0 <https://github.com/myii/ssf-formula/compare/v1.111.1...v1.112.0>`_ (2020-04-17)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **formula:** add ``powerdns-formula`` (without platforms) (\ `d1e3215 <https://github.com/myii/ssf-formula/commit/d1e3215314ff021114b3d761a5a6efb1b3af85b9>`_\ )
+
 `1.111.1 <https://github.com/myii/ssf-formula/compare/v1.111.0...v1.111.1>`_ (2020-04-16)
 ---------------------------------------------------------------------------------------------
 
