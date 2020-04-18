@@ -778,6 +778,11 @@ ssf:
             inspec_yml:
               summary: >-
                 Verify that the firewalld formula is setup and configured correctly
+            provisioner:
+              state_top:
+                - '*':
+                    - .yaml_dump
+                    - .
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
           - [ubuntu       ,  18.04,   master,      3,         default]
