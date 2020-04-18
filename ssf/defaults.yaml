@@ -22,8 +22,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "chore(rubocop): use org-wide standard settings for '`'Metrics/BlockLength'`' [skip ci]"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/158'
+            title: "test: verify map output using '`'yaml_dump'`'"
+            body: '* Semi-automated using https://github.com/myii/ssf-formula/pull/159'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
