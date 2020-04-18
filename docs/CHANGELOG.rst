@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.114.0 <https://github.com/myii/ssf-formula/compare/v1.113.0...v1.114.0>`_ (2020-04-18)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **rubocop:** use org-wide standard settings for ``Metrics/BlockLength`` (\ `39d01f1 <https://github.com/myii/ssf-formula/commit/39d01f1abd50283e14fd54773dc1f6009b4f9134>`_\ )
+
 `1.113.0 <https://github.com/myii/ssf-formula/compare/v1.112.0...v1.113.0>`_ (2020-04-18)
 ---------------------------------------------------------------------------------------------
 
