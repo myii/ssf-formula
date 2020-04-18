@@ -10,6 +10,15 @@
   # Based on https://github.com/PyCQA/flake8-bugbear#opinionated-warnings (`B950`)
   {%- endif %}
   Max: {{ rbcp_LLL.Max }}
+{%- set MBL = 'Metrics/BlockLength' %}
+{{ MBL }}:
+  {%- set rbcp_MBL = rubocop.Cops.get(MBL) %}
+  ExcludedMethods:
+    {%- for method in rbcp_MBL.ExcludedMethods %}
+    - {{ method }}
+    {%- endfor %}
+  # Increase from default of `{{ rbcp_MBL.Default }}`
+  Max: {{ rbcp_MBL.Max }}
 
 {%- if rubocop.AllCops %}
 
@@ -27,10 +36,7 @@ AllCops:
 {%- endif %}
 
 # Any offenses that should be fixed, e.g. collected via. `rubocop --auto-gen-config`
-{%- if semrel_formula == 'template' %}
-# <REMOVEME
-{%- endif %}
-{%- for cop, config in rubocop.Cops.items() if cop not in [LLL] %}
+{%- for cop, config in rubocop.Cops.items() if cop not in [LLL, MBL] %}
 {{ cop }}:
   {#- This is purposefully simplistic for the time being,
       until (if ever) more advanced configuration is necessary #}
@@ -38,6 +44,3 @@ AllCops:
   {{ k }}: {{ v }}
   {%- endfor %}
 {%- endfor %}
-{%- if semrel_formula == 'template' %}
-# REMOVEME>
-{%- endif %}

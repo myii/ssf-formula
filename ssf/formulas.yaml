@@ -432,10 +432,6 @@ ssf:
           - [ubuntu       ,  18.04,   master,      3,    repositories]
           - [debian       ,   9   ,   2019.2,      3,     preferences]
           - [ubuntu       ,  18.04,   2019.2,      3,      unattended]
-        rubocop:
-          Cops:
-            Metrics/BlockLength:
-              Max: 55
       semrel_files: *semrel_files_default
     apt-cacher:
       context:
@@ -656,10 +652,6 @@ ssf:
           - [centos       ,   7   ,   2019.2,      3,         default]
           - [centos       ,   6   ,   2018.3,      2,         default]
           # - [arch-base    , latest,   2018.3,      2,         default]
-        rubocop:
-          Cops:
-            Metrics/BlockLength:
-              Max: 250
       semrel_files: *semrel_files_default
     django:
       context:
@@ -795,10 +787,6 @@ ssf:
           - [opensuse/leap,  15.1 ,   2018.3,      2,         default]
           - [arch-base    , latest,   2018.3,      2,         default]
           # - [ubuntu       ,  16.04,   2017.7,      2,         default]
-        rubocop:
-          Cops:
-            Metrics/BlockLength:
-              Max: 39
       semrel_files: *semrel_files_default
     golang:
       context:
@@ -1558,10 +1546,6 @@ ssf:
           # Not configured at all for `arch-base`
           # https://wiki.archlinux.org/index.php/OpenLDAP
           # # - [arch-base    , latest,   2018.3,      2,         default]
-        rubocop:
-          Cops:
-            Metrics/BlockLength:
-              Max: 30
       semrel_files: *semrel_files_default
     openssh:
       context:
@@ -1620,10 +1604,6 @@ ssf:
           - [centos       ,   7   ,   2018.3,      2,         default]
           - [opensuse/leap,  15.1 ,   2018.3,      2,         default]
           - [centos       ,   6   ,   2017.7,      2,         default]
-        rubocop:
-          Cops:
-            Metrics/BlockLength:
-              Max: 36
         yamllint:
           ignore:
             additional:
@@ -1889,12 +1869,6 @@ ssf:
           # - [amazonlinux  ,   2   ,   3000.1,      3,         default]
           - [fedora       ,  31   ,   2019.2,      3,         default]
           # - [arch-base    , latest,   2018.3,      2,         default]
-        rubocop:
-          Cops:
-            Metrics/BlockLength:
-              ExcludedMethods:
-                - control
-                - describe
         yamllint:
           ignore:
             additional:
@@ -2224,7 +2198,6 @@ ssf:
               - ssf/files/default/.yamllint
               - ssf/files/default/kitchen.yml
               - ssf/files/default/inspec/inspec.yml
-              - ssf/files/tofs_powerdns-formula/.rubocop.yml
               - ssf/files/tofs_ssf-formula/.travis.yml
               - ssf/files/tofs_ssf-formula/.yamllint
           rules:
@@ -2284,10 +2257,6 @@ ssf:
             inspec_yml:
               summary: >-
                 Verify that the strongswan formula is setup and configured correctly
-        rubocop:
-          Cops:
-            Metrics/BlockLength:
-              Max: 27
         use_tofs: true
       semrel_files: *semrel_files_default
     stunnel:
@@ -2340,10 +2309,6 @@ ssf:
                 - '*':
                     - .
                     - .included
-        rubocop:
-          Cops:
-            Metrics/BlockLength:
-              Max: 41
       semrel_files: *semrel_files_default
     sysctl:
       context:
@@ -2457,10 +2422,6 @@ ssf:
           # - [amazonlinux  ,   1   ,   2017.7,      2]
           - [arch-base    , latest,   2017.7,      2]
         platforms_matrix: *platforms_matrix_systemd_only
-        rubocop:
-          Cops:
-            Metrics/BlockLength:
-              Max: 41
         use_tofs: true
       semrel_files: *semrel_files_default
     telegraf:
@@ -2537,10 +2498,6 @@ ssf:
           - [fedora       ,  31   ,   2019.2,      3,         default]
           - [arch-base    , latest,   2019.2,      2,         default]
           - [centos       ,   6   ,   2018.3,      2,         centos6]
-        rubocop:
-          Cops:
-            Metrics/BlockLength:
-              Max: 36
         use_libsaltcli: true
         use_tofs: true
       semrel_files:
@@ -2883,10 +2840,6 @@ ssf:
           - [ubuntu       ,  16.04,   2019.2,      3,         default]
           - [debian       ,   8   ,   2018.3,      2,         default]
           # - [fedora       ,  30   ,   2018.3,      3,         default]
-        rubocop:
-          Cops:
-            Metrics/BlockLength:
-              Max: 28
         use_tofs: true
         yamllint:
           rules:
