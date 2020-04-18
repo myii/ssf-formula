@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.115.0 <https://github.com/myii/ssf-formula/compare/v1.114.0...v1.115.0>`_ (2020-04-18)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **firewalld:** add ``yaml_dump`` state to Kitchen (\ `b40260b <https://github.com/myii/ssf-formula/commit/b40260b562547281a36b3b47012b47807020abfa>`_\ )
+
 `1.114.0 <https://github.com/myii/ssf-formula/compare/v1.113.0...v1.114.0>`_ (2020-04-18)
 ---------------------------------------------------------------------------------------------
 
