@@ -138,6 +138,7 @@ ssf:
       - telegraf
       - template
       - timezone
+      - tomcat
       - ufw
       - users
       - varnish
