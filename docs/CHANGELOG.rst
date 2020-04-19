@@ -2,6 +2,16 @@
 Changelog
 =========
 
+`1.116.0 <https://github.com/myii/ssf-formula/compare/v1.115.0...v1.116.0>`_ (2020-04-19)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **libsaltcli:** update ``salt-ssh`` detection for ``enable_ssh_minions`` (\ `16ec994 <https://github.com/myii/ssf-formula/commit/16ec994df1fbe547d639b7b40396dd9faa8c1420>`_\ ), closes `/github.com/saltstack-formulas/template-formula/commit/69b632fbe613d4f99a48f59f64ec93c3897431c8#r38597329 <https://github.com//github.com/saltstack-formulas/template-formula/commit/69b632fbe613d4f99a48f59f64ec93c3897431c8/issues/r38597329>`_
+* **template:** add quick check that ``convert-formula.sh`` has worked (\ `7f3737e <https://github.com/myii/ssf-formula/commit/7f3737e158b45141e74ecec667858b0cb2bd3b02>`_\ )
+
 `1.115.0 <https://github.com/myii/ssf-formula/compare/v1.114.0...v1.115.0>`_ (2020-04-18)
 ---------------------------------------------------------------------------------------------
 
