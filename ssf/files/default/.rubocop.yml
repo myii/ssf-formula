@@ -26,7 +26,7 @@
 AllCops:
   {#- This is purposefully simplistic for the time being,
       until (if ever) more advanced configuration is necessary #}
-  {%- if rubocop.AllCops.Exclude %}
+  {%- if rubocop.AllCops.get('Exclude', []) %}
   # Files to ignore completely
   Exclude:
     {%- for path in rubocop.AllCops.Exclude %}
@@ -40,7 +40,13 @@ AllCops:
 {{ cop }}:
   {#- This is purposefully simplistic for the time being,
       until (if ever) more advanced configuration is necessary #}
-  {%- for k, v in config.items() %}
+  {%- if config.get('Exclude', []) %}
+  Exclude:
+    {%- for path in config.Exclude %}
+    - {{ path }}
+    {%- endfor %}
+  {%- endif %}
+  {%- for k, v in config.items() if k not in ['Exclude'] %}
   {{ k }}: {{ v }}
   {%- endfor %}
 {%- endfor %}
