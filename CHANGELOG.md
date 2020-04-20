@@ -1,5 +1,13 @@
 # Changelog
 
+# [1.117.0](https://github.com/myii/ssf-formula/compare/v1.116.0...v1.117.0) (2020-04-20)
+
+
+### Features
+
+* **formula:** add `tomcat-formula` ([54594bb](https://github.com/myii/ssf-formula/commit/54594bb0cd9bf90da66a3d3825d5a28dfcdfb6b6))
+* **rubocop:** allow `Exclude` to be set for cops ([0f316c2](https://github.com/myii/ssf-formula/commit/0f316c270371218cea1d90f62717861d48cfdeeb))
+
 # [1.116.0](https://github.com/myii/ssf-formula/compare/v1.115.0...v1.116.0) (2020-04-19)
 
 
