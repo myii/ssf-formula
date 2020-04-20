@@ -223,6 +223,7 @@ These formulas are already compatible with semantic-release:
 #. `telegraf-formula <https://github.com/saltstack-formulas/telegraf-formula>`_
 #. `template-formula <https://github.com/saltstack-formulas/template-formula>`_
 #. `timezone-formula <https://github.com/saltstack-formulas/timezone-formula>`_
+#. `tomcat-formula <https://github.com/saltstack-formulas/tomcat-formula>`_
 #. `ufw-formula <https://github.com/saltstack-formulas/ufw-formula>`_
 #. `users-formula <https://github.com/saltstack-formulas/users-formula>`_
 #. `varnish-formula <https://github.com/saltstack-formulas/varnish-formula>`_

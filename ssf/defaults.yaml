@@ -22,8 +22,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "fix(libsaltcli): update '`'salt-ssh'`' detection for '`'enable_ssh_minions'`'"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/161'
+            title: "feat(semantic-release): implement for this formula"
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/160'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
@@ -492,6 +492,18 @@ ssf:
             <<: *isk_suite_default
             name: 'centos6'
     timezone: *formula_default
+    tomcat:
+      <<: *formula_default
+      context:
+        <<: *context_default
+        inspec_suites_kitchen:
+          <<: *isk_default
+          0:
+            <<: *isk_suite_default
+            name: 'tomcat_install'
+          1:
+            <<: *isk_suite_default
+            name: 'tomcat_extend'
     ufw: *formula_default
     users:
       <<: *formula_default
