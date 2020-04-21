@@ -328,6 +328,8 @@ ssf_node_anchors:
           <<: *file_default
         Gemfile: &file__Gemfile
           <<: *file_default
+        Gemfile.lock: &file__Gemfile--lock
+          <<: *file_default
         kitchen.yml: &file__kitchen--yml
           <<: *file_default
           template: 'jinja'
@@ -2221,6 +2223,7 @@ ssf:
         .yamllint: *file__--yamllint
         commitlint.config.js: *file__commitlint--config--js
         Gemfile: *file__Gemfile
+        Gemfile.lock: *file__Gemfile--lock
         pre-commit_semantic-release.sh: *file__pre-commit_semantic-release--sh
         release-rules.js: *file__release-rules--js
         release.config.js: *file__release--config--js
@@ -2252,6 +2255,7 @@ ssf:
         inspec/README.md: *file__inspec__README--md
         .gitignore: *file__--gitignore
         Gemfile: *file__Gemfile
+        Gemfile.lock: *file__Gemfile--lock
     strongswan:
       context:
         git:
