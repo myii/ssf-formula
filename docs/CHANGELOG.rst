@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.119.0 <https://github.com/myii/ssf-formula/compare/v1.118.0...v1.119.0>`_ (2020-04-21)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **gemfile.lock:** manage across formulas & update ``Gemfile`` (\ `ab01346 <https://github.com/myii/ssf-formula/commit/ab01346ea031c3509ac68b8fdd809cc2632d76f6>`_\ )
+
 `1.118.0 <https://github.com/myii/ssf-formula/compare/v1.117.0...v1.118.0>`_ (2020-04-21)
 ---------------------------------------------------------------------------------------------
 
