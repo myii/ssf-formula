@@ -22,8 +22,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "ci(travis+inspec): test '`'debian-10'`' as well"
-            body: '* Semi-automated using https://github.com/myii/ssf-formula/pull/162'
+            title: "ci(gemfile.lock): add to repo with updated '`'Gemfile'`' [skip ci]"
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/163'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
