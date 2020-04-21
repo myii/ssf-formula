@@ -2577,6 +2577,7 @@ ssf:
         platforms: *platforms_new
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
+          - [debian       ,  10   ,   master,      3,  tomcat_install]
           - [ubuntu       ,  18.04,   master,      3,  tomcat_install]
           - [fedora       ,  31   ,   master,      3,  tomcat_install]
           - [opensuse/leap,  15.1 ,   master,      3,  tomcat_install]
@@ -2641,7 +2642,7 @@ ssf:
         yamllint:
           ignore:
             additional:
-              - tomcat/osmap.yaml
+              - tomcat/osfamilymap.yaml
       semrel_files: *semrel_files_default
     ufw:
       context:
