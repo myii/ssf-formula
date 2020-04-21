@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.118.0 <https://github.com/myii/ssf-formula/compare/v1.117.0...v1.118.0>`_ (2020-04-21)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **tomcat:** update for ``map.jinja`` upgrade (\ `74c321b <https://github.com/myii/ssf-formula/commit/74c321bb60b290c48e1a79291349028b0e7ebc32>`_\ )
+
 `1.117.0 <https://github.com/myii/ssf-formula/compare/v1.116.0...v1.117.0>`_ (2020-04-20)
 ---------------------------------------------------------------------------------------------
 
