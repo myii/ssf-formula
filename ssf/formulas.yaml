@@ -2596,7 +2596,6 @@ ssf:
           - [debian       ,  10   ,   master,      3,  tomcat_install]
           - [ubuntu       ,  18.04,   master,      3,   tomcat_extend]
           - [ubuntu       ,  18.04,   master,      3,  tomcat_install]
-          - [ubuntu       ,  18.04,   master,      3,  tomcat_install]
           - [centos       ,   8   ,   master,      3,  tomcat_install]
           - [fedora       ,  31   ,   master,      3,  tomcat_install]
           - [opensuse/leap,  15.1 ,   master,      3,  tomcat_install]
