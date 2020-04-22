@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.120.0](https://github.com/myii/ssf-formula/compare/v1.119.0...v1.120.0) (2020-04-22)
+
+
+### Features
+
+* **lvm:** finalise CI for fix PR 20 ([7cf01de](https://github.com/myii/ssf-formula/commit/7cf01de638696f24a0579453f879ad8a7419d4a8))
+
 # [1.119.0](https://github.com/myii/ssf-formula/compare/v1.118.0...v1.119.0) (2020-04-21)
 
 
