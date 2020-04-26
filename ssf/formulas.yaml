@@ -2588,15 +2588,22 @@ ssf:
               summary: >-
                 Verify that the tomcat formula is setup and configured correctly
             provisioner:
+              dependencies:
+                - name: 'comparison_files'
+                  path: './test/salt'
               # pillars_from_files:
               #   - .sls: 'test/salt/pillar/tomcat_install.sls'
               state_top:
                 - '*':
                     - .yaml_dump
                     - .
-                    # These were present (but failing) in the original test setup
-                    # - .native
-                    # - .config
+                    - .native
+                    - .config
+                    - .manager
+                    - .vhosts
+                    - .expires
+                    - .context
+                    - .cluster
           1:
             inspec_yml:
               summary: >-
@@ -2626,6 +2633,7 @@ ssf:
           - [amazonlinux  ,   2   ,   3000.1,      3,  tomcat_install]
           - [debian       ,   9   ,   2019.2,      3,  tomcat_install]
           - [centos       ,   7   ,   2019.2,      3,  tomcat_install]
+          - [debian       ,   8   ,   2018.3,      2,  tomcat_install]
           # Tomcat appears to require an older version of JVM on Arch
           # yamllint disable-line rule:line-length
           #   jsvc.exec error: Cannot find any VM in Java Home /usr/lib/jvm/default-runtime
@@ -2677,6 +2685,10 @@ ssf:
             Exclude:
               - 'test/integration/**/serverspec/*'
           Cops:
+            Lint/EmptyWhen:
+              Exclude:
+                - 'test/integration/tomcat_install/controls/main_config_spec.rb'
+                - 'test/integration/tomcat_install/controls/server_xml_spec.rb'
             Style/FormatStringToken:
               Exclude:
                 - 'test/integration/tomcat_install/controls/yaml_dump_spec.rb'
