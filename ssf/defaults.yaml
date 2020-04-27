@@ -22,8 +22,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "ci(kitchen+travis): standardise structure to finalise fix"
-            body: '* Checked using https://github.com/myii/ssf-formula/pull/164'
+            title: "ci(kitchen+travis+inspec): merge test suites into single '`'default'`' suite"
+            body: '* Semi-automated using https://github.com/myii/ssf-formula/pull/165'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
@@ -503,18 +503,7 @@ ssf:
             <<: *isk_suite_default
             name: 'centos6'
     timezone: *formula_default
-    tomcat:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          0:
-            <<: *isk_suite_default
-            name: 'tomcat_install'
-          1:
-            <<: *isk_suite_default
-            name: 'tomcat_extend'
+    tomcat: *formula_default
     ufw: *formula_default
     users:
       <<: *formula_default

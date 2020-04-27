@@ -2588,98 +2588,49 @@ ssf:
               summary: >-
                 Verify that the tomcat formula is setup and configured correctly
             provisioner:
+              dependencies:
+                - name: 'comparison_files'
+                  path: './test/salt'
               # pillars_from_files:
-              #   - .sls: 'test/salt/pillar/tomcat_install.sls'
+              #   - .sls: 'test/salt/pillar/default.sls'
               state_top:
                 - '*':
                     - .yaml_dump
                     - .
-                    # These were present (but failing) in the original test setup
-                    # - .native
-                    # - .config
-          1:
-            inspec_yml:
-              summary: >-
-                Verify that the extended tomcat configuration takes place correctly
-            provisioner:
-              # pillars_from_files:
-              #   - .sls: 'test/salt/pillar/tomcat_extend.sls'
-              state_top:
-                - '*':
-                    # Use this when the suite is fixed and running in CI
-                    # - .yaml_dump
+                    - .native
+                    - .config
                     - .manager
                     - .vhosts
                     - .expires
                     - .context
                     - .cluster
-        inspec_suites_matrix:
-          - tomcat_install
-          - tomcat_extend
         platforms: *platforms_new
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
-          - [debian       ,  10   ,   master,      3,  tomcat_install]
-          - [ubuntu       ,  18.04,   master,      3,  tomcat_install]
-          - [fedora       ,  31   ,   master,      3,  tomcat_install]
-          - [opensuse/leap,  15.1 ,   master,      3,  tomcat_install]
-          - [amazonlinux  ,   2   ,   3000.1,      3,  tomcat_install]
-          - [debian       ,   9   ,   2019.2,      3,  tomcat_install]
-          - [centos       ,   7   ,   2019.2,      3,  tomcat_install]
+          - [debian       ,  10   ,   master,      3,         default]
+          - [ubuntu       ,  18.04,   master,      3,         default]
+          - [fedora       ,  31   ,   master,      3,         default]
+          - [opensuse/leap,  15.1 ,   master,      3,         default]
+          - [amazonlinux  ,   2   ,   3000.1,      3,         default]
+          - [debian       ,   9   ,   2019.2,      3,         default]
+          - [centos       ,   7   ,   2019.2,      3,         default]
+          - [debian       ,   8   ,   2018.3,      2,         default]
           # Tomcat appears to require an older version of JVM on Arch
           # yamllint disable-line rule:line-length
           #   jsvc.exec error: Cannot find any VM in Java Home /usr/lib/jvm/default-runtime
           #   jsvc.exec error: Cannot locate JVM library file
-          # - [arch-base    , latest,   2018.3,      2,  tomcat_install]
-        # To deal with excessive instances when mimicking `kitchen list -b`
-        # If values are set, only use these as commented entries in the matrix
-        platforms_matrix_commented_includes:
-          # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
-          - [debian       ,  10   ,   master,      3,  tomcat_install]
-          - [ubuntu       ,  18.04,   master,      3,   tomcat_extend]
-          - [ubuntu       ,  18.04,   master,      3,  tomcat_install]
-          - [centos       ,   8   ,   master,      3,  tomcat_install]
-          - [fedora       ,  31   ,   master,      3,  tomcat_install]
-          - [opensuse/leap,  15.1 ,   master,      3,  tomcat_install]
-          - [amazonlinux  ,   2   ,   master,      3,  tomcat_install]
-          - [arch-base    , latest,   master,      2,  tomcat_install]
-          - [debian       ,  10   ,   3000.1,      3,  tomcat_install]
-          - [ubuntu       ,  18.04,   3000.1,      3,  tomcat_install]
-          - [centos       ,   8   ,   3000.1,      3,  tomcat_install]
-          - [fedora       ,  31   ,   3000.1,      3,  tomcat_install]
-          - [opensuse/leap,  15.1 ,   3000.1,      3,  tomcat_install]
-          - [amazonlinux  ,   2   ,   3000.1,      3,  tomcat_install]
-          - [arch-base    , latest,   3000.1,      2,  tomcat_install]
-          - [debian       ,  10   ,   2019.2,      3,  tomcat_install]
-          - [debian       ,   9   ,   2019.2,      3,  tomcat_install]
-          - [ubuntu       ,  18.04,   2019.2,      3,  tomcat_install]
-          - [ubuntu       ,  16.04,   2019.2,      3,  tomcat_install]
-          - [centos       ,   8   ,   2019.2,      3,  tomcat_install]
-          - [centos       ,   7   ,   2019.2,      3,  tomcat_install]
-          - [fedora       ,  31   ,   2019.2,      3,  tomcat_install]
-          - [opensuse/leap,  15.1 ,   2019.2,      3,  tomcat_install]
-          - [amazonlinux  ,   2   ,   2019.2,      3,  tomcat_install]
-          - [ubuntu       ,  18.04,   2019.2,      2,  tomcat_install]
-          - [amazonlinux  ,   1   ,   2019.2,      2,  tomcat_install]
-          - [arch-base    , latest,   2019.2,      2,  tomcat_install]
-          - [centos       ,   7   ,   2018.3,      3,  tomcat_install]
-          - [fedora       ,  30   ,   2018.3,      3,  tomcat_install]
-          - [debian       ,   9   ,   2018.3,      2,  tomcat_install]
-          - [debian       ,   8   ,   2018.3,      2,  tomcat_install]
-          - [ubuntu       ,  18.04,   2018.3,      2,  tomcat_install]
-          - [ubuntu       ,  16.04,   2018.3,      2,  tomcat_install]
-          - [centos       ,   6   ,   2018.3,      2,  tomcat_install]
-          - [opensuse/leap,  15.1 ,   2018.3,      2,  tomcat_install]
-          - [amazonlinux  ,   1   ,   2018.3,      2,  tomcat_install]
-          - [arch-base    , latest,   2018.3,      2,  tomcat_install]
+          # - [arch-base    , latest,   2018.3,      2,         default]
         rubocop:
           AllCops:
             Exclude:
               - 'test/integration/**/serverspec/*'
           Cops:
+            Lint/EmptyWhen:
+              Exclude:
+                - 'test/integration/default/controls/config_spec.rb'
             Style/FormatStringToken:
               Exclude:
-                - 'test/integration/tomcat_install/controls/yaml_dump_spec.rb'
+                - 'test/integration/default/controls/yaml_dump_spec.rb'
         yamllint:
           ignore:
             additional:
