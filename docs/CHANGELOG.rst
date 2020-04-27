@@ -2,6 +2,16 @@
 Changelog
 =========
 
+`1.121.0 <https://github.com/myii/ssf-formula/compare/v1.120.0...v1.121.0>`_ (2020-04-27)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **tomcat:** merge test suites into single ``default`` suite (\ `d0caf08 <https://github.com/myii/ssf-formula/commit/d0caf083ea8a458a33c308b3ab62812d91ca7a4e>`_\ )
+* **tomcat:** test all states inc. file comparisons & enable ``debian-8`` (\ `e30b074 <https://github.com/myii/ssf-formula/commit/e30b0748a8bbab2970a997a73fa0e6d5851ff14d>`_\ )
+
 `1.120.0 <https://github.com/myii/ssf-formula/compare/v1.119.0...v1.120.0>`_ (2020-04-22)
 ---------------------------------------------------------------------------------------------
 
