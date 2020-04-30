@@ -161,12 +161,28 @@ An example of that:
 Semantic release formulas
 -------------------------
 
-These formulas are already compatible with semantic-release:
+These formulas are already compatible with semantic-release *and* have global ``CODEOWNERS`` defined:
 
-#. `apache-formula <https://github.com/saltstack-formulas/apache-formula>`_
-#. `apt-cacher-formula <https://github.com/saltstack-formulas/apt-cacher-formula>`_
 #. `apt-formula <https://github.com/saltstack-formulas/apt-formula>`_
 #. `bind-formula <https://github.com/saltstack-formulas/bind-formula>`_
+#. `fail2ban-formula <https://github.com/saltstack-formulas/fail2ban-formula>`_
+#. `iptables-formula <https://github.com/saltstack-formulas/iptables-formula>`_
+#. `letsencrypt-formula <https://github.com/saltstack-formulas/letsencrypt-formula>`_
+#. `libvirt-formula <https://github.com/saltstack-formulas/libvirt-formula>`_
+#. `nifi-formula <https://github.com/saltstack-formulas/nifi-formula>`_
+#. `openvpn-formula <https://github.com/saltstack-formulas/openvpn-formula>`_
+#. `packages-formula <https://github.com/saltstack-formulas/packages-formula>`_
+#. `postgres-formula <https://github.com/saltstack-formulas/postgres-formula>`_
+#. `salt-formula <https://github.com/saltstack-formulas/salt-formula>`_
+#. `strongswan-formula <https://github.com/saltstack-formulas/strongswan-formula>`_
+#. `sysctl-formula <https://github.com/saltstack-formulas/sysctl-formula>`_
+#. `template-formula <https://github.com/saltstack-formulas/template-formula>`_
+#. `vault-formula <https://github.com/saltstack-formulas/vault-formula>`_
+
+These formulas are already compatible with semantic-release:
+
+16. `apache-formula <https://github.com/saltstack-formulas/apache-formula>`_
+#. `apt-cacher-formula <https://github.com/saltstack-formulas/apt-cacher-formula>`_
 #. `cert-formula <https://github.com/saltstack-formulas/cert-formula>`_
 #. `chrony-formula <https://github.com/saltstack-formulas/chrony-formula>`_
 #. `collectd-formula <https://github.com/saltstack-formulas/collectd-formula>`_
@@ -178,17 +194,14 @@ These formulas are already compatible with semantic-release:
 #. `docker-formula <https://github.com/saltstack-formulas/docker-formula>`_
 #. `epel-formula <https://github.com/saltstack-formulas/epel-formula>`_
 #. `exim-formula <https://github.com/saltstack-formulas/exim-formula>`_
-#. `fail2ban-formula <https://github.com/saltstack-formulas/fail2ban-formula>`_
 #. `firewalld-formula <https://github.com/saltstack-formulas/firewalld-formula>`_
 #. `golang-formula <https://github.com/saltstack-formulas/golang-formula>`_
 #. `grafana-formula <https://github.com/saltstack-formulas/grafana-formula>`_
 #. `hostsfile-formula <https://github.com/saltstack-formulas/hostsfile-formula>`_
 #. `icinga2-formula <https://github.com/saltstack-formulas/icinga2-formula>`_
 #. `influxdb-formula <https://github.com/saltstack-formulas/influxdb-formula>`_
-#. `iptables-formula <https://github.com/saltstack-formulas/iptables-formula>`_
 #. `iscsi-formula <https://github.com/saltstack-formulas/iscsi-formula>`_
 #. `keepalived-formula <https://github.com/saltstack-formulas/keepalived-formula>`_
-#. `letsencrypt-formula <https://github.com/saltstack-formulas/letsencrypt-formula>`_
 #. `libvirt-formula <https://github.com/saltstack-formulas/libvirt-formula>`_
 #. `locale-formula <https://github.com/saltstack-formulas/locale-formula>`_
 #. `logrotate-formula <https://github.com/saltstack-formulas/logrotate-formula>`_
@@ -197,26 +210,20 @@ These formulas are already compatible with semantic-release:
 #. `mysql-formula <https://github.com/saltstack-formulas/mysql-formula>`_
 #. `nfs-formula <https://github.com/saltstack-formulas/nfs-formula>`_
 #. `nginx-formula <https://github.com/saltstack-formulas/nginx-formula>`_
-#. `nifi-formula <https://github.com/saltstack-formulas/nifi-formula>`_
 #. `node-formula <https://github.com/saltstack-formulas/node-formula>`_
 #. `ntp-formula <https://github.com/saltstack-formulas/ntp-formula>`_
 #. `openldap-formula <https://github.com/saltstack-formulas/openldap-formula>`_
 #. `openssh-formula <https://github.com/saltstack-formulas/openssh-formula>`_
-#. `openvpn-formula <https://github.com/saltstack-formulas/openvpn-formula>`_
-#. `packages-formula <https://github.com/saltstack-formulas/packages-formula>`_
 #. `php-formula <https://github.com/saltstack-formulas/php-formula>`_
 #. `postfix-formula <https://github.com/saltstack-formulas/postfix-formula>`_
-#. `postgres-formula <https://github.com/saltstack-formulas/postgres-formula>`_
 #. `powerdns-formula <https://github.com/saltstack-formulas/powerdns-formula>`_
 #. `prometheus-formula <https://github.com/saltstack-formulas/prometheus-formula>`_
 #. `rabbitmq-formula <https://github.com/saltstack-formulas/rabbitmq-formula>`_
 #. `redis-formula <https://github.com/saltstack-formulas/redis-formula>`_
 #. `rkhunter-formula <https://github.com/saltstack-formulas/rkhunter-formula>`_
 #. `salt-formula <https://github.com/saltstack-formulas/salt-formula>`_
-#. `strongswan-formula <https://github.com/saltstack-formulas/strongswan-formula>`_
 #. `stunnel-formula <https://github.com/saltstack-formulas/stunnel-formula>`_
 #. `sudoers-formula <https://github.com/saltstack-formulas/sudoers-formula>`_
-#. `sysctl-formula <https://github.com/saltstack-formulas/sysctl-formula>`_
 #. `syslog-ng-formula <https://github.com/saltstack-formulas/syslog-ng-formula>`_
 #. `sysstat-formula <https://github.com/saltstack-formulas/sysstat-formula>`_
 #. `systemd-formula <https://github.com/saltstack-formulas/systemd-formula>`_
@@ -227,7 +234,6 @@ These formulas are already compatible with semantic-release:
 #. `ufw-formula <https://github.com/saltstack-formulas/ufw-formula>`_
 #. `users-formula <https://github.com/saltstack-formulas/users-formula>`_
 #. `varnish-formula <https://github.com/saltstack-formulas/varnish-formula>`_
-#. `vault-formula <https://github.com/saltstack-formulas/vault-formula>`_
 #. `vim-formula <https://github.com/saltstack-formulas/vim-formula>`_
 #. `vsftpd-formula <https://github.com/saltstack-formulas/vsftpd-formula>`_
 #. `zabbix-formula <https://github.com/saltstack-formulas/zabbix-formula>`_

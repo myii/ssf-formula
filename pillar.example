@@ -161,6 +161,7 @@ ssf:
       - .travis.yml
       - .yamllint
       - commitlint.config.js
+      - CODEOWNERS
       - Gemfile
       - Gemfile.lock
       - kitchen.yml

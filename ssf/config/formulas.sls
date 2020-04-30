@@ -11,6 +11,7 @@
 {#- Work through each formula, which is in the `active` list via. pillar/config #}
 {%- for semrel_formula, semrel_formula_specs in ssf.semrel_formulas.items() if semrel_formula in ssf.active.semrel_formulas %}
 {#-   Use shorter variables to make the code a little easier to follow #}
+{%-   set codeowners = semrel_formula_specs.codeowners %}
 {%-   set context = semrel_formula_specs.context %}
 {%-   set inspec_suites_kitchen = context.inspec_suites_kitchen %}
 {%-   set use_cirrus_ci = context.use_cirrus_ci %}
@@ -126,6 +127,7 @@ prepare-git-branch-for-{{ formula }}:
         tplroot: {{ tplroot }}
         semrel_formula: {{ semrel_file_specs.alt_semrel_formula | d(semrel_formula) }}
         formula: {{ formula }}
+        codeowners: {{ codeowners | yaml }}
         inspec_suites_kitchen: {{ inspec_suites_kitchen | yaml }}
         inspec_suites_matrix: {{ context.inspec_suites_matrix | yaml }}
         platforms: {{ context.platforms | yaml }}

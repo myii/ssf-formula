@@ -1,0 +1,30 @@
+# https://help.github.com/en/github/creating-cloning-and-archiving-repositories/about-code-owners
+{%- set heading = '{0:<{2}} {1}'.format('# FILE PATTERN', 'OWNER(S)', codeowners.col_width) %}
+{%- macro format_entries(section, description) %}
+
+# SECTION: Owner(s) for {{ description }}
+{%-   set entries_section = codeowners.entries.get(section) %}
+{%-   if  section == 'global' and not entries_section %}
+#          **************************************************************************
+#          ***                    NO GLOBAL OWNER(S) SPECIFIED                    ***
+#          ***  Ideally this will be defined for a healthy, well-maintained repo  ***
+#          **************************************************************************
+{{ heading }}
+{{ '{0:<{2}} {1}'.format('*', '@NONE', codeowners.col_width) }}
+{%-   else %}
+{{ heading }}
+{%-     for entry in entries_section %}
+{%-       for file_pattern, owners in entry.items() %}
+{%-         if file_pattern.startswith('/./') %}
+{%-           set file_pattern = file_pattern.replace('./', '{0}/'.format(semrel_formula)) %}
+{%-         endif %}
+{{ '{0:<{2}} {1}'.format(file_pattern, owners|join(' ') if owners is list else owners, codeowners.col_width) }}
+{%-       endfor %}
+{%-     endfor %}
+{%-   endif %}
+{%- endmacro %}
+
+{{- format_entries('global', 'everything in the repo, unless a later match takes precedence') }}
+{{- format_entries('specific_directories', 'specific directories') }}
+{{- format_entries('specific_ssf', 'files/directories related to `semantic-release`') }}
+{{- format_entries('specific_files', 'specific files') }}
