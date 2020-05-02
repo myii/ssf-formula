@@ -63,8 +63,6 @@ ssf_node_anchors:
           - [fedora       ,  31   ,   master,      3]
           - [opensuse/leap,  15.1 ,   master,      3]
           - [amazonlinux  ,   2   ,   master,      3]
-          ### ` master-py2`
-          - [arch-base    , latest,   master,      2]
 
           ### `3000.1-py3`
           - [debian       ,  10   ,   3000.1,      3]
@@ -203,7 +201,6 @@ ssf_node_anchors:
           - [amazonlinux  ,   1   ,   2017.7,      2]
         platforms_os_arch_base: &platforms_os_arch_base
           # [os           , os_ver, salt_ver, py_ver]
-          - [arch-base    , latest,   master,      2]
           - [arch-base    , latest,   2019.2,      2]
           - [arch-base    , latest,   2018.3,      2]
           - [arch-base    , latest,   2017.7,      2]
@@ -222,7 +219,6 @@ ssf_node_anchors:
         platforms_os_centos_and_arch: &platforms_os_centos_and_arch
           # [os           , os_ver, salt_ver, py_ver]
           - [centos       ,   8   ,   master,      3]
-          - [arch-base    , latest,   master,      2]
           - [centos       ,   8   ,   2019.2,      3]
           - [centos       ,   7   ,   2019.2,      2]
           - [arch-base    , latest,   2019.2,      2]
@@ -601,7 +597,6 @@ ssf:
           # - [fedora       ,  31   ,   master,      3,         default]
           # - [opensuse/leap,  15.1 ,   master,      3,         default]
           # # - [amazonlinux  ,   2   ,   master,      3,         default]
-          # # - [arch-base    , latest,   master,      2,         default]
           - [debian       ,  10   ,   2019.2,      3,         default]  # CHECK
           - [debian       ,   9   ,   2019.2,      3,         default]
           # - [ubuntu       ,  18.04,   2019.2,      3,         default]
@@ -1270,7 +1265,6 @@ ssf:
           - [fedora       ,  31   ,   master,      3,     loop5-loop6]
           - [opensuse/leap,  15.1 ,   master,      3,     loop5-loop6]
           - [amazonlinux  ,   2   ,   master,      3,     loop5-loop6]
-          - [arch-base    , latest,   master,      2,     loop5-loop6]
           - [debian       ,  10   ,   2019.2,      3,     loop5-loop6]
           - [debian       ,   9   ,   2019.2,      3,     loop5-loop6]
           - [ubuntu       ,  18.04,   2019.2,      3,     loop5-loop6]
@@ -1497,7 +1491,6 @@ ssf:
           - [fedora       ,  31   ,   master,      3,         default]
           - [opensuse/leap,  15.1 ,   master,      3,         default]
           - [amazonlinux  ,   2   ,   master,      3,         default]
-          - [arch-base    , latest,   master,      2,         default]
           - [debian       ,  10   ,   3000.1,      3,         default]
           - [ubuntu       ,  18.04,   3000.1,      3,         default]
           - [centos       ,   8   ,   3000.1,      3,         default]
@@ -2425,7 +2418,6 @@ ssf:
           - [fedora       ,  31   ,   master,      3]
           - [opensuse/leap,  15.1 ,   master,      3]
           - [amazonlinux  ,   2   ,   master,      3]
-          - [arch-base    , latest,   master,      2]
           - [debian       ,   9   ,   2019.2,      3]
           - [ubuntu       ,  18.04,   2019.2,      3]
           - [centos       ,   8   ,   2019.2,      3]
@@ -2706,7 +2698,6 @@ ssf:
           - [fedora       ,  31   ,   master,      3,         default]
           - [opensuse/leap,  15.1 ,   master,      3,         default]
           - [amazonlinux  ,   2   ,   master,      3,         default]
-          - [arch-base    , latest,   master,      2,         default]
           - [debian       ,  10   ,   2019.2,      3,         default]
           - [debian       ,   9   ,   2019.2,      3,         default]
           - [ubuntu       ,  18.04,   2019.2,      3,         default]
@@ -2840,7 +2831,6 @@ ssf:
           - [fedora       ,  31   ,   master,      3,     prod_server]
           - [opensuse/leap,  15.1 ,   master,      3,     prod_server]
           - [amazonlinux  ,   2   ,   master,      3,     prod_server]
-          - [arch-base    , latest,   master,      2,     prod_server]
           - [debian       ,  10   ,   3000.1,      3,     prod_server]
           - [centos       ,   8   ,   3000.1,      3,     prod_server]
           - [fedora       ,  31   ,   3000.1,      3,     prod_server]
