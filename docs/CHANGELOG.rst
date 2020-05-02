@@ -2,6 +2,16 @@
 Changelog
 =========
 
+`1.124.0 <https://github.com/myii/ssf-formula/compare/v1.123.0...v1.124.0>`_ (2020-05-02)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **formulas:** adjust ``platforms_new`` to add ``3000.2`` & remove ``2018.3`` (\ `512f0a8 <https://github.com/myii/ssf-formula/commit/512f0a89b9d70351ae793dcc56f475b40e57b6e8>`_\ )
+* **telegraf:** avoid ``master`` instances due to ``toml`` issues [skip ci] (\ `5f75ebd <https://github.com/myii/ssf-formula/commit/5f75ebda95a2cf79e4daef800eee0765056de38b>`_\ )
+
 `1.123.0 <https://github.com/myii/ssf-formula/compare/v1.122.0...v1.123.0>`_ (2020-05-02)
 ---------------------------------------------------------------------------------------------
 
