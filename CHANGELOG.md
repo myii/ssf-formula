@@ -1,5 +1,16 @@
 # Changelog
 
+# [1.122.0](https://github.com/myii/ssf-formula/compare/v1.121.0...v1.122.0) (2020-05-02)
+
+
+### Features
+
+* **salt:** remove `arch-base` from platforms ([b2ef7ac](https://github.com/myii/ssf-formula/commit/b2ef7acbf7282289d8bf27dd03b12023c9b0d9ca))
+* **salt:** remove `v201803-py2` ([d4ab744](https://github.com/myii/ssf-formula/commit/d4ab744213f5b83df2453ee72e83d90ac5ada7d0))
+* **salt:** select final `platforms_matrix` to use ([1d8e64f](https://github.com/myii/ssf-formula/commit/1d8e64f1d2c398e31ef2de9a0452cec3b8f6359f))
+* **salt:** update `3000.1` to `3000.2` ([01f9c1f](https://github.com/myii/ssf-formula/commit/01f9c1f1971da22460097b0ceb861c6ee449c0d6))
+* **salt:** update for newest available pre-salted images ([4756fc8](https://github.com/myii/ssf-formula/commit/4756fc842797cdb8c0db69564b2dd20311cef5ef))
+
 # [1.121.0](https://github.com/myii/ssf-formula/compare/v1.120.0...v1.121.0) (2020-04-27)
 
 
