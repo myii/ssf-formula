@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.123.0 <https://github.com/myii/ssf-formula/compare/v1.122.0...v1.123.0>`_ (2020-05-02)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **arch-base:** remove ``master-py2-arch-base-latest`` (\ `86f4fde <https://github.com/myii/ssf-formula/commit/86f4fde6540939621611f55dc7870c8837726385>`_\ )
+
 `1.122.0 <https://github.com/myii/ssf-formula/compare/v1.121.0...v1.122.0>`_ (2020-05-02)
 ---------------------------------------------------------------------------------------------
 
