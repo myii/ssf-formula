@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.124.1 <https://github.com/myii/ssf-formula/compare/v1.124.0...v1.124.1>`_ (2020-05-03)
+---------------------------------------------------------------------------------------------
+
+Reverts
+^^^^^^^
+
+
+* **telegraf:** avoid ``master`` instances due to ``toml`` issues (\ `47a7ba3 <https://github.com/myii/ssf-formula/commit/47a7ba3390f647cba9885ddce44804212cd1e02b>`_\ )
+
 `1.124.0 <https://github.com/myii/ssf-formula/compare/v1.123.0...v1.124.0>`_ (2020-05-02)
 ---------------------------------------------------------------------------------------------
 
