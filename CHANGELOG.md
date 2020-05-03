@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.125.0](https://github.com/myii/ssf-formula/compare/v1.124.1...v1.125.0) (2020-05-03)
+
+
+### Features
+
+* **libvirt:** adjust matrix to add `3000.2` & remove `2018.3` ([8224fdd](https://github.com/myii/ssf-formula/commit/8224fdde1026df285daba380d6c9950546251129))
+
 ## [1.124.1](https://github.com/myii/ssf-formula/compare/v1.124.0...v1.124.1) (2020-05-03)
 
 
