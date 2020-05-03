@@ -2444,9 +2444,9 @@ ssf:
                 - .sls: 'test/salt/pillar/telegraf.sls'
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
-          - [debian       ,  10   ,   2019.2,      3,         default]
-          - [centos       ,   8   ,   2019.2,      3,         default]
-          - [fedora       ,  31   ,   2019.2,      3,         default]
+          - [debian       ,  10   ,   master,      3,         default]
+          - [centos       ,   8   ,   master,      3,         default]
+          - [fedora       ,  31   ,   master,      3,         default]
           - [ubuntu       ,  18.04,   2019.2,      3,         default]
           - [centos       ,   7   ,   2019.2,      2,         default]
           - [debian       ,   9   ,   2018.3,      2,         default]
