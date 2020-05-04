@@ -277,6 +277,8 @@ ssf_node_anchors:
                 - pillar.example
                 - pillar-with-views.example
       semrel_files: &semrel_files_default
+        .github/workflows/commitlint.yml: &file__--github__workflows__commitlint--yml
+          <<: *file_default
         bin/kitchen: &file__bin__kitchen
           <<: *file_default
           mode: 755
@@ -2211,6 +2213,7 @@ ssf:
                 - ssf/defaults.yaml
                 - ssf/formulas.yaml
       semrel_files:
+        .github/workflows/commitlint.yml: *file__--github__workflows__commitlint--yml
         docs/CONTRIBUTING.rst: *file__docs__CONTRIBUTING--rst
         docs/TOFS_pattern.rst: *file__docs__TOFS_pattern--rst
         formula/libtofs.jinja: *file__formula__libtofs--jinja
@@ -2243,6 +2246,7 @@ ssf:
         travis: *travis_do_not_use_single_job_for_linters
         use_tofs: true
       semrel_files:
+        .github/workflows/commitlint.yml: *file__--github__workflows__commitlint--yml
         docs/TOFS_pattern.rst:
           <<: *file__docs__TOFS_pattern--rst
           dest_file: 'TOFS_pattern.rst'
