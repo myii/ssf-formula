@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.127.0 <https://github.com/myii/ssf-formula/compare/v1.126.0...v1.127.0>`_ (2020-05-04)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **codeowners:** manage across formulas (\ `e56b551 <https://github.com/myii/ssf-formula/commit/e56b5517065f9697135c0ce300764fb19bbc76b5>`_\ )
+
 `1.126.0 <https://github.com/myii/ssf-formula/compare/v1.125.0...v1.126.0>`_ (2020-05-04)
 ---------------------------------------------------------------------------------------------
 
