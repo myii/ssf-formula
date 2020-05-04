@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.126.0](https://github.com/myii/ssf-formula/compare/v1.125.0...v1.126.0) (2020-05-04)
+
+
+### Features
+
+* **workflows/commitlint:** manage across formulas ([1cd6aed](https://github.com/myii/ssf-formula/commit/1cd6aed5c77ec4abe2481a004ce23bda87e382cd))
+
 # [1.125.0](https://github.com/myii/ssf-formula/compare/v1.124.1...v1.125.0) (2020-05-03)
 
 
