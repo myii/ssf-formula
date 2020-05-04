@@ -147,6 +147,7 @@ ssf:
       - vsftpd
       - zabbix
     semrel_files:
+      - .github/workflows/commitlint.yml
       - bin/kitchen
       - docs/TOFS_pattern.rst
       - formula/libsaltcli.jinja
