@@ -313,6 +313,9 @@ ssf_node_anchors:
         .yamllint: &file__--yamllint
           <<: *file_default
           template: 'jinja'
+        CODEOWNERS: &file__CODEOWNERS
+          <<: *file_default
+          template: 'jinja'
         commitlint.config.js: &file__commitlint--config--js
           <<: *file_default
         Gemfile: &file__Gemfile
@@ -332,6 +335,11 @@ ssf_node_anchors:
 
 ssf:
   semrel_formulas:
+    # aegir:
+    #   codeowners:
+    #     entries:
+    #       global:
+    #         - '*': '@javierbertoli'
     apache:
       context:
         git:
@@ -361,6 +369,10 @@ ssf:
           - [centos       ,   6   ,   2017.7,      2,         default]
       semrel_files: *semrel_files_default
     apt:
+      codeowners:
+        entries:
+          global:
+            - '*': '@javierbertoli'
       context:
         git:
           github:
@@ -449,7 +461,21 @@ ssf:
         formula/libtofs.jinja:
           <<: *file__formula__libtofs--jinja
           dest_file: 'formula/ng/libtofs.jinja'
+    # arvados:
+    #   codeowners:
+    #     entries:
+    #       global:
+    #         - '*': '@javierbertoli'
+    # bareos:
+    #   codeowners:
+    #     entries:
+    #       global:
+    #         - '*': '@javierbertoli'
     bind:
+      codeowners:
+        entries:
+          global:
+            - '*': '@javierbertoli'
       context:
         git:
           github:
@@ -555,6 +581,11 @@ ssf:
         platforms_matrix: *platforms_matrix_new
       semrel_files: *semrel_files_default
     cron:
+      codeowners:
+        entries:
+          specific_directories:
+            - '/./saltcheck-tests/': '@myii'
+            - '/test/': '@myii'
       context:
         git:
           github:
@@ -616,6 +647,10 @@ ssf:
         use_tofs: true
       semrel_files: *semrel_files_default
     dhcpd:
+      codeowners:
+        entries:
+          specific_directories:
+            - '/test/': '@myii'
       context:
         git:
           github:
@@ -730,6 +765,10 @@ ssf:
         use_tofs: true
       semrel_files: *semrel_files_default
     fail2ban:
+      codeowners:
+        entries:
+          global:
+            - '*': '@javierbertoli'
       context:
         git:
           github:
@@ -760,6 +799,10 @@ ssf:
           - [centos       ,   6   ,   2017.7,      2,         default]
       semrel_files: *semrel_files_default
     firewalld:
+      codeowners:
+        entries:
+          specific_directories:
+            - '/test/': '@myii'
       context:
         git:
           github:
@@ -879,6 +922,10 @@ ssf:
         platforms_matrix: *platforms_matrix_without_arch
       semrel_files: *semrel_files_default
     iptables:
+      codeowners:
+        entries:
+          global:
+            - '*': '@javierbertoli'
       context:
         git:
           github:
@@ -1022,6 +1069,10 @@ ssf:
         use_tofs: true
       semrel_files: *semrel_files_default
     letsencrypt:
+      codeowners:
+        entries:
+          global:
+            - '*': '@javierbertoli'
       context:
         git:
           github:
@@ -1101,6 +1152,10 @@ ssf:
           - [opensuse/leap,  15.1 ,   2018.3,      2,             git]
       semrel_files: *semrel_files_default
     libvirt:
+      codeowners:
+        entries:
+          global:
+            - '*': '@baby-gnu'
       context:
         git:
           github:
@@ -1278,6 +1333,10 @@ ssf:
           - [arch-base    , latest,   2018.3,      2,     loop5-loop6]
       semrel_files: *semrel_files_default
     mattermost:
+      codeowners:
+        entries:
+          global:
+            - '*': '@kjkeane'
       context:
         git:
           github:
@@ -1404,6 +1463,10 @@ ssf:
         use_tofs: true
       semrel_files: *semrel_files_default
     nifi:
+      codeowners:
+        entries:
+          global:
+            - '*': '@codeboyQ2n5ha45'
       context:
         git:
           github:
@@ -1538,6 +1601,10 @@ ssf:
               ignore: *ignore_pillar_example
       semrel_files: *semrel_files_default
     openldap:
+      codeowners:
+        entries:
+          specific_directories:
+            - '/test/': '@myii'
       context:
         git:
           github:
@@ -1595,6 +1662,10 @@ ssf:
         use_tofs: true
       semrel_files: *semrel_files_default
     openvpn:
+      codeowners:
+        entries:
+          global:
+            - '*': '@dafyddj'
       context:
         git:
           github:
@@ -1637,6 +1708,10 @@ ssf:
               - test/salt/pillar/default.sls
       semrel_files: *semrel_files_default
     packages:
+      codeowners:
+        entries:
+          global:
+            - '*': '@javierbertoli'
       context:
         git:
           github:
@@ -1835,6 +1910,12 @@ ssf:
               ignore: *ignore_pillar_example
       semrel_files: *semrel_files_default
     postgres:
+      codeowners:
+        entries:
+          global:
+            - '*':
+                - '@vutny'
+                - '@myii'
       context:
         git:
           github:
@@ -1869,6 +1950,10 @@ ssf:
               - test/salt/pillar/postgres.sls
       semrel_files: *semrel_files_default
     powerdns:
+      codeowners:
+        entries:
+          specific_directories:
+            - '/test/': '@myii'
       context:
         git:
           github:
@@ -2028,7 +2113,23 @@ ssf:
         use_cirrus_ci: true
         use_tofs: true
       semrel_files: *semrel_files_default
+    # rspamd:
+    #   codeowners:
+    #     entries:
+    #       global:
+    #         - '*': '@javierbertoli'
     salt:
+      codeowners:
+        entries:
+          global:
+            - '*': '@saltstack-formulas/wg'
+          specific_directories:
+            - '/test/': '@myii'
+          specific_files:
+            - '/./formulas.sls':
+                - '@sticky-note'
+                - '@myii'
+            - '/./pin.sls': '@hatifnatt'
       context:
         git:
           github:
@@ -2177,6 +2278,11 @@ ssf:
               - salt/osmap.yaml
       semrel_files: *semrel_files_default
     ssf:
+      codeowners:
+        entries:
+          global:
+            - '*': '@myii'
+          specific_ssf: []
       context:
         git:
           github:
@@ -2222,6 +2328,7 @@ ssf:
         .salt-lint: *file__--salt-lint
         .travis.yml: *file__--travis--yml
         .yamllint: *file__--yamllint
+        CODEOWNERS: *file__CODEOWNERS
         commitlint.config.js: *file__commitlint--config--js
         Gemfile: *file__Gemfile
         Gemfile.lock: *file__Gemfile--lock
@@ -2229,6 +2336,10 @@ ssf:
         release-rules.js: *file__release-rules--js
         release.config.js: *file__release--config--js
     stack:
+      codeowners:
+        entries:
+          global:
+            - '*': '@claudekenni'
       context:
         git:
           github:
@@ -2256,9 +2367,14 @@ ssf:
         inspec/inspec.yml: *file__inspec__inspec--yml
         inspec/README.md: *file__inspec__README--md
         .gitignore: *file__--gitignore
+        CODEOWNERS: *file__CODEOWNERS
         Gemfile: *file__Gemfile
         Gemfile.lock: *file__Gemfile--lock
     strongswan:
+      codeowners:
+        entries:
+          global:
+            - '*': '@daks'
       context:
         git:
           github:
@@ -2322,6 +2438,10 @@ ssf:
                     - .included
       semrel_files: *semrel_files_default
     sysctl:
+      codeowners:
+        entries:
+          global:
+            - '*': '@javierbertoli'
       context:
         git:
           github:
@@ -2459,6 +2579,10 @@ ssf:
         use_tofs: true
       semrel_files: *semrel_files_default
     template:
+      codeowners:
+        entries:
+          global:
+            - '*': '@saltstack-formulas/wg'
       context:
         git:
           github:
@@ -2541,6 +2665,10 @@ ssf:
         platforms_matrix: *platforms_matrix_new
       semrel_files: *semrel_files_default
     tomcat:
+      codeowners:
+        entries:
+          specific_directories:
+            - '/test/': '@myii'
       context:
         git:
           github:
@@ -2766,6 +2894,10 @@ ssf:
       #   use_tofs: true
       semrel_files: *semrel_files_default
     vault:
+      codeowners:
+        entries:
+          global:
+            - '*': '@dafyddj'
       context:
         git:
           github:
@@ -2878,6 +3010,10 @@ ssf:
                 - .sls: 'test/salt/pillar/vsftpd.sls'
       semrel_files: *semrel_files_default
     zabbix:
+      codeowners:
+        entries:
+          specific_directories:
+            - '/test/': '@myii'
       context:
         git:
           github:

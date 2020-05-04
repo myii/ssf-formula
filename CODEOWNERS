@@ -1,4 +1,11 @@
 # https://help.github.com/en/github/creating-cloning-and-archiving-repositories/about-code-owners
 
-# FILE PATTERN                 OWNER(S)
-*                              @myii
+# SECTION: Owner(s) for everything in the repo, unless a later match takes precedence
+# FILE PATTERN                              OWNER(S)
+*                                           @myii
+
+# SECTION: Owner(s) for files/directories related to `semantic-release`
+# FILE PATTERN                              OWNER(S)
+
+# SECTION: Owner(s) for specific files/directories
+# FILE PATTERN                              OWNER(S)
