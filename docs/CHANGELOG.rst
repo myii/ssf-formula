@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.128.0 <https://github.com/myii/ssf-formula/compare/v1.127.0...v1.128.0>`_ (2020-05-04)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **codeowners:** update ``semantic-release`` related files (\ `82d53b6 <https://github.com/myii/ssf-formula/commit/82d53b6dc981a9cb556c610bcadf5de722dcb15c>`_\ )
+
 `1.127.0 <https://github.com/myii/ssf-formula/compare/v1.126.0...v1.127.0>`_ (2020-05-04)
 ---------------------------------------------------------------------------------------------
 
