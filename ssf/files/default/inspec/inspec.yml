@@ -2,7 +2,7 @@
 # vim: ft=yaml
 ---
 name: {{ suite.name }}
-title: {{ semrel_formula }} formula
+title: {{ suite.inspec_yml.get('title', '{0} formula'.format(semrel_formula)) }}
 maintainer: SaltStack Formulas
 license: Apache-2.0
 {%- set summary_heading = 'summary: ' %}
