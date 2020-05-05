@@ -55,8 +55,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "chore(codeowners): update '`'semantic-release'`' related files [skip ci]"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/174'
+            title: "chore(codeowners): add global codeowner [skip ci]"
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/175'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
