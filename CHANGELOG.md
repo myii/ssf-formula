@@ -1,5 +1,13 @@
 # Changelog
 
+# [1.130.0](https://github.com/myii/ssf-formula/compare/v1.129.0...v1.130.0) (2020-05-05)
+
+
+### Features
+
+* **formula:** add `arvados-formula` (forked into org) ([a7cf829](https://github.com/myii/ssf-formula/commit/a7cf8299dd0d4f9655211903a53e6e3113cc5a96))
+* **inspec.yml:** adjust template to allow suite's `title` to be given ([6f6c3b5](https://github.com/myii/ssf-formula/commit/6f6c3b52874871111dddc0d3b228426d66b9960b))
+
 # [1.129.0](https://github.com/myii/ssf-formula/compare/v1.128.0...v1.129.0) (2020-05-05)
 
 
