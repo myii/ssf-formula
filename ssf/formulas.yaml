@@ -19,6 +19,10 @@ ssf_node_anchors:
               supports_debian_ubuntu: &supports_debian_ubuntu
                 - debian
                 - ubuntu
+              supports_debian_ubuntu_centos: &supports_debian_ubuntu_centos
+                - debian
+                - ubuntu
+                - centos
               # yamllint disable-line rule:line-length
               supports_debian_ubuntu_centos_fedora_opensuse: &supports_debian_ubuntu_centos_fedora_opensuse
                 - debian
@@ -461,11 +465,105 @@ ssf:
         formula/libtofs.jinja:
           <<: *file__formula__libtofs--jinja
           dest_file: 'formula/ng/libtofs.jinja'
-    # arvados:
-    #   codeowners:
-    #     entries:
-    #       global:
-    #         - '*': '@javierbertoli'
+    arvados:
+      codeowners:
+        entries:
+          global:
+            - '*': '@javierbertoli'
+      context:
+        git:
+          github:
+            repo: 'arvados-formula'
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              title: 'arvados formula api submodule'
+              summary: >-
+                Verify that the arvados formula api is setup and configured
+                correctly
+              supports: *supports_debian_ubuntu_centos
+          1:
+            inspec_yml:
+              title: 'arvados formula controller submodule'
+              summary: >-
+                Verify that the arvados formula controller is setup and
+                configured correctly
+              supports: *supports_debian_ubuntu_centos
+          2:
+            inspec_yml:
+              title: 'arvados formula keepproxy submodule'
+              summary: >-
+                Verify that the arvados formula keepproxy is setup and
+                configured correctly
+              supports: *supports_debian_ubuntu_centos
+          3:
+            inspec_yml:
+              title: 'arvados formula keepstore submodule'
+              summary: >-
+                Verify that the arvados formula keepstore is setup and
+                configured correctly
+              supports: *supports_debian_ubuntu_centos
+          4:
+            inspec_yml:
+              title: 'arvados formula keepweb submodule'
+              summary: >-
+                Verify that the arvados formula keepweb is setup and configured
+                correctly
+              supports: *supports_debian_ubuntu_centos
+          5:
+            inspec_yml:
+              title: 'arvados formula repo submodule'
+              summary: >-
+                Verify that the arvados repository is setup and configured
+                correctly
+              supports: *supports_debian_ubuntu_centos
+          6:
+            inspec_yml:
+              title: 'arvados formula shell submodule'
+              summary: >-
+                Verify that the arvados formula shell submodule is setup and
+                configured correctly
+              supports: *supports_debian_ubuntu_centos
+          7:
+            inspec_yml:
+              title: 'arvados formula websocket submodule'
+              summary: >-
+                Verify that the arvados formula websocket is setup and
+                configured correctly
+              supports: *supports_debian_ubuntu_centos
+          8:
+            inspec_yml:
+              title: 'arvados formula workbench submodule'
+              summary: >-
+                Verify that the arvados formula workbench is setup and
+                configured correctly
+              supports: *supports_debian_ubuntu_centos
+          9:
+            inspec_yml:
+              title: 'arvados formula workbench2 submodule'
+              summary: >-
+                Verify that the arvados formula workbench2 is setup and
+                configured correctly
+              supports: *supports_debian_ubuntu_centos
+        inspec_suites_matrix:
+          - api
+          - controller
+          - keepproxy
+          - keepstore
+          - keepweb
+          - repo
+          - shell
+          - websocket
+          - workbench
+          - workbench2
+        platforms: *platforms_new
+        platforms_matrix: *platforms_matrix_new
+        use_tofs: true
+        yamllint:
+          ignore:
+            additional:
+              - test/**/pillar/**/*.sls
+      semrel_files: *semrel_files_default
     # bareos:
     #   codeowners:
     #     entries:

@@ -78,6 +78,7 @@ ssf:
       - apache
       - apt
       - apt-cacher
+      - arvados
       - bind
       - cert
       - chrony
