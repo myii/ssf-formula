@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.129.0](https://github.com/myii/ssf-formula/compare/v1.128.0...v1.129.0) (2020-05-05)
+
+
+### Features
+
+* **codeowners:** add global owner (`deepsea`, `iscsi` & `lvm`) ([0814914](https://github.com/myii/ssf-formula/commit/0814914ac14fd6256b510052b6e68e81b2e30a35))
+
 # [1.128.0](https://github.com/myii/ssf-formula/compare/v1.127.0...v1.128.0) (2020-05-04)
 
 
