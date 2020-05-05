@@ -179,7 +179,7 @@ These formulas are already compatible with semantic-release *and* have global ``
 #. `template-formula <https://github.com/saltstack-formulas/template-formula>`_
 #. `vault-formula <https://github.com/saltstack-formulas/vault-formula>`_
 
-These formulas are already compatible with semantic-release:
+These formulas are also compatible with semantic-release:
 
 16. `apache-formula <https://github.com/saltstack-formulas/apache-formula>`_
 #. `apt-cacher-formula <https://github.com/saltstack-formulas/apt-cacher-formula>`_
@@ -202,7 +202,6 @@ These formulas are already compatible with semantic-release:
 #. `influxdb-formula <https://github.com/saltstack-formulas/influxdb-formula>`_
 #. `iscsi-formula <https://github.com/saltstack-formulas/iscsi-formula>`_
 #. `keepalived-formula <https://github.com/saltstack-formulas/keepalived-formula>`_
-#. `libvirt-formula <https://github.com/saltstack-formulas/libvirt-formula>`_
 #. `locale-formula <https://github.com/saltstack-formulas/locale-formula>`_
 #. `logrotate-formula <https://github.com/saltstack-formulas/logrotate-formula>`_
 #. `lvm-formula <https://github.com/saltstack-formulas/lvm-formula>`_
@@ -221,14 +220,12 @@ These formulas are already compatible with semantic-release:
 #. `rabbitmq-formula <https://github.com/saltstack-formulas/rabbitmq-formula>`_
 #. `redis-formula <https://github.com/saltstack-formulas/redis-formula>`_
 #. `rkhunter-formula <https://github.com/saltstack-formulas/rkhunter-formula>`_
-#. `salt-formula <https://github.com/saltstack-formulas/salt-formula>`_
 #. `stunnel-formula <https://github.com/saltstack-formulas/stunnel-formula>`_
 #. `sudoers-formula <https://github.com/saltstack-formulas/sudoers-formula>`_
 #. `syslog-ng-formula <https://github.com/saltstack-formulas/syslog-ng-formula>`_
 #. `sysstat-formula <https://github.com/saltstack-formulas/sysstat-formula>`_
 #. `systemd-formula <https://github.com/saltstack-formulas/systemd-formula>`_
 #. `telegraf-formula <https://github.com/saltstack-formulas/telegraf-formula>`_
-#. `template-formula <https://github.com/saltstack-formulas/template-formula>`_
 #. `timezone-formula <https://github.com/saltstack-formulas/timezone-formula>`_
 #. `tomcat-formula <https://github.com/saltstack-formulas/tomcat-formula>`_
 #. `ufw-formula <https://github.com/saltstack-formulas/ufw-formula>`_
@@ -241,4 +238,4 @@ These formulas are already compatible with semantic-release:
 Documentation
 -------------
 
-`Documentation contributing guidelines <CONTRIBUTING_DOCS.rst>`_
+`Documentation contributing guidelines <https://github.com/saltstack-formulas/template-formula/blob/master/docs/CONTRIBUTING_DOCS.rst>`_
