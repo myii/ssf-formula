@@ -600,6 +600,10 @@ ssf:
                 - .sls: 'test/salt/pillar/cron.sls'
       semrel_files: *semrel_files_default
     deepsea:
+      codeowners:
+        entries:
+          global:
+            - '*': '@noelmcloughlin'
       context:
         git:
           github:
@@ -970,6 +974,10 @@ ssf:
               ignore: *ignore_pillar_example
       semrel_files: *semrel_files_default
     iscsi:
+      codeowners:
+        entries:
+          global:
+            - '*': '@noelmcloughlin'
       context:
         git:
           github:
@@ -1258,6 +1266,10 @@ ssf:
         platforms_matrix: *platforms_matrix_without_arch
       semrel_files: *semrel_files_default
     lvm:
+      codeowners:
+        entries:
+          global:
+            - '*': '@noelmcloughlin'
       context:
         git:
           github:

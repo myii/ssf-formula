@@ -165,10 +165,13 @@ These formulas are already compatible with semantic-release *and* have global ``
 
 #. `apt-formula <https://github.com/saltstack-formulas/apt-formula>`_
 #. `bind-formula <https://github.com/saltstack-formulas/bind-formula>`_
+#. `deepsea-formula <https://github.com/saltstack-formulas/deepsea-formula>`_
 #. `fail2ban-formula <https://github.com/saltstack-formulas/fail2ban-formula>`_
 #. `iptables-formula <https://github.com/saltstack-formulas/iptables-formula>`_
+#. `iscsi-formula <https://github.com/saltstack-formulas/iscsi-formula>`_
 #. `letsencrypt-formula <https://github.com/saltstack-formulas/letsencrypt-formula>`_
 #. `libvirt-formula <https://github.com/saltstack-formulas/libvirt-formula>`_
+#. `lvm-formula <https://github.com/saltstack-formulas/lvm-formula>`_
 #. `nifi-formula <https://github.com/saltstack-formulas/nifi-formula>`_
 #. `openvpn-formula <https://github.com/saltstack-formulas/openvpn-formula>`_
 #. `packages-formula <https://github.com/saltstack-formulas/packages-formula>`_
@@ -181,14 +184,13 @@ These formulas are already compatible with semantic-release *and* have global ``
 
 These formulas are also compatible with semantic-release:
 
-16. `apache-formula <https://github.com/saltstack-formulas/apache-formula>`_
+19. `apache-formula <https://github.com/saltstack-formulas/apache-formula>`_
 #. `apt-cacher-formula <https://github.com/saltstack-formulas/apt-cacher-formula>`_
 #. `cert-formula <https://github.com/saltstack-formulas/cert-formula>`_
 #. `chrony-formula <https://github.com/saltstack-formulas/chrony-formula>`_
 #. `collectd-formula <https://github.com/saltstack-formulas/collectd-formula>`_
 #. `consul-formula <https://github.com/saltstack-formulas/consul-formula>`_
 #. `cron-formula <https://github.com/saltstack-formulas/cron-formula>`_
-#. `deepsea-formula <https://github.com/saltstack-formulas/deepsea-formula>`_
 #. `dhcpd-formula <https://github.com/saltstack-formulas/dhcpd-formula>`_
 #. `django-formula <https://github.com/saltstack-formulas/django-formula>`_
 #. `docker-formula <https://github.com/saltstack-formulas/docker-formula>`_
@@ -200,11 +202,9 @@ These formulas are also compatible with semantic-release:
 #. `hostsfile-formula <https://github.com/saltstack-formulas/hostsfile-formula>`_
 #. `icinga2-formula <https://github.com/saltstack-formulas/icinga2-formula>`_
 #. `influxdb-formula <https://github.com/saltstack-formulas/influxdb-formula>`_
-#. `iscsi-formula <https://github.com/saltstack-formulas/iscsi-formula>`_
 #. `keepalived-formula <https://github.com/saltstack-formulas/keepalived-formula>`_
 #. `locale-formula <https://github.com/saltstack-formulas/locale-formula>`_
 #. `logrotate-formula <https://github.com/saltstack-formulas/logrotate-formula>`_
-#. `lvm-formula <https://github.com/saltstack-formulas/lvm-formula>`_
 #. `mongodb-formula <https://github.com/saltstack-formulas/mongodb-formula>`_
 #. `mysql-formula <https://github.com/saltstack-formulas/mysql-formula>`_
 #. `nfs-formula <https://github.com/saltstack-formulas/nfs-formula>`_
