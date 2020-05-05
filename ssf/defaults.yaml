@@ -55,8 +55,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "chore(codeowners): add global codeowner [skip ci]"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/175'
+            title: "feat(semantic-release): standardise for this formula"
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/176'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
@@ -308,6 +308,42 @@ ssf:
             <<: *isk_suite_default
             name: ''
     apt-cacher: *formula_default
+    arvados:
+      <<: *formula_default
+      context:
+        <<: *context_default
+        inspec_suites_kitchen:
+          <<: *isk_default
+          0:
+            <<: *isk_suite_default
+            name: 'api'
+          1:
+            <<: *isk_suite_default
+            name: 'controller'
+          2:
+            <<: *isk_suite_default
+            name: 'keepproxy'
+          3:
+            <<: *isk_suite_default
+            name: 'keepstore'
+          4:
+            <<: *isk_suite_default
+            name: 'keepweb'
+          5:
+            <<: *isk_suite_default
+            name: 'repo'
+          6:
+            <<: *isk_suite_default
+            name: 'shell'
+          7:
+            <<: *isk_suite_default
+            name: 'websocket'
+          8:
+            <<: *isk_suite_default
+            name: 'workbench'
+          9:
+            <<: *isk_suite_default
+            name: 'workbench2'
     bind: *formula_default
     cert: *formula_default
     chrony: *formula_default
