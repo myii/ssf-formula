@@ -140,6 +140,9 @@ jobs:
         # Run `shellcheck` (already pre-installed in Travis)
         - shellcheck --version
         - git ls-files -- '*.sh' '*.bash' '*.ksh'
+                        {%- for path in shellcheck.exclude_paths %}
+                        | grep -v '{{ path }}'
+                        {%- endfor %}
                         | xargs shellcheck
         # Install and run `commitlint`
         - npm i -D @commitlint/config-conventional

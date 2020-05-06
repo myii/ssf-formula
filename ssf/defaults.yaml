@@ -56,7 +56,7 @@ ssf_node_anchors:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
             title: "feat(semantic-release): standardise for this formula"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/176'
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/177'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
@@ -200,6 +200,8 @@ ssf_node_anchors:
           cmd: 'verify'
           pre: []
           post: []
+        shellcheck:
+          exclude_paths: []
         travis:
           addons: {}
           dist: 'bionic'
@@ -354,6 +356,21 @@ ssf:
     dhcpd: *formula_default
     django: *formula_default
     docker: *formula_default
+    eclipse:
+      <<: *formula_default
+      context:
+        <<: *context_default
+        inspec_suites_kitchen:
+          <<: *isk_default
+          0:
+            <<: *isk_suite_default
+            name: 'java'
+          1:
+            <<: *isk_suite_default
+            name: 'cpp'
+          2:
+            <<: *isk_suite_default
+            name: 'javascript'
     epel: *formula_default
     exim: *formula_default
     fail2ban: *formula_default

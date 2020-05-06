@@ -89,6 +89,7 @@ ssf:
       - dhcpd
       - django
       - docker
+      - eclipse
       - epel
       - exim
       - fail2ban

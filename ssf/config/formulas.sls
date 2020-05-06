@@ -135,6 +135,7 @@ prepare-git-branch-for-{{ formula }}:
         rubocop: {{ context.rubocop | yaml }}
         salt_lint: {{ context.salt_lint | yaml }}
         script_kitchen: {{ context.script_kitchen | yaml }}
+        shellcheck: {{ context.shellcheck | yaml }}
         suite: {{ suite | yaml }}
         travis: {{ context.travis | yaml }}
         use_cirrus_ci: {{ use_cirrus_ci }}

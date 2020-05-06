@@ -167,6 +167,7 @@ These formulas are already compatible with semantic-release *and* have global ``
 #. `arvados-formula <https://github.com/saltstack-formulas/arvados-formula>`_
 #. `bind-formula <https://github.com/saltstack-formulas/bind-formula>`_
 #. `deepsea-formula <https://github.com/saltstack-formulas/deepsea-formula>`_
+#. `eclipse-formula <https://github.com/saltstack-formulas/eclipse-formula>`_
 #. `fail2ban-formula <https://github.com/saltstack-formulas/fail2ban-formula>`_
 #. `iptables-formula <https://github.com/saltstack-formulas/iptables-formula>`_
 #. `iscsi-formula <https://github.com/saltstack-formulas/iscsi-formula>`_
