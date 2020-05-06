@@ -1,5 +1,13 @@
 # Changelog
 
+# [1.131.0](https://github.com/myii/ssf-formula/compare/v1.130.1...v1.131.0) (2020-05-06)
+
+
+### Features
+
+* **formula:** add `eclipse-formula` ([4acc24d](https://github.com/myii/ssf-formula/commit/4acc24df5c9ad7593040bd6ff3ac727d0545cb46))
+* **shellcheck:** allow excluding paths (e.g. bash templates) ([b005099](https://github.com/myii/ssf-formula/commit/b00509970385506bafb37088be4a975575a1d9e2))
+
 ## [1.130.1](https://github.com/myii/ssf-formula/compare/v1.130.0...v1.130.1) (2020-05-06)
 
 
