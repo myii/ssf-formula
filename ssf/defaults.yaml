@@ -200,6 +200,8 @@ ssf_node_anchors:
           cmd: 'verify'
           pre: []
           post: []
+        shellcheck:
+          exclude_paths: []
         travis:
           addons: {}
           dist: 'bionic'
