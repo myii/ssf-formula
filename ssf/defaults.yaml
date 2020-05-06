@@ -9,40 +9,40 @@ ssf_node_anchors:
           bugbear: &line_length_bugbear 88
           default: &line_length_default 80
     formula: &formula_default
-      codeowners:
-        col_width: 43
-        entries:
-          global: []
-          specific_directories: []
-          specific_ssf:
-            - '/.github/workflows/': '@saltstack-formulas/ssf'
-            - '/bin/kitchen': '@saltstack-formulas/ssf'
-            - '/docs/AUTHORS.rst': '@saltstack-formulas/ssf'
-            - '/docs/CHANGELOG.rst': '@saltstack-formulas/ssf'
-            - '/docs/TOFS_pattern.rst': '@saltstack-formulas/ssf'
-            - '/./libsaltcli.jinja': '@saltstack-formulas/ssf'
-            - '/./libtofs.jinja': '@saltstack-formulas/ssf'
-            - '/test/integration/**/inspec.yml': '@saltstack-formulas/ssf'
-            - '/test/integration/**/README.md': '@saltstack-formulas/ssf'
-            - '/.gitignore': '@saltstack-formulas/ssf'
-            - '/.cirrus.yml': '@saltstack-formulas/ssf'
-            - '/.rubocop.yml': '@saltstack-formulas/ssf'
-            - '/.salt-lint': '@saltstack-formulas/ssf'
-            - '/.travis.yml': '@saltstack-formulas/ssf'
-            - '/.yamllint': '@saltstack-formulas/ssf'
-            - '/AUTHORS.md': '@saltstack-formulas/ssf'
-            - '/CHANGELOG.md': '@saltstack-formulas/ssf'
-            - '/CODEOWNERS': '@saltstack-formulas/ssf'
-            - '/commitlint.config.js': '@saltstack-formulas/ssf'
-            - '/FORMULA': '@saltstack-formulas/ssf'
-            - '/Gemfile': '@saltstack-formulas/ssf'
-            - '/Gemfile.lock': '@saltstack-formulas/ssf'
-            - '/kitchen.yml': '@saltstack-formulas/ssf'
-            - '/pre-commit_semantic-release.sh': '@saltstack-formulas/ssf'
-            - '/release-rules.js': '@saltstack-formulas/ssf'
-            - '/release.config.js': '@saltstack-formulas/ssf'
-          specific_files: []
       context: &context_default
+        codeowners:
+          col_width: 43
+          entries:
+            global: []
+            specific_directories: []
+            specific_ssf:
+              - '/.github/workflows/': '@saltstack-formulas/ssf'
+              - '/bin/kitchen': '@saltstack-formulas/ssf'
+              - '/docs/AUTHORS.rst': '@saltstack-formulas/ssf'
+              - '/docs/CHANGELOG.rst': '@saltstack-formulas/ssf'
+              - '/docs/TOFS_pattern.rst': '@saltstack-formulas/ssf'
+              - '/./libsaltcli.jinja': '@saltstack-formulas/ssf'
+              - '/./libtofs.jinja': '@saltstack-formulas/ssf'
+              - '/test/integration/**/inspec.yml': '@saltstack-formulas/ssf'
+              - '/test/integration/**/README.md': '@saltstack-formulas/ssf'
+              - '/.gitignore': '@saltstack-formulas/ssf'
+              - '/.cirrus.yml': '@saltstack-formulas/ssf'
+              - '/.rubocop.yml': '@saltstack-formulas/ssf'
+              - '/.salt-lint': '@saltstack-formulas/ssf'
+              - '/.travis.yml': '@saltstack-formulas/ssf'
+              - '/.yamllint': '@saltstack-formulas/ssf'
+              - '/AUTHORS.md': '@saltstack-formulas/ssf'
+              - '/CHANGELOG.md': '@saltstack-formulas/ssf'
+              - '/CODEOWNERS': '@saltstack-formulas/ssf'
+              - '/commitlint.config.js': '@saltstack-formulas/ssf'
+              - '/FORMULA': '@saltstack-formulas/ssf'
+              - '/Gemfile': '@saltstack-formulas/ssf'
+              - '/Gemfile.lock': '@saltstack-formulas/ssf'
+              - '/kitchen.yml': '@saltstack-formulas/ssf'
+              - '/pre-commit_semantic-release.sh': '@saltstack-formulas/ssf'
+              - '/release-rules.js': '@saltstack-formulas/ssf'
+              - '/release.config.js': '@saltstack-formulas/ssf'
+            specific_files: []
         git:
           branch:
             # TODO: `base` can be removed in favour of `github:remote:upstream:branch`

@@ -340,10 +340,11 @@ ssf_node_anchors:
 ssf:
   semrel_formulas:
     # aegir:
-    #   codeowners:
-    #     entries:
-    #       global:
-    #         - '*': '@javierbertoli'
+    #   context:
+    #     codeowners:
+    #       entries:
+    #         global:
+    #           - '*': '@javierbertoli'
     apache:
       context:
         git:
@@ -373,11 +374,11 @@ ssf:
           - [centos       ,   6   ,   2017.7,      2,         default]
       semrel_files: *semrel_files_default
     apt:
-      codeowners:
-        entries:
-          global:
-            - '*': '@javierbertoli'
       context:
+        codeowners:
+          entries:
+            global:
+              - '*': '@javierbertoli'
         git:
           github:
             repo: 'apt-formula'
@@ -466,11 +467,11 @@ ssf:
           <<: *file__formula__libtofs--jinja
           dest_file: 'formula/ng/libtofs.jinja'
     arvados:
-      codeowners:
-        entries:
-          global:
-            - '*': '@javierbertoli'
       context:
+        codeowners:
+          entries:
+            global:
+              - '*': '@javierbertoli'
         git:
           github:
             repo: 'arvados-formula'
@@ -565,16 +566,17 @@ ssf:
               - test/**/pillar/**/*.sls
       semrel_files: *semrel_files_default
     # bareos:
-    #   codeowners:
-    #     entries:
-    #       global:
-    #         - '*': '@javierbertoli'
+    #   context:
+    #     codeowners:
+    #       entries:
+    #         global:
+    #           - '*': '@javierbertoli'
     bind:
-      codeowners:
-        entries:
-          global:
-            - '*': '@javierbertoli'
       context:
+        codeowners:
+          entries:
+            global:
+              - '*': '@javierbertoli'
         git:
           github:
             repo: 'bind-formula'
@@ -679,12 +681,12 @@ ssf:
         platforms_matrix: *platforms_matrix_new
       semrel_files: *semrel_files_default
     cron:
-      codeowners:
-        entries:
-          specific_directories:
-            - '/./saltcheck-tests/': '@myii'
-            - '/test/': '@myii'
       context:
+        codeowners:
+          entries:
+            specific_directories:
+              - '/./saltcheck-tests/': '@myii'
+              - '/test/': '@myii'
         git:
           github:
             repo: 'cron-formula'
@@ -698,11 +700,11 @@ ssf:
                 - .sls: 'test/salt/pillar/cron.sls'
       semrel_files: *semrel_files_default
     deepsea:
-      codeowners:
-        entries:
-          global:
-            - '*': '@noelmcloughlin'
       context:
+        codeowners:
+          entries:
+            global:
+              - '*': '@noelmcloughlin'
         git:
           github:
             repo: 'deepsea-formula'
@@ -749,11 +751,11 @@ ssf:
         use_tofs: true
       semrel_files: *semrel_files_default
     dhcpd:
-      codeowners:
-        entries:
-          specific_directories:
-            - '/test/': '@myii'
       context:
+        codeowners:
+          entries:
+            specific_directories:
+              - '/test/': '@myii'
         git:
           github:
             repo: 'dhcpd-formula'
@@ -867,11 +869,11 @@ ssf:
         use_tofs: true
       semrel_files: *semrel_files_default
     fail2ban:
-      codeowners:
-        entries:
-          global:
-            - '*': '@javierbertoli'
       context:
+        codeowners:
+          entries:
+            global:
+              - '*': '@javierbertoli'
         git:
           github:
             repo: 'fail2ban-formula'
@@ -901,11 +903,11 @@ ssf:
           - [centos       ,   6   ,   2017.7,      2,         default]
       semrel_files: *semrel_files_default
     firewalld:
-      codeowners:
-        entries:
-          specific_directories:
-            - '/test/': '@myii'
       context:
+        codeowners:
+          entries:
+            specific_directories:
+              - '/test/': '@myii'
         git:
           github:
             repo: 'firewalld-formula'
@@ -1024,11 +1026,11 @@ ssf:
         platforms_matrix: *platforms_matrix_without_arch
       semrel_files: *semrel_files_default
     iptables:
-      codeowners:
-        entries:
-          global:
-            - '*': '@javierbertoli'
       context:
+        codeowners:
+          entries:
+            global:
+              - '*': '@javierbertoli'
         git:
           github:
             repo: 'iptables-formula'
@@ -1072,11 +1074,11 @@ ssf:
               ignore: *ignore_pillar_example
       semrel_files: *semrel_files_default
     iscsi:
-      codeowners:
-        entries:
-          global:
-            - '*': '@noelmcloughlin'
       context:
+        codeowners:
+          entries:
+            global:
+              - '*': '@noelmcloughlin'
         git:
           github:
             repo: 'iscsi-formula'
@@ -1175,11 +1177,11 @@ ssf:
         use_tofs: true
       semrel_files: *semrel_files_default
     letsencrypt:
-      codeowners:
-        entries:
-          global:
-            - '*': '@javierbertoli'
       context:
+        codeowners:
+          entries:
+            global:
+              - '*': '@javierbertoli'
         git:
           github:
             repo: 'letsencrypt-formula'
@@ -1258,11 +1260,11 @@ ssf:
           - [opensuse/leap,  15.1 ,   2018.3,      2,             git]
       semrel_files: *semrel_files_default
     libvirt:
-      codeowners:
-        entries:
-          global:
-            - '*': '@baby-gnu'
       context:
+        codeowners:
+          entries:
+            global:
+              - '*': '@baby-gnu'
         git:
           github:
             repo: 'libvirt-formula'
@@ -1364,11 +1366,11 @@ ssf:
         platforms_matrix: *platforms_matrix_without_arch
       semrel_files: *semrel_files_default
     lvm:
-      codeowners:
-        entries:
-          global:
-            - '*': '@noelmcloughlin'
       context:
+        codeowners:
+          entries:
+            global:
+              - '*': '@noelmcloughlin'
         git:
           github:
             repo: 'lvm-formula'
@@ -1443,11 +1445,11 @@ ssf:
           - [arch-base    , latest,   2018.3,      2,     loop5-loop6]
       semrel_files: *semrel_files_default
     mattermost:
-      codeowners:
-        entries:
-          global:
-            - '*': '@kjkeane'
       context:
+        codeowners:
+          entries:
+            global:
+              - '*': '@kjkeane'
         git:
           github:
             owner: 'kjkeane'
@@ -1573,11 +1575,11 @@ ssf:
         use_tofs: true
       semrel_files: *semrel_files_default
     nifi:
-      codeowners:
-        entries:
-          global:
-            - '*': '@codeboyQ2n5ha45'
       context:
+        codeowners:
+          entries:
+            global:
+              - '*': '@codeboyQ2n5ha45'
         git:
           github:
             repo: 'nifi-formula'
@@ -1711,11 +1713,11 @@ ssf:
               ignore: *ignore_pillar_example
       semrel_files: *semrel_files_default
     openldap:
-      codeowners:
-        entries:
-          specific_directories:
-            - '/test/': '@myii'
       context:
+        codeowners:
+          entries:
+            specific_directories:
+              - '/test/': '@myii'
         git:
           github:
             repo: 'openldap-formula'
@@ -1772,11 +1774,11 @@ ssf:
         use_tofs: true
       semrel_files: *semrel_files_default
     openvpn:
-      codeowners:
-        entries:
-          global:
-            - '*': '@dafyddj'
       context:
+        codeowners:
+          entries:
+            global:
+              - '*': '@dafyddj'
         git:
           github:
             repo: 'openvpn-formula'
@@ -1818,11 +1820,11 @@ ssf:
               - test/salt/pillar/default.sls
       semrel_files: *semrel_files_default
     packages:
-      codeowners:
-        entries:
-          global:
-            - '*': '@javierbertoli'
       context:
+        codeowners:
+          entries:
+            global:
+              - '*': '@javierbertoli'
         git:
           github:
             repo: 'packages-formula'
@@ -2020,13 +2022,13 @@ ssf:
               ignore: *ignore_pillar_example
       semrel_files: *semrel_files_default
     postgres:
-      codeowners:
-        entries:
-          global:
-            - '*':
-                - '@vutny'
-                - '@myii'
       context:
+        codeowners:
+          entries:
+            global:
+              - '*':
+                  - '@vutny'
+                  - '@myii'
         git:
           github:
             repo: 'postgres-formula'
@@ -2060,11 +2062,11 @@ ssf:
               - test/salt/pillar/postgres.sls
       semrel_files: *semrel_files_default
     powerdns:
-      codeowners:
-        entries:
-          specific_directories:
-            - '/test/': '@myii'
       context:
+        codeowners:
+          entries:
+            specific_directories:
+              - '/test/': '@myii'
         git:
           github:
             repo: 'powerdns-formula'
@@ -2224,23 +2226,24 @@ ssf:
         use_tofs: true
       semrel_files: *semrel_files_default
     # rspamd:
-    #   codeowners:
-    #     entries:
-    #       global:
-    #         - '*': '@javierbertoli'
+    #   context:
+    #     codeowners:
+    #       entries:
+    #         global:
+    #           - '*': '@javierbertoli'
     salt:
-      codeowners:
-        entries:
-          global:
-            - '*': '@saltstack-formulas/wg'
-          specific_directories:
-            - '/test/': '@myii'
-          specific_files:
-            - '/./formulas.sls':
-                - '@sticky-note'
-                - '@myii'
-            - '/./pin.sls': '@hatifnatt'
       context:
+        codeowners:
+          entries:
+            global:
+              - '*': '@saltstack-formulas/wg'
+            specific_directories:
+              - '/test/': '@myii'
+            specific_files:
+              - '/./formulas.sls':
+                  - '@sticky-note'
+                  - '@myii'
+              - '/./pin.sls': '@hatifnatt'
         git:
           github:
             repo: 'salt-formula'
@@ -2388,12 +2391,12 @@ ssf:
               - salt/osmap.yaml
       semrel_files: *semrel_files_default
     ssf:
-      codeowners:
-        entries:
-          global:
-            - '*': '@myii'
-          specific_ssf: []
       context:
+        codeowners:
+          entries:
+            global:
+              - '*': '@myii'
+            specific_ssf: []
         git:
           github:
             owner: 'myii'
@@ -2446,11 +2449,11 @@ ssf:
         release-rules.js: *file__release-rules--js
         release.config.js: *file__release--config--js
     stack:
-      codeowners:
-        entries:
-          global:
-            - '*': '@claudekenni'
       context:
+        codeowners:
+          entries:
+            global:
+              - '*': '@claudekenni'
         git:
           github:
             owner: 'claudekenni'
@@ -2481,11 +2484,11 @@ ssf:
         Gemfile: *file__Gemfile
         Gemfile.lock: *file__Gemfile--lock
     strongswan:
-      codeowners:
-        entries:
-          global:
-            - '*': '@daks'
       context:
+        codeowners:
+          entries:
+            global:
+              - '*': '@daks'
         git:
           github:
             repo: 'strongswan-formula'
@@ -2548,11 +2551,11 @@ ssf:
                     - .included
       semrel_files: *semrel_files_default
     sysctl:
-      codeowners:
-        entries:
-          global:
-            - '*': '@javierbertoli'
       context:
+        codeowners:
+          entries:
+            global:
+              - '*': '@javierbertoli'
         git:
           github:
             repo: 'sysctl-formula'
@@ -2689,11 +2692,11 @@ ssf:
         use_tofs: true
       semrel_files: *semrel_files_default
     template:
-      codeowners:
-        entries:
-          global:
-            - '*': '@saltstack-formulas/wg'
       context:
+        codeowners:
+          entries:
+            global:
+              - '*': '@saltstack-formulas/wg'
         git:
           github:
             repo: 'template-formula'
@@ -2775,11 +2778,11 @@ ssf:
         platforms_matrix: *platforms_matrix_new
       semrel_files: *semrel_files_default
     tomcat:
-      codeowners:
-        entries:
-          specific_directories:
-            - '/test/': '@myii'
       context:
+        codeowners:
+          entries:
+            specific_directories:
+              - '/test/': '@myii'
         git:
           github:
             repo: 'tomcat-formula'
@@ -3004,11 +3007,11 @@ ssf:
       #   use_tofs: true
       semrel_files: *semrel_files_default
     vault:
-      codeowners:
-        entries:
-          global:
-            - '*': '@dafyddj'
       context:
+        codeowners:
+          entries:
+            global:
+              - '*': '@dafyddj'
         git:
           github:
             repo: 'vault-formula'
@@ -3120,11 +3123,11 @@ ssf:
                 - .sls: 'test/salt/pillar/vsftpd.sls'
       semrel_files: *semrel_files_default
     zabbix:
-      codeowners:
-        entries:
-          specific_directories:
-            - '/test/': '@myii'
       context:
+        codeowners:
+          entries:
+            specific_directories:
+              - '/test/': '@myii'
         git:
           github:
             repo: 'zabbix-formula'
