@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.130.1](https://github.com/myii/ssf-formula/compare/v1.130.0...v1.130.1) (2020-05-06)
+
+
+### Code Refactoring
+
+* **codeowners:** demote to `formula.context` for consistency ([019542a](https://github.com/myii/ssf-formula/commit/019542a66897573bb722c5e2775af096a10986c7))
+
 # [1.130.0](https://github.com/myii/ssf-formula/compare/v1.129.0...v1.130.0) (2020-05-05)
 
 
