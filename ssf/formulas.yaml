@@ -754,6 +754,8 @@ ssf:
       context:
         codeowners:
           entries:
+            global:
+              - '*': '@sticky-note'
             specific_directories:
               - '/test/': '@myii'
         git:
@@ -1611,6 +1613,10 @@ ssf:
       semrel_files: *semrel_files_default
     nginx:
       context:
+        codeowners:
+          entries:
+            global:
+              - '*': '@sticky-note'
         git:
           github:
             repo: 'nginx-formula'
@@ -1777,6 +1783,8 @@ ssf:
       context:
         codeowners:
           entries:
+            global:
+              - '*': '@sticky-note'
             specific_directories:
               - '/test/': '@myii'
         git:
@@ -1987,6 +1995,10 @@ ssf:
       semrel_files: *semrel_files_default
     php:
       context:
+        codeowners:
+          entries:
+            global:
+              - '*': '@sticky-note'
         git:
           github:
             repo: 'php-formula'
@@ -2126,6 +2138,8 @@ ssf:
       context:
         codeowners:
           entries:
+            global:
+              - '*': '@sticky-note'
             specific_directories:
               - '/test/': '@myii'
         git:
@@ -2292,6 +2306,12 @@ ssf:
     #       entries:
     #         global:
     #           - '*': '@javierbertoli'
+    # rundeck:
+    #   context:
+    #     codeowners:
+    #       entries:
+    #         global:
+    #           - '*': '@sticky-note'
     salt:
       context:
         codeowners:
