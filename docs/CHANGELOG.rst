@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.132.0 <https://github.com/myii/ssf-formula/compare/v1.131.0...v1.132.0>`_ (2020-05-07)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **codeowners:** add global owner for 5(+1) formulas (\ `ae31d84 <https://github.com/myii/ssf-formula/commit/ae31d840821bad62ce7be707e5f929d811405b33>`_\ )
+
 `1.131.0 <https://github.com/myii/ssf-formula/compare/v1.130.1...v1.131.0>`_ (2020-05-06)
 ---------------------------------------------------------------------------------------------
 
