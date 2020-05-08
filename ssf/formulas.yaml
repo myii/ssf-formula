@@ -1171,7 +1171,29 @@ ssf:
                     - .
                     - .clean
           1:
-            includes: *platforms_os_centos_and_arch
+            includes: *platforms_os_centos
+            provisioner:
+              dependencies:
+                - name: 'lvm'
+                  repo: 'git'
+                  source: 'https://github.com/saltstack-formulas/lvm-formula.git'
+              pillars:
+                - '*':
+                    - lvm
+                    - .
+              pillars_from_files:
+                - lvm.sls: 'test/salt/pillar/lvm.centos'
+                - .sls: 'test/salt/pillar/pillar.centos'
+              state_top:
+                - '*':
+                    - lvm.install
+                    - lvm.files.create
+                    - lvm.pv.create
+                    - .
+                    - .clean
+            verifier: *verifier_inspec_tests_default
+          2:
+            includes: *platforms_os_arch_base
             provisioner:
               dependencies:
                 - name: 'users'
@@ -1188,7 +1210,7 @@ ssf:
               pillars_from_files:
                 - users.sls: 'test/salt/pillar/users.arch'
                 - lvm.sls: 'test/salt/pillar/lvm.example'
-                - .sls: 'test/salt/pillar/pillar.travis'
+                - .sls: 'test/salt/pillar/pillar.arch'
               state_top:
                 - '*':
                     - users
@@ -1200,16 +1222,16 @@ ssf:
             verifier: *verifier_inspec_tests_default
         inspec_suites_matrix:
           - default
-          - centarch
+          - centos
+          - arch
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
-          - [debian       ,  10   ,   master,      3,         default]
-          # # - [centos       ,   8   ,   master,      3,        centarch]
-          - [ubuntu       ,  18.04,   2019.2,      3,         default]
-          # # - [centos       ,   8   ,   2019.2,      3,        centarch]
-          - [opensuse/leap,  15.1 ,   2019.2,      3,         default]
-          - [amazonlinux  ,   2   ,   2019.2,      3,         default]
-          - [arch-base    , latest,   2018.3,      2,        centarch]
+          - [ubuntu       ,  18.04,   master,      3,         default]
+          - [centos       ,   8   ,   master,      3,          centos]
+          - [opensuse/leap,  15.1 ,   master,      3,         default]
+          - [amazonlinux  ,   2   ,   master,      3,         default]
+          - [arch-base    , latest,   2019.2,      2,            arch]
+          - [arch-base    , latest,   2018.3,      2,            arch]
         use_tofs: true
         yamllint:
           ignore:
