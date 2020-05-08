@@ -2,6 +2,16 @@
 Changelog
 =========
 
+`1.133.0 <https://github.com/myii/ssf-formula/compare/v1.132.0...v1.133.0>`_ (2020-05-08)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **codeowners:** add global owner for ``nut-formula`` (unconverted) [skip ci] (\ `9b3533a <https://github.com/myii/ssf-formula/commit/9b3533afe4ae2f91f49c13e2c86178b6e7c7f342>`_\ )
+* **iscsi:** update & finalised based on PR 35 (\ `83d3dd0 <https://github.com/myii/ssf-formula/commit/83d3dd0b6aca37f75577e6e4addc092d7cbd5ab7>`_\ )
+
 `1.132.0 <https://github.com/myii/ssf-formula/compare/v1.131.0...v1.132.0>`_ (2020-05-07)
 ---------------------------------------------------------------------------------------------
 
