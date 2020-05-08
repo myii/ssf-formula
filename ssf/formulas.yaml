@@ -1779,6 +1779,12 @@ ssf:
             key-duplicates:
               ignore: *ignore_pillar_example
       semrel_files: *semrel_files_default
+    # nut:
+    #   context:
+    #     codeowners:
+    #       entries:
+    #         global:
+    #           - '*': '@javierbertoli'
     openldap:
       context:
         codeowners:
