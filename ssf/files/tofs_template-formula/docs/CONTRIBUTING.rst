@@ -172,6 +172,7 @@ These formulas are already compatible with semantic-release *and* have global ``
 #. `fail2ban-formula <https://github.com/saltstack-formulas/fail2ban-formula>`_
 #. `iptables-formula <https://github.com/saltstack-formulas/iptables-formula>`_
 #. `iscsi-formula <https://github.com/saltstack-formulas/iscsi-formula>`_
+#. `jetbrains-intellij-formula <https://github.com/saltstack-formulas/jetbrains-intellij-formula>`_
 #. `jetbrains-pycharm-formula <https://github.com/saltstack-formulas/jetbrains-pycharm-formula>`_
 #. `letsencrypt-formula <https://github.com/saltstack-formulas/letsencrypt-formula>`_
 #. `libvirt-formula <https://github.com/saltstack-formulas/libvirt-formula>`_
