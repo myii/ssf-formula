@@ -55,8 +55,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "ci(kitchen+travis): standardise structure"
-            body: '* Checked using https://github.com/myii/ssf-formula/pull/179'
+            title: "feat(semantic-release): standardise for this formula"
+            body: '* Semi-automated using https://github.com/myii/ssf-formula/pull/180'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
@@ -399,6 +399,15 @@ ssf:
             <<: *isk_suite_default
             name: 'centos'
           2:
+            <<: *isk_suite_default
+            name: 'arch'
+    jetbrains-pycharm:
+      <<: *formula_default
+      context:
+        <<: *context_default
+        inspec_suites_kitchen:
+          <<: *isk_default
+          1:
             <<: *isk_suite_default
             name: 'arch'
     keepalived: *formula_default

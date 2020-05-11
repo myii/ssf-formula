@@ -101,6 +101,7 @@ ssf:
       - influxdb
       - iptables
       - iscsi
+      - jetbrains-pycharm
       - keepalived
       - letsencrypt
       - libvirt
