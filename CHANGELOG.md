@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.134.0](https://github.com/myii/ssf-formula/compare/v1.133.0...v1.134.0) (2020-05-11)
+
+
+### Features
+
+* **formula:** add `jetbrains-pycharm-formula` ([6712960](https://github.com/myii/ssf-formula/commit/67129603000f79459f82eaacc897b0d6f48aa3ca))
+
 # [1.133.0](https://github.com/myii/ssf-formula/compare/v1.132.0...v1.133.0) (2020-05-08)
 
 
