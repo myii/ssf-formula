@@ -147,7 +147,7 @@ jobs:
         # Install and run `commitlint`
         - npm i -D @commitlint/config-conventional
                    @commitlint/travis-cli
-        - commitlint-travis
+        - commitlint-travis{{- ' --verbose' if semrel_formula == 'ssf' else '' }}
     {%- if not travis.use_single_job_for_linters %}
     # Run the `rubocop` linter in a separate job that is allowed to fail
     # Once these lint errors are fixed, this can be merged into a single job

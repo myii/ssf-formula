@@ -45,7 +45,7 @@ jobs:
         # Install and run `commitlint`
         - npm i -D @commitlint/config-conventional
                    @commitlint/travis-cli
-        - commitlint-travis
+        - commitlint-travis --verbose
 
     ## Define the release stage that runs `semantic-release`
     - stage: 'release'
