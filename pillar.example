@@ -103,6 +103,7 @@ ssf:
       - iscsi
       - jetbrains-intellij
       - jetbrains-pycharm
+      - jetbrains-rubymine
       - keepalived
       - letsencrypt
       - libvirt
