@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.137.0](https://github.com/myii/ssf-formula/compare/v1.136.0...v1.137.0) (2020-05-12)
+
+
+### Features
+
+* **formula:** add `jetbrains-rubymine-formula` ([47b8764](https://github.com/myii/ssf-formula/commit/47b8764436c717401bbc6836d4abd96f88e061a7))
+
 # [1.136.0](https://github.com/myii/ssf-formula/compare/v1.135.0...v1.136.0) (2020-05-12)
 
 
