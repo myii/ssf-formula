@@ -193,7 +193,7 @@ These formulas are already compatible with semantic-release *and* have global ``
 
 These formulas are also compatible with semantic-release:
 
-26. `apache-formula <https://github.com/saltstack-formulas/apache-formula>`_
+28. `apache-formula <https://github.com/saltstack-formulas/apache-formula>`_
 #. `apt-cacher-formula <https://github.com/saltstack-formulas/apt-cacher-formula>`_
 #. `cert-formula <https://github.com/saltstack-formulas/cert-formula>`_
 #. `chrony-formula <https://github.com/saltstack-formulas/chrony-formula>`_
