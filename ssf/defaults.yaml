@@ -56,7 +56,7 @@ ssf_node_anchors:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
             title: "feat(semantic-release): standardise for this formula"
-            body: '* Semi-automated using https://github.com/myii/ssf-formula/pull/181'
+            body: '* Semi-automated using https://github.com/myii/ssf-formula/pull/182'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
@@ -411,6 +411,15 @@ ssf:
             <<: *isk_suite_default
             name: 'arch'
     jetbrains-pycharm:
+      <<: *formula_default
+      context:
+        <<: *context_default
+        inspec_suites_kitchen:
+          <<: *isk_default
+          1:
+            <<: *isk_suite_default
+            name: 'arch'
+    jetbrains-rubymine:
       <<: *formula_default
       context:
         <<: *context_default
