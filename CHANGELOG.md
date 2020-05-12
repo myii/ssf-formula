@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.136.0](https://github.com/myii/ssf-formula/compare/v1.135.0...v1.136.0) (2020-05-12)
+
+
+### Features
+
+* **ssf:** use verbose output for `commitlint` ([f93f9d1](https://github.com/myii/ssf-formula/commit/f93f9d14002448ead7d5a5c2e985855a42380aca))
+
 # [1.135.0](https://github.com/myii/ssf-formula/compare/v1.134.0...v1.135.0) (2020-05-12)
 
 
