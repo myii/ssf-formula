@@ -4,8 +4,11 @@
 # FILE PATTERN                              OWNER(S)
 *                                           @myii
 
+# SECTION: Owner(s) for specific directories
+# FILE PATTERN                              OWNER(S)
+
 # SECTION: Owner(s) for files/directories related to `semantic-release`
 # FILE PATTERN                              OWNER(S)
 
-# SECTION: Owner(s) for specific files/directories
+# SECTION: Owner(s) for specific files
 # FILE PATTERN                              OWNER(S)
