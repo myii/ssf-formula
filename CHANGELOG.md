@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.141.0](https://github.com/myii/ssf-formula/compare/v1.140.0...v1.141.0) (2020-05-14)
+
+
+### Features
+
+* **formula:** add `jetbrains-datagrip-formula` ([65c17fd](https://github.com/myii/ssf-formula/commit/65c17fd73866110098ca3fe2d3ed9a0d18f2edb4))
+
 # [1.140.0](https://github.com/myii/ssf-formula/compare/v1.139.0...v1.140.0) (2020-05-14)
 
 
