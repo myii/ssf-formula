@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.138.0](https://github.com/myii/ssf-formula/compare/v1.137.0...v1.138.0) (2020-05-14)
+
+
+### Features
+
+* **salt:** update `3000.2` to `3000.3` ([9688606](https://github.com/myii/ssf-formula/commit/968860648b9cad99c939294996d9e3a340826810))
+
 # [1.137.0](https://github.com/myii/ssf-formula/compare/v1.136.0...v1.137.0) (2020-05-12)
 
 
