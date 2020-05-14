@@ -58,11 +58,11 @@ jobs:
     ## Define the rest of the matrix based on Kitchen testing
     # Make sure the instances listed below match up with
     # the `platforms` defined in `kitchen.yml`
-    - env: INSTANCE=api-debian-10-3000-2-py3
-    - env: INSTANCE=workbench-debian-10-3000-2-py3
-    - env: INSTANCE=shell-debian-10-3000-2-py3
-    - env: INSTANCE=keepstore-debian-10-3000-2-py3
-    # - env: INSTANCE=default-ubuntu-1804-3000-2-py3
+    - env: INSTANCE=api-debian-10-3000-3-py3
+    - env: INSTANCE=workbench-debian-10-3000-3-py3
+    - env: INSTANCE=shell-debian-10-3000-3-py3
+    - env: INSTANCE=keepstore-debian-10-3000-3-py3
+    # - env: INSTANCE=default-ubuntu-1804-3000-3-py3
     # - env: INSTANCE=default-centos-7-2019-2-py3
 
     ## Define the release stage that runs `semantic-release`
