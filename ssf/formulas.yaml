@@ -1245,6 +1245,68 @@ ssf:
             additional:
               - '*.arch'
       semrel_files: *semrel_files_default
+    jetbrains-datagrip:
+      context:
+        codeowners:
+          entries:
+            global:
+              - '*': '@noelmcloughlin'
+        git:
+          github:
+            repo: 'jetbrains-datagrip-formula'
+        inspec_suites_kitchen:
+          0:
+            excludes: *platforms_os_arch_base_new
+            inspec_yml:
+              summary: >-
+                Verify that the datagrip formula is setup and configured correctly
+            provisioner:
+              pillars_from_files:
+                - .sls: 'test/salt/default/pillar.sls'  # TODO: CHANGE
+              state_top:
+                - '*':
+                    - .clean
+                    - .
+          1:
+            includes: *platforms_os_arch_base_new
+            inspec_yml:
+              summary: >-
+                Verify that the datagrip formula is setup and configured correctly
+                (on Arch Linux)
+            provisioner:
+              pillars_from_files:
+                - .sls: 'test/salt/default/pillar.sls'  # TODO: CHANGE
+              state_top:
+                - '*':
+                    - .clean
+                    - .
+        inspec_suites_matrix:
+          - default
+          - arch
+        platforms: *platforms_new
+        platforms_matrix:
+          # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
+          - [debian       ,  10   ,   master,      3,         default]
+          - [centos       ,   8   ,   master,      3,         default]
+          - [fedora       ,  31   ,   master,      3,         default]
+          - [opensuse/leap,  15.1 ,   master,      3,         default]
+          - [arch-base    , latest,   2019.2,      2,            arch]
+        use_tofs: true
+        yamllint:
+          ignore:
+            additional:
+              - datagrip/osfamilymap.yaml
+      semrel_files:
+        <<: *semrel_files_default
+        formula/libtofs.jinja:
+          <<: *file__formula__libtofs--jinja
+          alt_semrel_formula: 'datagrip'
+        inspec/inspec.yml:
+          <<: *file__inspec__inspec--yml
+          alt_semrel_formula: 'datagrip'
+        kitchen.yml:
+          <<: *file__kitchen--yml
+          alt_semrel_formula: 'datagrip'
     jetbrains-intellij:
       context:
         codeowners:

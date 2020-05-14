@@ -101,6 +101,7 @@ ssf:
       - influxdb
       - iptables
       - iscsi
+      - jetbrains-datagrip
       - jetbrains-intellij
       - jetbrains-pycharm
       - jetbrains-rubymine
