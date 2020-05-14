@@ -55,8 +55,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "ci(kitchen+travis): adjust matrix to add '`'3000.3'`'"
-            body: '* Semi-automated using https://github.com/myii/ssf-formula/pull/183'
+            title: "chore(semantic-release): standardise structure after PR #79 [skip ci]"
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/184'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
@@ -479,7 +479,15 @@ ssf:
             <<: *isk_suite_default
             name: 'loop5-loop6'
     mattermost: *formula_default
-    mongodb: *formula_default
+    mongodb:
+      <<: *formula_default
+      context:
+        <<: *context_default
+        inspec_suites_kitchen:
+          <<: *isk_default
+          1:
+            <<: *isk_suite_default
+            name: 'archive'
     mysql: *formula_default
     nfs: *formula_default
     nginx: *formula_default
