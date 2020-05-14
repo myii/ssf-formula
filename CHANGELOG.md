@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.139.0](https://github.com/myii/ssf-formula/compare/v1.138.0...v1.139.0) (2020-05-14)
+
+
+### Features
+
+* **mongodb:** introspect PR 79 (inc. adjust matrix to add `3000.2`) ([e8dece9](https://github.com/myii/ssf-formula/commit/e8dece9db6b0e349b5d08c8578dc63b76c92c46a))
+
 # [1.138.0](https://github.com/myii/ssf-formula/compare/v1.137.0...v1.138.0) (2020-05-14)
 
 
