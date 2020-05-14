@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.140.0](https://github.com/myii/ssf-formula/compare/v1.139.0...v1.140.0) (2020-05-14)
+
+
+### Features
+
+* **formulas:** adjust `platforms_new` to add `3000.3` ([75a4ea6](https://github.com/myii/ssf-formula/commit/75a4ea698ffda7aa5b6b534ae1cdd30c99f28e66))
+
 # [1.139.0](https://github.com/myii/ssf-formula/compare/v1.138.0...v1.139.0) (2020-05-14)
 
 
