@@ -178,6 +178,7 @@ These formulas are already compatible with semantic-release *and* have global ``
 #. `letsencrypt-formula <https://github.com/saltstack-formulas/letsencrypt-formula>`_
 #. `libvirt-formula <https://github.com/saltstack-formulas/libvirt-formula>`_
 #. `lvm-formula <https://github.com/saltstack-formulas/lvm-formula>`_
+#. `mongodb-formula <https://github.com/saltstack-formulas/mongodb-formula>`_
 #. `nginx-formula <https://github.com/saltstack-formulas/nginx-formula>`_
 #. `nifi-formula <https://github.com/saltstack-formulas/nifi-formula>`_
 #. `openldap-formula <https://github.com/saltstack-formulas/openldap-formula>`_
@@ -194,7 +195,7 @@ These formulas are already compatible with semantic-release *and* have global ``
 
 These formulas are also compatible with semantic-release:
 
-29. `apache-formula <https://github.com/saltstack-formulas/apache-formula>`_
+30. `apache-formula <https://github.com/saltstack-formulas/apache-formula>`_
 #. `apt-cacher-formula <https://github.com/saltstack-formulas/apt-cacher-formula>`_
 #. `cert-formula <https://github.com/saltstack-formulas/cert-formula>`_
 #. `chrony-formula <https://github.com/saltstack-formulas/chrony-formula>`_
@@ -214,7 +215,6 @@ These formulas are also compatible with semantic-release:
 #. `keepalived-formula <https://github.com/saltstack-formulas/keepalived-formula>`_
 #. `locale-formula <https://github.com/saltstack-formulas/locale-formula>`_
 #. `logrotate-formula <https://github.com/saltstack-formulas/logrotate-formula>`_
-#. `mongodb-formula <https://github.com/saltstack-formulas/mongodb-formula>`_
 #. `mysql-formula <https://github.com/saltstack-formulas/mysql-formula>`_
 #. `nfs-formula <https://github.com/saltstack-formulas/nfs-formula>`_
 #. `node-formula <https://github.com/saltstack-formulas/node-formula>`_
