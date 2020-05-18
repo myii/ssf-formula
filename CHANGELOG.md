@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.143.0](https://github.com/myii/ssf-formula/compare/v1.142.0...v1.143.0) (2020-05-18)
+
+
+### Features
+
+* **formula:** add `jetbrains-rider-formula` ([4e6a8bc](https://github.com/myii/ssf-formula/commit/4e6a8bc1d7d1ef39b1700738fae5d84b1dc59135))
+
 # [1.142.0](https://github.com/myii/ssf-formula/compare/v1.141.0...v1.142.0) (2020-05-18)
 
 
