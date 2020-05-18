@@ -103,6 +103,7 @@ ssf:
       - iscsi
       - jetbrains-datagrip
       - jetbrains-intellij
+      - jetbrains-phpstorm
       - jetbrains-pycharm
       - jetbrains-rubymine
       - keepalived
