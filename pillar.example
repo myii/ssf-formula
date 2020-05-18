@@ -105,6 +105,7 @@ ssf:
       - jetbrains-intellij
       - jetbrains-phpstorm
       - jetbrains-pycharm
+      - jetbrains-rider
       - jetbrains-rubymine
       - keepalived
       - letsencrypt
