@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.144.0 <https://github.com/myii/ssf-formula/compare/v1.143.1...v1.144.0>`_ (2020-05-19)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **formula:** add ``jetbrains-resharper-formula`` (\ `310e64f <https://github.com/myii/ssf-formula/commit/310e64f45c13e3a669769863e7f7225eb89b045e>`_\ )
+
 `1.143.1 <https://github.com/myii/ssf-formula/compare/v1.143.0...v1.143.1>`_ (2020-05-19)
 ---------------------------------------------------------------------------------------------
 
