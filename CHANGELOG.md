@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.145.0](https://github.com/myii/ssf-formula/compare/v1.144.0...v1.145.0) (2020-05-19)
+
+
+### Features
+
+* **formula:** add `jetbrains-webstorm-formula` ([ea4c63e](https://github.com/myii/ssf-formula/commit/ea4c63ed7ffd6a47e5ec2441262a1ebdea53dfd9))
+
 # [1.144.0](https://github.com/myii/ssf-formula/compare/v1.143.1...v1.144.0) (2020-05-19)
 
 
