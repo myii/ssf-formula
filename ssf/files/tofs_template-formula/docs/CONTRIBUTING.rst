@@ -176,6 +176,7 @@ These formulas are already compatible with semantic-release *and* have global ``
 #. `jetbrains-intellij-formula <https://github.com/saltstack-formulas/jetbrains-intellij-formula>`_
 #. `jetbrains-phpstorm-formula <https://github.com/saltstack-formulas/jetbrains-phpstorm-formula>`_
 #. `jetbrains-pycharm-formula <https://github.com/saltstack-formulas/jetbrains-pycharm-formula>`_
+#. `jetbrains-resharper-formula <https://github.com/saltstack-formulas/jetbrains-resharper-formula>`_
 #. `jetbrains-rider-formula <https://github.com/saltstack-formulas/jetbrains-rider-formula>`_
 #. `jetbrains-rubymine-formula <https://github.com/saltstack-formulas/jetbrains-rubymine-formula>`_
 #. `letsencrypt-formula <https://github.com/saltstack-formulas/letsencrypt-formula>`_
@@ -198,7 +199,7 @@ These formulas are already compatible with semantic-release *and* have global ``
 
 These formulas are also compatible with semantic-release:
 
-33. `apache-formula <https://github.com/saltstack-formulas/apache-formula>`_
+34. `apache-formula <https://github.com/saltstack-formulas/apache-formula>`_
 #. `apt-cacher-formula <https://github.com/saltstack-formulas/apt-cacher-formula>`_
 #. `cert-formula <https://github.com/saltstack-formulas/cert-formula>`_
 #. `chrony-formula <https://github.com/saltstack-formulas/chrony-formula>`_
