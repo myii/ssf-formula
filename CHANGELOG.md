@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.143.1](https://github.com/myii/ssf-formula/compare/v1.143.0...v1.143.1) (2020-05-19)
+
+
+### Code Refactoring
+
+* **formulas:** use `&platforms_matrix_jetbrains` node anchor ([6742b49](https://github.com/myii/ssf-formula/commit/6742b490fd22f01d9abf45dcc394d80d7e46ffa1))
+
 # [1.143.0](https://github.com/myii/ssf-formula/compare/v1.142.0...v1.143.0) (2020-05-18)
 
 
