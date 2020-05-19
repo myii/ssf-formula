@@ -108,6 +108,7 @@ ssf:
       - jetbrains-resharper
       - jetbrains-rider
       - jetbrains-rubymine
+      - jetbrains-webstorm
       - keepalived
       - letsencrypt
       - libvirt
