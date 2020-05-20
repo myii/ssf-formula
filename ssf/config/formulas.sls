@@ -16,6 +16,7 @@
 {%-   set use_cirrus_ci = context.use_cirrus_ci %}
 {%-   set use_libsaltcli = context.use_libsaltcli %}
 {%-   set use_tofs = context.use_tofs %}
+{%-   set owner = context.git.github.owner %}
 {%-   set formula = context.git.github.repo %}
 {#-   Determine the TOFS override directory for the current formula #}
 {#-   Can't use `formula` directly because some formula names are used as top-level pillar/config keys, such as `users-formula` #}
@@ -125,6 +126,7 @@ prepare-git-branch-for-{{ formula }}:
         {#-       Maintaining the rest for consistency #}
         tplroot: {{ tplroot }}
         semrel_formula: {{ semrel_file_specs.alt_semrel_formula | d(semrel_formula) }}
+        owner: {{ owner }}
         formula: {{ formula }}
         codeowners: {{ context.codeowners | yaml }}
         inspec_suites_kitchen: {{ inspec_suites_kitchen | yaml }}
@@ -208,7 +210,7 @@ create-github-PR-for-{{ formula }}:
     - cwd: {{ ssf.formulas_path }}/{{ formula }}/
     - args: >-
         create-github-PR-for-{{ formula }}
-        {{ context.git.github.owner }}
+        {{ owner }}
         {{ formula }}
         {{ context.git.branch.base }}
         {{ ssf.git.github.user }}
