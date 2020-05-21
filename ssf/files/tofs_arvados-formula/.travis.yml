@@ -90,3 +90,23 @@ jobs:
         edge: true
         # Run `semantic-release`
         script: 'npx semantic-release@15.14'
+
+# Notification options: `always`, `never` or `change`
+{#- TODO: Move this to `defaults.yaml` & `formulas.yaml` #}
+{%- set ignore_pull_requests = 'false' if semrel_formula in ['ssf'] else 'true' %}
+notifications:
+  webhooks:
+    if: 'repo = {{ owner }}/{{ formula }}'
+    urls:
+      - {{ 'https://{}/api/v1/external/travis?{}&{}&{}&{}'.format(
+             'saltstack-formulas.zulipchat.com',
+             'api_key=HsIq3o5QmLxdnVCKF9is0FUIpkpAY79P',
+             'stream=CI',
+             'topic={}%2F{}'.format(owner, formula),
+             'ignore_pull_requests={}'.format(ignore_pull_requests),
+        ) }}
+    on_success: always  # default: always
+    on_failure: always  # default: always
+    on_start: always    # default: never
+    on_cancel: always   # default: always
+    on_error: always    # default: always
