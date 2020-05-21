@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.147.0](https://github.com/myii/ssf-formula/compare/v1.146.0...v1.147.0) (2020-05-21)
+
+
+### Features
+
+* **formula:** add `jetbrains-goland-formula` ([7c1c4d9](https://github.com/myii/ssf-formula/commit/7c1c4d90b172cd14d8a4f10d5da0d09530e70361))
+
 # [1.146.0](https://github.com/myii/ssf-formula/compare/v1.145.0...v1.146.0) (2020-05-21)
 
 
