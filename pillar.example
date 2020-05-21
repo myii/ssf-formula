@@ -102,6 +102,7 @@ ssf:
       - iptables
       - iscsi
       - jetbrains-datagrip
+      - jetbrains-goland
       - jetbrains-intellij
       - jetbrains-phpstorm
       - jetbrains-pycharm

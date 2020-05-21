@@ -55,8 +55,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "ci(travis): add notifications ='>' zulip [skip ci]"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/191'
+            title: "ci(kitchen+travis): adjust matrix to add '`'3000.3'`'"
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/192'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
@@ -402,6 +402,15 @@ ssf:
             <<: *isk_suite_default
             name: 'arch'
     jetbrains-datagrip:
+      <<: *formula_default
+      context:
+        <<: *context_default
+        inspec_suites_kitchen:
+          <<: *isk_default
+          1:
+            <<: *isk_suite_default
+            name: 'arch'
+    jetbrains-goland:
       <<: *formula_default
       context:
         <<: *context_default
