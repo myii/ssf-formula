@@ -1,5 +1,17 @@
 # Changelog
 
+# [1.146.0](https://github.com/myii/ssf-formula/compare/v1.145.0...v1.146.0) (2020-05-21)
+
+
+### Bug Fixes
+
+* **ssf:** update `.yamllint` with current situation ([10ef1ca](https://github.com/myii/ssf-formula/commit/10ef1ca5d0fb8454a7a51764f903f8246e89d98d))
+
+
+### Features
+
+* **travis:** push notifications to `saltstack-formulas.zulipchat.com` ([a1e50da](https://github.com/myii/ssf-formula/commit/a1e50da971b187d9052a7d29b6de6998fbd48e8d))
+
 # [1.145.0](https://github.com/myii/ssf-formula/compare/v1.144.0...v1.145.0) (2020-05-19)
 
 
