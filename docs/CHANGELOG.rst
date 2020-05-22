@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.148.0 <https://github.com/myii/ssf-formula/compare/v1.147.0...v1.148.0>`_ (2020-05-22)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **formula:** add ``jetbrains-appcode-formula`` (\ `4105662 <https://github.com/myii/ssf-formula/commit/410566204c3f7ce034ea58b5a2d63301318ccc9e>`_\ )
+
 `1.147.0 <https://github.com/myii/ssf-formula/compare/v1.146.0...v1.147.0>`_ (2020-05-21)
 ---------------------------------------------------------------------------------------------
 
