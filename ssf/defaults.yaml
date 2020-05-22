@@ -56,7 +56,7 @@ ssf_node_anchors:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
             title: "ci(kitchen+travis): adjust matrix to add '`'3000.3'`'"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/192'
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/193'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
@@ -401,6 +401,7 @@ ssf:
           2:
             <<: *isk_suite_default
             name: 'arch'
+    jetbrains-appcode: *formula_default
     jetbrains-datagrip:
       <<: *formula_default
       context:
