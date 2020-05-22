@@ -1252,6 +1252,46 @@ ssf:
             additional:
               - '*.arch'
       semrel_files: *semrel_files_default
+    jetbrains-appcode:
+      context:
+        codeowners:
+          entries:
+            global:
+              - '*': '@noelmcloughlin'
+        git:
+          github:
+            repo: 'jetbrains-appcode-formula'
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: >-
+                Verify that the appcode formula is setup and configured correctly
+            provisioner:
+              pillars_from_files:
+                - .sls: 'test/salt/default/pillar.sls'  # TODO: CHANGE
+              state_top:
+                - '*':
+                    - .clean
+                    - .
+        platforms: *platforms_new
+        # No Linux testing yet, `MacOS` formula only (for the time being?)
+        platforms_matrix: []
+        use_tofs: true
+        yamllint:
+          ignore:
+            additional:
+              - appcode/defaults.yaml
+      semrel_files:
+        <<: *semrel_files_default
+        formula/libtofs.jinja:
+          <<: *file__formula__libtofs--jinja
+          alt_semrel_formula: 'appcode'
+        inspec/inspec.yml:
+          <<: *file__inspec__inspec--yml
+          alt_semrel_formula: 'appcode'
+        kitchen.yml:
+          <<: *file__kitchen--yml
+          alt_semrel_formula: 'appcode'
     jetbrains-datagrip:
       context:
         codeowners:
