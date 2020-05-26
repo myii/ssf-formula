@@ -2968,6 +2968,7 @@ ssf:
               - [centos       ,   8   ,   3000.3,      3]
               - [centos       ,   7   ,   3000.3,      3]
               - [fedora       ,  31   ,   3000.3,      3]
+              - [opensuse/leap,  15.2 ,   3000.3,      3]
               - [opensuse/leap,  15.1 ,   3000.3,      3]
               - [amazonlinux  ,   2   ,   3000.3,      3]
             inspec_yml:
@@ -3008,8 +3009,6 @@ ssf:
               - [ubuntu       ,  16.04,   2019.2,      3]
               - [centos       ,   8   ,   2019.2,      3]
               - [centos       ,   7   ,   2019.2,      3]
-              - [fedora       ,  31   ,   2019.2,      3]
-              - [opensuse/leap,  15.1 ,   2019.2,      3]
               - [amazonlinux  ,   2   ,   2019.2,      3]
             inspec_yml:
               summary: >-
@@ -3053,6 +3052,7 @@ ssf:
           - [centos       ,   8   ,   3000.3,      3]
           - [centos       ,   7   ,   3000.3,      3]
           - [fedora       ,  31   ,   3000.3,      3]
+          - [opensuse/leap,  15.2 ,   3000.3,      3]
           - [opensuse/leap,  15.1 ,   3000.3,      3]
           - [amazonlinux  ,   2   ,   3000.3,      3]
           - [ubuntu       ,  18.04,   3000.3,      2]
@@ -3063,8 +3063,6 @@ ssf:
           - [ubuntu       ,  16.04,   2019.2,      3]
           - [centos       ,   8   ,   2019.2,      3]
           - [centos       ,   7   ,   2019.2,      3]
-          - [fedora       ,  31   ,   2019.2,      3]
-          - [opensuse/leap,  15.1 ,   2019.2,      3]
           - [amazonlinux  ,   2   ,   2019.2,      3]
           - [centos       ,   6   ,   2019.2,      2]
           - [amazonlinux  ,   1   ,   2019.2,      2]
@@ -3076,8 +3074,8 @@ ssf:
           - [centos       ,   8   ,   3000.3,      3,     v3000-py3]
           # - [centos       ,   7   ,   3000.3,      3,     v3000-py3]
           - [fedora       ,  31   ,   3000.3,      3,     v3000-py3]
-          # # Not working for `3000.X` yet
-          # # - [opensuse/leap,  15.1 ,   3000.3,      3,     v3000-py3]
+          - [opensuse/leap,  15.2 ,   3000.3,      3,     v3000-py3]
+          - [opensuse/leap,  15.1 ,   3000.3,      3,     v3000-py3]
           - [amazonlinux  ,   2   ,   3000.3,      3,     v3000-py3]
           - [ubuntu       ,  18.04,   3000.3,      2,     v3000-py2]
           # - [ubuntu       ,  16.04,   3000.3,      2,     v3000-py2]
@@ -3087,9 +3085,6 @@ ssf:
           - [ubuntu       ,  16.04,   2019.2,      3,   v201902-py3]
           # - [centos       ,   8   ,   2019.2,      3,   v201902-py3]
           - [centos       ,   7   ,   2019.2,      3,   v201902-py3]
-          # # Won't install less than `3000.X`
-          # # - [fedora       ,  31   ,   2019.2,      3,   v201902-py3]
-          - [opensuse/leap,  15.1 ,   2019.2,      3,   v201902-py3]
           # - [amazonlinux  ,   2   ,   2019.2,      3,   v201902-py3]
           - [centos       ,   6   ,   2019.2,      2,   v201902-py2]
           # # States don't complete
