@@ -881,19 +881,16 @@ ssf:
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,  10   ,   master,      3,            java]
-          - [centos       ,   8   ,   master,      3,             cpp]
-          - [fedora       ,  31   ,   master,      3,            java]
-          - [opensuse/leap,  15.1 ,   master,      3,      javascript]
-          - [ubuntu       ,  18.04,   3000.1,      3,             cpp]
+          - [centos       ,   8   ,   master,      3,            java]
+          - [fedora       ,  31   ,   master,      3,      javascript]
+          - [opensuse/leap,  15.1 ,   master,      3,             cpp]
+          # - [ubuntu       ,  18.04,   3000.1,      3,             cpp]
+          - [arch-base    , latest,   2019.2,      2,            java]
         # To deal with excessive instances when mimicking `kitchen list -b`
         # If values are set, only use these as commented entries in the matrix
         platforms_matrix_commented_includes:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,  10   ,   master,      3,            java]
-          - [debian       ,  10   ,   master,      3,            java]
-        shellcheck:
-          exclude_paths:
-            - 'eclipse/files/'
         use_tofs: true
         yamllint:
           ignore:
