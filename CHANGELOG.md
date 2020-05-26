@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.149.0](https://github.com/myii/ssf-formula/compare/v1.148.0...v1.149.0) (2020-05-26)
+
+
+### Features
+
+* **systemd:** update from PR 57 ([4fda0c5](https://github.com/myii/ssf-formula/commit/4fda0c542301e52c9e22d7a37c7d17610b4ad68c))
+
 # [1.148.0](https://github.com/myii/ssf-formula/compare/v1.147.0...v1.148.0) (2020-05-22)
 
 
