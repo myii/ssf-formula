@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.152.0](https://github.com/myii/ssf-formula/compare/v1.151.0...v1.152.0) (2020-05-26)
+
+
+### Features
+
+* **mongodb:** finalise PR 83 ([ae66a6c](https://github.com/myii/ssf-formula/commit/ae66a6c5f78ab84f02eaaf856b734b5477758000))
+
 # [1.151.0](https://github.com/myii/ssf-formula/compare/v1.150.0...v1.151.0) (2020-05-26)
 
 
