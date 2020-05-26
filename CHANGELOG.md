@@ -1,5 +1,17 @@
 # Changelog
 
+# [1.150.0](https://github.com/myii/ssf-formula/compare/v1.149.0...v1.150.0) (2020-05-26)
+
+
+### Bug Fixes
+
+* **kitchen:** apply `SCP` workaround for `opensuse-leap-15.2` as well ([a2b2d68](https://github.com/myii/ssf-formula/commit/a2b2d68addad760d34c6c8f3679074f64b7d831e))
+
+
+### Features
+
+* **salt:** adjust matrix to add `opensuse-leap-15.2` ([a6f0602](https://github.com/myii/ssf-formula/commit/a6f06029e742bf8e0724a4767ffe774b44226a8f))
+
 # [1.149.0](https://github.com/myii/ssf-formula/compare/v1.148.0...v1.149.0) (2020-05-26)
 
 
