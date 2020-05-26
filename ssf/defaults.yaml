@@ -55,8 +55,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "ci(kitchen+travis): adjust matrix to add '`'3000.3'`'"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/193'
+            title: "ci(kitchen): standardise structure"
+            body: '* Checked using https://github.com/myii/ssf-formula/pull/194'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'

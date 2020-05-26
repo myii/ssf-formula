@@ -3339,11 +3339,15 @@ ssf:
               summary: >-
                 Verify that the systemd formula is setup and configured correctly
             provisioner:
+              dependencies:
+                - name: 'rsync_test_package'
+                  path: 'test/salt/states'
               state_top:
                 - '*':
                     - .
                     - .networkd
                     - .networkd.profiles
+                    - rsync_test_package
                     - .units
         platforms:
           # [os           , os_ver, salt_ver, py_ver]
