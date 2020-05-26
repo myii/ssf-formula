@@ -2112,73 +2112,23 @@ ssf:
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/default.sls'
-              state_top:
-                - '*':
-                    - .clean
-                    - .
-          1:
-            inspec_yml:
-              summary: >-
-                Verify that the mongodb formula is setup and configured correctly
-                (deploying from archive files)
-            provisioner:
-              pillars_from_files:
-                - .sls: 'test/salt/pillar/archive.sls'
-              state_top:
-                - '*':
-                    - .clean
-                    - .
-        inspec_suites_matrix:
-          - default
-          - archive
         platforms: *platforms_new
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,  10   ,   master,      3,         default]
-          - [centos       ,   8   ,   master,      3,         archive]
-          - [fedora       ,  31   ,   master,      3,         archive]
-          - [opensuse/leap,  15.1 ,   master,      3,         archive]
-          - [centos       ,   7   ,   3000.3,      3,         default]
-          - [arch-base    , latest,   2019.2,      2,         archive]
-        platforms_matrix_commented_includes:
-          # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
-          - [debian       ,  10   ,   master,      3,         default]
-          - [debian       ,  10   ,   master,      3,         default]
-          - [debian       ,  10   ,   master,      3,         default]
-          - [debian       ,  10   ,   master,      3,         default]
           - [ubuntu       ,  18.04,   master,      3,         default]
           - [centos       ,   8   ,   master,      3,         default]
           - [fedora       ,  31   ,   master,      3,         default]
-          - [opensuse/leap,  15.1 ,   master,      3,         default]
+          # - [opensuse/leap,  15.1 ,   master,      3,         default]
           - [amazonlinux  ,   2   ,   master,      3,         default]
-          - [debian       ,  10   ,   3000.3,      3,         default]
-          - [debian       ,   9   ,   3000.3,      3,         default]
-          - [ubuntu       ,  18.04,   3000.3,      3,         default]
-          - [centos       ,   8   ,   3000.3,      3,         default]
-          - [centos       ,   7   ,   3000.3,      3,         default]
-          - [fedora       ,  31   ,   3000.3,      3,         default]
-          - [opensuse/leap,  15.1 ,   3000.3,      3,         default]
-          - [amazonlinux  ,   2   ,   3000.3,      3,         default]
-          - [ubuntu       ,  18.04,   3000.3,      2,         default]
-          - [ubuntu       ,  16.04,   3000.3,      2,         default]
-          - [arch-base    , latest,   3000.3,      2,         default]
-          - [debian       ,  10   ,   2019.2,      3,         default]
-          - [debian       ,   9   ,   2019.2,      3,         default]
-          - [ubuntu       ,  18.04,   2019.2,      3,         default]
-          - [ubuntu       ,  16.04,   2019.2,      3,         default]
-          - [centos       ,   8   ,   2019.2,      3,         default]
-          - [centos       ,   7   ,   2019.2,      3,         default]
-          - [fedora       ,  31   ,   2019.2,      3,         default]
-          - [opensuse/leap,  15.1 ,   2019.2,      3,         default]
-          - [amazonlinux  ,   2   ,   2019.2,      3,         default]
-          - [centos       ,   6   ,   2019.2,      2,         default]
-          - [amazonlinux  ,   1   ,   2019.2,      2,         default]
           - [arch-base    , latest,   2019.2,      2,         default]
+        use_tofs: true
         yamllint:
           ignore:
             additional:
-              - mongodb/oscodemap.yaml
-              - mongodb/osmap.yaml
+              - pillar.example
+              - mongodb/osfamilymap.yaml
+              - mongodb/osfingermap.yaml
       semrel_files: *semrel_files_default
     mysql:
       context:
