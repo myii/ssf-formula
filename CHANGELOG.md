@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.151.0](https://github.com/myii/ssf-formula/compare/v1.150.0...v1.151.0) (2020-05-26)
+
+
+### Features
+
+* **eclipse:** finalise PR 32 ([0298cfc](https://github.com/myii/ssf-formula/commit/0298cfc1f928bd35703457dd2d240f757975de2a))
+
 # [1.150.0](https://github.com/myii/ssf-formula/compare/v1.149.0...v1.150.0) (2020-05-26)
 
 
