@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.156.0 <https://github.com/myii/ssf-formula/compare/v1.155.0...v1.156.0>`_ (2020-05-28)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **zabbix:** use new platforms (\ ``ubuntu-20.04`` & ``fedora-32``\ ) (\ `c6030e0 <https://github.com/myii/ssf-formula/commit/c6030e09e49186895fb90ad3b52f52bef29a9a60>`_\ )
+
 `1.155.0 <https://github.com/myii/ssf-formula/compare/v1.154.0...v1.155.0>`_ (2020-05-28)
 ---------------------------------------------------------------------------------------------
 
