@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.155.0](https://github.com/myii/ssf-formula/compare/v1.154.0...v1.155.0) (2020-05-28)
+
+
+### Features
+
+* **tomcat:** use new platforms (`ubuntu-20.04` & `fedora-32`) ([451f839](https://github.com/myii/ssf-formula/commit/451f8397a20b82ce0b08f6d47e25dfba1b07d519))
+
 # [1.154.0](https://github.com/myii/ssf-formula/compare/v1.153.0...v1.154.0) (2020-05-28)
 
 
