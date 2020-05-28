@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.154.0](https://github.com/myii/ssf-formula/compare/v1.153.0...v1.154.0) (2020-05-28)
+
+
+### Features
+
+* update `*platforms_new` (`ubuntu-20.04`, `fedora-32`, `leap-15.2`) ([7cb60ce](https://github.com/myii/ssf-formula/commit/7cb60ce3efd6def354f9fb947d4a17a1aad9acb6))
+
 # [1.153.0](https://github.com/myii/ssf-formula/compare/v1.152.0...v1.153.0) (2020-05-27)
 
 
