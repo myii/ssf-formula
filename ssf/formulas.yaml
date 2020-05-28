@@ -62,10 +62,12 @@ ssf_node_anchors:
         platforms_new: &platforms_new
           ### `master-py3`
           - [debian       ,  10   ,   master,      3]
+          - [ubuntu       ,  20.04,   master,      3]
           - [ubuntu       ,  18.04,   master,      3]
           - [centos       ,   8   ,   master,      3]
+          - [fedora       ,  32   ,   master,      3]
           - [fedora       ,  31   ,   master,      3]
-          - [opensuse/leap,  15.1 ,   master,      3]
+          - [opensuse/leap,  15.2 ,   master,      3]
           - [amazonlinux  ,   2   ,   master,      3]
 
           ### `3000.3-py3`
@@ -75,7 +77,7 @@ ssf_node_anchors:
           - [centos       ,   8   ,   3000.3,      3]
           - [centos       ,   7   ,   3000.3,      3]
           - [fedora       ,  31   ,   3000.3,      3]
-          - [opensuse/leap,  15.1 ,   3000.3,      3]
+          - [opensuse/leap,  15.2 ,   3000.3,      3]
           - [amazonlinux  ,   2   ,   3000.3,      3]
           ### ` 3000.3-py2`
           - [ubuntu       ,  18.04,   3000.3,      2]
@@ -90,7 +92,7 @@ ssf_node_anchors:
           - [centos       ,   8   ,   2019.2,      3]
           - [centos       ,   7   ,   2019.2,      3]
           - [fedora       ,  31   ,   2019.2,      3]
-          - [opensuse/leap,  15.1 ,   2019.2,      3]
+          - [opensuse/leap,  15.2 ,   2019.2,      3]
           - [amazonlinux  ,   2   ,   2019.2,      3]
           ### `2019.2-py2`
           - [centos       ,   6   ,   2019.2,      2]
@@ -100,11 +102,13 @@ ssf_node_anchors:
         platforms_matrix_new: &platforms_matrix_new
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,  10   ,   master,      3,         default]
+          - [ubuntu       ,  20.04,   master,      3,         default]
           - [centos       ,   8   ,   master,      3,         default]
-          - [ubuntu       ,  18.04,   3000.3,      3,         default]
-          - [opensuse/leap,  15.1 ,   3000.3,      3,         default]
+          - [fedora       ,  32   ,   master,      3,         default]
+          # - [ubuntu       ,  18.04,   3000.3,      3,         default]
+          - [opensuse/leap,  15.2 ,   3000.3,      3,         default]
           - [amazonlinux  ,   2   ,   3000.3,      3,         default]
-          - [fedora       ,  31   ,   2019.2,      3,         default]
+          # - [fedora       ,  31   ,   2019.2,      3,         default]
           - [arch-base    , latest,   2019.2,      2,         default]
 
         platforms_osfamily_debian: &platforms_osfamily_debian
@@ -276,8 +280,8 @@ ssf_node_anchors:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,  10   ,   master,      3,         default]
           - [centos       ,   8   ,   master,      3,         default]
-          - [fedora       ,  31   ,   master,      3,         default]
-          - [opensuse/leap,  15.1 ,   master,      3,         default]
+          - [fedora       ,  32   ,   master,      3,         default]
+          - [opensuse/leap,  15.2 ,   master,      3,         default]
           - [arch-base    , latest,   2019.2,      2,            arch]
         # yamllint disable-line rule:line-length
         travis_do_not_use_single_job_for_linters: &travis_do_not_use_single_job_for_linters
@@ -786,10 +790,10 @@ ssf:
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,  10   ,   master,      3,         default]
+          - [ubuntu       ,  20.04,   master,      3,         default]
           # - [centos       ,   8   ,   master,      3,         default]
-          - [fedora       ,  31   ,   master,      3,         default]
-          - [opensuse/leap,  15.1 ,   master,      3,         default]
-          - [ubuntu       ,  18.04,   3000.3,      3,         default]
+          - [fedora       ,  32   ,   master,      3,         default]
+          - [opensuse/leap,  15.2 ,   master,      3,         default]
           - [amazonlinux  ,   2   ,   3000.3,      3,         default]
           # Was working but file comparison now tripping up on spaces on empty lines
           # - [centos       ,   7   ,   2019.2,      3,         default]
@@ -882,9 +886,9 @@ ssf:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,  10   ,   master,      3,            java]
           - [centos       ,   8   ,   master,      3,            java]
-          - [fedora       ,  31   ,   master,      3,      javascript]
-          - [opensuse/leap,  15.1 ,   master,      3,             cpp]
-          # - [ubuntu       ,  18.04,   3000.1,      3,             cpp]
+          - [fedora       ,  32   ,   master,      3,      javascript]
+          - [opensuse/leap,  15.2 ,   master,      3,             cpp]
+          # - [ubuntu       ,  18.04,   3000.3,      3,             cpp]
           - [arch-base    , latest,   2019.2,      2,            java]
         # To deal with excessive instances when mimicking `kitchen list -b`
         # If values are set, only use these as commented entries in the matrix
@@ -1595,8 +1599,8 @@ ssf:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,  10   ,   master,      3,         default]
           - [centos       ,   8   ,   master,      3,         default]
-          - [fedora       ,  31   ,   master,      3,         default]
-          - [opensuse/leap,  15.1 ,   master,      3,         default]
+          - [fedora       ,  32   ,   master,      3,         default]
+          - [opensuse/leap,  15.2 ,   master,      3,         default]
           - [arch-base    , latest,   2019.2,      2,         default]
         use_tofs: true
       semrel_files:
@@ -1926,9 +1930,9 @@ ssf:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,  10   ,   master,      3,         default]
           - [debian       ,  10   ,   master,      3,           clean]
-          - [ubuntu       ,  18.04,   3000.3,      3,         default]
+          - [ubuntu       ,  20.04,   master,      3,         default]
           - [centos       ,   8   ,   3000.3,      3,         default]
-          - [opensuse/leap,  15.1 ,   3000.3,      3,         default]
+          - [opensuse/leap,  15.2 ,   3000.3,      3,         default]
           - [fedora       ,  31   ,   2019.2,      3,         default]
           - [ubuntu       ,  16.04,   2019.2,      3,         default]
         use_libsaltcli: true
@@ -2116,8 +2120,10 @@ ssf:
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,  10   ,   master,      3,         default]
+          # Not yet working with `20.04`
           - [ubuntu       ,  18.04,   master,      3,         default]
           - [centos       ,   8   ,   master,      3,         default]
+          # Not yet working with `32`
           - [fedora       ,  31   ,   master,      3,         default]
           # - [opensuse/leap,  15.1 ,   master,      3,         default]
           - [amazonlinux  ,   2   ,   master,      3,         default]
@@ -2230,7 +2236,7 @@ ssf:
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
           # - [debian       ,  10   ,   master,      3,         default]
-          - [ubuntu       ,  18.04,   master,      3,         default]
+          - [ubuntu       ,  20.04,   master,      3,         default]
           - [centos       ,   8   ,   master,      3,         default]
           - [amazonlinux  ,   2   ,   3000.3,      3,         default]
           - [debian       ,   9   ,   2019.2,      3,         default]
@@ -2280,11 +2286,11 @@ ssf:
           # Based on `*platforms_matrix_new`
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,  10   ,   master,      3,         default]
+          - [ubuntu       ,  20.04,   master,      3,         default]
           - [centos       ,   8   ,   master,      3,         default]
-          - [ubuntu       ,  18.04,   3000.3,      3,         default]
-          - [opensuse/leap,  15.1 ,   3000.3,      3,         default]
+          - [fedora       ,  32   ,   master,      3,         default]
+          - [opensuse/leap,  15.2 ,   3000.3,      3,         default]
           - [amazonlinux  ,   2   ,   3000.3,      3,         archive]
-          - [fedora       ,  31   ,   2019.2,      3,         default]
           - [arch-base    , latest,   2019.2,      2,         default]
         # To deal with excessive instances when mimicking `kitchen list -b`
         # If values are set, only use these as commented entries in the matrix
@@ -2379,17 +2385,19 @@ ssf:
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,  10   ,   master,      3,         default]
+          - [ubuntu       ,  20.04,   master,      3,         default]
           # Unavailable for `centos-8`
           # https://bugs.centos.org/view.php?id=16959
           # # - [centos       ,   8   ,   master,      3,         default]
-          - [fedora       ,  31   ,   master,      3,         default]
+          - [fedora       ,  32   ,   master,      3,         default]
           - [ubuntu       ,  18.04,   3000.3,      3,         default]
-          - [opensuse/leap,  15.1 ,   3000.3,      3,         default]
+          - [opensuse/leap,  15.2 ,   3000.3,      3,         default]
           # TLS certificates error preventing the service from starting:
           #   Could not get the realpath: No such file or directory
           # # - [amazonlinux  ,   2   ,   3000.3,      3,         default]
           - [debian       ,   9   ,   2019.2,      3,         default]
-          - [ubuntu       ,  16.04,   2019.2,      3,         default]
+          # Works but disabled since now have `20.04` and `18.04`
+          # - [ubuntu       ,  16.04,   2019.2,      3,         default]
           # Docker/Systemd problem:
           #   ... and PID file is not owned by root. Refusing.
           # # - [centos       ,   7   ,   2019.2,      3,         default]
@@ -2739,9 +2747,10 @@ ssf:
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,  10   ,   master,      3,         default]
+          - [fedora       ,  32   ,   master,      3,         default]
           # - [centos       ,   8   ,   master,      3,         default]
           # - [ubuntu       ,  18.04,   3000.3,      3,         default]
-          - [opensuse/leap,  15.1 ,   3000.3,      3,         default]
+          - [opensuse/leap,  15.2 ,   3000.3,      3,         default]
           # - [amazonlinux  ,   2   ,   3000.3,      3,         default]
           - [fedora       ,  31   ,   2019.2,      3,         default]
           # - [arch-base    , latest,   2019.2,      2,         default]
@@ -3395,11 +3404,11 @@ ssf:
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,  10   ,   master,      3,         default]
+          - [ubuntu       ,  20.04,   master,      3,         default]
           - [centos       ,   8   ,   master,      3,         default]
-          - [ubuntu       ,  18.04,   3000.3,      3,         default]
-          - [opensuse/leap,  15.1 ,   3000.3,      3,         default]
+          - [fedora       ,  32   ,   master,      3,         default]
+          - [opensuse/leap,  15.2 ,   3000.3,      3,         default]
           - [amazonlinux  ,   2   ,   3000.3,      3,         default]
-          - [fedora       ,  31   ,   2019.2,      3,         default]
           - [centos       ,   6   ,   2019.2,      2,         centos6]
           - [arch-base    , latest,   2019.2,      2,         default]
         use_libsaltcli: true
@@ -3471,7 +3480,7 @@ ssf:
           - [debian       ,  10   ,   master,      3,         default]
           - [ubuntu       ,  18.04,   master,      3,         default]
           - [fedora       ,  31   ,   master,      3,         default]
-          - [opensuse/leap,  15.1 ,   master,      3,         default]
+          - [opensuse/leap,  15.2 ,   master,      3,         default]
           - [amazonlinux  ,   2   ,   3000.3,      3,         default]
           - [debian       ,   9   ,   2019.2,      3,         default]
           - [centos       ,   7   ,   2019.2,      3,         default]
@@ -3655,7 +3664,7 @@ ssf:
           - [debian       ,  10   ,   master,      3,         default]
           - [centos       ,   8   ,   master,      3,         default]
           - [ubuntu       ,  18.04,   3000.3,      3,         default]
-          - [opensuse/leap,  15.1 ,   3000.3,      3,            suse]
+          - [opensuse/leap,  15.2 ,   3000.3,      3,            suse]
           - [amazonlinux  ,   2   ,   3000.3,      3,         default]
           - [fedora       ,  31   ,   2019.2,      3,         default]
           - [arch-base    , latest,   2019.2,      2,         default]
@@ -3709,11 +3718,11 @@ ssf:
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,  10   ,   master,      3,              '']
+          - [ubuntu       ,  20.04,   master,      3,     prod_server]
           - [centos       ,   8   ,   master,      3,     prod_server]
-          - [ubuntu       ,  18.04,   3000.3,      3,     prod_server]
-          - [opensuse/leap,  15.1 ,   3000.3,      3,     prod_server]
+          - [fedora       ,  32   ,   master,      3,     prod_server]
+          - [opensuse/leap,  15.2 ,   3000.3,      3,     prod_server]
           - [amazonlinux  ,   2   ,   3000.3,      3,     prod_server]
-          - [fedora       ,  31   ,   2019.2,      3,     prod_server]
           - [arch-base    , latest,   2019.2,      2,     prod_server]
         # To deal with excessive instances when mimicking `kitchen list -b`
         # If values are set, only use these as commented entries in the matrix
