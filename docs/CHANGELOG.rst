@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.157.0 <https://github.com/myii/ssf-formula/compare/v1.156.0...v1.157.0>`_ (2020-05-28)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **logrotate:** use latest pre-salted images (\ ``platforms_new``\ ) (\ `25a0dce <https://github.com/myii/ssf-formula/commit/25a0dce5c3df744e9e9ddb33c9e4f36b1f261b6d>`_\ )
+
 `1.156.0 <https://github.com/myii/ssf-formula/compare/v1.155.0...v1.156.0>`_ (2020-05-28)
 ---------------------------------------------------------------------------------------------
 
