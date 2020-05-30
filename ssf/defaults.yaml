@@ -55,8 +55,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "ci(kitchen+travis): use latest pre-salted images [skip ci]"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/206'
+            title: "ci(kitchen+travis): use latest pre-salted images"
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/207'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
@@ -663,7 +663,15 @@ ssf:
             name: 'centos6'
     timezone: *formula_default
     tomcat: *formula_default
-    ufw: *formula_default
+    ufw:
+      <<: *formula_default
+      context:
+        <<: *context_default
+        inspec_suites_kitchen:
+          <<: *isk_default
+          1:
+            <<: *isk_suite_default
+            name: 'without-ipv6'
     users:
       <<: *formula_default
       context:
