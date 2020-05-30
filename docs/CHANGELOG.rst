@@ -2,6 +2,16 @@
 Changelog
 =========
 
+`1.158.0 <https://github.com/myii/ssf-formula/compare/v1.157.0...v1.158.0>`_ (2020-05-30)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **ufw:** use ``bionic`` (default) for Travis (\ `afe4722 <https://github.com/myii/ssf-formula/commit/afe4722d140221e3a53e2fc8cc5de6087c322a73>`_\ )
+* **ufw:** use latest pre-salted images & add ``without-ipv6`` suite (\ `8d29310 <https://github.com/myii/ssf-formula/commit/8d29310f6218c941170cf6d3953b680217c7aa90>`_\ )
+
 `1.157.0 <https://github.com/myii/ssf-formula/compare/v1.156.0...v1.157.0>`_ (2020-05-28)
 ---------------------------------------------------------------------------------------------
 
