@@ -3527,28 +3527,45 @@ ssf:
             repo: 'ufw-formula'
         inspec_suites_kitchen:
           0:
+            includes: &platforms_working_with_ufw_default_suite
+              - [debian       ,  10   ,   master,      3]
+              - [centos       ,   8   ,   master,      3]
             inspec_yml:
               summary: >-
                 Verify that the ufw formula is setup and configured correctly
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/default.sls'
+          1:
+            excludes: *platforms_working_with_ufw_default_suite
+            inspec_yml:
+              summary: >-
+                Verify that the ufw formula is setup and configured correctly
+                (ipv6 disabled)
+            provisioner:
+              pillars:
+                - '*':
+                    - .
+                    - without-ipv6
+              pillars_from_files:
+                - .sls: 'test/salt/pillar/default.sls'
+                - without-ipv6.sls: 'test/salt/pillar/without-ipv6.sls'
+            verifier: *verifier_inspec_tests_default
+        inspec_suites_matrix:
+          - default
+          - without-ipv6
+        platforms: *platforms_new
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
-          - [ubuntu       ,  18.04,   master,      3,         default]
-          # # - [debian       ,  10   ,   2019.2,      3,         default]
-          # # - [centos       ,   8   ,   2019.2,      3,         default]
-          - [fedora       ,  30   ,   2018.3,      3,         default]
-          - [opensuse/leap,  15.1 ,   2018.3,      2,         default]
-          - [arch-base    , latest,   2018.3,      2,         default]
-          - [ubuntu       ,  16.04,   2017.7,      2,         default]
-        travis:
-          <<: *travis_do_not_use_single_job_for_linters
-          # Facing errors with `xenial` at time of adding
-          # https://travis-ci.org/myii/ufw-formula/jobs/561205378#L906
-          # Persisting with `bionic` as well
-          # https://travis-ci.org/myii/ufw-formula/jobs/581764920#L807
-          dist: 'trusty'
+          - [debian       ,  10   ,   master,      3,         default]
+          - [ubuntu       ,  20.04,   master,      3,    without-ipv6]
+          - [centos       ,   8   ,   master,      3,         default]
+          - [fedora       ,  32   ,   master,      3,    without-ipv6]
+          # - [ubuntu       ,  18.04,   3000.3,      3,    without-ipv6]
+          - [opensuse/leap,  15.2 ,   3000.3,      3,    without-ipv6]
+          - [amazonlinux  ,   2   ,   3000.3,      3,    without-ipv6]
+          - [arch-base    , latest,   2019.2,      2,    without-ipv6]
+        travis: *travis_do_not_use_single_job_for_linters
         use_tofs: true
       semrel_files: *semrel_files_default
     users:

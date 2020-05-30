@@ -120,12 +120,6 @@ jobs:
       script:
         {#- Prepare variable used for `pip` #}
         {%- set pip_cmd = 'pip' %}
-        {%- if semrel_formula == 'ufw' %}
-        {%-   set pip_cmd = 'pip3' %}
-        # Need to use `pip3` due to using `{{ travis.dist }}` on Travis
-        # [Py2/InsecurePlatformWarning] Tornado requires an up-to-date SSL module.
-        - sudo apt-get install python3-pip python3-setuptools python3-wheel -y
-        {%- endif %}
         # Install and run `salt-lint`
         - {{ pip_cmd }} install --user salt-lint
         - git ls-files -- '*.sls' '*.jinja' '*.j2' '*.tmpl' '*.tst'
