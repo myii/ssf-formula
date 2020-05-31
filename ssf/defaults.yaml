@@ -56,7 +56,7 @@ ssf_node_anchors:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
             title: "ci(kitchen+travis): use latest pre-salted images"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/207'
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/208'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
