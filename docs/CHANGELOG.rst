@@ -2,6 +2,16 @@
 Changelog
 =========
 
+`1.159.0 <https://github.com/myii/ssf-formula/compare/v1.158.0...v1.159.0>`_ (2020-05-31)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **deepsea:** install ``tar`` & ``gzip`` in-formula instead (\ `4ab2bf8 <https://github.com/myii/ssf-formula/commit/4ab2bf88fdc8eba3ecadf8a574101bc523e6f627>`_\ )
+* **deepsea:** use latest pre-salted images (\ `0d48093 <https://github.com/myii/ssf-formula/commit/0d48093bf483c9deca590d7fcd8de8fc5262d70f>`_\ )
+
 `1.158.0 <https://github.com/myii/ssf-formula/compare/v1.157.0...v1.158.0>`_ (2020-05-30)
 ---------------------------------------------------------------------------------------------
 
