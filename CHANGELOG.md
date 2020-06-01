@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.161.0](https://github.com/myii/ssf-formula/compare/v1.160.0...v1.161.0) (2020-06-01)
+
+
+### Features
+
+* **formula:** add `jetbrains-clion-formula` ([15c96c6](https://github.com/myii/ssf-formula/commit/15c96c670953109186382453475b0c065e9a2922))
+
 # [1.160.0](https://github.com/myii/ssf-formula/compare/v1.159.0...v1.160.0) (2020-06-01)
 
 
