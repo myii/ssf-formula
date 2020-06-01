@@ -102,6 +102,7 @@ ssf:
       - iptables
       - iscsi
       - jetbrains-appcode
+      - jetbrains-clion
       - jetbrains-datagrip
       - jetbrains-goland
       - jetbrains-intellij
