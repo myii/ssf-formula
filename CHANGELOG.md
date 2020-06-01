@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.162.0](https://github.com/myii/ssf-formula/compare/v1.161.0...v1.162.0) (2020-06-01)
+
+
+### Features
+
+* **formula:** add `nut-formula` ([5253c03](https://github.com/myii/ssf-formula/commit/5253c038f6e4b9909fc0a846b11aa354dda6ccd7))
+
 # [1.161.0](https://github.com/myii/ssf-formula/compare/v1.160.0...v1.161.0) (2020-06-01)
 
 
