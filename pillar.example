@@ -126,6 +126,7 @@ ssf:
       - nifi
       - node
       - ntp
+      - nut
       - openldap
       - openssh
       - openvpn
