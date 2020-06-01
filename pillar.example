@@ -96,6 +96,7 @@ ssf:
       - firewalld
       - golang
       - grafana
+      - haproxy
       - hostsfile
       - icinga2
       - influxdb

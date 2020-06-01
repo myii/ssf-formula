@@ -56,7 +56,7 @@ ssf_node_anchors:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
             title: "chore: use standardised structure"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/226'
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/227'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
@@ -428,6 +428,7 @@ ssf:
             <<: *isk_suite_default
             name: 'package'
     grafana: *formula_default
+    haproxy: *formula_default
     hostsfile: *formula_default
     icinga2: *formula_default
     influxdb: *formula_default
