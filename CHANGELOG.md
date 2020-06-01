@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.160.0](https://github.com/myii/ssf-formula/compare/v1.159.0...v1.160.0) (2020-06-01)
+
+
+### Features
+
+* **mysql:** use latest pre-salted images ([3163f03](https://github.com/myii/ssf-formula/commit/3163f0310f87b72959d7338c636f1d662fd51d95))
+
 # [1.159.0](https://github.com/myii/ssf-formula/compare/v1.158.0...v1.159.0) (2020-05-31)
 
 
