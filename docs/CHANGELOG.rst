@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.165.0 <https://github.com/myii/ssf-formula/compare/v1.164.0...v1.165.0>`_ (2020-06-01)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **strongswan:** use latest pre-salted images (\ `b20c96a <https://github.com/myii/ssf-formula/commit/b20c96a166f178174593711e468f7e8d95844f41>`_\ )
+
 `1.164.0 <https://github.com/myii/ssf-formula/compare/v1.163.0...v1.164.0>`_ (2020-06-01)
 ---------------------------------------------------------------------------------------------
 
