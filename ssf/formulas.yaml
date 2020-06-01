@@ -3289,6 +3289,8 @@ ssf:
             inspec_yml:
               summary: >-
                 Verify that the strongswan formula is setup and configured correctly
+        platforms: *platforms_new
+        platforms_matrix: *platforms_matrix_new
         use_tofs: true
       semrel_files: *semrel_files_default
     stunnel:
