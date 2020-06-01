@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.163.0](https://github.com/myii/ssf-formula/compare/v1.162.0...v1.163.0) (2020-06-01)
+
+
+### Features
+
+* **packages:** use latest pre-salted images ([8623eb1](https://github.com/myii/ssf-formula/commit/8623eb1b25c2c4d006ad7df777ecfd9f3d703813))
+
 # [1.162.0](https://github.com/myii/ssf-formula/compare/v1.161.0...v1.162.0) (2020-06-01)
 
 
