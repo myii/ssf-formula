@@ -173,6 +173,7 @@ These formulas are already compatible with semantic-release *and* have global ``
 #. `iptables-formula <https://github.com/saltstack-formulas/iptables-formula>`_
 #. `iscsi-formula <https://github.com/saltstack-formulas/iscsi-formula>`_
 #. `jetbrains-appcode-formula <https://github.com/saltstack-formulas/jetbrains-appcode-formula>`_
+#. `jetbrains-clion-formula <https://github.com/saltstack-formulas/jetbrains-clion-formula>`_
 #. `jetbrains-datagrip-formula <https://github.com/saltstack-formulas/jetbrains-datagrip-formula>`_
 #. `jetbrains-goland-formula <https://github.com/saltstack-formulas/jetbrains-goland-formula>`_
 #. `jetbrains-intellij-formula <https://github.com/saltstack-formulas/jetbrains-intellij-formula>`_
@@ -202,7 +203,7 @@ These formulas are already compatible with semantic-release *and* have global ``
 
 These formulas are also compatible with semantic-release:
 
-37. `apache-formula <https://github.com/saltstack-formulas/apache-formula>`_
+38. `apache-formula <https://github.com/saltstack-formulas/apache-formula>`_
 #. `apt-cacher-formula <https://github.com/saltstack-formulas/apt-cacher-formula>`_
 #. `cert-formula <https://github.com/saltstack-formulas/cert-formula>`_
 #. `chrony-formula <https://github.com/saltstack-formulas/chrony-formula>`_

@@ -1283,6 +1283,62 @@ ssf:
         kitchen.yml:
           <<: *file__kitchen--yml
           alt_semrel_formula: 'appcode'
+    jetbrains-clion:
+      context:
+        codeowners:
+          entries:
+            global:
+              - '*': '@noelmcloughlin'
+        git:
+          github:
+            repo: 'jetbrains-clion-formula'
+        inspec_suites_kitchen:
+          0:
+            excludes: *platforms_os_arch_base_new
+            inspec_yml:
+              summary: >-
+                Verify that the clion formula is setup and configured correctly
+            provisioner:
+              pillars_from_files:
+                - .sls: 'test/salt/default/pillar.sls'  # TODO: CHANGE
+              state_top:
+                - '*':
+                    - .clean
+                    - .
+          1:
+            includes: *platforms_os_arch_base_new
+            inspec_yml:
+              summary: >-
+                Verify that the clion formula is setup and configured correctly
+                (on Arch Linux)
+            provisioner:
+              pillars_from_files:
+                - .sls: 'test/salt/default/pillar.sls'  # TODO: CHANGE
+              state_top:
+                - '*':
+                    - .clean
+                    - .
+        inspec_suites_matrix:
+          - default
+          - arch
+        platforms: *platforms_new
+        platforms_matrix: *platforms_matrix_jetbrains
+        use_tofs: true
+        yamllint:
+          ignore:
+            additional:
+              - clion/osfamilymap.yaml
+      semrel_files:
+        <<: *semrel_files_default
+        formula/libtofs.jinja:
+          <<: *file__formula__libtofs--jinja
+          alt_semrel_formula: 'clion'
+        inspec/inspec.yml:
+          <<: *file__inspec__inspec--yml
+          alt_semrel_formula: 'clion'
+        kitchen.yml:
+          <<: *file__kitchen--yml
+          alt_semrel_formula: 'clion'
     jetbrains-datagrip:
       context:
         codeowners:
