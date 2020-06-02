@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.166.0 <https://github.com/myii/ssf-formula/compare/v1.165.0...v1.166.0>`_ (2020-06-02)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **iscsi:** use latest pre-salted images (\ `da6c630 <https://github.com/myii/ssf-formula/commit/da6c630da0f77e1d5d1c5e8b65c3b563b50a4b59>`_\ )
+
 `1.165.0 <https://github.com/myii/ssf-formula/compare/v1.164.0...v1.165.0>`_ (2020-06-01)
 ---------------------------------------------------------------------------------------------
 
