@@ -119,6 +119,7 @@ ssf:
       - logrotate
       - lvm
       - mattermost
+      - maven
       - mongodb
       - mysql
       - nfs
