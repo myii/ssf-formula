@@ -146,6 +146,22 @@ ssf_node_anchors:
           - [centos       ,   6   ,   2017.7,      2]
           - [fedora       ,  30   ,   2017.7,      2]
           - [amazonlinux  ,   1   ,   2017.7,      2]
+        platforms_osfamily_redhat_new: &platforms_osfamily_redhat_new
+          # [os           , os_ver, salt_ver, py_ver]
+          - [centos       ,   8   ,   master,      3]
+          - [fedora       ,  32   ,   master,      3]
+          - [fedora       ,  31   ,   master,      3]
+          - [amazonlinux  ,   2   ,   master,      3]
+          - [centos       ,   8   ,   3000.3,      3]
+          - [centos       ,   7   ,   3000.3,      3]
+          - [fedora       ,  31   ,   3000.3,      3]
+          - [amazonlinux  ,   2   ,   3000.3,      3]
+          - [centos       ,   8   ,   2019.2,      3]
+          - [centos       ,   7   ,   2019.2,      3]
+          - [fedora       ,  31   ,   2019.2,      3]
+          - [amazonlinux  ,   2   ,   2019.2,      3]
+          - [centos       ,   6   ,   2019.2,      2]
+          - [amazonlinux  ,   1   ,   2019.2,      2]
         platforms_osfamily_suse: &platforms_osfamily_suse
           # [os           , os_ver, salt_ver, py_ver]
           - [opensuse/leap,  15.1 ,   master,      3]
@@ -269,16 +285,6 @@ ssf_node_anchors:
           - [amazonlinux  ,   1   ,   2018.3,      2]
           - [fedora       ,  30   ,   2017.7,      2]
           - [amazonlinux  ,   1   ,   2017.7,      2]
-        platforms_os_centos_and_arch: &platforms_os_centos_and_arch
-          # [os           , os_ver, salt_ver, py_ver]
-          - [centos       ,   8   ,   master,      3]
-          - [centos       ,   8   ,   2019.2,      3]
-          - [centos       ,   7   ,   2019.2,      2]
-          - [arch-base    , latest,   2019.2,      2]
-          - [centos       ,   7   ,   2018.3,      2]
-          - [arch-base    , latest,   2018.3,      2]
-          - [centos       ,   6   ,   2017.7,      2]
-          - [arch-base    , latest,   2017.7,      2]
         platforms_2017_7: &platforms_2017_7
           # [os           , os_ver, salt_ver, py_ver]
           # - [debian       ,   9   ,   2017.7,      2]
@@ -1197,7 +1203,25 @@ ssf:
             repo: 'iscsi-formula'
         inspec_suites_kitchen:
           0:
-            excludes: *platforms_os_centos_and_arch
+            excludes:
+              # [os           , os_ver, salt_ver, py_ver]
+              # `*platforms_osfamily_redhat_new` & `*platforms_os_arch_base_new`
+              - [centos       ,   8   ,   master,      3]
+              - [fedora       ,  32   ,   master,      3]
+              - [fedora       ,  31   ,   master,      3]
+              - [amazonlinux  ,   2   ,   master,      3]
+              - [centos       ,   8   ,   3000.3,      3]
+              - [centos       ,   7   ,   3000.3,      3]
+              - [fedora       ,  31   ,   3000.3,      3]
+              - [amazonlinux  ,   2   ,   3000.3,      3]
+              - [arch-base    , latest,   3000.3,      2]
+              - [centos       ,   8   ,   2019.2,      3]
+              - [centos       ,   7   ,   2019.2,      3]
+              - [fedora       ,  31   ,   2019.2,      3]
+              - [amazonlinux  ,   2   ,   2019.2,      3]
+              - [centos       ,   6   ,   2019.2,      2]
+              - [amazonlinux  ,   1   ,   2019.2,      2]
+              - [arch-base    , latest,   2019.2,      2]
             inspec_yml:
               summary: >-
                 Verify that the iscsi formula is setup and configured correctly
@@ -1221,7 +1245,7 @@ ssf:
                     - .
                     - .clean
           1:
-            includes: *platforms_os_centos
+            includes: *platforms_osfamily_redhat_new
             provisioner:
               dependencies:
                 - name: 'lvm'
@@ -1243,7 +1267,7 @@ ssf:
                     - .clean
             verifier: *verifier_inspec_tests_default
           2:
-            includes: *platforms_os_arch_base
+            includes: *platforms_os_arch_base_new
             provisioner:
               dependencies:
                 - name: 'users'
@@ -1272,16 +1296,17 @@ ssf:
             verifier: *verifier_inspec_tests_default
         inspec_suites_matrix:
           - default
-          - centos
+          - redhat
           - arch
+        platforms: *platforms_new
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
           - [ubuntu       ,  18.04,   master,      3,         default]
-          - [centos       ,   8   ,   master,      3,          centos]
-          - [opensuse/leap,  15.1 ,   master,      3,         default]
-          - [amazonlinux  ,   2   ,   master,      3,         default]
-          - [arch-base    , latest,   2019.2,      2,            arch]
-          - [arch-base    , latest,   2018.3,      2,            arch]
+          - [centos       ,   8   ,   master,      3,          redhat]
+          - [fedora       ,  32   ,   master,      3,          redhat]
+          - [opensuse/leap,  15.2 ,   master,      3,         default]
+          - [amazonlinux  ,   2   ,   master,      3,          redhat]
+          # # - [arch-base    , latest,   3000.3,      2,            arch]
         use_tofs: true
         yamllint:
           ignore:
