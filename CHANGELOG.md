@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.167.0](https://github.com/myii/ssf-formula/compare/v1.166.0...v1.167.0) (2020-06-02)
+
+
+### Features
+
+* **formula:** add `maven-formula` ([467c342](https://github.com/myii/ssf-formula/commit/467c342d4284ed71d93691574c0259664084581e))
+
 # [1.166.0](https://github.com/myii/ssf-formula/compare/v1.165.0...v1.166.0) (2020-06-02)
 
 
