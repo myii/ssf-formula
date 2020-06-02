@@ -2219,6 +2219,52 @@ ssf:
           - [fedora       ,  30   ,   2018.3,      3,         default]
           - [arch-base    , latest,   2018.3,      2,         default]
       semrel_files: *semrel_files_default
+    maven:
+      context:
+        codeowners:
+          entries:
+            global:
+              - '*': '@noelmcloughlin'
+        git:
+          github:
+            repo: 'maven-formula'
+        inspec_suites_kitchen:
+          0:
+            excludes: *platforms_os_arch_base_new
+            inspec_yml:
+              summary: >-
+                Verify that the maven formula is setup and configured correctly
+            provisioner:
+              pillars_from_files:
+                - .sls: 'test/salt/default/pillar.sls'  # TODO: CHANGE
+              state_top:
+                - '*':
+                    - .clean
+                    - .
+          1:
+            includes: *platforms_os_arch_base_new
+            inspec_yml:
+              summary: >-
+                Verify that the maven formula is setup and configured correctly
+                (on Arch Linux)
+            provisioner:
+              pillars_from_files:
+                - .sls: 'test/salt/default/pillar.sls'  # TODO: CHANGE
+              state_top:
+                - '*':
+                    - .clean
+                    - .
+        inspec_suites_matrix:
+          - default
+          - arch
+        platforms: *platforms_new
+        platforms_matrix: *platforms_matrix_jetbrains
+        use_tofs: true
+        yamllint:
+          ignore:
+            additional:
+              - maven/osfamilymap.yaml
+      semrel_files: *semrel_files_default
     mongodb:
       context:
         codeowners:

@@ -186,6 +186,7 @@ These formulas are already compatible with semantic-release *and* have global ``
 #. `letsencrypt-formula <https://github.com/saltstack-formulas/letsencrypt-formula>`_
 #. `libvirt-formula <https://github.com/saltstack-formulas/libvirt-formula>`_
 #. `lvm-formula <https://github.com/saltstack-formulas/lvm-formula>`_
+#. `maven-formula <https://github.com/saltstack-formulas/maven-formula>`_
 #. `mongodb-formula <https://github.com/saltstack-formulas/mongodb-formula>`_
 #. `nginx-formula <https://github.com/saltstack-formulas/nginx-formula>`_
 #. `nifi-formula <https://github.com/saltstack-formulas/nifi-formula>`_
@@ -204,7 +205,7 @@ These formulas are already compatible with semantic-release *and* have global ``
 
 These formulas are also compatible with semantic-release:
 
-39. `apache-formula <https://github.com/saltstack-formulas/apache-formula>`_
+40. `apache-formula <https://github.com/saltstack-formulas/apache-formula>`_
 #. `apt-cacher-formula <https://github.com/saltstack-formulas/apt-cacher-formula>`_
 #. `cert-formula <https://github.com/saltstack-formulas/cert-formula>`_
 #. `chrony-formula <https://github.com/saltstack-formulas/chrony-formula>`_
