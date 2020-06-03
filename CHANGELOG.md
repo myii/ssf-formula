@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.168.0](https://github.com/myii/ssf-formula/compare/v1.167.0...v1.168.0) (2020-06-03)
+
+
+### Features
+
+* **golang:** finalise PR 37 ([c8cb98e](https://github.com/myii/ssf-formula/commit/c8cb98e45e5ae922b7a434a4bfd54b987f555b36))
+
 # [1.167.0](https://github.com/myii/ssf-formula/compare/v1.166.0...v1.167.0) (2020-06-02)
 
 
