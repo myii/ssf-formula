@@ -170,6 +170,7 @@ These formulas are already compatible with semantic-release *and* have global ``
 #. `dhcpd-formula <https://github.com/saltstack-formulas/dhcpd-formula>`_
 #. `eclipse-formula <https://github.com/saltstack-formulas/eclipse-formula>`_
 #. `fail2ban-formula <https://github.com/saltstack-formulas/fail2ban-formula>`_
+#. `golang-formula <https://github.com/saltstack-formulas/golang-formula>`_
 #. `iptables-formula <https://github.com/saltstack-formulas/iptables-formula>`_
 #. `iscsi-formula <https://github.com/saltstack-formulas/iscsi-formula>`_
 #. `jetbrains-appcode-formula <https://github.com/saltstack-formulas/jetbrains-appcode-formula>`_
@@ -205,7 +206,7 @@ These formulas are already compatible with semantic-release *and* have global ``
 
 These formulas are also compatible with semantic-release:
 
-40. `apache-formula <https://github.com/saltstack-formulas/apache-formula>`_
+41. `apache-formula <https://github.com/saltstack-formulas/apache-formula>`_
 #. `apt-cacher-formula <https://github.com/saltstack-formulas/apt-cacher-formula>`_
 #. `cert-formula <https://github.com/saltstack-formulas/cert-formula>`_
 #. `chrony-formula <https://github.com/saltstack-formulas/chrony-formula>`_
@@ -217,7 +218,6 @@ These formulas are also compatible with semantic-release:
 #. `epel-formula <https://github.com/saltstack-formulas/epel-formula>`_
 #. `exim-formula <https://github.com/saltstack-formulas/exim-formula>`_
 #. `firewalld-formula <https://github.com/saltstack-formulas/firewalld-formula>`_
-#. `golang-formula <https://github.com/saltstack-formulas/golang-formula>`_
 #. `grafana-formula <https://github.com/saltstack-formulas/grafana-formula>`_
 #. `hostsfile-formula <https://github.com/saltstack-formulas/hostsfile-formula>`_
 #. `icinga2-formula <https://github.com/saltstack-formulas/icinga2-formula>`_
