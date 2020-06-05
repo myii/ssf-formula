@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.169.0](https://github.com/myii/ssf-formula/compare/v1.168.0...v1.169.0) (2020-06-05)
+
+
+### Features
+
+* **golang:** add `package` suite ([e5e3595](https://github.com/myii/ssf-formula/commit/e5e35959ab2098db39da36b34b2f2a4b8474b360))
+
 # [1.168.0](https://github.com/myii/ssf-formula/compare/v1.167.0...v1.168.0) (2020-06-03)
 
 
