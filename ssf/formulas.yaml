@@ -2893,6 +2893,8 @@ ssf:
                 - '*':
                     - .
                     - .config
+        platforms: *platforms_new
+        platforms_matrix: *platforms_matrix_new
         yamllint:
           rules:
             key-duplicates:
