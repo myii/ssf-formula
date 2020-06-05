@@ -196,6 +196,7 @@ These formulas are already compatible with semantic-release *and* have global ``
 #. `openvpn-formula <https://github.com/saltstack-formulas/openvpn-formula>`_
 #. `packages-formula <https://github.com/saltstack-formulas/packages-formula>`_
 #. `php-formula <https://github.com/saltstack-formulas/php-formula>`_
+#. `postfix-formula <https://github.com/saltstack-formulas/postfix-formula>`_
 #. `postgres-formula <https://github.com/saltstack-formulas/postgres-formula>`_
 #. `powerdns-formula <https://github.com/saltstack-formulas/powerdns-formula>`_
 #. `salt-formula <https://github.com/saltstack-formulas/salt-formula>`_
@@ -206,7 +207,7 @@ These formulas are already compatible with semantic-release *and* have global ``
 
 These formulas are also compatible with semantic-release:
 
-41. `apache-formula <https://github.com/saltstack-formulas/apache-formula>`_
+42. `apache-formula <https://github.com/saltstack-formulas/apache-formula>`_
 #. `apt-cacher-formula <https://github.com/saltstack-formulas/apt-cacher-formula>`_
 #. `cert-formula <https://github.com/saltstack-formulas/cert-formula>`_
 #. `chrony-formula <https://github.com/saltstack-formulas/chrony-formula>`_
@@ -230,7 +231,6 @@ These formulas are also compatible with semantic-release:
 #. `node-formula <https://github.com/saltstack-formulas/node-formula>`_
 #. `ntp-formula <https://github.com/saltstack-formulas/ntp-formula>`_
 #. `openssh-formula <https://github.com/saltstack-formulas/openssh-formula>`_
-#. `postfix-formula <https://github.com/saltstack-formulas/postfix-formula>`_
 #. `prometheus-formula <https://github.com/saltstack-formulas/prometheus-formula>`_
 #. `rabbitmq-formula <https://github.com/saltstack-formulas/rabbitmq-formula>`_
 #. `redis-formula <https://github.com/saltstack-formulas/redis-formula>`_

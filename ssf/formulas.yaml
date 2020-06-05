@@ -2874,6 +2874,10 @@ ssf:
       semrel_files: *semrel_files_default
     postfix:
       context:
+        codeowners:
+          entries:
+            global:
+              - '*': '@fzipi'
         git:
           github:
             repo: 'postfix-formula'
