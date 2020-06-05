@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.170.0](https://github.com/myii/ssf-formula/compare/v1.169.0...v1.170.0) (2020-06-05)
+
+
+### Features
+
+* **codeowners:** add global owner (`postfix`) ([8013430](https://github.com/myii/ssf-formula/commit/801343000a2ceb01fa355647bb6143dc310ffed6)), closes [/github.com/saltstack-formulas/postfix-formula/pull/106#issuecomment-639668783](https://github.com//github.com/saltstack-formulas/postfix-formula/pull/106/issues/issuecomment-639668783)
+
 # [1.169.0](https://github.com/myii/ssf-formula/compare/v1.168.0...v1.169.0) (2020-06-05)
 
 
