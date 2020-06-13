@@ -101,6 +101,7 @@ ssf:
       - influxdb
       - iptables
       - iscsi
+      - java
       - jetbrains-appcode
       - jetbrains-clion
       - jetbrains-datagrip
