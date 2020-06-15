@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.174.0](https://github.com/myii/ssf-formula/compare/v1.173.0...v1.174.0) (2020-06-15)
+
+
+### Features
+
+* **kitchen:** use `saltimages` Docker Hub where available ([4fee507](https://github.com/myii/ssf-formula/commit/4fee5074901385dda18dccccf2bf6f62720cabe3))
+
 # [1.173.0](https://github.com/myii/ssf-formula/compare/v1.172.0...v1.173.0) (2020-06-15)
 
 
