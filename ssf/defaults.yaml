@@ -55,8 +55,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "chore(gemfile.lock): update to latest gem versions [skip ci]"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/222'
+            title: "ci(kitchen): use '`'saltimages'`' Docker Hub where available [skip ci]"
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/223'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
@@ -289,6 +289,49 @@ ssf:
       create_PR:
         active: false
         source: 'salt://ssf/files/default/git/git_30_create_PR.sh'
+  saltimages:
+    ### `master-py3`
+    - [debian       ,  10   ,   master,      3]  # debi-10.0-master-py3
+    - [ubuntu       ,  20.04,   master,      3]  # ubun-20.0-master-py3
+    - [ubuntu       ,  18.04,   master,      3]  # ubun-18.0-master-py3
+    - [centos       ,   8   ,   master,      3]  # cent-08.0-master-py3
+    - [fedora       ,  32   ,   master,      3]  # fedo-32.0-master-py3
+    - [fedora       ,  31   ,   master,      3]  # fedo-31.0-master-py3
+    - [opensuse/leap,  15.2 ,   master,      3]  # opsu-15.2-master-py3
+    - [amazonlinux  ,   2   ,   master,      3]  # amaz-02.0-master-py3
+    - [oraclelinux  ,   8   ,   master,      3]  # orac-08.0-master-py3
+
+    ### `3000.3-py3`
+    - [debian       ,  10   ,   3000.3,      3]  # debi-10.0-3000.3-py3
+    - [debian       ,   9   ,   3000.3,      3]  # debi-09.0-3000.3-py3
+    - [ubuntu       ,  18.04,   3000.3,      3]  # ubun-18.0-3000.3-py3
+    - [centos       ,   8   ,   3000.3,      3]  # cent-08.0-3000.3-py3
+    - [centos       ,   7   ,   3000.3,      3]  # cent-07.0-3000.3-py3
+    - [fedora       ,  31   ,   3000.3,      3]  # fedo-31.0-3000.3-py3
+    - [opensuse/leap,  15.2 ,   3000.3,      3]  # opsu-15.2-3000.3-py3
+    - [amazonlinux  ,   2   ,   3000.3,      3]  # amaz-02.0-3000.3-py3
+    - [oraclelinux  ,   8   ,   3000.3,      3]  # orac-08.0-3000.3-py3
+    - [oraclelinux  ,   7   ,   3000.3,      3]  # orac-07.0-3000.3-py3
+    ### ` 3000.3-py2`
+    - [ubuntu       ,  18.04,   3000.3,      2]  # ubun-18.0-3000.3-py2
+    - [ubuntu       ,  16.04,   3000.3,      2]  # ubun-16.0-3000.3-py2
+    - [arch-base    , latest,   3000.3,      2]  # arch-late-3000.3-py2
+
+    ### `2019.2-py3`
+    - [debian       ,  10   ,   2019.2,      3]  # debi-10.0-2019.2-py3
+    - [debian       ,   9   ,   2019.2,      3]  # debi-09.0-2019.2-py3
+    - [ubuntu       ,  18.04,   2019.2,      3]  # ubun-18.0-2019.2-py3
+    - [ubuntu       ,  16.04,   2019.2,      3]  # ubun-16.0-2019.2-py3
+    - [centos       ,   8   ,   2019.2,      3]  # cent-08.0-2019.2-py3
+    - [centos       ,   7   ,   2019.2,      3]  # cent-07.0-2019.2-py3
+    - [fedora       ,  31   ,   2019.2,      3]  # fedo-31.0-2019.2-py3
+    - [opensuse/leap,  15.2 ,   2019.2,      3]  # opsu-15.2-2019.2-py3
+    - [amazonlinux  ,   2   ,   2019.2,      3]  # amaz-02.0-2019.2-py3
+    ### `2019.2-py2`
+    - [centos       ,   6   ,   2019.2,      2]  # cent-06.0-2019.2-py2
+    - [amazonlinux  ,   1   ,   2019.2,      2]  # amaz-01.0-2019.2-py2
+    - [arch-base    , latest,   2019.2,      2]  # arch-late-2019.2-py2
+
   semrel_formulas:
     apache: *formula_default
     apt:
