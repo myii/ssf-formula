@@ -1,5 +1,17 @@
 # Changelog
 
+# [1.173.0](https://github.com/myii/ssf-formula/compare/v1.172.0...v1.173.0) (2020-06-15)
+
+
+### Code Refactoring
+
+* **postgres:** use symlink to `openssh` for `Gemfile` & `.lock` ([827a658](https://github.com/myii/ssf-formula/commit/827a65874d63b985a471d6aef6fa90451c1b6889))
+
+
+### Features
+
+* **gemfile.lock:** use `bundle update` to get latest gems [2020-W24] ([4011c26](https://github.com/myii/ssf-formula/commit/4011c264704f1bfe977918c16d230cebea39e541))
+
 # [1.172.0](https://github.com/myii/ssf-formula/compare/v1.171.0...v1.172.0) (2020-06-05)
 
 
