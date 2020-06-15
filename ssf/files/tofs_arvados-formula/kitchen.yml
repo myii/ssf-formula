@@ -14,16 +14,16 @@ platforms:
   ## SALT `3000.3`
   - name: debian-10-3000-3-py3
     driver:
-      image: netmanagers/salt-3000.3-py3:debian-10
+      image: saltimages/salt-3000.3-py3:debian-10
 
 #   - name: ubuntu-1804-3000-3-py3
 #     driver:
-#       image: netmanagers/salt-3000.3-py3:ubuntu-18.04
+#       image: saltimages/salt-3000.3-py3:ubuntu-18.04
 
 #   ## SALT `2019.2`
 #   - name: centos-7-2019-2-py3
 #     driver:
-#       image: netmanagers/salt-2019.2-py3:centos-7
+#       image: saltimages/salt-2019.2-py3:centos-7
 
 provisioner:
   name: salt_solo

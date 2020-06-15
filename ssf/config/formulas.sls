@@ -136,6 +136,7 @@ prepare-git-branch-for-{{ formula }}:
         platforms_matrix_commented_includes: {{ context.platforms_matrix_commented_includes | yaml }}
         rubocop: {{ context.rubocop | yaml }}
         salt_lint: {{ context.salt_lint | yaml }}
+        saltimages: {{ ssf.saltimages | yaml }}
         script_kitchen: {{ context.script_kitchen | yaml }}
         shellcheck: {{ context.shellcheck | yaml }}
         suite: {{ suite | yaml }}

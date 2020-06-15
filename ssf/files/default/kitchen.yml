@@ -54,7 +54,7 @@
 {%-     if not pre_salted %}
 image: {{ os }}:{{ os_ver }}
 {%-     else %}
-image: netmanagers/salt-{{ salt_ver }}-py{{ py_ver }}:{{ os | replace('/', '-') }}-{{ os_ver }}
+image: {{ 'saltimages' if [os, os_ver, salt_ver, py_ver] in saltimages else 'netmanagers' }}/salt-{{ salt_ver }}-py{{ py_ver }}:{{ os | replace('/', '-') }}-{{ os_ver }}
 {%-     endif %}
 {%-   endfilter %}
 {%- endmacro %}
