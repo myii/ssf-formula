@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.176.0](https://github.com/myii/ssf-formula/compare/v1.175.0...v1.176.0) (2020-06-16)
+
+
+### Features
+
+* **formula:** add `sqlplus-formula` ([2a1813e](https://github.com/myii/ssf-formula/commit/2a1813e4c266ec5e3ac616119f0d18b4ee926af8))
+
 # [1.175.0](https://github.com/myii/ssf-formula/compare/v1.174.0...v1.175.0) (2020-06-16)
 
 
