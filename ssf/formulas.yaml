@@ -3348,6 +3348,37 @@ ssf:
               - salt/osfamilymap.yaml
               - salt/osmap.yaml
       semrel_files: *semrel_files_default
+    sqlplus:
+      context:
+        codeowners:
+          entries:
+            global:
+              - '*': '@noelmcloughlin'
+        git:
+          github:
+            repo: 'sqlplus-formula'
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: >-
+                Verify that the sqlplus formula is setup and configured correctly
+            provisioner:
+              pillars_from_files:
+                - .sls: 'test/salt/default/pillar.sls'  # TODO: CHANGE
+              state_top:
+                - '*':
+                    - .clean
+                    - .
+        platforms: *platforms_new
+        # No Linux testing yet due to issues with Oracle downloads
+        # https://github.com/saltstack-formulas/sqlplus-formula/pull/17#issuecomment-638167334
+        platforms_matrix: []
+        use_tofs: true
+        yamllint:
+          ignore:
+            additional:
+              - sqlplus/osfamilymap.yaml
+      semrel_files: *semrel_files_default
     ssf:
       context:
         codeowners:
