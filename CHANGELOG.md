@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.178.0](https://github.com/myii/ssf-formula/compare/v1.177.0...v1.178.0) (2020-06-16)
+
+
+### Features
+
+* **formula:** add `haproxy-formula` ([fd21d8b](https://github.com/myii/ssf-formula/commit/fd21d8b0fa7c632fb545b4c3fb51c33db06db056))
+
 # [1.177.0](https://github.com/myii/ssf-formula/compare/v1.176.0...v1.177.0) (2020-06-16)
 
 
