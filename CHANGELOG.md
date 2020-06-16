@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.177.0](https://github.com/myii/ssf-formula/compare/v1.176.0...v1.177.0) (2020-06-16)
+
+
+### Features
+
+* **formula:** add `sqldeveloper-formula` ([566978f](https://github.com/myii/ssf-formula/commit/566978f99f38f4ccc76c7076104fe024d2f20fa0))
+
 # [1.176.0](https://github.com/myii/ssf-formula/compare/v1.175.0...v1.176.0) (2020-06-16)
 
 
