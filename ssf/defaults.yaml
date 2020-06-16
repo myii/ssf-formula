@@ -55,8 +55,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "ci(kitchen): use '`'saltimages'`' Docker Hub where available [skip ci]"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/223'
+            title: "chore: use standardised structure"
+            body: '* Semi-automated using https://github.com/myii/ssf-formula/pull/224'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
@@ -452,6 +452,33 @@ ssf:
           2:
             <<: *isk_suite_default
             name: 'arch'
+    java:
+      <<: *formula_default
+      context:
+        <<: *context_default
+        inspec_suites_kitchen:
+          <<: *isk_default
+          0:
+            <<: *isk_suite_default
+            name: 'adopt'
+          1:
+            <<: *isk_suite_default
+            name: 'amazon'
+          2:
+            <<: *isk_suite_default
+            name: 'graalvm'
+          3:
+            <<: *isk_suite_default
+            name: 'haikuvm'
+          4:
+            <<: *isk_suite_default
+            name: 'intellij'
+          5:
+            <<: *isk_suite_default
+            name: 'oracle'
+          6:
+            <<: *isk_suite_default
+            name: 'zulu'
     jetbrains-appcode: *formula_default
     jetbrains-clion:
       <<: *formula_default
