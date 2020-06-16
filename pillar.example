@@ -142,6 +142,7 @@ ssf:
       - redis
       - rkhunter
       - salt
+      - sqlplus
       - ssf
       - stack
       - strongswan

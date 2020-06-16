@@ -56,7 +56,7 @@ ssf_node_anchors:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
             title: "chore: use standardised structure"
-            body: '* Semi-automated using https://github.com/myii/ssf-formula/pull/224'
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/225'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
@@ -739,6 +739,7 @@ ssf:
           3:
             <<: *isk_suite_default
             name: 'v201902-py2'
+    sqlplus: *formula_default
     ssf: *formula_default
     stack: *formula_default
     strongswan: *formula_default
