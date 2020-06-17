@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.179.0 <https://github.com/myii/ssf-formula/compare/v1.178.0...v1.179.0>`_ (2020-06-17)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **codeowners:** add global owner (\ ``zabbix``\ ) (\ `6c590c3 <https://github.com/myii/ssf-formula/commit/6c590c3ce17b485024452644ce70bb7cc1b33a83>`_\ )
+
 `1.178.0 <https://github.com/myii/ssf-formula/compare/v1.177.0...v1.178.0>`_ (2020-06-16)
 ---------------------------------------------------------------------------------------------
 
