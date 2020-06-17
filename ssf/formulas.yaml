@@ -4224,6 +4224,8 @@ ssf:
       context:
         codeowners:
           entries:
+            global:
+              - '*': '@hatifnatt'
             specific_directories:
               - '/test/': '@myii'
         git:
