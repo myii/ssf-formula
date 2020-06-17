@@ -208,10 +208,11 @@ These formulas are already compatible with semantic-release *and* have global ``
 #. `sysctl-formula <https://github.com/saltstack-formulas/sysctl-formula>`_
 #. `template-formula <https://github.com/saltstack-formulas/template-formula>`_
 #. `vault-formula <https://github.com/saltstack-formulas/vault-formula>`_
+#. `zabbix-formula <https://github.com/saltstack-formulas/zabbix-formula>`_
 
 These formulas are also compatible with semantic-release:
 
-46. `apache-formula <https://github.com/saltstack-formulas/apache-formula>`_
+47. `apache-formula <https://github.com/saltstack-formulas/apache-formula>`_
 #. `apt-cacher-formula <https://github.com/saltstack-formulas/apt-cacher-formula>`_
 #. `cert-formula <https://github.com/saltstack-formulas/cert-formula>`_
 #. `chrony-formula <https://github.com/saltstack-formulas/chrony-formula>`_
@@ -252,7 +253,6 @@ These formulas are also compatible with semantic-release:
 #. `varnish-formula <https://github.com/saltstack-formulas/varnish-formula>`_
 #. `vim-formula <https://github.com/saltstack-formulas/vim-formula>`_
 #. `vsftpd-formula <https://github.com/saltstack-formulas/vsftpd-formula>`_
-#. `zabbix-formula <https://github.com/saltstack-formulas/zabbix-formula>`_
 
 Documentation
 -------------
