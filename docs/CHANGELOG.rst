@@ -2,6 +2,17 @@
 Changelog
 =========
 
+`1.181.0 <https://github.com/myii/ssf-formula/compare/v1.180.0...v1.181.0>`_ (2020-06-23)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **defaults:** update ``saltimages`` list after Sodium ``3001`` release (\ `c243c51 <https://github.com/myii/ssf-formula/commit/c243c51af7209782f28c05ec114830085becbeae>`_\ )
+* **oracle:** add InSpec ``supports`` node anchor including ``oracle`` (\ `43becd7 <https://github.com/myii/ssf-formula/commit/43becd79d59cf0669c510f010d5a14c92c2a2cc9>`_\ )
+* **salt:** adjust matrix to add Sodium ``3001`` (\ `43afe3f <https://github.com/myii/ssf-formula/commit/43afe3f65741532f4c5514d8c14546990f1bc48d>`_\ )
+
 `1.180.0 <https://github.com/myii/ssf-formula/compare/v1.179.0...v1.180.0>`_ (2020-06-21)
 ---------------------------------------------------------------------------------------------
 
