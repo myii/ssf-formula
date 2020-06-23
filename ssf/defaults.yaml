@@ -301,6 +301,20 @@ ssf:
     - [amazonlinux  ,   2   ,   master,      3]  # amaz-02.0-master-py3
     - [oraclelinux  ,   8   ,   master,      3]  # orac-08.0-master-py3
 
+    ### `3001-py3`
+    - [debian       ,  10   ,   3001  ,      3]  # debi-10.0-3001-py3
+    - [debian       ,   9   ,   3001  ,      3]  # debi-09.0-3001-py3
+    - [ubuntu       ,  20.04,   3001  ,      3]  # ubun-20.0-3001-py3
+    - [ubuntu       ,  18.04,   3001  ,      3]  # ubun-18.0-3001-py3
+    - [centos       ,   8   ,   3001  ,      3]  # cent-08.0-3001-py3
+    - [centos       ,   7   ,   3001  ,      3]  # cent-07.0-3001-py3
+    - [fedora       ,  32   ,   3001  ,      3]  # fedo-31.0-3001-py3
+    - [fedora       ,  31   ,   3001  ,      3]  # fedo-31.0-3001-py3
+    - [opensuse/leap,  15.2 ,   3001  ,      3]  # opsu-15.2-3001-py3
+    - [amazonlinux  ,   2   ,   3001  ,      3]  # amaz-02.0-3001-py3
+    - [oraclelinux  ,   8   ,   3001  ,      3]  # orac-08.0-3001-py3
+    - [oraclelinux  ,   7   ,   3001  ,      3]  # orac-07.0-3001-py3
+
     ### `3000.3-py3`
     - [debian       ,  10   ,   3000.3,      3]  # debi-10.0-3000.3-py3
     - [debian       ,   9   ,   3000.3,      3]  # debi-09.0-3000.3-py3
