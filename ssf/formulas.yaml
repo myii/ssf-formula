@@ -43,6 +43,17 @@ ssf_node_anchors:
                 - suse
                 - freebsd
                 - arch
+              supports_all_including_oracle: &supports_all_including_oracle
+                - debian
+                - ubuntu
+                - centos
+                - fedora
+                - opensuse
+                - suse
+                - freebsd
+                - amazon
+                - oracle
+                - arch
             provisioner:
               dependencies_epel: &dependencies_epel
                 - name: 'epel'
