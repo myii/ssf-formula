@@ -55,8 +55,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "chore(gemfile.lock): update to latest gem versions (2020-W25) [skip ci]"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/229'
+            title: "ci(kitchen+travis): adjust matrix to add '`'3001'`'"
+            body: '* Semi-automated using https://github.com/myii/ssf-formula/pull/230'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
@@ -300,6 +300,20 @@ ssf:
     - [opensuse/leap,  15.2 ,   master,      3]  # opsu-15.2-master-py3
     - [amazonlinux  ,   2   ,   master,      3]  # amaz-02.0-master-py3
     - [oraclelinux  ,   8   ,   master,      3]  # orac-08.0-master-py3
+
+    ### `3001-py3`
+    - [debian       ,  10   ,   3001  ,      3]  # debi-10.0-3001-py3
+    - [debian       ,   9   ,   3001  ,      3]  # debi-09.0-3001-py3
+    - [ubuntu       ,  20.04,   3001  ,      3]  # ubun-20.0-3001-py3
+    - [ubuntu       ,  18.04,   3001  ,      3]  # ubun-18.0-3001-py3
+    - [centos       ,   8   ,   3001  ,      3]  # cent-08.0-3001-py3
+    - [centos       ,   7   ,   3001  ,      3]  # cent-07.0-3001-py3
+    - [fedora       ,  32   ,   3001  ,      3]  # fedo-31.0-3001-py3
+    - [fedora       ,  31   ,   3001  ,      3]  # fedo-31.0-3001-py3
+    - [opensuse/leap,  15.2 ,   3001  ,      3]  # opsu-15.2-3001-py3
+    - [amazonlinux  ,   2   ,   3001  ,      3]  # amaz-02.0-3001-py3
+    - [oraclelinux  ,   8   ,   3001  ,      3]  # orac-08.0-3001-py3
+    - [oraclelinux  ,   7   ,   3001  ,      3]  # orac-07.0-3001-py3
 
     ### `3000.3-py3`
     - [debian       ,  10   ,   3000.3,      3]  # debi-10.0-3000.3-py3
@@ -730,14 +744,17 @@ ssf:
           <<: *isk_default
           0:
             <<: *isk_suite_default
-            name: 'v3000-py3'
+            name: 'v3001-py3'
           1:
             <<: *isk_suite_default
-            name: 'v3000-py2'
+            name: 'v3000-py3'
           2:
             <<: *isk_suite_default
-            name: 'v201902-py3'
+            name: 'v3000-py2'
           3:
+            <<: *isk_suite_default
+            name: 'v201902-py3'
+          4:
             <<: *isk_suite_default
             name: 'v201902-py2'
     sqldeveloper: *formula_default
