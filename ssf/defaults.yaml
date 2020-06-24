@@ -55,8 +55,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "ci(kitchen+travis): adjust matrix to add '`'3001'`'"
-            body: '* Semi-automated using https://github.com/myii/ssf-formula/pull/230'
+            title: "chore: use standardised structure"
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/231'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
@@ -764,6 +764,7 @@ ssf:
     strongswan: *formula_default
     stunnel: *formula_default
     sudoers: *formula_default
+    suricata: *formula_default
     sysctl: *formula_default
     syslog-ng: *formula_default
     sysstat: *formula_default
