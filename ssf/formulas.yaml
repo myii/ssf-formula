@@ -3696,6 +3696,7 @@ ssf:
               - '*': '@alias454'
         git:
           github:
+            owner: 'alias454'
             repo: 'suricata-formula'
         inspec_suites_kitchen:
           0:
