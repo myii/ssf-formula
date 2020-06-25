@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.183.0](https://github.com/myii/ssf-formula/compare/v1.182.0...v1.183.0) (2020-06-25)
+
+
+### Features
+
+* **suricata:** finalise structure after transfer to main org ([0644797](https://github.com/myii/ssf-formula/commit/0644797f184b469c2f0d7a3680bfe801abe9e8e4))
+
 # [1.182.0](https://github.com/myii/ssf-formula/compare/v1.181.0...v1.182.0) (2020-06-25)
 
 
