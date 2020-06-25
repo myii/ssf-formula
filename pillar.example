@@ -150,6 +150,7 @@ ssf:
       - strongswan
       - stunnel
       - sudoers
+      - suricata
       - sysctl
       - syslog-ng
       - sysstat
