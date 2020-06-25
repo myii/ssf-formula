@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.182.0 <https://github.com/myii/ssf-formula/compare/v1.181.0...v1.182.0>`_ (2020-06-25)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **formula:** add ``suricata-formula`` (\ `ad1f45b <https://github.com/myii/ssf-formula/commit/ad1f45b092ff2f40a907756e06aea91ae17f717c>`_\ ), closes `/freenode.logbot.info/saltstack-formulas/20200620#c4173182 <https://github.com//freenode.logbot.info/saltstack-formulas/20200620/issues/c4173182>`_
+
 `1.181.0 <https://github.com/myii/ssf-formula/compare/v1.180.0...v1.181.0>`_ (2020-06-23)
 ---------------------------------------------------------------------------------------------
 
