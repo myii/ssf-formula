@@ -205,6 +205,7 @@ These formulas are already compatible with semantic-release *and* have global ``
 #. `sqldeveloper-formula <https://github.com/saltstack-formulas/sqldeveloper-formula>`_
 #. `sqlplus-formula <https://github.com/saltstack-formulas/sqlplus-formula>`_
 #. `strongswan-formula <https://github.com/saltstack-formulas/strongswan-formula>`_
+#. `suricata-formula <https://github.com/saltstack-formulas/suricata-formula>`_
 #. `sysctl-formula <https://github.com/saltstack-formulas/sysctl-formula>`_
 #. `template-formula <https://github.com/saltstack-formulas/template-formula>`_
 #. `vault-formula <https://github.com/saltstack-formulas/vault-formula>`_
@@ -212,7 +213,7 @@ These formulas are already compatible with semantic-release *and* have global ``
 
 These formulas are also compatible with semantic-release:
 
-47. `apache-formula <https://github.com/saltstack-formulas/apache-formula>`_
+48. `apache-formula <https://github.com/saltstack-formulas/apache-formula>`_
 #. `apt-cacher-formula <https://github.com/saltstack-formulas/apt-cacher-formula>`_
 #. `cert-formula <https://github.com/saltstack-formulas/cert-formula>`_
 #. `chrony-formula <https://github.com/saltstack-formulas/chrony-formula>`_
