@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.185.0](https://github.com/myii/ssf-formula/compare/v1.184.0...v1.185.0) (2020-06-28)
+
+
+### Features
+
+* **salt:** add Windows testing ([0aad3b6](https://github.com/myii/ssf-formula/commit/0aad3b60f86e244a1484eeea77264e4a123dfe21))
+
 # [1.184.0](https://github.com/myii/ssf-formula/compare/v1.183.0...v1.184.0) (2020-06-26)
 
 
