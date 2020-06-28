@@ -54,6 +54,19 @@ ssf_node_anchors:
                 - amazon
                 - oracle
                 - arch
+              # yamllint disable-line rule:line-length
+              supports_all_including_oracle_and_windows: &supports_all_including_oracle_and_windows
+                - debian
+                - ubuntu
+                - centos
+                - fedora
+                - opensuse
+                - suse
+                - freebsd
+                - amazon
+                - oracle
+                - arch
+                - windows
             provisioner:
               dependencies_epel: &dependencies_epel
                 - name: 'epel'
@@ -3303,7 +3316,7 @@ ssf:
             inspec_yml:
               summary: >-
                 Verify that Salt `v3000-py3` is setup and configured
-              supports: *supports_all_including_oracle
+              supports: *supports_all_including_oracle_and_windows
             provisioner:
               pillars:
                 - '*':
