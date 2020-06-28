@@ -55,8 +55,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "chore(gemfile.lock): update to latest gem versions (2020-W26) [skip ci]"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/233'
+            title: "chore: add Windows testing"
+            body: '* Checked using https://github.com/myii/ssf-formula/pull/234'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
