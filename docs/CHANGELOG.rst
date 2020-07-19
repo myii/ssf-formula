@@ -2,6 +2,21 @@
 Changelog
 =========
 
+`1.187.0 <https://github.com/myii/ssf-formula/compare/v1.186.0...v1.187.0>`_ (2020-07-19)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **formulas.sls:** ensure temporary date-based branch is removed (\ `71c7038 <https://github.com/myii/ssf-formula/commit/71c703855b188ab3bfcc1eb3800a16d76feeaef7>`_\ )
+
+Styles
+^^^^^^
+
+
+* **formulas.sls:** use consistent Jinja indentation [skip ci] (\ `2829628 <https://github.com/myii/ssf-formula/commit/282962846ff34b1a37177ff13081964e98d9afb6>`_\ )
+
 `1.186.0 <https://github.com/myii/ssf-formula/compare/v1.185.0...v1.186.0>`_ (2020-07-06)
 ---------------------------------------------------------------------------------------------
 
