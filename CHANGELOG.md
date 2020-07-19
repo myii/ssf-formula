@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.188.0](https://github.com/myii/ssf-formula/compare/v1.187.0...v1.188.0) (2020-07-19)
+
+
+### Features
+
+* **libtofs.jinja:** use Black-inspired Jinja formatting ([bc900bf](https://github.com/myii/ssf-formula/commit/bc900bf57d6eefabc4184bd699932c4000d57faa))
+
 # [1.187.0](https://github.com/myii/ssf-formula/compare/v1.186.0...v1.187.0) (2020-07-19)
 
 
