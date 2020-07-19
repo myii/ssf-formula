@@ -21,6 +21,7 @@
 {#-   Determine the TOFS override directory for the current formula #}
 {#-   Can't use `formula` directly because some formula names are used as top-level pillar/config keys, such as `users-formula` #}
 {%-   set formula_tofs_dir = 'tofs_' ~ formula %}
+{%-   set branch_current = salt['git.current_branch']('{0}/{1}'.format(ssf.formulas_path, formula)) %}
 {%-   set branch_pr = context.git.branch.pr %}
 {%-   if not ssf.git.states.commit_push.push.via_PR %}
 {%-     set branch_pr = salt['system.get_system_date_time']() | replace(' ', '')
@@ -164,6 +165,10 @@ prepare-git-branch-for-{{ formula }}:
     - onchanges_in:
       - cmd: commit-and-push-{{ formula }}
     {%-         endif %}
+    {%-         if not ssf.git.states.commit_push.push.via_PR and ssf.git.states.prepare.active %}
+    - require_in:
+      - cmd: cleanup-date-based-branch-for-{{ formula }}
+    {%-         endif %}
 {%-           endif %}
 {%-         endif %}
 {%-       endif %}
@@ -200,6 +205,10 @@ commit-and-push-{{ formula }}:
     - runas: {{ ssf.user }}
     {%- endif %}
     - stateful: True
+    {%- if not ssf.git.states.commit_push.push.via_PR and ssf.git.states.prepare.active %}
+    - require_in:
+      - cmd: cleanup-date-based-branch-for-{{ formula }}
+    {%- endif %}
 {%-   endif %}
 
 
@@ -226,6 +235,27 @@ create-github-PR-for-{{ formula }}:
     {%- if ssf.git.states.commit_push.active %}
     - onchanges:
       - cmd: commit-and-push-{{ formula }}
+    {%- endif %}
+    {%- if not ssf.git.states.commit_push.push.via_PR and ssf.git.states.prepare.active %}
+    - require_in:
+      - cmd: cleanup-date-based-branch-for-{{ formula }}
+    {%- endif %}
+{%-   endif %}
+
+
+{#-   Stage 5: Rarely required but clean up `branch_pr` if date-based and still available #}
+{%-   if not ssf.git.states.commit_push.push.via_PR and ssf.git.states.prepare.active %}
+cleanup-date-based-branch-for-{{ formula }}:
+  {#-   TODO: Convert to `cmd.script`? #}
+  cmd.run:
+    - name: |
+        git checkout {{ branch_current }}
+        if [ "$(git branch --list {{ branch_pr }})" ]; then
+          git branch -d {{ branch_pr }}
+        fi
+    - cwd: {{ ssf.formulas_path }}/{{ formula }}/
+    {%- if running_as_root %}
+    - runas: {{ ssf.user }}
     {%- endif %}
 {%-   endif %}
 
