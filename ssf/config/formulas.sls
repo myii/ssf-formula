@@ -75,7 +75,7 @@ prepare-git-branch-for-{{ formula }}:
               Unable to use `namespace` with the current version of Jinja so simulating with a `dict` instead #}
 {%-           set matching_test_suite = {'found': False} %}
 {%-           for test_suite in suite.verifier.inspec_tests if test_suite in ['.', suite.name] %}
-{%-               do matching_test_suite.update({'found': True}) %}
+{%-             do matching_test_suite.update({'found': True}) %}
 {%-           endfor %}
 {#-           Now use that to set the `dest_file` accordingly #}
 {%-           if not matching_test_suite.found %}
@@ -155,9 +155,9 @@ prepare-git-branch-for-{{ formula }}:
     - name: |
         git {{ add_or_rm[0] }} {{ dest_file }}
     - cwd: {{ ssf.formulas_path }}/{{ formula }}/
-    {%- if running_as_root %}
+    {%-         if running_as_root %}
     - runas: {{ ssf.user }}
-    {%- endif %}
+    {%-         endif %}
     - onchanges:
       - file: {{ add_or_rm[1] }}-{{ formula }}-{{ dest_file }}
     {%-         if ssf.git.states.commit_push.active %}
