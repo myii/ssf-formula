@@ -484,7 +484,23 @@ ssf:
               state_top:
                 - '*':
                     - .
+                    - .config
+          1:
+            inspec_yml:
+              summary: >-
+                Verify that the apache formula manages modules correctly
+            provisioner:
+              pillars_from_files:
+                - .sls: 'test/salt/pillar/modules.sls'
+              state_top:
+                - '*':
+                    - .
                     - .mod_security
+                    - .server_status
+        # TODO: Enable this once the matrix is updated to use the `modules` suite
+        # inspec_suites_matrix:
+        #   - default
+        #   - modules
         platforms_matrix:
           # Comments in `platforms` apply here, too
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
