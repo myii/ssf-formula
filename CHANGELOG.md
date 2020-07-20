@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.190.0](https://github.com/myii/ssf-formula/compare/v1.189.0...v1.190.0) (2020-07-20)
+
+
+### Features
+
+* **apache:** review PR 280 ([d958c9d](https://github.com/myii/ssf-formula/commit/d958c9d89b0df45d0f83f2fe3efeeaa889985634))
+
 # [1.189.0](https://github.com/myii/ssf-formula/compare/v1.188.0...v1.189.0) (2020-07-20)
 
 
