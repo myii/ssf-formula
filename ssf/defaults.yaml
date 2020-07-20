@@ -347,7 +347,15 @@ ssf:
     - [arch-base    , latest,   2019.2,      2]  # arch-late-2019.2-py2
 
   semrel_formulas:
-    apache: *formula_default
+    apache:
+      <<: *formula_default
+      context:
+        <<: *context_default
+        inspec_suites_kitchen:
+          <<: *isk_default
+          1:
+            <<: *isk_suite_default
+            name: 'modules'
     apt:
       <<: *formula_default
       context:
