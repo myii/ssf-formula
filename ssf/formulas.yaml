@@ -143,6 +143,20 @@ ssf_node_anchors:
           - [amazonlinux  ,   2   ,   3000.3,      3,         default]
           # - [fedora       ,  31   ,   2019.2,      3,         default]
           - [arch-base    , latest,   2019.2,      2,         default]
+        # Use this to start adopting the latest `platforms_matrix`
+        # based on `master` images primarily
+        # yamllint disable-line rule:line-length
+        platforms_matrix_new_mainly_master_images: &platforms_matrix_new_mainly_master_images
+          # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
+          - [debian       ,  10   ,   master,      3,         default]
+          - [ubuntu       ,  20.04,   master,      3,         default]
+          # - [ubuntu       ,  18.04,   master,      3,         default]
+          - [centos       ,   8   ,   master,      3,         default]
+          - [fedora       ,  32   ,   master,      3,         default]
+          # - [fedora       ,  31   ,   master,      3,         default]
+          - [opensuse/leap,  15.2 ,   master,      3,         default]
+          - [amazonlinux  ,   2   ,   master,      3,         default]
+          - [arch-base    , latest,   2019.2,      2,         default]
 
         platforms_osfamily_debian: &platforms_osfamily_debian
           # [os           , os_ver, salt_ver, py_ver]
@@ -3055,16 +3069,8 @@ ssf:
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/postgres.sls'
-        platforms_matrix:
-          # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
-          - [debian       ,  10   ,   master,      3,         default]
-          - [centos       ,   8   ,   2019.2,      3,         default]
-          - [fedora       ,  31   ,   2019.2,      3,         default]
-          # - [amazonlinux  ,   2   ,   2019.2,      3,         default]
-          # - [arch-base    , latest,   2019.2,      2,         default]
-          - [ubuntu       ,  16.04,   2018.3,      2,         default]
-          - [opensuse/leap,  15.1 ,   2018.3,      2,         default]
-          - [centos       ,   6   ,   2017.7,      2,         default]
+        platforms: *platforms_new
+        platforms_matrix: *platforms_matrix_new_mainly_master_images
         use_tofs: true
         yamllint:
           ignore:
