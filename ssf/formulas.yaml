@@ -2783,8 +2783,8 @@ ssf:
               state_top:
                 - '*':
                     - .config
-        platforms_matrix: *platforms_matrix_without_arch
-        travis: *travis_do_not_use_single_job_for_linters
+        platforms: *platforms_new
+        platforms_matrix: *platforms_matrix_new_mainly_master_images
         use_tofs: true
       semrel_files: *semrel_files_default
     openvpn:
