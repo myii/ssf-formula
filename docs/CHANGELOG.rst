@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.191.0 <https://github.com/myii/ssf-formula/compare/v1.190.0...v1.191.0>`_ (2020-07-20)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **openssh:** use latest pre-salted images (\ `07c5cfd <https://github.com/myii/ssf-formula/commit/07c5cfd1c278d84b485431510f36356fa8eecafb>`_\ )
+
 `1.190.0 <https://github.com/myii/ssf-formula/compare/v1.189.0...v1.190.0>`_ (2020-07-20)
 ---------------------------------------------------------------------------------------------
 
