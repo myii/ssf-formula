@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.189.0 <https://github.com/myii/ssf-formula/compare/v1.188.0...v1.189.0>`_ (2020-07-20)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **postgres:** use latest pre-salted images (\ `cb46357 <https://github.com/myii/ssf-formula/commit/cb463579a2254e0892f520d353eba8d99514c073>`_\ )
+
 `1.188.0 <https://github.com/myii/ssf-formula/compare/v1.187.0...v1.188.0>`_ (2020-07-19)
 ---------------------------------------------------------------------------------------------
 
