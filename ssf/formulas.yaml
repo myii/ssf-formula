@@ -2799,6 +2799,7 @@ ssf:
               state_top:
                 - '*':
                     - .config
+                    - .known_hosts
         platforms: *platforms_new
         platforms_matrix: *platforms_matrix_new_mainly_master_images
         use_tofs: true
