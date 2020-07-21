@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.192.0](https://github.com/myii/ssf-formula/compare/v1.191.0...v1.192.0) (2020-07-21)
+
+
+### Features
+
+* **openssh:** review PR 185 ([810bfb1](https://github.com/myii/ssf-formula/commit/810bfb19da67aa78948844ac05763be4ea81fcf9))
+
 # [1.191.0](https://github.com/myii/ssf-formula/compare/v1.190.0...v1.191.0) (2020-07-20)
 
 
