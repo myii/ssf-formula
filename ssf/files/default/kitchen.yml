@@ -127,6 +127,20 @@ driver:
   use_sudo: false
   privileged: true
   run_command: /lib/systemd/systemd
+  {%- set run_options = kitchen.driver.run_options %}
+  {%- if run_options %}
+  run_options:
+    {%- for k, v in run_options.items() %}
+    {{ k }}:
+      {%- if v is not list %}
+      {{ v | yaml(False) }}
+      {%- else %}
+      {%-   for v1 in v %}
+      - {{ v1 | yaml_squote if v1 is string else v1 }}
+      {%-   endfor %}
+      {%- endif %}
+    {%- endfor %}
+  {%- endif %}
 
 # Make sure the platforms listed below match up with
 # the `env.matrix` instances defined in `.travis.yml`

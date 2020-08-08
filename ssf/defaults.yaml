@@ -114,6 +114,9 @@ ssf_node_anchors:
                 - .
         inspec_suites_matrix:
           - default
+        kitchen:
+          driver:
+            run_options: {}
         platforms:
           # Could use `opensuse-leap` throughout since `/` never used at this end
           # Would have to modify the `if` in the `kitchen.yml` template(s), though

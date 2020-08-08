@@ -132,6 +132,7 @@ prepare-git-branch-for-{{ formula }}:
         codeowners: {{ context.codeowners | yaml }}
         inspec_suites_kitchen: {{ inspec_suites_kitchen | yaml }}
         inspec_suites_matrix: {{ context.inspec_suites_matrix | yaml }}
+        kitchen: {{ context.kitchen | yaml }}
         platforms: {{ context.platforms | yaml }}
         platforms_matrix: {{ context.platforms_matrix | yaml }}
         platforms_matrix_commented_includes: {{ context.platforms_matrix_commented_includes | yaml }}
