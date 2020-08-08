@@ -13,6 +13,9 @@
 {#-   Use shorter variables to make the code a little easier to follow #}
 {%-   set context = semrel_formula_specs.context %}
 {%-   set inspec_suites_kitchen = context.inspec_suites_kitchen %}
+{%-   set testing_freebsd = context.testing_freebsd %}
+{%-   set testing_openbsd = context.testing_openbsd %}
+{%-   set testing_windows = context.testing_windows %}
 {%-   set use_cirrus_ci = context.use_cirrus_ci %}
 {%-   set use_github_actions = context.use_github_actions %}
 {%-   set use_libsaltcli = context.use_libsaltcli %}
@@ -114,12 +117,16 @@ prepare-git-branch-for-{{ formula }}:
 {#-           Likewise, if running the state for TOFS files when `use_tofs` is `False` #}
 {#-           Also remove the local `CONTRIBUTING` file to use the org-level file instead #}
 {#-           Furthermore, remove `.travis.yml` for the `ssf-formula` #}
+{#-           Also: remove both `kitchen.vagrant.yml` files if relevant testing not active #}
+{#-           Also: remove both `kitchen.windows.yml` files if relevant testing not active #}
 {%-           if (semrel_file == '.cirrus.yml' and not use_cirrus_ci) or
                  (semrel_file == '.github/workflows/kitchen.yml' and not use_github_actions) or
                  (semrel_file == 'formula/libsaltcli.jinja' and not use_libsaltcli) or
                  (semrel_file in ['docs/TOFS_pattern.rst', 'formula/libtofs.jinja'] and not use_tofs) or
                  (semrel_file in ['docs/CONTRIBUTING.rst'] and formula not in ['.github', 'ssf-formula']) or
-                 (semrel_file in ['.travis.yml'] and formula in ['ssf-formula'])
+                 (semrel_file in ['.travis.yml'] and formula in ['ssf-formula']) or
+                 (semrel_file.endswith('kitchen.vagrant.yml') and not testing_freebsd.active and not testing_openbsd.active and not testing_windows.active) or
+                 (semrel_file.endswith('kitchen.windows.yml') and not testing_windows.active)
 %}
 {%-             set add_or_rm = ['rm', 'remove', 'absent'] %}
 {%-           endif %}
@@ -173,15 +180,20 @@ remove-previous-file-location-for-{{ formula }}-{{ dest_file }}:
         platforms: {{ context.platforms | yaml }}
         platforms_matrix: {{ context.platforms_matrix | yaml }}
         platforms_matrix_commented_includes: {{ context.platforms_matrix_commented_includes | yaml }}
+        proxyplatformswindows: {{ ssf.proxyplatformswindows | yaml }}
         rubocop: {{ context.rubocop | yaml }}
         salt_lint: {{ context.salt_lint | yaml }}
         saltimages: {{ ssf.saltimages | yaml }}
         script_kitchen: {{ context.script_kitchen | yaml }}
         shellcheck: {{ context.shellcheck | yaml }}
         suite: {{ suite | yaml }}
+        testing_freebsd: {{ testing_freebsd | yaml }}
+        testing_openbsd: {{ testing_openbsd | yaml }}
+        testing_windows: {{ testing_windows | yaml }}
         travis: {{ context.travis | yaml }}
         use_cirrus_ci: {{ use_cirrus_ci }}
         use_github_actions: {{ use_github_actions }}
+        vagrantboxes: {{ ssf.vagrantboxes | yaml }}
         yamllint: {{ context.yamllint | yaml }}
     {%-         endif %}
     {%-         if ssf.git.states.prepare.active %}

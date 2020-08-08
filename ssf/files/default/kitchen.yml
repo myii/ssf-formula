@@ -31,7 +31,8 @@
 {%-     if cludes %}
 {{ clude_type }}:
 {#-       Centralise duplication from here and `libcimatrix.jinja` #}
-{%-       for platform in saltimages %}
+{%-       set all_platforms = saltimages + vagrantboxes + proxyplatformswindows %}
+{%-       for platform in all_platforms %}
 {%-         set os       = platform[0] | d('') %}
 {%-         set os_ver   = platform[1] | d('') %}
 {%-         set salt_ver = platform[2] | d('') %}

@@ -23,12 +23,13 @@ jobs:
           {{- format_ci_matrix(platforms, inspec_suites_kitchen, inspec_suites_matrix, platforms_matrix, platforms_matrix_commented_includes, semrel_formula, width=10, use_github_format=True) }}
     {%- raw %}
     steps:
-      - uses: 'actions/checkout@v2'
-      - uses: 'actions/cache@v1'
+      - name: 'Check out code'
+        uses: 'actions/checkout@v2'
+      - name: 'Set up Bundler cache'
+        uses: 'actions/cache@v1'
         with:
           path: 'vendor/bundle'
-          key: |
-            ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+          key: "${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}"
           restore-keys: "${{ runner.os }}-gems-"
       - name: 'Install Bundler'
         run: |
@@ -37,6 +38,7 @@ jobs:
             --quiet --no-document
       - name: 'Run Bundler'
         run: |
+          ruby --version
           bundle config path vendor/bundle
           bundle install --jobs 4 --retry 3
       - name: 'Run Test Kitchen'

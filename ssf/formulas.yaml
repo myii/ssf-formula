@@ -244,6 +244,14 @@ ssf_node_anchors:
         .github/workflows/kitchen.yml: &file__--github__workflows__kitchen--yml
           <<: *file_default
           template: 'jinja'
+        # yamllint disable-line rule:line-length
+        .github/workflows/kitchen.vagrant.yml: &file__--github__workflows__kitchen--vagrant--yml
+          <<: *file_default
+          template: 'jinja'
+        # yamllint disable-line rule:line-length
+        .github/workflows/kitchen.windows.yml: &file__--github__workflows__kitchen--windows--yml
+          <<: *file_default
+          template: 'jinja'
         bin/install-hooks: &file__bin__install-hooks
           <<: *file_default
           mode: 755
@@ -312,6 +320,12 @@ ssf_node_anchors:
         Gemfile.lock: &file__Gemfile--lock
           <<: *file_default
         kitchen.yml: &file__kitchen--yml
+          <<: *file_default
+          template: 'jinja'
+        kitchen.vagrant.yml: &file__kitchen--vagrant--yml
+          <<: *file_default
+          template: 'jinja'
+        kitchen.windows.yml: &file__kitchen--windows--yml
           <<: *file_default
           template: 'jinja'
         pre-commit_semantic-release.sh: &file__pre-commit_semantic-release--sh

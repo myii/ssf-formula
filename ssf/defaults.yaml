@@ -62,8 +62,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "test: standardise use of '`'share'`' suite & '`'_mapdata'`' state [skip ci]"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/302'
+            title: "ci: enable Vagrant-based testing using GitHub Actions"
+            body: '* Semi-automated using https://github.com/myii/ssf-formula/pull/304'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
@@ -185,6 +185,36 @@ ssf_node_anchors:
           post: []
         shellcheck:
           exclude_paths: []
+        testing_freebsd:
+          active: false
+        testing_openbsd:
+          active: false
+          vagrant:
+            platforms:
+              driver:
+                ssh:
+                  shell: '/bin/ksh'
+        testing_windows:
+          active: false
+          github:
+            driver:
+              name: 'proxy'
+              host: 'localhost'
+              reset_command: '"exit 0"'
+              port: '5985'
+              username: 'kitchen'
+              password: 'Pass@word1'
+            platforms:
+              provisioner:
+                salt_install: 'bootstrap'
+                salt_bootstrap_options: '-pythonVersion 3'
+          vagrant:
+            platforms:
+              driver:
+                box: 'techneg/win81x64-pro-salt'
+                gui: 'false'
+                linked_clone: 'true'
+          winrepo_ng: []
         travis:
           addons: {}
           dist: 'bionic'
@@ -275,6 +305,18 @@ ssf:
       create_PR:
         active: false
         source: 'salt://ssf/files/default/git/git_30_create_PR.sh'
+  proxyplatformswindows:
+    ### `windows`
+    - [windows      , 2019   ,   latest,      3]  # wind-2019-latest-py3
+    - [windows      , 2016   ,   latest,      3]  # wind-2016-latest-py3
+  vagrantboxes:
+    ### `freebsd`
+    - [freebsd      ,   12.2 ,   latest,      3]  # fbsd-12.2-latest-py3
+    - [freebsd      ,   11.4 ,   latest,      3]  # fbsd-11.4-latest-py3
+    ### `openbsd`
+    - [openbsd      ,    6.8 ,   latest,      3]  # obsd-06.8-latest-py3
+    ### `windows`
+    - [windows      ,    8.1 ,   latest,      3]  # wind-08.1-latest-py3
   saltimages:
     ### `tiamat-py3`
     - [debian       ,   10   ,   tiamat,      3]  # debi-10.0-tiamat-py3

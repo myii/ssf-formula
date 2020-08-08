@@ -11,17 +11,32 @@
               width=4,
               use_new_travis_format=False,
               use_gitlab_format=False,
-              use_github_format=False
+              use_github_format=False,
+              use_vagrant_platforms=False,
+              use_proxy_platforms_windows=[]
           ) %}
 {%-   filter indent(width) %}
 {#-     Centralise duplication from here and `kitchen.yml` #}
 {%-     set platform_and_suite_names_done = [] %}
 {%-     set commented_platform_done = [] %}
-{%-     for platform in saltimages %}
+{%-     set all_platforms = saltimages + vagrantboxes + proxyplatformswindows %}
+{%-     set driver_platforms = saltimages %}
+{%-     if use_vagrant_platforms %}
+{%-       set driver_platforms = vagrantboxes %}
+{%-     elif use_proxy_platforms_windows %}
+{%-       set driver_platforms = proxyplatformswindows %}
+{%-     endif %}
+{%-     for platform in driver_platforms %}
 {%-       set os       = platform[0] %}
 {%-       set os_ver   = platform[1] %}
 {%-       set salt_ver = platform[2] %}
 {%-       set py_ver   = platform[3] %}
+{#-       Go to the next platform where not set as active #}
+{%-       if (os == 'freebsd' and not testing_freebsd.active) or
+             (os == 'openbsd' and not testing_openbsd.active) or
+             (os == 'windows' and not testing_windows.active) %}
+{%-         continue %}
+{%-       endif %}
 
 {#-       Check if the platform matches any of the `platforms` listed #}
 {%-       set ns_check_platform = namespace(match=False) %}
@@ -35,8 +50,11 @@
 {%-           break %}
 {%-         endif %}
 {%-       endfor %}
-{#-       If a match hasn't been found, go to the next entry under `saltimages` #}
-{%-       if not ns_check_platform.match %}
+{#-       If a match hasn't been found, go to the next entry under `driver_platforms` #}
+{#-       Likewise, if working with Windows proxy platforms and doesn't match the platform sent through #}
+{%-       if (not ns_check_platform.match) or
+             (use_proxy_platforms_windows and use_proxy_platforms_windows != platform)
+%}
 {%-         continue %}
 {%-       endif %}
 
@@ -56,7 +74,7 @@
 {%-               set includes = suite.includes %}
 {%-             else %}
 {#-               Centralise duplication from here and `libcimatrix.jinja` #}
-{%-               for clude_platform in saltimages %}
+{%-               for clude_platform in all_platforms %}
 {#-                 Check if the clude_platform matches any of the `platforms` listed #}
 {%-                 for check in suite.includes %}
 {%-                   set ch_os       = check[0] if check[0] else clude_platform[0] %}
@@ -79,7 +97,7 @@
 {%-               set excludes = suite.excludes %}
 {%-             else %}
 {#-               Centralise duplication from here and `libcimatrix.jinja` #}
-{%-               for clude_platform in saltimages %}
+{%-               for clude_platform in all_platforms %}
 {#-                 Check if the clude_platform matches any of the `platforms` listed #}
 {%-                 for check in suite.excludes %}
 {%-                   set ch_os       = check[0] if check[0] else clude_platform[0] %}
@@ -121,7 +139,7 @@
 {%-               set platforms_matrix_expanded = [] %}
 {%-               if platforms_matrix and platforms_matrix != [[]] %}
 {#-                 Centralise duplication from here and `libcimatrix.jinja` #}
-{%-                 for matrix_platform in saltimages %}
+{%-                 for matrix_platform in driver_platforms %}
 {#-                   Check if the matrix_platform matches any of the `platforms` listed #}
 {%-                   for check in platforms_matrix %}
 {%-                     set ch_os       = check[0] if check[0] else matrix_platform[0] %}
