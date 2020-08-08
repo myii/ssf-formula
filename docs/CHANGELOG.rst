@@ -2,6 +2,16 @@
 Changelog
 =========
 
+`1.193.0 <https://github.com/myii/ssf-formula/compare/v1.192.0...v1.193.0>`_ (2020-08-08)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **formula:** add ``proftpd-formula`` (\ `a36e9a2 <https://github.com/myii/ssf-formula/commit/a36e9a24642d54ec76d0445d0772b56daf766a2a>`_\ )
+* **run_options:** allow these to be provided for ``kitchen`` (\ `9c4dd17 <https://github.com/myii/ssf-formula/commit/9c4dd17ab78cee011fcb8a9ae5e38d8cce50bd87>`_\ )
+
 `1.192.0 <https://github.com/myii/ssf-formula/compare/v1.191.0...v1.192.0>`_ (2020-07-21)
 ---------------------------------------------------------------------------------------------
 
