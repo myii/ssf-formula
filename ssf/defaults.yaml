@@ -55,8 +55,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "ci(kitchen+travis): use latest pre-salted images"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/239'
+            title: "chore: use standardised structure"
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/240'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
@@ -114,6 +114,9 @@ ssf_node_anchors:
                 - .
         inspec_suites_matrix:
           - default
+        kitchen:
+          driver:
+            run_options: {}
         platforms:
           # Could use `opensuse-leap` throughout since `/` never used at this end
           # Would have to modify the `if` in the `kitchen.yml` template(s), though
@@ -718,6 +721,24 @@ ssf:
     postfix: *formula_default
     postgres: *formula_default
     powerdns: *formula_default
+    proftpd:
+      <<: *formula_default
+      context:
+        <<: *context_default
+        inspec_suites_kitchen:
+          <<: *isk_default
+          0:
+            <<: *isk_suite_default
+            name: 'debian'
+          1:
+            <<: *isk_suite_default
+            name: 'redhat'
+          2:
+            <<: *isk_suite_default
+            name: 'suse'
+          3:
+            <<: *isk_suite_default
+            name: 'amazonlinux'
     prometheus: *formula_default
     rabbitmq:
       <<: *formula_default

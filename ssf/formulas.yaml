@@ -169,6 +169,20 @@ ssf_node_anchors:
           - [ubuntu       ,  16.04,   2018.3,      2]
           - [debian       ,   8   ,   2017.7,      2]
           - [ubuntu       ,  16.04,   2017.7,      2]
+        platforms_osfamily_debian_new: &platforms_osfamily_debian_new
+          # [os           , os_ver, salt_ver, py_ver]
+          - [debian       ,  10   ,   master,      3]
+          - [ubuntu       ,  20.04,   master,      3]
+          - [ubuntu       ,  18.04,   master,      3]
+          - [debian       ,  10   ,   3000.3,      3]
+          - [debian       ,   9   ,   3000.3,      3]
+          - [ubuntu       ,  18.04,   3000.3,      3]
+          - [ubuntu       ,  18.04,   3000.3,      2]
+          - [ubuntu       ,  16.04,   3000.3,      2]
+          - [debian       ,  10   ,   2019.2,      3]
+          - [debian       ,   9   ,   2019.2,      3]
+          - [ubuntu       ,  18.04,   2019.2,      3]
+          - [ubuntu       ,  16.04,   2019.2,      3]
         platforms_osfamily_redhat: &platforms_osfamily_redhat
           # [os           , os_ver, salt_ver, py_ver]
           - [centos       ,   8   ,   master,      3]
@@ -200,6 +214,19 @@ ssf_node_anchors:
           - [amazonlinux  ,   2   ,   2019.2,      3]
           - [centos       ,   6   ,   2019.2,      2]
           - [amazonlinux  ,   1   ,   2019.2,      2]
+        # yamllint disable-line rule:line-length
+        platforms_osfamily_redhat_new_without_amazon: &platforms_osfamily_redhat_new_without_amazon
+          # [os           , os_ver, salt_ver, py_ver]
+          - [centos       ,   8   ,   master,      3]
+          - [fedora       ,  32   ,   master,      3]
+          - [fedora       ,  31   ,   master,      3]
+          - [centos       ,   8   ,   3000.3,      3]
+          - [centos       ,   7   ,   3000.3,      3]
+          - [fedora       ,  31   ,   3000.3,      3]
+          - [centos       ,   8   ,   2019.2,      3]
+          - [centos       ,   7   ,   2019.2,      3]
+          - [fedora       ,  31   ,   2019.2,      3]
+          - [centos       ,   6   ,   2019.2,      2]
         platforms_osfamily_suse: &platforms_osfamily_suse
           # [os           , os_ver, salt_ver, py_ver]
           - [opensuse/leap,  15.1 ,   master,      3]
@@ -3138,6 +3165,100 @@ ssf:
           ignore:
             additional:
               - sls.example
+      semrel_files: *semrel_files_default
+    proftpd:
+      context:
+        codeowners:
+          entries:
+            global:
+              - '*': '@n-rodriguez'
+        git:
+          github:
+            repo: 'proftpd-formula'
+        inspec_suites_kitchen:
+          0:
+            includes: *platforms_osfamily_debian_new
+            inspec_yml:
+              summary: >-
+                Verify that the proftpd formula is setup and configured correctly
+            provisioner:
+              pillars:
+                - '*':
+                    - default
+                    - .
+              pillars_from_files:
+                - default.sls: 'test/salt/pillar/default.sls'
+                - .sls: 'test/salt/pillar/debian.sls'
+            verifier: *verifier_inspec_tests_default
+          1:
+            includes: *platforms_osfamily_redhat_new_without_amazon
+            inspec_yml:
+              summary: >-
+                Verify that the proftpd formula is setup and configured correctly
+            provisioner:
+              pillars:
+                - '*':
+                    - default
+                    - .
+              pillars_from_files:
+                - default.sls: 'test/salt/pillar/default.sls'
+                - .sls: 'test/salt/pillar/redhat.sls'
+            verifier: *verifier_inspec_tests_default
+          2:
+            includes: *platforms_osfamily_suse_new
+            inspec_yml:
+              summary: >-
+                Verify that the proftpd formula is setup and configured correctly
+            provisioner:
+              pillars:
+                - '*':
+                    - default
+                    - .
+              pillars_from_files:
+                - default.sls: 'test/salt/pillar/default.sls'
+                - .sls: 'test/salt/pillar/suse.sls'
+            verifier: *verifier_inspec_tests_default
+          3:
+            includes: *platforms_os_amazonlinux_new
+            inspec_yml:
+              summary: >-
+                Verify that the proftpd formula is setup and configured correctly
+            provisioner:
+              dependencies: *dependencies_epel
+              pillars:
+                - '*':
+                    - default
+                    - .
+              pillars_from_files:
+                - default.sls: 'test/salt/pillar/default.sls'
+                - .sls: 'test/salt/pillar/redhat.sls'
+              state_top:
+                - '*':
+                    - epel
+                    - .
+            verifier: *verifier_inspec_tests_default
+        inspec_suites_matrix:
+          - debian
+          - redhat
+          - suse
+          - amazonlinux
+        kitchen:
+          driver:
+            run_options:
+              add-host:
+                - 'localhost.localdomain:127.0.0.1'
+        platforms: *platforms_new
+        platforms_matrix:
+          # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
+          - [debian       ,  10   ,   master,      3,          debian]
+          - [ubuntu       ,  20.04,   master,      3,          debian]
+          # - [ubuntu       ,  18.04,   master,      3,          debian]
+          - [centos       ,   8   ,   master,      3,          redhat]
+          - [fedora       ,  32   ,   master,      3,          redhat]
+          # - [fedora       ,  31   ,   master,      3,          redhat]
+          - [opensuse/leap,  15.2 ,   master,      3,            suse]
+          - [amazonlinux  ,   2   ,   master,      3,     amazonlinux]
+          # # - [arch-base    , latest,   2019.2,      2,         default]
       semrel_files: *semrel_files_default
     prometheus:
       context:

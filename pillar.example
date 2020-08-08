@@ -138,6 +138,7 @@ ssf:
       - postfix
       - postgres
       - powerdns
+      - proftpd
       - prometheus
       - rabbitmq
       - redis
