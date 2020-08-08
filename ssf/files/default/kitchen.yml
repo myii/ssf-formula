@@ -129,6 +129,10 @@ driver:
   run_command: /lib/systemd/systemd
   {%- set run_options = kitchen.driver.run_options %}
   {%- if run_options %}
+  {%-   if semrel_formula == 'proftpd' %}
+  # Fix a bug with CentOS 6 that prevents proftpd
+  # from starting: cannot resolve localhost.localdomain
+  {%-   endif %}
   run_options:
     {%- for k, v in run_options.items() %}
     {{ k }}:
