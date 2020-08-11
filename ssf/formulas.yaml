@@ -2810,6 +2810,41 @@ ssf:
           # https://wiki.archlinux.org/index.php/OpenLDAP
           # # - [arch-base    , latest,   2019.2,      2,         default]
       semrel_files: *semrel_files_default
+    openntpd:
+      context:
+        codeowners:
+          entries:
+            global:
+              - '*': '@n-rodriguez'
+        git:
+          github:
+            repo: 'openntpd-formula'
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: >-
+                Verify that the openntpd formula is setup and configured correctly
+            provisioner:
+              pillars_from_files:
+                - .sls: 'test/salt/pillar/openntpd.sls'
+              state_top:
+                - '*':
+                    - .config
+        platforms: *platforms_new
+        platforms_matrix:
+          # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
+          - [debian       ,  10   ,   master,      3,         default]
+          - [ubuntu       ,  20.04,   master,      3,         default]
+          - [ubuntu       ,  18.04,   master,      3,         default]
+          # # - [centos       ,   8   ,   master,      3,         default]
+          # # - [fedora       ,  32   ,   master,      3,         default]
+          # # - [fedora       ,  31   ,   master,      3,         default]
+          # # - [opensuse/leap,  15.2 ,   master,      3,         default]
+          # # - [amazonlinux  ,   2   ,   master,      3,         default]
+          - [debian       ,   9   ,   3000.3,      3,         default]
+          - [ubuntu       ,  16.04,   3000.3,      2,         default]
+          - [arch-base    , latest,   2019.2,      2,         default]
+      semrel_files: *semrel_files_default
     openssh:
       context:
         git:
