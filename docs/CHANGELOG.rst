@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.194.0 <https://github.com/myii/ssf-formula/compare/v1.193.0...v1.194.0>`_ (2020-08-14)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **formula:** add ``openntpd-formula`` (\ `28dbd70 <https://github.com/myii/ssf-formula/commit/28dbd701744b3686cea2b8179a66a72de082981b>`_\ )
+
 `1.193.0 <https://github.com/myii/ssf-formula/compare/v1.192.0...v1.193.0>`_ (2020-08-08)
 ---------------------------------------------------------------------------------------------
 
