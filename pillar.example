@@ -131,6 +131,7 @@ ssf:
       - ntp
       - nut
       - openldap
+      - openntpd
       - openssh
       - openvpn
       - packages
