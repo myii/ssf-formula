@@ -2831,7 +2831,7 @@ ssf:
               state_top:
                 - '*':
                     - ._mapdata
-                    - .config
+                    - .
           1:
             includes: *includes_NONE
             inspec_yml:
