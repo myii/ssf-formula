@@ -2822,6 +2822,7 @@ ssf:
         inspec_suites_kitchen:
           0:
             inspec_yml:
+              depends: *depends_on_suite_share
               summary: >-
                 Verify that the openntpd formula is setup and configured correctly
             provisioner:
@@ -2829,7 +2830,13 @@ ssf:
                 - .sls: 'test/salt/pillar/openntpd.sls'
               state_top:
                 - '*':
+                    - ._mapdata
                     - .config
+          1:
+            includes: *includes_NONE
+            inspec_yml:
+              summary: >-
+                shared resources
         platforms: *platforms_new
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]

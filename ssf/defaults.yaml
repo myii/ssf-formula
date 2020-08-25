@@ -55,8 +55,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "chore: use standardised structure"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/241'
+            title: "test(map): verify '`'map.jinja'`' dump using '`'_mapdata'`' state"
+            body: '* Semi-automated using https://github.com/myii/ssf-formula/pull/244'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
@@ -671,7 +671,15 @@ ssf:
     ntp: *formula_default
     nut: *formula_default
     openldap: *formula_default
-    openntpd: *formula_default
+    openntpd:
+      <<: *formula_default
+      context:
+        <<: *context_default
+        inspec_suites_kitchen:
+          <<: *isk_default
+          1:
+            <<: *isk_suite_default
+            name: 'share'
     openssh: *formula_default
     openvpn: *formula_default
     packages:
