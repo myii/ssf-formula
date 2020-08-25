@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.195.0](https://github.com/myii/ssf-formula/compare/v1.194.0...v1.195.0) (2020-08-25)
+
+
+### Features
+
+* **openntpd:** verify `map.jinja` using InSpec ([cdb152e](https://github.com/myii/ssf-formula/commit/cdb152ecc98207dab7abb80199fdb8f452692bc0))
+
 # [1.194.0](https://github.com/myii/ssf-formula/compare/v1.193.0...v1.194.0) (2020-08-14)
 
 
