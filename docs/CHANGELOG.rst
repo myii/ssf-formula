@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.196.0 <https://github.com/myii/ssf-formula/compare/v1.195.0...v1.196.0>`_ (2020-08-25)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **openntpd:** update for minor change to ``kitchen.yml`` (\ `dfe4f2e <https://github.com/myii/ssf-formula/commit/dfe4f2eaef4ff7026570722a2b73d6f6a35a5b81>`_\ )
+
 `1.195.0 <https://github.com/myii/ssf-formula/compare/v1.194.0...v1.195.0>`_ (2020-08-25)
 ---------------------------------------------------------------------------------------------
 
