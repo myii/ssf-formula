@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.197.0](https://github.com/myii/ssf-formula/compare/v1.196.0...v1.197.0) (2020-08-25)
+
+
+### Features
+
+* **formula:** add `rspamd-formula` ([d6041d9](https://github.com/myii/ssf-formula/commit/d6041d91493392670408465b9664d28e0e535660))
+
 # [1.196.0](https://github.com/myii/ssf-formula/compare/v1.195.0...v1.196.0) (2020-08-25)
 
 
