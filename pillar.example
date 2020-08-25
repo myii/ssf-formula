@@ -144,6 +144,7 @@ ssf:
       - rabbitmq
       - redis
       - rkhunter
+      - rspamd
       - salt
       - sqldeveloper
       - sqlplus

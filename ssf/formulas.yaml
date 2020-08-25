@@ -23,6 +23,11 @@ ssf_node_anchors:
                 - debian
                 - ubuntu
                 - centos
+              supports_debian_ubuntu_centos_arch: &supports_debian_ubuntu_centos_arch
+                - debian
+                - ubuntu
+                - centos
+                - arch
               # yamllint disable-line rule:line-length
               supports_debian_ubuntu_centos_fedora_opensuse: &supports_debian_ubuntu_centos_fedora_opensuse
                 - debian
@@ -3429,12 +3434,40 @@ ssf:
         use_cirrus_ci: true
         use_tofs: true
       semrel_files: *semrel_files_default
-    # rspamd:
-    #   context:
-    #     codeowners:
-    #       entries:
-    #         global:
-    #           - '*': '@javierbertoli'
+    rspamd:
+      context:
+        codeowners:
+          entries:
+            global:
+              - '*': '@javierbertoli'
+        git:
+          github:
+            repo: 'rspamd-formula'
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: >-
+                Verify that the Rspamd repositories are configured correctly
+              supports: *supports_debian_ubuntu_centos_arch
+        platforms: *platforms_new
+        platforms_matrix:
+          # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
+          - [debian       ,  10   ,   master,      3,         default]
+          - [ubuntu       ,  20.04,   master,      3,         default]
+          # # - [ubuntu       ,  18.04,   master,      3,         default]
+          - [centos       ,   8   ,   master,      3,         default]
+          # # - [fedora       ,  32   ,   master,      3,         default]
+          # # - [fedora       ,  31   ,   master,      3,         default]
+          # # - [opensuse/leap,  15.2 ,   master,      3,         default]
+          # # - [amazonlinux  ,   2   ,   master,      3,         default]
+          - [centos       ,   7   ,   3000.3,      3,         default]
+          - [arch-base    , latest,   3000.3,      2,         default]
+          - [centos       ,   6   ,   2019.2,      2,         default]
+        yamllint:
+          ignore:
+            additional:
+              - rspamd/osfamilymap.yaml
+      semrel_files: *semrel_files_default
     # rundeck:
     #   context:
     #     codeowners:
