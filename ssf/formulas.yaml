@@ -3926,6 +3926,8 @@ ssf:
             inspec_yml:
               summary: >-
                 shared resources
+        platforms: *platforms_new
+        platforms_matrix: *platforms_matrix_new_mainly_master_images
       semrel_files: *semrel_files_default
     suricata:
       context:
