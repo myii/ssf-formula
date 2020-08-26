@@ -55,8 +55,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "chore: standardise structure"
-            body: '* Checked using https://github.com/myii/ssf-formula/pull/246'
+            title: "ci(kitchen+travis): use latest pre-salted images"
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/245'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
@@ -802,7 +802,15 @@ ssf:
     stack: *formula_default
     strongswan: *formula_default
     stunnel: *formula_default
-    sudoers: *formula_default
+    sudoers:
+      <<: *formula_default
+      context:
+        <<: *context_default
+        inspec_suites_kitchen:
+          <<: *isk_default
+          1:
+            <<: *isk_suite_default
+            name: 'share'
     suricata: *formula_default
     sysctl: *formula_default
     syslog-ng: *formula_default

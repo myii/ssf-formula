@@ -3905,6 +3905,7 @@ ssf:
         inspec_suites_kitchen:
           0:
             inspec_yml:
+              depends: *depends_on_suite_share
               summary: >-
                 Verify that the sudoers formula is setup and configured correctly
             provisioner:
@@ -3917,8 +3918,16 @@ ssf:
                 - .sls: 'test/salt/pillar/default.sls'
               state_top:
                 - '*':
+                    - ._mapdata
                     - .
                     - .included
+          1:
+            includes: *includes_NONE
+            inspec_yml:
+              summary: >-
+                shared resources
+        platforms: *platforms_new
+        platforms_matrix: *platforms_matrix_new_mainly_master_images
       semrel_files: *semrel_files_default
     suricata:
       context:
