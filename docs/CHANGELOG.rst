@@ -2,6 +2,16 @@
 Changelog
 =========
 
+`1.198.0 <https://github.com/myii/ssf-formula/compare/v1.197.0...v1.198.0>`_ (2020-08-26)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **sudoers:** use latest pre-salted images (\ `90dde5c <https://github.com/myii/ssf-formula/commit/90dde5c1ea46788de7865fb874c67dc229662d80>`_\ )
+* **sudoers:** verify ``map.jinja`` using InSpec (\ `79fcad6 <https://github.com/myii/ssf-formula/commit/79fcad65d5accd6c106d270cf5bbea9100d996b4>`_\ )
+
 `1.197.0 <https://github.com/myii/ssf-formula/compare/v1.196.0...v1.197.0>`_ (2020-08-25)
 ---------------------------------------------------------------------------------------------
 
