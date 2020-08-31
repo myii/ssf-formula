@@ -22,8 +22,11 @@ ssf_node_anchors:
               - '/docs/AUTHORS.rst': '@saltstack-formulas/ssf'
               - '/docs/CHANGELOG.rst': '@saltstack-formulas/ssf'
               - '/docs/TOFS_pattern.rst': '@saltstack-formulas/ssf'
+              - '/*/_mapdata/': '@saltstack-formulas/ssf'
               - '/*/libsaltcli.jinja': '@saltstack-formulas/ssf'
               - '/*/libtofs.jinja': '@saltstack-formulas/ssf'
+              - '/test/integration/**/_mapdata_spec.rb': '@saltstack-formulas/ssf'
+              - '/test/integration/**/libraries/system.rb': '@saltstack-formulas/ssf'
               - '/test/integration/**/inspec.yml': '@saltstack-formulas/ssf'
               - '/test/integration/**/README.md': '@saltstack-formulas/ssf'
               - '/.gitignore': '@saltstack-formulas/ssf'
@@ -59,8 +62,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "ci(kitchen+gitlab): adjust matrix to add '`'3002'`'"
-            body: '* Semi-automated using https://github.com/myii/ssf-formula/pull/280'
+            title: "test(map): standardise '`'map.jinja'`' verification"
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/281'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
@@ -128,6 +131,8 @@ ssf_node_anchors:
         kitchen:
           driver:
             run_options: {}
+        map_jinja:
+          verification: {}
         platforms:
           # Could use `opensuse-leap` throughout since `/` never used at this end
           # Would have to modify the `if` in the `kitchen.yml` template(s), though

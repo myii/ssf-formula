@@ -111,6 +111,13 @@ ssf_node_anchors:
             verifier: &verifier_inspec_tests_default
               inspec_tests:
                 - default
+          1: &inspec_suites_kitchen__share_suite
+            includes: *includes_NONE
+            inspec_yml:
+              summary: >-
+                shared resources
+              supports: *supports_all_including_oracle_gentoo_and_windows
+              title: *title_suite_share
 
         # Use this to start adopting the "unified" platforms based on `saltimages`.
         # This will include `tiamat` and will be updated for `3002` once available.
@@ -726,6 +733,17 @@ ssf_node_anchors:
         release.config.js: &file__release--config--js
           <<: *file_default
           template: 'jinja'
+      semrel_files_inc_map_jinja_verifier: &semrel_files_inc_map_jinja_verifier
+        <<: *semrel_files_default
+        formula/_mapdata/_mapdata.jinja: &file__formula___mapdata___mapdata--jinja
+          <<: *file_default
+        formula/_mapdata/init.sls: &file__formula___mapdata___init--sls
+          <<: *file_default
+          template: 'mako'
+        inspec/controls/_mapdata_spec.rb: &file__inspec__controls___mapdata_spec--rb
+          <<: *file_default
+        inspec/libraries/system.rb: &file__inspec__libraries__system--rb
+          <<: *file_default
 
 ssf:
   semrel_formulas:

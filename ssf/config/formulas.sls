@@ -79,10 +79,19 @@ prepare-git-branch-for-{{ formula }}:
 {%-             do matching_test_suite.update({'found': True}) %}
 {%-           endfor %}
 {#-           Now use that to set the `dest_file` accordingly #}
-{%-           if not matching_test_suite.found %}
+{#-           Start by stripping out the `inspec/` prefix from the path #}
+{%-           set dest_file = dest_file.replace('inspec/', '') %}
+{#-           Do not manage the file in the following situations: #}
+{#-           - If a matching test suite isn't found #}
+{#-           - Or if `libraries/system.rb` and is not the `share` suite #}
+{#-           - Or if `controls/_mapdata_spec.rb` and is the `share` suite #}
+{%-           if (not matching_test_suite.found) or
+                 (dest_file == 'libraries/system.rb' and suite.name != 'share') or
+                 (dest_file == 'controls/_mapdata_spec.rb' and suite.name == 'share')
+%}
 {%-             set dest_file = '' %}
 {%-           else %}
-{%-             set dest_file = '{0}/{1}/{2}'.format(inspec_tests_path_prefix, suite.name, dest_file.split('/')[-1]) %}
+{%-             set dest_file = '{0}/{1}/{2}'.format(inspec_tests_path_prefix, suite.name, dest_file) %}
 {%-           endif %}
 {%-         endif %}
 {%-         set dest = '{0}/{1}/{2}'.format(ssf.formulas_path, formula, dest_file) %}
@@ -140,6 +149,7 @@ prepare-git-branch-for-{{ formula }}:
         inspec_suites_kitchen: {{ inspec_suites_kitchen | yaml }}
         inspec_suites_matrix: {{ context.inspec_suites_matrix | yaml }}
         kitchen: {{ context.kitchen | yaml }}
+        map_jinja: {{ context.map_jinja | yaml }}
         platforms: {{ context.platforms | yaml }}
         platforms_matrix: {{ context.platforms_matrix | yaml }}
         platforms_matrix_commented_includes: {{ context.platforms_matrix_commented_includes | yaml }}
