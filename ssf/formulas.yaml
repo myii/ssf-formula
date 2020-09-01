@@ -319,9 +319,6 @@ ssf_node_anchors:
           - [centos       ,   8   ,   2019.2,      3]
           - [centos       ,   7   ,   2019.2,      3]
           - [centos       ,   6   ,   2019.2,      2]
-        platforms_os_centos6: &platforms_os_centos6
-          # [os           , os_ver, salt_ver, py_ver]
-          - [centos       ,   6   ,   2018.3,      2]
         platforms_os_amazonlinux: &platforms_os_amazonlinux
           # [os           , os_ver, salt_ver, py_ver]
           - [amazonlinux  ,   2   ,   master,      3]
@@ -333,6 +330,10 @@ ssf_node_anchors:
           - [amazonlinux  ,   2   ,   master,      3]
           - [amazonlinux  ,   2   ,   3000.3,      3]
           - [amazonlinux  ,   2   ,   2019.2,      3]
+          - [amazonlinux  ,   1   ,   2019.2,      2]
+        platforms_os_upstart: &platforms_os_upstart
+          # [os           , os_ver, salt_ver, py_ver]
+          - [centos       ,   6   ,   2019.2,      2]
           - [amazonlinux  ,   1   ,   2019.2,      2]
         platforms_os_arch_base: &platforms_os_arch_base
           # [os           , os_ver, salt_ver, py_ver]
@@ -4187,7 +4188,7 @@ ssf:
             repo: 'template-formula'
         inspec_suites_kitchen:
           0:
-            excludes: *platforms_os_centos6
+            excludes: *platforms_os_upstart
             inspec_yml:
               summary: >-
                 Verify that the TEMPLATE formula is setup and configured correctly
@@ -4203,14 +4204,14 @@ ssf:
                 - '*':
                     - TEMPLATE
           1:
-            includes: *platforms_os_centos6
+            includes: *platforms_os_upstart
             provisioner:
               pillars:
                 - '*':
                     - TEMPLATE
                     - define_roles
               pillars_from_files:
-                - TEMPLATE.sls: 'test/salt/pillar/centos6.sls'
+                - TEMPLATE.sls: 'test/salt/pillar/upstart.sls'
                 - define_roles.sls: 'test/salt/pillar/define_roles.sls'
               state_top:
                 - '*':
@@ -4218,7 +4219,7 @@ ssf:
             verifier: *verifier_inspec_tests_default
         inspec_suites_matrix:
           - default
-          - centos6
+          - upstart
         platforms: *platforms_new
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
@@ -4228,7 +4229,7 @@ ssf:
           - [fedora       ,  32   ,   master,      3,         default]
           - [opensuse/leap,  15.2 ,   3000.3,      3,         default]
           - [amazonlinux  ,   2   ,   3000.3,      3,         default]
-          - [centos       ,   6   ,   2019.2,      2,         centos6]
+          - [centos       ,   6   ,   2019.2,      2,         upstart]
           - [arch-base    , latest,   2019.2,      2,         default]
         use_libsaltcli: true
         use_tofs: true
