@@ -86,6 +86,7 @@ ssf:
       - consul
       - cron
       - deepsea
+      - devstack
       - dhcpd
       - django
       - docker

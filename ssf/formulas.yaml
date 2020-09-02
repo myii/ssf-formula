@@ -902,6 +902,42 @@ ssf:
           - [fedora       ,  31   ,   2019.2,      3,         default]
         use_tofs: true
       semrel_files: *semrel_files_default
+    devstack:
+      context:
+        codeowners:
+          entries:
+            global:
+              - '*': '@noelmcloughlin'
+        git:
+          github:
+            repo: 'devstack-formula'
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: >-
+                Verify that the devstack formula is setup and configured correctly
+            provisioner:
+              pillars_from_files:
+                - .sls: 'test/salt/pillar/ubuntu.sls'
+        inspec_suites_matrix:
+          - ubuntu
+        platforms: *platforms_os_ubuntu_new
+        platforms_matrix:
+          # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
+          # # - [ubuntu       ,  20.04,   master,      3,          ubuntu]
+          - [ubuntu       ,  18.04,   master,      3,          ubuntu]
+          # - [ubuntu       ,  18.04,   3000.3,      3,          ubuntu]
+          - [ubuntu       ,  18.04,   3000.3,      2,          ubuntu]
+          # # - [ubuntu       ,  16.04,   3000.3,      2,          ubuntu]
+          # - [ubuntu       ,  18.04,   2019.2,      3,          ubuntu]
+          # # - [ubuntu       ,  16.04,   2019.2,      3,          ubuntu]
+        use_libsaltcli: true
+        use_tofs: true
+        yamllint:
+          ignore:
+            additional:
+              - pillar.example
+      semrel_files: *semrel_files_default
     dhcpd:
       context:
         codeowners:
