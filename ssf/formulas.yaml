@@ -495,6 +495,20 @@ ssf_node_anchors:
 
 ssf:
   semrel_formulas:
+    .github:
+      context:
+        git:
+          github:
+            repo: '.github'
+        inspec_suites_kitchen: {}
+        inspec_suites_matrix: []
+        platforms: []
+        platforms_matrix: []
+      semrel_files:
+        .github/workflows/commitlint.yml: *file__--github__workflows__commitlint--yml
+        docs/CONTRIBUTING.rst:
+          <<: *file__docs__CONTRIBUTING--rst
+          dest_file: 'CONTRIBUTING.rst'
     # aegir:
     #   context:
     #     codeowners:
