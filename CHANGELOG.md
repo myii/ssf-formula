@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.200.0](https://github.com/myii/ssf-formula/compare/v1.199.0...v1.200.0) (2020-09-04)
+
+
+### Features
+
+* **template:** fix `centos6` suite and rename to `upstart` ([9760abb](https://github.com/myii/ssf-formula/commit/9760abb3d074dbac48314e0062629afae6eca16e))
+
 # [1.199.0](https://github.com/myii/ssf-formula/compare/v1.198.0...v1.199.0) (2020-09-04)
 
 
