@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.201.0 <https://github.com/myii/ssf-formula/compare/v1.200.0...v1.201.0>`_ (2020-09-04)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **template:** verify ``map.jinja`` using InSpec (\ `58e2dbf <https://github.com/myii/ssf-formula/commit/58e2dbfa2b585c01deba1080b5b9369f13d7cc97>`_\ )
+
 `1.200.0 <https://github.com/myii/ssf-formula/compare/v1.199.0...v1.200.0>`_ (2020-09-04)
 ---------------------------------------------------------------------------------------------
 
