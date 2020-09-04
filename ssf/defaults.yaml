@@ -350,6 +350,7 @@ ssf:
     - [arch-base    , latest,   2019.2,      2]  # arch-late-2019.2-py2
 
   semrel_formulas:
+    .github: *formula_default
     apache:
       <<: *formula_default
       context:
