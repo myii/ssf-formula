@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.199.0](https://github.com/myii/ssf-formula/compare/v1.198.0...v1.199.0) (2020-09-04)
+
+
+### Features
+
+* **formula:** add `devstack-formula` ([8275af2](https://github.com/myii/ssf-formula/commit/8275af2ec0da4ab4011d9049b349b348439c75e3))
+
 # [1.198.0](https://github.com/myii/ssf-formula/compare/v1.197.0...v1.198.0) (2020-08-26)
 
 
