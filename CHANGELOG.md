@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.202.0](https://github.com/myii/ssf-formula/compare/v1.201.0...v1.202.0) (2020-09-04)
+
+
+### Features
+
+* **formula:** add `.github` repo ([9a9fb13](https://github.com/myii/ssf-formula/commit/9a9fb13362de4a1583eff089a4d5475adefe7d48))
+
 # [1.201.0](https://github.com/myii/ssf-formula/compare/v1.200.0...v1.201.0) (2020-09-04)
 
 
