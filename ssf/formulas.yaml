@@ -4190,6 +4190,7 @@ ssf:
           0:
             excludes: *platforms_os_upstart
             inspec_yml:
+              depends: *depends_on_suite_share
               summary: >-
                 Verify that the TEMPLATE formula is setup and configured correctly
             provisioner:
@@ -4202,8 +4203,14 @@ ssf:
                 - define_roles.sls: 'test/salt/pillar/define_roles.sls'
               state_top:
                 - '*':
+                    - ._mapdata
                     - TEMPLATE
           1:
+            includes: *includes_NONE
+            inspec_yml:
+              summary: >-
+                shared resources
+          2:
             includes: *platforms_os_upstart
             provisioner:
               pillars:
@@ -4215,6 +4222,7 @@ ssf:
                 - define_roles.sls: 'test/salt/pillar/define_roles.sls'
               state_top:
                 - '*':
+                    - ._mapdata
                     - TEMPLATE
             verifier: *verifier_inspec_tests_default
         inspec_suites_matrix:
