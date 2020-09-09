@@ -80,6 +80,7 @@ ssf_node_anchors:
             #       Hence, the inclusion of `platforms_matrix_commented_includes`
             # yamllint disable-line rule:line-length
             # Ref: https://github.com/test-kitchen/test-kitchen/blob/7ce894e74f828f9e36531cf2d74588dd74fbf240/lib/kitchen/config.rb#L183-L193
+            driver: {}
             excludes: []
             includes: []
             inspec_yml:

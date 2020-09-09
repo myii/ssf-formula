@@ -221,6 +221,13 @@ suites:
   - name: {{ suite.name }}
     {{- format_includes_excludes(suite, 'excludes') }}
     {{- format_includes_excludes(suite, 'includes') }}
+    {%-   set driver = suite.driver %}
+    {%-   if driver %}
+    driver:
+      {%-   for k, v in driver.items() %}
+      {{ k }}: {{ v }}
+      {%-   endfor %}
+    {%-   endif %}
     provisioner:
       state_top:
         base:

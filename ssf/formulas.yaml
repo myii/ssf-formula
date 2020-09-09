@@ -2916,6 +2916,8 @@ ssf:
             repo: 'openssh-formula'
         inspec_suites_kitchen:
           0:
+            driver:
+              hostname: 'example.net'
             inspec_yml:
               depends: *depends_on_suite_share
               summary: >-
