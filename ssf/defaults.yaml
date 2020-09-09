@@ -56,7 +56,7 @@ ssf_node_anchors:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
             title: "test(map): verify '`'map.jinja'`' dump using '`'_mapdata'`' state"
-            body: '* Checked using https://github.com/myii/ssf-formula/pull/249'
+            body: '* Standardised using https://github.com/myii/ssf-formula/pull/251'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
@@ -80,6 +80,7 @@ ssf_node_anchors:
             #       Hence, the inclusion of `platforms_matrix_commented_includes`
             # yamllint disable-line rule:line-length
             # Ref: https://github.com/test-kitchen/test-kitchen/blob/7ce894e74f828f9e36531cf2d74588dd74fbf240/lib/kitchen/config.rb#L183-L193
+            driver: {}
             excludes: []
             includes: []
             inspec_yml:
@@ -690,7 +691,15 @@ ssf:
           1:
             <<: *isk_suite_default
             name: 'share'
-    openssh: *formula_default
+    openssh:
+      <<: *formula_default
+      context:
+        <<: *context_default
+        inspec_suites_kitchen:
+          <<: *isk_default
+          1:
+            <<: *isk_suite_default
+            name: 'share'
     openvpn: *formula_default
     packages:
       <<: *formula_default

@@ -72,6 +72,7 @@ ssf_node_anchors:
                 - oracle
                 - arch
                 - windows
+              title_suite_share: &title_suite_share 'InSpec shared resources'
             provisioner:
               dependencies_epel: &dependencies_epel
                 - name: 'epel'
@@ -2915,7 +2916,10 @@ ssf:
             repo: 'openssh-formula'
         inspec_suites_kitchen:
           0:
+            driver:
+              hostname: 'example.net'
             inspec_yml:
+              depends: *depends_on_suite_share
               summary: >-
                 Verify that the openssh formula is setup and configured correctly
             provisioner:
@@ -2923,10 +2927,18 @@ ssf:
                 - .sls: 'test/salt/pillar/default.sls'
               state_top:
                 - '*':
+                    - ._mapdata
                     - .config
                     - .known_hosts
+          1:
+            includes: *includes_NONE
+            inspec_yml:
+              summary: >-
+                shared resources
+              title: *title_suite_share
         platforms: *platforms_new
         platforms_matrix: *platforms_matrix_new_mainly_master_images
+        use_libsaltcli: true
         use_tofs: true
       semrel_files: *semrel_files_default
     openvpn:
