@@ -1,6 +1,24 @@
 # InSpec Profile: `{{ suite.name }}`
 
 This shows the implementation of the `{{ suite.name }}` InSpec [profile](https://github.com/inspec/inspec/blob/master/docs/profiles.md).
+{%- if suite.name == 'share' %}
+
+It's goal is to share the libraries between all profiles.
+
+## Libraries
+
+### `system`
+
+The `system` library provides easy access to system dependent information:
+
+- `system.platform`: based on `inspec.platform`, modify to values that are more consistent from a SaltStack perspective
+  - `system.platform[:family]` provide a family name for Arch
+  - `system.platform[:name]` modify `amazon` to `amazonlinux`
+  - `system.platform[:release]` tweak Arch and Amazon Linux:
+    - `Arch` is always `base-latest`
+    - `Amazon Linux` release `2018` is resolved as `1`
+  - `system.platform[:finger]` is the concatenation of the name and the major release number (except for Ubuntu, which gives `ubuntu-20.04` for example)
+{%- else %}
 
 ## Verify a profile
 
@@ -48,3 +66,4 @@ Finished in 0.0025 seconds (files took 0.12449 seconds to load)
 ```
 
 See an [example control here](https://github.com/inspec/inspec/blob/master/examples/profile/controls/example.rb).
+{%- endif %}
