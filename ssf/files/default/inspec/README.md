@@ -3,7 +3,7 @@
 This shows the implementation of the `{{ suite.name }}` InSpec [profile](https://github.com/inspec/inspec/blob/master/docs/profiles.md).
 {%- if suite.name == 'share' %}
 
-It's goal is to share the libraries between all profiles.
+Its goal is to share the libraries between all profiles.
 
 ## Libraries
 
