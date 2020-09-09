@@ -1,5 +1,14 @@
 # Changelog
 
+# [1.203.0](https://github.com/myii/ssf-formula/compare/v1.202.0...v1.203.0) (2020-09-09)
+
+
+### Features
+
+* **inspec:** update `README` template for suite `share` ([3650a04](https://github.com/myii/ssf-formula/commit/3650a0446ade2f42728ffcbbf67e44a82c152f1c))
+* **kitchen:** manage `suite.driver` (e.g. for static `hostname`) ([b6d766e](https://github.com/myii/ssf-formula/commit/b6d766ed9f14dd5c550be0e95de20472bc6892a5))
+* **openssh:** verify `map.jinja` using InSpec ([b72bd5f](https://github.com/myii/ssf-formula/commit/b72bd5f0f80b61cfd6522260c09e1f9724cc0df9))
+
 # [1.202.0](https://github.com/myii/ssf-formula/compare/v1.201.0...v1.202.0) (2020-09-04)
 
 
