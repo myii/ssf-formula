@@ -1,5 +1,17 @@
 # Changelog
 
+# [1.204.0](https://github.com/myii/ssf-formula/compare/v1.203.0...v1.204.0) (2020-09-10)
+
+
+### Bug Fixes
+
+* **inspec:** fix typo introduced when updating `README` template [skip ci] ([839898a](https://github.com/myii/ssf-formula/commit/839898aedb344e0f17d39325ce0b68fe0747acc1))
+
+
+### Features
+
+* **ufw:** merge `rubocop` linter into main `lint` job ([e3f07c3](https://github.com/myii/ssf-formula/commit/e3f07c37a40e8c653619b4e7673555ee3361bc15))
+
 # [1.203.0](https://github.com/myii/ssf-formula/compare/v1.202.0...v1.203.0) (2020-09-09)
 
 
