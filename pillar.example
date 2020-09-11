@@ -121,6 +121,7 @@ ssf:
       - locale
       - logrotate
       - lvm
+      - lynis
       - mattermost
       - maven
       - mongodb
