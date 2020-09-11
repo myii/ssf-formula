@@ -55,8 +55,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "ci(travis): merge Rubocop linter into main lint job [skip ci]"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/252'
+            title: "chore: standardise structure"
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/253'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
@@ -649,6 +649,21 @@ ssf:
           1:
             <<: *isk_suite_default
             name: 'loop5-loop6'
+    lynis:
+      <<: *formula_default
+      context:
+        <<: *context_default
+        inspec_suites_kitchen:
+          <<: *isk_default
+          1:
+            <<: *isk_suite_default
+            name: 'share'
+          2:
+            <<: *isk_suite_default
+            name: 'repo'
+          3:
+            <<: *isk_suite_default
+            name: 'amazonlinux'
     mattermost: *formula_default
     maven:
       <<: *formula_default

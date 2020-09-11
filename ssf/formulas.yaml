@@ -2460,6 +2460,74 @@ ssf:
           - [amazonlinux  ,   1   ,   2018.3,      2,     loop5-loop6]
           - [arch-base    , latest,   2018.3,      2,     loop5-loop6]
       semrel_files: *semrel_files_default
+    lynis:
+      context:
+        codeowners:
+          entries:
+            global:
+              - '*': '@n-rodriguez'
+        git:
+          github:
+            repo: 'lynis-formula'
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              # depends: *depends_on_suite_share
+              summary: >-
+                Verify that the lynis formula is setup and configured correctly
+                (installed using git)
+            provisioner:
+              pillars_from_files:
+                - .sls: 'test/salt/pillar/default.sls'
+          #     state_top:
+          #       - '*':
+          #           - ._mapdata
+          #           - .
+          1:
+            includes: *includes_NONE
+            inspec_yml:
+              summary: >-
+                shared resources
+          2:
+            excludes: *platforms_os_amazonlinux_new
+            inspec_yml:
+              summary: >-
+                Verify that the lynis formula is setup and configured correctly
+                (installed as a package)
+            provisioner:
+              pillars_from_files:
+                - .sls: 'test/salt/pillar/repo.sls'
+          3:
+            includes: *platforms_os_amazonlinux_new
+            provisioner:
+              dependencies: *dependencies_epel
+              pillars_from_files:
+                - .sls: 'test/salt/pillar/repo.sls'
+              state_top:
+                - '*':
+                    - epel
+                    - .
+            verifier:
+              inspec_tests:
+                - repo
+        inspec_suites_matrix:
+          - default
+          - repo
+          - amazonlinux
+        platforms: *platforms_new
+        # Based on `*platforms_matrix_new_mainly_master_images`
+        platforms_matrix:
+          # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
+          - [debian       ,  10   ,   master,      3,         default]
+          - [ubuntu       ,  20.04,   master,      3,            repo]
+          # - [ubuntu       ,  18.04,   master,      3,         default]
+          - [centos       ,   8   ,   master,      3,         default]
+          - [fedora       ,  32   ,   master,      3,            repo]
+          # - [fedora       ,  31   ,   master,      3,         default]
+          - [opensuse/leap,  15.2 ,   master,      3,         default]
+          - [amazonlinux  ,   2   ,   master,      3,     amazonlinux]
+          - [arch-base    , latest,   2019.2,      2,            repo]
+      semrel_files: *semrel_files_default
     mattermost:
       context:
         codeowners:
