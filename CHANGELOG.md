@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.205.0](https://github.com/myii/ssf-formula/compare/v1.204.0...v1.205.0) (2020-09-11)
+
+
+### Features
+
+* **formula:** add `lynis-formula` ([135ee73](https://github.com/myii/ssf-formula/commit/135ee73df70a16cf17995b83d4f5e0d5a74b2841))
+
 # [1.204.0](https://github.com/myii/ssf-formula/compare/v1.203.0...v1.204.0) (2020-09-10)
 
 
