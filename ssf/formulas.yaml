@@ -3635,6 +3635,55 @@ ssf:
         use_cirrus_ci: true
         use_tofs: true
       semrel_files: *semrel_files_default
+    rng-tools:
+      context:
+        codeowners:
+          entries:
+            global:
+              - '*': '@n-rodriguez'
+        git:
+          github:
+            repo: 'rng-tools-formula'
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              # depends: *depends_on_suite_share
+              summary: >-
+                Verify that the rng-tools formula is setup and configured correctly
+            provisioner:
+              pillars_from_files:
+                - .sls: 'test/salt/pillar/rng-tools.sls'
+          #     state_top:
+          #       - '*':
+          #           - ._mapdata
+          #           - .
+          1:
+            includes: *includes_NONE
+            inspec_yml:
+              summary: >-
+                shared resources
+        platforms: *platforms_new_inc_tiamat
+        # If `opensuse/leap` fixed, then can use this instead
+        # platforms_matrix: *platforms_matrix_new_inc_tiamat
+        platforms_matrix:
+          # Based on `*platforms_matrix_new_inc_tiamat`
+          # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
+          - [debian       ,  10   ,   tiamat,      3,         default]
+          # - [debian       ,   9   ,   tiamat,      3,         default]
+          - [ubuntu       ,  20.04,   tiamat,      3,         default]
+          # - [ubuntu       ,  18.04,   tiamat,      3,         default]
+          # - [ubuntu       ,  16.04,   tiamat,      3,         default]
+          - [centos       ,   8   ,   tiamat,      3,         default]
+          # - [centos       ,   7   ,   tiamat,      3,         default]
+          - [amazonlinux  ,   2   ,   tiamat,      3,         default]
+          # # - [oraclelinux  ,   8   ,   tiamat,      3,         default]
+          # # - [oraclelinux  ,   7   ,   tiamat,      3,         default]
+          - [fedora       ,  32   ,   master,      3,         default]
+          # - [fedora       ,  31   ,   master,      3,         default]
+          # # - [opensuse/leap,  15.2 ,   master,      3,         default]
+          - [arch-base    , latest,   3000.3,      2,         default]
+        use_tofs: true
+      semrel_files: *semrel_files_default
     rspamd:
       context:
         codeowners:
