@@ -2,6 +2,16 @@
 Changelog
 =========
 
+`1.206.0 <https://github.com/myii/ssf-formula/compare/v1.205.0...v1.206.0>`_ (2020-09-20)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **formulas:** add Tiamat-specific ``platforms`` & ``platforms_matrix`` (\ `a8ab41d <https://github.com/myii/ssf-formula/commit/a8ab41d868e484cd39a86cde9d2617d6ef62cc5a>`_\ )
+* **saltimages:** update with Tiamat pre-salted images (\ `dfbc669 <https://github.com/myii/ssf-formula/commit/dfbc6693a452092e4e85caaf0c6fd13b3270b404>`_\ )
+
 `1.205.0 <https://github.com/myii/ssf-formula/compare/v1.204.0...v1.205.0>`_ (2020-09-11)
 ---------------------------------------------------------------------------------------------
 
