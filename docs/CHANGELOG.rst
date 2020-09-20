@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.208.0 <https://github.com/myii/ssf-formula/compare/v1.207.0...v1.208.0>`_ (2020-09-20)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **formula:** add ``rng-tools-formula`` (\ `10559ba <https://github.com/myii/ssf-formula/commit/10559ba51da20821ebade4c0de6d0b3c36b89cef>`_\ )
+
 `1.207.0 <https://github.com/myii/ssf-formula/compare/v1.206.0...v1.207.0>`_ (2020-09-20)
 ---------------------------------------------------------------------------------------------
 
