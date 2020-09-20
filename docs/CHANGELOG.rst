@@ -2,6 +2,16 @@
 Changelog
 =========
 
+`1.209.0 <https://github.com/myii/ssf-formula/compare/v1.208.0...v1.209.0>`_ (2020-09-20)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **nut:** add ``mode-eq-none`` suite (\ `4ed8b77 <https://github.com/myii/ssf-formula/commit/4ed8b7775ca848d5f8c8c645ce04e8ef076fffa2>`_\ )
+* **nut:** use ``platforms_new_inc_tiamat`` (\ `68342e4 <https://github.com/myii/ssf-formula/commit/68342e4fe0f75c9323d66e87ca592f635b663b87>`_\ )
+
 `1.208.0 <https://github.com/myii/ssf-formula/compare/v1.207.0...v1.208.0>`_ (2020-09-20)
 ---------------------------------------------------------------------------------------------
 
