@@ -712,7 +712,15 @@ ssf:
             <<: *isk_suite_default
             name: 'repo'
     ntp: *formula_default
-    nut: *formula_default
+    nut:
+      <<: *formula_default
+      context:
+        <<: *context_default
+        inspec_suites_kitchen:
+          <<: *isk_default
+          1:
+            <<: *isk_suite_default
+            name: 'mode-eq-none'
     openldap: *formula_default
     openntpd:
       <<: *formula_default

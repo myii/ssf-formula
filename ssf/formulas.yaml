@@ -2942,6 +2942,17 @@ ssf:
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/default.sls'
+          1:
+            inspec_yml:
+              summary: >-
+                Verify that the nut services are not started in mode='none'
+              supports: *supports_all_except_amazon
+            provisioner:
+              pillars_from_files:
+                - .sls: 'test/salt/pillar/mode-eq-none.sls'
+        inspec_suites_matrix:
+          - default
+          - mode-eq-none
         platforms: *platforms_new
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
@@ -2949,8 +2960,10 @@ ssf:
           - [ubuntu       ,  20.04,   master,      3,         default]
           # - [centos       ,   8   ,   master,      3,         default]
           - [fedora       ,  32   ,   master,      3,         default]
+          - [fedora       ,  32   ,   master,      3,    mode-eq-none]
           - [debian       ,  10   ,   3000.3,      3,         default]
           - [centos       ,   7   ,   3000.3,      3,         default]
+          - [centos       ,   7   ,   3000.3,      3,    mode-eq-none]
           - [opensuse/leap,  15.2 ,   3000.3,      3,         default]
           # # - [amazonlinux  ,   2   ,   3000.3,      3,         default]
           # # - [arch-base    , latest,   2019.2,      2,         default]
