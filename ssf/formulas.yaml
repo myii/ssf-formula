@@ -97,6 +97,58 @@ ssf_node_anchors:
             verifier: &verifier_inspec_tests_default
               inspec_tests:
                 - default
+        # Use this to start adopting the latest `platforms` (after Tiamat)
+        platforms_new_inc_tiamat: &platforms_new_inc_tiamat
+          ### `tiamat-py3`
+          - [debian       ,  10   ,   tiamat,      3]
+          - [debian       ,   9   ,   tiamat,      3]
+          - [ubuntu       ,  20.04,   tiamat,      3]
+          - [ubuntu       ,  18.04,   tiamat,      3]
+          - [ubuntu       ,  16.04,   tiamat,      3]
+          - [centos       ,   8   ,   tiamat,      3]
+          - [centos       ,   7   ,   tiamat,      3]
+          - [amazonlinux  ,   2   ,   tiamat,      3]
+          # - [oraclelinux  ,   8   ,   tiamat,      3]
+          # - [oraclelinux  ,   7   ,   tiamat,      3]
+
+          ### `master-py3`
+          - [debian       ,  10   ,   master,      3]
+          - [ubuntu       ,  20.04,   master,      3]
+          - [ubuntu       ,  18.04,   master,      3]
+          - [centos       ,   8   ,   master,      3]
+          - [fedora       ,  32   ,   master,      3]
+          - [fedora       ,  31   ,   master,      3]
+          - [opensuse/leap,  15.2 ,   master,      3]
+          - [amazonlinux  ,   2   ,   master,      3]
+          # - [oraclelinux  ,   8   ,   master,      3]
+
+          ### `3001-py3`
+          - [debian       ,  10   ,   3001  ,      3]
+          - [debian       ,   9   ,   3001  ,      3]
+          - [ubuntu       ,  20.04,   3001  ,      3]
+          - [ubuntu       ,  18.04,   3001  ,      3]
+          - [centos       ,   8   ,   3001  ,      3]
+          - [centos       ,   7   ,   3001  ,      3]
+          - [fedora       ,  32   ,   3001  ,      3]
+          - [fedora       ,  31   ,   3001  ,      3]
+          - [opensuse/leap,  15.2 ,   3001  ,      3]
+          - [amazonlinux  ,   2   ,   3001  ,      3]
+          # - [oraclelinux  ,   8   ,   3001  ,      3]
+          # - [oraclelinux  ,   7   ,   3001  ,      3]
+
+          ### `3000.3-py3`
+          - [debian       ,  10   ,   3000.3,      3]
+          - [debian       ,   9   ,   3000.3,      3]
+          - [ubuntu       ,  18.04,   3000.3,      3]
+          - [centos       ,   8   ,   3000.3,      3]
+          - [centos       ,   7   ,   3000.3,      3]
+          - [fedora       ,  31   ,   3000.3,      3]
+          - [opensuse/leap,  15.2 ,   3000.3,      3]
+          - [amazonlinux  ,   2   ,   3000.3,      3]
+          ### ` 3000.3-py2`
+          - [ubuntu       ,  18.04,   3000.3,      2]
+          - [ubuntu       ,  16.04,   3000.3,      2]
+          - [arch-base    , latest,   3000.3,      2]
         # Use this to start adopting the latest `platforms`
         platforms_new: &platforms_new
           ### `master-py3`
@@ -137,6 +189,24 @@ ssf_node_anchors:
           - [centos       ,   6   ,   2019.2,      2]
           - [amazonlinux  ,   1   ,   2019.2,      2]
           - [arch-base    , latest,   2019.2,      2]
+        # Use this to start adopting the latest `platforms_matrix` (after Tiamat)
+        # based on `tiamat` & `master` images primarily
+        platforms_matrix_new_inc_tiamat: &platforms_matrix_new_inc_tiamat
+          # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
+          - [debian       ,  10   ,   tiamat,      3,         default]
+          # - [debian       ,   9   ,   tiamat,      3,         default]
+          - [ubuntu       ,  20.04,   tiamat,      3,         default]
+          # - [ubuntu       ,  18.04,   tiamat,      3,         default]
+          # - [ubuntu       ,  16.04,   tiamat,      3,         default]
+          - [centos       ,   8   ,   tiamat,      3,         default]
+          # - [centos       ,   7   ,   tiamat,      3,         default]
+          - [amazonlinux  ,   2   ,   tiamat,      3,         default]
+          # # - [oraclelinux  ,   8   ,   tiamat,      3,         default]
+          # # - [oraclelinux  ,   7   ,   tiamat,      3,         default]
+          - [fedora       ,  32   ,   master,      3,         default]
+          # - [fedora       ,  31   ,   master,      3,         default]
+          - [opensuse/leap,  15.2 ,   master,      3,         default]
+          - [arch-base    , latest,   3000.3,      2,         default]
         # Use this to start adopting the latest `platforms_matrix`
         platforms_matrix_new: &platforms_matrix_new
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
