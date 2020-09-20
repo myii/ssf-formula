@@ -2942,18 +2942,36 @@ ssf:
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/default.sls'
-        platforms: *platforms_new
+          1:
+            inspec_yml:
+              summary: >-
+                Verify that the nut services are not started in mode='none'
+              supports: *supports_all_except_amazon
+            provisioner:
+              pillars_from_files:
+                - .sls: 'test/salt/pillar/mode-eq-none.sls'
+        inspec_suites_matrix:
+          - default
+          - mode-eq-none
+        platforms: *platforms_new_inc_tiamat
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
-          # - [debian       ,  10   ,   master,      3,         default]
-          - [ubuntu       ,  20.04,   master,      3,         default]
-          # - [centos       ,   8   ,   master,      3,         default]
-          - [fedora       ,  32   ,   master,      3,         default]
-          - [debian       ,  10   ,   3000.3,      3,         default]
-          - [centos       ,   7   ,   3000.3,      3,         default]
-          - [opensuse/leap,  15.2 ,   3000.3,      3,         default]
-          # # - [amazonlinux  ,   2   ,   3000.3,      3,         default]
-          # # - [arch-base    , latest,   2019.2,      2,         default]
+          - [debian       ,  10   ,   tiamat,      3,         default]
+          # - [debian       ,   9   ,   tiamat,      3,         default]
+          - [ubuntu       ,  20.04,   tiamat,      3,         default]
+          # - [ubuntu       ,  18.04,   tiamat,      3,         default]
+          # # - [ubuntu       ,  16.04,   tiamat,      3,         default]
+          - [centos       ,   8   ,   tiamat,      3,         default]
+          # - [centos       ,   7   ,   tiamat,      3,         default]
+          - [centos       ,   7   ,   3001  ,      3,    mode-eq-none]
+          # # - [amazonlinux  ,   2   ,   tiamat,      3,         default]
+          # # - [oraclelinux  ,   8   ,   tiamat,      3,         default]
+          # # - [oraclelinux  ,   7   ,   tiamat,      3,         default]
+          # - [fedora       ,  32   ,   master,      3,         default]
+          - [fedora       ,  32   ,   master,      3,    mode-eq-none]
+          - [fedora       ,  31   ,   master,      3,         default]
+          - [opensuse/leap,  15.2 ,   master,      3,         default]
+          # # - [arch-base    , latest,   3000.3,      2,         default]
         use_tofs: true
         yamllint:
           ignore:
