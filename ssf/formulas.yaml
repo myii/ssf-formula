@@ -4269,6 +4269,7 @@ ssf:
                     - .
                     - .networkd
                     - .networkd.profiles
+                    - .journald
                     - rsync_test_package
                     - .units
         platforms:
