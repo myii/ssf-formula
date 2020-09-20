@@ -205,6 +205,7 @@ These formulas are already compatible with semantic-release *and* have global ``
 #. `postgres-formula <https://github.com/saltstack-formulas/postgres-formula>`_
 #. `powerdns-formula <https://github.com/saltstack-formulas/powerdns-formula>`_
 #. `proftpd-formula <https://github.com/saltstack-formulas/proftpd-formula>`_
+#. `rng-tools-formula <https://github.com/saltstack-formulas/rng-tools-formula>`_
 #. `rspamd-formula <https://github.com/saltstack-formulas/rspamd-formula>`_
 #. `salt-formula <https://github.com/saltstack-formulas/salt-formula>`_
 #. `sqldeveloper-formula <https://github.com/saltstack-formulas/sqldeveloper-formula>`_
@@ -218,7 +219,7 @@ These formulas are already compatible with semantic-release *and* have global ``
 
 These formulas are also compatible with semantic-release:
 
-53. `apache-formula <https://github.com/saltstack-formulas/apache-formula>`_
+54. `apache-formula <https://github.com/saltstack-formulas/apache-formula>`_
 #. `apt-cacher-formula <https://github.com/saltstack-formulas/apt-cacher-formula>`_
 #. `cert-formula <https://github.com/saltstack-formulas/cert-formula>`_
 #. `chrony-formula <https://github.com/saltstack-formulas/chrony-formula>`_
