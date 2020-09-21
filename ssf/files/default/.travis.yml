@@ -114,11 +114,6 @@ jobs:
     {{ comment_linters }}
     - language: 'node_js'
       node_js: 'lts/*'
-      {%- if semrel_formula in ['template'] %}
-      cache:
-        directories:
-          - $HOME/.cache/pre-commit
-      {%- endif %}
       env: 'Lint'
       name: '{{ name_linters }}'
       before_install: 'skip'
@@ -149,12 +144,19 @@ jobs:
         {#- Note: `--verbose` doesn't work yet, upstream issue created:          #}
         {#-   - https://github.com/conventional-changelog/commitlint/issues/1695 #}
         - commitlint-travis{{- ' --verbose' if semrel_formula == 'ssf' else '' }}
-        {%- if semrel_formula in ['template'] %}
+    # Run `pre-commit` linters in a single job
+    - language: 'python'
+      env: 'Lint_pre-commit'
+      name: 'Lint: pre-commit'
+      before_install: 'skip'
+      cache:
+        directories:
+          - $HOME/.cache/pre-commit
+      script:
         # Install and run `pre-commit`
-        - pip install pre-commit
-        - pre-commit run --all-files --verbose
-        - pre-commit run --hook-stage manual --verbose commitlint-travis
-        {%- endif %}
+        - {{ pip_cmd }} install pre-commit==2.7.1
+        - pre-commit run --all-files --color always --verbose
+        - pre-commit run --color always --hook-stage manual --verbose commitlint-travis
     {%- if not travis.use_single_job_for_linters %}
     # Run the `rubocop` linter in a separate job that is allowed to fail
     # Once these lint errors are fixed, this can be merged into a single job

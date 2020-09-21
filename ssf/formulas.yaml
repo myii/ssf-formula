@@ -510,6 +510,9 @@ ssf_node_anchors:
       semrel_files: &semrel_files_default
         .github/workflows/commitlint.yml: &file__--github__workflows__commitlint--yml
           <<: *file_default
+        bin/install-hooks: &file__bin__install-hooks
+          <<: *file_default
+          mode: 755
         bin/kitchen: &file__bin__kitchen
           <<: *file_default
           mode: 755
@@ -532,6 +535,10 @@ ssf_node_anchors:
         .cirrus.yml: &file__--cirrus--yml
           <<: *file_default
           template: 'jinja'
+        .pre-commit-config.yaml: &file__--pre-commit-config--yaml
+          <<: *file_default
+        .rstcheck.cfg: &file__--rstcheck--cfg
+          <<: *file_default
         .rubocop.yml: &file__--rubocop--yml
           <<: *file_default
           template: 'jinja'
