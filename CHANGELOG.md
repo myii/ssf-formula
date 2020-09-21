@@ -1,5 +1,13 @@
 # Changelog
 
+# [1.210.0](https://github.com/myii/ssf-formula/compare/v1.209.0...v1.210.0) (2020-09-21)
+
+
+### Features
+
+* **template:** use `platforms_new_inc_tiamat` ([28c783a](https://github.com/myii/ssf-formula/commit/28c783a234b74d4e761f11011f769be2a45d23f5))
+* **travis:** add `pre-commit` for `template-formula` ([6186cc5](https://github.com/myii/ssf-formula/commit/6186cc5f3da74efac13ccc29b07e24502f3c8e6f))
+
 # [1.209.0](https://github.com/myii/ssf-formula/compare/v1.208.0...v1.209.0) (2020-09-20)
 
 
