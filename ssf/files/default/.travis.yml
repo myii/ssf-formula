@@ -114,6 +114,11 @@ jobs:
     {{ comment_linters }}
     - language: 'node_js'
       node_js: 'lts/*'
+      {%- if semrel_formula in ['template'] %}
+      cache:
+        directories:
+          - $HOME/.cache/pre-commit
+      {%- endif %}
       env: 'Lint'
       name: '{{ name_linters }}'
       before_install: 'skip'
@@ -144,6 +149,12 @@ jobs:
         {#- Note: `--verbose` doesn't work yet, upstream issue created:          #}
         {#-   - https://github.com/conventional-changelog/commitlint/issues/1695 #}
         - commitlint-travis{{- ' --verbose' if semrel_formula == 'ssf' else '' }}
+        {%- if semrel_formula in ['template'] %}
+        # Install and run `pre-commit`
+        - pip install pre-commit
+        - pre-commit run --all-files --verbose
+        - pre-commit run --hook-stage manual --verbose commitlint-travis
+        {%- endif %}
     {%- if not travis.use_single_job_for_linters %}
     # Run the `rubocop` linter in a separate job that is allowed to fail
     # Once these lint errors are fixed, this can be merged into a single job
@@ -191,7 +202,7 @@ jobs:
         - '[ $(git rev-list HEAD --count) -eq 2 ]'
         # Quick visual check that correct files have been updated
         - git show --pretty="" --name-status
-        - bin/kitchen verify default-debian-10-2019-2-py3
+        - bin/kitchen verify default-debian-10-tiamat-py3
     # REMOVEME>
     {%- endif %}
 
