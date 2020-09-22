@@ -144,6 +144,19 @@ jobs:
         {#- Note: `--verbose` doesn't work yet, upstream issue created:          #}
         {#-   - https://github.com/conventional-changelog/commitlint/issues/1695 #}
         - commitlint-travis{{- ' --verbose' if semrel_formula == 'ssf' else '' }}
+
+    {%- if not travis.use_single_job_for_linters %}
+    # Run the `rubocop` linter in a separate job that is allowed to fail
+    # Once these lint errors are fixed, this can be merged into a single job
+    - language: node_js
+      node_js: lts/*
+      env: Lint_rubocop
+      name: 'Lint: rubocop'
+      before_install: skip
+      script:
+        {{-   format_rubocop_linter() }}
+    {%- endif %}
+
     # Run `pre-commit` linters in a single job
     - language: 'python'
       env: 'Lint_pre-commit'
@@ -157,17 +170,6 @@ jobs:
         - {{ pip_cmd }} install pre-commit==2.7.1
         - pre-commit run --all-files --color always --verbose
         - pre-commit run --color always --hook-stage manual --verbose commitlint-travis
-    {%- if not travis.use_single_job_for_linters %}
-    # Run the `rubocop` linter in a separate job that is allowed to fail
-    # Once these lint errors are fixed, this can be merged into a single job
-    - language: node_js
-      node_js: lts/*
-      env: Lint_rubocop
-      name: 'Lint: rubocop'
-      before_install: skip
-      script:
-        {{-   format_rubocop_linter() }}
-    {%- endif %}
 
     {%- if platforms and not use_cirrus_ci %}
 

@@ -15,12 +15,13 @@ ignore: |
   test/**/states/**/*.sls
   .kitchen/
   ssf/files/default/.cirrus.yml
+  ssf/files/default/.pre-commit-config.yaml
   ssf/files/default/.rubocop.yml
   ssf/files/default/.salt-lint
   ssf/files/default/.travis.yml
   ssf/files/default/.yamllint
-  ssf/files/default/kitchen.yml
   ssf/files/default/inspec/inspec.yml
+  ssf/files/default/kitchen.yml
   ssf/files/tofs_arvados-formula/.travis.yml
   ssf/files/tofs_ssf-formula/.yamllint
 

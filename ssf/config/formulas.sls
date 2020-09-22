@@ -104,7 +104,7 @@ prepare-git-branch-for-{{ formula }}:
 {%-           if (semrel_file == '.cirrus.yml' and not use_cirrus_ci) or
                  (semrel_file == 'formula/libsaltcli.jinja' and not use_libsaltcli) or
                  (semrel_file in ['docs/TOFS_pattern.rst', 'formula/libtofs.jinja'] and not use_tofs) or
-                 (semrel_file in ['docs/CONTRIBUTING.rst'] and formula not in ['.github'])
+                 (semrel_file in ['docs/CONTRIBUTING.rst'] and formula not in ['.github', 'ssf-formula'])
 %}
 {%-             set add_or_rm = ['rm', 'remove', 'absent'] %}
 {%-           endif %}

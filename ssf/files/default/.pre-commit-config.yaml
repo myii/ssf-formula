@@ -17,6 +17,7 @@ repos:
         stages: [manual]
         additional_dependencies: ['@commitlint/config-conventional@8.3.4']
         always_run: true
+  {%- if travis.use_single_job_for_linters %}
   - repo: https://github.com/adithyabsk/mirrors-rubocop
     rev: v0.91.0
     hooks:
@@ -25,6 +26,7 @@ repos:
         args: [--debug]
         always_run: true
         pass_filenames: false
+  {%- endif %}
   - repo: https://github.com/jumanjihouse/pre-commit-hooks
     rev: 2.1.3
     hooks:
@@ -47,9 +49,9 @@ repos:
       - id: salt-lint
         name: Check Salt files using salt-lint
         files: ^.*\.(sls|jinja|j2|tmpl|tst)$
-  - repo: https://github.com/myint/rstcheck
-    rev: 3f929574
-    hooks:
-      - id: rstcheck
-        name: Check reST files using rstcheck
-        args: [--report=warning]
+#   - repo: https://github.com/myint/rstcheck
+#     rev: 3f929574
+#     hooks:
+#       - id: rstcheck
+#         name: Check reST files using rstcheck
+#         args: [--report=warning]

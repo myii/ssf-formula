@@ -537,6 +537,7 @@ ssf_node_anchors:
           template: 'jinja'
         .pre-commit-config.yaml: &file__--pre-commit-config--yaml
           <<: *file_default
+          template: 'jinja'
         .rstcheck.cfg: &file__--rstcheck--cfg
           <<: *file_default
         .rubocop.yml: &file__--rubocop--yml
@@ -4138,12 +4139,13 @@ ssf:
           ignore:
             additional:
               - ssf/files/default/.cirrus.yml
+              - ssf/files/default/.pre-commit-config.yaml
               - ssf/files/default/.rubocop.yml
               - ssf/files/default/.salt-lint
               - ssf/files/default/.travis.yml
               - ssf/files/default/.yamllint
-              - ssf/files/default/kitchen.yml
               - ssf/files/default/inspec/inspec.yml
+              - ssf/files/default/kitchen.yml
               - ssf/files/tofs_arvados-formula/.travis.yml
               - ssf/files/tofs_ssf-formula/.yamllint
           rules:
@@ -4153,10 +4155,13 @@ ssf:
                 - ssf/formulas.yaml
       semrel_files:
         .github/workflows/commitlint.yml: *file__--github__workflows__commitlint--yml
+        bin/install-hooks: *file__bin__install-hooks
         docs/CONTRIBUTING.rst: *file__docs__CONTRIBUTING--rst
         docs/TOFS_pattern.rst: *file__docs__TOFS_pattern--rst
         formula/libtofs.jinja: *file__formula__libtofs--jinja
         .gitignore: *file__--gitignore
+        .pre-commit-config.yaml: *file__--pre-commit-config--yaml
+        .rstcheck.cfg: *file__--rstcheck--cfg
         .rubocop.yml: *file__--rubocop--yml
         .salt-lint: *file__--salt-lint
         .travis.yml: *file__--travis--yml
