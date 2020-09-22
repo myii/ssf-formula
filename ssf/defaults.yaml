@@ -55,8 +55,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "ci(kitchen+travis): use '`'tiamat'`' pre-salted images"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/258'
+            title: "chore: standardise structure"
+            body: '* Checked using https://github.com/myii/ssf-formula/pull/260'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
