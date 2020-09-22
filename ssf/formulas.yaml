@@ -2594,9 +2594,10 @@ ssf:
           - [centos       ,   8   ,   master,      3,         default]
           - [fedora       ,  32   ,   master,      3,            repo]
           # - [fedora       ,  31   ,   master,      3,         default]
-          - [opensuse/leap,  15.2 ,   master,      3,         default]
+          - [opensuse/leap,  15.2 ,   master,      3,            repo]
           - [amazonlinux  ,   2   ,   master,      3,     amazonlinux]
-          - [arch-base    , latest,   2019.2,      2,            repo]
+          # - [arch-base    , latest,   2019.2,      2,            repo]
+        use_tofs: true
       semrel_files: *semrel_files_default
     mattermost:
       context:
