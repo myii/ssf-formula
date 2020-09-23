@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.211.0](https://github.com/myii/ssf-formula/compare/v1.210.0...v1.211.0) (2020-09-23)
+
+
+### Features
+
+* **lynis:** review PR 9 ([aa00703](https://github.com/myii/ssf-formula/commit/aa00703d12ee735b4a310cff4bcd9b9edd20a94a))
+
 # [1.210.0](https://github.com/myii/ssf-formula/compare/v1.209.0...v1.210.0) (2020-09-21)
 
 
