@@ -86,6 +86,10 @@ prepare-git-branch-for-{{ formula }}:
 {%-           endif %}
 {%-         endif %}
 {%-         set dest = '{0}/{1}/{2}'.format(ssf.formulas_path, formula, dest_file) %}
+{#-         Take advantage of `dest_file_done` to avoid managing/removing legacy TOFS files #}
+{%-         if (semrel_file in ['docs/TOFS_pattern.rst', 'formula/libtofs.jinja'] and use_tofs == 'legacy') %}
+{%-           do dest_file_done.append(dest_file) %}
+{%-         endif %}
 {#-         Only run the states for each suite if the same template is being used for each file (in each suite) #}
 {#-         Furthermore, only continue if the `dest_file` has actually been set #}
 {%-         if dest_file and dest_file not in dest_file_done %}

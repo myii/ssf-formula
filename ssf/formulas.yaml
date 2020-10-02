@@ -693,7 +693,7 @@ ssf:
           # - [ubuntu       ,  16.04,   2017.7,      2]
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
-          - [debian       ,  10   ,   master,      3,              '']
+          - [debian       ,  10   ,   master,      3,    repositories]
           - [ubuntu       ,  18.04,   master,      3,    repositories]
           - [debian       ,   9   ,   2019.2,      3,     preferences]
           - [ubuntu       ,  18.04,   2019.2,      3,      unattended]
@@ -3529,17 +3529,93 @@ ssf:
       semrel_files: *semrel_files_default
     prometheus:
       context:
+        codeowners:
+          entries:
+            global:
+              - '*':
+                  - '@alxwr'
+                  - '@noelmcloughlin'
         git:
           github:
             repo: 'prometheus-formula'
         inspec_suites_kitchen:
           0:
+            excludes: &platforms_os_centos_6_2018_3
+              - [centos       ,   6   ,   2018.3,      2]
             inspec_yml:
               summary: >-
                 Verify that the prometheus formula is setup and configured correctly
-        platforms_matrix: *platforms_matrix_osfamily_debian
-        travis: *travis_do_not_use_single_job_for_linters
+            provisioner:
+              pillars_from_files:
+                - .sls: 'test/salt/pillar/default.sls'
+          1:
+            excludes: *platforms_os_centos_6_2018_3
+            inspec_yml:
+              summary: >-
+                Verify that the prometheus formula is setup and configured correctly
+            provisioner:
+              pillars_from_files:
+                - .sls: 'test/salt/pillar/repo.sls'
+        inspec_suites_matrix:
+          - default
+          - repo
+        platforms: *platforms_new
+        platforms_matrix:
+          # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
+          - [debian       ,  10   ,   master,      3,         default]
+          - [ubuntu       ,  20.04,   master,      3,         default]
+          - [centos       ,   8   ,   master,      3,         default]
+          - [fedora       ,  32   ,   master,      3,         default]
+          - [debian       ,  10   ,   3000.3,      3,            repo]
+          - [debian       ,   9   ,   3000.3,      3,         default]
+          # - [ubuntu       ,  18.04,   3000.3,      3,         default]
+          - [centos       ,   7   ,   3000.3,      3,            repo]
+          - [opensuse/leap,  15.2 ,   3000.3,      3,         default]
+          - [amazonlinux  ,   2   ,   3000.3,      3,         default]
+          # - [fedora       ,  31   ,   2019.2,      3,         default]
+          - [arch-base    , latest,   2019.2,      2,         default]
+        # To deal with excessive instances when mimicking `kitchen list -b`
+        # If values are set, only use these as commented entries in the matrix
+        platforms_matrix_commented_includes:
+          # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
+          - [debian       ,  10   ,   master,      3,         default]
+          - [ubuntu       ,  20.04,   master,      3,         default]
+          - [ubuntu       ,  18.04,   master,      3,         default]
+          - [centos       ,   8   ,   master,      3,         default]
+          - [fedora       ,  32   ,   master,      3,         default]
+          - [fedora       ,  31   ,   master,      3,         default]
+          - [opensuse/leap,  15.2 ,   master,      3,         default]
+          - [amazonlinux  ,   2   ,   master,      3,         default]
+          - [debian       ,  10   ,   3000.3,      3,         default]
+          - [debian       ,   9   ,   3000.3,      3,         default]
+          - [ubuntu       ,  18.04,   3000.3,      3,         default]
+          - [centos       ,   8   ,   3000.3,      3,         default]
+          - [centos       ,   7   ,   3000.3,      3,         default]
+          - [fedora       ,  31   ,   3000.3,      3,         default]
+          - [opensuse/leap,  15.2 ,   3000.3,      3,         default]
+          - [amazonlinux  ,   2   ,   3000.3,      3,         default]
+          - [ubuntu       ,  18.04,   3000.3,      2,         default]
+          - [ubuntu       ,  16.04,   3000.3,      2,         default]
+          - [arch-base    , latest,   3000.3,      2,         default]
+          - [debian       ,  10   ,   2019.2,      3,         default]
+          - [debian       ,   9   ,   2019.2,      3,         default]
+          - [ubuntu       ,  18.04,   2019.2,      3,         default]
+          - [ubuntu       ,  16.04,   2019.2,      3,         default]
+          - [centos       ,   8   ,   2019.2,      3,         default]
+          - [centos       ,   7   ,   2019.2,      3,         default]
+          - [fedora       ,  31   ,   2019.2,      3,         default]
+          - [opensuse/leap,  15.2 ,   2019.2,      3,         default]
+          - [amazonlinux  ,   2   ,   2019.2,      3,         default]
+          - [centos       ,   6   ,   2019.2,      2,         default]
+          - [amazonlinux  ,   1   ,   2019.2,      2,         default]
+          - [arch-base    , latest,   2019.2,      2,         default]
+          - [debian       ,  10   ,   3000.3,      3,            repo]
+          - [centos       ,   7   ,   3000.3,      3,            repo]
         use_tofs: true
+        yamllint:
+          ignore:
+            additional:
+              - prometheus/osfamilymap.yaml
       semrel_files: *semrel_files_default
     rabbitmq:
       context:
@@ -4788,9 +4864,9 @@ ssf:
           - [amazonlinux  ,   2   ,   3000.3,      3,         default]
           - [fedora       ,  31   ,   2019.2,      3,         default]
           - [arch-base    , latest,   2019.2,      2,         default]
-      #   # Enable this in a subsequent PR, since it's an old version,
-      #   # which is already active (needs to be checked for regressions)
-      #   use_tofs: true
+        # TODO: Upgrade to latest TOFS in a subsequent PR, since a legacy version
+        # is active for the time being (needs to be checked for regressions)
+        use_tofs: legacy
       semrel_files: *semrel_files_default
     vault:
       context:
