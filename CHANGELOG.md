@@ -1,5 +1,13 @@
 # Changelog
 
+# [1.212.0](https://github.com/myii/ssf-formula/compare/v1.211.0...v1.212.0) (2020-10-02)
+
+
+### Features
+
+* **formulas:** capture recent changes across formulas ([bdce42d](https://github.com/myii/ssf-formula/commit/bdce42d49fd37212a0784b57b880dad96c2222ee)), closes [#259](https://github.com/myii/ssf-formula/issues/259)
+* **use_tofs:** use `legacy` setting to avoid managing/removing files ([f0c9018](https://github.com/myii/ssf-formula/commit/f0c9018f3aba55e92077aecafebba375b0360f06))
+
 # [1.211.0](https://github.com/myii/ssf-formula/compare/v1.210.0...v1.211.0) (2020-09-23)
 
 
