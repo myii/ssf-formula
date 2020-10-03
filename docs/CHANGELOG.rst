@@ -2,6 +2,21 @@
 Changelog
 =========
 
+`1.213.0 <https://github.com/myii/ssf-formula/compare/v1.212.0...v1.213.0>`_ (2020-10-03)
+---------------------------------------------------------------------------------------------
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+* **pre-commit:** add to formula [skip ci] (\ `d57d952 <https://github.com/myii/ssf-formula/commit/d57d9525695900c38d56d7ae37f2280464a8be66>`_\ )
+
+Features
+^^^^^^^^
+
+
+* **pre-commit:** add ``pre-commit`` (\ `bbd0149 <https://github.com/myii/ssf-formula/commit/bbd0149a24379e7bbc5e94fb5f133a7b6ce4678a>`_\ )
+
 `1.212.0 <https://github.com/myii/ssf-formula/compare/v1.211.0...v1.212.0>`_ (2020-10-02)
 ---------------------------------------------------------------------------------------------
 
