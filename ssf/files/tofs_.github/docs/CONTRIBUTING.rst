@@ -55,6 +55,22 @@ So based on the example above:
 * The ``(scope):`` will be shown in bold text without the brackets.
 * The ``subject`` follows the ``scope`` as standard text.
 
+pre-commit
+^^^^^^^^^^
+
+`pre-commit <https://pre-commit.com/>`_ is configured for this formula, which you may
+optionally use to ease the steps involved in submitting your changes, including
+checking the formatting of your commit messages.
+
+First install  the ``pre-commit`` package manager locally using the appropriate
+`method <https://pre-commit.com/#installation>`_, then run ``bin/install-hooks`` in the
+formula's root directory and now ``pre-commit`` will run automatically on each
+``git commit``. ::
+
+  $ bin/install-hooks
+  pre-commit installed at .git/hooks/pre-commit
+  pre-commit installed at .git/hooks/commit-msg
+
 Linting commit messages in Travis CI
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

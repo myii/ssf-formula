@@ -17,6 +17,7 @@ ssf_node_anchors:
             specific_directories: []
             specific_ssf:
               - '/.github/workflows/': '@saltstack-formulas/ssf'
+              - '/bin/install-hooks': '@saltstack-formulas/ssf'
               - '/bin/kitchen': '@saltstack-formulas/ssf'
               - '/docs/AUTHORS.rst': '@saltstack-formulas/ssf'
               - '/docs/CHANGELOG.rst': '@saltstack-formulas/ssf'
@@ -27,6 +28,8 @@ ssf_node_anchors:
               - '/test/integration/**/README.md': '@saltstack-formulas/ssf'
               - '/.gitignore': '@saltstack-formulas/ssf'
               - '/.cirrus.yml': '@saltstack-formulas/ssf'
+              - '/.pre-commit-config.yaml': '@saltstack-formulas/ssf'
+              - '/.rstcheck.cfg': '@saltstack-formulas/ssf'
               - '/.rubocop.yml': '@saltstack-formulas/ssf'
               - '/.salt-lint': '@saltstack-formulas/ssf'
               - '/.travis.yml': '@saltstack-formulas/ssf'
@@ -55,8 +58,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "chore: standardise structure [skip ci]"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/261'
+            title: "ci(pre-commit): add to formula [skip ci]"
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/259'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
