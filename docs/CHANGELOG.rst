@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.214.0 <https://github.com/myii/ssf-formula/compare/v1.213.0...v1.214.0>`_ (2020-10-04)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **pre-commit:** enable/disable ``rstcheck`` as relevant (\ `f3a91e8 <https://github.com/myii/ssf-formula/commit/f3a91e8844079b1fc0d6a570b7535a31c007c63b>`_\ ), closes `#259 <https://github.com/myii/ssf-formula/issues/259>`_
+
 `1.213.0 <https://github.com/myii/ssf-formula/compare/v1.212.0...v1.213.0>`_ (2020-10-03)
 ---------------------------------------------------------------------------------------------
 
