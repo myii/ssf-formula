@@ -140,6 +140,7 @@ prepare-git-branch-for-{{ formula }}:
         platforms: {{ context.platforms | yaml }}
         platforms_matrix: {{ context.platforms_matrix | yaml }}
         platforms_matrix_commented_includes: {{ context.platforms_matrix_commented_includes | yaml }}
+        pre_commit: {{ context.pre_commit | yaml }}
         rubocop: {{ context.rubocop | yaml }}
         salt_lint: {{ context.salt_lint | yaml }}
         saltimages: {{ ssf.saltimages | yaml }}
