@@ -495,6 +495,9 @@ ssf_node_anchors:
           - [fedora       ,  32   ,   master,      3,         default]
           - [opensuse/leap,  15.2 ,   master,      3,         default]
           - [arch-base    , latest,   2019.2,      2,            arch]
+        pre_commit_do_not_use_rstcheck: &pre_commit_do_not_use_rstcheck
+          repos:
+            use_rstcheck: false
         # yamllint disable-line rule:line-length
         travis_do_not_use_single_job_for_linters: &travis_do_not_use_single_job_for_linters
           use_single_job_for_linters: false
@@ -637,6 +640,7 @@ ssf:
           - [fedora       ,  30   ,   2018.3,      3,         default]
           # - [opensuse/leap,  15.1 ,   2018.3,      2,         default]
           - [centos       ,   6   ,   2017.7,      2,         default]
+        pre_commit: *pre_commit_do_not_use_rstcheck
       semrel_files: *semrel_files_default
     apt:
       context:
@@ -994,6 +998,7 @@ ssf:
           - [centos       ,   7   ,   3000.3,      3,         default]
           - [opensuse/leap,  15.2 ,   3000.3,      3,         default]
           - [fedora       ,  31   ,   2019.2,      3,         default]
+        pre_commit: *pre_commit_do_not_use_rstcheck
         use_tofs: true
       semrel_files: *semrel_files_default
     devstack:
@@ -1580,6 +1585,7 @@ ssf:
           - [opensuse/leap,  15.2 ,   master,      3,         default]
           - [amazonlinux  ,   2   ,   master,      3,          redhat]
           # # - [arch-base    , latest,   3000.3,      2,            arch]
+        pre_commit: *pre_commit_do_not_use_rstcheck
         use_tofs: true
         yamllint:
           ignore:
@@ -2402,6 +2408,7 @@ ssf:
           - [opensuse/leap,  15.2 ,   3000.3,      3,         default]
           - [fedora       ,  31   ,   2019.2,      3,         default]
           - [ubuntu       ,  16.04,   2019.2,      3,         default]
+        pre_commit: *pre_commit_do_not_use_rstcheck
         use_libsaltcli: true
         use_tofs: true
       semrel_files: *semrel_files_default
@@ -2981,6 +2988,7 @@ ssf:
           - [fedora       ,  31   ,   master,      3,         default]
           - [opensuse/leap,  15.2 ,   master,      3,         default]
           # # - [arch-base    , latest,   3000.3,      2,         default]
+        pre_commit: *pre_commit_do_not_use_rstcheck
         use_tofs: true
         yamllint:
           ignore:
