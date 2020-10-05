@@ -326,6 +326,8 @@ ssf:
     - [opensuse/leap,   15.2 ,   master,      3]  # opsu-15.2-master-py3
     - [amazonlinux  ,    2   ,   master,      3]  # amaz-02.0-master-py3
     - [oraclelinux  ,    8   ,   master,      3]  # orac-08.0-master-py3
+    - [gentoo/stage3,  latest,   master,      3]  # gent-late-master-py3
+    - [gentoo/stage3, systemd,   master,      3]  # gent-sysd-master-py3
 
     ### `3001-py3`
     - [debian       ,   10   ,   3001  ,      3]  # debi-10.0-3001.0-py3
@@ -340,6 +342,8 @@ ssf:
     - [amazonlinux  ,    2   ,   3001  ,      3]  # amaz-02.0-3001.0-py3
     - [oraclelinux  ,    8   ,   3001  ,      3]  # orac-08.0-3001.0-py3
     - [oraclelinux  ,    7   ,   3001  ,      3]  # orac-07.0-3001.0-py3
+    - [gentoo/stage3,  latest,   3001  ,      3]  # gent-late-3001.0-py3
+    - [gentoo/stage3, systemd,   3001  ,      3]  # gent-sysd-3001.0-py3
 
     ### `3000.3-py3`
     - [debian       ,   10   ,   3000.3,      3]  # debi-10.0-3000.3-py3
@@ -352,6 +356,8 @@ ssf:
     - [amazonlinux  ,    2   ,   3000.3,      3]  # amaz-02.0-3000.3-py3
     - [oraclelinux  ,    8   ,   3000.3,      3]  # orac-08.0-3000.3-py3
     - [oraclelinux  ,    7   ,   3000.3,      3]  # orac-07.0-3000.3-py3
+    - [gentoo/stage3,  latest,   3000.3,      3]  # gent-late-3000.3-py3
+    - [gentoo/stage3, systemd,   3000.3,      3]  # gent-sysd-3000.3-py3
     ### ` 3000.3-py2`
     - [ubuntu       ,   18.04,   3000.3,      2]  # ubun-18.0-3000.3-py2
     - [ubuntu       ,   16.04,   3000.3,      2]  # ubun-16.0-3000.3-py2

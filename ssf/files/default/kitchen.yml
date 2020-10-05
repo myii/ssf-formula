@@ -116,7 +116,7 @@ provision_command:
 {%-   filter indent(6) %}
 {%-     if os in ['opensuse/leap', 'arch-base'] %}
 run_command: /usr/lib/systemd/systemd
-{%-     elif [os, os_ver] in [['amazonlinux', 1], ['centos', 6]] %}
+{%-     elif [os, os_ver] in [['amazonlinux', 1], ['centos', 6], ['gentoo/stage3', 'latest']] %}
 run_command: /sbin/init
 {%-     endif %}
 {%-   endfilter %}
