@@ -58,8 +58,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "ci(pre-commit): enable/disable '`'rstcheck'`' as relevant [skip ci]"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/262'
+            title: "chore: standardise structure [skip ci]"
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/264'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
@@ -384,6 +384,9 @@ ssf:
           1:
             <<: *isk_suite_default
             name: 'modules'
+          2:
+            <<: *isk_suite_default
+            name: 'arch'
     apt:
       <<: *formula_default
       context:
