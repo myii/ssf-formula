@@ -76,6 +76,10 @@
                       salt_ver | replace('.', '-'),
                       py_ver,
                     ) %}
+{%-                 if semrel_formula == 'apache'
+                    and [suite_name, os, os_ver, salt_ver] == ['default', 'amazonlinux', 2, 'master'] %}
+# https://community.letsencrypt.org/t/localhost-crt-does-not-exist-or-is-empty/103979
+{%-                 endif %}
 {{ comment }}- {{ instance_and_env }}{{ instance }}
 {%-               endif %}
 {%-             endif %}

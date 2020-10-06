@@ -599,6 +599,10 @@ ssf:
     #           - '*': '@javierbertoli'
     apache:
       context:
+        codeowners:
+          entries:
+            global:
+              - '*': '@noelmcloughlin'
         git:
           github:
             repo: 'apache-formula'
@@ -610,10 +614,6 @@ ssf:
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/default.sls'
-              state_top:
-                - '*':
-                    - .
-                    - .config
           1:
             inspec_yml:
               summary: >-
@@ -624,23 +624,50 @@ ssf:
               state_top:
                 - '*':
                     - .
-                    - .mod_security
-                    - .server_status
-        # TODO: Enable this once the matrix is updated to use the `modules` suite
-        # inspec_suites_matrix:
-        #   - default
-        #   - modules
+                    - .config.modules
+                    - .config.certificates
+                    - .config.modules.mod_security
+                    - .config.modules.server_status
+          2:
+            inspec_yml:
+              summary: >-
+                Verify that the apache formula manages modules correctly
+            includes: *platforms_os_arch_base
+            # includes: *platforms_os_arch_base_new
+            provisioner:
+              pillars_from_files:
+                - .sls: 'test/salt/pillar/modules.sls'
+              state_top:
+                - '*':
+                    - .
+                    - .config.modules
+                    - .config.certificates
+                    - .config.modules.mod_security
+                    - .config.modules.server_status
+            verifier:
+              inspec_tests:
+                - nomodsecurity
+        inspec_suites_matrix:
+          - default
+          - modules
+          - arch
         platforms_matrix:
-          # Comments in `platforms` apply here, too
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
-          - [debian       ,  10   ,   master,      3,         default]
-          - [ubuntu       ,  18.04,   2019.2,      3,         default]
-          - [amazonlinux  ,   2   ,   2019.2,      3,         default]
-          # - [arch-base    , latest,   2019.2,      2,         default]
-          - [fedora       ,  30   ,   2018.3,      3,         default]
-          # - [opensuse/leap,  15.1 ,   2018.3,      2,         default]
-          - [centos       ,   6   ,   2017.7,      2,         default]
+          - [debian       ,  10   ,   master,      3,         modules]
+          - [centos       ,   8   ,   master,      3,         modules]
+          - [fedora       ,  31   ,   master,      3,         modules]
+          - [opensuse/leap,  15.1 ,   master,      3,         modules]
+          - [amazonlinux  ,   2   ,   master,      3,         default]
+          - [ubuntu       ,  18.04,   2019.2,      3,         modules]
+          - [centos       ,   7   ,   2019.2,      2,         modules]
+          - [arch-base    , latest,   2017.7,      2,            arch]
         pre_commit: *pre_commit_do_not_use_rstcheck
+        use_tofs: true
+        yamllint:
+          ignore:
+            additional:
+              - test/salt/pillar/modules.sls
+              - pillar.example
       semrel_files: *semrel_files_default
     apt:
       context:
