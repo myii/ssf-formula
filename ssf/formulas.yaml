@@ -3770,7 +3770,6 @@ ssf:
           - [opensuse/leap,  15.1 ,   2018.3,      2,            suse]
           - [centos       ,   6   ,   2017.7,      2,          redhat]
         travis: *travis_do_not_use_single_job_for_linters
-        use_cirrus_ci: true
         use_tofs: true
       semrel_files: *semrel_files_default
     rng-tools:
@@ -4415,7 +4414,6 @@ ssf:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/syslog_ng.sls'
         travis: *travis_do_not_use_single_job_for_linters
-        use_cirrus_ci: true
         use_tofs: true
       semrel_files:
         <<: *semrel_files_default
