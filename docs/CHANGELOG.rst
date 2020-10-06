@@ -2,6 +2,21 @@
 Changelog
 =========
 
+`1.216.0 <https://github.com/myii/ssf-formula/compare/v1.215.0...v1.216.0>`_ (2020-10-06)
+---------------------------------------------------------------------------------------------
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+* **cirrus-travis:** move all from Cirrus back to Travis (\ `828bd67 <https://github.com/myii/ssf-formula/commit/828bd679e77871725a3319fddcabe6efce121f27>`_\ )
+
+Features
+^^^^^^^^
+
+
+* **gemfile+lock:** use ``bundle update`` to get latest gems [2020-W41] (\ `4c4a97c <https://github.com/myii/ssf-formula/commit/4c4a97c1acfde830627e4b244c1252569884a48a>`_\ )
+
 `1.215.0 <https://github.com/myii/ssf-formula/compare/v1.214.0...v1.215.0>`_ (2020-10-06)
 ---------------------------------------------------------------------------------------------
 
