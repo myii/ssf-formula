@@ -1,5 +1,17 @@
 # Changelog
 
+# [1.218.0](https://github.com/myii/ssf-formula/compare/v1.217.0...v1.218.0) (2020-10-07)
+
+
+### Features
+
+* **saltimages:** update with Gentoo pre-salted images ([a99be1d](https://github.com/myii/ssf-formula/commit/a99be1d9500c8c5a6eb229b546c48a711c0b09a7))
+
+
+### Styles
+
+* **platform:** add one space to allow for `systemd` as `os_ver` ([5474b29](https://github.com/myii/ssf-formula/commit/5474b2953577e1b37f6fa5c2ceb9b5fe92c40316))
+
 # [1.217.0](https://github.com/myii/ssf-formula/compare/v1.216.0...v1.217.0) (2020-10-07)
 
 
