@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.217.0 <https://github.com/myii/ssf-formula/compare/v1.216.0...v1.217.0>`_ (2020-10-07)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **commitlint.config.js:** add ``{body,footer,header}-max(-line)-length`` (\ `44a8dec <https://github.com/myii/ssf-formula/commit/44a8deced4bb1df3a678a85933d04a9cb31778c8>`_\ )
+
 `1.216.0 <https://github.com/myii/ssf-formula/compare/v1.215.0...v1.216.0>`_ (2020-10-06)
 ---------------------------------------------------------------------------------------------
 
