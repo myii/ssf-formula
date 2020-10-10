@@ -32,7 +32,7 @@ The entire process relies on the structure of commit messages to determine the v
 Full details are available in the upstream docs regarding the `Angular Commit Message Conventions <https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines>`_.
 The key factor is that the first line of the commit message must follow this format:
 
-.. code-block::
+.. code-block:: console
 
    type(scope): subject
 
