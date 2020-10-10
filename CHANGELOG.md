@@ -1,5 +1,17 @@
 # Changelog
 
+# [1.219.0](https://github.com/myii/ssf-formula/compare/v1.218.0...v1.219.0) (2020-10-10)
+
+
+### Code Refactoring
+
+* **contributing:** centralise to use one template ([dc35ece](https://github.com/myii/ssf-formula/commit/dc35ece04e0c738b6142da4420c72c3de8bd1f17))
+
+
+### Features
+
+* **pre-commit:** finalise `rstcheck` configuration across all formulas ([fe8d686](https://github.com/myii/ssf-formula/commit/fe8d6861d3da1260c4f0566f33a408be0b3bd713))
+
 # [1.218.0](https://github.com/myii/ssf-formula/compare/v1.217.0...v1.218.0) (2020-10-07)
 
 
