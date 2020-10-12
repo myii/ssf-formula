@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.220.0](https://github.com/myii/ssf-formula/compare/v1.219.0...v1.220.0) (2020-10-12)
+
+
+### Features
+
+* **template:** add Gentoo ([2e57985](https://github.com/myii/ssf-formula/commit/2e579855dbb00425caa4861a7c28b5c199588856))
+
 # [1.219.0](https://github.com/myii/ssf-formula/compare/v1.218.0...v1.219.0) (2020-10-10)
 
 
