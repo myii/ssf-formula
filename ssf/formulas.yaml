@@ -872,17 +872,73 @@ ssf:
               supports: *supports_debian_ubuntu_centos
         inspec_suites_matrix:
           - api
-          - controller
-          - keepproxy
+          # - controller
+          # - keepproxy
           - keepstore
-          - keepweb
-          - repo
+          # - keepweb
+          # - repo
           - shell
-          - websocket
+          # - websocket
           - workbench
-          - workbench2
-        platforms: *platforms_new
-        platforms_matrix: *platforms_matrix_new
+          # - workbench2
+        platforms:
+          # Based on *platforms_new_inc_tiamat
+          ### `tiamat-py3`
+          - [debian       ,   10   ,   tiamat,      3]
+          - [debian       ,    9   ,   tiamat,      3]
+          - [ubuntu       ,   20.04,   tiamat,      3]
+          - [ubuntu       ,   18.04,   tiamat,      3]
+          # # - [ubuntu       ,   16.04,   tiamat,      3]
+          # # - [centos       ,    8   ,   tiamat,      3]
+          - [centos       ,    7   ,   tiamat,      3]
+          # # - [amazonlinux  ,    2   ,   tiamat,      3]
+          # # - [oraclelinux  ,    8   ,   tiamat,      3]
+          # # - [oraclelinux  ,    7   ,   tiamat,      3]
+
+          ### `master-py3`
+          - [debian       ,   10   ,   master,      3]
+          - [ubuntu       ,   20.04,   master,      3]
+          - [ubuntu       ,   18.04,   master,      3]
+          # # - [centos       ,    8   ,   master,      3]
+          # # - [fedora       ,   32   ,   master,      3]
+          # # - [fedora       ,   31   ,   master,      3]
+          # # - [opensuse/leap,   15.2 ,   master,      3]
+          # # - [amazonlinux  ,    2   ,   master,      3]
+          # # - [oraclelinux  ,    8   ,   master,      3]
+
+          ### `3001-py3`
+          - [debian       ,   10   ,   3001  ,      3]
+          - [debian       ,    9   ,   3001  ,      3]
+          - [ubuntu       ,   20.04,   3001  ,      3]
+          - [ubuntu       ,   18.04,   3001  ,      3]
+          # # - [centos       ,    8   ,   3001  ,      3]
+          - [centos       ,    7   ,   3001  ,      3]
+          # # - [fedora       ,   32   ,   3001  ,      3]
+          # # - [fedora       ,   31   ,   3001  ,      3]
+          # # - [opensuse/leap,   15.2 ,   3001  ,      3]
+          # # - [amazonlinux  ,    2   ,   3001  ,      3]
+          # # - [oraclelinux  ,    8   ,   3001  ,      3]
+          # # - [oraclelinux  ,    7   ,   3001  ,      3]
+
+          ### `3000.3-py3`
+          - [debian       ,   10   ,   3000.3,      3]
+          - [debian       ,    9   ,   3000.3,      3]
+          - [ubuntu       ,   18.04,   3000.3,      3]
+          # # - [centos       ,    8   ,   3000.3,      3]
+          - [centos       ,    7   ,   3000.3,      3]
+          # # - [fedora       ,   31   ,   3000.3,      3]
+          # # - [opensuse/leap,   15.2 ,   3000.3,      3]
+          # # - [amazonlinux  ,    2   ,   3000.3,      3]
+          ### ` 3000.3-py2`
+          - [ubuntu       ,   18.04,   3000.3,      2]
+          # # - [ubuntu       ,   16.04,   3000.3,      2]
+          # # - [arch-base    ,  latest,   3000.3,      2]
+        platforms_matrix:
+          # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
+          - [ubuntu       ,   18.04,   master,      3,       workbench]
+          - [debian       ,   10   ,   3001  ,      3,             api]
+          - [debian       ,   10   ,   3001  ,      3,           shell]
+          - [ubuntu       ,   18.04,   3000.3,      2,       keepstore]
         use_tofs: true
         yamllint:
           ignore:
