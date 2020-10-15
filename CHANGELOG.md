@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.222.0](https://github.com/myii/ssf-formula/compare/v1.221.0...v1.222.0) (2020-10-15)
+
+
+### Features
+
+* **arvados:** review PR 4 ([107600c](https://github.com/myii/ssf-formula/commit/107600cdf1544c4b2da7e553123503e85c527794))
+
 # [1.221.0](https://github.com/myii/ssf-formula/compare/v1.220.0...v1.221.0) (2020-10-12)
 
 
