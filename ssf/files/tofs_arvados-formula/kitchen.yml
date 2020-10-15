@@ -11,19 +11,67 @@ driver:
 # Make sure the platforms listed below match up with
 # the `env.matrix` instances defined in `.travis.yml`
 platforms:
+  ## SALT `tiamat`
+  - name: debian-10-tiamat-py3
+    driver:
+      image: saltimages/salt-tiamat-py3:debian-10
+  - name: debian-9-tiamat-py3
+    driver:
+      image: saltimages/salt-tiamat-py3:debian-9
+  - name: ubuntu-2004-tiamat-py3
+    driver:
+      image: saltimages/salt-tiamat-py3:ubuntu-20.04
+  - name: ubuntu-1804-tiamat-py3
+    driver:
+      image: saltimages/salt-tiamat-py3:ubuntu-18.04
+  - name: centos-7-tiamat-py3
+    driver:
+      image: saltimages/salt-tiamat-py3:centos-7
+
+  ## SALT `master`
+  - name: debian-10-master-py3
+    driver:
+      image: saltimages/salt-master-py3:debian-10
+  - name: ubuntu-2004-master-py3
+    driver:
+      image: saltimages/salt-master-py3:ubuntu-20.04
+  - name: ubuntu-1804-master-py3
+    driver:
+      image: saltimages/salt-master-py3:ubuntu-18.04
+
+  ## SALT `3001`
+  - name: debian-10-3001-py3
+    driver:
+      image: saltimages/salt-3001-py3:debian-10
+  - name: debian-9-3001-py3
+    driver:
+      image: saltimages/salt-3001-py3:debian-9
+  - name: ubuntu-2004-3001-py3
+    driver:
+      image: saltimages/salt-3001-py3:ubuntu-20.04
+  - name: ubuntu-1804-3001-py3
+    driver:
+      image: saltimages/salt-3001-py3:ubuntu-18.04
+  - name: centos-7-3001-py3
+    driver:
+      image: saltimages/salt-3001-py3:centos-7
+
   ## SALT `3000.3`
   - name: debian-10-3000-3-py3
     driver:
       image: saltimages/salt-3000.3-py3:debian-10
-
-#   - name: ubuntu-1804-3000-3-py3
-#     driver:
-#       image: saltimages/salt-3000.3-py3:ubuntu-18.04
-
-#   ## SALT `2019.2`
-#   - name: centos-7-2019-2-py3
-#     driver:
-#       image: saltimages/salt-2019.2-py3:centos-7
+  - name: debian-9-3000-3-py3
+    driver:
+      image: saltimages/salt-3000.3-py3:debian-9
+  - name: ubuntu-1804-3000-3-py3
+    driver:
+      image: saltimages/salt-3000.3-py3:ubuntu-18.04
+  - name: centos-7-3000-3-py3
+    driver:
+      image: saltimages/salt-3000.3-py3:centos-7
+  - name: ubuntu-1804-3000-3-py2
+    driver:
+      image: saltimages/salt-3000.3-py2:ubuntu-18.04
 
 provisioner:
   name: salt_solo
@@ -47,15 +95,18 @@ suites:
   #### api,websocket,keepproxy,keepweb,controller
   - name: api
     driver:
-      hostname: example.net
+      hostname: fixme.example.net
     provisioner:
       state_top:
         base:
           '*':
             - example_add_snakeoil_certs
+            - locale
             - nginx.passenger
             - postgres
             - arvados.repo
+            # - arvados.config
+            # - arvados.ruby
             - arvados.api
             - arvados.websocket
             # keepproxy complains when using snakeoil certs, so we can't
@@ -63,11 +114,13 @@ suites:
             # - arvados.keepproxy
             - arvados.keepweb
             - arvados.controller
+            - arvados.dispatcher
       pillars:
         top.sls:
           base:
             '*':
               - arvados
+              - example_locale
               - example_postgres
               - example_nginx
               - example_nginx_api
@@ -79,7 +132,8 @@ suites:
               # - example_nginx_keepproxy
       pillars_from_files:
         # yamllint disable rule:line-length
-        arvados.sls: pillar.example
+        arvados.sls: test/salt/pillar/arvados.sls
+        example_locale.sls: test/salt/pillar/examples/locale.sls
         example_postgres.sls: test/salt/pillar/examples/postgresql.sls
         example_nginx.sls: test/salt/pillar/examples/nginx_passenger.sls
         example_nginx_api.sls: test/salt/pillar/examples/nginx_api_configuration.sls
@@ -91,12 +145,15 @@ suites:
       dependencies:
         - name: example_add_snakeoil_certs
           path: test/salt/states
+        - name: locale
+          repo: git
+          source: https://github.com/saltstack-formulas/locale-formula.git
         - name: postgres
           repo: git
           source: https://github.com/saltstack-formulas/postgres-formula.git
         - name: nginx
           repo: git
-          source: https://github.com/saltstack-formulas/nginx-formula.git
+          source: https://github.com/netmanagers/nginx-formula.git
     verifier:
       inspec_tests:
         - path: test/integration/api
@@ -108,7 +165,7 @@ suites:
   #### workbench,workbench2
   - name: workbench
     driver:
-      hostname: workbench.example.net
+      hostname: workbench.fixme.example.net
     provisioner:
       state_top:
         base:
@@ -128,7 +185,7 @@ suites:
               - example_nginx_workbench2
       pillars_from_files:
         # yamllint disable rule:line-length
-        arvados.sls: pillar.example
+        arvados.sls: test/salt/pillar/arvados.sls
         example_nginx.sls: test/salt/pillar/examples/nginx_passenger.sls
         example_nginx_workbench.sls: test/salt/pillar/examples/nginx_workbench_configuration.sls
         example_nginx_workbench2.sls: test/salt/pillar/examples/nginx_workbench2_configuration.sls
@@ -147,7 +204,7 @@ suites:
   #### shell
   - name: shell
     driver:
-      hostname: shell.example.net
+      hostname: shell.fixme.example.net
     provisioner:
       state_top:
         base:
@@ -161,22 +218,21 @@ suites:
             '*':
               - arvados
       pillars_from_files:
-        arvados.sls: pillar.example
+        arvados.sls: test/salt/pillar/arvados_dev.sls
     verifier:
       inspec_tests:
-        - path: test/integration/repo
         - path: test/integration/shell
 
   #### keepstore
   - name: keepstore
     driver:
-      hostname: keep0.example.net
+      hostname: keep0.fixme.example.net
     provisioner:
       state_top:
         base:
           '*':
             - arvados.repo
-            - arvados.keepstore.service
+            - arvados.keepstore
             # - arvados.clean
       pillars:
         top.sls:
@@ -184,7 +240,8 @@ suites:
             '*':
               - arvados
       pillars_from_files:
-        arvados.sls: pillar.example
+        arvados.sls: test/salt/pillar/arvados.sls
     verifier:
       inspec_tests:
+        - path: test/integration/repo
         - path: test/integration/keepstore

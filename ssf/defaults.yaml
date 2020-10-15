@@ -58,8 +58,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "feat: add Gentoo support"
-            body: '* Semi-automated using https://github.com/myii/ssf-formula/pull/269'
+            title: "chore: standardise structure [skip ci]"
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/270'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
