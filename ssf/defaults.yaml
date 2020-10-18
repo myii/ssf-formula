@@ -58,8 +58,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "chore(gemfile+lock): update to latest gem versions (2020-W44) [skip ci]"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/274'
+            title: "test(map): verify '`'map.jinja'`' dump using '`'_mapdata'`' state"
+            body: '* Semi-automated using https://github.com/myii/ssf-formula/pull/271'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
@@ -788,7 +788,15 @@ ssf:
           1:
             <<: *isk_suite_default
             name: 'share'
-    openvpn: *formula_default
+    openvpn:
+      <<: *formula_default
+      context:
+        <<: *context_default
+        inspec_suites_kitchen:
+          <<: *isk_default
+          1:
+            <<: *isk_suite_default
+            name: 'share'
     packages:
       <<: *formula_default
       context:
