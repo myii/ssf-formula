@@ -445,6 +445,9 @@ ssf:
           9:
             <<: *isk_suite_default
             name: 'workbench2'
+          10:
+            <<: *isk_suite_default
+            name: 'dispatcher'
     bind: *formula_default
     cert: *formula_default
     chrony: *formula_default
