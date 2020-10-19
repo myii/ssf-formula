@@ -870,6 +870,13 @@ ssf:
                 Verify that the arvados formula workbench2 is setup and
                 configured correctly
               supports: *supports_debian_ubuntu_centos
+          10:
+            inspec_yml:
+              title: 'arvados formula dispatcher submodule'
+              summary: >-
+                Verify that the arvados formula dispatcher is setup and
+                configured correctly
+              supports: *supports_debian_ubuntu_centos
         inspec_suites_matrix:
           - api
           # - controller
@@ -881,6 +888,7 @@ ssf:
           # - websocket
           - workbench
           # - workbench2
+          # - dispatcher
         platforms:
           # Based on *platforms_new_inc_tiamat
           ### `tiamat-py3`
