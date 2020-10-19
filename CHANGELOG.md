@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.223.0](https://github.com/myii/ssf-formula/compare/v1.222.0...v1.223.0) (2020-10-19)
+
+
+### Features
+
+* **arvados:** add `dispatcher` suite ([774f1fd](https://github.com/myii/ssf-formula/commit/774f1fd42658694f4df8c05a683c2396279b1c82))
+
 # [1.222.0](https://github.com/myii/ssf-formula/compare/v1.221.0...v1.222.0) (2020-10-15)
 
 
