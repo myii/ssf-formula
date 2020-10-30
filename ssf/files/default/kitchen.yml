@@ -54,7 +54,8 @@
 {%-     if not pre_salted %}
 image: {{ os }}:{{ os_ver }}
 {%-     else %}
-image: {{ 'saltimages' if [os, os_ver, salt_ver, py_ver] in saltimages else 'netmanagers' }}/salt-{{ salt_ver }}-py{{ py_ver }}:{{ os | replace('/', '-') }}-{{ os_ver }}
+{#-       Using temporary extra check for `3001` (still available) since replacing with `3001.1` #}
+image: {{ 'saltimages' if ([os, os_ver, salt_ver, py_ver] in saltimages or salt_ver == 3001) else 'netmanagers' }}/salt-{{ salt_ver }}-py{{ py_ver }}:{{ os | replace('/', '-') }}-{{ os_ver }}
 {%-     endif %}
 {%-   endfilter %}
 {%- endmacro %}

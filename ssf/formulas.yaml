@@ -111,6 +111,111 @@ ssf_node_anchors:
             verifier: &verifier_inspec_tests_default
               inspec_tests:
                 - default
+
+        # Use this to start adopting the "unified" platforms based on `saltimages`.
+        # This will include `tiamat` and will be updated for `3002` once available.
+        # However, `master` images will be used in place of `tiamat`, until they
+        # become viable.
+        platforms_new_saltimages: &platforms_new_saltimages
+          ### TODO: Resolve duplication of `saltimages` from `defaults.yaml`
+          ### NOTE: Does avoid both `2019.2` sections, though
+
+          ### `tiamat-py3`
+          - [debian       ,   10   ,   tiamat,      3]  # debi-10.0-tiamat-py3
+          - [debian       ,    9   ,   tiamat,      3]  # debi-09.0-tiamat-py3
+          - [ubuntu       ,   20.04,   tiamat,      3]  # ubun-20.0-tiamat-py3
+          - [ubuntu       ,   18.04,   tiamat,      3]  # ubun-18.0-tiamat-py3
+          - [ubuntu       ,   16.04,   tiamat,      3]  # ubun-16.0-tiamat-py3
+          - [centos       ,    8   ,   tiamat,      3]  # cent-08.0-tiamat-py3
+          - [centos       ,    7   ,   tiamat,      3]  # cent-07.0-tiamat-py3
+          # # Not available at the current time
+          # - [fedora       ,   33   ,   tiamat,      3]  # fedo-33.0-tiamat-py3
+          # - [fedora       ,   32   ,   tiamat,      3]  # fedo-32.0-tiamat-py3
+          # - [fedora       ,   31   ,   tiamat,      3]  # fedo-31.0-tiamat-py3
+          # - [opensuse/leap,   15.2 ,   tiamat,      3]  # opsu-15.2-tiamat-py3
+          - [amazonlinux  ,    2   ,   tiamat,      3]  # amaz-02.0-tiamat-py3
+          - [oraclelinux  ,    8   ,   tiamat,      3]  # orac-08.0-tiamat-py3
+          - [oraclelinux  ,    7   ,   tiamat,      3]  # orac-07.0-tiamat-py3
+
+          ### `master-py3`
+          - [debian       ,   10   ,   master,      3]  # debi-10.0-master-py3
+          - [debian       ,    9   ,   master,      3]  # debi-09.0-master-py3
+          - [ubuntu       ,   20.04,   master,      3]  # ubun-20.0-master-py3
+          - [ubuntu       ,   18.04,   master,      3]  # ubun-18.0-master-py3
+          - [ubuntu       ,   16.04,   master,      3]  # ubun-16.0-master-py3
+          - [centos       ,    8   ,   master,      3]  # cent-08.0-master-py3
+          - [centos       ,    7   ,   master,      3]  # cent-07.0-master-py3
+          - [fedora       ,   33   ,   master,      3]  # fedo-33.0-master-py3
+          - [fedora       ,   32   ,   master,      3]  # fedo-32.0-master-py3
+          - [fedora       ,   31   ,   master,      3]  # fedo-31.0-master-py3
+          - [opensuse/leap,   15.2 ,   master,      3]  # opsu-15.2-master-py3
+          - [amazonlinux  ,    2   ,   master,      3]  # amaz-02.0-master-py3
+          - [oraclelinux  ,    8   ,   master,      3]  # orac-08.0-master-py3
+          # # Fails due to dependency issues, probably ignore permanently
+          # - [oraclelinux  ,    7   ,   master,      3]  # orac-07.0-master-py3
+          - [gentoo/stage3,  latest,   master,      3]  # gent-late-master-py3
+          - [gentoo/stage3, systemd,   master,      3]  # gent-sysd-master-py3
+
+          ### `3002.0-py3`
+          - [debian       ,   10   ,   3002.0,      3]  # debi-10.0-3002.0-py3
+          - [debian       ,    9   ,   3002.0,      3]  # debi-09.0-3002.0-py3
+          - [ubuntu       ,   20.04,   3002.0,      3]  # ubun-20.0-3002.0-py3
+          - [ubuntu       ,   18.04,   3002.0,      3]  # ubun-18.0-3002.0-py3
+          - [ubuntu       ,   16.04,   3002.0,      3]  # ubun-16.0-3002.0-py3
+          - [centos       ,    8   ,   3002.0,      3]  # cent-08.0-3002.0-py3
+          - [centos       ,    7   ,   3002.0,      3]  # cent-07.0-3002.0-py3
+          - [fedora       ,   33   ,   3002.0,      3]  # fedo-33.0-3002.0-py3
+          - [fedora       ,   32   ,   3002.0,      3]  # fedo-32.0-3002.0-py3
+          - [fedora       ,   31   ,   3002.0,      3]  # fedo-31.0-3002.0-py3
+          - [opensuse/leap,   15.2 ,   3002.0,      3]  # opsu-15.2-3002.0-py3
+          - [amazonlinux  ,    2   ,   3002.0,      3]  # amaz-02.0-3002.0-py3
+          - [oraclelinux  ,    8   ,   3002.0,      3]  # orac-08.0-3002.0-py3
+          - [oraclelinux  ,    7   ,   3002.0,      3]  # orac-07.0-3002.0-py3
+          - [arch-base    ,  latest,   3002.0,      3]  # arch-late-3002.0-py3
+          # # Not available at the current time
+          # - [gentoo/stage3,  latest,   3002.0,      3]  # gent-late-3002.0-py3
+          # - [gentoo/stage3, systemd,   3002.0,      3]  # gent-sysd-3002.0-py3
+
+          ### `3001.1-py3`
+          - [debian       ,   10   ,   3001.1,      3]  # debi-10.0-3001.1-py3
+          - [debian       ,    9   ,   3001.1,      3]  # debi-09.0-3001.1-py3
+          - [ubuntu       ,   20.04,   3001.1,      3]  # ubun-20.0-3001.1-py3
+          - [ubuntu       ,   18.04,   3001.1,      3]  # ubun-18.0-3001.1-py3
+          - [ubuntu       ,   16.04,   3001.1,      3]  # ubun-16.0-3001.1-py3
+          - [centos       ,    8   ,   3001.1,      3]  # cent-08.0-3001.1-py3
+          - [centos       ,    7   ,   3001.1,      3]  # cent-07.0-3001.1-py3
+          - [fedora       ,   33   ,   3001.1,      3]  # fedo-33.0-3001.1-py3
+          - [fedora       ,   32   ,   3001.1,      3]  # fedo-32.0-3001.1-py3
+          - [fedora       ,   31   ,   3001.1,      3]  # fedo-31.0-3001.1-py3
+          - [opensuse/leap,   15.2 ,   3001.1,      3]  # opsu-15.2-3001.1-py3
+          - [amazonlinux  ,    2   ,   3001.1,      3]  # amaz-02.0-3001.1-py3
+          - [oraclelinux  ,    8   ,   3001.1,      3]  # orac-08.0-3001.1-py3
+          - [oraclelinux  ,    7   ,   3001.1,      3]  # orac-07.0-3001.1-py3
+          - [arch-base    ,  latest,   3001.1,      3]  # arch-late-3001.1-py3
+          - [gentoo/stage3,  latest,   3001.1,      3]  # gent-late-3001.1-py3
+          - [gentoo/stage3, systemd,   3001.1,      3]  # gent-sysd-3001.1-py3
+
+          ### `3000.3-py3`
+          - [debian       ,   10   ,   3000.3,      3]  # debi-10.0-3000.3-py3
+          - [debian       ,    9   ,   3000.3,      3]  # debi-09.0-3000.3-py3
+          - [ubuntu       ,   18.04,   3000.3,      3]  # ubun-18.0-3000.3-py3
+          - [ubuntu       ,   16.04,   3000.3,      3]  # ubun-16.0-3000.3-py3
+          - [centos       ,    8   ,   3000.3,      3]  # cent-08.0-3000.3-py3
+          - [centos       ,    7   ,   3000.3,      3]  # cent-07.0-3000.3-py3
+          - [fedora       ,   31   ,   3000.3,      3]  # fedo-31.0-3000.3-py3
+          - [opensuse/leap,   15.2 ,   3000.3,      3]  # opsu-15.2-3000.3-py3
+          - [amazonlinux  ,    2   ,   3000.3,      3]  # amaz-02.0-3000.3-py3
+          - [oraclelinux  ,    8   ,   3000.3,      3]  # orac-08.0-3000.3-py3
+          - [oraclelinux  ,    7   ,   3000.3,      3]  # orac-07.0-3000.3-py3
+          - [gentoo/stage3,  latest,   3000.3,      3]  # gent-late-3000.3-py3
+          - [gentoo/stage3, systemd,   3000.3,      3]  # gent-sysd-3000.3-py3
+          ### ` 3000.3-py2`
+          - [ubuntu       ,   18.04,   3000.3,      2]  # ubun-18.0-3000.3-py2
+          - [ubuntu       ,   16.04,   3000.3,      2]  # ubun-16.0-3000.3-py2
+          - [centos       ,    6   ,   3000.3,      2]  # cent-06.0-3000.3-py2
+          - [amazonlinux  ,    1   ,   3000.3,      2]  # amaz-01.0-3000.3-py2
+          - [arch-base    ,  latest,   3000.3,      2]  # arch-late-3000.3-py2
+
         # Use this to start adopting the latest `platforms` (after Tiamat)
         platforms_new_inc_tiamat: &platforms_new_inc_tiamat
           ### `tiamat-py3`
@@ -163,6 +268,7 @@ ssf_node_anchors:
           - [ubuntu       ,   18.04,   3000.3,      2]
           - [ubuntu       ,   16.04,   3000.3,      2]
           - [arch-base    ,  latest,   3000.3,      2]
+
         # Use this to start adopting the latest `platforms`
         platforms_new: &platforms_new
           ### `master-py3`
@@ -203,6 +309,28 @@ ssf_node_anchors:
           - [centos       ,    6   ,   2019.2,      2]
           - [amazonlinux  ,    1   ,   2019.2,      2]
           - [arch-base    ,  latest,   2019.2,      2]
+
+        # Use this to start adopting the "unified" platforms based on `saltimages`.
+        # Based on `master` images primarily, until `tiamat` becomes viable
+        platforms_matrix_new_saltimages: &platforms_matrix_new_saltimages
+          # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
+          - [debian       ,   10   ,   master,      3,         default]
+          # - [debian       ,    9   ,   master,      3,         default]
+          - [ubuntu       ,   20.04,   master,      3,         default]
+          # - [ubuntu       ,   18.04,   master,      3,         default]
+          # - [ubuntu       ,   16.04,   master,      3,         default]
+          - [centos       ,    8   ,   master,      3,         default]
+          # - [centos       ,    7   ,   master,      3,         default]
+          - [fedora       ,   32   ,   master,      3,         default]
+          # - [fedora       ,   31   ,   master,      3,         default]
+          - [opensuse/leap,   15.2 ,   master,      3,         default]
+          - [amazonlinux  ,    2   ,   master,      3,         default]
+          # # - [oraclelinux  ,    8   ,   master,      3,         default]
+          # # - [oraclelinux  ,    7   ,   master,      3,         default]
+          # # - [gentoo/stage3,  latest,   master,      3,         default]
+          # # - [gentoo/stage3, systemd,   master,      3,         default]
+          - [arch-base    ,  latest,   3000.3,      2,         default]
+
         # Use this to start adopting the latest `platforms_matrix` (after Tiamat)
         # based on `tiamat` & `master` images primarily
         platforms_matrix_new_inc_tiamat: &platforms_matrix_new_inc_tiamat
@@ -221,6 +349,7 @@ ssf_node_anchors:
           # - [fedora       ,   31   ,   master,      3,         default]
           - [opensuse/leap,   15.2 ,   master,      3,         default]
           - [arch-base    ,  latest,   3000.3,      2,         default]
+
         # Use this to start adopting the latest `platforms_matrix`
         platforms_matrix_new: &platforms_matrix_new
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
@@ -233,6 +362,7 @@ ssf_node_anchors:
           - [amazonlinux  ,    2   ,   3000.3,      3,         default]
           # - [fedora       ,   31   ,   2019.2,      3,         default]
           - [arch-base    ,  latest,   2019.2,      2,         default]
+
         # Use this to start adopting the latest `platforms_matrix`
         # based on `master` images primarily
         # yamllint disable-line rule:line-length
@@ -3241,35 +3371,44 @@ ssf:
         inspec_suites_kitchen:
           0:
             inspec_yml:
+              depends: *depends_on_suite_share
               summary: >-
                 Verify that the openvpn formula is setup and configured correctly
-              supports:
-                - debian
-                - ubuntu
-                - centos
-                - fedora
-                - opensuse
-                - suse
-                - freebsd
-                - amazon
-                - arch
-                - windows
+              supports: *supports_all_including_oracle_gentoo_and_windows
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/default.sls'
               state_top:
                 - '*':
+                    - ._mapdata
                     - .config
+          1:
+            includes: *includes_NONE
+            inspec_yml:
+              summary: >-
+                shared resources
+              supports: *supports_all_including_oracle_gentoo_and_windows
+        platforms: *platforms_new_saltimages
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,   10   ,   master,      3,         default]
-          - [ubuntu       ,   18.04,   2019.2,      3,         default]
-          - [amazonlinux  ,    2   ,   2019.2,      3,         default]
-          # - [arch-base    ,  latest,   2019.2,      2,         default]
-          # - [fedora       ,   30   ,   2018.3,      3,         default]
-          - [centos       ,    7   ,   2018.3,      2,         default]
-          - [opensuse/leap,   15.1 ,   2018.3,      2,         default]
-          - [centos       ,    6   ,   2017.7,      2,         default]
+          # # - [debian       ,    9   ,   master,      3,         default]
+          - [ubuntu       ,   20.04,   master,      3,         default]
+          # - [ubuntu       ,   18.04,   master,      3,         default]
+          # # - [ubuntu       ,   16.04,   master,      3,         default]
+          # # - [centos       ,    8   ,   master,      3,         default]
+          - [centos       ,    7   ,   master,      3,         default]
+          # # - [fedora       ,   33   ,   master,      3,         default]
+          # # - [fedora       ,   32   ,   master,      3,         default]
+          # # - [fedora       ,   31   ,   master,      3,         default]
+          - [opensuse/leap,   15.2 ,   master,      3,         default]
+          - [amazonlinux  ,    2   ,   master,      3,         default]
+          # # - [oraclelinux  ,    8   ,   master,      3,         default]
+          # # - [gentoo/stage3,  latest,   master,      3,         default]
+          # # - [gentoo/stage3, systemd,   master,      3,         default]
+          - [oraclelinux  ,    7   ,   3002.0,      3,         default]
+          # # - [arch-base    ,  latest,   3002.0,      3,         default]
+          # # - [arch-base    ,  latest,   3000.3,      2,         default]
         yamllint:
           ignore:
             additional:

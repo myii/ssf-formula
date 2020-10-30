@@ -58,8 +58,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "chore(gemfile+lock): update to latest gem versions (2020-W44) [skip ci]"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/274'
+            title: "test(map): verify '`'map.jinja'`' dump using '`'_mapdata'`' state"
+            body: '* Semi-automated using https://github.com/myii/ssf-formula/pull/271'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
@@ -306,6 +306,7 @@ ssf:
     - [centos       ,    8   ,   tiamat,      3]  # cent-08.0-tiamat-py3
     - [centos       ,    7   ,   tiamat,      3]  # cent-07.0-tiamat-py3
     # # Not available at the current time
+    # - [fedora       ,   33   ,   tiamat,      3]  # fedo-33.0-tiamat-py3
     # - [fedora       ,   32   ,   tiamat,      3]  # fedo-32.0-tiamat-py3
     # - [fedora       ,   31   ,   tiamat,      3]  # fedo-31.0-tiamat-py3
     # - [opensuse/leap,   15.2 ,   tiamat,      3]  # opsu-15.2-tiamat-py3
@@ -315,37 +316,67 @@ ssf:
 
     ### `master-py3`
     - [debian       ,   10   ,   master,      3]  # debi-10.0-master-py3
+    - [debian       ,    9   ,   master,      3]  # debi-09.0-master-py3
     - [ubuntu       ,   20.04,   master,      3]  # ubun-20.0-master-py3
     - [ubuntu       ,   18.04,   master,      3]  # ubun-18.0-master-py3
+    - [ubuntu       ,   16.04,   master,      3]  # ubun-16.0-master-py3
     - [centos       ,    8   ,   master,      3]  # cent-08.0-master-py3
+    - [centos       ,    7   ,   master,      3]  # cent-07.0-master-py3
+    - [fedora       ,   33   ,   master,      3]  # fedo-33.0-master-py3
     - [fedora       ,   32   ,   master,      3]  # fedo-32.0-master-py3
     - [fedora       ,   31   ,   master,      3]  # fedo-31.0-master-py3
     - [opensuse/leap,   15.2 ,   master,      3]  # opsu-15.2-master-py3
     - [amazonlinux  ,    2   ,   master,      3]  # amaz-02.0-master-py3
     - [oraclelinux  ,    8   ,   master,      3]  # orac-08.0-master-py3
+    # # Fails due to dependency issues, probably ignore permanently
+    # - [oraclelinux  ,    7   ,   master,      3]  # orac-07.0-master-py3
     - [gentoo/stage3,  latest,   master,      3]  # gent-late-master-py3
     - [gentoo/stage3, systemd,   master,      3]  # gent-sysd-master-py3
 
-    ### `3001-py3`
-    - [debian       ,   10   ,   3001  ,      3]  # debi-10.0-3001.0-py3
-    - [debian       ,    9   ,   3001  ,      3]  # debi-09.0-3001.0-py3
-    - [ubuntu       ,   20.04,   3001  ,      3]  # ubun-20.0-3001.0-py3
-    - [ubuntu       ,   18.04,   3001  ,      3]  # ubun-18.0-3001.0-py3
-    - [centos       ,    8   ,   3001  ,      3]  # cent-08.0-3001.0-py3
-    - [centos       ,    7   ,   3001  ,      3]  # cent-07.0-3001.0-py3
-    - [fedora       ,   32   ,   3001  ,      3]  # fedo-31.0-3001.0-py3
-    - [fedora       ,   31   ,   3001  ,      3]  # fedo-31.0-3001.0-py3
-    - [opensuse/leap,   15.2 ,   3001  ,      3]  # opsu-15.2-3001.0-py3
-    - [amazonlinux  ,    2   ,   3001  ,      3]  # amaz-02.0-3001.0-py3
-    - [oraclelinux  ,    8   ,   3001  ,      3]  # orac-08.0-3001.0-py3
-    - [oraclelinux  ,    7   ,   3001  ,      3]  # orac-07.0-3001.0-py3
-    - [gentoo/stage3,  latest,   3001  ,      3]  # gent-late-3001.0-py3
-    - [gentoo/stage3, systemd,   3001  ,      3]  # gent-sysd-3001.0-py3
+    ### `3002.0-py3`
+    - [debian       ,   10   ,   3002.0,      3]  # debi-10.0-3002.0-py3
+    - [debian       ,    9   ,   3002.0,      3]  # debi-09.0-3002.0-py3
+    - [ubuntu       ,   20.04,   3002.0,      3]  # ubun-20.0-3002.0-py3
+    - [ubuntu       ,   18.04,   3002.0,      3]  # ubun-18.0-3002.0-py3
+    - [ubuntu       ,   16.04,   3002.0,      3]  # ubun-16.0-3002.0-py3
+    - [centos       ,    8   ,   3002.0,      3]  # cent-08.0-3002.0-py3
+    - [centos       ,    7   ,   3002.0,      3]  # cent-07.0-3002.0-py3
+    - [fedora       ,   33   ,   3002.0,      3]  # fedo-33.0-3002.0-py3
+    - [fedora       ,   32   ,   3002.0,      3]  # fedo-32.0-3002.0-py3
+    - [fedora       ,   31   ,   3002.0,      3]  # fedo-31.0-3002.0-py3
+    - [opensuse/leap,   15.2 ,   3002.0,      3]  # opsu-15.2-3002.0-py3
+    - [amazonlinux  ,    2   ,   3002.0,      3]  # amaz-02.0-3002.0-py3
+    - [oraclelinux  ,    8   ,   3002.0,      3]  # orac-08.0-3002.0-py3
+    - [oraclelinux  ,    7   ,   3002.0,      3]  # orac-07.0-3002.0-py3
+    - [arch-base    ,  latest,   3002.0,      3]  # arch-late-3002.0-py3
+    # # Not available at the current time
+    # - [gentoo/stage3,  latest,   3002.0,      3]  # gent-late-3002.0-py3
+    # - [gentoo/stage3, systemd,   3002.0,      3]  # gent-sysd-3002.0-py3
+
+    ### `3001.1-py3`
+    - [debian       ,   10   ,   3001.1,      3]  # debi-10.0-3001.1-py3
+    - [debian       ,    9   ,   3001.1,      3]  # debi-09.0-3001.1-py3
+    - [ubuntu       ,   20.04,   3001.1,      3]  # ubun-20.0-3001.1-py3
+    - [ubuntu       ,   18.04,   3001.1,      3]  # ubun-18.0-3001.1-py3
+    - [ubuntu       ,   16.04,   3001.1,      3]  # ubun-16.0-3001.1-py3
+    - [centos       ,    8   ,   3001.1,      3]  # cent-08.0-3001.1-py3
+    - [centos       ,    7   ,   3001.1,      3]  # cent-07.0-3001.1-py3
+    - [fedora       ,   33   ,   3001.1,      3]  # fedo-33.0-3001.1-py3
+    - [fedora       ,   32   ,   3001.1,      3]  # fedo-32.0-3001.1-py3
+    - [fedora       ,   31   ,   3001.1,      3]  # fedo-31.0-3001.1-py3
+    - [opensuse/leap,   15.2 ,   3001.1,      3]  # opsu-15.2-3001.1-py3
+    - [amazonlinux  ,    2   ,   3001.1,      3]  # amaz-02.0-3001.1-py3
+    - [oraclelinux  ,    8   ,   3001.1,      3]  # orac-08.0-3001.1-py3
+    - [oraclelinux  ,    7   ,   3001.1,      3]  # orac-07.0-3001.1-py3
+    - [arch-base    ,  latest,   3001.1,      3]  # arch-late-3001.1-py3
+    - [gentoo/stage3,  latest,   3001.1,      3]  # gent-late-3001.1-py3
+    - [gentoo/stage3, systemd,   3001.1,      3]  # gent-sysd-3001.1-py3
 
     ### `3000.3-py3`
     - [debian       ,   10   ,   3000.3,      3]  # debi-10.0-3000.3-py3
     - [debian       ,    9   ,   3000.3,      3]  # debi-09.0-3000.3-py3
     - [ubuntu       ,   18.04,   3000.3,      3]  # ubun-18.0-3000.3-py3
+    - [ubuntu       ,   16.04,   3000.3,      3]  # ubun-16.0-3000.3-py3
     - [centos       ,    8   ,   3000.3,      3]  # cent-08.0-3000.3-py3
     - [centos       ,    7   ,   3000.3,      3]  # cent-07.0-3000.3-py3
     - [fedora       ,   31   ,   3000.3,      3]  # fedo-31.0-3000.3-py3
@@ -358,6 +389,8 @@ ssf:
     ### ` 3000.3-py2`
     - [ubuntu       ,   18.04,   3000.3,      2]  # ubun-18.0-3000.3-py2
     - [ubuntu       ,   16.04,   3000.3,      2]  # ubun-16.0-3000.3-py2
+    - [centos       ,    6   ,   3000.3,      2]  # cent-06.0-3000.3-py2
+    - [amazonlinux  ,    1   ,   3000.3,      2]  # amaz-01.0-3000.3-py2
     - [arch-base    ,  latest,   3000.3,      2]  # arch-late-3000.3-py2
 
     ### Deprecated, no longer being built but still available in Docker Hub
@@ -755,7 +788,15 @@ ssf:
           1:
             <<: *isk_suite_default
             name: 'share'
-    openvpn: *formula_default
+    openvpn:
+      <<: *formula_default
+      context:
+        <<: *context_default
+        inspec_suites_kitchen:
+          <<: *isk_default
+          1:
+            <<: *isk_suite_default
+            name: 'share'
     packages:
       <<: *formula_default
       context:
