@@ -2,6 +2,17 @@
 Changelog
 =========
 
+`1.226.0 <https://github.com/myii/ssf-formula/compare/v1.225.0...v1.226.0>`_ (2020-10-30)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **formulas:** prepare YAML node anchors for ``saltimages`` platforms (\ `db7ee04 <https://github.com/myii/ssf-formula/commit/db7ee041e44abec8f817acd1630ae2561b7c99cc>`_\ )
+* **openvpn:** verify ``map.jinja`` using InSpec (\ `420d166 <https://github.com/myii/ssf-formula/commit/420d1661deec1ace2298e8a508f9ea677b2f4333>`_\ )
+* **saltimages:** update with latest changes from ``salt-image-builder`` (\ `c73074c <https://github.com/myii/ssf-formula/commit/c73074c760d3c7829188c559d021cd60eb37bbf5>`_\ )
+
 `1.225.0 <https://github.com/myii/ssf-formula/compare/v1.224.0...v1.225.0>`_ (2020-10-27)
 ---------------------------------------------------------------------------------------------
 
