@@ -697,6 +697,9 @@ ssf_node_anchors:
         .cirrus.yml: &file__--cirrus--yml
           <<: *file_default
           template: 'jinja'
+        .gitlab-ci.yml: &file__--gitlab-ci--yml
+          <<: *file_default
+          template: 'jinja'
         .pre-commit-config.yaml: &file__--pre-commit-config--yaml
           <<: *file_default
           template: 'jinja'
@@ -4393,6 +4396,8 @@ ssf:
           github:
             owner: 'myii'
             repo: 'ssf-formula'
+          gitlab:
+            owner: 'myii'
         inspec_suites_kitchen:
           0:
             inspec_yml:
@@ -4410,6 +4415,7 @@ ssf:
           ignore:
             additional:
               - ssf/files/default/.cirrus.yml
+              - ssf/files/default/.gitlab-ci.yml
               - ssf/files/default/.pre-commit-config.yaml
               - ssf/files/default/.rubocop.yml
               - ssf/files/default/.salt-lint
@@ -4431,6 +4437,7 @@ ssf:
         docs/TOFS_pattern.rst: *file__docs__TOFS_pattern--rst
         formula/libtofs.jinja: *file__formula__libtofs--jinja
         .gitignore: *file__--gitignore
+        .gitlab-ci.yml: *file__--gitlab-ci--yml
         .pre-commit-config.yaml: *file__--pre-commit-config--yaml
         .rstcheck.cfg: *file__--rstcheck--cfg
         .rubocop.yml: *file__--rubocop--yml

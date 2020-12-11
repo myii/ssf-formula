@@ -184,6 +184,7 @@ ssf:
       - inspec/README.md
       - .gitignore
       - .cirrus.yml
+      - .gitlab-ci.yml
       - .pre-commit-config.yaml
       - .rstcheck.cfg
       - .rubocop.yml

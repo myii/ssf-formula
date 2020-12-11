@@ -134,6 +134,7 @@ prepare-git-branch-for-{{ formula }}:
         owner: {{ owner }}
         formula: {{ formula }}
         codeowners: {{ context.codeowners | yaml }}
+        gitlab: {{ context.git.gitlab | yaml }}
         inspec_suites_kitchen: {{ inspec_suites_kitchen | yaml }}
         inspec_suites_matrix: {{ context.inspec_suites_matrix | yaml }}
         kitchen: {{ context.kitchen | yaml }}
