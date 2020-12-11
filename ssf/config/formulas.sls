@@ -101,10 +101,12 @@ prepare-git-branch-for-{{ formula }}:
 {#-           Or if the file is `libsaltcli.jinja` and `use_libsaltcli` is `False` #}
 {#-           Likewise, if running the state for TOFS files when `use_tofs` is `False` #}
 {#-           Also remove the local `CONTRIBUTING` file to use the org-level file instead #}
+{#-           Furthermore, remove `.travis.yml` for the `ssf-formula` #}
 {%-           if (semrel_file == '.cirrus.yml' and not use_cirrus_ci) or
                  (semrel_file == 'formula/libsaltcli.jinja' and not use_libsaltcli) or
                  (semrel_file in ['docs/TOFS_pattern.rst', 'formula/libtofs.jinja'] and not use_tofs) or
-                 (semrel_file in ['docs/CONTRIBUTING.rst'] and formula not in ['.github', 'ssf-formula'])
+                 (semrel_file in ['docs/CONTRIBUTING.rst'] and formula not in ['.github', 'ssf-formula']) or
+                 (semrel_file in ['.travis.yml'] and formula in ['ssf-formula'])
 %}
 {%-             set add_or_rm = ['rm', 'remove', 'absent'] %}
 {%-           endif %}
