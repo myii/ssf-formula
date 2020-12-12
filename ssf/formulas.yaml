@@ -736,6 +736,7 @@ ssf_node_anchors:
           <<: *file_default
         release.config.js: &file__release--config--js
           <<: *file_default
+          template: 'jinja'
 
 ssf:
   semrel_formulas:

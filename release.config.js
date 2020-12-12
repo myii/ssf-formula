@@ -1,5 +1,6 @@
 module.exports = {
   branch: 'master',
+  repositoryUrl: 'https://github.com/myii/ssf-formula',
   plugins: [
       ['@semantic-release/commit-analyzer', {
         preset: 'angular',
