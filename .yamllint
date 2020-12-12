@@ -11,6 +11,7 @@ extends: 'default'
 # 4. All Jinja templates under `ssf/files/` (result in `yamllint` syntax errors)
 #    Not disabling via. `*.yml` since we may end up with non-Jinja YAML files here
 ignore: |
+  .cache/
   node_modules/
   test/**/states/**/*.sls
   .kitchen/

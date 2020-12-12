@@ -227,6 +227,7 @@ ssf_node_anchors:
           extends: 'default'
           ignore:
             default:
+              - '.cache/'
               - 'node_modules/'
             additional_ssf:
               - 'test/**/states/**/*.sls'
