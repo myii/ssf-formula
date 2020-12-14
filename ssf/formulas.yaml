@@ -3305,7 +3305,7 @@ ssf:
           #   ... and PID file is not owned by root. Refusing.
           # # - [centos       ,    7   ,   2019.2,      3,         default]
           # - [fedora       ,   31   ,   2019.2,      3,         default]
-          - [centos       ,    6   ,   2019.2,      2,         default]
+          # # - [centos       ,    6   ,   2019.2,      2,         default]
           # Not configured at all for `arch-base`
           # https://wiki.archlinux.org/index.php/OpenLDAP
           # # - [arch-base    ,  latest,   2019.2,      2,         default]
