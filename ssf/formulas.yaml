@@ -1079,8 +1079,10 @@ ssf:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
           - [ubuntu       ,   18.04,   master,      3,       workbench]
           - [debian       ,   10   ,   3001  ,      3,             api]
-          - [debian       ,   10   ,   3001  ,      3,           shell]
-          - [ubuntu       ,   18.04,   3000.3,      2,       keepstore]
+          # - [debian       ,   10   ,   3001  ,      3,           shell]
+          - [centos       ,    7   ,   3001  ,      3,           shell]
+          # - [ubuntu       ,   18.04,   3000.3,      2,       keepstore]
+          - [centos       ,    7   ,   3000.3,      3,       keepstore]
         use_tofs: true
         yamllint:
           ignore:
