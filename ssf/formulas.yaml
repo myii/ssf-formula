@@ -653,7 +653,7 @@ ssf_node_anchors:
         platforms_matrix_jetbrains: &platforms_matrix_jetbrains
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,   10   ,   master,      3,         default]
-          - [centos       ,    8   ,   master,      3,         default]
+          # # - [centos       ,    8   ,   master,      3,         default]
           - [fedora       ,   32   ,   master,      3,         default]
           - [opensuse/leap,   15.2 ,   master,      3,         default]
           - [arch-base    ,  latest,   2019.2,      2,            arch]
