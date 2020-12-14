@@ -4101,7 +4101,7 @@ ssf:
           # # - [amazonlinux  ,    2   ,   master,      3,         default]
           - [centos       ,    7   ,   3000.3,      3,         default]
           - [arch-base    ,  latest,   3000.3,      2,         default]
-          - [centos       ,    6   ,   2019.2,      2,         default]
+          # # - [centos       ,    6   ,   2019.2,      2,         default]
         yamllint:
           ignore:
             additional:
