@@ -1510,7 +1510,7 @@ ssf:
           # - [fedora       ,   30   ,   2018.3,      3,         default]
           - [centos       ,    7   ,   2018.3,      2,         default]
           - [opensuse/leap,   15.1 ,   2018.3,      2,         default]
-          - [centos       ,    6   ,   2017.7,      2,         default]
+          # # - [centos       ,    6   ,   2017.7,      2,         default]
       semrel_files: *semrel_files_default
     firewalld:
       context:
