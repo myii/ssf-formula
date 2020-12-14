@@ -114,6 +114,9 @@ pre-commit:
   variables: *variables_bundler
   cache: *cache_bundler
   before_script:
+    {%- if semrel_formula == 'keepalived' %}
+    - 'apk --no-cache add ipvsadm'
+    {%- endif %}
     # TODO: This should work from the env vars above automatically
     - 'bundle config set path "${BUNDLE_CACHE_PATH}"'
     - 'bundle config set without "${BUNDLE_WITHOUT}"'
