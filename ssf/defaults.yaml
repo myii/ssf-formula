@@ -191,7 +191,7 @@ ssf_node_anchors:
           - [amazonlinux  ,    2   ,   2019.2,      3,         default]
           - [fedora       ,   30   ,   2018.3,      3,         default]
           - [arch-base    ,  latest,   2018.3,      2,         default]
-          - [centos       ,    6   ,   2017.7,      2,         default]
+          # # - [centos       ,    6   ,   2017.7,      2,         default]
         # To deal with excessive instances when mimicking `kitchen list -b`
         # If values are set, only use these as commented entries in the matrix
         platforms_matrix_commented_includes: []
