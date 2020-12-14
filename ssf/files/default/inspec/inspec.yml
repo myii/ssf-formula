@@ -7,7 +7,8 @@ maintainer: SaltStack Formulas
 license: Apache-2.0
 {%- set summary_heading = 'summary: ' %}
 {%- set summary_chars = summary_heading | length + suite.inspec_yml.summary | length %}
-{%- if summary_chars > yamllint.rules.get('line-length').max %}
+{%- if (summary_chars > yamllint.rules.get('line-length').max) or
+       ([semrel_formula, suite.name] == ['TEMPLATE', 'default'])  %}
 # yamllint disable-line rule:line-length
 {%- endif %}
 {{ summary_heading }}{{ suite.inspec_yml.summary }}
