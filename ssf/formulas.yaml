@@ -1245,14 +1245,14 @@ ssf:
           # # - [ubuntu       ,   20.04,   master,      3,         default]
           # # - [ubuntu       ,   18.04,   master,      3,         default]
           # # - [centos       ,    8   ,   master,      3,         default]
-          - [fedora       ,   32   ,   master,      3,         default]
+          # # - [fedora       ,   32   ,   master,      3,         default]
           # # `make install` fails
           # # - [opensuse/leap,   15.2 ,   master,      3,         default]
           # # - [debian       ,    9   ,   3000.3,      3,         default]
           - [ubuntu       ,   18.04,   3000.3,      3,         default]
-          - [centos       ,    7   ,   3000.3,      3,         default]
+          # # - [centos       ,    7   ,   3000.3,      3,         default]
           - [opensuse/leap,   15.2 ,   3000.3,      3,         default]
-          - [fedora       ,   31   ,   2019.2,      3,         default]
+          # # - [fedora       ,   31   ,   2019.2,      3,         default]
         use_tofs: true
       semrel_files: *semrel_files_default
     devstack:
