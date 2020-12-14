@@ -4766,8 +4766,8 @@ ssf:
           - [fedora       ,   31   ,   master,      3,         default]
           - [ubuntu       ,   18.04,   2019.2,      3,         default]
           - [centos       ,    7   ,   2019.2,      2,         default]
-          - [debian       ,    9   ,   2018.3,      2,         default]
-          - [ubuntu       ,   16.04,   2018.3,      2,         default]
+          # # - [debian       ,    9   ,   2018.3,      2,         default]
+          # # - [ubuntu       ,   16.04,   2018.3,      2,         default]
         use_tofs: true
       semrel_files: *semrel_files_default
     template:
