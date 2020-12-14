@@ -4020,7 +4020,7 @@ ssf:
           - [centos       ,    8   ,   2019.2,      3,          redhat]
           - [fedora       ,   30   ,   2018.3,      3,          redhat]
           - [opensuse/leap,   15.1 ,   2018.3,      2,            suse]
-          - [centos       ,    6   ,   2017.7,      2,          redhat]
+          # # - [centos       ,    6   ,   2017.7,      2,          redhat]
         travis: *travis_do_not_use_single_job_for_linters
         use_tofs: true
       semrel_files: *semrel_files_default
