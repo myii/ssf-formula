@@ -2983,7 +2983,7 @@ ssf:
           - [debian       ,   10   ,   master,      3,         default]
           # Not yet working with `20.04`
           - [ubuntu       ,   18.04,   master,      3,         default]
-          - [centos       ,    8   ,   master,      3,         default]
+          # # - [centos       ,    8   ,   master,      3,         default]
           # Not yet working with `32`
           - [fedora       ,   31   ,   master,      3,         default]
           # - [opensuse/leap,   15.1 ,   master,      3,         default]
