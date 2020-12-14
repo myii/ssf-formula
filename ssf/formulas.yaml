@@ -640,7 +640,7 @@ ssf_node_anchors:
           - [amazonlinux  ,    2   ,   2019.2,      3,         default]
           - [fedora       ,   30   ,   2018.3,      3,         default]
           # - [arch-base    ,  latest,   2018.3,      2,         default]
-          - [centos       ,    6   ,   2017.7,      2,         default]
+          # # - [centos       ,    6   ,   2017.7,      2,         default]
         platforms_matrix_without_arch_new: &platforms_matrix_without_arch_new
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,   10   ,   master,      3,         default]
