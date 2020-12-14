@@ -1323,7 +1323,7 @@ ssf:
           - [amazonlinux  ,    2   ,   3000.3,      3,         default]
           # Was working but file comparison now tripping up on spaces on empty lines
           # - [centos       ,    7   ,   2019.2,      3,         default]
-          - [centos       ,    6   ,   2019.2,      2,         default]
+          # # - [centos       ,    6   ,   2019.2,      2,         default]
           # - [arch-base    ,  latest,   2019.2,      2,         default]
       semrel_files: *semrel_files_default
     django:
