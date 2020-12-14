@@ -4168,7 +4168,7 @@ ssf:
               - [ubuntu       ,   18.04,   3000.3,      3]
               - [centos       ,    8   ,   3000.3,      3]
               - [centos       ,    7   ,   3000.3,      3]
-              - [fedora       ,   31   ,   3000.3,      3]
+              # # - [fedora       ,   31   ,   3000.3,      3]
               - [opensuse/leap,   15.2 ,   3000.3,      3]
               - [amazonlinux  ,    2   ,   3000.3,      3]
               - [oraclelinux  ,    8   ,   3000.3,      3]
@@ -4206,55 +4206,10 @@ ssf:
                 - .sls: 'test/salt/pillar/salt.sls'
                 - v3000-py2.sls: 'test/salt/pillar/v3000-py2.sls'
               state_top: *state_top_salt
-          3:
-            includes:
-              # [os           , os_ver, salt_ver, py_ver]
-              - [debian       ,   10   ,   2019.2,      3]
-              - [debian       ,    9   ,   2019.2,      3]
-              - [ubuntu       ,   18.04,   2019.2,      3]
-              - [ubuntu       ,   16.04,   2019.2,      3]
-              - [centos       ,    8   ,   2019.2,      3]
-              - [centos       ,    7   ,   2019.2,      3]
-              - [fedora       ,   31   ,   2019.2,      3]
-              - [opensuse/leap,   15.2 ,   2019.2,      3]
-              - [amazonlinux  ,    2   ,   2019.2,      3]
-            inspec_yml:
-              summary: >-
-                Verify that Salt `v201902-py3` is setup and configured
-              supports: *supports_all_including_oracle_and_gentoo
-            provisioner:
-              pillars:
-                - '*':
-                    - .
-                    - v201902-py3
-              pillars_from_files:
-                - .sls: 'test/salt/pillar/salt.sls'
-                - v201902-py3.sls: 'test/salt/pillar/v201902-py3.sls'
-              state_top: *state_top_salt
-          4:
-            includes:
-              # [os           , os_ver, salt_ver, py_ver]
-              - [centos       ,    6   ,   2019.2,      2]
-              - [amazonlinux  ,    1   ,   2019.2,      2]
-            inspec_yml:
-              summary: >-
-                Verify that Salt `v201902-py2` is setup and configured
-              supports: *supports_all_including_oracle_and_gentoo
-            provisioner:
-              pillars:
-                - '*':
-                    - .
-                    - v201902-py2
-              pillars_from_files:
-                - .sls: 'test/salt/pillar/salt.sls'
-                - v201902-py2.sls: 'test/salt/pillar/v201902-py2.sls'
-              state_top: *state_top_salt
         inspec_suites_matrix:
           - v3001-py3
           - v3000-py3
           - v3000-py2
-          - v201902-py3
-          - v201902-py2
         platforms:
           # [os           , os_ver, salt_ver, py_ver]
           - [debian       ,   10   ,   3001  ,      3]
@@ -4276,7 +4231,7 @@ ssf:
           - [ubuntu       ,   18.04,   3000.3,      3]
           - [centos       ,    8   ,   3000.3,      3]
           - [centos       ,    7   ,   3000.3,      3]
-          - [fedora       ,   31   ,   3000.3,      3]
+          # # - [fedora       ,   31   ,   3000.3,      3]
           - [opensuse/leap,   15.2 ,   3000.3,      3]
           - [amazonlinux  ,    2   ,   3000.3,      3]
           - [oraclelinux  ,    8   ,   3000.3,      3]
@@ -4318,26 +4273,13 @@ ssf:
           # - [ubuntu       ,   18.04,   3000.3,      3,       v3000-py3]
           # - [centos       ,    8   ,   3000.3,      3,       v3000-py3]
           # - [centos       ,    7   ,   3000.3,      3,       v3000-py3]
-          - [fedora       ,   31   ,   3000.3,      3,       v3000-py3]
+          # # - [fedora       ,   31   ,   3000.3,      3,       v3000-py3]
           - [opensuse/leap,   15.2 ,   3000.3,      3,       v3000-py3]
           - [amazonlinux  ,    2   ,   3000.3,      3,       v3000-py3]
           # - [oraclelinux  ,    8   ,   3000.3,      3,       v3000-py3]
           - [oraclelinux  ,    7   ,   3000.3,      3,       v3000-py3]
           - [ubuntu       ,   18.04,   3000.3,      2,       v3000-py2]
           # - [ubuntu       ,   16.04,   3000.3,      2,       v3000-py2]
-          # - [debian       ,   10   ,   2019.2,      3,     v201902-py3]
-          - [debian       ,    9   ,   2019.2,      3,     v201902-py3]
-          # - [ubuntu       ,   18.04,   2019.2,      3,     v201902-py3]
-          - [ubuntu       ,   16.04,   2019.2,      3,     v201902-py3]
-          # - [centos       ,    8   ,   2019.2,      3,     v201902-py3]
-          - [centos       ,    7   ,   2019.2,      3,     v201902-py3]
-          # # Installs `3000.3`
-          # # - [fedora       ,   31   ,   2019.2,      3,     v201902-py3]
-          # - [opensuse/leap,   15.2 ,   2019.2,      3,     v201902-py3]
-          # - [amazonlinux  ,    2   ,   2019.2,      3,     v201902-py3]
-          - [centos       ,    6   ,   2019.2,      2,   v201902-py2]
-          # # States don't complete
-          # # - [amazonlinux  ,    1   ,   2019.2,      2,   v201902-py2]
         use_tofs: true
         yamllint:
           ignore:
