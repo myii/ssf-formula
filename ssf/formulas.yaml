@@ -4631,7 +4631,7 @@ ssf:
           - [centos       ,    8   ,   3001  ,      3,         default]
           - [ubuntu       ,   18.04,   3000.3,      3,         default]
           - [ubuntu       ,   16.04,   3000.3,      2,         default]
-          - [centos       ,    7   ,   2019.2,      3,         default]
+          # # - [centos       ,    7   ,   2019.2,      3,         default]
         yamllint:
           ignore:
             additional:
