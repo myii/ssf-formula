@@ -1458,8 +1458,8 @@ ssf:
           - [amazonlinux  ,    2   ,   2019.2,      3,         default]
           - [centos       ,    7   ,   2019.2,      2,         default]
           # - [fedora       ,   30   ,   2018.3,      3,         default]
-          - [amazonlinux  ,    1   ,   2018.3,      2,         default]
-          - [centos       ,    6   ,   2017.7,      2,         default]
+          # # - [amazonlinux  ,    1   ,   2018.3,      2,         default]
+          # # - [centos       ,    6   ,   2017.7,      2,         default]
       semrel_files: *semrel_files_default
     exim:
       context:
