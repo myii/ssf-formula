@@ -4900,7 +4900,7 @@ ssf:
           - [gentoo/stage3,  latest,   master,      3,          gentoo]
           - [gentoo/stage3, systemd,   master,      3,          gentoo]
           - [arch-base    ,  latest,   3000.3,      2,         default]
-          - [centos       ,    6   ,   2019.2,      2,         upstart]
+          # # - [centos       ,    6   ,   2019.2,      2,         upstart]
           - [amazonlinux  ,    1   ,   2019.2,      2,         upstart]
         use_libsaltcli: true
         use_tofs: true
