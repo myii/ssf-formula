@@ -1419,10 +1419,10 @@ ssf:
         platforms: *platforms_new
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
-          - [debian       ,   10   ,   master,      3,            java]
-          - [centos       ,    8   ,   master,      3,            java]
-          - [fedora       ,   32   ,   master,      3,      javascript]
-          - [opensuse/leap,   15.2 ,   master,      3,             cpp]
+          # # - [debian       ,   10   ,   master,      3,            java]
+          # # - [centos       ,    8   ,   master,      3,            java]
+          # # - [fedora       ,   32   ,   master,      3,      javascript]
+          # # - [opensuse/leap,   15.2 ,   master,      3,             cpp]
           # - [ubuntu       ,   18.04,   3000.3,      3,             cpp]
           - [arch-base    ,  latest,   2019.2,      2,            java]
         # To deal with excessive instances when mimicking `kitchen list -b`
