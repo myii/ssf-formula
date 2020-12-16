@@ -507,7 +507,21 @@ ssf:
             name: 'ubuntu'
     dhcpd: *formula_default
     django: *formula_default
-    docker: *formula_default
+    docker:
+      <<: *formula_default
+      context:
+        <<: *context_default
+        inspec_suites_kitchen:
+          <<: *isk_default
+          0:
+            <<: *isk_suite_default
+            name: 'archive'
+          1:
+            <<: *isk_suite_default
+            name: 'package'
+          2:
+            <<: *isk_suite_default
+            name: 'clean'
     eclipse:
       <<: *formula_default
       context:
