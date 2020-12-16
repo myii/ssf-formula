@@ -1077,8 +1077,8 @@ ssf:
           # # - [arch-base    ,  latest,   3000.3,      2]
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
-          - [ubuntu       ,   18.04,   master,      3,       workbench]
-          - [debian       ,   10   ,   3001  ,      3,             api]
+          # # - [ubuntu       ,   18.04,   master,      3,       workbench]
+          # # - [debian       ,   10   ,   3001  ,      3,             api]
           # - [debian       ,   10   ,   3001  ,      3,           shell]
           - [centos       ,    7   ,   3001  ,      3,           shell]
           # - [ubuntu       ,   18.04,   3000.3,      2,       keepstore]
