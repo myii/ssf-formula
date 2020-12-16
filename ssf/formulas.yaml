@@ -2776,18 +2776,19 @@ ssf:
         inspec_suites_matrix:
           - loop4-loop5
           - loop5-loop6
-        platforms_matrix:
-          # Note, the commented lines are the only ones that didn't work
-          # Everything else working, even if lines have been removed
-          # Keeping hold of this "working out" for future reference
-          # One `#` where working but not using, two `# #` for not working at all
-          # Update: the lines the have been modified due to `2019.2.2` can no longer
-          #         be guaranteed (i.e. working or not)
-          # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
-          - [ubuntu       ,   18.04,   master,      3,     loop5-loop6]
-          - [centos       ,    8   ,   master,      3,     loop5-loop6]
-          - [amazonlinux  ,    2   ,   2019.2,      3,     loop5-loop6]
-          - [opensuse/leap,   15.1 ,   2018.3,      2,     loop5-loop6]
+        # Linux testing not working on GitLab CI yet, last matrix shown below
+        platforms_matrix: []
+        # # # Note, the commented lines are the only ones that didn't work
+        # # # Everything else working, even if lines have been removed
+        # # # Keeping hold of this "working out" for future reference
+        # # # One `#` where working but not using, two `# #` for not working at all
+        # # # Update: the lines the have been modified due to `2019.2.2` can no longer
+        # # #         be guaranteed (i.e. working or not)
+        # # # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
+        # # - [ubuntu       ,   18.04,   master,      3,     loop5-loop6]
+        # # - [centos       ,    8   ,   master,      3,     loop5-loop6]
+        # # - [amazonlinux  ,    2   ,   2019.2,      3,     loop5-loop6]
+        # # - [opensuse/leap,   15.1 ,   2018.3,      2,     loop5-loop6]
         # To deal with excessive instances when mimicking `kitchen list -b`
         # If values are set, only use these as commented entries in the matrix
         platforms_matrix_commented_includes:
