@@ -1664,7 +1664,9 @@ ssf:
               state_top:
                 - '*':
                     - .icinga-web2
-        platforms_matrix: *platforms_matrix_osfamily_debian
+        # Linux testing not working on GitLab CI yet, last matrix shown below
+        platforms_matrix: []
+        # platforms_matrix: *platforms_matrix_osfamily_debian
         yamllint:
           ignore:
             additional:
