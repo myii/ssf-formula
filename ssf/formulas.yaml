@@ -1840,14 +1840,15 @@ ssf:
           - redhat
           - arch
         platforms: *platforms_new
-        platforms_matrix:
-          # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
-          - [ubuntu       ,   18.04,   master,      3,         default]
-          - [centos       ,    8   ,   master,      3,          redhat]
-          - [fedora       ,   32   ,   master,      3,          redhat]
-          - [opensuse/leap,   15.2 ,   master,      3,         default]
-          - [amazonlinux  ,    2   ,   master,      3,          redhat]
-          # # - [arch-base    ,  latest,   3000.3,      2,            arch]
+        # Linux testing not working on GitLab CI yet, last matrix shown below
+        platforms_matrix: []
+        # # # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
+        # # - [ubuntu       ,   18.04,   master,      3,         default]
+        # # - [centos       ,    8   ,   master,      3,          redhat]
+        # # - [fedora       ,   32   ,   master,      3,          redhat]
+        # # - [opensuse/leap,   15.2 ,   master,      3,         default]
+        # # - [amazonlinux  ,    2   ,   master,      3,          redhat]
+        # # # # - [arch-base    ,  latest,   3000.3,      2,            arch]
         use_tofs: true
         yamllint:
           ignore:
