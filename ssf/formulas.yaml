@@ -4945,8 +4945,7 @@ ssf:
           - [fedora       ,   32   ,   master,      3,         default]
           - [opensuse/leap,   15.2 ,   3000.3,      3,         default]
           - [amazonlinux  ,    2   ,   3000.3,      3,         default]
-          # # Broken with recent PR (#119?)
-          # # - [debian       ,    9   ,   2019.2,      3,         default]
+          - [debian       ,    9   ,   3000.3,      3,         default]
           - [centos       ,    7   ,   2019.2,      3,         default]
           # Tomcat appears to require an older version of JVM on Arch
           # yamllint disable-line rule:line-length
