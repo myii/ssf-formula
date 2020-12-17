@@ -1,6 +1,15 @@
 # -*- coding: utf-8 -*-
 # vim: ft=yaml
 ---
+################################################################################
+# NOTE: This file is UNMAINTAINED; it is provided for references purposes only.
+#       No guarantees are tendered that this structure will work after 2020.
+################################################################################
+# * https://en.wikipedia.org/wiki/Travis_CI:
+#   - "... free open-source plans were removed in [sic] the end of 2020"
+#   - https://blog.travis-ci.com/2020-11-02-travis-ci-new-billing
+#   - https://ropensci.org/technotes/2020/11/19/moving-away-travis/
+################################################################################
 {%- from tplroot ~ "/libcimatrix.jinja" import format_ci_matrix with context %}
 
 {%- macro format_allow_failures(use_single_job_for_linters) %}
@@ -104,8 +113,10 @@ script:
 ## Stages and jobs matrix
 stages:
   - test
-  - name: 'release'
-    if: 'branch = master AND type != pull_request'
+  # # As part of the switch away from Travis CI, ensure that the `release` stage
+  # # is not run inadvertently
+  # - name: 'release'
+  #   if: 'branch = master AND type != pull_request'
 jobs:
   {{- format_allow_failures(travis.use_single_job_for_linters) }}
   include:
@@ -200,9 +211,13 @@ jobs:
     - env: 'Conversion'
       name: 'Test: bin/convert-formula.sh'
       script:
-        - git clone . tmp/converted-formula
-        - cd tmp/converted-formula
-        - DEBUG=true bin/convert-formula.sh converted
+        - export CONVERTED=test-the-use_this_template-button
+        - git clone . tmp/"$CONVERTED"-formula
+        - cd tmp/"$CONVERTED"-formula
+        - pyenv global 3.8
+        - pip install pre-commit==2.7.1
+        - bin/install-hooks
+        - DEBUG=true bin/convert-formula.sh "$CONVERTED"
         - '[ $(git rev-list HEAD --count) -eq 2 ]'
         # Quick visual check that correct files have been updated
         - git show --pretty="" --name-status

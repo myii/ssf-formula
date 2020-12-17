@@ -55,6 +55,9 @@ platforms:
   - name: centos-7-3001-py3
     driver:
       image: saltimages/salt-3001-py3:centos-7
+  - name: amazonlinux-2-3001-py3
+    driver:
+      image: saltimages/salt-3001-py3:amazonlinux-2
 
   ## SALT `3000.3`
   - name: debian-10-3000-3-py3
@@ -100,18 +103,15 @@ suites:
       state_top:
         base:
           '*':
-            - example_add_snakeoil_certs
+            - single_host.host_entries
+            - single_host.snakeoil_certs
             - locale
             - nginx.passenger
             - postgres
             - arvados.repo
-            # - arvados.config
-            # - arvados.ruby
             - arvados.api
             - arvados.websocket
-            # keepproxy complains when using snakeoil certs, so we can't
-            # properly test it here until next version removes this limitation
-            # - arvados.keepproxy
+            - arvados.keepproxy
             - arvados.keepweb
             - arvados.controller
             - arvados.dispatcher
@@ -129,7 +129,7 @@ suites:
               - example_nginx_controller
               # keepproxy expects to retrieve a list of services from API, so
               # installing/testing it without an api server running will fail
-              # - example_nginx_keepproxy
+              - example_nginx_keepproxy
       pillars_from_files:
         # yamllint disable rule:line-length
         arvados.sls: test/salt/pillar/arvados.sls
@@ -139,12 +139,12 @@ suites:
         example_nginx_api.sls: test/salt/pillar/examples/nginx_api_configuration.sls
         example_nginx_websocket.sls: test/salt/pillar/examples/nginx_websocket_configuration.sls
         example_nginx_keepweb.sls: test/salt/pillar/examples/nginx_keepweb_configuration.sls
-        # example_nginx_keepproxy.sls: test/salt/pillar/examples/nginx_keepproxy_configuration.sls
+        example_nginx_keepproxy.sls: test/salt/pillar/examples/nginx_keepproxy_configuration.sls
         example_nginx_controller.sls: test/salt/pillar/examples/nginx_controller_configuration.sls
         # yamllint enable rule:line-length
       dependencies:
-        - name: example_add_snakeoil_certs
-          path: test/salt/states
+        - name: single_host
+          path: test/salt/states/examples
         - name: locale
           repo: git
           source: https://github.com/saltstack-formulas/locale-formula.git
@@ -158,7 +158,7 @@ suites:
       inspec_tests:
         - path: test/integration/api
         - path: test/integration/websocket
-        # - path: test/integration/keepproxy
+        - path: test/integration/keepproxy
         - path: test/integration/keepweb
         - path: test/integration/controller
 
@@ -170,7 +170,8 @@ suites:
       state_top:
         base:
           '*':
-            - example_add_snakeoil_certs
+            - single_host.host_entries
+            - single_host.snakeoil_certs
             - nginx.passenger
             - arvados.repo
             - arvados.workbench
@@ -191,11 +192,11 @@ suites:
         example_nginx_workbench2.sls: test/salt/pillar/examples/nginx_workbench2_configuration.sls
         # yamllint enable rule:line-length
       dependencies:
-        - name: example_add_snakeoil_certs
-          path: test/salt/states
+        - name: single_host
+          path: test/salt/states/examples
         - name: nginx
           repo: git
-          source: https://github.com/saltstack-formulas/nginx-formula.git
+          source: https://github.com/netmanagers/nginx-formula.git
     verifier:
       inspec_tests:
         - path: test/integration/workbench

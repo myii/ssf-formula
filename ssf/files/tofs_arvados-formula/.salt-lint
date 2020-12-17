@@ -7,6 +7,7 @@ rules:
     ignore: |
       arvados/shell/config/files/default/shell-libpam-arvados.tmpl.jinja
       test/salt/pillar/examples/nginx_webshell_configuration.sls
+      test/salt/pillar/examples/nginx_passenger.sls
 skip_list:
   # Using `salt-lint` for linting other files as well, such as Jinja macros/templates
   - 205  # Use ".sls" as a Salt State file extension

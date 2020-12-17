@@ -9,7 +9,8 @@
               platforms_matrix_commented_includes,
               semrel_formula,
               width=4,
-              use_new_travis_format=False
+              use_new_travis_format=False,
+              use_gitlab_format=False
           ) %}
 {%-   filter indent(width) %}
 {#-     Centralise duplication from here and `kitchen.yml` #}
@@ -57,10 +58,20 @@
 {%-                   set include_instance = False %}
 {%-                 endif %}
 {%-               endif %}
-{#-               Define `instance_and_env`, modified for new Travis format #}
+{#-               Define `instance_and_env`, modified for new Travis format or GitLab format #}
 {%-               set instance_and_env = 'INSTANCE: ' %}
 {%-               if use_new_travis_format %}
 {%-                 set instance_and_env = 'env: INSTANCE=' %}
+{%-               elif use_gitlab_format %}
+{%-                 set instance_and_env = '' %}
+{%-               endif %}
+{#-               Define GitLab-specific formats #}
+{%-               if use_gitlab_format %}
+{%-                 set list_format = '' %}
+{%-                 set test_template = ": {extends: '.test_instance'}" %}
+{%-               else %}
+{%-                 set list_format = '- ' %}
+{%-                 set test_template = "" %}
 {%-               endif %}
 {%-               if include_instance %}
 {#-                 Only add a prefix if suite_name is given #}
@@ -80,7 +91,7 @@
                     and [suite_name, os, os_ver, salt_ver] == ['default', 'amazonlinux', 2, 'master'] %}
 # https://community.letsencrypt.org/t/localhost-crt-does-not-exist-or-is-empty/103979
 {%-                 endif %}
-{{ comment }}- {{ instance_and_env }}{{ instance }}
+{{ comment }}{{ list_format }}{{ instance_and_env }}{{ instance }}{{ test_template }}
 {%-               endif %}
 {%-             endif %}
 {%-           endif %}

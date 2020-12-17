@@ -22,12 +22,13 @@ ssf_node_anchors:
               - '/docs/AUTHORS.rst': '@saltstack-formulas/ssf'
               - '/docs/CHANGELOG.rst': '@saltstack-formulas/ssf'
               - '/docs/TOFS_pattern.rst': '@saltstack-formulas/ssf'
-              - '/./libsaltcli.jinja': '@saltstack-formulas/ssf'
-              - '/./libtofs.jinja': '@saltstack-formulas/ssf'
+              - '/*/libsaltcli.jinja': '@saltstack-formulas/ssf'
+              - '/*/libtofs.jinja': '@saltstack-formulas/ssf'
               - '/test/integration/**/inspec.yml': '@saltstack-formulas/ssf'
               - '/test/integration/**/README.md': '@saltstack-formulas/ssf'
               - '/.gitignore': '@saltstack-formulas/ssf'
               - '/.cirrus.yml': '@saltstack-formulas/ssf'
+              - '/.gitlab-ci.yml': '@saltstack-formulas/ssf'
               - '/.pre-commit-config.yaml': '@saltstack-formulas/ssf'
               - '/.rstcheck.cfg': '@saltstack-formulas/ssf'
               - '/.rubocop.yml': '@saltstack-formulas/ssf'
@@ -58,8 +59,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "test(map): verify '`'map.jinja'`' dump using '`'_mapdata'`' state"
-            body: '* Semi-automated using https://github.com/myii/ssf-formula/pull/271'
+            title: "ci(gitlab-ci): use GitLab CI as Travis CI replacement"
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/275'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
@@ -71,6 +72,12 @@ ssf_node_anchors:
               fork:
                 name: 'origin'
                 branch: 'master'
+          # Currently supporting `ci_cd_only` for GitHub repos
+          gitlab:
+            # `coqbot` doesn't currently support sub-groups, only `owner/repo`
+            # owner: 'saltstack-formulas/formulas/github/saltstack-formulas'
+            owner: 'saltstack-formulas'
+            repo: ''
         inspec_suites_kitchen: &isk_default
           0: &isk_suite_default
             name: 'default'
@@ -184,7 +191,7 @@ ssf_node_anchors:
           - [amazonlinux  ,    2   ,   2019.2,      3,         default]
           - [fedora       ,   30   ,   2018.3,      3,         default]
           - [arch-base    ,  latest,   2018.3,      2,         default]
-          - [centos       ,    6   ,   2017.7,      2,         default]
+          # # - [centos       ,    6   ,   2017.7,      2,         default]
         # To deal with excessive instances when mimicking `kitchen list -b`
         # If values are set, only use these as commented entries in the matrix
         platforms_matrix_commented_includes: []
@@ -220,6 +227,7 @@ ssf_node_anchors:
           extends: 'default'
           ignore:
             default:
+              - '.cache/'
               - 'node_modules/'
             additional_ssf:
               - 'test/**/states/**/*.sls'
@@ -499,7 +507,21 @@ ssf:
             name: 'ubuntu'
     dhcpd: *formula_default
     django: *formula_default
-    docker: *formula_default
+    docker:
+      <<: *formula_default
+      context:
+        <<: *context_default
+        inspec_suites_kitchen:
+          <<: *isk_default
+          0:
+            <<: *isk_suite_default
+            name: 'archive'
+          1:
+            <<: *isk_suite_default
+            name: 'package'
+          2:
+            <<: *isk_suite_default
+            name: 'clean'
     eclipse:
       <<: *formula_default
       context:
@@ -922,12 +944,6 @@ ssf:
           2:
             <<: *isk_suite_default
             name: 'v3000-py2'
-          3:
-            <<: *isk_suite_default
-            name: 'v201902-py3'
-          4:
-            <<: *isk_suite_default
-            name: 'v201902-py2'
     sqldeveloper: *formula_default
     sqlplus: *formula_default
     ssf: *formula_default
