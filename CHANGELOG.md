@@ -1,5 +1,60 @@
 # Changelog
 
+# [1.227.0](https://github.com/myii/ssf-formula/compare/v1.226.0...v1.227.0) (2020-12-17)
+
+
+### Documentation
+
+* **pre-commit:** fix `rstcheck` violations & add `pre-commit` info ([65ca911](https://github.com/myii/ssf-formula/commit/65ca911be81ff2ac66c42b71b4dd4e9add562d1f))
+
+
+### Features
+
+* **arvados:** disable CI failures (e.g. EOL) ([3ec8673](https://github.com/myii/ssf-formula/commit/3ec867397883a1d7bc5237d92ab3fec1bf72e9c7))
+* **arvados:** review PRs 8, 9 & 10 ([d1459fd](https://github.com/myii/ssf-formula/commit/d1459fd63b187d3b0e4e4986979e8715d18fdad7))
+* **collectd:** disable CI failures (e.g. EOL) ([c00623c](https://github.com/myii/ssf-formula/commit/c00623c2d2bacc4ae38309487ce6ec0c1875d6c9))
+* **deepsea:** disable CI failures (e.g. EOL) ([ba55b7a](https://github.com/myii/ssf-formula/commit/ba55b7afc171406d072703a5c9d8c7361f6f73b5))
+* **dhcpd:** disable CI failures (e.g. EOL) ([9520f43](https://github.com/myii/ssf-formula/commit/9520f43530854406c35a31825fbe23fa7b9cf01b))
+* **docker:** review PR 256 & defer CI testing until solution found ([0c52724](https://github.com/myii/ssf-formula/commit/0c5272498cf739c1d7e2371e1c6c5b260f55b4fb))
+* **eclipse:** disable CI failures (e.g. EOL) ([ae5d5b2](https://github.com/myii/ssf-formula/commit/ae5d5b2fa93be1b8714cd0f261133dc748f1b2bb))
+* **epel:** disable CI failures (e.g. EOL) ([d502105](https://github.com/myii/ssf-formula/commit/d502105a7b79d8ef3e88e544b222a78a12c23136))
+* **fail2ban:** disable CI failures (e.g. EOL) ([aa0d714](https://github.com/myii/ssf-formula/commit/aa0d7142f2ebfadaba403aa80647d66a9571171f))
+* **gitlab-ci:** manage across formulas ([b0a854c](https://github.com/myii/ssf-formula/commit/b0a854c2e8f0ffe94bbf76ee19581c8748d4a0b8))
+* **icinga2:** defer CI testing until solution found ([1c62386](https://github.com/myii/ssf-formula/commit/1c623866ef62b47b9e8a7883b5f70c70d68c5b34))
+* **iscsi:** defer CI testing until solution found ([c11fc0c](https://github.com/myii/ssf-formula/commit/c11fc0cf6c87296c8f765475a8361309f06cbe05))
+* **jetbrains:** disable CI failures (e.g. EOL) ([f725bf6](https://github.com/myii/ssf-formula/commit/f725bf6da5cadb619c303ebf64d0d71fda72f98c))
+* **keepalived:** disable CI failures (e.g. EOL) ([f77527c](https://github.com/myii/ssf-formula/commit/f77527c63fc0d8a5d06d3b84e5b6da893a376d05))
+* **locale:** disable CI failures (e.g. EOL) ([e59d8b3](https://github.com/myii/ssf-formula/commit/e59d8b32889ab855d7ba48a3ff6caa5b558415dd))
+* **lvm:** defer CI testing until solution found ([ccb5525](https://github.com/myii/ssf-formula/commit/ccb55250021e007d2f24d48e5edecf4ec67c656f))
+* **mongodb:** disable CI failures (e.g. EOL) ([decda2e](https://github.com/myii/ssf-formula/commit/decda2e4aec43c20700486a84ddeb0fa79318ba1))
+* **nginx:** disable CI failures (e.g. EOL) ([0df8214](https://github.com/myii/ssf-formula/commit/0df82141acd28749119903c277ed6e573a226f8b))
+* **openldap:** disable CI failures (e.g. EOL) ([2aa5466](https://github.com/myii/ssf-formula/commit/2aa5466b85835351366027dda4e01f89d731f474))
+* **php:** disable CI failures (e.g. EOL) ([1779b88](https://github.com/myii/ssf-formula/commit/1779b8886810222ec9c0d9a495e81d05405f6a19))
+* **platforms_matrix:** disable CI failures (e.g. EOL) ([7dd0b61](https://github.com/myii/ssf-formula/commit/7dd0b612a8e7c479410bf33b7ef8080b85103a4e))
+* **platforms_matrix_osfamily_debian:** disable CI failures (e.g. EOL) ([a96c71a](https://github.com/myii/ssf-formula/commit/a96c71a827a0ef329555370b95e78bf45247bbb3))
+* **platforms_matrix_without_arch:** disable CI failures (e.g. EOL) ([9be4992](https://github.com/myii/ssf-formula/commit/9be49924f2f39adb87e5172258a6953562f339ee))
+* **pre-commit_semantic-release.sh:** install `m2r` without `sudo` ([887ff39](https://github.com/myii/ssf-formula/commit/887ff3954831cd4fc03f515b3806089c2c45aca8))
+* **rabbitmq:** disable CI failures (e.g. EOL) ([e04739d](https://github.com/myii/ssf-formula/commit/e04739d81b8ab3df198f5141c651b6076a504d99))
+* **redis:** disable CI failures (e.g. EOL) ([2906da7](https://github.com/myii/ssf-formula/commit/2906da799676a43880183e2df0c8ce4caf004144))
+* **redis:** review PR 85 ([431f964](https://github.com/myii/ssf-formula/commit/431f9646c80c7fa68f0c734c3b11a18ef116e398))
+* **release.config.js:** use parent repo for `repositoryUrl` ([a821435](https://github.com/myii/ssf-formula/commit/a82143568e6009dc39d3ef4c1390ed3ad43fb8df))
+* **rkhunter:** disable CI failures (e.g. EOL) ([582622e](https://github.com/myii/ssf-formula/commit/582622edaa70a3b1820b9716baacea57215387ff))
+* **rspamd:** disable CI failures (e.g. EOL) ([51092ec](https://github.com/myii/ssf-formula/commit/51092ec84b94d355d62aa432d69b4eb3e2ae0925))
+* **salt:** adjust matrix to remove Fluorine `2019.2` ([63e2b42](https://github.com/myii/ssf-formula/commit/63e2b42ddae2489ffd973b49eea8d8d6c182e794))
+* **ssf:** use TOFS override for `CONTRIBUTING` document ([e8deac3](https://github.com/myii/ssf-formula/commit/e8deac3ecfe8540f9421d2232e15d7dea076eb2a))
+* **stunnel:** disable CI failures (e.g. EOL) ([090ed85](https://github.com/myii/ssf-formula/commit/090ed85c186c6a46932f953684d06ee8cba9f9f5))
+* **suricata:** disable CI failures (e.g. EOL) ([c66a48d](https://github.com/myii/ssf-formula/commit/c66a48d66b64acd4af75b16b8b9af112780635ec))
+* **telegraf:** disable CI failures (e.g. EOL) ([7c16183](https://github.com/myii/ssf-formula/commit/7c161832f66e358724daf5c3696e69087ff28607))
+* **template:** disable CI failures (e.g. EOL) ([6b9e83a](https://github.com/myii/ssf-formula/commit/6b9e83aaa7f08262587768789a8715be7eb2a41e))
+* **template:** review PR 207 ([3f612cf](https://github.com/myii/ssf-formula/commit/3f612cfdc6b25018ca2fcbcae1fb61e5ec3c44d0))
+* **template:** review PR 209 ([af7d43b](https://github.com/myii/ssf-formula/commit/af7d43b272e8167d1da2d08b1f1fc0a62a91ee4b))
+* **tomcat:** disable CI failures (e.g. EOL) ([10e2af7](https://github.com/myii/ssf-formula/commit/10e2af7d2430c132fcfc85a64d6ba6909bba138e))
+* **travis:** provide curtailed `.travis.yml` for reference purposes ([cf3a4fb](https://github.com/myii/ssf-formula/commit/cf3a4fb2eeefe30525cef5ca4b664f76e4bd873f)), closes [/github.com/saltstack-formulas/consul-formula/pull/52#issuecomment-744533646](https://github.com//github.com/saltstack-formulas/consul-formula/pull/52/issues/issuecomment-744533646)
+* **users:** disable CI failures (e.g. EOL) ([7ed56ff](https://github.com/myii/ssf-formula/commit/7ed56ff46a94bf916e694222d0d51c35b1c96cb7))
+* **varnish:** disable CI failures (e.g. EOL) ([e51c882](https://github.com/myii/ssf-formula/commit/e51c882ade0faea94d0d3f5d14c0ca71cd3beba7))
+* **vault:** disable CI failures (e.g. EOL) ([dde4c9a](https://github.com/myii/ssf-formula/commit/dde4c9aa1f8024606fe03b7cc9941435bb1be411))
+* **yamllint:** add `.cache/` to ignores (to use in GitLab CI) ([619aaee](https://github.com/myii/ssf-formula/commit/619aaeeba2ea9adc2e6cf81cc21aa997ee7b1499))
+
 # [1.226.0](https://github.com/myii/ssf-formula/compare/v1.225.0...v1.226.0) (2020-10-30)
 
 
