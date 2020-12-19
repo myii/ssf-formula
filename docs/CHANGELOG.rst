@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.228.0 <https://github.com/myii/ssf-formula/compare/v1.227.0...v1.228.0>`_ (2020-12-19)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **tomcat:** fix ``Debian-9`` after regression (\ `7f91b21 <https://github.com/myii/ssf-formula/commit/7f91b21cc7e4b4e79af7e911a7aac9566b1ae385>`_\ )
+
 `1.227.0 <https://github.com/myii/ssf-formula/compare/v1.226.0...v1.227.0>`_ (2020-12-17)
 ---------------------------------------------------------------------------------------------
 
