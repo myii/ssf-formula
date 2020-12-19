@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.229.0](https://github.com/myii/ssf-formula/compare/v1.228.0...v1.229.0) (2020-12-19)
+
+
+### Features
+
+* **gitlab-ci:** add `rubocop` linter (with `allow_failure`) ([a584cc3](https://github.com/myii/ssf-formula/commit/a584cc3dd2516aa5511c2b177bc919affdbcfcc4))
+
 # [1.228.0](https://github.com/myii/ssf-formula/compare/v1.227.0...v1.228.0) (2020-12-19)
 
 
