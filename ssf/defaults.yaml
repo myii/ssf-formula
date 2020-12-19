@@ -59,8 +59,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "ci(gitlab-ci): use GitLab CI as Travis CI replacement"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/275'
+            title: "fix(osfingermap): reinstate values for '`'Debian-9'`' after regression"
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/276'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
