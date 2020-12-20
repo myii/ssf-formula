@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.232.0](https://github.com/myii/ssf-formula/compare/v1.231.0...v1.232.0) (2020-12-20)
+
+
+### Features
+
+* **salt:** adjust matrix to add Magnesium `3002` ([8ada127](https://github.com/myii/ssf-formula/commit/8ada12744b7ea40f3d7e393d0a31530a3196495b))
+
 # [1.231.0](https://github.com/myii/ssf-formula/compare/v1.230.0...v1.231.0) (2020-12-20)
 
 
