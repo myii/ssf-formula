@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.230.0 <https://github.com/myii/ssf-formula/compare/v1.229.0...v1.230.0>`_ (2020-12-20)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **commitlint:** ensure ``upstream/master`` uses main repo URL (\ `d8dbeb2 <https://github.com/myii/ssf-formula/commit/d8dbeb20305bfdb8263445a0354410fbb18510af>`_\ )
+
 `1.229.0 <https://github.com/myii/ssf-formula/compare/v1.228.0...v1.229.0>`_ (2020-12-19)
 ---------------------------------------------------------------------------------------------
 
