@@ -4124,20 +4124,54 @@ ssf:
           0:
             includes:
               # [os           , os_ver, salt_ver, py_ver]
-              - [debian       ,   10   ,   3001  ,      3]
-              - [debian       ,    9   ,   3001  ,      3]
-              - [ubuntu       ,   20.04,   3001  ,      3]
-              - [ubuntu       ,   18.04,   3001  ,      3]
-              - [centos       ,    8   ,   3001  ,      3]
-              - [centos       ,    7   ,   3001  ,      3]
-              - [fedora       ,   32   ,   3001  ,      3]
-              - [fedora       ,   31   ,   3001  ,      3]
-              - [opensuse/leap,   15.2 ,   3001  ,      3]
-              - [amazonlinux  ,    2   ,   3001  ,      3]
-              - [oraclelinux  ,    8   ,   3001  ,      3]
-              - [oraclelinux  ,    7   ,   3001  ,      3]
-              - [gentoo/stage3,  latest,   3001  ,      3]
-              - [gentoo/stage3, systemd,   3001  ,      3]
+              - [debian       ,   10   ,   3002.2,      3]
+              - [debian       ,    9   ,   3002.2,      3]
+              - [ubuntu       ,   20.04,   3002.2,      3]
+              - [ubuntu       ,   18.04,   3002.2,      3]
+              - [ubuntu       ,   16.04,   3002.2,      3]
+              - [centos       ,    8   ,   3002.2,      3]
+              - [centos       ,    7   ,   3002.2,      3]
+              - [fedora       ,   33   ,   3002.2,      3]
+              - [fedora       ,   32   ,   3002.2,      3]
+              - [opensuse/leap,   15.2 ,   3002.2,      3]
+              - [amazonlinux  ,    2   ,   3002.2,      3]
+              - [oraclelinux  ,    8   ,   3002.2,      3]
+              - [oraclelinux  ,    7   ,   3002.2,      3]
+              # # - [arch-base    ,  latest,   3002.2,      3]
+              - [gentoo/stage3,  latest,   3002.2,      3]
+              - [gentoo/stage3, systemd,   3002.2,      3]
+            inspec_yml:
+              summary: >-
+                Verify that Salt `v3002-py3` is setup and configured
+              supports: *supports_all_including_oracle_and_gentoo
+            provisioner:
+              pillars:
+                - '*':
+                    - .
+                    - v3002-py3
+              pillars_from_files:
+                - .sls: 'test/salt/pillar/salt.sls'
+                - v3002-py3.sls: 'test/salt/pillar/v3002-py3.sls'
+              state_top: *state_top_salt
+          1:
+            includes:
+              # [os           , os_ver, salt_ver, py_ver]
+              - [debian       ,   10   ,   3001.4,      3]
+              - [debian       ,    9   ,   3001.4,      3]
+              - [ubuntu       ,   20.04,   3001.4,      3]
+              - [ubuntu       ,   18.04,   3001.4,      3]
+              - [ubuntu       ,   16.04,   3001.4,      3]
+              - [centos       ,    8   ,   3001.4,      3]
+              - [centos       ,    7   ,   3001.4,      3]
+              - [fedora       ,   33   ,   3001.4,      3]
+              - [fedora       ,   32   ,   3001.4,      3]
+              - [opensuse/leap,   15.2 ,   3001.4,      3]
+              - [amazonlinux  ,    2   ,   3001.4,      3]
+              - [oraclelinux  ,    8   ,   3001.4,      3]
+              - [oraclelinux  ,    7   ,   3001.4,      3]
+              # # - [arch-base    ,  latest,   3001.4,      3]
+              - [gentoo/stage3,  latest,   3001.4,      3]
+              - [gentoo/stage3, systemd,   3001.4,      3]
             inspec_yml:
               summary: >-
                 Verify that Salt `v3001-py3` is setup and configured
@@ -4151,21 +4185,21 @@ ssf:
                 - .sls: 'test/salt/pillar/salt.sls'
                 - v3001-py3.sls: 'test/salt/pillar/v3001-py3.sls'
               state_top: *state_top_salt
-          1:
+          2:
             includes:
               # [os           , os_ver, salt_ver, py_ver]
-              - [debian       ,   10   ,   3000.3,      3]
-              - [debian       ,    9   ,   3000.3,      3]
-              - [ubuntu       ,   18.04,   3000.3,      3]
-              - [centos       ,    8   ,   3000.3,      3]
-              - [centos       ,    7   ,   3000.3,      3]
-              # # - [fedora       ,   31   ,   3000.3,      3]
-              - [opensuse/leap,   15.2 ,   3000.3,      3]
-              - [amazonlinux  ,    2   ,   3000.3,      3]
-              - [oraclelinux  ,    8   ,   3000.3,      3]
-              - [oraclelinux  ,    7   ,   3000.3,      3]
-              - [gentoo/stage3,  latest,   3000.3,      3]
-              - [gentoo/stage3, systemd,   3000.3,      3]
+              - [debian       ,   10   ,   3000.6,      3]
+              - [debian       ,    9   ,   3000.6,      3]
+              - [ubuntu       ,   18.04,   3000.6,      3]
+              - [ubuntu       ,   16.04,   3000.6,      3]
+              - [centos       ,    8   ,   3000.6,      3]
+              - [centos       ,    7   ,   3000.6,      3]
+              - [opensuse/leap,   15.2 ,   3000.6,      3]
+              - [amazonlinux  ,    2   ,   3000.6,      3]
+              - [oraclelinux  ,    8   ,   3000.6,      3]
+              - [oraclelinux  ,    7   ,   3000.6,      3]
+              - [gentoo/stage3,  latest,   3000.6,      3]
+              - [gentoo/stage3, systemd,   3000.6,      3]
             inspec_yml:
               summary: >-
                 Verify that Salt `v3000-py3` is setup and configured
@@ -4179,11 +4213,12 @@ ssf:
                 - .sls: 'test/salt/pillar/salt.sls'
                 - v3000-py3.sls: 'test/salt/pillar/v3000-py3.sls'
               state_top: *state_top_salt
-          2:
+          3:
             includes:
               # [os           , os_ver, salt_ver, py_ver]
-              - [ubuntu       ,   18.04,   3000.3,      2]
-              - [ubuntu       ,   16.04,   3000.3,      2]
+              - [ubuntu       ,   18.04,   3000.6,      2]
+              - [ubuntu       ,   16.04,   3000.6,      2]
+              # # - [arch-base    ,  latest,   3000.6,      2]
             inspec_yml:
               summary: >-
                 Verify that Salt `v3000-py2` is setup and configured
@@ -4198,79 +4233,64 @@ ssf:
                 - v3000-py2.sls: 'test/salt/pillar/v3000-py2.sls'
               state_top: *state_top_salt
         inspec_suites_matrix:
+          - v3002-py3
           - v3001-py3
           - v3000-py3
           - v3000-py2
-        platforms:
-          # [os           , os_ver, salt_ver, py_ver]
-          - [debian       ,   10   ,   3001  ,      3]
-          - [debian       ,    9   ,   3001  ,      3]
-          - [ubuntu       ,   20.04,   3001  ,      3]
-          - [ubuntu       ,   18.04,   3001  ,      3]
-          - [centos       ,    8   ,   3001  ,      3]
-          - [centos       ,    7   ,   3001  ,      3]
-          - [fedora       ,   32   ,   3001  ,      3]
-          - [fedora       ,   31   ,   3001  ,      3]
-          - [opensuse/leap,   15.2 ,   3001  ,      3]
-          - [amazonlinux  ,    2   ,   3001  ,      3]
-          - [oraclelinux  ,    8   ,   3001  ,      3]
-          - [oraclelinux  ,    7   ,   3001  ,      3]
-          - [gentoo/stage3,  latest,   3001  ,      3]
-          - [gentoo/stage3, systemd,   3001  ,      3]
-          - [debian       ,   10   ,   3000.3,      3]
-          - [debian       ,    9   ,   3000.3,      3]
-          - [ubuntu       ,   18.04,   3000.3,      3]
-          - [centos       ,    8   ,   3000.3,      3]
-          - [centos       ,    7   ,   3000.3,      3]
-          # # - [fedora       ,   31   ,   3000.3,      3]
-          - [opensuse/leap,   15.2 ,   3000.3,      3]
-          - [amazonlinux  ,    2   ,   3000.3,      3]
-          - [oraclelinux  ,    8   ,   3000.3,      3]
-          - [oraclelinux  ,    7   ,   3000.3,      3]
-          - [ubuntu       ,   18.04,   3000.3,      2]
-          - [ubuntu       ,   16.04,   3000.3,      2]
-          - [gentoo/stage3,  latest,   3000.3,      3]
-          - [gentoo/stage3, systemd,   3000.3,      3]
-          - [debian       ,   10   ,   2019.2,      3]
-          - [debian       ,    9   ,   2019.2,      3]
-          - [ubuntu       ,   18.04,   2019.2,      3]
-          - [ubuntu       ,   16.04,   2019.2,      3]
-          - [centos       ,    8   ,   2019.2,      3]
-          - [centos       ,    7   ,   2019.2,      3]
-          - [fedora       ,   31   ,   2019.2,      3]
-          - [opensuse/leap,   15.2 ,   2019.2,      3]
-          - [amazonlinux  ,    2   ,   2019.2,      3]
-          - [centos       ,    6   ,   2019.2,      2]
-          - [amazonlinux  ,    1   ,   2019.2,      2]
+        platforms: *platforms_new_saltimages
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
-          - [debian       ,   10   ,   3001  ,      3,       v3001-py3]
-          # - [debian       ,    9   ,   3001  ,      3,       v3001-py3]
-          - [ubuntu       ,   20.04,   3001  ,      3,       v3001-py3]
-          # - [ubuntu       ,   18.04,   3001  ,      3,       v3001-py3]
-          - [centos       ,    8   ,   3001  ,      3,       v3001-py3]
-          # - [centos       ,    7   ,   3001  ,      3,       v3001-py3]
-          - [fedora       ,   32   ,   3001  ,      3,       v3001-py3]
-          # # Installs `3000.3`
-          # # - [fedora       ,   31   ,   3001  ,      3,       v3001-py3]
-          # # - [opensuse/leap,   15.2 ,   3001  ,      3,       v3001-py3]
-          # - [amazonlinux  ,    2   ,   3001  ,      3,       v3001-py3]
-          - [oraclelinux  ,    8   ,   3001  ,      3,       v3001-py3]
-          # - [oraclelinux  ,    7   ,   3001  ,      3,       v3001-py3]
-          - [gentoo/stage3,  latest,   3001  ,      3,       v3001-py3]
-          - [gentoo/stage3, systemd,   3001  ,      3,       v3001-py3]
-          # - [debian       ,   10   ,   3000.3,      3,       v3000-py3]
-          # - [debian       ,    9   ,   3000.3,      3,       v3000-py3]
-          # - [ubuntu       ,   18.04,   3000.3,      3,       v3000-py3]
-          # - [centos       ,    8   ,   3000.3,      3,       v3000-py3]
-          # - [centos       ,    7   ,   3000.3,      3,       v3000-py3]
-          # # - [fedora       ,   31   ,   3000.3,      3,       v3000-py3]
-          - [opensuse/leap,   15.2 ,   3000.3,      3,       v3000-py3]
-          - [amazonlinux  ,    2   ,   3000.3,      3,       v3000-py3]
-          # - [oraclelinux  ,    8   ,   3000.3,      3,       v3000-py3]
-          - [oraclelinux  ,    7   ,   3000.3,      3,       v3000-py3]
-          - [ubuntu       ,   18.04,   3000.3,      2,       v3000-py2]
-          # - [ubuntu       ,   16.04,   3000.3,      2,       v3000-py2]
+          - [debian       ,   10   ,   3002.2,      3,       v3002-py3]
+          - [debian       ,    9   ,   3002.2,      3,       v3002-py3]
+          - [ubuntu       ,   20.04,   3002.2,      3,       v3002-py3]
+          - [ubuntu       ,   18.04,   3002.2,      3,       v3002-py3]
+          - [ubuntu       ,   16.04,   3002.2,      3,       v3002-py3]
+          - [centos       ,    8   ,   3002.2,      3,       v3002-py3]
+          - [centos       ,    7   ,   3002.2,      3,       v3002-py3]
+          - [fedora       ,   33   ,   3002.2,      3,       v3002-py3]
+          # # Still installs `3001.4-1.fc32`
+          # # - [fedora       ,   32   ,   3002.2,      3,       v3002-py3]
+          # # Still installs `3000.3-lp152.4.1`
+          # # - [opensuse/leap,   15.2 ,   3002.2,      3,       v3002-py3]
+          - [amazonlinux  ,    2   ,   3002.2,      3,       v3002-py3]
+          - [oraclelinux  ,    8   ,   3002.2,      3,       v3002-py3]
+          - [oraclelinux  ,    7   ,   3002.2,      3,       v3002-py3]
+          # # - [arch-base    ,  latest,   3002.2,      3,       v3002-py3]
+          - [gentoo/stage3,  latest,   3002.2,      3,       v3002-py3]
+          - [gentoo/stage3, systemd,   3002.2,      3,       v3002-py3]
+          - [debian       ,   10   ,   3001.4,      3,       v3001-py3]
+          # - [debian       ,    9   ,   3001.4,      3,       v3001-py3]
+          - [ubuntu       ,   20.04,   3001.4,      3,       v3001-py3]
+          # - [ubuntu       ,   18.04,   3001.4,      3,       v3001-py3]
+          # - [ubuntu       ,   16.04,   3001.4,      3,       v3001-py3]
+          - [centos       ,    8   ,   3001.4,      3,       v3001-py3]
+          # - [centos       ,    7   ,   3001.4,      3,       v3001-py3]
+          # # Probably doesn't work with Python 3.9
+          # # - [fedora       ,   33   ,   3001.4,      3,       v3001-py3]
+          - [fedora       ,   32   ,   3001.4,      3,       v3001-py3]
+          # # Still installs `3000.3-lp152.4.1`
+          # # - [opensuse/leap,   15.2 ,   3001.4,      3,       v3001-py3]
+          # - [amazonlinux  ,    2   ,   3001.4,      3,       v3001-py3]
+          - [oraclelinux  ,    8   ,   3001.4,      3,       v3001-py3]
+          # - [oraclelinux  ,    7   ,   3001.4,      3,       v3001-py3]
+          # # - [arch-base    ,  latest,   3001.4,      3,       v3001-py3]
+          # - [gentoo/stage3,  latest,   3001.4,      3,       v3001-py3]
+          # - [gentoo/stage3, systemd,   3001.4,      3,       v3001-py3]
+          # - [debian       ,   10   ,   3000.6,      3,       v3000-py3]
+          - [debian       ,    9   ,   3000.6,      3,       v3000-py3]
+          - [ubuntu       ,   18.04,   3000.6,      3,       v3000-py3]
+          # - [ubuntu       ,   16.04,   3000.6,      3,       v3000-py3]
+          # - [centos       ,    8   ,   3000.6,      3,       v3000-py3]
+          - [centos       ,    7   ,   3000.6,      3,       v3000-py3]
+          - [opensuse/leap,   15.2 ,   3000.6,      3,       v3000-py3]
+          # - [amazonlinux  ,    2   ,   3000.6,      3,       v3000-py3]
+          # - [oraclelinux  ,    8   ,   3000.6,      3,       v3000-py3]
+          - [oraclelinux  ,    7   ,   3000.6,      3,       v3000-py3]
+          # - [gentoo/stage3,  latest,   3000.6,      3,       v3000-py3]
+          # - [gentoo/stage3, systemd,   3000.6,      3,       v3000-py3]
+          # - [ubuntu       ,   18.04,   3000.6,      2,       v3000-py2]
+          - [ubuntu       ,   16.04,   3000.6,      2,       v3000-py2]
+          # # - [arch-base    ,  latest,   3000.6,      2,       v3000-py2]
         use_tofs: true
         yamllint:
           ignore:
