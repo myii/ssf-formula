@@ -1,5 +1,13 @@
 # Changelog
 
+# [1.231.0](https://github.com/myii/ssf-formula/compare/v1.230.0...v1.231.0) (2020-12-20)
+
+
+### Features
+
+* **formulas:** update `platforms_new_saltimages` ([6410569](https://github.com/myii/ssf-formula/commit/641056941e8012636a0f113ba33bb6a844050df0))
+* **saltimages:** update with latest changes from `salt-image-builder` ([4553739](https://github.com/myii/ssf-formula/commit/45537392c5f3addf53b58f9a76849294508aae2e))
+
 # [1.230.0](https://github.com/myii/ssf-formula/compare/v1.229.0...v1.230.0) (2020-12-20)
 
 
