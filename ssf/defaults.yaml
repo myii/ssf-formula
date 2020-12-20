@@ -59,8 +59,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "ci(gitlab-ci): add '`'rubocop'`' linter (with '`'allow_failure'`') [skip ci]"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/277'
+            title: "ci(commitlint): ensure '`'upstream/master'`' uses main repo URL [skip ci]"
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/278'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
