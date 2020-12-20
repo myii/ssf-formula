@@ -59,8 +59,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "ci(kitchen+gitlab): update for new pre-salted images [skip ci]"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/279'
+            title: "ci(kitchen+gitlab): adjust matrix to add '`'3002'`'"
+            body: '* Semi-automated using https://github.com/myii/ssf-formula/pull/280'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
@@ -1073,11 +1073,14 @@ ssf:
           <<: *isk_default
           0:
             <<: *isk_suite_default
-            name: 'v3001-py3'
+            name: 'v3002-py3'
           1:
             <<: *isk_suite_default
-            name: 'v3000-py3'
+            name: 'v3001-py3'
           2:
+            <<: *isk_suite_default
+            name: 'v3000-py3'
+          3:
             <<: *isk_suite_default
             name: 'v3000-py2'
     sqldeveloper: *formula_default
