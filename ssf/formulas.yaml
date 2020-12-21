@@ -4764,13 +4764,7 @@ ssf:
                 - '*':
                     - ._mapdata
                     - TEMPLATE
-          1:
-            includes: *includes_NONE
-            inspec_yml:
-              summary: >-
-                shared resources
-              supports: *supports_all_including_oracle_and_gentoo
-              title: *title_suite_share
+          1: *inspec_suites_kitchen__share_suite
           2:
             includes: *platforms_os_upstart
             provisioner:
@@ -4807,6 +4801,9 @@ ssf:
           - default
           - upstart
           - gentoo
+        map_jinja:
+          verification:
+            import: 'TEMPLATE'
         platforms:
           ### `tiamat-py3`
           - [debian       ,   10   ,   tiamat,      3]
@@ -4891,7 +4888,7 @@ ssf:
         use_libsaltcli: true
         use_tofs: true
       semrel_files:
-        <<: *semrel_files_default
+        <<: *semrel_files_inc_map_jinja_verifier
         formula/libsaltcli.jinja:
           <<: *file__formula__libsaltcli--jinja
           alt_semrel_formula: 'TEMPLATE'
@@ -4903,6 +4900,13 @@ ssf:
           alt_semrel_formula: 'TEMPLATE'
         kitchen.yml:
           <<: *file__kitchen--yml
+          alt_semrel_formula: 'TEMPLATE'
+        # Overrides for extra files in `*semrel_files_inc_map_jinja_verifier`
+        formula/_mapdata/_mapdata.jinja:
+          <<: *file__formula___mapdata___mapdata--jinja
+          alt_semrel_formula: 'TEMPLATE'
+        formula/_mapdata/init.sls:
+          <<: *file__formula___mapdata___init--sls
           alt_semrel_formula: 'TEMPLATE'
     timezone:
       context:
