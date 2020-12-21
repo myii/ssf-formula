@@ -3383,17 +3383,15 @@ ssf:
                     - ._mapdata
                     - .config
                     - .known_hosts
-          1:
-            includes: *includes_NONE
-            inspec_yml:
-              summary: >-
-                shared resources
-              title: *title_suite_share
+          1: *inspec_suites_kitchen__share_suite
+        map_jinja:
+          verification:
+            import: 'mapdata'
         platforms: *platforms_new
         platforms_matrix: *platforms_matrix_new_mainly_master_images
         use_libsaltcli: true
         use_tofs: true
-      semrel_files: *semrel_files_default
+      semrel_files: *semrel_files_inc_map_jinja_verifier
     openvpn:
       context:
         codeowners:
