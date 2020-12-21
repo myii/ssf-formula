@@ -3415,12 +3415,10 @@ ssf:
                 - '*':
                     - ._mapdata
                     - .config
-          1:
-            includes: *includes_NONE
-            inspec_yml:
-              summary: >-
-                shared resources
-              supports: *supports_all_including_oracle_gentoo_and_windows
+          1: *inspec_suites_kitchen__share_suite
+        map_jinja:
+          verification:
+            import: 'map'
         platforms: *platforms_new_saltimages
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
@@ -3444,7 +3442,7 @@ ssf:
           ignore:
             additional:
               - test/salt/pillar/default.sls
-      semrel_files: *semrel_files_default
+      semrel_files: *semrel_files_inc_map_jinja_verifier
     packages:
       context:
         codeowners:
