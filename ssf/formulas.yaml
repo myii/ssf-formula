@@ -4544,14 +4544,13 @@ ssf:
                     - ._mapdata
                     - .
                     - .included
-          1:
-            includes: *includes_NONE
-            inspec_yml:
-              summary: >-
-                shared resources
+          1: *inspec_suites_kitchen__share_suite
+        map_jinja:
+          verification:
+            import: 'sudoers'
         platforms: *platforms_new
         platforms_matrix: *platforms_matrix_new_mainly_master_images
-      semrel_files: *semrel_files_default
+      semrel_files: *semrel_files_inc_map_jinja_verifier
     suricata:
       context:
         codeowners:
