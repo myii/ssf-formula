@@ -3343,11 +3343,10 @@ ssf:
                 - '*':
                     - ._mapdata
                     - .
-          1:
-            includes: *includes_NONE
-            inspec_yml:
-              summary: >-
-                shared resources
+          1: *inspec_suites_kitchen__share_suite
+        map_jinja:
+          verification:
+            import: 'openntpd'
         platforms: *platforms_new
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
@@ -3362,7 +3361,7 @@ ssf:
           - [debian       ,    9   ,   3000.3,      3,         default]
           - [ubuntu       ,   16.04,   3000.3,      2,         default]
           - [arch-base    ,  latest,   2019.2,      2,         default]
-      semrel_files: *semrel_files_default
+      semrel_files: *semrel_files_inc_map_jinja_verifier
     openssh:
       context:
         git:
