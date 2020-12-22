@@ -104,6 +104,7 @@ ssf_node_anchors:
                   path: './test/salt'
               state_top_salt: &state_top_salt
                 - '*':
+                    - ._mapdata
                     - .pkgrepo
                     - .master
                     - .minion
@@ -4156,7 +4157,8 @@ ssf:
           github:
             repo: 'salt-formula'
         inspec_suites_kitchen:
-          0:
+          0: *inspec_suites_kitchen__share_suite
+          1:
             includes:
               # [os           , os_ver, salt_ver, py_ver]
               - [debian       ,   10   ,   3002.2,      3]
@@ -4176,6 +4178,7 @@ ssf:
               - [gentoo/stage3,  latest,   3002.2,      3]
               - [gentoo/stage3, systemd,   3002.2,      3]
             inspec_yml:
+              depends: *depends_on_suite_share
               summary: >-
                 Verify that Salt `v3002-py3` is setup and configured
               supports: *supports_all_including_oracle_and_gentoo
@@ -4188,7 +4191,7 @@ ssf:
                 - .sls: 'test/salt/pillar/salt.sls'
                 - v3002-py3.sls: 'test/salt/pillar/v3002-py3.sls'
               state_top: *state_top_salt
-          1:
+          2:
             includes:
               # [os           , os_ver, salt_ver, py_ver]
               - [debian       ,   10   ,   3001.4,      3]
@@ -4208,6 +4211,7 @@ ssf:
               - [gentoo/stage3,  latest,   3001.4,      3]
               - [gentoo/stage3, systemd,   3001.4,      3]
             inspec_yml:
+              depends: *depends_on_suite_share
               summary: >-
                 Verify that Salt `v3001-py3` is setup and configured
               supports: *supports_all_including_oracle_and_gentoo
@@ -4220,7 +4224,7 @@ ssf:
                 - .sls: 'test/salt/pillar/salt.sls'
                 - v3001-py3.sls: 'test/salt/pillar/v3001-py3.sls'
               state_top: *state_top_salt
-          2:
+          3:
             includes:
               # [os           , os_ver, salt_ver, py_ver]
               - [debian       ,   10   ,   3000.6,      3]
@@ -4236,6 +4240,7 @@ ssf:
               - [gentoo/stage3,  latest,   3000.6,      3]
               - [gentoo/stage3, systemd,   3000.6,      3]
             inspec_yml:
+              depends: *depends_on_suite_share
               summary: >-
                 Verify that Salt `v3000-py3` is setup and configured
               supports: *supports_all_including_oracle_gentoo_and_windows
@@ -4248,13 +4253,14 @@ ssf:
                 - .sls: 'test/salt/pillar/salt.sls'
                 - v3000-py3.sls: 'test/salt/pillar/v3000-py3.sls'
               state_top: *state_top_salt
-          3:
+          4:
             includes:
               # [os           , os_ver, salt_ver, py_ver]
               - [ubuntu       ,   18.04,   3000.6,      2]
               - [ubuntu       ,   16.04,   3000.6,      2]
               # # - [arch-base    ,  latest,   3000.6,      2]
             inspec_yml:
+              depends: *depends_on_suite_share
               summary: >-
                 Verify that Salt `v3000-py2` is setup and configured
               supports: *supports_all_including_oracle_and_gentoo
@@ -4272,6 +4278,9 @@ ssf:
           - v3001-py3
           - v3000-py3
           - v3000-py2
+        map_jinja:
+          verification:
+            import: ['salt_settings', 'formulas_settings']
         platforms: *platforms_new_saltimages
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
@@ -4332,7 +4341,7 @@ ssf:
             additional:
               - salt/osfamilymap.yaml
               - salt/osmap.yaml
-      semrel_files: *semrel_files_default
+      semrel_files: *semrel_files_inc_map_jinja_verifier
     sqldeveloper:
       context:
         codeowners:
