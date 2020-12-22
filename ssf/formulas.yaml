@@ -3923,20 +3923,24 @@ ssf:
         inspec_suites_kitchen:
           0:
             inspec_yml:
+              depends: *depends_on_suite_share
               summary: >-
                 Verify that the rabbitmq formula is setup and configured correctly
             provisioner:
               dependencies: *dependencies_files_and_states
               state_top:
                 - '*':
+                    - ._mapdata
                     - states.files
                     - .
                     - .config_files
-          1:
+          1: *inspec_suites_kitchen__share_suite
+          2:
             provisioner:
               dependencies: *dependencies_files_and_states
               state_top:
                 - '*':
+                    - ._mapdata
                     - states.files
                     - .latest
                     - .config_files
@@ -3944,6 +3948,10 @@ ssf:
         inspec_suites_matrix:
           - default
           - latest
+        map_jinja:
+          filename: 'package-map.jinja'
+          verification:
+            import: 'pkgs'
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,   10   ,   master,      3,          latest]
@@ -3952,7 +3960,7 @@ ssf:
           - [ubuntu       ,   18.04,   2019.2,      3,         default]
           # # - [debian       ,    9   ,   2018.3,      2,         default]
           # # - [ubuntu       ,   16.04,   2017.7,      2,         default]
-      semrel_files: *semrel_files_default
+      semrel_files: *semrel_files_inc_map_jinja_verifier
     redis:
       context:
         git:
