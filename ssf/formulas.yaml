@@ -3566,17 +3566,20 @@ ssf:
             # None of the platforms use `default` directly
             includes: *includes_NONE
             inspec_yml:
+              depends: *depends_on_suite_share
               summary: >-
                 Verify that the php formula is setup and configured correctly
             provisioner:
               pillars_from_files: []
-          1:
+          1: *inspec_suites_kitchen__share_suite
+          2:
             includes: *platforms_os_debian
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/debian.sls'
               state_top:
                 - '*':
+                    - ._mapdata
                     - .repo
                     - .fpm.install
                     - .fpm.config
@@ -3584,7 +3587,7 @@ ssf:
                     - .modules
                     - .fpm.service
             verifier: *verifier_inspec_tests_default
-          2:
+          3:
             includes: *platforms_os_ubuntu
             provisioner:
               pillars:
@@ -3596,6 +3599,7 @@ ssf:
                 - ubuntu.sls: 'test/salt/pillar/ubuntu.sls'
               state_top:
                 - '*':
+                    - ._mapdata
                     - .repo
                     - .fpm.install
                     - .fpm.config
@@ -3603,17 +3607,25 @@ ssf:
                     - .modules
                     - .fpm.service
             verifier: *verifier_inspec_tests_default
-          3:
+          4:
             includes: *platforms_osfamily_redhat
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/redhat.sls'
+              state_top:
+                - '*':
+                    - ._mapdata
+                    - .
             verifier: *verifier_inspec_tests_default
-          4:
+          5:
             includes: *platforms_osfamily_suse
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/suse.sls'
+              state_top:
+                - '*':
+                    - ._mapdata
+                    - .
             verifier: *verifier_inspec_tests_default
         inspec_suites_matrix:
           - default
@@ -3621,6 +3633,9 @@ ssf:
           - ubuntu
           - redhat
           - suse
+        map_jinja:
+          verification:
+            import: 'php'
         platforms_matrix:
           - [debian       ,   10   ,   master,      3,       debian]
           - [ubuntu       ,   18.04,   2019.2,      3,       ubuntu]
@@ -3630,7 +3645,7 @@ ssf:
           # # - [centos       ,    6   ,   2017.7,      2,       redhat]
         travis: *travis_do_not_use_single_job_for_linters
         use_tofs: true
-      semrel_files: *semrel_files_default
+      semrel_files: *semrel_files_inc_map_jinja_verifier
     postfix:
       context:
         codeowners:
