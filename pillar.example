@@ -178,8 +178,12 @@ ssf:
       - bin/kitchen
       - docs/CONTRIBUTING.rst
       - docs/TOFS_pattern.rst
+      - formula/_mapdata/_mapdata.jinja
+      - formula/_mapdata/init.sls
       - formula/libsaltcli.jinja
       - formula/libtofs.jinja
+      - inspec/controls/_mapdata_spec.rb
+      - inspec/libraries/system.rb
       - inspec/inspec.yml
       - inspec/README.md
       - .gitignore

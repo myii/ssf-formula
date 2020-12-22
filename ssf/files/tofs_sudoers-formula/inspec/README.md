@@ -1,1 +1,0 @@
-../../tofs_libvirt-formula/inspec/README.md

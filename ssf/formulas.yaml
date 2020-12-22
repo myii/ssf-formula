@@ -86,7 +86,6 @@ ssf_node_anchors:
                 - arch
                 - gentoo
                 - windows
-              title_suite_share: &title_suite_share 'InSpec shared resources'
             provisioner:
               dependencies_epel: &dependencies_epel
                 - name: 'epel'
@@ -111,6 +110,13 @@ ssf_node_anchors:
             verifier: &verifier_inspec_tests_default
               inspec_tests:
                 - default
+          1: &inspec_suites_kitchen__share_suite
+            includes: *includes_NONE
+            inspec_yml:
+              summary: >-
+                shared resources
+              supports: *supports_all_including_oracle_gentoo_and_windows
+              title: 'InSpec shared resources'
 
         # Use this to start adopting the "unified" platforms based on `saltimages`.
         # This will include `tiamat` and will be updated for `3002` once available.
@@ -726,6 +732,17 @@ ssf_node_anchors:
         release.config.js: &file__release--config--js
           <<: *file_default
           template: 'jinja'
+      semrel_files_inc_map_jinja_verifier: &semrel_files_inc_map_jinja_verifier
+        <<: *semrel_files_default
+        formula/_mapdata/_mapdata.jinja: &file__formula___mapdata___mapdata--jinja
+          <<: *file_default
+        formula/_mapdata/init.sls: &file__formula___mapdata___init--sls
+          <<: *file_default
+          template: 'mako'
+        inspec/controls/_mapdata_spec.rb: &file__inspec__controls___mapdata_spec--rb
+          <<: *file_default
+        inspec/libraries/system.rb: &file__inspec__libraries__system--rb
+          <<: *file_default
 
 ssf:
   semrel_formulas:
@@ -3325,11 +3342,10 @@ ssf:
                 - '*':
                     - ._mapdata
                     - .
-          1:
-            includes: *includes_NONE
-            inspec_yml:
-              summary: >-
-                shared resources
+          1: *inspec_suites_kitchen__share_suite
+        map_jinja:
+          verification:
+            import: 'openntpd'
         platforms: *platforms_new
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
@@ -3344,7 +3360,7 @@ ssf:
           - [debian       ,    9   ,   3000.3,      3,         default]
           - [ubuntu       ,   16.04,   3000.3,      2,         default]
           - [arch-base    ,  latest,   2019.2,      2,         default]
-      semrel_files: *semrel_files_default
+      semrel_files: *semrel_files_inc_map_jinja_verifier
     openssh:
       context:
         git:
@@ -3366,17 +3382,15 @@ ssf:
                     - ._mapdata
                     - .config
                     - .known_hosts
-          1:
-            includes: *includes_NONE
-            inspec_yml:
-              summary: >-
-                shared resources
-              title: *title_suite_share
+          1: *inspec_suites_kitchen__share_suite
+        map_jinja:
+          verification:
+            import: 'mapdata'
         platforms: *platforms_new
         platforms_matrix: *platforms_matrix_new_mainly_master_images
         use_libsaltcli: true
         use_tofs: true
-      semrel_files: *semrel_files_default
+      semrel_files: *semrel_files_inc_map_jinja_verifier
     openvpn:
       context:
         codeowners:
@@ -3400,12 +3414,10 @@ ssf:
                 - '*':
                     - ._mapdata
                     - .config
-          1:
-            includes: *includes_NONE
-            inspec_yml:
-              summary: >-
-                shared resources
-              supports: *supports_all_including_oracle_gentoo_and_windows
+          1: *inspec_suites_kitchen__share_suite
+        map_jinja:
+          verification:
+            import: 'map'
         platforms: *platforms_new_saltimages
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
@@ -3429,7 +3441,7 @@ ssf:
           ignore:
             additional:
               - test/salt/pillar/default.sls
-      semrel_files: *semrel_files_default
+      semrel_files: *semrel_files_inc_map_jinja_verifier
     packages:
       context:
         codeowners:
@@ -4531,14 +4543,13 @@ ssf:
                     - ._mapdata
                     - .
                     - .included
-          1:
-            includes: *includes_NONE
-            inspec_yml:
-              summary: >-
-                shared resources
+          1: *inspec_suites_kitchen__share_suite
+        map_jinja:
+          verification:
+            import: 'sudoers'
         platforms: *platforms_new
         platforms_matrix: *platforms_matrix_new_mainly_master_images
-      semrel_files: *semrel_files_default
+      semrel_files: *semrel_files_inc_map_jinja_verifier
     suricata:
       context:
         codeowners:
@@ -4752,13 +4763,7 @@ ssf:
                 - '*':
                     - ._mapdata
                     - TEMPLATE
-          1:
-            includes: *includes_NONE
-            inspec_yml:
-              summary: >-
-                shared resources
-              supports: *supports_all_including_oracle_and_gentoo
-              title: *title_suite_share
+          1: *inspec_suites_kitchen__share_suite
           2:
             includes: *platforms_os_upstart
             provisioner:
@@ -4795,6 +4800,9 @@ ssf:
           - default
           - upstart
           - gentoo
+        map_jinja:
+          verification:
+            import: 'TEMPLATE'
         platforms:
           ### `tiamat-py3`
           - [debian       ,   10   ,   tiamat,      3]
@@ -4879,7 +4887,7 @@ ssf:
         use_libsaltcli: true
         use_tofs: true
       semrel_files:
-        <<: *semrel_files_default
+        <<: *semrel_files_inc_map_jinja_verifier
         formula/libsaltcli.jinja:
           <<: *file__formula__libsaltcli--jinja
           alt_semrel_formula: 'TEMPLATE'
@@ -4891,6 +4899,13 @@ ssf:
           alt_semrel_formula: 'TEMPLATE'
         kitchen.yml:
           <<: *file__kitchen--yml
+          alt_semrel_formula: 'TEMPLATE'
+        # Overrides for extra files in `*semrel_files_inc_map_jinja_verifier`
+        formula/_mapdata/_mapdata.jinja:
+          <<: *file__formula___mapdata___mapdata--jinja
+          alt_semrel_formula: 'TEMPLATE'
+        formula/_mapdata/init.sls:
+          <<: *file__formula___mapdata___init--sls
           alt_semrel_formula: 'TEMPLATE'
     timezone:
       context:
