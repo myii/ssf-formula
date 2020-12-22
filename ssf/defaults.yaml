@@ -62,8 +62,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "test(map): standardise '`'map.jinja'`' verification"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/281'
+            title: "test(map): verify '`'map.jinja'`' dump using '`'_mapdata'`' state"
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/282'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
@@ -1043,6 +1043,9 @@ ssf:
         inspec_suites_kitchen:
           <<: *isk_default
           1:
+            <<: *isk_suite_default
+            name: 'share'
+          2:
             <<: *isk_suite_default
             name: 'latest'
     redis: *formula_default
