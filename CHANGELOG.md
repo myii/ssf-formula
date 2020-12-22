@@ -1,5 +1,22 @@
 # Changelog
 
+# [1.233.0](https://github.com/myii/ssf-formula/compare/v1.232.0...v1.233.0) (2020-12-22)
+
+
+### Code Refactoring
+
+* **formulas:** remove unnecessary `&title_suite_share` node anchor ([47acb81](https://github.com/myii/ssf-formula/commit/47acb81c8addee4de3477494b528549a71acc983))
+
+
+### Features
+
+* **_mapdata:** manage `map.jinja` verification ([772e0cc](https://github.com/myii/ssf-formula/commit/772e0ccc930558d3ced6ca646f8beff071d7c4da))
+* **openntpd:** manage `map.jinja` verification ([9695c2a](https://github.com/myii/ssf-formula/commit/9695c2aeaf4b6da8cdb1fb3930a50033a4f15eb5))
+* **openssh:** manage `map.jinja` verification ([5c525d0](https://github.com/myii/ssf-formula/commit/5c525d027f218435a4f26a383d32719ed7c3e391))
+* **openvpn:** manage `map.jinja` verification ([87223d9](https://github.com/myii/ssf-formula/commit/87223d9b0eb93ded04149bf72a84ab864edbee66))
+* **sudoers:** manage `map.jinja` verification ([e71ead3](https://github.com/myii/ssf-formula/commit/e71ead3777bcf99a317a31ea2a6b06428756d400))
+* **template:** manage `map.jinja` verification ([5f5e975](https://github.com/myii/ssf-formula/commit/5f5e975c965df5ddfe0527c3f3db30d9d34c1ecb))
+
 # [1.232.0](https://github.com/myii/ssf-formula/compare/v1.231.0...v1.232.0) (2020-12-20)
 
 
