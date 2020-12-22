@@ -132,6 +132,7 @@ ssf_node_anchors:
           driver:
             run_options: {}
         map_jinja:
+          filename: 'map.jinja'
           verification: {}
         platforms:
           # Could use `opensuse-leap` throughout since `/` never used at this end
