@@ -86,7 +86,6 @@ ssf_node_anchors:
                 - arch
                 - gentoo
                 - windows
-              title_suite_share: &title_suite_share 'InSpec shared resources'
             provisioner:
               dependencies_epel: &dependencies_epel
                 - name: 'epel'
@@ -117,7 +116,7 @@ ssf_node_anchors:
               summary: >-
                 shared resources
               supports: *supports_all_including_oracle_gentoo_and_windows
-              title: *title_suite_share
+              title: 'InSpec shared resources'
 
         # Use this to start adopting the "unified" platforms based on `saltimages`.
         # This will include `tiamat` and will be updated for `3002` once available.
