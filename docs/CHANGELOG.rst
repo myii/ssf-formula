@@ -2,6 +2,16 @@
 Changelog
 =========
 
+`1.234.0 <https://github.com/myii/ssf-formula/compare/v1.233.0...v1.234.0>`_ (2020-12-22)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **map_jinja:** allow working with filenames other than ``map.jinja`` (\ `2987e67 <https://github.com/myii/ssf-formula/commit/2987e67d4873a3f992e445ea3ba9c172e36735a7>`_\ )
+* **rabbitmq:** manage ``map.jinja`` verification (\ `4a0c664 <https://github.com/myii/ssf-formula/commit/4a0c664a489546df89093b532ab92a56b9c25d4c>`_\ )
+
 `1.233.0 <https://github.com/myii/ssf-formula/compare/v1.232.0...v1.233.0>`_ (2020-12-22)
 ---------------------------------------------------------------------------------------------
 
