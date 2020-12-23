@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.237.0 <https://github.com/myii/ssf-formula/compare/v1.236.0...v1.237.0>`_ (2020-12-23)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **salt:** manage ``map.jinja`` verification (\ `0fb515a <https://github.com/myii/ssf-formula/commit/0fb515aba4d4faa742f3545b799fc52e6072e7b9>`_\ )
+
 `1.236.0 <https://github.com/myii/ssf-formula/compare/v1.235.0...v1.236.0>`_ (2020-12-23)
 ---------------------------------------------------------------------------------------------
 
