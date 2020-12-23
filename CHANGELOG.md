@@ -1,5 +1,15 @@
 # Changelog
 
+# [1.236.0](https://github.com/myii/ssf-formula/compare/v1.235.0...v1.236.0) (2020-12-23)
+
+
+### Features
+
+* **_mapdata:** use top-level `values` for `map.jinja` dump files ([705d9c3](https://github.com/myii/ssf-formula/commit/705d9c39c6876aff0ceaf27c3e9004a5540d619b))
+* **_mapdata_spec:** dump YAML back to string for better diffs ([02e2000](https://github.com/myii/ssf-formula/commit/02e2000f778daee21a38558a6b06a914c97997e8))
+* **_mapdata.jinja:** use Black-inspired Jinja formatting ([0965c57](https://github.com/myii/ssf-formula/commit/0965c571454a788bea59ab6354ab6bffe1a9eb88))
+* **php:** add `rubocop` linter to `pre-commit` ([08b3b7e](https://github.com/myii/ssf-formula/commit/08b3b7eb8525c15f0aee90e4aef2fa6ea6c5b128)), closes [#283](https://github.com/myii/ssf-formula/issues/283)
+
 # [1.235.0](https://github.com/myii/ssf-formula/compare/v1.234.0...v1.235.0) (2020-12-22)
 
 
