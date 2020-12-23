@@ -62,8 +62,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "refactor(map): use top-level '`'values:'`' key in '`'map.jinja'`' dumps"
-            body: '* Semi-automated using https://github.com/myii/ssf-formula/pull/284'
+            title: "test(map): verify '`'map.jinja'`' dump using '`'_mapdata'`' state"
+            body: '* Semi-automated using https://github.com/myii/ssf-formula/pull/285'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
@@ -1086,14 +1086,17 @@ ssf:
           <<: *isk_default
           0:
             <<: *isk_suite_default
-            name: 'v3002-py3'
+            name: 'share'
           1:
             <<: *isk_suite_default
-            name: 'v3001-py3'
+            name: 'v3002-py3'
           2:
             <<: *isk_suite_default
-            name: 'v3000-py3'
+            name: 'v3001-py3'
           3:
+            <<: *isk_suite_default
+            name: 'v3000-py3'
+          4:
             <<: *isk_suite_default
             name: 'v3000-py2'
     sqldeveloper: *formula_default
