@@ -3345,7 +3345,7 @@ ssf:
           1: *inspec_suites_kitchen__share_suite
         map_jinja:
           verification:
-            import: 'openntpd'
+            import: ['openntpd']
         platforms: *platforms_new
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
@@ -3385,7 +3385,8 @@ ssf:
           1: *inspec_suites_kitchen__share_suite
         map_jinja:
           verification:
-            import: 'mapdata'
+            import: ['mapdata']
+          version: 5
         platforms: *platforms_new
         platforms_matrix: *platforms_matrix_new_mainly_master_images
         use_libsaltcli: true
@@ -3417,7 +3418,7 @@ ssf:
           1: *inspec_suites_kitchen__share_suite
         map_jinja:
           verification:
-            import: 'map'
+            import: ['map']
         platforms: *platforms_new_saltimages
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
@@ -3635,7 +3636,7 @@ ssf:
           - suse
         map_jinja:
           verification:
-            import: 'php'
+            import: ['php']
         platforms_matrix:
           - [debian       ,   10   ,   master,      3,       debian]
           - [ubuntu       ,   18.04,   2019.2,      3,       ubuntu]
@@ -3643,7 +3644,6 @@ ssf:
           - [fedora       ,   30   ,   2018.3,      3,       redhat]
           - [opensuse/leap,   15.1 ,   2018.3,      2,         suse]
           # # - [centos       ,    6   ,   2017.7,      2,       redhat]
-        travis: *travis_do_not_use_single_job_for_linters
         use_tofs: true
       semrel_files: *semrel_files_inc_map_jinja_verifier
     postfix:
@@ -3966,7 +3966,7 @@ ssf:
         map_jinja:
           filename: 'package-map.jinja'
           verification:
-            import: 'pkgs'
+            import: ['pkgs']
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,   10   ,   master,      3,          latest]
@@ -4569,7 +4569,7 @@ ssf:
           1: *inspec_suites_kitchen__share_suite
         map_jinja:
           verification:
-            import: 'sudoers'
+            import: ['sudoers']
         platforms: *platforms_new
         platforms_matrix: *platforms_matrix_new_mainly_master_images
       semrel_files: *semrel_files_inc_map_jinja_verifier
@@ -4825,7 +4825,7 @@ ssf:
           - gentoo
         map_jinja:
           verification:
-            import: 'TEMPLATE'
+            import: ['TEMPLATE']
         platforms:
           ### `tiamat-py3`
           - [debian       ,   10   ,   tiamat,      3]
