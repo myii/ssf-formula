@@ -1304,21 +1304,24 @@ ssf:
           entries:
             global:
               - '*': '@sticky-note'
-            specific_directories:
-              - '/test/': '@myii'
         git:
           github:
             repo: 'dhcpd-formula'
         inspec_suites_kitchen:
           0:
             inspec_yml:
+              depends: *depends_on_suite_share
               summary: >-
                 Verify that the dhcpd formula is setup and configured correctly
             provisioner:
               state_top:
                 - '*':
-                    - .yaml_dump
+                    - ._mapdata
                     - .config
+          1: *inspec_suites_kitchen__share_suite
+        map_jinja:
+          verification:
+            import: ['dhcpd']
         platforms: *platforms_new
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
@@ -1332,7 +1335,7 @@ ssf:
           # - [centos       ,    7   ,   2019.2,      3,         default]
           # # - [centos       ,    6   ,   2019.2,      2,         default]
           # - [arch-base    ,  latest,   2019.2,      2,         default]
-      semrel_files: *semrel_files_default
+      semrel_files: *semrel_files_inc_map_jinja_verifier
     django:
       context:
         git:

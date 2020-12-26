@@ -648,7 +648,15 @@ ssf:
           0:
             <<: *isk_suite_default
             name: 'ubuntu'
-    dhcpd: *formula_default
+    dhcpd:
+      <<: *formula_default
+      context:
+        <<: *context_default
+        inspec_suites_kitchen:
+          <<: *isk_default
+          1:
+            <<: *isk_suite_default
+            name: 'share'
     django: *formula_default
     docker:
       <<: *formula_default
