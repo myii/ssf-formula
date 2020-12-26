@@ -4966,6 +4966,8 @@ ssf:
             repo: 'tomcat-formula'
         inspec_suites_kitchen:
           0:
+            driver:
+              hostname: 'example.net'
             inspec_yml:
               summary: >-
                 Verify that the tomcat formula is setup and configured correctly
