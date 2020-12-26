@@ -3717,14 +3717,13 @@ ssf:
           entries:
             global:
               - '*': '@sticky-note'
-            specific_directories:
-              - '/test/': '@myii'
         git:
           github:
             repo: 'powerdns-formula'
         inspec_suites_kitchen:
           0:
             inspec_yml:
+              depends: *depends_on_suite_share
               summary: >-
                 Verify that the powerdns formula is setup and configured correctly
             provisioner:
@@ -3732,9 +3731,13 @@ ssf:
                 - .sls: 'test/salt/pillar/default.sls'
               state_top:
                 - '*':
-                    - .yaml_dump
+                    - ._mapdata
                     - .config
                     - .backend-sqlite3
+          1: *inspec_suites_kitchen__share_suite
+        map_jinja:
+          verification:
+            import: ['powerdns']
         platforms: *platforms_new
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
@@ -3750,7 +3753,7 @@ ssf:
           ignore:
             additional:
               - sls.example
-      semrel_files: *semrel_files_default
+      semrel_files: *semrel_files_inc_map_jinja_verifier
     proftpd:
       context:
         codeowners:

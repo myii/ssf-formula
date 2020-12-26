@@ -1028,7 +1028,15 @@ ssf:
             name: 'suse'
     postfix: *formula_default
     postgres: *formula_default
-    powerdns: *formula_default
+    powerdns:
+      <<: *formula_default
+      context:
+        <<: *context_default
+        inspec_suites_kitchen:
+          <<: *isk_default
+          1:
+            <<: *isk_suite_default
+            name: 'share'
     proftpd:
       <<: *formula_default
       context:
