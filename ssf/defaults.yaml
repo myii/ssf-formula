@@ -1136,7 +1136,15 @@ ssf:
             <<: *isk_suite_default
             name: 'gentoo'
     timezone: *formula_default
-    tomcat: *formula_default
+    tomcat:
+      <<: *formula_default
+      context:
+        <<: *context_default
+        inspec_suites_kitchen:
+          <<: *isk_default
+          1:
+            <<: *isk_suite_default
+            name: 'share'
     ufw:
       <<: *formula_default
       context:

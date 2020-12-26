@@ -4957,10 +4957,6 @@ ssf:
       semrel_files: *semrel_files_default
     tomcat:
       context:
-        codeowners:
-          entries:
-            specific_directories:
-              - '/test/': '@myii'
         git:
           github:
             repo: 'tomcat-formula'
@@ -4969,17 +4965,14 @@ ssf:
             driver:
               hostname: 'example.net'
             inspec_yml:
+              depends: *depends_on_suite_share
               summary: >-
                 Verify that the tomcat formula is setup and configured correctly
-            provisioner:
-              dependencies:
-                - name: 'comparison_files'
-                  path: './test/salt'
               # pillars_from_files:
               #   - .sls: 'test/salt/pillar/default.sls'
               state_top:
                 - '*':
-                    - .yaml_dump
+                    - ._mapdata
                     - .
                     - .native
                     - .config
@@ -4988,6 +4981,10 @@ ssf:
                     - .expires
                     - .context
                     - .cluster
+          1: *inspec_suites_kitchen__share_suite
+        map_jinja:
+          verification:
+            import: ['tomcat']
         platforms: *platforms_new
         platforms_matrix:
           # Similar to `*platforms_matrix_without_arch_new` which will be
@@ -5016,14 +5013,11 @@ ssf:
             Lint/EmptyWhen:
               Exclude:
                 - 'test/integration/default/controls/config_spec.rb'
-            Style/FormatStringToken:
-              Exclude:
-                - 'test/integration/default/controls/yaml_dump_spec.rb'
         yamllint:
           ignore:
             additional:
               - tomcat/osfamilymap.yaml
-      semrel_files: *semrel_files_default
+      semrel_files: *semrel_files_inc_map_jinja_verifier
     ufw:
       context:
         git:
