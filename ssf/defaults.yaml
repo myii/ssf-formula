@@ -691,7 +691,15 @@ ssf:
     epel: *formula_default
     exim: *formula_default
     fail2ban: *formula_default
-    firewalld: *formula_default
+    firewalld:
+      <<: *formula_default
+      context:
+        <<: *context_default
+        inspec_suites_kitchen:
+          <<: *isk_default
+          1:
+            <<: *isk_suite_default
+            name: 'share'
     golang:
       <<: *formula_default
       context:

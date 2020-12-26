@@ -1524,23 +1524,24 @@ ssf:
       semrel_files: *semrel_files_default
     firewalld:
       context:
-        codeowners:
-          entries:
-            specific_directories:
-              - '/test/': '@myii'
         git:
           github:
             repo: 'firewalld-formula'
         inspec_suites_kitchen:
           0:
             inspec_yml:
+              depends: *depends_on_suite_share
               summary: >-
                 Verify that the firewalld formula is setup and configured correctly
             provisioner:
               state_top:
                 - '*':
-                    - .yaml_dump
+                    - ._mapdata
                     - .
+          1: *inspec_suites_kitchen__share_suite
+        map_jinja:
+          verification:
+            import: ['firewalld']
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
           - [ubuntu       ,   18.04,   master,      3,         default]
@@ -1550,7 +1551,7 @@ ssf:
           - [opensuse/leap,   15.1 ,   2018.3,      2,         default]
           - [arch-base    ,  latest,   2018.3,      2,         default]
           # - [ubuntu       ,   16.04,   2017.7,      2,         default]
-      semrel_files: *semrel_files_default
+      semrel_files: *semrel_files_inc_map_jinja_verifier
     golang:
       context:
         codeowners:
