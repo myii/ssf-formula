@@ -63,7 +63,7 @@ ssf_node_anchors:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
             title: "test(map): verify '`'map.jinja'`' dump using '`'_mapdata'`' state"
-            body: '* Semi-automated using https://github.com/myii/ssf-formula/pull/285'
+            body: '* Semi-automated using https://github.com/myii/ssf-formula/pull/286'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
@@ -648,7 +648,15 @@ ssf:
           0:
             <<: *isk_suite_default
             name: 'ubuntu'
-    dhcpd: *formula_default
+    dhcpd:
+      <<: *formula_default
+      context:
+        <<: *context_default
+        inspec_suites_kitchen:
+          <<: *isk_default
+          1:
+            <<: *isk_suite_default
+            name: 'share'
     django: *formula_default
     docker:
       <<: *formula_default
@@ -683,7 +691,15 @@ ssf:
     epel: *formula_default
     exim: *formula_default
     fail2ban: *formula_default
-    firewalld: *formula_default
+    firewalld:
+      <<: *formula_default
+      context:
+        <<: *context_default
+        inspec_suites_kitchen:
+          <<: *isk_default
+          1:
+            <<: *isk_suite_default
+            name: 'share'
     golang:
       <<: *formula_default
       context:
@@ -1012,7 +1028,15 @@ ssf:
             name: 'suse'
     postfix: *formula_default
     postgres: *formula_default
-    powerdns: *formula_default
+    powerdns:
+      <<: *formula_default
+      context:
+        <<: *context_default
+        inspec_suites_kitchen:
+          <<: *isk_default
+          1:
+            <<: *isk_suite_default
+            name: 'share'
     proftpd:
       <<: *formula_default
       context:
@@ -1136,7 +1160,15 @@ ssf:
             <<: *isk_suite_default
             name: 'gentoo'
     timezone: *formula_default
-    tomcat: *formula_default
+    tomcat:
+      <<: *formula_default
+      context:
+        <<: *context_default
+        inspec_suites_kitchen:
+          <<: *isk_default
+          1:
+            <<: *isk_suite_default
+            name: 'share'
     ufw:
       <<: *formula_default
       context:

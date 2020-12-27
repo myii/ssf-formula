@@ -1304,21 +1304,24 @@ ssf:
           entries:
             global:
               - '*': '@sticky-note'
-            specific_directories:
-              - '/test/': '@myii'
         git:
           github:
             repo: 'dhcpd-formula'
         inspec_suites_kitchen:
           0:
             inspec_yml:
+              depends: *depends_on_suite_share
               summary: >-
                 Verify that the dhcpd formula is setup and configured correctly
             provisioner:
               state_top:
                 - '*':
-                    - .yaml_dump
+                    - ._mapdata
                     - .config
+          1: *inspec_suites_kitchen__share_suite
+        map_jinja:
+          verification:
+            import: ['dhcpd']
         platforms: *platforms_new
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
@@ -1332,7 +1335,7 @@ ssf:
           # - [centos       ,    7   ,   2019.2,      3,         default]
           # # - [centos       ,    6   ,   2019.2,      2,         default]
           # - [arch-base    ,  latest,   2019.2,      2,         default]
-      semrel_files: *semrel_files_default
+      semrel_files: *semrel_files_inc_map_jinja_verifier
     django:
       context:
         git:
@@ -1521,23 +1524,24 @@ ssf:
       semrel_files: *semrel_files_default
     firewalld:
       context:
-        codeowners:
-          entries:
-            specific_directories:
-              - '/test/': '@myii'
         git:
           github:
             repo: 'firewalld-formula'
         inspec_suites_kitchen:
           0:
             inspec_yml:
+              depends: *depends_on_suite_share
               summary: >-
                 Verify that the firewalld formula is setup and configured correctly
             provisioner:
               state_top:
                 - '*':
-                    - .yaml_dump
+                    - ._mapdata
                     - .
+          1: *inspec_suites_kitchen__share_suite
+        map_jinja:
+          verification:
+            import: ['firewalld']
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
           - [ubuntu       ,   18.04,   master,      3,         default]
@@ -1547,7 +1551,7 @@ ssf:
           - [opensuse/leap,   15.1 ,   2018.3,      2,         default]
           - [arch-base    ,  latest,   2018.3,      2,         default]
           # - [ubuntu       ,   16.04,   2017.7,      2,         default]
-      semrel_files: *semrel_files_default
+      semrel_files: *semrel_files_inc_map_jinja_verifier
     golang:
       context:
         codeowners:
@@ -3713,14 +3717,13 @@ ssf:
           entries:
             global:
               - '*': '@sticky-note'
-            specific_directories:
-              - '/test/': '@myii'
         git:
           github:
             repo: 'powerdns-formula'
         inspec_suites_kitchen:
           0:
             inspec_yml:
+              depends: *depends_on_suite_share
               summary: >-
                 Verify that the powerdns formula is setup and configured correctly
             provisioner:
@@ -3728,9 +3731,13 @@ ssf:
                 - .sls: 'test/salt/pillar/default.sls'
               state_top:
                 - '*':
-                    - .yaml_dump
+                    - ._mapdata
                     - .config
                     - .backend-sqlite3
+          1: *inspec_suites_kitchen__share_suite
+        map_jinja:
+          verification:
+            import: ['powerdns']
         platforms: *platforms_new
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
@@ -3746,7 +3753,7 @@ ssf:
           ignore:
             additional:
               - sls.example
-      semrel_files: *semrel_files_default
+      semrel_files: *semrel_files_inc_map_jinja_verifier
     proftpd:
       context:
         codeowners:
@@ -4957,27 +4964,22 @@ ssf:
       semrel_files: *semrel_files_default
     tomcat:
       context:
-        codeowners:
-          entries:
-            specific_directories:
-              - '/test/': '@myii'
         git:
           github:
             repo: 'tomcat-formula'
         inspec_suites_kitchen:
           0:
+            driver:
+              hostname: 'example.net'
             inspec_yml:
+              depends: *depends_on_suite_share
               summary: >-
                 Verify that the tomcat formula is setup and configured correctly
-            provisioner:
-              dependencies:
-                - name: 'comparison_files'
-                  path: './test/salt'
               # pillars_from_files:
               #   - .sls: 'test/salt/pillar/default.sls'
               state_top:
                 - '*':
-                    - .yaml_dump
+                    - ._mapdata
                     - .
                     - .native
                     - .config
@@ -4986,6 +4988,10 @@ ssf:
                     - .expires
                     - .context
                     - .cluster
+          1: *inspec_suites_kitchen__share_suite
+        map_jinja:
+          verification:
+            import: ['tomcat']
         platforms: *platforms_new
         platforms_matrix:
           # Similar to `*platforms_matrix_without_arch_new` which will be
@@ -5014,14 +5020,11 @@ ssf:
             Lint/EmptyWhen:
               Exclude:
                 - 'test/integration/default/controls/config_spec.rb'
-            Style/FormatStringToken:
-              Exclude:
-                - 'test/integration/default/controls/yaml_dump_spec.rb'
         yamllint:
           ignore:
             additional:
               - tomcat/osfamilymap.yaml
-      semrel_files: *semrel_files_default
+      semrel_files: *semrel_files_inc_map_jinja_verifier
     ufw:
       context:
         git:
