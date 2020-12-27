@@ -1,5 +1,16 @@
 # Changelog
 
+# [1.238.0](https://github.com/myii/ssf-formula/compare/v1.237.0...v1.238.0) (2020-12-27)
+
+
+### Features
+
+* **dhcpd:** manage `map.jinja` verification (replace `yaml_dump`) ([caf7d78](https://github.com/myii/ssf-formula/commit/caf7d7811b81e1b4b81aa08e6adaec6c9d385eb2))
+* **firewalld:** manage `map.jinja` verification (replace `yaml_dump`) ([6a46e29](https://github.com/myii/ssf-formula/commit/6a46e29b290052c980d5e6e09fe0cfed3026ff3d))
+* **powerdns:** manage `map.jinja` verification (replace `yaml_dump`) ([3174e42](https://github.com/myii/ssf-formula/commit/3174e4203c280007293b5dcf152e03b128ac6151))
+* **tomcat:** manage `map.jinja` verification (replace `yaml_dump`) ([9d20a27](https://github.com/myii/ssf-formula/commit/9d20a27a429206495fd01519b2b99445913b8f64))
+* **tomcat:** set Kitchen `driver.hostname` (for static `hostname`) ([cfaf5b6](https://github.com/myii/ssf-formula/commit/cfaf5b634c69405aacd088d7e8975dd9f620f1d9))
+
 # [1.237.0](https://github.com/myii/ssf-formula/compare/v1.236.0...v1.237.0) (2020-12-23)
 
 
