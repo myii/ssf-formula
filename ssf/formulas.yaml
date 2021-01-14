@@ -4975,6 +4975,7 @@ ssf:
               depends: *depends_on_suite_share
               summary: >-
                 Verify that the tomcat formula is setup and configured correctly
+            provisioner:
               # pillars_from_files:
               #   - .sls: 'test/salt/pillar/default.sls'
               state_top:
