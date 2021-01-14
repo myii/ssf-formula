@@ -3391,7 +3391,6 @@ ssf:
         map_jinja:
           verification:
             import: ['mapdata']
-          version: 5
         platforms: *platforms_new
         platforms_matrix: *platforms_matrix_new_mainly_master_images
         use_libsaltcli: true
