@@ -62,8 +62,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "test(map): verify '`'map.jinja'`' dump using '`'_mapdata'`' state"
-            body: '* Semi-automated using https://github.com/myii/ssf-formula/pull/286'
+            title: "fix(_mapdata): ensure map data is directly under '`'values'`'"
+            body: '* Semi-automated using https://github.com/myii/ssf-formula/pull/287'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
@@ -134,7 +134,6 @@ ssf_node_anchors:
         map_jinja:
           filename: 'map.jinja'
           verification: {}
-          version: 3
         platforms:
           # Could use `opensuse-leap` throughout since `/` never used at this end
           # Would have to modify the `if` in the `kitchen.yml` template(s), though

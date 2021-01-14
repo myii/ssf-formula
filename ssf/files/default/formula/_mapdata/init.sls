@@ -10,8 +10,8 @@ ${ "# vim: ft=sls" }
 % endfor
 
 {%- set _mapdata = {
-% if map_jinja["version"] > 3:
-      "values": mapdata,
+% if len(import_vars) == 1:
+      "values": ${ import_vars[0] },
 % else:
       "values": {
         % for import_var in import_vars:
