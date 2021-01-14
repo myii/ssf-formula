@@ -2,6 +2,16 @@
 Changelog
 =========
 
+`1.238.1 <https://github.com/myii/ssf-formula/compare/v1.238.0...v1.238.1>`_ (2021-01-14)
+---------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* **_mapdata:** single variable should be at top level under ``values`` (\ `79e57eb <https://github.com/myii/ssf-formula/commit/79e57eb50d0b35ac084ac0d55b1927ab253cd819>`_\ )
+* **tomcat:** add missing ``provisioner`` key [skip ci] (\ `d2a955b <https://github.com/myii/ssf-formula/commit/d2a955b2c9286e3fb3ddd73a5d66961aaddc26d9>`_\ )
+
 `1.238.0 <https://github.com/myii/ssf-formula/compare/v1.237.0...v1.238.0>`_ (2020-12-27)
 ---------------------------------------------------------------------------------------------
 
