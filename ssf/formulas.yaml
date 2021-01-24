@@ -3476,11 +3476,14 @@ ssf:
             # None of the platforms use `default` directly
             includes: *includes_NONE
             inspec_yml:
+              depends: *depends_on_suite_share
               summary: >-
                 Verify that the packages formula is setup and configured correctly
+              supports: *supports_all_including_oracle
             provisioner:
               pillars_from_files: []
-          1:
+          1: *inspec_suites_kitchen__share_suite
+          2:
             includes: *platforms_os_debian_new
             provisioner:
               dependencies:
@@ -3494,7 +3497,7 @@ ssf:
                     - node
                     - .
             verifier: *verifier_inspec_tests_default
-          2:
+          3:
             includes: *platforms_os_ubuntu_new
             provisioner:
               dependencies:
@@ -3508,14 +3511,37 @@ ssf:
                     - golang.package
                     - .
             verifier: *verifier_inspec_tests_default
-          3:
+          4:
             includes: *platforms_os_fedora_new
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/fedora.sls'
+              state_top:
+                - '*':
+                    - .
             verifier: *verifier_inspec_tests_default
-          4:
-            includes: *platforms_os_centos_new
+          5:
+            includes:
+              # Some of `*platforms_os_centos_new` + `oraclelinux-8`
+              - [centos       ,    8   ,   master,      3]
+              - [oraclelinux  ,    8   ,   master,      3]
+              - [centos       ,    8   ,   3000.3,      3]
+            provisioner:
+              dependencies: *dependencies_epel
+              pillars_from_files:
+                - .sls: 'test/salt/pillar/redhat8.sls'
+              state_top:
+                - '*':
+                    - epel
+                    - .
+            verifier: *verifier_inspec_tests_default
+          6:
+            includes:
+              # Rest of `*platforms_os_centos_new`
+              - [centos       ,    7   ,   3000.3,      3]
+              - [centos       ,    8   ,   2019.2,      3]
+              - [centos       ,    7   ,   2019.2,      3]
+              - [centos       ,    6   ,   2019.2,      2]
             provisioner:
               dependencies: *dependencies_epel
               pillars_from_files:
@@ -3525,7 +3551,7 @@ ssf:
                     - epel
                     - .
             verifier: *verifier_inspec_tests_default
-          5:
+          7:
             includes: *platforms_os_amazonlinux_new
             provisioner:
               dependencies: *dependencies_epel
@@ -3536,37 +3562,84 @@ ssf:
                     - epel
                     - .
             verifier: *verifier_inspec_tests_default
-          6:
+          8:
             includes: *platforms_osfamily_suse_new_15_2
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/opensuse.sls'
+              state_top:
+                - '*':
+                    - .
             verifier: *verifier_inspec_tests_default
-          7:
+          9:
             includes: *platforms_os_arch_base_new
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/arch.sls'
+              state_top:
+                - '*':
+                    - .
             verifier: *verifier_inspec_tests_default
         inspec_suites_matrix:
           - default
           - debian
           - ubuntu
           - fedora
+          - redhat8
           - centos
           - amazon
           - suse
           - arch
-        platforms: *platforms_new
+        platforms:
+          ### Temporary: `*platforms_new` with `oraclelinux-8` added
+          ### `master-py3`
+          - [debian       ,   10   ,   master,      3]
+          - [ubuntu       ,   20.04,   master,      3]
+          - [ubuntu       ,   18.04,   master,      3]
+          - [centos       ,    8   ,   master,      3]
+          - [fedora       ,   32   ,   master,      3]
+          - [fedora       ,   31   ,   master,      3]
+          - [opensuse/leap,   15.2 ,   master,      3]
+          - [amazonlinux  ,    2   ,   master,      3]
+          - [oraclelinux  ,    8   ,   master,      3]
+
+          ### `3000.3-py3`
+          - [debian       ,   10   ,   3000.3,      3]
+          - [debian       ,    9   ,   3000.3,      3]
+          - [ubuntu       ,   18.04,   3000.3,      3]
+          - [centos       ,    8   ,   3000.3,      3]
+          - [centos       ,    7   ,   3000.3,      3]
+          - [fedora       ,   31   ,   3000.3,      3]
+          - [opensuse/leap,   15.2 ,   3000.3,      3]
+          - [amazonlinux  ,    2   ,   3000.3,      3]
+          ### ` 3000.3-py2`
+          - [ubuntu       ,   18.04,   3000.3,      2]
+          - [ubuntu       ,   16.04,   3000.3,      2]
+          - [arch-base    ,  latest,   3000.3,      2]
+
+          ### `2019.2-py3`
+          - [debian       ,   10   ,   2019.2,      3]
+          - [debian       ,    9   ,   2019.2,      3]
+          - [ubuntu       ,   18.04,   2019.2,      3]
+          - [ubuntu       ,   16.04,   2019.2,      3]
+          - [centos       ,    8   ,   2019.2,      3]
+          - [centos       ,    7   ,   2019.2,      3]
+          - [fedora       ,   31   ,   2019.2,      3]
+          - [opensuse/leap,   15.2 ,   2019.2,      3]
+          - [amazonlinux  ,    2   ,   2019.2,      3]
+          ### `2019.2-py2`
+          - [centos       ,    6   ,   2019.2,      2]
+          - [amazonlinux  ,    1   ,   2019.2,      2]
+          - [arch-base    ,  latest,   2019.2,      2]
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,   10   ,   master,      3,          debian]
           # # https://travis-ci.org/github/myii/packages-formula/jobs/693567191
           # # - [ubuntu       ,   20.04,   master,      3,          ubuntu]
           - [ubuntu       ,   18.04,   master,      3,          ubuntu]
-          # # https://travis-ci.org/github/myii/packages-formula/jobs/693567193
-          # # - [centos       ,    8   ,   master,      3,          centos]
+          - [centos       ,    8   ,   master,      3,         redhat8]
           - [fedora       ,   32   ,   master,      3,          fedora]
+          - [oraclelinux  ,    8   ,   master,      3,         redhat8]
           - [centos       ,    7   ,   3000.3,      3,          centos]
           - [opensuse/leap,   15.2 ,   3000.3,      3,            suse]
           - [amazonlinux  ,    2   ,   3000.3,      3,          amazon]
