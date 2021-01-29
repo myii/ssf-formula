@@ -63,7 +63,7 @@ ssf_node_anchors:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
             title: "ci(kitchen+gitlab): update for new pre-salted images"
-            body: '* Semi-automated using https://github.com/myii/ssf-formula/pull/288'
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/289'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
