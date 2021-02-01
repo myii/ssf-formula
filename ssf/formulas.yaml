@@ -2665,12 +2665,7 @@ ssf:
               summary: >-
                 Verify that the libvirt formula is setup and configured correctly
               supports: *supports_debian_ubuntu_centos_fedora_opensuse
-          1:
-            includes: *includes_NONE
-            inspec_yml:
-              summary: >-
-                shared resources
-              supports: *supports_debian_ubuntu_centos_fedora_opensuse
+          1: *inspec_suites_kitchen__share_suite
           2:
             includes:
               # [os           , os_ver, salt_ver, py_ver]
@@ -2689,19 +2684,35 @@ ssf:
           - default
           - share
           - clean
-        platforms: *platforms_new
+        platforms: *platforms_new_saltimages
         platforms_matrix:
           # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
-          - [debian       ,   10   ,   master,      3,         default]
           - [debian       ,   10   ,   master,      3,           clean]
+          - [debian       ,    9   ,   master,      3,         default]
           - [ubuntu       ,   20.04,   master,      3,         default]
-          - [centos       ,    8   ,   3000.3,      3,         default]
-          - [opensuse/leap,   15.2 ,   3000.3,      3,         default]
-          - [fedora       ,   31   ,   2019.2,      3,         default]
-          - [ubuntu       ,   16.04,   2019.2,      3,         default]
+          # - [ubuntu       ,   18.04,   master,      3,         default]
+          # - [ubuntu       ,   16.04,   master,      3,         default]
+          - [centos       ,    8   ,   master,      3,         default]
+          # - [centos       ,    7   ,   master,      3,         default]
+          # # Only fails at the verification stage (can't connect via. SSH)
+          # # Using `fedora-32` instead in the meantime
+          # # https://gitlab.com/myii/libvirt-formula/-/jobs/995148177
+          # # - [fedora       ,   33   ,   master,      3,         default]
+          - [fedora       ,   32   ,   master,      3,         default]
+          - [opensuse/leap,   15.2 ,   master,      3,         default]
+          # Can be enabled soon once InSpec packages check is fixed
+          # - [opensuse/tmbl,  latest,   master,      3,         default]
+          # # - [amazonlinux  ,    2   ,   master,      3,         default]
+          # # - [oraclelinux  ,    8   ,   master,      3,         default]
+          # # - [oraclelinux  ,    7   ,   master,      3,         default]
+          # # - [gentoo/stage3,  latest,   master,      3,         default]
+          # # - [gentoo/stage3, systemd,   master,      3,         default]
+          # # - [arch-base    ,  latest,   3000.6,      2,         default]
         use_libsaltcli: true
         use_tofs: true
-      semrel_files: *semrel_files_default
+      semrel_files:
+        <<: *semrel_files_default
+        inspec/libraries/system.rb: *file__inspec__libraries__system--rb
     locale:
       context:
         git:
