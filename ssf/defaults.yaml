@@ -62,8 +62,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "fix(_mapdata): ensure map data is directly under '`'values'`'"
-            body: '* Semi-automated using https://github.com/myii/ssf-formula/pull/287'
+            title: "ci(kitchen+gitlab): update for new pre-salted images"
+            body: '* Semi-automated using https://github.com/myii/ssf-formula/pull/288'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
@@ -323,6 +323,7 @@ ssf:
     # - [fedora       ,   33   ,   tiamat,      3]  # fedo-33.0-tiamat-py3
     # - [fedora       ,   32   ,   tiamat,      3]  # fedo-32.0-tiamat-py3
     # - [opensuse/leap,   15.2 ,   tiamat,      3]  # opsu-15.2-tiamat-py3
+    # - [opensuse/tmbl,  latest,   tiamat,      3]  # opsu-tmbl-tiamat-py3
     - [amazonlinux  ,    2   ,   tiamat,      3]  # amaz-02.0-tiamat-py3
     - [oraclelinux  ,    8   ,   tiamat,      3]  # orac-08.0-tiamat-py3
     - [oraclelinux  ,    7   ,   tiamat,      3]  # orac-07.0-tiamat-py3
@@ -338,6 +339,7 @@ ssf:
     - [fedora       ,   33   ,   master,      3]  # fedo-33.0-master-py3
     - [fedora       ,   32   ,   master,      3]  # fedo-32.0-master-py3
     - [opensuse/leap,   15.2 ,   master,      3]  # opsu-15.2-master-py3
+    - [opensuse/tmbl,  latest,   master,      3]  # opsu-tmbl-master-py3
     - [amazonlinux  ,    2   ,   master,      3]  # amaz-02.0-master-py3
     - [oraclelinux  ,    8   ,   master,      3]  # orac-08.0-master-py3
     # # Fails due to dependency issues, probably ignore permanently
@@ -356,6 +358,7 @@ ssf:
     - [fedora       ,   33   ,   3002.2,      3]  # fedo-33.0-3002.2-py3
     - [fedora       ,   32   ,   3002.2,      3]  # fedo-32.0-3002.2-py3
     - [opensuse/leap,   15.2 ,   3002.2,      3]  # opsu-15.2-3002.2-py3
+    - [opensuse/tmbl,  latest,   3002.2,      3]  # opsu-tmbl-3002.2-py3
     - [amazonlinux  ,    2   ,   3002.2,      3]  # amaz-02.0-3002.2-py3
     - [oraclelinux  ,    8   ,   3002.2,      3]  # orac-08.0-3002.2-py3
     - [oraclelinux  ,    7   ,   3002.2,      3]  # orac-07.0-3002.2-py3
@@ -374,6 +377,7 @@ ssf:
     - [fedora       ,   33   ,   3001.4,      3]  # fedo-33.0-3001.4-py3
     - [fedora       ,   32   ,   3001.4,      3]  # fedo-32.0-3001.4-py3
     - [opensuse/leap,   15.2 ,   3001.4,      3]  # opsu-15.2-3001.4-py3
+    - [opensuse/tmbl,  latest,   3001.4,      3]  # opsu-tmbl-3001.4-py3
     - [amazonlinux  ,    2   ,   3001.4,      3]  # amaz-02.0-3001.4-py3
     - [oraclelinux  ,    8   ,   3001.4,      3]  # orac-08.0-3001.4-py3
     - [oraclelinux  ,    7   ,   3001.4,      3]  # orac-07.0-3001.4-py3

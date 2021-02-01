@@ -54,7 +54,7 @@
 {%-     if not pre_salted %}
 image: {{ os }}:{{ os_ver }}
 {%-     else %}
-image: {{ 'saltimages' if [os, os_ver, salt_ver, py_ver] in saltimages else 'netmanagers' }}/salt-{{ salt_ver }}-py{{ py_ver }}:{{ os | replace('/', '-') }}-{{ os_ver }}
+image: {{ 'saltimages' if [os, os_ver, salt_ver, py_ver] in saltimages else 'netmanagers' }}/salt-{{ salt_ver }}-py{{ py_ver }}:{{ os | replace('/', '-') | replace('tmbl', 'tumbleweed') }}-{{ os_ver }}
 {%-     endif %}
 {%-   endfilter %}
 {%- endmacro %}
@@ -83,7 +83,7 @@ image: {{ 'saltimages' if [os, os_ver, salt_ver, py_ver] in saltimages else 'net
 {%-         if os in ['debian', 'ubuntu'] %}
 {%-           do prov_cmds.append('# https://github.com/saltstack/salt/issues/39314') %}
 {%-           do prov_cmds.append('- apt-get remove python-boto3 -y') %}
-{%-         elif os == 'opensuse/leap' %}
+{%-         elif os.startswith('opensuse') %}
 {%-           do prov_cmds.append('# https://github.com/saltstack/salt/issues/39314') %}
 {%-           do prov_cmds.append('- zypper rm python-boto3 -y') %}
 {%-         endif %}
@@ -114,7 +114,7 @@ provision_command:
 
 {%- macro format_driver_run_cmds(os, os_ver) %}
 {%-   filter indent(6) %}
-{%-     if os in ['opensuse/leap', 'arch-base'] %}
+{%-     if os in ['opensuse/leap', 'opensuse/tmbl', 'arch-base'] %}
 run_command: /usr/lib/systemd/systemd
 {%-     elif [os, os_ver] in [['amazonlinux', 1], ['centos', 6], ['gentoo/stage3', 'latest']] %}
 run_command: /sbin/init
@@ -183,13 +183,11 @@ platforms:
       {{- format_driver_image(os, os_ver, salt_ver, py_ver, pre_salted) }}
       {{- format_driver_prov_cmds(os, os_ver, salt_ver, py_ver, pre_salted) }}
       {{- format_driver_run_cmds(os, os_ver) }}
-    {%- if os == 'opensuse/leap' %}
-    {%-   if os_ver in [15.1, 15.2] %}
-    # Workaround to avoid intermittent failures on `opensuse-leap-{{ os_ver }}`:
+    {%- if os.startswith('opensuse') %}
+    # Workaround to avoid intermittent failures on `opensuse-{{ 'tumbleweed' if os_ver == 'latest' else 'leap-' ~ os_ver }}`:
     # => SCP did not finish successfully (255):  (Net::SCP::Error)
     transport:
       max_ssh_sessions: 1
-    {%-   endif %}
     {%- endif %}
 {%-   endif %}
 {%- endfor %}
