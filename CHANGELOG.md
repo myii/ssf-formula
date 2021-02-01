@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.240.0](https://github.com/myii/ssf-formula/compare/v1.239.0...v1.240.0) (2021-02-01)
+
+
+### Features
+
+* **libvirt:** update for new pre-salted images ([d8013ce](https://github.com/myii/ssf-formula/commit/d8013ce0b7918a304473b8d662139ed89575ef5b))
+
 # [1.239.0](https://github.com/myii/ssf-formula/compare/v1.238.1...v1.239.0) (2021-02-01)
 
 
