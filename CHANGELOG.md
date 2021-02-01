@@ -1,5 +1,17 @@
 # Changelog
 
+# [1.239.0](https://github.com/myii/ssf-formula/compare/v1.238.1...v1.239.0) (2021-02-01)
+
+
+### Bug Fixes
+
+* **formulas:** ensure `share` suite managed correctly ([9263389](https://github.com/myii/ssf-formula/commit/9263389af17627b94d5ba533d185d2d02e0674c8))
+
+
+### Features
+
+* **saltimages:** update with latest changes from `salt-image-builder` ([16a11c4](https://github.com/myii/ssf-formula/commit/16a11c4f5c4af8a3e62803d3ba815ac35a9d70bc)), closes [/gitlab.com/myii/openvpn-formula/-/jobs/983088326#L421](https://github.com//gitlab.com/myii/openvpn-formula/-/jobs/983088326/issues/L421)
+
 ## [1.238.1](https://github.com/myii/ssf-formula/compare/v1.238.0...v1.238.1) (2021-01-14)
 
 
