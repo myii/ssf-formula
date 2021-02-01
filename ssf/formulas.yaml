@@ -2859,11 +2859,7 @@ ssf:
           #       - '*':
           #           - ._mapdata
           #           - .
-          1:
-            includes: *includes_NONE
-            inspec_yml:
-              summary: >-
-                shared resources
+          1: *inspec_suites_kitchen__share_suite
           2:
             excludes: *platforms_os_amazonlinux_new
             inspec_yml:
@@ -2904,7 +2900,9 @@ ssf:
           - [amazonlinux  ,    2   ,   master,      3,     amazonlinux]
           # - [arch-base    ,  latest,   2019.2,      2,            repo]
         use_tofs: true
-      semrel_files: *semrel_files_default
+      semrel_files:
+        <<: *semrel_files_default
+        inspec/libraries/system.rb: *file__inspec__libraries__system--rb
     mattermost:
       context:
         codeowners:
@@ -4085,11 +4083,7 @@ ssf:
           #       - '*':
           #           - ._mapdata
           #           - .
-          1:
-            includes: *includes_NONE
-            inspec_yml:
-              summary: >-
-                shared resources
+          1: *inspec_suites_kitchen__share_suite
         platforms: *platforms_new_inc_tiamat
         # If `opensuse/leap` fixed, then can use this instead
         # platforms_matrix: *platforms_matrix_new_inc_tiamat
@@ -4111,7 +4105,9 @@ ssf:
           # # - [opensuse/leap,   15.2 ,   master,      3,         default]
           - [arch-base    ,  latest,   3000.3,      2,         default]
         use_tofs: true
-      semrel_files: *semrel_files_default
+      semrel_files:
+        <<: *semrel_files_default
+        inspec/libraries/system.rb: *file__inspec__libraries__system--rb
     rspamd:
       context:
         codeowners:
