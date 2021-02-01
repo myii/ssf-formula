@@ -62,8 +62,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "ci(kitchen+gitlab): update for new pre-salted images"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/289'
+            title: "ci(pre-commit): update hook for '`'rubocop'`' [skip ci]"
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/290'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
