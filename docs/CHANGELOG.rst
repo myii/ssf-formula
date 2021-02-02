@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.241.0 <https://github.com/myii/ssf-formula/compare/v1.240.0...v1.241.0>`_ (2021-02-02)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **pre-commit:** update hook for ``rubocop`` (\ `fa90bad <https://github.com/myii/ssf-formula/commit/fa90bade0d5f6934dbff1dfa98fa9698e24eff66>`_\ ), closes `/freenode.logbot.info/saltstack-formulas/20210201#c6748575-c6748847 <https://github.com//freenode.logbot.info/saltstack-formulas/20210201/issues/c6748575-c6748847>`_
+
 `1.240.0 <https://github.com/myii/ssf-formula/compare/v1.239.0...v1.240.0>`_ (2021-02-01)
 ---------------------------------------------------------------------------------------------
 
