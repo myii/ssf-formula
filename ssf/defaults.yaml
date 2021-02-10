@@ -62,8 +62,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "ci(pre-commit): update hook for '`'rubocop'`' [skip ci]"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/290'
+            title: "chore: standardise structure [skip ci]"
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/291'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
@@ -989,23 +989,29 @@ ssf:
           <<: *isk_default
           1:
             <<: *isk_suite_default
-            name: 'debian'
+            name: 'share'
           2:
             <<: *isk_suite_default
-            name: 'ubuntu'
+            name: 'debian'
           3:
             <<: *isk_suite_default
-            name: 'fedora'
+            name: 'ubuntu'
           4:
             <<: *isk_suite_default
-            name: 'centos'
+            name: 'fedora'
           5:
             <<: *isk_suite_default
-            name: 'amazon'
+            name: 'redhat8'
           6:
             <<: *isk_suite_default
-            name: 'suse'
+            name: 'centos'
           7:
+            <<: *isk_suite_default
+            name: 'amazon'
+          8:
+            <<: *isk_suite_default
+            name: 'suse'
+          9:
             <<: *isk_suite_default
             name: 'arch'
     php:
