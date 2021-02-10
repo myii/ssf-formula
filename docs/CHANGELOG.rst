@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.242.0 <https://github.com/myii/ssf-formula/compare/v1.241.0...v1.242.0>`_ (2021-02-10)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **packages:** review PR 72 (\ `ad121fb <https://github.com/myii/ssf-formula/commit/ad121fb2d6ed0bb5efb44ffbf62686dd8ad3ed46>`_\ )
+
 `1.241.0 <https://github.com/myii/ssf-formula/compare/v1.240.0...v1.241.0>`_ (2021-02-02)
 ---------------------------------------------------------------------------------------------
 
