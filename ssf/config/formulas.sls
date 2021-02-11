@@ -120,6 +120,22 @@ prepare-git-branch-for-{{ formula }}:
 {%-             set add_or_rm = ['rm', 'remove', 'absent'] %}
 {%-           endif %}
 
+{#-           Pre-Stage 2: Remove previous file location, where applicable #}
+{#-           Nothing to remove by default #}
+{%-           set prev_dest = '' %}
+{#-           Scenario 01: `_mapdata.rb` was originally `_mapdata_spec.rb` #}
+{%-           if semrel_file == 'inspec/controls/_mapdata.rb' %}
+{%-             set prev_dest = dest.replace('_mapdata.rb', '_mapdata_spec.rb') %}
+{%-           endif %}
+{#-           Only run this state if a `prev_dest` has been identified #}
+{%-           if prev_dest %}
+remove-previous-file-location-for-{{ formula }}-{{ dest_file }}:
+  file.absent:
+    - name: {{ prev_dest }}
+    - require_in:
+      - file: {{ add_or_rm[1] }}-{{ formula }}-{{ dest_file }}
+{%-           endif %}
+
 {#-           Stage 2: Add or remove the file as necessary #}
 {{ add_or_rm[1] }}-{{ formula }}-{{ dest_file }}:
   file.{{ add_or_rm[2] }}:
@@ -172,6 +188,11 @@ prepare-git-branch-for-{{ formula }}:
   {%-         if ssf.git.states.add_rm.active %}
   cmd.run:
     - name: |
+        {#-     `git` command for `Pre-Stage 2` #}
+        {%-     if prev_dest %}
+        git rm {{ prev_dest }}
+        {%-     endif %}
+        {#-     `git` command for `Stage 2` #}
         git {{ add_or_rm[0] }} {{ dest_file }}
     - cwd: {{ ssf.formulas_path }}/{{ formula }}/
     {%-         if running_as_root %}
