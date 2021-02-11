@@ -25,7 +25,7 @@ ssf_node_anchors:
               - '/*/_mapdata/': '@saltstack-formulas/ssf'
               - '/*/libsaltcli.jinja': '@saltstack-formulas/ssf'
               - '/*/libtofs.jinja': '@saltstack-formulas/ssf'
-              - '/test/integration/**/_mapdata_spec.rb': '@saltstack-formulas/ssf'
+              - '/test/integration/**/_mapdata.rb': '@saltstack-formulas/ssf'
               - '/test/integration/**/libraries/system.rb': '@saltstack-formulas/ssf'
               - '/test/integration/**/inspec.yml': '@saltstack-formulas/ssf'
               - '/test/integration/**/README.md': '@saltstack-formulas/ssf'
@@ -62,8 +62,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "chore: standardise structure [skip ci]"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/291'
+            title: "chore: standardise structure ('`'.gitignore'`' & '`'_mapdata.rb'`') [skip ci]"
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/292'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'

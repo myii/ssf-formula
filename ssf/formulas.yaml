@@ -745,8 +745,9 @@ ssf_node_anchors:
         formula/_mapdata/init.sls: &file__formula___mapdata___init--sls
           <<: *file_default
           template: 'mako'
-        inspec/controls/_mapdata_spec.rb: &file__inspec__controls___mapdata_spec--rb
+        inspec/controls/_mapdata.rb: &file__inspec__controls___mapdata--rb
           <<: *file_default
+          template: 'jinja'
         inspec/libraries/system.rb: &file__inspec__libraries__system--rb
           <<: *file_default
 
