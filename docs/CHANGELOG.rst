@@ -2,6 +2,18 @@
 Changelog
 =========
 
+`1.243.0 <https://github.com/myii/ssf-formula/compare/v1.242.0...v1.243.0>`_ (2021-02-11)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **formulas:** remove file at previous location (\ ``_mapdata_spec.rb``\ ) (\ `327a29e <https://github.com/myii/ssf-formula/commit/327a29e1209e52c8431c022ca1867205ec3c34d3>`_\ )
+* **gitignore:** standardise across all formulas (\ `4b828db <https://github.com/myii/ssf-formula/commit/4b828db9a868648c07dbae143bce86b3e28f1d5e>`_\ )
+* **template:** review PR 212 (\ `5b5d679 <https://github.com/myii/ssf-formula/commit/5b5d679f5ee1a951a88f66df3994c34e561327fa>`_\ )
+* **template:** review PR 223 (\ `3c8202d <https://github.com/myii/ssf-formula/commit/3c8202d0982705b28449c7f0e016610b5102291a>`_\ )
+
 `1.242.0 <https://github.com/myii/ssf-formula/compare/v1.241.0...v1.242.0>`_ (2021-02-10)
 ---------------------------------------------------------------------------------------------
 
