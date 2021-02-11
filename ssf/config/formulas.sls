@@ -84,10 +84,10 @@ prepare-git-branch-for-{{ formula }}:
 {#-           Do not manage the file in the following situations: #}
 {#-           - If a matching test suite isn't found #}
 {#-           - Or if `libraries/system.rb` and is not the `share` suite #}
-{#-           - Or if `controls/_mapdata_spec.rb` and is the `share` suite #}
+{#-           - Or if `controls/_mapdata.rb` and is the `share` suite #}
 {%-           if (not matching_test_suite.found) or
                  (dest_file == 'libraries/system.rb' and suite.name != 'share') or
-                 (dest_file == 'controls/_mapdata_spec.rb' and suite.name == 'share')
+                 (dest_file == 'controls/_mapdata.rb' and suite.name == 'share')
 %}
 {%-             set dest_file = '' %}
 {%-           else %}
