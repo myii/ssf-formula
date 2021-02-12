@@ -26,11 +26,29 @@
 {%-     if cludes %}
 {{ clude_type }}:
 {#-       Centralise duplication from here and `libcimatrix.jinja` #}
-{%-       for platform in cludes %}
+{%-       for platform in saltimages %}
 {%-         set os       = platform[0] | d('') %}
 {%-         set os_ver   = platform[1] | d('') %}
 {%-         set salt_ver = platform[2] | d('') %}
 {%-         set py_ver   = platform[3] | d('') %}
+
+{#-         Check if the platform matches any of the `platforms` listed #}
+{%-         set ns_check_platform = namespace(match=False) %}
+{%-         for check in cludes %}
+{%-           set ch_os       = check[0] if check[0] else platform[0] %}
+{%-           set ch_os_ver   = check[1] if check[1] else platform[1] %}
+{%-           set ch_salt_ver = check[2] if check[2] else platform[2] %}
+{%-           set ch_py_ver   = check[3] if check[3] else platform[3] %}
+{%-           if platform == [ch_os, ch_os_ver, ch_salt_ver, ch_py_ver] %}
+{%-             set ns_check_platform.match = True %}
+{%-             break %}
+{%-           endif %}
+{%-         endfor %}
+{#-         If a match hasn't been found, go to the next entry under `saltimages` #}
+{%-         if not ns_check_platform.match %}
+{%-           continue %}
+{%-         endif %}
+
 {#-         Concatenate the `INSTANCE` or set to `NONE` otherwise #}
 {%-         if not platform %}
 {%-           set instance = 'NONE' %}
@@ -92,14 +110,22 @@ image: {{ 'saltimages' if [os, os_ver, salt_ver, py_ver] in saltimages else 'net
 {#-     General for all Salt versions #}
 {%-     if semrel_formula == 'packages' %}
 {%-       if [os, os_ver] in [['debian', 10], ['debian', 9]] %}
+{%-         do prov_cmds.append('- apt-get update') %}
 {%-         do prov_cmds.append('- apt-get install --reinstall -y udev') %}
 {%-         do prov_cmds.append('- apt-get install -y snapd') %}
 {%-       endif %}
 {%-     elif semrel_formula == 'systemd' %}
 {%-       if os in ['fedora'] %}
+{%-         do prov_cmds.append('- dnf -y update') %}
 {%-         do prov_cmds.append('- dnf -y reinstall udev') %}
 {%-       elif os in ['arch-base'] %}
 {%-         do prov_cmds.append('- pacman --noconfirm -Syu systemd') %}
+{%-       endif %}
+{%-     elif semrel_formula == 'libvirt' %}
+{%-       if [os, os_ver] in [['fedora', 33]] %}
+{%-         do prov_cmds.append('- dnf -y update') %}
+{%-         do prov_cmds.append('- dnf install -y crypto-policies-scripts') %}
+{%-         do prov_cmds.append('- update-crypto-policies --set LEGACY') %}
 {%-       endif %}
 {%-     endif %}
 {#-     Prepare the commands if available#}
@@ -146,16 +172,35 @@ driver:
     {%- endfor %}
   {%- endif %}
 
-# Make sure the platforms listed below match up with
-# the `env.matrix` instances defined in `.travis.yml`
 platforms:
 {#- Centralise duplication from here and `libcimatrix.jinja` #}
 {%- set ns_platforms = namespace(prev_comment='') %}
-{%- for platform in platforms %}
+
+{#- Work through all `saltimages` for ordering purposes; #}
+{#- Only matching elements will be used (covered by the subsequent `for` loop #}
+{%- for platform in saltimages %}
 {%-   set os       = platform[0] %}
 {%-   set os_ver   = platform[1] %}
 {%-   set salt_ver = platform[2] %}
 {%-   set py_ver   = platform[3] %}
+
+{#-   Check if the platform matches any of the `platforms` listed #}
+{%-   set ns_check_platform = namespace(match=False) %}
+{%-   for check in platforms %}
+{%-     set ch_os       = check[0] if check[0] else platform[0] %}
+{%-     set ch_os_ver   = check[1] if check[1] else platform[1] %}
+{%-     set ch_salt_ver = check[2] if check[2] else platform[2] %}
+{%-     set ch_py_ver   = check[3] if check[3] else platform[3] %}
+{%-     if platform == [ch_os, ch_os_ver, ch_salt_ver, ch_py_ver] %}
+{%-       set ns_check_platform.match = True %}
+{%-       break %}
+{%-     endif %}
+{%-   endfor %}
+{#-   If a match hasn't been found, go to the next entry under `saltimages` #}
+{%-   if not ns_check_platform.match %}
+{%-     continue %}
+{%-   endif %}
+
 {#-   Was used for `[['amazonlinux', 1]]` but now leaving blank in case it's needed in the future #}
 {%-   set pre_salted = [os, os_ver] not in [[]] %}
 {#-   Display comment for each section (based on Salt version) #}
@@ -227,6 +272,20 @@ suites:
       {%-   endfor %}
     {%-   endif %}
     provisioner:
+      {#- dependencies #}
+      {#- Centralise duplication from here and `inspec.yml` #}
+      {%- set dependencies = suite.provisioner.dependencies %}
+      {%- if dependencies %}
+      dependencies:
+        {%- for dependency in dependencies %}
+        - name: {{ dependency.name }}
+        {%-   for k, v in dependency.items() %}
+        {%-     if k != 'name' %}
+          {{ k }}: {{ v }}
+        {%-     endif %}
+        {%-   endfor %}
+        {%- endfor %}
+      {%- endif %}
       state_top:
         base:
           {{- format_matcher(suite.provisioner.state_top) }}
@@ -244,20 +303,6 @@ suites:
         {%-       set k = semrel_formula ~ k %}
         {%-     endif %}
         {{ k }}: {{ v }}
-        {%-   endfor %}
-        {%- endfor %}
-      {%- endif %}
-      {#- dependencies #}
-      {#- Centralise duplication from here and `inspec.yml` #}
-      {%- set dependencies = suite.provisioner.dependencies %}
-      {%- if dependencies %}
-      dependencies:
-        {%- for dependency in dependencies %}
-        - name: {{ dependency.name }}
-        {%-   for k, v in dependency.items() %}
-        {%-     if k != 'name' %}
-          {{ k }}: {{ v }}
-        {%-     endif %}
         {%-   endfor %}
         {%- endfor %}
       {%- endif %}

@@ -15,22 +15,88 @@
 {%-   filter indent(width) %}
 {#-     Centralise duplication from here and `kitchen.yml` #}
 {%-     set platform_and_suite_names_done = [] %}
-{%-     for platform in platforms %}
+{%-     set commented_platform_done = [] %}
+{%-     for platform in saltimages %}
 {%-       set os       = platform[0] %}
 {%-       set os_ver   = platform[1] %}
 {%-       set salt_ver = platform[2] %}
 {%-       set py_ver   = platform[3] %}
+
+{#-       Check if the platform matches any of the `platforms` listed #}
+{%-       set ns_check_platform = namespace(match=False) %}
+{%-       for check in platforms %}
+{%-         set ch_os       = check[0] if check[0] else platform[0] %}
+{%-         set ch_os_ver   = check[1] if check[1] else platform[1] %}
+{%-         set ch_salt_ver = check[2] if check[2] else platform[2] %}
+{%-         set ch_py_ver   = check[3] if check[3] else platform[3] %}
+{%-         if platform == [ch_os, ch_os_ver, ch_salt_ver, ch_py_ver] %}
+{%-           set ns_check_platform.match = True %}
+{%-           break %}
+{%-         endif %}
+{%-       endfor %}
+{#-       If a match hasn't been found, go to the next entry under `saltimages` #}
+{%-       if not ns_check_platform.match %}
+{%-         continue %}
+{%-       endif %}
+
 {#-       Work through each inspec suite defined for the formula, ordered by the suite number #}
 {%-       for index in range(0, inspec_suites_kitchen | length) %}
 {%-         set suite = inspec_suites_kitchen[index] %}
 {#-         Only continue if the `suite.name` is present in the given matrix #}
 {%-         if suite.name in inspec_suites_matrix %}
 {%-           set suite_name = suite.name %}
-{%-           set includes = suite.includes %}
-{%-           set excludes = suite.excludes %}
+
+{#-           TODO: Use `for` loop (0..1) to merge these two blocks into one #}
+{#-                 As in, don't need separate `includes` and `excludes` blocks #}
+{#-           set includes = suite.includes #}
+{%-           set includes = [] %}
+{%-           if suite.includes %}
+{%-             if suite.includes == [[]] %}
+{%-               set includes = suite.includes %}
+{%-             else %}
+{#-               Centralise duplication from here and `libcimatrix.jinja` #}
+{%-               for clude_platform in saltimages %}
+{#-                 Check if the clude_platform matches any of the `platforms` listed #}
+{%-                 for check in suite.includes %}
+{%-                   set ch_os       = check[0] if check[0] else clude_platform[0] %}
+{%-                   set ch_os_ver   = check[1] if check[1] else clude_platform[1] %}
+{%-                   set ch_salt_ver = check[2] if check[2] else clude_platform[2] %}
+{%-                   set ch_py_ver   = check[3] if check[3] else clude_platform[3] %}
+{%-                   if clude_platform == [ch_os, ch_os_ver, ch_salt_ver, ch_py_ver] %}
+{%-                     do includes.append(clude_platform) %}
+{%-                     break %}
+{%-                   endif %}
+{%-                 endfor %}
+{%-               endfor %}
+{%-             endif %}
+{%-           endif %}
+
+{#-           set excludes = suite.excludes #}
+{%-           set excludes = [] %}
+{%-           if suite.excludes %}
+{%-             if suite.excludes == [[]] %}
+{%-               set excludes = suite.excludes %}
+{%-             else %}
+{#-               Centralise duplication from here and `libcimatrix.jinja` #}
+{%-               for clude_platform in saltimages %}
+{#-                 Check if the clude_platform matches any of the `platforms` listed #}
+{%-                 for check in suite.excludes %}
+{%-                   set ch_os       = check[0] if check[0] else clude_platform[0] %}
+{%-                   set ch_os_ver   = check[1] if check[1] else clude_platform[1] %}
+{%-                   set ch_salt_ver = check[2] if check[2] else clude_platform[2] %}
+{%-                   set ch_py_ver   = check[3] if check[3] else clude_platform[3] %}
+{%-                   if clude_platform == [ch_os, ch_os_ver, ch_salt_ver, ch_py_ver] %}
+{%-                     do excludes.append(clude_platform) %}
+{%-                     break %}
+{%-                   endif %}
+{%-                 endfor %}
+{%-               endfor %}
+{%-             endif %}
+{%-           endif %}
+
 {%-           set platform_and_suite_name = platform + [suite_name] %}
-{#-         Prevent using a `platform_and_suite_name` more than once #}
-{#-         I.e. In case suite_name resolves to `''` multiple times #}
+{#-           Prevent using a `platform_and_suite_name` more than once #}
+{#-           I.e. In case suite_name resolves to `''` multiple times #}
 {%-           if platform_and_suite_name not in platform_and_suite_names_done %}
 {%-             do platform_and_suite_names_done.append(platform_and_suite_name) %}
 {#-             Only continue depending on an appropriate combination of `includes` and `excludes`: #}
@@ -50,12 +116,42 @@
 {%-             if (platform in includes) or (not includes and platform not in excludes) %}
 {%-               set include_instance = True %}
 {#-               Compare combined [platform] and [suite_name] to see if enabled in the matrix #}
-{%-               if platform_and_suite_name in platforms_matrix %}
+
+{%-               set platforms_matrix_expanded = [] %}
+{%-               if platforms_matrix and platforms_matrix != [[]] %}
+{#-                 Centralise duplication from here and `libcimatrix.jinja` #}
+{%-                 for matrix_platform in saltimages %}
+{#-                   Check if the matrix_platform matches any of the `platforms` listed #}
+{%-                   for check in platforms_matrix %}
+{%-                     set ch_os       = check[0] if check[0] else matrix_platform[0] %}
+{%-                     set ch_os_ver   = check[1] if check[1] else matrix_platform[1] %}
+{%-                     set ch_salt_ver = check[2] if check[2] else matrix_platform[2] %}
+{%-                     set ch_py_ver   = check[3] if check[3] else matrix_platform[3] %}
+{%-                     set ch_suite    = check[4] %}
+{%-                     if matrix_platform == [ch_os, ch_os_ver, ch_salt_ver, ch_py_ver] %}
+{%-                       do platforms_matrix_expanded.append(matrix_platform + [ch_suite]) %}
+{#-                       We want to break in all conditions except the following: #}
+{#-                       1. The `java-formula` should only have extra lines for `ubuntu` #}
+{%-                       if not (semrel_formula in ['java'] and ch_os in ['ubuntu']) %}
+{%-                         break %}
+{%-                       endif %}
+{%-                     endif %}
+{%-                   endfor %}
+{%-                 endfor %}
+{%-               endif %}
+
+{%-               if platform_and_suite_name in platforms_matrix_expanded %}
 {%-                 set comment = '' %}
 {%-               else %}
 {%-                 set comment = '# ' %}
-{%-                 if platforms_matrix_commented_includes and platform_and_suite_name not in platforms_matrix_commented_includes %}
-{%-                   set include_instance = False %}
+{#-                 Only include commented instances from the main platforms #}
+{#-                 Otherwise only use the first suite for the other platforms #}
+{%-                 if not (salt_ver == 'master' or [os, salt_ver] == ['arch-base', 3002.2]) %}
+{%-                   if platform not in commented_platform_done %}
+{%-                     do commented_platform_done.append(platform) %}
+{%-                   else %}
+{%-                     set include_instance = False %}
+{%-                   endif %}
 {%-                 endif %}
 {%-               endif %}
 {#-               Define `instance_and_env`, modified for new Travis format or GitLab format #}
@@ -87,14 +183,19 @@
                       salt_ver | replace('.', '-'),
                       py_ver,
                     ) %}
-{%-                 if semrel_formula == 'apache'
-                    and [suite_name, os, os_ver, salt_ver] == ['default', 'amazonlinux', 2, 'master'] %}
+{%-                 if semrel_formula == 'apache' and
+                       [suite_name, os, os_ver, salt_ver] == ['default', 'amazonlinux', 2, 'master']
+%}
 # https://community.letsencrypt.org/t/localhost-crt-does-not-exist-or-is-empty/103979
 {%-                 endif %}
 {{ comment }}{{ list_format }}{{ instance_and_env }}{{ instance }}{{ test_template }}
+{#-               [End] if include_instance #}
 {%-               endif %}
+{#-             [End] if (platform in includes) or (not includes and platform not in excludes) #}
 {%-             endif %}
+{#-           [End] if platform_and_suite_name not in platform_and_suite_names_done #}
 {%-           endif %}
+{#-         [End] if suite.name in inspec_suites_matrix #}
 {%-         endif %}
 {#-       [End] for index in range(0, inspec_suites_kitchen | length) #}
 {%-       endfor %}

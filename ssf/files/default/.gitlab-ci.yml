@@ -131,6 +131,7 @@ rubocop:
   before_script:
     {%- if semrel_formula == 'keepalived' %}
     - 'apk --no-cache add ipvsadm'
+    - 'modprobe ip_vs || true'
     {%- endif %}
     # TODO: This should work from the env vars above automatically
     - 'bundle config set path "${BUNDLE_CACHE_PATH}"'
