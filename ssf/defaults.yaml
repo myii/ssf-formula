@@ -139,7 +139,7 @@ ssf_node_anchors:
           # Would have to modify the `if` in the `kitchen.yml` template(s), though
           # Also, may have to be careful with versions such as `18.04` being seen
           # as numbers (for comparisons)
-          # [os           , os_ver, salt_ver, py_ver]
+          # [os           ,  os_ver, salt_ver, py_ver]
 
           ### `master-py3`
           - [debian       ,   10   ,   master,      3]
@@ -190,7 +190,7 @@ ssf_node_anchors:
 
         platforms_matrix:
           # Comments in `platforms` apply here, too
-          # [os           , os_ver, salt_ver, py_ver,    inspec_suite]
+          # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,   10   ,   master,      3,         default]
           - [ubuntu       ,   18.04,   2019.2,      3,         default]
           - [opensuse/leap,   15.1 ,   2019.2,      3,         default]
