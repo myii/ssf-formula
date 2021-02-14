@@ -3437,7 +3437,7 @@ ssf:
           1: *inspec_suites_kitchen__share_suite
         map_jinja:
           verification:
-            import: ['map']
+            import: ['mapdata']
         platforms: *platforms_new_saltimages
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
@@ -3458,6 +3458,7 @@ ssf:
           # # - [gentoo/stage3, systemd,   master,      3,         default]
           - [oraclelinux  ,    7   ,   3002.2,      3,         default]
           # # - [arch-base    ,  latest,   3002.2,      3,         default]
+        use_libsaltcli: true
         yamllint:
           ignore:
             additional:
