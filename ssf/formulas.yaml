@@ -5037,6 +5037,9 @@ ssf:
         formula/_mapdata/init.sls:
           <<: *file__formula___mapdata___init--sls
           alt_semrel_formula: 'TEMPLATE'
+        inspec/controls/_mapdata.rb:
+          <<: *file__inspec__controls___mapdata--rb
+          alt_semrel_formula: 'TEMPLATE'
     timezone:
       context:
         git:
