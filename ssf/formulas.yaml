@@ -4656,7 +4656,7 @@ ssf:
           - gentoo
         map_jinja:
           verification:
-            import: ['TEMPLATE']
+            import: ['mapdata']
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,    0   ,   master,      0,         default]
