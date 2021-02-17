@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.244.0](https://github.com/myii/ssf-formula/compare/v1.243.0...v1.244.0) (2021-02-17)
+
+
+### Features
+
+* **gemfile+lock:** use `ssf` customised `kitchen-docker` repo ([d494bf6](https://github.com/myii/ssf-formula/commit/d494bf6cfbbef2d3de3922eddc1a9fa460511a4a))
+
 # [1.243.0](https://github.com/myii/ssf-formula/compare/v1.242.0...v1.243.0) (2021-02-11)
 
 
