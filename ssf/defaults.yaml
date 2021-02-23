@@ -753,20 +753,23 @@ ssf:
             name: 'adopt'
           1:
             <<: *isk_suite_default
-            name: 'amazon'
+            name: 'share'
           2:
             <<: *isk_suite_default
-            name: 'graalvm'
+            name: 'amazon'
           3:
             <<: *isk_suite_default
-            name: 'haikuvm'
+            name: 'graalvm'
           4:
             <<: *isk_suite_default
-            name: 'intellij'
+            name: 'haikuvm'
           5:
             <<: *isk_suite_default
-            name: 'oracle'
+            name: 'intellij'
           6:
+            <<: *isk_suite_default
+            name: 'oracle'
+          7:
             <<: *isk_suite_default
             name: 'zulu'
     jetbrains-appcode: *formula_default

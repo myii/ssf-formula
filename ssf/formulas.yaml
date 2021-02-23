@@ -108,6 +108,10 @@ ssf_node_anchors:
                     - .pkgrepo
                     - .master
                     - .minion
+              state_top_inc_mapdata: &state_top_inc_mapdata
+                - '*':
+                    - ._mapdata
+                    - .
             verifier: &verifier_inspec_tests_default
               inspec_tests:
                 - default
@@ -1540,10 +1544,7 @@ ssf:
               summary: >-
                 Verify that the firewalld formula is setup and configured correctly
             provisioner:
-              state_top:
-                - '*':
-                    - ._mapdata
-                    - .
+              state_top: *state_top_inc_mapdata
           1: *inspec_suites_kitchen__share_suite
         map_jinja:
           verification:
@@ -1888,33 +1889,55 @@ ssf:
             repo: 'java-formula'
         inspec_suites_kitchen:
           0:
+            inspec_yml:
+              depends: *depends_on_suite_share
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/adopt/pillar.sls'
-          1:
+              state_top: *state_top_inc_mapdata
+          1: *inspec_suites_kitchen__share_suite
+          2:
+            inspec_yml:
+              depends: *depends_on_suite_share
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/amazon/pillar.sls'
-          2:
+              state_top: *state_top_inc_mapdata
+          3:
+            inspec_yml:
+              depends: *depends_on_suite_share
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/graalvm/pillar.sls'
-          3:
+              state_top: *state_top_inc_mapdata
+          4:
+            inspec_yml:
+              depends: *depends_on_suite_share
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/haikuvm/pillar.sls'
-          4:
+              state_top: *state_top_inc_mapdata
+          5:
+            inspec_yml:
+              depends: *depends_on_suite_share
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/intellij/pillar.sls'
-          5:
+              state_top: *state_top_inc_mapdata
+          6:
+            inspec_yml:
+              depends: *depends_on_suite_share
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/oracle/pillar.sls'
-          6:
+              state_top: *state_top_inc_mapdata
+          7:
+            inspec_yml:
+              depends: *depends_on_suite_share
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/zulu/pillar.sls'
+              state_top: *state_top_inc_mapdata
         inspec_suites_matrix:
           - adopt
           - amazon
@@ -1923,7 +1946,9 @@ ssf:
           - intellij
           - oracle
           - zulu
-        platforms: *platforms_new
+        map_jinja:
+          verification:
+            import: ['java']
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           - [ubuntu       ,   18.04,   master,      3,           adopt]
@@ -1951,7 +1976,7 @@ ssf:
             additional:
               - pillar.example
               - java/osfamilymap.yaml
-      semrel_files: *semrel_files_default
+      semrel_files: *semrel_files_inc_map_jinja_verifier
     jetbrains-appcode:
       context:
         codeowners:
@@ -3358,10 +3383,7 @@ ssf:
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/openntpd.sls'
-              state_top:
-                - '*':
-                    - ._mapdata
-                    - .
+              state_top: *state_top_inc_mapdata
           1: *inspec_suites_kitchen__share_suite
         map_jinja:
           verification:
@@ -3707,10 +3729,7 @@ ssf:
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/redhat.sls'
-              state_top:
-                - '*':
-                    - ._mapdata
-                    - .
+              state_top: *state_top_inc_mapdata
             verifier: *verifier_inspec_tests_default
           5:
             includes: *platforms_osfamily_suse
