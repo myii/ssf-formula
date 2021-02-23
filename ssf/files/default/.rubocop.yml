@@ -19,6 +19,13 @@
     {%- endfor %}
   # Increase from default of `{{ rbcp_MBL.Default }}`
   Max: {{ rbcp_MBL.Max }}
+{%- set SYL = 'Security/YAMLLoad' %}
+{{ SYL }}:
+  {%- set rbcp_SYL = rubocop.Cops.get(SYL) %}
+  Exclude:
+    {%- for path in rbcp_SYL.Exclude %}
+    - {{ path }}
+    {%- endfor %}
 
 {%- if rubocop.AllCops %}
 
@@ -36,7 +43,7 @@ AllCops:
 {%- endif %}
 
 # Any offenses that should be fixed, e.g. collected via. `rubocop --auto-gen-config`
-{%- for cop, config in rubocop.Cops.items() if cop not in [LLL, MBL] %}
+{%- for cop, config in rubocop.Cops.items() if cop not in [LLL, MBL, SYL] %}
 {{ cop }}:
   {#- This is purposefully simplistic for the time being,
       until (if ever) more advanced configuration is necessary #}

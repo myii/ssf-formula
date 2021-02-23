@@ -62,8 +62,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "chore(shellcheck): switch hook for '`'shellcheck'`' [skip ci]"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/295'
+            title: "chore(rubocop): allow use of '`'YAML.load'`' for '`'_mapdata.rb'`' [skip ci]"
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/296'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
@@ -214,6 +214,9 @@ ssf_node_anchors:
                 - describe
               Default: 25
               Max: 30
+            Security/YAMLLoad:
+              Exclude:
+                - 'test/integration/**/_mapdata.rb'
         salt_lint: {}
         script_kitchen:
           bin: 'bin/kitchen'
