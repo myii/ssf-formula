@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.246.0](https://github.com/myii/ssf-formula/compare/v1.245.0...v1.246.0) (2021-02-23)
+
+
+### Features
+
+* **rubocop:** allow use of `YAML.load` for `_mapdata.rb` ([c71da52](https://github.com/myii/ssf-formula/commit/c71da52582b223ce0331c3ad62a949f8c71b32d0))
+
 # [1.245.0](https://github.com/myii/ssf-formula/compare/v1.244.0...v1.245.0) (2021-02-21)
 
 
