@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.247.0 <https://github.com/myii/ssf-formula/compare/v1.246.0...v1.247.0>`_ (2021-03-05)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **yamllint:** add ``.git/`` to ignores (\ `c8fc3dd <https://github.com/myii/ssf-formula/commit/c8fc3ddcc008092cb4c8450e95b4ce1819bd28b9>`_\ ), closes `/gitlab.com/myii/openvpn-formula/-/jobs/1076814969#L135 <https://github.com//gitlab.com/myii/openvpn-formula/-/jobs/1076814969/issues/L135>`_
+
 `1.246.0 <https://github.com/myii/ssf-formula/compare/v1.245.0...v1.246.0>`_ (2021-02-23)
 ---------------------------------------------------------------------------------------------
 
