@@ -1502,9 +1502,23 @@ ssf:
               state_top:
                 - '*':
                     - .icinga-web2
-        # Linux testing not working on GitLab CI yet, last matrix shown below
-        platforms_matrix: []
-        # platforms_matrix: *platforms_matrix_osfamily_debian
+        # Linux testing not working on GitLab CI, so using GitHub Actions
+        # Based on `*platforms_matrix_osfamily_debian`
+        platforms_matrix:
+          # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
+          - [debian       ,    0   ,   master,      0,         default]
+          # # - [ubuntu       ,    0   ,   master,      0,         default]
+          - [ubuntu       ,   20.04,   master,      0,         default]
+          - [ubuntu       ,   18.04,   master,      0,         default]
+          # # - [centos       ,    0   ,   master,      0,         default]
+          # # - [fedora       ,    0   ,   master,      0,         default]
+          # # - [opensuse/leap,    0   ,   master,      0,         default]
+          # # - [opensuse/tmbl,    0   ,   master,      0,         default]
+          # # - [amazonlinux  ,    0   ,   master,      0,         default]
+          # # - [oraclelinux  ,    0   ,   master,      0,         default]
+          # # - [gentoo/stage3,    0   ,   master,      0,         default]
+          # # - [arch-base    ,    0   ,   3002.2,      0,         default]
+        use_github_actions: true
         yamllint:
           ignore:
             additional:
