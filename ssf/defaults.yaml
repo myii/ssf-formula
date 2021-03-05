@@ -62,8 +62,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "chore(rubocop): allow use of '`'YAML.load'`' for '`'_mapdata.rb'`' [skip ci]"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/296'
+            title: "chore(yamllint): add '`'.git/'`' to ignores [skip ci]"
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/297'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
@@ -237,6 +237,7 @@ ssf_node_anchors:
           ignore:
             default:
               - '.cache/'
+              - '.git/'
               - 'node_modules/'
             additional_ssf:
               - 'test/**/states/**/*.sls'
