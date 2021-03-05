@@ -10,7 +10,8 @@
               semrel_formula,
               width=4,
               use_new_travis_format=False,
-              use_gitlab_format=False
+              use_gitlab_format=False,
+              use_github_format=False
           ) %}
 {%-   filter indent(width) %}
 {#-     Centralise duplication from here and `kitchen.yml` #}
@@ -158,7 +159,7 @@
 {%-               set instance_and_env = 'INSTANCE: ' %}
 {%-               if use_new_travis_format %}
 {%-                 set instance_and_env = 'env: INSTANCE=' %}
-{%-               elif use_gitlab_format %}
+{%-               elif use_gitlab_format or use_github_format %}
 {%-                 set instance_and_env = '' %}
 {%-               endif %}
 {#-               Define GitLab-specific formats #}

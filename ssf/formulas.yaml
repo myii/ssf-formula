@@ -555,6 +555,9 @@ ssf_node_anchors:
       semrel_files: &semrel_files_default
         .github/workflows/commitlint.yml: &file__--github__workflows__commitlint--yml
           <<: *file_default
+        .github/workflows/kitchen.yml: &file__--github__workflows__kitchen--yml
+          <<: *file_default
+          template: 'jinja'
         bin/install-hooks: &file__bin__install-hooks
           <<: *file_default
           mode: 755
@@ -4171,6 +4174,7 @@ ssf:
               - ssf/files/default/.yamllint
               - ssf/files/default/inspec/inspec.yml
               - ssf/files/default/kitchen.yml
+              - ssf/files/default/.github/workflows/kitchen.yml
               - ssf/files/tofs_arvados-formula/.travis.yml
               - ssf/files/tofs_ssf-formula/.yamllint
           rules:

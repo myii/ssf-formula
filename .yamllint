@@ -27,6 +27,7 @@ ignore: |
   ssf/files/default/.yamllint
   ssf/files/default/inspec/inspec.yml
   ssf/files/default/kitchen.yml
+  ssf/files/default/.github/workflows/kitchen.yml
   ssf/files/tofs_arvados-formula/.travis.yml
   ssf/files/tofs_ssf-formula/.yamllint
 
