@@ -880,7 +880,6 @@ ssf:
           3:
             <<: *isk_suite_default
             name: ''
-    mattermost: *formula_default
     maven:
       <<: *formula_default
       context:
@@ -1114,7 +1113,6 @@ ssf:
     sqldeveloper: *formula_default
     sqlplus: *formula_default
     ssf: *formula_default
-    stack: *formula_default
     strongswan: *formula_default
     stunnel: *formula_default
     sudoers:
