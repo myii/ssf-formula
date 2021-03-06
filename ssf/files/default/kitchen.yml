@@ -127,6 +127,22 @@ image: {{ 'saltimages' if [os, os_ver, salt_ver, py_ver] in saltimages else 'net
 {%-         do prov_cmds.append('- dnf install -y crypto-policies-scripts') %}
 {%-         do prov_cmds.append('- update-crypto-policies --set LEGACY') %}
 {%-       endif %}
+{%-     elif semrel_formula == 'docker' %}
+{%-       if os in ['debian', 'ubuntu'] %}
+{%-         do prov_cmds.append('- apt-get update') %}
+{%-         do prov_cmds.append('- apt-get -qq -y install conntrack') %}
+{%-       elif os in ['centos', 'amazonlinux', 'oraclelinux'] %}
+{%-         do prov_cmds.append('- yum install conntrack-tools -y') %}
+{%-       elif os in ['fedora'] %}
+{%-         do prov_cmds.append('- dnf install conntrack-tools -y') %}
+{%-       elif os.startswith('opensuse') %}
+{%-         do prov_cmds.append('- zypper --non-interactive install conntrack-tools') %}
+{%-       elif os in ['arch-base'] %}
+{%-         do prov_cmds.append('- (test -x /usr/bin/pacman-mirrors && /usr/bin/pacman-mirrors -g) || true') %}
+{%-         do prov_cmds.append('- pacman -S --noconfirm conntrack-tools tar') %}
+{%-       elif os in ['gentoo/stage3'] %}
+{%-         do prov_cmds.append('emerge --noreplace --quiet --with-bdeps-auto=n net-firewall/conntrack-tools') %}
+{%-       endif %}
 {%-     endif %}
 {#-     Prepare the commands if available#}
 {%-     if prov_cmds %}

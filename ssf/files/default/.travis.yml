@@ -52,6 +52,17 @@ version: '~> 1.0'
 language: 'ruby'
 cache: 'bundler'
 
+{%- if semrel_formula == 'docker' %}
+
+env:
+  global:
+    - CHANGE_MINIKUBE_NONE_USER=true
+    - MINIKUBE_WANTUPDATENOTIFICATION=false
+    - MINIKUBE_WANTREPORTERRORPROMPT=false
+    - MINIKUBE_HOME=$HOME
+    - KUBECONFIG=$HOME/.kube/config
+{%- endif %}
+
 {#- Specifically avoiding `and not use_github_actions`, since this is only used for #}
 {#- formulas which don't work in GitLab CI but used to work in Travis CI            #}
 {#- if platforms and not use_cirrus_ci and not use_github_actions #}

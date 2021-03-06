@@ -8,6 +8,14 @@ name: 'Kitchen (Linux)'
 jobs:
   kitchen:
     runs-on: 'ubuntu-20.04'
+    {%- if semrel_formula == 'docker' %}
+    env:
+      CHANGE_MINIKUBE_NONE_USER: true
+      MINIKUBE_WANTUPDATENOTIFICATION: false
+      MINIKUBE_WANTREPORTERRORPROMPT: false
+      MINIKUBE_HOME: '$HOME'
+      KUBECONFIG: '$HOME/.kube/config'
+    {%- endif %}
     strategy:
       fail-fast: false
       matrix:

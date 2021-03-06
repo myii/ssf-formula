@@ -635,6 +635,9 @@ ssf:
           2:
             <<: *isk_suite_default
             name: 'clean'
+          3:
+            <<: *isk_suite_default
+            name: ''
     eclipse:
       <<: *formula_default
       context:
