@@ -58,7 +58,7 @@ prepare-git-branch-for-{{ formula }}:
 {#-     Work through each inspec suite defined for the formula, ordered by the suite number #}
 {%-     for index in range(0, inspec_suites_kitchen | length) %}
 {%-       set suite = inspec_suites_kitchen[index] %}
-{%-       set dest_file = semrel_file_specs.dest_file | d(semrel_file ) %}
+{%-       set dest_file = semrel_file_specs.dest_file | d(semrel_file) %}
 {#-       Only manage files for the suite if the `suite.name` is set #}
 {#-       Or if dealing with CI files (where an empty `suite.name` is actually used) #}
 {%-       if suite.name or dest_file in ['.cirrus.yml', '.travis.yml'] %}
