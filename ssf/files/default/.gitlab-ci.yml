@@ -3,11 +3,16 @@
 ---
 {%- from tplroot ~ "/libcimatrix.jinja" import format_ci_matrix with context %}
 
-{#-   Prepare variable used for `saltcheck` #}
-{%-   set use_saltcheck = False %}
-{%-   if semrel_formula in ['cron'] %}
-{%-     set use_saltcheck = True %}
-{%-   endif %}
+{#- Prepare variable used for `saltcheck` #}
+{%- set use_saltcheck = False %}
+{%- if semrel_formula in ['cron'] %}
+{%-   set use_saltcheck = True %}
+{%- endif %}
+{#- Prepare variable used for formulas (not) running tests in GitLab CI #}
+{%- set use_stage_test = False %}
+{%- if semrel_formula != 'ssf' and (platforms and not use_cirrus_ci and not use_github_actions) %}
+{%-   set use_stage_test = True %}
+{%- endif %}
 ###############################################################################
 # Define all YAML node anchors
 ###############################################################################
@@ -18,12 +23,12 @@
   # `stage`
   stage_lint: &stage_lint 'lint'
   stage_release: &stage_release 'release'
-  {%- if semrel_formula != 'ssf' %}
+  {%- if use_stage_test %}
   stage_test: &stage_test 'test'
   {%- endif  %}
   # `image`
   image_commitlint: &image_commitlint 'myii/ssf-commitlint:11'
-  {%- if semrel_formula != 'ssf' %}
+  {%- if use_stage_test %}
   image_dindruby: &image_dindruby 'myii/ssf-dind-ruby:2.7.1-r3'
   {%-   if semrel_formula == 'template' %}
   image_dindrubybionic: &image_dindrubybionic 'myii/ssf-dind-ruby-bionic:1_2.5.1'
@@ -34,7 +39,7 @@
     entrypoint: ['/bin/bash', '-c']
   image_rubocop: &image_rubocop 'pipelinecomponents/rubocop:latest'
   image_semantic-release: &image_semanticrelease 'myii/ssf-semantic-release:15.14'
-  {%- if semrel_formula != 'ssf' %}
+  {%- if use_stage_test %}
   # `services`
   services_docker_dind: &services_docker_dind
     - 'docker:dind'
@@ -56,12 +61,14 @@
 ###############################################################################
 stages:
   - *stage_lint
-  {%- if semrel_formula != 'ssf' %}
+  {%- if use_stage_test %}
   - *stage_test
   {%- endif  %}
   - *stage_release
+{%- if use_stage_test %}
 variables:
   DOCKER_DRIVER: 'overlay2'
+{%- endif  %}
 
 ###############################################################################
 # `lint` stage: `commitlint` & `pre-commit`
@@ -117,7 +124,7 @@ rubocop:
   script:
     - 'rubocop -d -P -S --enable-pending-cops'
 
-{%- if platforms and not use_cirrus_ci %}
+{%- if platforms and not use_cirrus_ci and not use_github_actions %}
 
 ###############################################################################
 # Define `test` template

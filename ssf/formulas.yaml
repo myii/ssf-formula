@@ -555,6 +555,9 @@ ssf_node_anchors:
       semrel_files: &semrel_files_default
         .github/workflows/commitlint.yml: &file__--github__workflows__commitlint--yml
           <<: *file_default
+        .github/workflows/kitchen.yml: &file__--github__workflows__kitchen--yml
+          <<: *file_default
+          template: 'jinja'
         bin/install-hooks: &file__bin__install-hooks
           <<: *file_default
           mode: 755
@@ -1204,32 +1207,58 @@ ssf:
             inspec_yml:
               summary: >-
                 Verify that the docker formula is setup and configured correctly
+            provisioner:
+              pillars_from_files:
+                - .sls: 'test/salt/pillar/archive.sls'
           1:
             inspec_yml:
               summary: >-
                 Verify that the docker formula is setup and configured correctly
+            provisioner:
+              pillars_from_files:
+                - .sls: 'test/salt/pillar/package.sls'
           2:
             inspec_yml:
               summary: >-
                 Verify that the docker formula is setup and configured correctly
+            provisioner:
+              pillars_from_files:
+                - .sls: 'test/salt/pillar/archive.sls'
+              state_top:
+                - '*':
+                    - .clean
+          3: {}
         inspec_suites_matrix:
           - archive
           - package
           - clean
-        # Linux testing not working on GitLab CI yet, last matrix shown below
-        platforms_matrix: []
-        # # # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
-        # # - [debian       ,   10   ,   master,      3,         default]
-        # # - [debian       ,    9   ,   2019.2,      3,         default]
-        # # - [ubuntu       ,   18.04,   2019.2,      3,         default]
-        # # - [arch-base    ,  latest,   2019.2,      2,         default]
-        # # - [debian       ,    9   ,   2018.3,      2,         default]
-        # # - [ubuntu       ,   16.04,   2017.7,      2,         default]
+          - ''
+        # Linux testing not working as well on GitLab CI, using GitHub Actions now
+        platforms_matrix:
+          # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
+          - [debian       ,    0   ,   master,      0,              '']
+          - [ubuntu       ,    0   ,   master,      0,              '']
+          - [centos       ,    0   ,   master,      0,              '']
+          - [fedora       ,    0   ,   master,      0,              '']
+          - [opensuse/leap,    0   ,   master,      0,              '']
+          # # - [opensuse/tmbl,    0   ,   master,      0,         default]
+          - [opensuse/tmbl,    0   ,   master,      0,           clean]
+          # # - [amazonlinux  ,    0   ,   master,      0,         default]
+          - [amazonlinux  ,    0   ,   master,      0,         archive]
+          - [amazonlinux  ,    0   ,   master,      0,           clean]
+          # # - [oraclelinux  ,    0   ,   master,      0,         default]
+          - [oraclelinux  ,    0   ,   master,      0,         archive]
+          - [oraclelinux  ,    0   ,   master,      0,           clean]
+          # # - [gentoo/stage3,    0   ,   master,      0,         default]
+          - [gentoo/stage3, systemd,   master,      0,         archive]
+          - [gentoo/stage3, systemd,   master,      0,           clean]
+          - [arch-base    ,    0   ,   3002.2,      0,              '']
         use_tofs: true
         yamllint:
           ignore:
             additional:
               - docker/osfamilymap.yaml
+        use_github_actions: true
       semrel_files: *semrel_files_default
     eclipse:
       context:
@@ -1499,9 +1528,23 @@ ssf:
               state_top:
                 - '*':
                     - .icinga-web2
-        # Linux testing not working on GitLab CI yet, last matrix shown below
-        platforms_matrix: []
-        # platforms_matrix: *platforms_matrix_osfamily_debian
+        # Linux testing not working on GitLab CI, so using GitHub Actions
+        # Based on `*platforms_matrix_osfamily_debian`
+        platforms_matrix:
+          # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
+          - [debian       ,    0   ,   master,      0,         default]
+          # # - [ubuntu       ,    0   ,   master,      0,         default]
+          - [ubuntu       ,   20.04,   master,      0,         default]
+          - [ubuntu       ,   18.04,   master,      0,         default]
+          # # - [centos       ,    0   ,   master,      0,         default]
+          # # - [fedora       ,    0   ,   master,      0,         default]
+          # # - [opensuse/leap,    0   ,   master,      0,         default]
+          # # - [opensuse/tmbl,    0   ,   master,      0,         default]
+          # # - [amazonlinux  ,    0   ,   master,      0,         default]
+          # # - [oraclelinux  ,    0   ,   master,      0,         default]
+          # # - [gentoo/stage3,    0   ,   master,      0,         default]
+          # # - [arch-base    ,    0   ,   3002.2,      0,         default]
+        use_github_actions: true
         yamllint:
           ignore:
             additional:
@@ -4171,6 +4214,7 @@ ssf:
               - ssf/files/default/.yamllint
               - ssf/files/default/inspec/inspec.yml
               - ssf/files/default/kitchen.yml
+              - ssf/files/default/.github/workflows/kitchen.yml
               - ssf/files/tofs_arvados-formula/.travis.yml
               - ssf/files/tofs_ssf-formula/.yamllint
           rules:

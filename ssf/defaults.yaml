@@ -62,8 +62,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "ci(kitchen+gitlab-ci): use latest pre-salted images"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/293'
+            title: "ci(github/kitchen): use GitHub Actions for Linux testing [skip ci]"
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/298'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
@@ -184,6 +184,7 @@ ssf_node_anchors:
           dist: 'bionic'
           use_single_job_for_linters: true
         use_cirrus_ci: false
+        use_github_actions: false
         use_libsaltcli: false
         use_tofs: false
         yamllint:
@@ -634,6 +635,9 @@ ssf:
           2:
             <<: *isk_suite_default
             name: 'clean'
+          3:
+            <<: *isk_suite_default
+            name: ''
     eclipse:
       <<: *formula_default
       context:

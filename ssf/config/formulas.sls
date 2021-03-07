@@ -14,6 +14,7 @@
 {%-   set context = semrel_formula_specs.context %}
 {%-   set inspec_suites_kitchen = context.inspec_suites_kitchen %}
 {%-   set use_cirrus_ci = context.use_cirrus_ci %}
+{%-   set use_github_actions = context.use_github_actions %}
 {%-   set use_libsaltcli = context.use_libsaltcli %}
 {%-   set use_tofs = context.use_tofs %}
 {%-   set owner = context.git.github.owner %}
@@ -107,11 +108,13 @@ prepare-git-branch-for-{{ formula }}:
 {#-           Add files by default #}
 {%-           set add_or_rm = ['add', 'add', 'managed'] %}
 {#-           Remove files if the file is `.cirrus.yml` and `use_cirrus_ci` is `False` #}
+{#-           Or remove if the file is `.github/workflows/kitchen.yml` and `use_github_actions` is `False` #}
 {#-           Or if the file is `libsaltcli.jinja` and `use_libsaltcli` is `False` #}
 {#-           Likewise, if running the state for TOFS files when `use_tofs` is `False` #}
 {#-           Also remove the local `CONTRIBUTING` file to use the org-level file instead #}
 {#-           Furthermore, remove `.travis.yml` for the `ssf-formula` #}
 {%-           if (semrel_file == '.cirrus.yml' and not use_cirrus_ci) or
+                 (semrel_file == '.github/workflows/kitchen.yml' and not use_github_actions) or
                  (semrel_file == 'formula/libsaltcli.jinja' and not use_libsaltcli) or
                  (semrel_file in ['docs/TOFS_pattern.rst', 'formula/libtofs.jinja'] and not use_tofs) or
                  (semrel_file in ['docs/CONTRIBUTING.rst'] and formula not in ['.github', 'ssf-formula']) or
@@ -177,6 +180,7 @@ remove-previous-file-location-for-{{ formula }}-{{ dest_file }}:
         suite: {{ suite | yaml }}
         travis: {{ context.travis | yaml }}
         use_cirrus_ci: {{ use_cirrus_ci }}
+        use_github_actions: {{ use_github_actions }}
         yamllint: {{ context.yamllint | yaml }}
     {%-         endif %}
     {%-         if ssf.git.states.prepare.active %}
