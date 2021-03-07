@@ -133,7 +133,12 @@
 {%-                       do platforms_matrix_expanded.append(matrix_platform + [ch_suite]) %}
 {#-                       We want to break in all conditions except the following: #}
 {#-                       1. The `java-formula` should only have extra lines for `ubuntu` #}
-{%-                       if not (semrel_formula in ['java'] and ch_os in ['ubuntu']) %}
+{#-                       2. The `arvados-formula` should only have extra lines for: #}
+{#-                          - `debian-10` #}
+{#-                          - `ubuntu-18.04` #}
+{#-                          - `centos-7` #}
+{%-                       if not (semrel_formula in ['java'] and ch_os in ['ubuntu']) and
+                             not (semrel_formula in ['arvados'] and [ch_os, ch_os_ver] in [['debian', 10], ['ubuntu', 18.04], ['centos', 7]]) %}
 {%-                         break %}
 {%-                       endif %}
 {%-                     endif %}
@@ -147,7 +152,7 @@
 {%-                 set comment = '# ' %}
 {#-                 Only include commented instances from the main platforms #}
 {#-                 Otherwise only use the first suite for the other platforms #}
-{%-                 if not (salt_ver == 'master' or [os, salt_ver] == ['arch-base', 3002.2]) %}
+{%-                 if not (salt_ver == 'master' or [os, salt_ver] == ['arch-base', 3002.5]) %}
 {%-                   if platform not in commented_platform_done %}
 {%-                     do commented_platform_done.append(platform) %}
 {%-                   else %}

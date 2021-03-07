@@ -13,7 +13,12 @@
 {%-           elif matcher_child.startswith('.') %}
 {%-             set matcher_child = semrel_formula ~ matcher_child %}
 {%-           endif %}
-  - {{ matcher_child }}
+{#-           To allow comments interspersed the list, use `list_format` accordingly #}
+{%-           set list_format = '- ' %}
+{%-           if matcher_child.startswith('#') %}
+{%-             set list_format = '' %}
+{%-           endif %}
+  {{ list_format }}{{ matcher_child }}
 {%-         endfor %}
 {%-       endfor %}
 {%-     endfor %}
@@ -266,6 +271,16 @@ suites:
   {#-   Only include the suite if the `suite.name` is set #}
   {#-   Furthermore, do not include if `includes: *includes_NONE` has been set #}
   {%-   if suite.name and not (suite.includes and not suite.includes[0]) %}
+  {#-     Add comment above suite where required (avoid, keep limited to `arvados` if possible #}
+  {%-     if semrel_formula == 'arvados' %}
+  {%-       set suite_name_comment = suite.name %}
+  {%-       if suite.name == 'api' %}
+  {%-         set suite_name_comment = suite_name_comment ~ ',websocket,keepproxy,keepweb,controller' %}
+  {%-       elif suite.name == 'workbench' %}
+  {%-         set suite_name_comment = suite_name_comment ~ ',workbench2' %}
+  {%-       endif %}
+  #### {{ suite_name_comment }}
+  {%-     endif %}
   - name: {{ suite.name }}
     {{- format_includes_excludes(suite, 'excludes') }}
     {{- format_includes_excludes(suite, 'includes') }}
@@ -303,12 +318,17 @@ suites:
       {%- if pillars_from_files %}
       pillars_from_files:
         {%- for pff in pillars_from_files %}
-        {%-   for k, v in pff.items() %}
-        {%-     if k.startswith('.') %}
-        {%-       set k = semrel_formula ~ k %}
-        {%-     endif %}
+        {#- To allow comments interspersed the list, check for string #}
+        {%-   if pff is string %}
+        {{ pff }}
+        {%-   else %}
+        {%-     for k, v in pff.items() %}
+        {%-       if k.startswith('.') %}
+        {%-         set k = semrel_formula ~ k %}
+        {%-       endif %}
         {{ k }}: {{ v }}
-        {%-   endfor %}
+        {%-     endfor %}
+        {%-   endif %}
         {%- endfor %}
       {%- endif %}
     verifier:
