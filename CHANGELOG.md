@@ -1,5 +1,19 @@
 # Changelog
 
+# [1.249.0](https://github.com/myii/ssf-formula/compare/v1.248.0...v1.249.0) (2021-03-07)
+
+
+### Code Refactoring
+
+* **files/kitchen:** remove `2017.7` block (no longer used) ([fa1be6f](https://github.com/myii/ssf-formula/commit/fa1be6ff89206c510166ed6e8975c1a7a639fd6f))
+
+
+### Features
+
+* **docker:** use GitHub Actions for Linux testing ([9916604](https://github.com/myii/ssf-formula/commit/991660445bf1890442b017865dbe14720b4771e1))
+* **icinga2:** use GitHub Actions for Linux testing ([1d37c07](https://github.com/myii/ssf-formula/commit/1d37c07fcc2b57b8feefb32265ca9ebb69bd0734))
+* **workflows/kitchen:** manage across formulas ([14bd364](https://github.com/myii/ssf-formula/commit/14bd36427f8cea9e317efecdff8c24144b48f6c7))
+
 # [1.248.0](https://github.com/myii/ssf-formula/compare/v1.247.0...v1.248.0) (2021-03-07)
 
 
