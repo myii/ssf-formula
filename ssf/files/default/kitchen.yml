@@ -229,16 +229,6 @@ platforms:
 {{ linebreak }}  ## SALT {{ comment }}
 {%-     set ns_platforms.prev_comment = comment %}
 {%-   endif %}
-{#-   TODO: Should really do this `if` from `defaults.yaml` or `formulas.yaml`, just speeding things up right now #}
-{%-   if os == 'centos' and os_ver == 6 and semrel_formula == 'libvirt' %}
-  # Python2 version problem
-  # SaltStack runs under python 2.7 but system is python 2.6
-  # The python libvirt library can't be used
-  # - name: centos-6-2017-7-py2
-  #   driver:
-  #     image: netmanagers/salt-2017.7-py2:centos-6
-  #     run_command: /sbin/init
-{%-   else %}
   - name: {{ os | replace('/', '-') }}-{{ os_ver | replace('.', '') }}-{{ salt_ver | replace('.', '-') }}-py{{ py_ver }}
     driver:
       {{- format_driver_image(os, os_ver, salt_ver, py_ver, pre_salted) }}
@@ -250,7 +240,6 @@ platforms:
     transport:
       max_ssh_sessions: 1
     {%- endif %}
-{%-   endif %}
 {%- endfor %}
 
 provisioner:
