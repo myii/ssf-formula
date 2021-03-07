@@ -1,5 +1,21 @@
 # Changelog
 
+# [1.248.0](https://github.com/myii/ssf-formula/compare/v1.247.0...v1.248.0) (2021-03-07)
+
+
+### Bug Fixes
+
+* **template:** review PR 212 ([4c94c9b](https://github.com/myii/ssf-formula/commit/4c94c9b2e7bce89ffe8d4d8b04a615500e8e6e54))
+
+
+### Features
+
+* overhaul CI implementation and use latest pre-salted images ([b1753e7](https://github.com/myii/ssf-formula/commit/b1753e74aacab4c50ed119b975ebfd53493c003c))
+* remove unmanaged formulas (`mattermost` & `stack`) ([47c3d45](https://github.com/myii/ssf-formula/commit/47c3d454d7481a99b7d3a6586ae5e4c5bbdd9da8))
+* **java:** review PR 15 ([92305e3](https://github.com/myii/ssf-formula/commit/92305e3d92d89d498c4a58475d40f4eaae611fcf))
+* **java:** review PR 17 ([c5f9b54](https://github.com/myii/ssf-formula/commit/c5f9b54da3f620c86c6489b3135316e5f518a196))
+* **openvpn:** review PR 134 ([ad69201](https://github.com/myii/ssf-formula/commit/ad69201e6c6193b62055c6703a3f840d3d6fff5b))
+
 # [1.247.0](https://github.com/myii/ssf-formula/compare/v1.246.0...v1.247.0) (2021-03-05)
 
 
