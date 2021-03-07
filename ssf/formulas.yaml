@@ -807,109 +807,231 @@ ssf:
             repo: 'arvados-formula'
         inspec_suites_kitchen:
           0:
+            driver:
+              hostname: 'fixme.example.net'
             inspec_yml:
               title: 'arvados formula api submodule'
               summary: >-
                 Verify that the arvados formula api is setup and configured
                 correctly
-              supports: *supports_debian_ubuntu_centos
+            provisioner:
+              dependencies:
+                - name: 'single_host'
+                  path: 'test/salt/states/examples'
+                - name: 'locale'
+                  repo: 'git'
+                  source: 'https://github.com/saltstack-formulas/locale-formula.git'
+                - name: 'postgres'
+                  repo: 'git'
+                  source: 'https://github.com/saltstack-formulas/postgres-formula.git'
+                - name: 'nginx'
+                  repo: 'git'
+                  source: 'https://github.com/netmanagers/nginx-formula.git'
+              pillars:
+                - '*':
+                    - .
+                    - example_locale
+                    - example_postgres
+                    - example_nginx
+                    - example_nginx_api
+                    - example_nginx_websocket
+                    - example_nginx_keepweb
+                    - example_nginx_controller
+                    - '# keepproxy expects to retrieve a list of services from API, so'
+                    - '# installing/testing it without an api server running will fail'
+                    - example_nginx_keepproxy
+              pillars_from_files:
+                # yamllint disable rule:line-length
+                - '# yamllint disable rule:line-length'
+                - .sls: 'test/salt/pillar/arvados.sls'
+                - example_locale.sls: 'test/salt/pillar/examples/locale.sls'
+                - example_postgres.sls: 'test/salt/pillar/examples/postgresql.sls'
+                - example_nginx.sls: 'test/salt/pillar/examples/nginx_passenger.sls'
+                - example_nginx_api.sls: 'test/salt/pillar/examples/nginx_api_configuration.sls'
+                - example_nginx_websocket.sls: 'test/salt/pillar/examples/nginx_websocket_configuration.sls'
+                - example_nginx_keepweb.sls: 'test/salt/pillar/examples/nginx_keepweb_configuration.sls'
+                - example_nginx_keepproxy.sls: 'test/salt/pillar/examples/nginx_keepproxy_configuration.sls'
+                - example_nginx_controller.sls: 'test/salt/pillar/examples/nginx_controller_configuration.sls'
+                - '# yamllint enable rule:line-length'
+                # yamllint enable rule:line-length
+              state_top:
+                - '*':
+                    - single_host.host_entries
+                    - single_host.snakeoil_certs
+                    - locale
+                    - nginx.passenger
+                    - postgres
+                    - arvados.repo
+                    - arvados.api
+                    - arvados.websocket
+                    - arvados.keepproxy
+                    - arvados.keepweb
+                    - arvados.controller
+                    - arvados.dispatcher
+            verifier:
+              inspec_tests:
+                - .
+                - websocket
+                - keepproxy
+                - keepweb
+                - controller
           1:
-            inspec_yml:
-              title: 'arvados formula controller submodule'
-              summary: >-
-                Verify that the arvados formula controller is setup and
-                configured correctly
-              supports: *supports_debian_ubuntu_centos
-          2:
-            inspec_yml:
-              title: 'arvados formula keepproxy submodule'
-              summary: >-
-                Verify that the arvados formula keepproxy is setup and
-                configured correctly
-              supports: *supports_debian_ubuntu_centos
-          3:
-            inspec_yml:
-              title: 'arvados formula keepstore submodule'
-              summary: >-
-                Verify that the arvados formula keepstore is setup and
-                configured correctly
-              supports: *supports_debian_ubuntu_centos
-          4:
-            inspec_yml:
-              title: 'arvados formula keepweb submodule'
-              summary: >-
-                Verify that the arvados formula keepweb is setup and configured
-                correctly
-              supports: *supports_debian_ubuntu_centos
-          5:
-            inspec_yml:
-              title: 'arvados formula repo submodule'
-              summary: >-
-                Verify that the arvados repository is setup and configured
-                correctly
-              supports: *supports_debian_ubuntu_centos
-          6:
-            inspec_yml:
-              title: 'arvados formula shell submodule'
-              summary: >-
-                Verify that the arvados formula shell submodule is setup and
-                configured correctly
-              supports: *supports_debian_ubuntu_centos
-          7:
-            inspec_yml:
-              title: 'arvados formula websocket submodule'
-              summary: >-
-                Verify that the arvados formula websocket is setup and
-                configured correctly
-              supports: *supports_debian_ubuntu_centos
-          8:
+            driver:
+              hostname: 'workbench.fixme.example.net'
             inspec_yml:
               title: 'arvados formula workbench submodule'
               summary: >-
                 Verify that the arvados formula workbench is setup and
                 configured correctly
-              supports: *supports_debian_ubuntu_centos
-          9:
+            provisioner:
+              dependencies:
+                - name: 'single_host'
+                  path: 'test/salt/states/examples'
+                - name: 'nginx'
+                  repo: 'git'
+                  source: 'https://github.com/netmanagers/nginx-formula.git'
+              pillars:
+                - '*':
+                    - .
+                    - example_nginx
+                    - example_nginx_workbench
+                    - example_nginx_workbench2
+              pillars_from_files:
+                # yamllint disable rule:line-length
+                - '# yamllint disable rule:line-length'
+                - .sls: 'test/salt/pillar/arvados.sls'
+                - example_nginx.sls: 'test/salt/pillar/examples/nginx_passenger.sls'
+                - example_nginx_workbench.sls: 'test/salt/pillar/examples/nginx_workbench_configuration.sls'
+                - example_nginx_workbench2.sls: 'test/salt/pillar/examples/nginx_workbench2_configuration.sls'
+                - '# yamllint enable rule:line-length'
+                # yamllint enable rule:line-length
+              state_top:
+                - '*':
+                    - single_host.host_entries
+                    - single_host.snakeoil_certs
+                    - nginx.passenger
+                    - arvados.repo
+                    - arvados.workbench
+                    - arvados.workbench2
+            verifier:
+              inspec_tests:
+                - .
+                - workbench2
+          2:
+            driver:
+              hostname: 'shell.fixme.example.net'
             inspec_yml:
-              title: 'arvados formula workbench2 submodule'
+              title: 'arvados formula shell submodule'
               summary: >-
-                Verify that the arvados formula workbench2 is setup and
+                Verify that the arvados formula shell submodule is setup and
                 configured correctly
-              supports: *supports_debian_ubuntu_centos
-          10:
+            provisioner:
+              pillars_from_files:
+                - .sls: 'test/salt/pillar/arvados_dev.sls'
+              state_top:
+                - '*':
+                    - '# We also test repo here. No sense for a whole separate suite'
+                    - arvados.repo
+                    - arvados.shell
+          3:
+            driver:
+              hostname: 'keep0.fixme.example.net'
             inspec_yml:
-              title: 'arvados formula dispatcher submodule'
+              title: 'arvados formula keepstore submodule'
               summary: >-
-                Verify that the arvados formula dispatcher is setup and
+                Verify that the arvados formula keepstore is setup and
                 configured correctly
-              supports: *supports_debian_ubuntu_centos
+            provisioner:
+              pillars_from_files:
+                - .sls: 'test/salt/pillar/arvados.sls'
+              state_top:
+                - '*':
+                    - arvados.repo
+                    - arvados.keepstore
+                    - '# - arvados.clean'
+            verifier:
+              inspec_tests:
+                - repo
+                - keepstore
         inspec_suites_matrix:
           - api
-          # - controller
-          # - keepproxy
-          - keepstore
-          # - keepweb
-          # - repo
-          - shell
-          # - websocket
           - workbench
-          # - workbench2
-          # - dispatcher
+          - shell
+          - keepstore
         platforms:
           # [os           ,  os_ver, salt_ver, py_ver]
           - [debian       ,    0   ,      0  ,      0]
           - [ubuntu       ,    0   ,      0  ,      0]
           - [centos       ,    0   ,      0  ,      0]
+          # # - [fedora       ,    0   ,      0  ,      0]
+          # # - [opensuse/leap,    0   ,      0  ,      0]
+          # # - [opensuse/tmbl,    0   ,      0  ,      0]
+          - [amazonlinux  ,    0   ,      0  ,      0]
+          - [oraclelinux  ,    0   ,      0  ,      0]
+          # # - [gentoo/stage3,    0   ,      0  ,      0]
+          # # - [arch-base    ,    0   ,      0  ,      0]
         platforms_matrix:
-          # # NOT TOUCHING THIS FORMULA, LEAVING IT FOR JAVIER
-          # # Custom `kitchen.yml` as well, which makes it difficult
+          # - failed api-amazonlinux-2-master-py3
+          # - failed api-centos-7-master-py3
+          # - failed api-centos-8-master-py3
+          # - failed api-debian-9-master-py3
+          # - failed api-oraclelinux-7-master-py3
+          # - failed api-oraclelinux-8-master-py3
+          # - failed api-ubuntu-1604-master-py3
+          # - failed api-ubuntu-2004-master-py3
+          # - failed keepstore-amazonlinux-2-master-py3
+          # - failed keepstore-centos-8-master-py3
+          # - failed keepstore-debian-9-master-py3
+          # - failed keepstore-oraclelinux-8-master-py3
+          # - failed keepstore-ubuntu-1604-master-py3
+          # - failed keepstore-ubuntu-1804-master-py3
+          # - failed keepstore-ubuntu-2004-master-py3
+          # - failed shell-amazonlinux-2-master-py3
+          # - failed shell-centos-8-master-py3
+          # - failed shell-debian-10-master-py3
+          # - failed shell-debian-9-master-py3
+          # - failed shell-oraclelinux-8-master-py3
+          # - failed shell-ubuntu-1604-master-py3
+          # - failed shell-ubuntu-1804-master-py3
+          # - failed shell-ubuntu-2004-master-py3
+          # - failed workbench-amazonlinux-2-master-py3
+          # - failed workbench-centos-7-master-py3
+          # - failed workbench-centos-8-master-py3
+          # - failed workbench-debian-9-master-py3
+          # - failed workbench-oraclelinux-7-master-py3
+          # - failed workbench-oraclelinux-8-master-py3
+          # - failed workbench-ubuntu-1604-master-py3
+          # - failed workbench-ubuntu-2004-master-py3
+          # - fixable keepstore-oraclelinux-7-master-py3
+          # - fixable shell-oraclelinux-7-master-py3
+          # - success api-debian-10-master-py3
+          # - success api-ubuntu-1804-master-py3
+          # - success keepstore-centos-7-master-py3
+          # - success keepstore-debian-10-master-py3
+          # - success shell-centos-7-master-py3
+          # - success workbench-debian-10-master-py3
+          # - success workbench-ubuntu-1804-master-py3
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
-          # # - [ubuntu       ,   18.04,   master,      3,       workbench]
-          # # - [debian       ,   10   ,   3001  ,      3,             api]
-          # - [debian       ,   10   ,   3001  ,      3,           shell]
-          - [centos       ,    7   ,   3001  ,      3,           shell]
-          # - [ubuntu       ,   18.04,   3000.3,      2,       keepstore]
-          - [centos       ,    7   ,   3000.3,      3,       keepstore]
+          # # - [debian       ,    0   ,   master,      0,         default]
+          - [debian       ,   10   ,   master,      0,             api]
+          - [debian       ,   10   ,   master,      0,       workbench]
+          - [debian       ,   10   ,   master,      0,       keepstore]
+          # # - [ubuntu       ,    0   ,   master,      0,         default]
+          - [ubuntu       ,   18.04,   master,      0,             api]
+          - [ubuntu       ,   18.04,   master,      0,       workbench]
+          # # - [centos       ,    0   ,   master,      0,         default]
+          - [centos       ,    7   ,   master,      0,           shell]
+          - [centos       ,    7   ,   master,      0,       keepstore]
+          # # - [fedora       ,    0   ,   master,      0,         default]
+          # # - [opensuse/leap,    0   ,   master,      0,         default]
+          # # - [opensuse/tmbl,    0   ,   master,      0,         default]
+          # # - [amazonlinux  ,    0   ,   master,      0,         default]
+          # # - [oraclelinux  ,    0   ,   master,      0,         default]
+          # TODO: Submit PR to enable `oraclelinux-7`
+          # - [oraclelinux  ,    7   ,   master,      0,           shell]
+          # - [oraclelinux  ,    7   ,   master,      0,       keepstore]
+          # # - [gentoo/stage3,    0   ,   master,      0,         default]
+          # # - [arch-base    ,    0   ,   3002.2,      0,         default]
         use_tofs: true
         yamllint:
           ignore:

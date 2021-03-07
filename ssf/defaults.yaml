@@ -618,34 +618,13 @@ ssf:
             name: 'api'
           1:
             <<: *isk_suite_default
-            name: 'controller'
+            name: 'workbench'
           2:
             <<: *isk_suite_default
-            name: 'keepproxy'
+            name: 'shell'
           3:
             <<: *isk_suite_default
             name: 'keepstore'
-          4:
-            <<: *isk_suite_default
-            name: 'keepweb'
-          5:
-            <<: *isk_suite_default
-            name: 'repo'
-          6:
-            <<: *isk_suite_default
-            name: 'shell'
-          7:
-            <<: *isk_suite_default
-            name: 'websocket'
-          8:
-            <<: *isk_suite_default
-            name: 'workbench'
-          9:
-            <<: *isk_suite_default
-            name: 'workbench2'
-          10:
-            <<: *isk_suite_default
-            name: 'dispatcher'
     bind: *formula_default
     cert: *formula_default
     chrony: *formula_default
