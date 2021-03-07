@@ -1,5 +1,18 @@
 # Changelog
 
+# [1.250.0](https://github.com/myii/ssf-formula/compare/v1.249.0...v1.250.0) (2021-03-07)
+
+
+### Bug Fixes
+
+* **docker:** add missing additional `yamllint` ignore ([6deeeeb](https://github.com/myii/ssf-formula/commit/6deeeeb01e6eb4ad2f2d4ef82e88750d327ad672))
+
+
+### Features
+
+* **arvados:** update CI and also avoid separate `kitchen.yml` template ([ba5bc27](https://github.com/myii/ssf-formula/commit/ba5bc27806fe6c46a1e345b19845f788a419a61d))
+* **saltimages:** update with latest changes from `salt-image-builder` ([b920eb7](https://github.com/myii/ssf-formula/commit/b920eb79bac93214bccc7775f12d997a7279bb76))
+
 # [1.249.0](https://github.com/myii/ssf-formula/compare/v1.248.0...v1.249.0) (2021-03-07)
 
 
