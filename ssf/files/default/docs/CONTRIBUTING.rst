@@ -262,6 +262,7 @@ These formulas are also compatible with semantic-release:
 #. `rabbitmq-formula <https://github.com/saltstack-formulas/rabbitmq-formula>`_
 #. `redis-formula <https://github.com/saltstack-formulas/redis-formula>`_
 #. `rkhunter-formula <https://github.com/saltstack-formulas/rkhunter-formula>`_
+#. `snmp-formula <https://github.com/saltstack-formulas/snmp-formula>`_
 #. `stunnel-formula <https://github.com/saltstack-formulas/stunnel-formula>`_
 #. `sudoers-formula <https://github.com/saltstack-formulas/sudoers-formula>`_
 #. `syslog-ng-formula <https://github.com/saltstack-formulas/syslog-ng-formula>`_
