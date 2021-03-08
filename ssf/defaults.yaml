@@ -169,7 +169,7 @@ ssf_node_anchors:
               Default: *line_length_default
               Max: *line_length_bugbear
             Metrics/BlockLength:
-              ExcludedMethods:
+              IgnoredMethods:
                 - control
                 - describe
               Default: 25

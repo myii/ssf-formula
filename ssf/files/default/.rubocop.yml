@@ -13,8 +13,8 @@
 {%- set MBL = 'Metrics/BlockLength' %}
 {{ MBL }}:
   {%- set rbcp_MBL = rubocop.Cops.get(MBL) %}
-  ExcludedMethods:
-    {%- for method in rbcp_MBL.ExcludedMethods %}
+  IgnoredMethods:
+    {%- for method in rbcp_MBL.IgnoredMethods %}
     - {{ method }}
     {%- endfor %}
   # Increase from default of `{{ rbcp_MBL.Default }}`
