@@ -608,6 +608,7 @@ ssf_node_anchors:
           <<: *file_default
         Gemfile: &file__Gemfile
           <<: *file_default
+          template: 'jinja'
         Gemfile.lock: &file__Gemfile--lock
           <<: *file_default
         kitchen.yml: &file__kitchen--yml
