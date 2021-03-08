@@ -119,98 +119,7 @@ ssf_node_anchors:
               inspec_tests:
                 - default
 
-        # Use this to start adopting the "unified" platforms based on `saltimages`.
-        # This will include `tiamat` and will be updated for `3002` once available.
-        # However, `master` images will be used in place of `tiamat`, until they
-        # become viable.
-        platforms_new_saltimages: &platforms_new_saltimages
-          # [os           ,  os_ver, salt_ver, py_ver]
-          - [0            ,    0   ,      0  ,      0]
-
-        # Use this to start adopting the latest `platforms` (after Tiamat)
-        platforms_new_inc_tiamat: &platforms_new_inc_tiamat
-          # [os           ,  os_ver, salt_ver, py_ver]
-          - [0            ,    0   ,      0  ,      0]
-
-        # Use this to start adopting the latest `platforms`
-        platforms_new: &platforms_new
-          # [os           ,  os_ver, salt_ver, py_ver]
-          - [0            ,    0   ,      0  ,      0]
-
-        # Use this to start adopting the "unified" platforms based on `saltimages`.
-        # Based on `master` images primarily, until `tiamat` becomes viable
-        platforms_matrix_new_saltimages: &platforms_matrix_new_saltimages
-          # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
-          - [debian       ,   10   ,   master,      3,         default]
-          # - [debian       ,    9   ,   master,      3,         default]
-          - [ubuntu       ,   20.04,   master,      3,         default]
-          # - [ubuntu       ,   18.04,   master,      3,         default]
-          # - [ubuntu       ,   16.04,   master,      3,         default]
-          - [centos       ,    8   ,   master,      3,         default]
-          # - [centos       ,    7   ,   master,      3,         default]
-          - [fedora       ,   33   ,   master,      3,         default]
-          # - [fedora       ,   32   ,   master,      3,         default]
-          - [opensuse/leap,   15.2 ,   master,      3,         default]
-          - [opensuse/tmbl,  latest,   master,      3,         default]
-          - [amazonlinux  ,    2   ,   master,      3,         default]
-          # # - [oraclelinux  ,    8   ,   master,      3,         default]
-          # # - [oraclelinux  ,    7   ,   master,      3,         default]
-          # # - [gentoo/stage3,  latest,   master,      3,         default]
-          # # - [gentoo/stage3, systemd,   master,      3,         default]
-          - [arch-base    ,  latest,   3000.8,      2,         default]
-
-        # Use this to start adopting the latest `platforms_matrix` (after Tiamat)
-        # based on `tiamat` & `master` images primarily
-        platforms_matrix_new_inc_tiamat: &platforms_matrix_new_inc_tiamat
-          # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
-          - [debian       ,   10   ,   tiamat,      3,         default]
-          # - [debian       ,    9   ,   tiamat,      3,         default]
-          - [ubuntu       ,   20.04,   tiamat,      3,         default]
-          # - [ubuntu       ,   18.04,   tiamat,      3,         default]
-          # - [ubuntu       ,   16.04,   tiamat,      3,         default]
-          - [centos       ,    8   ,   tiamat,      3,         default]
-          # - [centos       ,    7   ,   tiamat,      3,         default]
-          - [amazonlinux  ,    2   ,   tiamat,      3,         default]
-          # # - [oraclelinux  ,    8   ,   tiamat,      3,         default]
-          # # - [oraclelinux  ,    7   ,   tiamat,      3,         default]
-          - [fedora       ,   32   ,   master,      3,         default]
-          # - [fedora       ,   31   ,   master,      3,         default]
-          - [opensuse/leap,   15.2 ,   master,      3,         default]
-          - [arch-base    ,  latest,   3000.3,      2,         default]
-
-        # Use this to start adopting the latest `platforms_matrix`
-        platforms_matrix_new: &platforms_matrix_new
-          # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
-          - [debian       ,   10   ,   master,      3,         default]
-          - [ubuntu       ,   20.04,   master,      3,         default]
-          - [centos       ,    8   ,   master,      3,         default]
-          - [fedora       ,   32   ,   master,      3,         default]
-          # - [ubuntu       ,   18.04,   3000.3,      3,         default]
-          - [opensuse/leap,   15.2 ,   3000.3,      3,         default]
-          - [amazonlinux  ,    2   ,   3000.3,      3,         default]
-          # - [fedora       ,   31   ,   2019.2,      3,         default]
-          - [arch-base    ,  latest,   2019.2,      2,         default]
-
-        # Use this to start adopting the latest `platforms_matrix`
-        # based on `master` images primarily
-        # yamllint disable-line rule:line-length
-        platforms_matrix_new_mainly_master_images: &platforms_matrix_new_mainly_master_images
-          # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
-          - [debian       ,   10   ,   master,      3,         default]
-          - [ubuntu       ,   20.04,   master,      3,         default]
-          # - [ubuntu       ,   18.04,   master,      3,         default]
-          - [centos       ,    8   ,   master,      3,         default]
-          - [fedora       ,   32   ,   master,      3,         default]
-          # - [fedora       ,   31   ,   master,      3,         default]
-          - [opensuse/leap,   15.2 ,   master,      3,         default]
-          - [amazonlinux  ,    2   ,   master,      3,         default]
-          - [arch-base    ,  latest,   2019.2,      2,         default]
-
         platforms_osfamily_debian: &platforms_osfamily_debian
-          # [os           ,  os_ver, salt_ver, py_ver]
-          - [debian       ,    0   ,      0  ,      0]
-          - [ubuntu       ,    0   ,      0  ,      0]
-        platforms_osfamily_debian_new: &platforms_osfamily_debian_new
           # [os           ,  os_ver, salt_ver, py_ver]
           - [debian       ,    0   ,      0  ,      0]
           - [ubuntu       ,    0   ,      0  ,      0]
@@ -220,22 +129,6 @@ ssf_node_anchors:
           - [fedora       ,    0   ,      0  ,      0]
           - [amazonlinux  ,    0   ,      0  ,      0]
           - [oraclelinux  ,    0   ,      0  ,      0]
-        platforms_osfamily_redhat_new: &platforms_osfamily_redhat_new
-          # [os           ,  os_ver, salt_ver, py_ver]
-          - [centos       ,    8   ,   master,      3]
-          - [fedora       ,   32   ,   master,      3]
-          - [fedora       ,   31   ,   master,      3]
-          - [amazonlinux  ,    2   ,   master,      3]
-          - [centos       ,    8   ,   3000.3,      3]
-          - [centos       ,    7   ,   3000.3,      3]
-          - [fedora       ,   31   ,   3000.3,      3]
-          - [amazonlinux  ,    2   ,   3000.3,      3]
-          - [centos       ,    8   ,   2019.2,      3]
-          - [centos       ,    7   ,   2019.2,      3]
-          - [fedora       ,   31   ,   2019.2,      3]
-          - [amazonlinux  ,    2   ,   2019.2,      3]
-          - [centos       ,    6   ,   2019.2,      2]
-          - [amazonlinux  ,    1   ,   2019.2,      2]
         # yamllint disable-line rule:line-length
         platforms_osfamily_redhat_without_fedora: &platforms_osfamily_redhat_without_fedora
           # [os           ,  os_ver, salt_ver, py_ver]
@@ -244,91 +137,29 @@ ssf_node_anchors:
           - [amazonlinux  ,    0   ,      0  ,      0]
           - [oraclelinux  ,    0   ,      0  ,      0]
         # yamllint disable-line rule:line-length
-        platforms_osfamily_redhat_new_without_amazon: &platforms_osfamily_redhat_new_without_amazon
+        platforms_osfamily_redhat_without_amazon: &platforms_osfamily_redhat_without_amazon
           # [os           ,  os_ver, salt_ver, py_ver]
           - [centos       ,    0   ,      0  ,      0]
           - [fedora       ,    0   ,      0  ,      0]
+          # # - [amazonlinux  ,    0   ,      0  ,      0]
           - [oraclelinux  ,    0   ,      0  ,      0]
         platforms_osfamily_suse: &platforms_osfamily_suse
-          # [os           ,  os_ver, salt_ver, py_ver]
-          - [opensuse/leap,    0   ,      0  ,      0]
-          - [opensuse/tmbl,    0   ,      0  ,      0]
-        platforms_osfamily_suse_new: &platforms_osfamily_suse_new
-          # [os           ,  os_ver, salt_ver, py_ver]
-          - [opensuse/leap,    0   ,      0  ,      0]
-          - [opensuse/tmbl,    0   ,      0  ,      0]
-        # TODO: Rename accordingly
-        platforms_osfamily_suse_new_15_2: &platforms_osfamily_suse_new_15_2
           # [os           ,  os_ver, salt_ver, py_ver]
           - [opensuse/leap,    0   ,      0  ,      0]
           - [opensuse/tmbl,    0   ,      0  ,      0]
         platforms_os_debian: &platforms_os_debian
           # [os           ,  os_ver, salt_ver, py_ver]
           - [debian       ,    0   ,      0  ,      0]
-        platforms_os_debian_new: &platforms_os_debian_new
-          # [os           ,  os_ver, salt_ver, py_ver]
-          - [debian       ,    0   ,      0  ,      0]
         platforms_os_ubuntu: &platforms_os_ubuntu
           # [os           ,  os_ver, salt_ver, py_ver]
           - [ubuntu       ,    0   ,      0  ,      0]
-        platforms_os_ubuntu_new: &platforms_os_ubuntu_new
-          # [os           ,  os_ver, salt_ver, py_ver]
-          - [ubuntu       ,    0   ,      0  ,      0]
-        # platforms_os_ubuntu18: &platforms_os_ubuntu18
-        #   # [os           ,  os_ver, salt_ver, py_ver]
-        #   - [ubuntu       ,   18.04,   master,      3]
-        #   - [ubuntu       ,   18.04,   2019.2,      3]
-        # platforms_os_ubuntu16: &platforms_os_ubuntu16
-        #   # [os           ,  os_ver, salt_ver, py_ver]
-        #   - [ubuntu       ,   16.04,   2018.3,      2]
-        #   - [ubuntu       ,   16.04,   2017.7,      2]
         platforms_os_fedora: &platforms_os_fedora
           # [os           ,  os_ver, salt_ver, py_ver]
-          - [fedora       ,   31   ,   master,      3]
-          - [fedora       ,   31   ,   2019.2,      3]
-          - [fedora       ,   30   ,   2018.3,      3]
-          - [fedora       ,   30   ,   2017.7,      2]
-        platforms_os_fedora_new: &platforms_os_fedora_new
-          # [os           ,  os_ver, salt_ver, py_ver]
           - [fedora       ,    0   ,      0  ,      0]
-        # platforms_os_suse: &platforms_os_suse
-        #   # [os           ,  os_ver, salt_ver, py_ver]
-        #   - [opensuse/leap,   15.1 ,   master,      3]
-        #   - [opensuse/leap,   15.1 ,   2019.2,      3]
-        #   - [opensuse/leap,   15.1 ,   2018.3,      2]
-        #   - [opensuse/leap,   15.1 ,   2017.7,      2]
-        platforms_os_centos: &platforms_os_centos
-          # [os           ,  os_ver, salt_ver, py_ver]
-          - [centos       ,    8   ,   master,      3]
-          - [centos       ,    8   ,   2019.2,      3]
-          - [centos       ,    7   ,   2019.2,      2]
-          - [centos       ,    7   ,   2018.3,      2]
-          - [centos       ,    6   ,   2017.7,      2]
-        platforms_os_centos_new: &platforms_os_centos_new
-          # [os           ,  os_ver, salt_ver, py_ver]
-          - [centos       ,    8   ,   master,      3]
-          - [centos       ,    8   ,   3000.3,      3]
-          - [centos       ,    7   ,   3000.3,      3]
-          - [centos       ,    8   ,   2019.2,      3]
-          - [centos       ,    7   ,   2019.2,      3]
-          - [centos       ,    6   ,   2019.2,      2]
         platforms_os_amazonlinux: &platforms_os_amazonlinux
           # [os           ,  os_ver, salt_ver, py_ver]
-          - [amazonlinux  ,    2   ,   master,      3]
-          - [amazonlinux  ,    2   ,   2019.2,      3]
-          - [amazonlinux  ,    1   ,   2018.3,      2]
-          - [amazonlinux  ,    1   ,   2017.7,      2]
-        platforms_os_amazonlinux_new: &platforms_os_amazonlinux_new
-          # [os           ,  os_ver, salt_ver, py_ver]
           - [amazonlinux  ,    0   ,      0  ,      0]
-        platforms_os_upstart: &platforms_os_upstart
-          # [os           ,  os_ver, salt_ver, py_ver]
-          - [centos       ,    6   ,   2019.2,      2]
-          - [amazonlinux  ,    1   ,   2019.2,      2]
         platforms_os_arch_base: &platforms_os_arch_base
-          # [os           ,  os_ver, salt_ver, py_ver]
-          - [arch-base    ,  latest,      0  ,      0]
-        platforms_os_arch_base_new: &platforms_os_arch_base_new
           # [os           ,  os_ver, salt_ver, py_ver]
           - [arch-base    ,    0   ,      0  ,      0]
         platforms_os_redhat_locale_specific: &platforms_os_redhat_locale_specific
@@ -339,47 +170,13 @@ ssf_node_anchors:
           - [amazonlinux  ,    0   ,      0  ,      0]
           # # - [oraclelinux  ,    0   ,      0  ,      0]
           - [oraclelinux  ,    8   ,      0  ,      0]
-        platforms_2017_7: &platforms_2017_7
-          # [os           ,  os_ver, salt_ver, py_ver]
-          # - [debian       ,    9   ,   2017.7,      2]
-          - [debian       ,    8   ,   2017.7,      2]
-          - [ubuntu       ,   16.04,   2017.7,      2]
-          - [centos       ,    6   ,   2017.7,      2]
-          - [fedora       ,   30   ,   2017.7,      2]
-          - [opensuse/leap,   15.1 ,   2017.7,      2]
-          - [amazonlinux  ,    1   ,   2017.7,      2]
-          - [arch-base    ,  latest,   2017.7,      2]
         platforms_gentoo: &platforms_gentoo
           # [os           ,  os_ver, salt_ver, py_ver]
           - [gentoo/stage3,    0   ,      0  ,      0]
-        # TODO: Rename because includes Gentoo
-        platforms_non_systemd: &platforms_non_systemd
-          # [os           ,  os_ver, salt_ver, py_ver]
-          - [centos       ,    6   ,   2019.2,      2]
-          - [amazonlinux  ,    1   ,   2019.2,      2]
-          - [gentoo/stage3,    0   ,      0  ,      0]
-        platforms_matrix_osfamily_suites: &platforms_matrix_osfamily_suites
-          # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
-          - [debian       ,   10   ,   master,      3,          debian]
-          - [ubuntu       ,   18.04,   2019.2,      3,          debian]
-          - [amazonlinux  ,    2   ,   2019.2,      3,          redhat]
-          - [fedora       ,   30   ,   2018.3,      3,          redhat]
-          - [opensuse/leap,   15.1 ,   2018.3,      2,            suse]
-          - [centos       ,    6   ,   2017.7,      2,          redhat]
         platforms_matrix_osfamily_debian: &platforms_matrix_osfamily_debian
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,    0   ,   master,      0,         default]
           - [ubuntu       ,    0   ,   master,      0,         default]
-        platforms_matrix_osfamily_debian_new: &platforms_matrix_osfamily_debian_new
-          # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
-          - [debian       ,    0   ,   master,      0,         default]
-          - [ubuntu       ,    0   ,   master,      0,         default]
-        platforms_matrix_osfamily_redhat: &platforms_matrix_osfamily_redhat
-          # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
-          - [centos       ,    0   ,   master,      0,         default]
-          - [fedora       ,    0   ,   master,      0,         default]
-          - [amazonlinux  ,    0   ,   master,      0,         default]
-          - [oraclelinux  ,    0   ,   master,      0,         default]
         # yamllint disable-line rule:line-length
         platforms_matrix_osfamily_redhat_without_fedora: &platforms_matrix_osfamily_redhat_without_fedora
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
@@ -387,37 +184,6 @@ ssf_node_anchors:
           # # - [fedora       ,    0   ,   master,      0,         default]
           - [amazonlinux  ,    0   ,   master,      0,         default]
           - [oraclelinux  ,    0   ,   master,      0,         default]
-        platforms_matrix_systemd_only: &platforms_matrix_systemd_only
-          # TODO: Get `centos-8` working again and re-enable
-          # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
-          - [debian       ,   10   ,   master,      3,         default]
-          - [ubuntu       ,   18.04,   2019.2,      3,         default]
-          # # - [centos       ,    8   ,   2019.2,      3,         default]
-          - [opensuse/leap,   15.1 ,   2019.2,      3,         default]
-          - [amazonlinux  ,    2   ,   2019.2,      3,         default]
-          - [fedora       ,   30   ,   2018.3,      3,         default]
-          - [arch-base    ,  latest,   2018.3,      2,         default]
-        platforms_matrix_without_arch: &platforms_matrix_without_arch
-          # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
-          - [debian       ,    0   ,   master,      0,         default]
-          - [ubuntu       ,    0   ,   master,      0,         default]
-          - [centos       ,    0   ,   master,      0,         default]
-          - [fedora       ,    0   ,   master,      0,         default]
-          - [opensuse/leap,    0   ,   master,      0,         default]
-          - [opensuse/tmbl,    0   ,   master,      0,         default]
-          - [amazonlinux  ,    0   ,   master,      0,         default]
-          - [oraclelinux  ,    0   ,   master,      0,         default]
-          - [gentoo/stage3,    0   ,   master,      0,         default]
-          # # - [arch-base    ,    0   ,   3002.5,      0,         default]
-        platforms_matrix_without_arch_new: &platforms_matrix_without_arch_new
-          # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
-          - [debian       ,   10   ,   master,      3,         default]
-          - [ubuntu       ,   20.04,   master,      3,         default]
-          - [centos       ,    8   ,   master,      3,         default]
-          - [fedora       ,   32   ,   master,      3,         default]
-          - [opensuse/leap,   15.2 ,   3000.3,      3,         default]
-          - [amazonlinux  ,    2   ,   3000.3,      3,         default]
-          # - [arch-base    ,  latest,   2019.2,      2,         default]
         # yamllint disable-line rule:line-length
         platforms_matrix_without_arch_and_gentoo: &platforms_matrix_without_arch_and_gentoo
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
@@ -1083,7 +849,6 @@ ssf:
         map_jinja:
           verification:
             import: ['map']
-        # Based on `*platforms_matrix_without_arch`
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,    0   ,   master,      0,         default]
@@ -1199,7 +964,6 @@ ssf:
         map_jinja:
           verification:
             import: ['consul']
-        platforms: *platforms_new
         platforms_matrix: *platforms_matrix_without_gentoo_non_systemd
       semrel_files: *semrel_files_default
     cron:
@@ -1242,7 +1006,6 @@ ssf:
         map_jinja:
           verification:
             import: ['deepsea']
-        platforms: *platforms_new
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,    0   ,   master,      0,         default]
@@ -1280,7 +1043,7 @@ ssf:
         map_jinja:
           verification:
             import: ['devstack']
-        platforms: *platforms_os_ubuntu_new
+        platforms: *platforms_os_ubuntu
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           - [ubuntu       ,   18.04,      0  ,      0,          ubuntu]
@@ -1313,7 +1076,6 @@ ssf:
         map_jinja:
           verification:
             import: ['dhcpd']
-        platforms: *platforms_new
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,    0   ,   master,      0,         default]
@@ -1471,7 +1233,6 @@ ssf:
         map_jinja:
           verification:
             import: ['eclipse']
-        platforms: *platforms_new
         # Linux testing no longer working
         platforms_matrix: []
         use_tofs: true
@@ -1607,7 +1368,6 @@ ssf:
         map_jinja:
           verification:
             import: ['golang']
-        platforms: *platforms_new
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,    0   ,   master,      0,              '']
@@ -1674,7 +1434,6 @@ ssf:
         map_jinja:
           verification:
             import: ['haproxy']
-        platforms: *platforms_new
         platforms_matrix: *platforms_matrix_without_gentoo
         yamllint:
           ignore:
@@ -1833,7 +1592,7 @@ ssf:
         inspec_suites_kitchen:
           0:
             # Removed for now, until CI re-established, was based on:
-            # `*platforms_osfamily_redhat_new` & `*platforms_os_arch_base_new`
+            # `*platforms_osfamily_redhat` & `*platforms_os_arch_base`
             # excludes:
             inspec_yml:
               summary: >-
@@ -1859,7 +1618,7 @@ ssf:
                     - .
                     - .clean
           1:
-            includes: *platforms_osfamily_redhat_new
+            includes: *platforms_osfamily_redhat
             provisioner:
               dependencies:
                 - name: 'lvm'
@@ -1882,7 +1641,7 @@ ssf:
                     - .clean
             verifier: *verifier_inspec_tests_default
           2:
-            includes: *platforms_os_arch_base_new
+            includes: *platforms_os_arch_base
             provisioner:
               dependencies:
                 - name: 'users'
@@ -1917,7 +1676,6 @@ ssf:
         map_jinja:
           verification:
             import: ['iscsi']
-        platforms: *platforms_new
         # Linux testing no longer working, due to `lvm-formula` dependency
         platforms_matrix: []
         use_tofs: true
@@ -2021,7 +1779,6 @@ ssf:
         map_jinja:
           verification:
             import: ['appcode']
-        platforms: *platforms_new
         # No Linux testing yet, `MacOS` formula only (for the time being?)
         platforms_matrix: []
         use_tofs: true
@@ -2061,7 +1818,7 @@ ssf:
             repo: 'jetbrains-clion-formula'
         inspec_suites_kitchen:
           0:
-            excludes: *platforms_os_arch_base_new
+            excludes: *platforms_os_arch_base
             inspec_yml:
               summary: >-
                 Verify that the clion formula is setup and configured correctly
@@ -2074,7 +1831,7 @@ ssf:
                     - .clean
                     - .
           1:
-            includes: *platforms_os_arch_base_new
+            includes: *platforms_os_arch_base
             inspec_yml:
               summary: >-
                 Verify that the clion formula is setup and configured correctly
@@ -2093,7 +1850,6 @@ ssf:
         map_jinja:
           verification:
             import: ['clion']
-        platforms: *platforms_new
         platforms_matrix: *platforms_matrix_jetbrains
         use_tofs: true
         yamllint:
@@ -2132,7 +1888,7 @@ ssf:
             repo: 'jetbrains-datagrip-formula'
         inspec_suites_kitchen:
           0:
-            excludes: *platforms_os_arch_base_new
+            excludes: *platforms_os_arch_base
             inspec_yml:
               summary: >-
                 Verify that the datagrip formula is setup and configured correctly
@@ -2145,7 +1901,7 @@ ssf:
                     - .clean
                     - .
           1:
-            includes: *platforms_os_arch_base_new
+            includes: *platforms_os_arch_base
             inspec_yml:
               summary: >-
                 Verify that the datagrip formula is setup and configured correctly
@@ -2164,7 +1920,6 @@ ssf:
         map_jinja:
           verification:
             import: ['datagrip']
-        platforms: *platforms_new
         platforms_matrix: *platforms_matrix_jetbrains
         use_tofs: true
         yamllint:
@@ -2203,7 +1958,7 @@ ssf:
             repo: 'jetbrains-goland-formula'
         inspec_suites_kitchen:
           0:
-            excludes: *platforms_os_arch_base_new
+            excludes: *platforms_os_arch_base
             inspec_yml:
               summary: >-
                 Verify that the goland formula is setup and configured correctly
@@ -2216,7 +1971,7 @@ ssf:
                     - .clean
                     - .
           1:
-            includes: *platforms_os_arch_base_new
+            includes: *platforms_os_arch_base
             inspec_yml:
               summary: >-
                 Verify that the goland formula is setup and configured correctly
@@ -2235,7 +1990,6 @@ ssf:
         map_jinja:
           verification:
             import: ['goland']
-        platforms: *platforms_new
         platforms_matrix: *platforms_matrix_jetbrains
         use_tofs: true
         yamllint:
@@ -2274,7 +2028,7 @@ ssf:
             repo: 'jetbrains-intellij-formula'
         inspec_suites_kitchen:
           0:
-            excludes: *platforms_os_arch_base_new
+            excludes: *platforms_os_arch_base
             inspec_yml:
               summary: >-
                 Verify that the intellij formula is setup and configured correctly
@@ -2287,7 +2041,7 @@ ssf:
                     - .clean
                     - .
           1:
-            includes: *platforms_os_arch_base_new
+            includes: *platforms_os_arch_base
             inspec_yml:
               summary: >-
                 Verify that the intellij formula is setup and configured correctly
@@ -2306,7 +2060,6 @@ ssf:
         map_jinja:
           verification:
             import: ['intellij']
-        platforms: *platforms_new
         # Based on `*platforms_matrix_jetbrains`
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
@@ -2360,7 +2113,7 @@ ssf:
             repo: 'jetbrains-phpstorm-formula'
         inspec_suites_kitchen:
           0:
-            excludes: *platforms_os_arch_base_new
+            excludes: *platforms_os_arch_base
             inspec_yml:
               summary: >-
                 Verify that the phpstorm formula is setup and configured correctly
@@ -2373,7 +2126,7 @@ ssf:
                     - .clean
                     - .
           1:
-            includes: *platforms_os_arch_base_new
+            includes: *platforms_os_arch_base
             inspec_yml:
               summary: >-
                 Verify that the phpstorm formula is setup and configured correctly
@@ -2392,7 +2145,6 @@ ssf:
         map_jinja:
           verification:
             import: ['phpstorm']
-        platforms: *platforms_new
         platforms_matrix: *platforms_matrix_jetbrains
         use_tofs: true
         yamllint:
@@ -2431,7 +2183,7 @@ ssf:
             repo: 'jetbrains-pycharm-formula'
         inspec_suites_kitchen:
           0:
-            excludes: *platforms_os_arch_base_new
+            excludes: *platforms_os_arch_base
             inspec_yml:
               summary: >-
                 Verify that the pycharm formula is setup and configured correctly
@@ -2444,7 +2196,7 @@ ssf:
                     - .clean
                     - .
           1:
-            includes: *platforms_os_arch_base_new
+            includes: *platforms_os_arch_base
             inspec_yml:
               summary: >-
                 Verify that the pycharm formula is setup and configured correctly
@@ -2463,7 +2215,6 @@ ssf:
         map_jinja:
           verification:
             import: ['pycharm']
-        platforms: *platforms_new
         # No Linux testing now, currently broken in `map.jinja`
         platforms_matrix: []
         # platforms_matrix: *platforms_matrix_jetbrains
@@ -2518,7 +2269,6 @@ ssf:
         map_jinja:
           verification:
             import: ['resharper']
-        platforms: *platforms_new
         use_tofs: true
       semrel_files:
         <<: *semrel_files_default
@@ -2552,7 +2302,7 @@ ssf:
             repo: 'jetbrains-rider-formula'
         inspec_suites_kitchen:
           0:
-            excludes: *platforms_os_arch_base_new
+            excludes: *platforms_os_arch_base
             inspec_yml:
               summary: >-
                 Verify that the rider formula is setup and configured correctly
@@ -2565,7 +2315,7 @@ ssf:
                     - .clean
                     - .
           1:
-            includes: *platforms_os_arch_base_new
+            includes: *platforms_os_arch_base
             inspec_yml:
               summary: >-
                 Verify that the rider formula is setup and configured correctly
@@ -2584,7 +2334,6 @@ ssf:
         map_jinja:
           verification:
             import: ['rider']
-        platforms: *platforms_new
         platforms_matrix: *platforms_matrix_jetbrains
         use_tofs: true
         yamllint:
@@ -2623,7 +2372,7 @@ ssf:
             repo: 'jetbrains-rubymine-formula'
         inspec_suites_kitchen:
           0:
-            excludes: *platforms_os_arch_base_new
+            excludes: *platforms_os_arch_base
             inspec_yml:
               summary: >-
                 Verify that the rubymine formula is setup and configured correctly
@@ -2636,7 +2385,7 @@ ssf:
                     - .clean
                     - .
           1:
-            includes: *platforms_os_arch_base_new
+            includes: *platforms_os_arch_base
             inspec_yml:
               summary: >-
                 Verify that the rubymine formula is setup and configured correctly
@@ -2655,7 +2404,6 @@ ssf:
         map_jinja:
           verification:
             import: ['rubymine']
-        platforms: *platforms_new
         platforms_matrix: *platforms_matrix_jetbrains
         use_tofs: true
         yamllint:
@@ -2694,7 +2442,7 @@ ssf:
             repo: 'jetbrains-webstorm-formula'
         inspec_suites_kitchen:
           0:
-            excludes: *platforms_os_arch_base_new
+            excludes: *platforms_os_arch_base
             inspec_yml:
               summary: >-
                 Verify that the webstorm formula is setup and configured correctly
@@ -2707,7 +2455,7 @@ ssf:
                     - .clean
                     - .
           1:
-            includes: *platforms_os_arch_base_new
+            includes: *platforms_os_arch_base
             inspec_yml:
               summary: >-
                 Verify that the webstorm formula is setup and configured correctly
@@ -2726,7 +2474,6 @@ ssf:
         map_jinja:
           verification:
             import: ['webstorm']
-        platforms: *platforms_new
         platforms_matrix: *platforms_matrix_jetbrains
         use_tofs: true
         yamllint:
@@ -2905,7 +2652,6 @@ ssf:
         map_jinja:
           verification:
             import: ['mapdata']
-        platforms: *platforms_new_saltimages
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,   10   ,   master,      3,           clean]
@@ -3078,7 +2824,6 @@ ssf:
         map_jinja:
           verification:
             import: ['lynis']
-        platforms: *platforms_new
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,    0   ,   master,      0,              '']
@@ -3104,7 +2849,7 @@ ssf:
             repo: 'maven-formula'
         inspec_suites_kitchen:
           0:
-            excludes: *platforms_os_arch_base_new
+            excludes: *platforms_os_arch_base
             inspec_yml:
               summary: >-
                 Verify that the maven formula is setup and configured correctly
@@ -3117,7 +2862,7 @@ ssf:
                     - .clean
                     - .
           1:
-            includes: *platforms_os_arch_base_new
+            includes: *platforms_os_arch_base
             inspec_yml:
               summary: >-
                 Verify that the maven formula is setup and configured correctly
@@ -3136,7 +2881,6 @@ ssf:
         map_jinja:
           verification:
             import: ['maven']
-        platforms: *platforms_new
         platforms_matrix: *platforms_matrix_jetbrains
         use_tofs: true
         yamllint:
@@ -3164,7 +2908,6 @@ ssf:
         map_jinja:
           verification:
             import: ['data']
-        platforms: *platforms_new
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,    0   ,   master,      0,         default]
@@ -3204,8 +2947,7 @@ ssf:
         map_jinja:
           verification:
             import: ['mysql']
-        platforms: *platforms_new
-        platforms_matrix: *platforms_matrix_osfamily_debian_new
+        platforms_matrix: *platforms_matrix_osfamily_debian
         yamllint:
           ignore:
             additional:
@@ -3229,8 +2971,6 @@ ssf:
         map_jinja:
           verification:
             import: ['nfs']
-        # Based on `platforms_matrix_systemd_only`,
-        # simply because `centos-6` not working
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,    0   ,   master,      0,         default]
@@ -3336,7 +3076,6 @@ ssf:
         map_jinja:
           verification:
             import: ['nifi']
-        platforms: *platforms_new
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,    0   ,   master,      0,         default]
@@ -3391,8 +3130,6 @@ ssf:
         map_jinja:
           verification:
             import: ['node']
-        platforms: *platforms_new
-        # Based on `*platforms_matrix_new`
         platforms_matrix:
           # NOTES:
           # - `source` doesn't work anywhere at the moment
@@ -3479,7 +3216,6 @@ ssf:
         map_jinja:
           verification:
             import: ['nut']
-        platforms: *platforms_new_inc_tiamat
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,    0   ,   master,      0,              '']
@@ -3523,7 +3259,6 @@ ssf:
         map_jinja:
           verification:
             import: ['openldap']
-        platforms: *platforms_new
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,    0   ,   master,      0,         default]
@@ -3565,7 +3300,6 @@ ssf:
         map_jinja:
           verification:
             import: ['openntpd']
-        platforms: *platforms_new
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,    0   ,   master,      0,         default]
@@ -3630,7 +3364,6 @@ ssf:
         map_jinja:
           verification:
             import: ['mapdata']
-        platforms: *platforms_new_saltimages
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,    0   ,   master,      0,         default]
@@ -3673,7 +3406,7 @@ ssf:
             provisioner:
               pillars_from_files: []
           1:
-            includes: *platforms_os_debian_new
+            includes: *platforms_os_debian
             provisioner:
               dependencies:
                 - name: 'node'
@@ -3688,7 +3421,7 @@ ssf:
                     - .
             verifier: *verifier_inspec_tests_default
           2:
-            includes: *platforms_os_ubuntu_new
+            includes: *platforms_os_ubuntu
             provisioner:
               dependencies:
                 - name: 'golang'
@@ -3703,7 +3436,7 @@ ssf:
                     - .
             verifier: *verifier_inspec_tests_default
           3:
-            includes: *platforms_os_fedora_new
+            includes: *platforms_os_fedora
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/fedora.sls'
@@ -3714,7 +3447,7 @@ ssf:
             verifier: *verifier_inspec_tests_default
           4:
             includes:
-              # Some of `*platforms_os_centos_new` + `oraclelinux-8`
+              # Some of `*platforms_os_centos` + `oraclelinux-8`
               - [centos       ,    8   ,      0  ,      0]
               - [oraclelinux  ,    8   ,      0  ,      0]
             provisioner:
@@ -3729,7 +3462,7 @@ ssf:
             verifier: *verifier_inspec_tests_default
           5:
             includes:
-              # Rest of `*platforms_os_centos_new`
+              # Rest of `*platforms_os_centos`
               - [centos       ,    7   ,      0  ,      0]
               - [oraclelinux  ,    7   ,      0  ,      0]
               - [centos       ,    6   ,      0  ,      0]
@@ -3744,7 +3477,7 @@ ssf:
                     - .
             verifier: *verifier_inspec_tests_default
           6:
-            includes: *platforms_os_amazonlinux_new
+            includes: *platforms_os_amazonlinux
             provisioner:
               dependencies: *dependencies_epel
               pillars_from_files:
@@ -3756,7 +3489,7 @@ ssf:
                     - .
             verifier: *verifier_inspec_tests_default
           7:
-            includes: *platforms_osfamily_suse_new_15_2
+            includes: *platforms_osfamily_suse
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/opensuse.sls'
@@ -3766,7 +3499,7 @@ ssf:
                     - .
             verifier: *verifier_inspec_tests_default
           8:
-            includes: *platforms_os_arch_base_new
+            includes: *platforms_os_arch_base
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/arch.sls'
@@ -3799,7 +3532,6 @@ ssf:
         map_jinja:
           verification:
             import: ['packages']
-        platforms: *platforms_new
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,    0   ,   master,      0,          debian]
@@ -3960,7 +3692,6 @@ ssf:
         map_jinja:
           verification:
             import: ['postgres']
-        platforms: *platforms_new
         # Based on `*platforms_matrix_without_gentoo`
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
@@ -4012,7 +3743,6 @@ ssf:
         map_jinja:
           verification:
             import: ['powerdns']
-        platforms: *platforms_new
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,    0   ,   master,      0,         default]
@@ -4049,7 +3779,7 @@ ssf:
               summary: >-
                 Verify that the proftpd formula is setup and configured correctly
           1:
-            includes: *platforms_osfamily_debian_new
+            includes: *platforms_osfamily_debian
             provisioner:
               pillars:
                 - '*':
@@ -4060,7 +3790,7 @@ ssf:
                 - .sls: 'test/salt/pillar/debian.sls'
             verifier: *verifier_inspec_tests_default
           2:
-            includes: *platforms_osfamily_redhat_new_without_amazon
+            includes: *platforms_osfamily_redhat_without_amazon
             provisioner:
               pillars:
                 - '*':
@@ -4071,7 +3801,7 @@ ssf:
                 - .sls: 'test/salt/pillar/redhat.sls'
             verifier: *verifier_inspec_tests_default
           3:
-            includes: *platforms_osfamily_suse_new
+            includes: *platforms_osfamily_suse
             provisioner:
               pillars:
                 - '*':
@@ -4082,7 +3812,7 @@ ssf:
                 - .sls: 'test/salt/pillar/suse.sls'
             verifier: *verifier_inspec_tests_default
           4:
-            includes: *platforms_os_amazonlinux_new
+            includes: *platforms_os_amazonlinux
             provisioner:
               dependencies: *dependencies_epel
               pillars:
@@ -4124,7 +3854,6 @@ ssf:
         map_jinja:
           verification:
             import: ['proftpd']
-        platforms: *platforms_new
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,    0   ,   master,      0,          debian]
@@ -4178,7 +3907,6 @@ ssf:
         map_jinja:
           verification:
             import: ['prometheus']
-        platforms: *platforms_new
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,    0   ,   master,      0,              '']
@@ -4371,7 +4099,6 @@ ssf:
         map_jinja:
           verification:
             import: ['rspamd']
-        platforms: *platforms_new
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           # # - [debian       ,    0   ,   master,      0,         default]
@@ -4496,7 +4223,6 @@ ssf:
         map_jinja:
           verification:
             import: ['salt_settings', 'formulas_settings']
-        platforms: *platforms_new_saltimages
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,   10   ,   3002.5,      3,       v3002-py3]
@@ -4587,7 +4313,6 @@ ssf:
         map_jinja:
           verification:
             import: ['sqldeveloper']
-        platforms: *platforms_new
         # No Linux testing yet due to issues with Oracle downloads
         # https://github.com/saltstack-formulas/sqldeveloper-formula/pull/17#issuecomment-638167334
         platforms_matrix: []
@@ -4622,7 +4347,6 @@ ssf:
         map_jinja:
           verification:
             import: ['sqlplus']
-        platforms: *platforms_new
         # No Linux testing yet due to issues with Oracle downloads
         # https://github.com/saltstack-formulas/sqlplus-formula/pull/17#issuecomment-638167334
         platforms_matrix: []
@@ -4719,7 +4443,6 @@ ssf:
         map_jinja:
           verification:
             import: ['strongswan']
-        platforms: *platforms_new
         # Gentoo failure:
         #   !!! Multiple package instances within a single package slot have been pulled
         #   !!! into the dependency graph, resulting in a slot conflict:
@@ -4924,7 +4647,6 @@ ssf:
         map_jinja:
           verification:
             import: ['systemd']
-        platforms: *platforms_new_inc_tiamat
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,    0   ,   master,      0,         default]
@@ -4982,7 +4704,7 @@ ssf:
             repo: 'template-formula'
         inspec_suites_kitchen:
           0:
-            excludes: *platforms_non_systemd
+            excludes: *platforms_gentoo
             inspec_yml:
               summary: >-
                 Verify that the TEMPLATE formula is setup and configured correctly
@@ -5106,7 +4828,6 @@ ssf:
         map_jinja:
           verification:
             import: ['tomcat']
-        platforms: *platforms_new
         platforms_matrix: *platforms_matrix_without_rhel8_and_gentoo
         rubocop:
           AllCops:
@@ -5158,7 +4879,6 @@ ssf:
         map_jinja:
           verification:
             import: ['ufw']
-        platforms: *platforms_new
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           # # - [debian       ,    0   ,   master,      0,    without-ipv6]
@@ -5244,7 +4964,7 @@ ssf:
             repo: 'varnish-formula'
         inspec_suites_kitchen:
           0:
-            excludes: *platforms_osfamily_suse_new_15_2
+            excludes: *platforms_osfamily_suse
             inspec_yml:
               summary: >-
                 Verify that the varnish formula is setup and configured correctly
@@ -5261,7 +4981,7 @@ ssf:
                     - .ng._mapdata
                     - .ng
           1:
-            includes: *platforms_osfamily_suse_new_15_2
+            includes: *platforms_osfamily_suse
             provisioner:
               pillars:
                 - '*':
@@ -5282,7 +5002,6 @@ ssf:
           dir: '/ng'
           verification:
             import: ['varnish_settings']
-        platforms: *platforms_new
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           # # - [debian       ,    0   ,   master,      0,         default]
@@ -5349,7 +5068,6 @@ ssf:
         map_jinja:
           verification:
             import: ['vault']
-        platforms: *platforms_new
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,    0   ,   master,      0,              '']
@@ -5433,7 +5151,6 @@ ssf:
         map_jinja:
           verification:
             import: ['zabbix']
-        platforms: *platforms_new
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,    0   ,   master,      0,         default]
