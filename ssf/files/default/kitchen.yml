@@ -332,6 +332,16 @@ suites:
         {%- endfor %}
       {%- endif %}
     verifier:
+      {%- set controls = suite.verifier.controls %}
+      {%- if controls %}
+      controls:
+        {%- for control in controls %}
+        {%-   if control.startswith('.') %}
+        {%-     set control = semrel_formula ~ control %}
+        {%-   endif %}
+        - {{ control }}
+        {%- endfor %}
+      {%- endif %}
       inspec_tests:
         {%- set inspec_tests_path_prefix = suite.verifier.inspec_tests_path_prefix %}
         {%- for test_suite in suite.verifier.inspec_tests %}
