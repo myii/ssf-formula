@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.251.0](https://github.com/myii/ssf-formula/compare/v1.250.0...v1.251.0) (2021-03-12)
+
+
+### Features
+
+* **kitchen:** allow specifying InSpec `controls` ([a5d2467](https://github.com/myii/ssf-formula/commit/a5d2467986f07f565723fb08c56c185902afe02a))
+
 # [1.250.0](https://github.com/myii/ssf-formula/compare/v1.249.0...v1.250.0) (2021-03-07)
 
 
