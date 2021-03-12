@@ -126,6 +126,7 @@ ssf_node_anchors:
                 - '*':
                     - .
             verifier:
+              controls: []
               inspec_tests_path_prefix: 'test/integration'
               inspec_tests:
                 - .
