@@ -13,9 +13,6 @@ ssf_node_anchors:
             includes: &includes_NONE
               - []
             inspec_yml:
-              depends_on_suite_share: &depends_on_suite_share
-                - name: 'share'
-                  path: 'test/integration/share'
               supports_debian_ubuntu: &supports_debian_ubuntu
                 - debian
                 - ubuntu
@@ -125,13 +122,6 @@ ssf_node_anchors:
             verifier: &verifier_inspec_tests_default
               inspec_tests:
                 - default
-          1: &inspec_suites_kitchen__share_suite
-            includes: *includes_NONE
-            inspec_yml:
-              summary: >-
-                shared resources
-              supports: *supports_all_including_oracle_gentoo_and_windows
-              title: 'InSpec shared resources'
 
         # Use this to start adopting the "unified" platforms based on `saltimages`.
         # This will include `tiamat` and will be updated for `3002` once available.
@@ -578,6 +568,13 @@ ssf_node_anchors:
         inspec/README.md: &file__inspec__README--md
           <<: *file_default
           template: 'jinja'
+        test/integration/share/inspec.yml: &file__test__integration__share__inspec--yml
+          <<: *file_default
+        test/integration/share/README.md: &file__test__integration__share__README--md
+          <<: *file_default
+        # yamllint disable rule:line-length
+        test/integration/share/libraries/system.rb: &file__test__integration__share__libraries__system--rb
+          <<: *file_default
         .gitignore: &file__--gitignore
           <<: *file_default
         .cirrus.yml: &file__--cirrus--yml
@@ -633,8 +630,6 @@ ssf_node_anchors:
         inspec/controls/_mapdata.rb: &file__inspec__controls___mapdata--rb
           <<: *file_default
           template: 'jinja'
-        inspec/libraries/system.rb: &file__inspec__libraries__system--rb
-          <<: *file_default
 
 ssf:
   semrel_formulas:
@@ -1262,7 +1257,6 @@ ssf:
         inspec_suites_kitchen:
           0:
             inspec_yml:
-              depends: *depends_on_suite_share
               summary: >-
                 Verify that the dhcpd formula is setup and configured correctly
             provisioner:
@@ -1270,7 +1264,6 @@ ssf:
                 - '*':
                     - ._mapdata
                     - .config
-          1: *inspec_suites_kitchen__share_suite
         map_jinja:
           verification:
             import: ['dhcpd']
@@ -1495,12 +1488,10 @@ ssf:
         inspec_suites_kitchen:
           0:
             inspec_yml:
-              depends: *depends_on_suite_share
               summary: >-
                 Verify that the firewalld formula is setup and configured correctly
             provisioner:
               state_top: *state_top_inc_mapdata
-          1: *inspec_suites_kitchen__share_suite
         map_jinja:
           verification:
             import: ['firewalld']
@@ -1855,51 +1846,36 @@ ssf:
             repo: 'java-formula'
         inspec_suites_kitchen:
           0:
-            inspec_yml:
-              depends: *depends_on_suite_share
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/adopt/pillar.sls'
               state_top: *state_top_inc_mapdata
-          1: *inspec_suites_kitchen__share_suite
-          2:
-            inspec_yml:
-              depends: *depends_on_suite_share
+          1:
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/amazon/pillar.sls'
               state_top: *state_top_inc_mapdata
-          3:
-            inspec_yml:
-              depends: *depends_on_suite_share
+          2:
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/graalvm/pillar.sls'
               state_top: *state_top_inc_mapdata
-          4:
-            inspec_yml:
-              depends: *depends_on_suite_share
+          3:
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/haikuvm/pillar.sls'
               state_top: *state_top_inc_mapdata
-          5:
-            inspec_yml:
-              depends: *depends_on_suite_share
+          4:
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/intellij/pillar.sls'
               state_top: *state_top_inc_mapdata
-          6:
-            inspec_yml:
-              depends: *depends_on_suite_share
+          5:
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/oracle/pillar.sls'
               state_top: *state_top_inc_mapdata
-          7:
-            inspec_yml:
-              depends: *depends_on_suite_share
+          6:
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/zulu/pillar.sls'
@@ -2647,17 +2623,14 @@ ssf:
         inspec_suites_kitchen:
           0:
             inspec_yml:
-              depends: *depends_on_suite_share
               summary: >-
                 Verify that the libvirt formula is setup and configured correctly
               supports: *supports_debian_ubuntu_centos_fedora_opensuse
-          1: *inspec_suites_kitchen__share_suite
-          2:
+          1:
             includes:
               # [os           ,  os_ver, salt_ver, py_ver]
               - [debian       ,   10   ,   master,      3]
             inspec_yml:
-              depends: *depends_on_suite_share
               summary: >-
                 Verify that the libvirt formula can cleanup correctly
               supports: *supports_debian_ubuntu_centos_fedora_opensuse
@@ -2688,9 +2661,7 @@ ssf:
           # # - [arch-base    ,    0   ,   3002.5,      0,         default]
         use_libsaltcli: true
         use_tofs: true
-      semrel_files:
-        <<: *semrel_files_default
-        inspec/libraries/system.rb: *file__inspec__libraries__system--rb
+      semrel_files: *semrel_files_default
     locale:
       context:
         git:
@@ -2810,7 +2781,6 @@ ssf:
         inspec_suites_kitchen:
           0:
             inspec_yml:
-              # depends: *depends_on_suite_share
               summary: >-
                 Verify that the lynis formula is setup and configured correctly
                 (installed using git)
@@ -2821,17 +2791,15 @@ ssf:
           #       - '*':
           #           - ._mapdata
           #           - .
-          1: *inspec_suites_kitchen__share_suite
-          2:
+          1:
             inspec_yml:
-              # depends: *depends_on_suite_share
               summary: >-
                 Verify that the lynis formula is setup and configured correctly
                 (installed as a package)
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/repo.sls'
-          3: {}
+          2: {}
         inspec_suites_matrix:
           - default
           - repo
@@ -2850,9 +2818,7 @@ ssf:
           - [gentoo/stage3,    0   ,   master,      0,         default]
           - [arch-base    ,    0   ,   3002.5,      0,         default]
         use_tofs: true
-      semrel_files:
-        <<: *semrel_files_default
-        inspec/libraries/system.rb: *file__inspec__libraries__system--rb
+      semrel_files: *semrel_files_default
     maven:
       context:
         codeowners:
@@ -3281,14 +3247,12 @@ ssf:
         inspec_suites_kitchen:
           0:
             inspec_yml:
-              depends: *depends_on_suite_share
               summary: >-
                 Verify that the openntpd formula is setup and configured correctly
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/openntpd.sls'
               state_top: *state_top_inc_mapdata
-          1: *inspec_suites_kitchen__share_suite
         map_jinja:
           verification:
             import: ['openntpd']
@@ -3316,7 +3280,6 @@ ssf:
             driver:
               hostname: 'example.net'
             inspec_yml:
-              depends: *depends_on_suite_share
               summary: >-
                 Verify that the openssh formula is setup and configured correctly
             provisioner:
@@ -3327,7 +3290,6 @@ ssf:
                     - ._mapdata
                     - .config
                     - .known_hosts
-          1: *inspec_suites_kitchen__share_suite
         map_jinja:
           verification:
             import: ['mapdata']
@@ -3346,7 +3308,6 @@ ssf:
         inspec_suites_kitchen:
           0:
             inspec_yml:
-              depends: *depends_on_suite_share
               summary: >-
                 Verify that the openvpn formula is setup and configured correctly
               # supports: *supports_all_including_oracle_gentoo_and_windows
@@ -3357,7 +3318,6 @@ ssf:
                 - '*':
                     - ._mapdata
                     - .config
-          1: *inspec_suites_kitchen__share_suite
         map_jinja:
           verification:
             import: ['mapdata']
@@ -3398,14 +3358,12 @@ ssf:
             # None of the platforms use `default` directly
             includes: *includes_NONE
             inspec_yml:
-              depends: *depends_on_suite_share
               summary: >-
                 Verify that the packages formula is setup and configured correctly
               # supports: *supports_all_including_oracle
             provisioner:
               pillars_from_files: []
-          1: *inspec_suites_kitchen__share_suite
-          2:
+          1:
             includes: *platforms_os_debian_new
             provisioner:
               dependencies:
@@ -3419,7 +3377,7 @@ ssf:
                     - node
                     - .
             verifier: *verifier_inspec_tests_default
-          3:
+          2:
             includes: *platforms_os_ubuntu_new
             provisioner:
               dependencies:
@@ -3433,7 +3391,7 @@ ssf:
                     - golang.package
                     - .
             verifier: *verifier_inspec_tests_default
-          4:
+          3:
             includes: *platforms_os_fedora_new
             provisioner:
               pillars_from_files:
@@ -3442,7 +3400,7 @@ ssf:
                 - '*':
                     - .
             verifier: *verifier_inspec_tests_default
-          5:
+          4:
             includes:
               # Some of `*platforms_os_centos_new` + `oraclelinux-8`
               - [centos       ,    8   ,      0  ,      0]
@@ -3456,7 +3414,7 @@ ssf:
                     - epel
                     - .
             verifier: *verifier_inspec_tests_default
-          6:
+          5:
             includes:
               # Rest of `*platforms_os_centos_new`
               - [centos       ,    7   ,      0  ,      0]
@@ -3471,7 +3429,7 @@ ssf:
                     - epel
                     - .
             verifier: *verifier_inspec_tests_default
-          7:
+          6:
             includes: *platforms_os_amazonlinux_new
             provisioner:
               dependencies: *dependencies_epel
@@ -3482,7 +3440,7 @@ ssf:
                     - epel
                     - .
             verifier: *verifier_inspec_tests_default
-          8:
+          7:
             includes: *platforms_osfamily_suse_new_15_2
             provisioner:
               pillars_from_files:
@@ -3491,7 +3449,7 @@ ssf:
                 - '*':
                     - .
             verifier: *verifier_inspec_tests_default
-          9:
+          8:
             includes: *platforms_os_arch_base_new
             provisioner:
               pillars_from_files:
@@ -3500,7 +3458,7 @@ ssf:
                 - '*':
                     - .
             verifier: *verifier_inspec_tests_default
-          10:
+          9:
             includes: *platforms_gentoo
             provisioner:
               pillars_from_files:
@@ -3554,13 +3512,11 @@ ssf:
             # None of the platforms use `default` directly
             includes: *includes_NONE
             inspec_yml:
-              depends: *depends_on_suite_share
               summary: >-
                 Verify that the php formula is setup and configured correctly
             provisioner:
               pillars_from_files: []
-          1: *inspec_suites_kitchen__share_suite
-          2:
+          1:
             includes: *platforms_os_debian
             provisioner:
               pillars_from_files:
@@ -3575,7 +3531,7 @@ ssf:
                     - .modules
                     - .fpm.service
             verifier: *verifier_inspec_tests_default
-          3:
+          2:
             includes: *platforms_os_ubuntu
             provisioner:
               pillars:
@@ -3595,14 +3551,14 @@ ssf:
                     - .modules
                     - .fpm.service
             verifier: *verifier_inspec_tests_default
-          4:
+          3:
             includes: *platforms_osfamily_redhat
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/redhat.sls'
               state_top: *state_top_inc_mapdata
             verifier: *verifier_inspec_tests_default
-          5:
+          4:
             includes: *platforms_osfamily_suse
             provisioner:
               pillars_from_files:
@@ -3720,7 +3676,6 @@ ssf:
         inspec_suites_kitchen:
           0:
             inspec_yml:
-              depends: *depends_on_suite_share
               summary: >-
                 Verify that the powerdns formula is setup and configured correctly
             provisioner:
@@ -3731,7 +3686,6 @@ ssf:
                     - ._mapdata
                     - .config
                     - .backend-sqlite3
-          1: *inspec_suites_kitchen__share_suite
         map_jinja:
           verification:
             import: ['powerdns']
@@ -3927,7 +3881,6 @@ ssf:
         inspec_suites_kitchen:
           0:
             inspec_yml:
-              depends: *depends_on_suite_share
               summary: >-
                 Verify that the rabbitmq formula is setup and configured correctly
             provisioner:
@@ -3938,8 +3891,7 @@ ssf:
                     - states.files
                     - .
                     - .config_files
-          1: *inspec_suites_kitchen__share_suite
-          2:
+          1:
             provisioner:
               dependencies: *dependencies_files_and_states
               state_top:
@@ -4055,25 +4007,21 @@ ssf:
         inspec_suites_kitchen:
           0:
             inspec_yml:
-              # depends: *depends_on_suite_share
               summary: >-
                 Verify that the rng-tools formula is setup and configured correctly
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/rng-tools.sls'
-          #     state_top:
-          #       - '*':
-          #           - ._mapdata
-          #           - .
-          1: *inspec_suites_kitchen__share_suite
+        #       state_top:
+        #         - '*':
+        #             - ._mapdata
+        #             - .
         # platforms: *platforms_new_inc_tiamat
         # If `opensuse/leap` fixed, then can use this instead
         # platforms_matrix: *platforms_matrix_new_inc_tiamat
         # platforms_matrix:
         use_tofs: true
-      semrel_files:
-        <<: *semrel_files_default
-        inspec/libraries/system.rb: *file__inspec__libraries__system--rb
+      semrel_files: *semrel_files_default
     rspamd:
       context:
         codeowners:
@@ -4131,15 +4079,13 @@ ssf:
           github:
             repo: 'salt-formula'
         inspec_suites_kitchen:
-          0: *inspec_suites_kitchen__share_suite
-          1:
+          0:
             includes:
               # # TODO:
               # # - [arch-base    ,  latest,   3002.5,      3]
               # [os           ,  os_ver, salt_ver, py_ver]
               - [0            ,    0   ,   3002.5,      3]
             inspec_yml:
-              depends: *depends_on_suite_share
               summary: >-
                 Verify that Salt `v3002-py3` is setup and configured
               # supports: *supports_all_including_oracle_and_gentoo
@@ -4152,14 +4098,13 @@ ssf:
                 - .sls: 'test/salt/pillar/salt.sls'
                 - v3002-py3.sls: 'test/salt/pillar/v3002-py3.sls'
               state_top: *state_top_salt
-          2:
+          1:
             includes:
               # # TODO:
               # # - [arch-base    ,  latest,   3001.6,      3]
               # [os           ,  os_ver, salt_ver, py_ver]
               - [0            ,    0   ,   3001.6,      3]
             inspec_yml:
-              depends: *depends_on_suite_share
               summary: >-
                 Verify that Salt `v3001-py3` is setup and configured
               # supports: *supports_all_including_oracle_and_gentoo
@@ -4172,12 +4117,11 @@ ssf:
                 - .sls: 'test/salt/pillar/salt.sls'
                 - v3001-py3.sls: 'test/salt/pillar/v3001-py3.sls'
               state_top: *state_top_salt
-          3:
+          2:
             includes:
               # [os           ,  os_ver, salt_ver, py_ver]
               - [0            ,    0   ,   3000.8,      3]
             inspec_yml:
-              depends: *depends_on_suite_share
               summary: >-
                 Verify that Salt `v3000-py3` is setup and configured
               # supports: *supports_all_including_oracle_gentoo_and_windows
@@ -4190,14 +4134,13 @@ ssf:
                 - .sls: 'test/salt/pillar/salt.sls'
                 - v3000-py3.sls: 'test/salt/pillar/v3000-py3.sls'
               state_top: *state_top_salt
-          4:
+          3:
             includes:
               # # TODO:
               # # - [arch-base    ,  latest,   3000.8,      2]
               # [os           ,  os_ver, salt_ver, py_ver]
               - [0            ,    0   ,   3000.8,      2]
             inspec_yml:
-              depends: *depends_on_suite_share
               summary: >-
                 Verify that Salt `v3000-py2` is setup and configured
               # supports: *supports_all_including_oracle_and_gentoo
@@ -4462,7 +4405,6 @@ ssf:
         inspec_suites_kitchen:
           0:
             inspec_yml:
-              depends: *depends_on_suite_share
               summary: >-
                 Verify that the sudoers formula is setup and configured correctly
             provisioner:
@@ -4478,7 +4420,6 @@ ssf:
                     - ._mapdata
                     - .
                     - .included
-          1: *inspec_suites_kitchen__share_suite
         map_jinja:
           verification:
             import: ['sudoers']
@@ -4661,7 +4602,6 @@ ssf:
           0:
             excludes: *platforms_non_systemd
             inspec_yml:
-              depends: *depends_on_suite_share
               summary: >-
                 Verify that the TEMPLATE formula is setup and configured correctly
               # supports: *supports_all_including_oracle_and_gentoo
@@ -4677,8 +4617,7 @@ ssf:
                 - '*':
                     - ._mapdata
                     - TEMPLATE
-          1: *inspec_suites_kitchen__share_suite
-          2:
+          1:
             includes: *platforms_gentoo
             provisioner:
               pillars:
@@ -4763,7 +4702,6 @@ ssf:
             driver:
               hostname: 'example.net'
             inspec_yml:
-              depends: *depends_on_suite_share
               summary: >-
                 Verify that the tomcat formula is setup and configured correctly
             provisioner:
@@ -4780,7 +4718,6 @@ ssf:
                     - .expires
                     - .context
                     - .cluster
-          1: *inspec_suites_kitchen__share_suite
         map_jinja:
           verification:
             import: ['tomcat']

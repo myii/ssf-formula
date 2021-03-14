@@ -84,12 +84,7 @@ prepare-git-branch-for-{{ formula }}:
 {%-           set dest_file = dest_file.replace('inspec/', '') %}
 {#-           Do not manage the file in the following situations: #}
 {#-           - If a matching test suite isn't found #}
-{#-           - Or if `libraries/system.rb` and is not the `share` suite #}
-{#-           - Or if `controls/_mapdata.rb` and is the `share` suite #}
-{%-           if (not matching_test_suite.found) or
-                 (dest_file == 'libraries/system.rb' and suite.name != 'share') or
-                 (dest_file == 'controls/_mapdata.rb' and suite.name == 'share')
-%}
+{%-           if not matching_test_suite.found %}
 {%-             set dest_file = '' %}
 {%-           else %}
 {%-             set dest_file = '{0}/{1}/{2}'.format(inspec_tests_path_prefix, suite.name, dest_file) %}
