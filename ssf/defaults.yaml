@@ -62,7 +62,7 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "test: standardise use of '`'share'`' suite [skip ci]"
+            title: "test: standardise use of '`'share'`' suite & '`'_mapdata'`' state [skip ci]"
             body: '* Automated using https://github.com/myii/ssf-formula/pull/302'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
@@ -127,6 +127,7 @@ ssf_node_anchors:
               # Structure assumes `base`
               state_top:
                 - '*':
+                    - ._mapdata
                     - .
             verifier:
               controls: []

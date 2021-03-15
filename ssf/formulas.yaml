@@ -115,10 +115,6 @@ ssf_node_anchors:
                     - .pkgrepo
                     - .master
                     - .minion
-              state_top_inc_mapdata: &state_top_inc_mapdata
-                - '*':
-                    - ._mapdata
-                    - .
             verifier: &verifier_inspec_tests_default
               inspec_tests:
                 - default
@@ -558,6 +554,11 @@ ssf_node_anchors:
           <<: *file_default
         docs/TOFS_pattern.rst: &file__docs__TOFS_pattern--rst
           <<: *file_default
+        formula/_mapdata/_mapdata.jinja: &file__formula___mapdata___mapdata--jinja
+          <<: *file_default
+        formula/_mapdata/init.sls: &file__formula___mapdata___init--sls
+          <<: *file_default
+          template: 'mako'
         formula/libsaltcli.jinja: &file__formula__libsaltcli--jinja
           <<: *file_default
         formula/libtofs.jinja: &file__formula__libtofs--jinja
@@ -622,11 +623,6 @@ ssf_node_anchors:
           template: 'jinja'
       semrel_files_inc_map_jinja_verifier: &semrel_files_inc_map_jinja_verifier
         <<: *semrel_files_default
-        formula/_mapdata/_mapdata.jinja: &file__formula___mapdata___mapdata--jinja
-          <<: *file_default
-        formula/_mapdata/init.sls: &file__formula___mapdata___init--sls
-          <<: *file_default
-          template: 'mako'
         inspec/controls/_mapdata.rb: &file__inspec__controls___mapdata--rb
           <<: *file_default
           template: 'jinja'
@@ -1490,8 +1486,6 @@ ssf:
             inspec_yml:
               summary: >-
                 Verify that the firewalld formula is setup and configured correctly
-            provisioner:
-              state_top: *state_top_inc_mapdata
         map_jinja:
           verification:
             import: ['firewalld']
@@ -1849,37 +1843,30 @@ ssf:
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/adopt/pillar.sls'
-              state_top: *state_top_inc_mapdata
           1:
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/amazon/pillar.sls'
-              state_top: *state_top_inc_mapdata
           2:
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/graalvm/pillar.sls'
-              state_top: *state_top_inc_mapdata
           3:
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/haikuvm/pillar.sls'
-              state_top: *state_top_inc_mapdata
           4:
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/intellij/pillar.sls'
-              state_top: *state_top_inc_mapdata
           5:
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/oracle/pillar.sls'
-              state_top: *state_top_inc_mapdata
           6:
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/zulu/pillar.sls'
-              state_top: *state_top_inc_mapdata
         inspec_suites_matrix:
           - adopt
           - amazon
@@ -1940,6 +1927,12 @@ ssf:
               - appcode/defaults.yaml
       semrel_files:
         <<: *semrel_files_default
+        formula/_mapdata/_mapdata.jinja:
+          <<: *file__formula___mapdata___mapdata--jinja
+          alt_semrel_formula: 'appcode'
+        formula/_mapdata/init.sls:
+          <<: *file__formula___mapdata___init--sls
+          alt_semrel_formula: 'appcode'
         formula/libtofs.jinja:
           <<: *file__formula__libtofs--jinja
           alt_semrel_formula: 'appcode'
@@ -1949,6 +1942,10 @@ ssf:
         kitchen.yml:
           <<: *file__kitchen--yml
           alt_semrel_formula: 'appcode'
+    #     # Overrides for extra files in `*semrel_files_inc_map_jinja_verifier`
+    #     inspec/controls/_mapdata.rb:
+    #       <<: *file__inspec__controls___mapdata--rb
+    #       alt_semrel_formula: 'appcode'
     jetbrains-clion:
       context:
         codeowners:
@@ -1996,6 +1993,12 @@ ssf:
               - clion/osfamilymap.yaml
       semrel_files:
         <<: *semrel_files_default
+        formula/_mapdata/_mapdata.jinja:
+          <<: *file__formula___mapdata___mapdata--jinja
+          alt_semrel_formula: 'clion'
+        formula/_mapdata/init.sls:
+          <<: *file__formula___mapdata___init--sls
+          alt_semrel_formula: 'clion'
         formula/libtofs.jinja:
           <<: *file__formula__libtofs--jinja
           alt_semrel_formula: 'clion'
@@ -2005,6 +2008,10 @@ ssf:
         kitchen.yml:
           <<: *file__kitchen--yml
           alt_semrel_formula: 'clion'
+    #     # Overrides for extra files in `*semrel_files_inc_map_jinja_verifier`
+    #     inspec/controls/_mapdata.rb:
+    #       <<: *file__inspec__controls___mapdata--rb
+    #       alt_semrel_formula: 'clion'
     jetbrains-datagrip:
       context:
         codeowners:
@@ -2052,6 +2059,12 @@ ssf:
               - datagrip/osfamilymap.yaml
       semrel_files:
         <<: *semrel_files_default
+        formula/_mapdata/_mapdata.jinja:
+          <<: *file__formula___mapdata___mapdata--jinja
+          alt_semrel_formula: 'datagrip'
+        formula/_mapdata/init.sls:
+          <<: *file__formula___mapdata___init--sls
+          alt_semrel_formula: 'datagrip'
         formula/libtofs.jinja:
           <<: *file__formula__libtofs--jinja
           alt_semrel_formula: 'datagrip'
@@ -2061,6 +2074,10 @@ ssf:
         kitchen.yml:
           <<: *file__kitchen--yml
           alt_semrel_formula: 'datagrip'
+    #     # Overrides for extra files in `*semrel_files_inc_map_jinja_verifier`
+    #     inspec/controls/_mapdata.rb:
+    #       <<: *file__inspec__controls___mapdata--rb
+    #       alt_semrel_formula: 'datagrip'
     jetbrains-goland:
       context:
         codeowners:
@@ -2108,6 +2125,12 @@ ssf:
               - goland/osfamilymap.yaml
       semrel_files:
         <<: *semrel_files_default
+        formula/_mapdata/_mapdata.jinja:
+          <<: *file__formula___mapdata___mapdata--jinja
+          alt_semrel_formula: 'goland'
+        formula/_mapdata/init.sls:
+          <<: *file__formula___mapdata___init--sls
+          alt_semrel_formula: 'goland'
         formula/libtofs.jinja:
           <<: *file__formula__libtofs--jinja
           alt_semrel_formula: 'goland'
@@ -2117,6 +2140,10 @@ ssf:
         kitchen.yml:
           <<: *file__kitchen--yml
           alt_semrel_formula: 'goland'
+    #     # Overrides for extra files in `*semrel_files_inc_map_jinja_verifier`
+    #     inspec/controls/_mapdata.rb:
+    #       <<: *file__inspec__controls___mapdata--rb
+    #       alt_semrel_formula: 'goland'
     jetbrains-intellij:
       context:
         codeowners:
@@ -2179,6 +2206,12 @@ ssf:
               - intellij/osfamilymap.yaml
       semrel_files:
         <<: *semrel_files_default
+        formula/_mapdata/_mapdata.jinja:
+          <<: *file__formula___mapdata___mapdata--jinja
+          alt_semrel_formula: 'intellij'
+        formula/_mapdata/init.sls:
+          <<: *file__formula___mapdata___init--sls
+          alt_semrel_formula: 'intellij'
         formula/libtofs.jinja:
           <<: *file__formula__libtofs--jinja
           alt_semrel_formula: 'intellij'
@@ -2188,6 +2221,10 @@ ssf:
         kitchen.yml:
           <<: *file__kitchen--yml
           alt_semrel_formula: 'intellij'
+    #     # Overrides for extra files in `*semrel_files_inc_map_jinja_verifier`
+    #     inspec/controls/_mapdata.rb:
+    #       <<: *file__inspec__controls___mapdata--rb
+    #       alt_semrel_formula: 'intellij'
     jetbrains-phpstorm:
       context:
         codeowners:
@@ -2235,6 +2272,12 @@ ssf:
               - phpstorm/osfamilymap.yaml
       semrel_files:
         <<: *semrel_files_default
+        formula/_mapdata/_mapdata.jinja:
+          <<: *file__formula___mapdata___mapdata--jinja
+          alt_semrel_formula: 'phpstorm'
+        formula/_mapdata/init.sls:
+          <<: *file__formula___mapdata___init--sls
+          alt_semrel_formula: 'phpstorm'
         formula/libtofs.jinja:
           <<: *file__formula__libtofs--jinja
           alt_semrel_formula: 'phpstorm'
@@ -2244,6 +2287,10 @@ ssf:
         kitchen.yml:
           <<: *file__kitchen--yml
           alt_semrel_formula: 'phpstorm'
+    #     # Overrides for extra files in `*semrel_files_inc_map_jinja_verifier`
+    #     inspec/controls/_mapdata.rb:
+    #       <<: *file__inspec__controls___mapdata--rb
+    #       alt_semrel_formula: 'phpstorm'
     jetbrains-pycharm:
       context:
         codeowners:
@@ -2293,6 +2340,12 @@ ssf:
               - pycharm/osfamilymap.yaml
       semrel_files:
         <<: *semrel_files_default
+        formula/_mapdata/_mapdata.jinja:
+          <<: *file__formula___mapdata___mapdata--jinja
+          alt_semrel_formula: 'pycharm'
+        formula/_mapdata/init.sls:
+          <<: *file__formula___mapdata___init--sls
+          alt_semrel_formula: 'pycharm'
         formula/libtofs.jinja:
           <<: *file__formula__libtofs--jinja
           alt_semrel_formula: 'pycharm'
@@ -2302,6 +2355,10 @@ ssf:
         kitchen.yml:
           <<: *file__kitchen--yml
           alt_semrel_formula: 'pycharm'
+    #     # Overrides for extra files in `*semrel_files_inc_map_jinja_verifier`
+    #     inspec/controls/_mapdata.rb:
+    #       <<: *file__inspec__controls___mapdata--rb
+    #       alt_semrel_formula: 'pycharm'
     jetbrains-resharper:
       context:
         codeowners:
@@ -2327,6 +2384,12 @@ ssf:
         use_tofs: true
       semrel_files:
         <<: *semrel_files_default
+        formula/_mapdata/_mapdata.jinja:
+          <<: *file__formula___mapdata___mapdata--jinja
+          alt_semrel_formula: 'resharper'
+        formula/_mapdata/init.sls:
+          <<: *file__formula___mapdata___init--sls
+          alt_semrel_formula: 'resharper'
         formula/libtofs.jinja:
           <<: *file__formula__libtofs--jinja
           alt_semrel_formula: 'resharper'
@@ -2336,6 +2399,10 @@ ssf:
         kitchen.yml:
           <<: *file__kitchen--yml
           alt_semrel_formula: 'resharper'
+    #     # Overrides for extra files in `*semrel_files_inc_map_jinja_verifier`
+    #     inspec/controls/_mapdata.rb:
+    #       <<: *file__inspec__controls___mapdata--rb
+    #       alt_semrel_formula: 'resharper'
     jetbrains-rider:
       context:
         codeowners:
@@ -2383,6 +2450,12 @@ ssf:
               - rider/osfamilymap.yaml
       semrel_files:
         <<: *semrel_files_default
+        formula/_mapdata/_mapdata.jinja:
+          <<: *file__formula___mapdata___mapdata--jinja
+          alt_semrel_formula: 'rider'
+        formula/_mapdata/init.sls:
+          <<: *file__formula___mapdata___init--sls
+          alt_semrel_formula: 'rider'
         formula/libtofs.jinja:
           <<: *file__formula__libtofs--jinja
           alt_semrel_formula: 'rider'
@@ -2392,6 +2465,10 @@ ssf:
         kitchen.yml:
           <<: *file__kitchen--yml
           alt_semrel_formula: 'rider'
+    #     # Overrides for extra files in `*semrel_files_inc_map_jinja_verifier`
+    #     inspec/controls/_mapdata.rb:
+    #       <<: *file__inspec__controls___mapdata--rb
+    #       alt_semrel_formula: 'rider'
     jetbrains-rubymine:
       context:
         codeowners:
@@ -2439,6 +2516,12 @@ ssf:
               - rubymine/osfamilymap.yaml
       semrel_files:
         <<: *semrel_files_default
+        formula/_mapdata/_mapdata.jinja:
+          <<: *file__formula___mapdata___mapdata--jinja
+          alt_semrel_formula: 'rubymine'
+        formula/_mapdata/init.sls:
+          <<: *file__formula___mapdata___init--sls
+          alt_semrel_formula: 'rubymine'
         formula/libtofs.jinja:
           <<: *file__formula__libtofs--jinja
           alt_semrel_formula: 'rubymine'
@@ -2448,6 +2531,10 @@ ssf:
         kitchen.yml:
           <<: *file__kitchen--yml
           alt_semrel_formula: 'rubymine'
+    #     # Overrides for extra files in `*semrel_files_inc_map_jinja_verifier`
+    #     inspec/controls/_mapdata.rb:
+    #       <<: *file__inspec__controls___mapdata--rb
+    #       alt_semrel_formula: 'rubymine'
     jetbrains-webstorm:
       context:
         codeowners:
@@ -2495,6 +2582,12 @@ ssf:
               - webstorm/osfamilymap.yaml
       semrel_files:
         <<: *semrel_files_default
+        formula/_mapdata/_mapdata.jinja:
+          <<: *file__formula___mapdata___mapdata--jinja
+          alt_semrel_formula: 'webstorm'
+        formula/_mapdata/init.sls:
+          <<: *file__formula___mapdata___init--sls
+          alt_semrel_formula: 'webstorm'
         formula/libtofs.jinja:
           <<: *file__formula__libtofs--jinja
           alt_semrel_formula: 'webstorm'
@@ -2504,6 +2597,10 @@ ssf:
         kitchen.yml:
           <<: *file__kitchen--yml
           alt_semrel_formula: 'webstorm'
+    #     # Overrides for extra files in `*semrel_files_inc_map_jinja_verifier`
+    #     inspec/controls/_mapdata.rb:
+    #       <<: *file__inspec__controls___mapdata--rb
+    #       alt_semrel_formula: 'webstorm'
     keepalived:
       context:
         git:
@@ -2787,10 +2884,6 @@ ssf:
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/default.sls'
-          #     state_top:
-          #       - '*':
-          #           - ._mapdata
-          #           - .
           1:
             inspec_yml:
               summary: >-
@@ -3252,7 +3345,6 @@ ssf:
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/openntpd.sls'
-              state_top: *state_top_inc_mapdata
         map_jinja:
           verification:
             import: ['openntpd']
@@ -3556,17 +3648,12 @@ ssf:
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/redhat.sls'
-              state_top: *state_top_inc_mapdata
             verifier: *verifier_inspec_tests_default
           4:
             includes: *platforms_osfamily_suse
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/suse.sls'
-              state_top:
-                - '*':
-                    - ._mapdata
-                    - .
             verifier: *verifier_inspec_tests_default
         inspec_suites_matrix:
           - default
@@ -4012,14 +4099,6 @@ ssf:
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/rng-tools.sls'
-        #       state_top:
-        #         - '*':
-        #             - ._mapdata
-        #             - .
-        # platforms: *platforms_new_inc_tiamat
-        # If `opensuse/leap` fixed, then can use this instead
-        # platforms_matrix: *platforms_matrix_new_inc_tiamat
-        # platforms_matrix:
         use_tofs: true
       semrel_files: *semrel_files_default
     rspamd:
@@ -4501,6 +4580,12 @@ ssf:
               - syslog_ng/osfamilymap.yaml
       semrel_files:
         <<: *semrel_files_default
+        formula/_mapdata/_mapdata.jinja:
+          <<: *file__formula___mapdata___mapdata--jinja
+          alt_semrel_formula: 'syslog_ng'
+        formula/_mapdata/init.sls:
+          <<: *file__formula___mapdata___init--sls
+          alt_semrel_formula: 'syslog_ng'
         formula/libtofs.jinja:
           <<: *file__formula__libtofs--jinja
           alt_semrel_formula: 'syslog_ng'
@@ -4510,6 +4595,10 @@ ssf:
         kitchen.yml:
           <<: *file__kitchen--yml
           alt_semrel_formula: 'syslog_ng'
+    #     # Overrides for extra files in `*semrel_files_inc_map_jinja_verifier`
+    #     inspec/controls/_mapdata.rb:
+    #       <<: *file__inspec__controls___mapdata--rb
+    #       alt_semrel_formula: 'syslog_ng'
     sysstat:
       context:
         git:
@@ -4656,6 +4745,12 @@ ssf:
         use_tofs: true
       semrel_files:
         <<: *semrel_files_inc_map_jinja_verifier
+        formula/_mapdata/_mapdata.jinja:
+          <<: *file__formula___mapdata___mapdata--jinja
+          alt_semrel_formula: 'TEMPLATE'
+        formula/_mapdata/init.sls:
+          <<: *file__formula___mapdata___init--sls
+          alt_semrel_formula: 'TEMPLATE'
         formula/libsaltcli.jinja:
           <<: *file__formula__libsaltcli--jinja
           alt_semrel_formula: 'TEMPLATE'
@@ -4669,12 +4764,6 @@ ssf:
           <<: *file__kitchen--yml
           alt_semrel_formula: 'TEMPLATE'
         # Overrides for extra files in `*semrel_files_inc_map_jinja_verifier`
-        formula/_mapdata/_mapdata.jinja:
-          <<: *file__formula___mapdata___mapdata--jinja
-          alt_semrel_formula: 'TEMPLATE'
-        formula/_mapdata/init.sls:
-          <<: *file__formula___mapdata___init--sls
-          alt_semrel_formula: 'TEMPLATE'
         inspec/controls/_mapdata.rb:
           <<: *file__inspec__controls___mapdata--rb
           alt_semrel_formula: 'TEMPLATE'
