@@ -854,7 +854,7 @@ ssf:
             import: ['map']
         platforms_matrix: *platforms_matrix_without_gentoo
         travis: *travis_do_not_use_single_job_for_linters
-      semrel_files: *semrel_files_default
+      semrel_files: *semrel_files_inc_map_jinja_verifier
     chrony:
       context:
         git:
