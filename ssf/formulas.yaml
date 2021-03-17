@@ -686,6 +686,9 @@ ssf:
           - default
           - modules
           - ''
+        map_jinja:
+          verification:
+            import: ['apache']
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,   10   ,   master,      3,              '']  # modules
@@ -758,6 +761,9 @@ ssf:
           - preferences
           - unattended
           - ''
+        map_jinja:
+          verification:
+            import: ['apt']
         platforms: *platforms_osfamily_debian
         # Based on `*platforms_matrix_osfamily_debian`
         platforms_matrix:
@@ -784,6 +790,10 @@ ssf:
                     - .ng._mapdata
                     - .ng.server
                     - .ng.client
+        map_jinja:
+          dir: '/ng'
+          verification:
+            import: ['apt_cacher_ng']
         platforms: *platforms_osfamily_debian
         platforms_matrix: *platforms_matrix_osfamily_debian
         use_tofs: true
@@ -958,6 +968,9 @@ ssf:
           - workbench
           - shell
           - keepstore
+        map_jinja:
+          verification:
+            import: ['arvados']
         platforms:
           # [os           ,  os_ver, salt_ver, py_ver]
           - [debian       ,    0   ,      0  ,      0]
@@ -1066,6 +1079,9 @@ ssf:
                     - ._mapdata
                     - .
                     - .config
+        map_jinja:
+          verification:
+            import: ['map']
         # Based on `*platforms_matrix_without_arch`
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
@@ -1108,6 +1124,9 @@ ssf:
                     - states/setup-certs-to-remove
                     - ._mapdata
                     - .
+        map_jinja:
+          verification:
+            import: ['map']
         platforms_matrix: *platforms_matrix_without_gentoo
         travis: *travis_do_not_use_single_job_for_linters
       semrel_files: *semrel_files_default
@@ -1121,6 +1140,9 @@ ssf:
             inspec_yml:
               summary: >-
                 Verify that the chrony formula is setup and configured correctly
+        map_jinja:
+          verification:
+            import: ['chrony']
         platforms_matrix: *platforms_matrix_without_centos_and_oracle
         use_tofs: true
       semrel_files: *semrel_files_default
@@ -1137,6 +1159,9 @@ ssf:
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/default/pillar/collectd.sls'
+        map_jinja:
+          verification:
+            import: ['collectd_settings']
         # Based on `*platforms_matrix_without_arch_and_gentoo`
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
@@ -1169,6 +1194,10 @@ ssf:
               pillars_from_files:
                 - base.sls: 'pillar.example'
                 - .sls: 'test/salt/pillar/default.sls'
+        # TODO: Work out what to do about `consul-template/map.jinja`
+        map_jinja:
+          verification:
+            import: ['consul']
         platforms: *platforms_new
         platforms_matrix: *platforms_matrix_without_gentoo_non_systemd
       semrel_files: *semrel_files_default
@@ -1190,6 +1219,9 @@ ssf:
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/cron.sls'
+        map_jinja:
+          verification:
+            import: ['cron']
         platforms_matrix: *platforms_matrix_without_gentoo
       semrel_files: *semrel_files_default
     deepsea:
@@ -1206,6 +1238,9 @@ ssf:
             inspec_yml:
               summary: >-
                 Verify that the deepsea formula is setup and configured correctly
+        map_jinja:
+          verification:
+            import: ['deepsea']
         platforms: *platforms_new
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
@@ -1241,6 +1276,9 @@ ssf:
                 - .sls: 'test/salt/pillar/ubuntu.sls'
         inspec_suites_matrix:
           - ubuntu
+        map_jinja:
+          verification:
+            import: ['devstack']
         platforms: *platforms_os_ubuntu_new
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
@@ -1305,6 +1343,9 @@ ssf:
                 - '*':
                     - ._mapdata
                     - .pip
+        map_jinja:
+          verification:
+            import: ['django']
         # Based on `*platforms_matrix_without_gentoo`
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
@@ -1357,6 +1398,9 @@ ssf:
           - package
           - clean
           - ''
+        map_jinja:
+          verification:
+            import: ['data']
         # Linux testing not working as well on GitLab CI, using GitHub Actions now
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
@@ -1423,6 +1467,9 @@ ssf:
           - java
           - cpp
           - javascript
+        map_jinja:
+          verification:
+            import: ['eclipse']
         platforms: *platforms_new
         # Linux testing no longer working
         platforms_matrix: []
@@ -1446,6 +1493,9 @@ ssf:
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/default.sls'
+        map_jinja:
+          verification:
+            import: ['epel']
         platforms: *platforms_osfamily_redhat_without_fedora
         platforms_matrix: *platforms_matrix_osfamily_redhat_without_fedora
       semrel_files: *semrel_files_default
@@ -1462,6 +1512,9 @@ ssf:
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/exim.sls'
+        map_jinja:
+          verification:
+            import: ['exim']
         platforms_matrix: *platforms_matrix_osfamily_debian
         use_tofs: true
       semrel_files: *semrel_files_default
@@ -1488,6 +1541,9 @@ ssf:
                     - ._mapdata
                     - misc.fake_log_files
                     - .
+        map_jinja:
+          verification:
+            import: ['fail2ban']
         platforms_matrix: *platforms_matrix_without_gentoo_non_systemd
       semrel_files: *semrel_files_default
     firewalld:
@@ -1547,6 +1603,9 @@ ssf:
           - default
           - package
           - ''
+        map_jinja:
+          verification:
+            import: ['golang']
         platforms: *platforms_new
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
@@ -1574,6 +1633,9 @@ ssf:
             inspec_yml:
               summary: >-
                 Verify that the grafana formula is setup and configured correctly
+        map_jinja:
+          verification:
+            import: ['grafana']
         platforms_matrix: *platforms_matrix_osfamily_debian
         travis: *travis_do_not_use_single_job_for_linters
         use_tofs: true
@@ -1608,6 +1670,9 @@ ssf:
                     - ._mapdata
                     - hosts
                     - .
+        map_jinja:
+          verification:
+            import: ['haproxy']
         platforms: *platforms_new
         platforms_matrix: *platforms_matrix_without_gentoo
         yamllint:
@@ -1625,6 +1690,8 @@ ssf:
             inspec_yml:
               summary: >-
                 Verify that the hostsfile formula is setup and configured correctly
+        # TODO: Find solution where a formula has no `map.jinja`
+        map_jinja: {}
       semrel_files: *semrel_files_default
     icinga2:
       context:
@@ -1652,6 +1719,9 @@ ssf:
                 - '*':
                     - ._mapdata
                     - .icinga-web2
+        map_jinja:
+          verification:
+            import: ['icinga2']
         # Linux testing not working on GitLab CI, so using GitHub Actions
         # Based on `*platforms_matrix_osfamily_debian`
         platforms_matrix:
@@ -1687,6 +1757,9 @@ ssf:
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/influxdb.sls'
+        map_jinja:
+          verification:
+            import: ['influxdb_settings']
         platforms_matrix: *platforms_matrix_without_arch_and_gentoo
       semrel_files: *semrel_files_default
     iptables:
@@ -1724,6 +1797,9 @@ ssf:
           - default
           - tables
           - ''
+        map_jinja:
+          verification:
+            import: ['firewall']
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,   10   ,   master,      0,         default]
@@ -1837,6 +1913,9 @@ ssf:
           - default
           - redhat
           - arch
+        map_jinja:
+          verification:
+            import: ['iscsi']
         platforms: *platforms_new
         # Linux testing no longer working, due to `lvm-formula` dependency
         platforms_matrix: []
@@ -1938,6 +2017,9 @@ ssf:
                     - ._mapdata
                     - .clean
                     - .
+        map_jinja:
+          verification:
+            import: ['appcode']
         platforms: *platforms_new
         # No Linux testing yet, `MacOS` formula only (for the time being?)
         platforms_matrix: []
@@ -2007,6 +2089,9 @@ ssf:
         inspec_suites_matrix:
           - default
           - arch
+        map_jinja:
+          verification:
+            import: ['clion']
         platforms: *platforms_new
         platforms_matrix: *platforms_matrix_jetbrains
         use_tofs: true
@@ -2075,6 +2160,9 @@ ssf:
         inspec_suites_matrix:
           - default
           - arch
+        map_jinja:
+          verification:
+            import: ['datagrip']
         platforms: *platforms_new
         platforms_matrix: *platforms_matrix_jetbrains
         use_tofs: true
@@ -2143,6 +2231,9 @@ ssf:
         inspec_suites_matrix:
           - default
           - arch
+        map_jinja:
+          verification:
+            import: ['goland']
         platforms: *platforms_new
         platforms_matrix: *platforms_matrix_jetbrains
         use_tofs: true
@@ -2211,6 +2302,9 @@ ssf:
         inspec_suites_matrix:
           - default
           - arch
+        map_jinja:
+          verification:
+            import: ['intellij']
         platforms: *platforms_new
         # Based on `*platforms_matrix_jetbrains`
         platforms_matrix:
@@ -2294,6 +2388,9 @@ ssf:
         inspec_suites_matrix:
           - default
           - arch
+        map_jinja:
+          verification:
+            import: ['phpstorm']
         platforms: *platforms_new
         platforms_matrix: *platforms_matrix_jetbrains
         use_tofs: true
@@ -2362,6 +2459,9 @@ ssf:
         inspec_suites_matrix:
           - default
           - arch
+        map_jinja:
+          verification:
+            import: ['pycharm']
         platforms: *platforms_new
         # No Linux testing now, currently broken in `map.jinja`
         platforms_matrix: []
@@ -2414,6 +2514,9 @@ ssf:
                     - ._mapdata
                     - .clean
                     - .
+        map_jinja:
+          verification:
+            import: ['resharper']
         platforms: *platforms_new
         use_tofs: true
       semrel_files:
@@ -2477,6 +2580,9 @@ ssf:
         inspec_suites_matrix:
           - default
           - arch
+        map_jinja:
+          verification:
+            import: ['rider']
         platforms: *platforms_new
         platforms_matrix: *platforms_matrix_jetbrains
         use_tofs: true
@@ -2545,6 +2651,9 @@ ssf:
         inspec_suites_matrix:
           - default
           - arch
+        map_jinja:
+          verification:
+            import: ['rubymine']
         platforms: *platforms_new
         platforms_matrix: *platforms_matrix_jetbrains
         use_tofs: true
@@ -2613,6 +2722,9 @@ ssf:
         inspec_suites_matrix:
           - default
           - arch
+        map_jinja:
+          verification:
+            import: ['webstorm']
         platforms: *platforms_new
         platforms_matrix: *platforms_matrix_jetbrains
         use_tofs: true
@@ -2651,6 +2763,9 @@ ssf:
             inspec_yml:
               summary: >-
                 Verify that the keepalived formula is setup and configured correctly
+        map_jinja:
+          verification:
+            import: ['keepalived']
         platforms_matrix: *platforms_matrix_without_arch_and_tumbleweed
         # TODO: Find appropriate use of `script_kitchen` & `travis` sections below
         script_kitchen:
@@ -2736,6 +2851,9 @@ ssf:
           - git
           - deb
           - rpm
+        map_jinja:
+          verification:
+            import: ['letsencrypt']
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,    0   ,   master,      0,             deb]
@@ -2783,6 +2901,9 @@ ssf:
         inspec_suites_matrix:
           - default
           - clean
+        map_jinja:
+          verification:
+            import: ['mapdata']
         platforms: *platforms_new_saltimages
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
@@ -2826,6 +2947,9 @@ ssf:
         inspec_suites_matrix:
           - default
           - redhat
+        map_jinja:
+          verification:
+            import: ['locale']
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,    0   ,   master,      0,         default]
@@ -2868,6 +2992,9 @@ ssf:
                     - ._mapdata
                     - .
                     - .jobs
+        map_jinja:
+          verification:
+            import: ['logrotate']
       semrel_files: *semrel_files_default
     lvm:
       context:
@@ -2910,6 +3037,9 @@ ssf:
         inspec_suites_matrix:
           - loop4-loop5
           - loop5-loop6
+        map_jinja:
+          verification:
+            import: ['lvm']
         # Linux testing no longer working
         platforms_matrix: []
       semrel_files: *semrel_files_default
@@ -2944,6 +3074,9 @@ ssf:
           - default
           - repo
           - ''
+        map_jinja:
+          verification:
+            import: ['lynis']
         platforms: *platforms_new
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
@@ -2999,6 +3132,9 @@ ssf:
         inspec_suites_matrix:
           - default
           - arch
+        map_jinja:
+          verification:
+            import: ['maven']
         platforms: *platforms_new
         platforms_matrix: *platforms_matrix_jetbrains
         use_tofs: true
@@ -3024,6 +3160,9 @@ ssf:
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/default.sls'
+        map_jinja:
+          verification:
+            import: ['data']
         platforms: *platforms_new
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
@@ -3061,6 +3200,9 @@ ssf:
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/mysql.sls'
+        map_jinja:
+          verification:
+            import: ['mysql']
         platforms: *platforms_new
         platforms_matrix: *platforms_matrix_osfamily_debian_new
         yamllint:
@@ -3083,6 +3225,9 @@ ssf:
                 - '*':
                     - ._mapdata
                     - .server
+        map_jinja:
+          verification:
+            import: ['nfs']
         # Based on `platforms_matrix_systemd_only`,
         # simply because `centos-6` not working
         platforms_matrix:
@@ -3146,6 +3291,9 @@ ssf:
           - default
           - passenger
           - ''
+        map_jinja:
+          verification:
+            import: ['nginx']
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,    0   ,   master,      0,              '']
@@ -3184,6 +3332,9 @@ ssf:
             inspec_yml:
               summary: >-
                 Verify that the nifi formula is setup and configured correctly
+        map_jinja:
+          verification:
+            import: ['nifi']
         platforms: *platforms_new
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
@@ -3236,6 +3387,9 @@ ssf:
           - archive
           - source
           - repo
+        map_jinja:
+          verification:
+            import: ['node']
         platforms: *platforms_new
         # Based on `*platforms_matrix_new`
         platforms_matrix:
@@ -3278,6 +3432,10 @@ ssf:
                 - '*':
                     - .ng._mapdata
                     - .ng
+        map_jinja:
+          dir: '/ng'
+          verification:
+            import: ['ntp']
         # https://www.tecmint.com/install-ntp-in-rhel-8/
         # - `ntp` package is no longer supported; use `chronyd` instead
         platforms_matrix: *platforms_matrix_without_rhel8
@@ -3317,6 +3475,9 @@ ssf:
           - default
           - mode-eq-none
           - ''
+        map_jinja:
+          verification:
+            import: ['nut']
         platforms: *platforms_new_inc_tiamat
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
@@ -3358,6 +3519,9 @@ ssf:
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/default.sls'
+        map_jinja:
+          verification:
+            import: ['openldap']
         platforms: *platforms_new
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
@@ -3631,6 +3795,9 @@ ssf:
           - suse
           - arch
           - gentoo
+        map_jinja:
+          verification:
+            import: ['packages']
         platforms: *platforms_new
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
@@ -3762,6 +3929,9 @@ ssf:
                     - ._mapdata
                     - .
                     - .config
+        map_jinja:
+          verification:
+            import: ['postfix']
         yamllint:
           rules:
             key-duplicates:
@@ -3786,6 +3956,9 @@ ssf:
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/postgres.sls'
+        map_jinja:
+          verification:
+            import: ['postgres']
         platforms: *platforms_new
         # Based on `*platforms_matrix_without_gentoo`
         platforms_matrix:
@@ -3947,6 +4120,9 @@ ssf:
             run_options:
               add-host:
                 - 'localhost.localdomain:127.0.0.1'
+        map_jinja:
+          verification:
+            import: ['proftpd']
         platforms: *platforms_new
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
@@ -3998,6 +4174,9 @@ ssf:
           - default
           - repo
           - ''
+        map_jinja:
+          verification:
+            import: ['prometheus']
         platforms: *platforms_new
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
@@ -4092,6 +4271,9 @@ ssf:
                     - ._mapdata
                     - .common
                     - .server
+        map_jinja:
+          verification:
+            import: ['redis_settings']
         platforms_matrix: *platforms_matrix_without_arch_and_gentoo
       semrel_files: *semrel_files_default
     rkhunter:
@@ -4131,6 +4313,9 @@ ssf:
           - debian
           - redhat
           - suse
+        map_jinja:
+          verification:
+            import: ['rkhunter']
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,    0   ,   master,      0,          debian]
@@ -4163,6 +4348,9 @@ ssf:
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/rng-tools.sls'
+        map_jinja:
+          verification:
+            import: ['rng_tools']
         use_tofs: true
       semrel_files: *semrel_files_default
     rspamd:
@@ -4179,6 +4367,9 @@ ssf:
             inspec_yml:
               summary: >-
                 Verify that the Rspamd repositories are configured correctly
+        map_jinja:
+          verification:
+            import: ['rspamd']
         platforms: *platforms_new
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
@@ -4392,6 +4583,9 @@ ssf:
                     - ._mapdata
                     - .clean
                     - .
+        map_jinja:
+          verification:
+            import: ['sqldeveloper']
         platforms: *platforms_new
         # No Linux testing yet due to issues with Oracle downloads
         # https://github.com/saltstack-formulas/sqldeveloper-formula/pull/17#issuecomment-638167334
@@ -4424,6 +4618,9 @@ ssf:
                     - ._mapdata
                     - .clean
                     - .
+        map_jinja:
+          verification:
+            import: ['sqlplus']
         platforms: *platforms_new
         # No Linux testing yet due to issues with Oracle downloads
         # https://github.com/saltstack-formulas/sqlplus-formula/pull/17#issuecomment-638167334
@@ -4453,6 +4650,9 @@ ssf:
               summary: >-
                 Verify that the ssf formula is setup and configured correctly
         inspec_suites_matrix: []
+        map_jinja:
+          verification:
+            import: ['ssf']
         platforms: []
         platforms_matrix: []
         rubocop:
@@ -4515,6 +4715,9 @@ ssf:
             inspec_yml:
               summary: >-
                 Verify that the strongswan formula is setup and configured correctly
+        map_jinja:
+          verification:
+            import: ['strongswan']
         platforms: *platforms_new
         # Gentoo failure:
         #   !!! Multiple package instances within a single package slot have been pulled
@@ -4541,6 +4744,9 @@ ssf:
                     - ._mapdata
                     - .pillar_certs
                     - .
+        map_jinja:
+          verification:
+            import: ['stunnel']
         platforms_matrix: *platforms_matrix_osfamily_debian
       semrel_files: *semrel_files_default
     sudoers:
@@ -4588,6 +4794,9 @@ ssf:
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/default.sls'
+        map_jinja:
+          verification:
+            import: ['host_lookup']
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           # # - [debian       ,    0   ,   master,      0,         default]
@@ -4626,6 +4835,9 @@ ssf:
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/sysctl.sls'
+        map_jinja:
+          verification:
+            import: ['sysctl_settings']
       semrel_files: *semrel_files_default
     syslog-ng:
       context:
@@ -4640,6 +4852,9 @@ ssf:
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/syslog_ng.sls'
+        map_jinja:
+          verification:
+            import: ['syslog_ng']
         use_tofs: true
         yamllint:
           ignore:
@@ -4676,6 +4891,9 @@ ssf:
             inspec_yml:
               summary: >-
                 Verify that the sysstat formula is setup and configured correctly
+        map_jinja:
+          verification:
+            import: ['sysstat']
         travis: *travis_do_not_use_single_job_for_linters
         use_tofs: true
       semrel_files: *semrel_files_default
@@ -4702,6 +4920,9 @@ ssf:
                     - .journald
                     - rsync_test_package
                     - .units
+        map_jinja:
+          verification:
+            import: ['systemd']
         platforms: *platforms_new_inc_tiamat
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
@@ -4731,6 +4952,9 @@ ssf:
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/telegraf.sls'
+        map_jinja:
+          verification:
+            import: ['telegraf']
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,    0   ,   master,      0,         default]
@@ -4848,6 +5072,9 @@ ssf:
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/timezone.sls'
+        map_jinja:
+          verification:
+            import: ['timezone']
       semrel_files: *semrel_files_default
     tomcat:
       context:
@@ -4927,6 +5154,9 @@ ssf:
         inspec_suites_matrix:
           - default
           - without-ipv6
+        map_jinja:
+          verification:
+            import: ['ufw']
         platforms: *platforms_new
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
@@ -4990,6 +5220,9 @@ ssf:
           - default
           - vimrc
         # Based on `*platforms_matrix_without_arch_and_gentoo`
+        map_jinja:
+          verification:
+            import: ['users']
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,    0   ,   master,      0,           vimrc]
@@ -5044,6 +5277,10 @@ ssf:
         inspec_suites_matrix:
           - default
           - suse
+        map_jinja:
+          dir: '/ng'
+          verification:
+            import: ['varnish_settings']
         platforms: *platforms_new
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
@@ -5108,6 +5345,9 @@ ssf:
           # - dev_server
           - prod_server
           - ''
+        map_jinja:
+          verification:
+            import: ['vault']
         platforms: *platforms_new
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
@@ -5138,6 +5378,9 @@ ssf:
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/vim.sls'
+        map_jinja:
+          verification:
+            import: ['vim']
       semrel_files: *semrel_files_default
     vsftpd:
       context:
@@ -5152,6 +5395,9 @@ ssf:
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/vsftpd.sls'
+        map_jinja:
+          verification:
+            import: ['vsftpd']
         # Gentoo (OpenRC): Service `vsftpd' needs non existent service `net'
         platforms_matrix: *platforms_matrix_without_gentoo_non_systemd
       semrel_files: *semrel_files_default
@@ -5183,6 +5429,9 @@ ssf:
                     - .server.conf
                     - .frontend.repo
                     - .frontend.conf
+        map_jinja:
+          verification:
+            import: ['zabbix']
         platforms: *platforms_new
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
