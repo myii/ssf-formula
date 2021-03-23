@@ -2,6 +2,33 @@
 Changelog
 =========
 
+`1.254.0 <https://github.com/myii/ssf-formula/compare/v1.253.0...v1.254.0>`_ (2021-03-23)
+---------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* **gemfile:** update comment about using ``git`` for ``kitchen-docker`` gem (\ `65301e1 <https://github.com/myii/ssf-formula/commit/65301e1e5c0c17eaf629b53b59917e0e728bf4e1>`_\ )
+
+Code Refactoring
+^^^^^^^^^^^^^^^^
+
+
+* **formulas:** remove/merge YAML node anchors re: ``platforms*`` (\ `f1565ba <https://github.com/myii/ssf-formula/commit/f1565ba3d3e07877c10715ad253f238676975e28>`_\ )
+* **formulas:** remove/merge YAML node anchors re: ``supports`` (\ `b38763b <https://github.com/myii/ssf-formula/commit/b38763be09b30c8a2041d9815ba510a1cf4811a3>`_\ )
+
+Features
+^^^^^^^^
+
+
+* **_mapdata:** add ``_mapdata`` to all formulas (\ `4c39519 <https://github.com/myii/ssf-formula/commit/4c395196757b6ff868c7af3e242ffba8b94d6a16>`_\ )
+* **_mapdata:** add main files to formulas by default (\ `50963f8 <https://github.com/myii/ssf-formula/commit/50963f878a25829cfd893b7814786f072bee36aa>`_\ )
+* **_mapdata:** add state to formulas with specific ``state_top`` (\ `1677818 <https://github.com/myii/ssf-formula/commit/1677818cc4caf2159f8fe4caabf2118a826c86c6>`_\ )
+* **gemfile:** use single Jinja template for all formulas (\ `e4d7e45 <https://github.com/myii/ssf-formula/commit/e4d7e4508b28e39c672bd6ab9ce2ab9484b2070b>`_\ )
+* **rubocop:** rename obsolete ``ExcludedMethods`` => ``IgnoredMethods`` (\ `0ec59c5 <https://github.com/myii/ssf-formula/commit/0ec59c540e7b38b3fdd0b5cbd5d49da24d0371d8>`_\ )
+* **test/share:** use ``share`` suite across all formulas (\ `b65e7f8 <https://github.com/myii/ssf-formula/commit/b65e7f89ca6aad9ebfd9e741013ed68c5267fec2>`_\ )
+
 `1.253.0 <https://github.com/myii/ssf-formula/compare/v1.252.0...v1.253.0>`_ (2021-03-23)
 ---------------------------------------------------------------------------------------------
 
