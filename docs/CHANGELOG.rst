@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.253.0 <https://github.com/myii/ssf-formula/compare/v1.252.0...v1.253.0>`_ (2021-03-23)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **nginx:** review PR 269 (also add CI for ``passenger`` suite) (\ `0b7f5f0 <https://github.com/myii/ssf-formula/commit/0b7f5f033753f55dc0e8ee32f4c2b8006993b7ee>`_\ )
+
 `1.252.0 <https://github.com/myii/ssf-formula/compare/v1.251.0...v1.252.0>`_ (2021-03-14)
 ---------------------------------------------------------------------------------------------
 
