@@ -19,6 +19,7 @@
 {%-   set use_tofs = context.use_tofs %}
 {%-   set owner = context.git.github.owner %}
 {%-   set formula = context.git.github.repo %}
+{%-   set map_jinja = context.map_jinja %}
 {#-   Determine the TOFS override directory for the current formula #}
 {#-   Can't use `formula` directly because some formula names are used as top-level pillar/config keys, such as `users-formula` #}
 {%-   set formula_tofs_dir = 'tofs_' ~ formula %}
@@ -69,6 +70,11 @@ prepare-git-branch-for-{{ formula }}:
                 semrel_file_specs.alt_semrel_formula | d(semrel_formula),
                 dest_file.split('/', 1)[1],
               ) %}
+{#-           Adjust the path for `_mapdata` files where `dir` has been set #}
+{%-           set substring_mapdata = '/_mapdata/' %}
+{%-           if substring_mapdata in dest_file and map_jinja.dir %}
+{%-             set dest_file = dest_file | replace(substring_mapdata, map_jinja.dir ~ substring_mapdata) %}
+{%-           endif %}
 {%-         elif dest_file.startswith('inspec/') %}
 {%-           set inspec_tests_path_prefix = suite.verifier.inspec_tests_path_prefix %}
 {#-           The test suite to use may be a different than the suite's name, so need to point to it accordingly #}
@@ -84,12 +90,7 @@ prepare-git-branch-for-{{ formula }}:
 {%-           set dest_file = dest_file.replace('inspec/', '') %}
 {#-           Do not manage the file in the following situations: #}
 {#-           - If a matching test suite isn't found #}
-{#-           - Or if `libraries/system.rb` and is not the `share` suite #}
-{#-           - Or if `controls/_mapdata.rb` and is the `share` suite #}
-{%-           if (not matching_test_suite.found) or
-                 (dest_file == 'libraries/system.rb' and suite.name != 'share') or
-                 (dest_file == 'controls/_mapdata.rb' and suite.name == 'share')
-%}
+{%-           if not matching_test_suite.found %}
 {%-             set dest_file = '' %}
 {%-           else %}
 {%-             set dest_file = '{0}/{1}/{2}'.format(inspec_tests_path_prefix, suite.name, dest_file) %}
@@ -168,7 +169,7 @@ remove-previous-file-location-for-{{ formula }}-{{ dest_file }}:
         inspec_suites_kitchen: {{ inspec_suites_kitchen | yaml }}
         inspec_suites_matrix: {{ context.inspec_suites_matrix | yaml }}
         kitchen: {{ context.kitchen | yaml }}
-        map_jinja: {{ context.map_jinja | yaml }}
+        map_jinja: {{ map_jinja | yaml }}
         platforms: {{ context.platforms | yaml }}
         platforms_matrix: {{ context.platforms_matrix | yaml }}
         platforms_matrix_commented_includes: {{ context.platforms_matrix_commented_includes | yaml }}

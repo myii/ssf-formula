@@ -62,8 +62,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "ci(kitchen+ci): include '`'passenger'`' suite [skip ci]"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/303'
+            title: "test: standardise use of '`'share'`' suite & '`'_mapdata'`' state [skip ci]"
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/302'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
@@ -97,7 +97,9 @@ ssf_node_anchors:
             excludes: []
             includes: []
             inspec_yml:
-              depends: []
+              depends:
+                - name: 'share'
+                  path: 'test/integration/share'
               summary: >-
                 Verify that the formula is setup and configured correctly
               supports:
@@ -108,6 +110,7 @@ ssf_node_anchors:
                 - opensuse
                 - suse
                 - freebsd
+                - openbsd
                 - amazon
                 - oracle
                 - arch
@@ -124,6 +127,7 @@ ssf_node_anchors:
               # Structure assumes `base`
               state_top:
                 - '*':
+                    - ._mapdata
                     - .
             verifier:
               controls: []
@@ -136,6 +140,7 @@ ssf_node_anchors:
           driver:
             run_options: {}
         map_jinja:
+          dir: ''
           filename: 'map.jinja'
           verification: {}
         platforms:
@@ -164,7 +169,7 @@ ssf_node_anchors:
               Default: *line_length_default
               Max: *line_length_bugbear
             Metrics/BlockLength:
-              ExcludedMethods:
+              IgnoredMethods:
                 - control
                 - describe
               Default: 25
@@ -642,15 +647,7 @@ ssf:
           0:
             <<: *isk_suite_default
             name: 'ubuntu'
-    dhcpd:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          1:
-            <<: *isk_suite_default
-            name: 'share'
+    dhcpd: *formula_default
     django: *formula_default
     docker:
       <<: *formula_default
@@ -688,15 +685,7 @@ ssf:
     epel: *formula_default
     exim: *formula_default
     fail2ban: *formula_default
-    firewalld:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          1:
-            <<: *isk_suite_default
-            name: 'share'
+    firewalld: *formula_default
     golang:
       <<: *formula_default
       context:
@@ -749,23 +738,20 @@ ssf:
             name: 'adopt'
           1:
             <<: *isk_suite_default
-            name: 'share'
+            name: 'amazon'
           2:
             <<: *isk_suite_default
-            name: 'amazon'
+            name: 'graalvm'
           3:
             <<: *isk_suite_default
-            name: 'graalvm'
+            name: 'haikuvm'
           4:
             <<: *isk_suite_default
-            name: 'haikuvm'
+            name: 'intellij'
           5:
             <<: *isk_suite_default
-            name: 'intellij'
-          6:
-            <<: *isk_suite_default
             name: 'oracle'
-          7:
+          6:
             <<: *isk_suite_default
             name: 'zulu'
     jetbrains-appcode: *formula_default
@@ -875,9 +861,6 @@ ssf:
           <<: *isk_default
           1:
             <<: *isk_suite_default
-            name: 'share'
-          2:
-            <<: *isk_suite_default
             name: 'clean'
     locale:
       <<: *formula_default
@@ -909,11 +892,8 @@ ssf:
           <<: *isk_default
           1:
             <<: *isk_suite_default
-            name: 'share'
-          2:
-            <<: *isk_suite_default
             name: 'repo'
-          3:
+          2:
             <<: *isk_suite_default
             name: ''
     maven:
@@ -970,33 +950,9 @@ ssf:
             <<: *isk_suite_default
             name: ''
     openldap: *formula_default
-    openntpd:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          1:
-            <<: *isk_suite_default
-            name: 'share'
-    openssh:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          1:
-            <<: *isk_suite_default
-            name: 'share'
-    openvpn:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          1:
-            <<: *isk_suite_default
-            name: 'share'
+    openntpd: *formula_default
+    openssh: *formula_default
+    openvpn: *formula_default
     packages:
       <<: *formula_default
       context:
@@ -1005,32 +961,29 @@ ssf:
           <<: *isk_default
           1:
             <<: *isk_suite_default
-            name: 'share'
+            name: 'debian'
           2:
             <<: *isk_suite_default
-            name: 'debian'
+            name: 'ubuntu'
           3:
             <<: *isk_suite_default
-            name: 'ubuntu'
+            name: 'fedora'
           4:
             <<: *isk_suite_default
-            name: 'fedora'
+            name: 'redhat8'
           5:
             <<: *isk_suite_default
-            name: 'redhat8'
+            name: 'centos'
           6:
             <<: *isk_suite_default
-            name: 'centos'
+            name: 'amazon'
           7:
             <<: *isk_suite_default
-            name: 'amazon'
+            name: 'suse'
           8:
             <<: *isk_suite_default
-            name: 'suse'
-          9:
-            <<: *isk_suite_default
             name: 'arch'
-          10:
+          9:
             <<: *isk_suite_default
             name: 'gentoo'
     php:
@@ -1041,30 +994,19 @@ ssf:
           <<: *isk_default
           1:
             <<: *isk_suite_default
-            name: 'share'
+            name: 'debian'
           2:
             <<: *isk_suite_default
-            name: 'debian'
+            name: 'ubuntu'
           3:
             <<: *isk_suite_default
-            name: 'ubuntu'
-          4:
-            <<: *isk_suite_default
             name: 'redhat'
-          5:
+          4:
             <<: *isk_suite_default
             name: 'suse'
     postfix: *formula_default
     postgres: *formula_default
-    powerdns:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          1:
-            <<: *isk_suite_default
-            name: 'share'
+    powerdns: *formula_default
     proftpd:
       <<: *formula_default
       context:
@@ -1106,9 +1048,6 @@ ssf:
           <<: *isk_default
           1:
             <<: *isk_suite_default
-            name: 'share'
-          2:
-            <<: *isk_suite_default
             name: 'latest'
     redis: *formula_default
     rkhunter:
@@ -1126,15 +1065,7 @@ ssf:
           3:
             <<: *isk_suite_default
             name: 'suse'
-    rng-tools:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          1:
-            <<: *isk_suite_default
-            name: 'share'
+    rng-tools: *formula_default
     rspamd: *formula_default
     salt:
       <<: *formula_default
@@ -1144,17 +1075,14 @@ ssf:
           <<: *isk_default
           0:
             <<: *isk_suite_default
-            name: 'share'
+            name: 'v3002-py3'
           1:
             <<: *isk_suite_default
-            name: 'v3002-py3'
+            name: 'v3001-py3'
           2:
             <<: *isk_suite_default
-            name: 'v3001-py3'
-          3:
-            <<: *isk_suite_default
             name: 'v3000-py3'
-          4:
+          3:
             <<: *isk_suite_default
             name: 'v3000-py2'
     sqldeveloper: *formula_default
@@ -1162,15 +1090,7 @@ ssf:
     ssf: *formula_default
     strongswan: *formula_default
     stunnel: *formula_default
-    sudoers:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          1:
-            <<: *isk_suite_default
-            name: 'share'
+    sudoers: *formula_default
     suricata: *formula_default
     sysctl: *formula_default
     syslog-ng: *formula_default
@@ -1185,20 +1105,9 @@ ssf:
           <<: *isk_default
           1:
             <<: *isk_suite_default
-            name: 'share'
-          2:
-            <<: *isk_suite_default
             name: 'gentoo'
     timezone: *formula_default
-    tomcat:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          1:
-            <<: *isk_suite_default
-            name: 'share'
+    tomcat: *formula_default
     ufw:
       <<: *formula_default
       context:
