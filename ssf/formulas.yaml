@@ -16,15 +16,6 @@ ssf_node_anchors:
               supports_debian_ubuntu: &supports_debian_ubuntu
                 - debian
                 - ubuntu
-              supports_debian_ubuntu_centos: &supports_debian_ubuntu_centos
-                - debian
-                - ubuntu
-                - centos
-              supports_debian_ubuntu_centos_arch: &supports_debian_ubuntu_centos_arch
-                - debian
-                - ubuntu
-                - centos
-                - arch
               # yamllint disable-line rule:line-length
               supports_debian_ubuntu_centos_fedora_opensuse: &supports_debian_ubuntu_centos_fedora_opensuse
                 - debian
@@ -32,67 +23,10 @@ ssf_node_anchors:
                 - centos
                 - fedora
                 - opensuse
-              supports_centos_fedora_amazon: &supports_centos_fedora_amazon
-                - centos
-                - fedora
-                - amazon
               supports_centos_amazon_oracle: &supports_centos_amazon_oracle
                 - centos
                 - amazon
                 - oracle
-              # yamllint disable-line rule:line-length
-              supports_centos_fedora_amazon_oracle: &supports_centos_fedora_amazon_oracle
-                - centos
-                - fedora
-                - amazon
-                - oracle
-              supports_all_except_amazon: &supports_all_except_amazon
-                - debian
-                - ubuntu
-                - centos
-                - fedora
-                - opensuse
-                - suse
-                - freebsd
-                - arch
-              supports_all_including_oracle: &supports_all_including_oracle
-                - debian
-                - ubuntu
-                - centos
-                - fedora
-                - opensuse
-                - suse
-                - freebsd
-                - amazon
-                - oracle
-                - arch
-              # yamllint disable-line rule:line-length
-              supports_all_including_oracle_and_gentoo: &supports_all_including_oracle_and_gentoo
-                - debian
-                - ubuntu
-                - centos
-                - fedora
-                - opensuse
-                - suse
-                - freebsd
-                - amazon
-                - oracle
-                - arch
-                - gentoo
-              # yamllint disable-line rule:line-length
-              supports_all_including_oracle_gentoo_and_windows: &supports_all_including_oracle_gentoo_and_windows
-                - debian
-                - ubuntu
-                - centos
-                - fedora
-                - opensuse
-                - suse
-                - freebsd
-                - amazon
-                - oracle
-                - arch
-                - gentoo
-                - windows
             provisioner:
               dependencies_epel: &dependencies_epel
                 - name: 'epel'
@@ -3196,7 +3130,6 @@ ssf:
             inspec_yml:
               summary: >-
                 Verify that the nut formula is setup and configured correctly
-              # supports: *supports_all_except_amazon
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/default.sls'
@@ -3204,7 +3137,6 @@ ssf:
             inspec_yml:
               summary: >-
                 Verify that the nut services are not started in mode='none'
-              # supports: *supports_all_except_amazon
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/mode-eq-none.sls'
@@ -3353,7 +3285,6 @@ ssf:
             inspec_yml:
               summary: >-
                 Verify that the openvpn formula is setup and configured correctly
-              # supports: *supports_all_including_oracle_gentoo_and_windows
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/default.sls'
@@ -3402,7 +3333,6 @@ ssf:
             inspec_yml:
               summary: >-
                 Verify that the packages formula is setup and configured correctly
-              # supports: *supports_all_including_oracle
             provisioner:
               pillars_from_files: []
           1:
@@ -4150,7 +4080,6 @@ ssf:
             inspec_yml:
               summary: >-
                 Verify that Salt `v3002-py3` is setup and configured
-              # supports: *supports_all_including_oracle_and_gentoo
             provisioner:
               pillars:
                 - '*':
@@ -4169,7 +4098,6 @@ ssf:
             inspec_yml:
               summary: >-
                 Verify that Salt `v3001-py3` is setup and configured
-              # supports: *supports_all_including_oracle_and_gentoo
             provisioner:
               pillars:
                 - '*':
@@ -4186,7 +4114,6 @@ ssf:
             inspec_yml:
               summary: >-
                 Verify that Salt `v3000-py3` is setup and configured
-              # supports: *supports_all_including_oracle_gentoo_and_windows
             provisioner:
               pillars:
                 - '*':
@@ -4205,7 +4132,6 @@ ssf:
             inspec_yml:
               summary: >-
                 Verify that Salt `v3000-py2` is setup and configured
-              # supports: *supports_all_including_oracle_and_gentoo
             provisioner:
               pillars:
                 - '*':
@@ -4514,7 +4440,6 @@ ssf:
             inspec_yml:
               summary: >-
                 Verify that the suricata formula is setup and configured correctly
-              # supports: *supports_debian_ubuntu_centos
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/default.sls'
@@ -4708,7 +4633,6 @@ ssf:
             inspec_yml:
               summary: >-
                 Verify that the TEMPLATE formula is setup and configured correctly
-              # supports: *supports_all_including_oracle_and_gentoo
             provisioner:
               pillars:
                 - '*':
