@@ -62,8 +62,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "ci(kitchen+ci): use latest pre-salted images (after CVE) [skip ci]"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/299'
+            title: "ci(kitchen+ci): include '`'passenger'`' suite [skip ci]"
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/303'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
@@ -928,7 +928,18 @@ ssf:
     mongodb: *formula_default
     mysql: *formula_default
     nfs: *formula_default
-    nginx: *formula_default
+    nginx:
+      <<: *formula_default
+      context:
+        <<: *context_default
+        inspec_suites_kitchen:
+          <<: *isk_default
+          1:
+            <<: *isk_suite_default
+            name: 'passenger'
+          2:
+            <<: *isk_suite_default
+            name: ''
     nifi: *formula_default
     node:
       <<: *formula_default
