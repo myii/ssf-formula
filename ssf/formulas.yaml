@@ -3268,6 +3268,7 @@ ssf:
           0:
             driver:
               hostname: 'example.net'
+              vm_hostname: 'example.net'
             inspec_yml:
               summary: >-
                 Verify that the openssh formula is setup and configured correctly
@@ -3282,8 +3283,30 @@ ssf:
         map_jinja:
           verification:
             import: ['mapdata']
+        platforms_matrix:
+          # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
+          - [debian       ,    0   ,   master,      0,         default]
+          - [ubuntu       ,    0   ,   master,      0,         default]
+          - [centos       ,    0   ,   master,      0,         default]
+          - [fedora       ,    0   ,   master,      0,         default]
+          - [opensuse/leap,    0   ,   master,      0,         default]
+          - [opensuse/tmbl,    0   ,   master,      0,         default]
+          - [amazonlinux  ,    0   ,   master,      0,         default]
+          - [oraclelinux  ,    0   ,   master,      0,         default]
+          - [gentoo/stage3,    0   ,   master,      0,         default]
+          - [arch-base    ,    0   ,   3002.2,      0,         default]
+          - [freebsd      ,    0   ,   latest,      3,         default]
+          - [openbsd      ,    0   ,   latest,      3,         default]
+        testing_freebsd:
+          active: true
+        testing_openbsd:
+          active: true
         use_libsaltcli: true
         use_tofs: true
+        yamllint:
+          ignore:
+            additional:
+              - test/salt/pillar/default.sls
       semrel_files: *semrel_files_inc_map_jinja_verifier
     openvpn:
       context:
