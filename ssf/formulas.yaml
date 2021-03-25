@@ -3651,6 +3651,17 @@ ssf:
           - [oraclelinux  ,    0   ,   master,      0,         default]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
           - [arch-base    ,    0   ,   3002.5,      0,         default]
+          - [freebsd      ,    0   ,   latest,      3,         default]
+          # # - [openbsd      ,    0   ,   latest,      3,         default]
+          # # - [windows      ,    0   ,   latest,      3,         default]
+        testing_freebsd:
+          active: true
+        # # Too much work for now (both OpenBSD and Windows)
+        # testing_openbsd:
+        #   active: true
+        # testing_windows:
+        #   active: true
+        #   winrepo_ng: ['postgresql']
         use_tofs: true
         yamllint:
           ignore:
