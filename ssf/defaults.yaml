@@ -1028,6 +1028,9 @@ ssf:
           9:
             <<: *isk_suite_default
             name: 'gentoo'
+          10:
+            <<: *isk_suite_default
+            name: 'windows'
     php:
       <<: *formula_default
       context:
