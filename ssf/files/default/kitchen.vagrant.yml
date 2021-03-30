@@ -1,0 +1,63 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+---
+driver:
+  name: vagrant
+  cache_directory: false
+  customize:
+    usbxhci: 'off'
+  gui: false
+  linked_clone: true
+  ssh:
+    shell: /bin/sh
+
+platforms:
+  {%- for platform in vagrantboxes %}
+  {%-   set os       = platform[0] | d('') %}
+  {%-   set os_ver   = platform[1] | d('') %}
+  {%-   set salt_ver = platform[2] | d('') %}
+  {%-   set py_ver   = platform[3] | d('') %}
+  {#-   Go to the next platform where not set as active #}
+  {%-   if (os == 'freebsd' and not testing_freebsd.active) or
+           (os == 'openbsd' and not testing_openbsd.active) or
+           (os == 'windows' and not testing_windows.active) %}
+  {%-     continue %}
+  {%-   endif %}
+  - name: {{ os | replace('/', '-') }}-{{ os_ver | replace('.', '') }}-{{ salt_ver | replace('.', '-') }}-py{{ py_ver }}
+    driver:
+      {%- if os == 'freebsd' %}
+      box: {{ 'bento/{}-{}'.format(os, os_ver) }}
+      {%- elif os == 'openbsd' %}
+      box: {{ 'generic/{}{}'.format(os, os_ver | int) }}
+      ssh:
+        {{ testing_openbsd.vagrant.platforms.driver.ssh | yaml(False) | indent(8) }}
+      {%- elif os == 'windows' %}
+      box: {{ testing_windows.vagrant.platforms.driver.box }}
+      cache_directory: "/omnibus/cache"
+      customize: {}
+      ssh: {}
+      {%- endif %}
+    {%- if os == 'windows' %}
+    provisioner:
+      salt_install: none
+      # yamllint disable rule:line-length
+      init_environment: |
+        # Workaround to allow `kitchen converge` to be used multiple times
+        # without having to `kitchen destroy` first: remove state files cached by
+        # Salt during the previous `converge` (if present)
+        rm -recurse `
+          C:\Users\vagrant\AppData\Local\Temp\kitchen\var\cache\salt\minion\files\base `
+          -ErrorAction SilentlyContinue
+        {%- for pkg in testing_windows.winrepo_ng %}
+        salt-call --local state.single file.managed `
+          C:\Users\vagrant\AppData\Local\Temp\kitchen\srv\salt\win\repo-ng\{{ pkg }}.sls `
+          source=https://github.com/saltstack/salt-winrepo-ng/raw/master/{{ pkg }}.sls `
+          skip_verify=True makedirs=True
+        {%- endfor %}
+        exit 0
+      # yamllint enable rule:line-length
+    {%- endif %}
+  {%- endfor %}
+
+provisioner:
+  salt_install: bootstrap

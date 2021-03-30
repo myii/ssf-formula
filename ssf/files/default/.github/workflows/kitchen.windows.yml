@@ -1,0 +1,66 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+---
+{%- from tplroot ~ "/libcimatrix.jinja" import format_ci_matrix with context %}
+name: 'Kitchen (Windows)'
+'on': ['push', 'pull_request']
+
+env:
+  machine_user: {{ testing_windows.github.driver.username }}
+  machine_pass: {{ testing_windows.github.driver.password }}
+  machine_port: {{ testing_windows.github.driver.port }}
+  KITCHEN_LOCAL_YAML: 'kitchen.windows.yml'
+
+jobs:
+  {%- for platform in proxyplatformswindows %}
+  {#-   set os       = platform[0] | d('') #}
+  {%-   set os_ver   = platform[1] | d('') %}
+  {#-   set salt_ver = platform[2] | d('') #}
+  {#-   set py_ver   = platform[3] | d('') #}
+  test-{{ os_ver }}:
+    runs-on: 'windows-{{ os_ver }}'
+    strategy:
+      fail-fast: false
+      matrix:
+        instance:
+          {{- format_ci_matrix(platforms, inspec_suites_kitchen, inspec_suites_matrix, platforms_matrix, platforms_matrix_commented_includes, semrel_formula, width=10, use_github_format=True, use_proxy_platforms_windows=platform) }}
+    {%- raw %}
+    steps:
+      - name: 'Check out code'
+        uses: 'actions/checkout@v2'
+      - name: 'Install Chef'
+        uses: 'actionshub/chef-install@1.1.0'
+        with:
+          project: 'chef'
+          version: '16.10.8'
+      - name: 'Add Chef bindir to PATH'
+        uses: 'myci-actions/export-env-var-powershell@1'
+        with:
+          name: 'PATH'
+          value: "C:\\opscode\\chef\\bin;\
+                  C:\\opscode\\chef\\embedded\\bin;$env:PATH"
+      - name: 'Set up Bundler cache'
+        uses: 'actions/cache@v1'
+        with:
+          path: 'vendor/bundle'
+          key: "${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}"
+          restore-keys: "${{ runner.os }}-gems-"
+      - name: 'Set up test user'
+        run: |
+          $password = ConvertTo-SecureString $env:machine_pass -AsPlainText -Force
+          New-LocalUser $env:machine_user -Password $password
+          Add-LocalGroupMember -Group "Administrators" -Member $env:machine_user
+      - name: 'Set up WinRM'
+        run: >
+          Set-WSManQuickConfig -Force;
+          Set-WSManInstance -ResourceURI winrm/config/service
+          -ValueSet @{AllowUnencrypted="true"}
+      - name: 'Run Bundler'
+        run: |
+          ruby --version
+          bundle config path vendor/bundle
+          bundle install --jobs 4 --retry 3
+      - name: 'Run Test Kitchen'
+        run: 'bundle exec kitchen verify ${{ matrix.instance }}'
+    {%- endraw %}
+  {%- endfor %}

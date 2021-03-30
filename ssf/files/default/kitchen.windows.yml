@@ -1,0 +1,35 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+---
+driver:
+  name: {{ testing_windows.github.driver.name }}
+  host: {{ testing_windows.github.driver.host }}
+  reset_command: {{ testing_windows.github.driver.reset_command }}
+  port: {{ testing_windows.github.driver.port }}
+  username: {{ testing_windows.github.driver.username }}
+  password: {{ testing_windows.github.driver.password }}
+
+platforms:
+  {%- for platform in proxyplatformswindows %}
+  {%-   set os       = platform[0] | d('') %}
+  {%-   set os_ver   = platform[1] | d('') %}
+  {%-   set salt_ver = platform[2] | d('') %}
+  {%-   set py_ver   = platform[3] | d('') %}
+  - name: {{ os | replace('/', '-') }}-{{ os_ver | replace('.', '') }}-{{ salt_ver | replace('.', '-') }}-py{{ py_ver }}
+  {%- endfor %}
+
+provisioner:
+  salt_install: {{ testing_windows.github.platforms.provisioner.salt_install }}
+  salt_bootstrap_options: {{ testing_windows.github.platforms.provisioner.salt_bootstrap_options }}
+  {#- This template needs this `if` block since `init_environment` may not be needed at all #}
+  {%- if testing_windows.winrepo_ng %}
+  # yamllint disable rule:line-length
+  init_environment: |
+    {%- for pkg in testing_windows.winrepo_ng %}
+    C:\salt\salt-call --local state.single file.managed `
+      C:\Users\kitchen\AppData\Local\Temp\kitchen\srv\salt\win\repo-ng\{{ pkg }}.sls `
+      source=https://github.com/saltstack/salt-winrepo-ng/raw/master/{{ pkg }}.sls `
+      skip_verify=True makedirs=True
+    {%- endfor %}
+  # yamllint enable rule:line-length
+  {%- endif %}

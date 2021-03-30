@@ -1,0 +1,54 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+---
+{%- from tplroot ~ "/libcimatrix.jinja" import format_ci_matrix with context %}
+
+{#- Concatenate active platforms #}
+{%- set active_platforms = [] %}
+{%- if testing_freebsd.active %}
+{%-   do active_platforms.append("FreeBSD") %}
+{%- endif %}
+{%- if testing_openbsd.active %}
+{%-   do active_platforms.append("OpenBSD") %}
+{%- endif %}
+{%- if testing_windows.active %}
+{%-   do active_platforms.append("Windows") %}
+{%- endif %}
+{#- https://stackoverflow.com/questions/30083949/how-to-join-list-in-python-but-make-the-last-separator-different/30084022 #}
+{%- if active_platforms | length == 1 %}
+{%-   set active_platforms_concat = active_platforms[0] %}
+{%- else %}
+{%-   set active_platforms_concat = " & ".join([", ".join(active_platforms[:-1]), active_platforms[-1]]) %}
+{%- endif %}
+name: '{{ "Kitchen Vagrant ({})".format(active_platforms_concat) }}'
+'on': ['push', 'pull_request']
+
+env:
+  KITCHEN_LOCAL_YAML: 'kitchen.vagrant.yml'
+
+jobs:
+  test:
+    runs-on: 'macos-10.15'
+    strategy:
+      fail-fast: false
+      matrix:
+        instance:
+          {{- format_ci_matrix(platforms, inspec_suites_kitchen, inspec_suites_matrix, platforms_matrix, platforms_matrix_commented_includes, semrel_formula, width=10, use_github_format=True, use_vagrant_platforms=True) }}
+    {%- raw %}
+    steps:
+      - name: 'Check out code'
+        uses: 'actions/checkout@v2'
+      - name: 'Set up Bundler cache'
+        uses: 'actions/cache@v1'
+        with:
+          path: 'vendor/bundle'
+          key: "${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}"
+          restore-keys: "${{ runner.os }}-gems-"
+      - name: 'Run Bundler'
+        run: |
+          ruby --version
+          bundle config path vendor/bundle
+          bundle install --jobs 4 --retry 3
+      - name: 'Run Test Kitchen'
+        run: 'bundle exec kitchen verify ${{ matrix.instance }}'
+    {%- endraw %}
