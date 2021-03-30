@@ -175,6 +175,8 @@ ssf:
     semrel_files:
       - .github/workflows/commitlint.yml
       - .github/workflows/kitchen.yml
+      - .github/workflows/kitchen.vagrant.yml
+      - .github/workflows/kitchen.windows.yml
       - bin/install-hooks
       - bin/kitchen
       - docs/CONTRIBUTING.rst
@@ -198,11 +200,13 @@ ssf:
       - .salt-lint
       - .travis.yml
       - .yamllint
-      - commitlint.config.js
       - CODEOWNERS
+      - commitlint.config.js
       - Gemfile
       - Gemfile.lock
       - kitchen.yml
+      - kitchen.vagrant.yml
+      - kitchen.windows.yml
       - pre-commit_semantic-release.sh
       - release-rules.js
       - release.config.js
