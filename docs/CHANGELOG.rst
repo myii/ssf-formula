@@ -2,6 +2,20 @@
 Changelog
 =========
 
+`1.255.0 <https://github.com/myii/ssf-formula/compare/v1.254.0...v1.255.0>`_ (2021-03-30)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **openssh:** add FreeBSD & OpenBSD testing (Vagrant) (\ `f4db6e0 <https://github.com/myii/ssf-formula/commit/f4db6e03644a23d2387a890b80b9a7101ce4cf51>`_\ )
+* **openvpn:** add FreeBSD & Windows testing (Vagrant & Proxy) (\ `7c5d951 <https://github.com/myii/ssf-formula/commit/7c5d9515506dbaf2959b92a2d0b7231f1baddb57>`_\ )
+* **packages:** add Windows testing (Vagrant & Proxy) (\ `fa8ad47 <https://github.com/myii/ssf-formula/commit/fa8ad47d718754a87d7e7236deb7bd642bb38a6a>`_\ )
+* **postgres:** add FreeBSD testing (Vagrant) (\ `05847d9 <https://github.com/myii/ssf-formula/commit/05847d953135e546ae55abb08abe6e2e9e8c3b2a>`_\ )
+* **salt:** add FreeBSD, OpenBSD & Windows testing (Vagrant & Proxy) (\ `62c42c3 <https://github.com/myii/ssf-formula/commit/62c42c35af6306753a920e3b9fe82a5893dc0278>`_\ )
+* **vagrant+proxy:** add testing via. GitHub Actions (\ `0596ff8 <https://github.com/myii/ssf-formula/commit/0596ff8df2680c2c901c1ed459189e34edfdc2f3>`_\ )
+
 `1.254.0 <https://github.com/myii/ssf-formula/compare/v1.253.0...v1.254.0>`_ (2021-03-23)
 ---------------------------------------------------------------------------------------------
 
