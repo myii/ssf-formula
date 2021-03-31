@@ -106,10 +106,10 @@ ssf_node_anchors:
           - [amazonlinux  ,    0   ,      0  ,      0]
           # # - [oraclelinux  ,    0   ,      0  ,      0]
           - [oraclelinux  ,    8   ,      0  ,      0]
-        platforms_gentoo: &platforms_gentoo
+        platforms_os_gentoo: &platforms_os_gentoo
           # [os           ,  os_ver, salt_ver, py_ver]
           - [gentoo/stage3,    0   ,      0  ,      0]
-        platforms_windows: &platforms_windows
+        platforms_os_windows: &platforms_os_windows
           # [os           ,  os_ver, salt_ver, py_ver]
           - [windows      ,    0   ,      0  ,      3]
         platforms_matrix_osfamily_debian: &platforms_matrix_osfamily_debian
@@ -3489,7 +3489,7 @@ ssf:
                     - .
             verifier: *verifier_inspec_tests_default
           9:
-            includes: *platforms_gentoo
+            includes: *platforms_os_gentoo
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/gentoo.sls'
@@ -3499,7 +3499,7 @@ ssf:
                     - .
             verifier: *verifier_inspec_tests_default
           10:
-            includes: *platforms_windows
+            includes: *platforms_os_windows
             inspec_yml:
               summary: >-
                 Verify that the packages formula is setup and configured correctly
@@ -3837,7 +3837,7 @@ ssf:
                     - .
             verifier: *verifier_inspec_tests_default
           5:
-            includes: *platforms_gentoo
+            includes: *platforms_os_gentoo
             provisioner:
               pillars:
                 - '*':
@@ -4718,7 +4718,7 @@ ssf:
             repo: 'template-formula'
         inspec_suites_kitchen:
           0:
-            excludes: *platforms_gentoo
+            excludes: *platforms_os_gentoo
             inspec_yml:
               summary: >-
                 Verify that the TEMPLATE formula is setup and configured correctly
@@ -4735,7 +4735,7 @@ ssf:
                     - ._mapdata
                     - TEMPLATE
           1:
-            includes: *platforms_gentoo
+            includes: *platforms_os_gentoo
             provisioner:
               pillars:
                 - '*':
