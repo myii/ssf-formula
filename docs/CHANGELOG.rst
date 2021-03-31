@@ -2,6 +2,27 @@
 Changelog
 =========
 
+`1.256.0 <https://github.com/myii/ssf-formula/compare/v1.255.0...v1.256.0>`_ (2021-03-31)
+---------------------------------------------------------------------------------------------
+
+Code Refactoring
+^^^^^^^^^^^^^^^^
+
+
+* **formulas:** use consistent YAML node anchor naming [skip ci] (\ `69f1b43 <https://github.com/myii/ssf-formula/commit/69f1b4383e3543c98b887ebf3d11bf30251a66f2>`_\ )
+
+Documentation
+^^^^^^^^^^^^^
+
+
+* **pillar.example:** add missed ``semrel_files`` from prev. PR [skip ci] (\ `33ad8ad <https://github.com/myii/ssf-formula/commit/33ad8add508f768b3c8966240b959ff12f354011>`_\ )
+
+Features
+^^^^^^^^
+
+
+* **php:** add FreeBSD testing (Vagrant) (\ `1344454 <https://github.com/myii/ssf-formula/commit/1344454b548a0e058a30417ebc841c2742b7654a>`_\ )
+
 `1.255.0 <https://github.com/myii/ssf-formula/compare/v1.254.0...v1.255.0>`_ (2021-03-30)
 ---------------------------------------------------------------------------------------------
 
