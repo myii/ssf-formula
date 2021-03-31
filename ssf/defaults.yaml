@@ -63,7 +63,7 @@ ssf_node_anchors:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
             title: "ci: enable Vagrant-based testing using GitHub Actions"
-            body: '* Semi-automated using https://github.com/myii/ssf-formula/pull/304'
+            body: '* Semi-automated using https://github.com/myii/ssf-formula/pull/306'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
@@ -1049,6 +1049,9 @@ ssf:
           4:
             <<: *isk_suite_default
             name: 'suse'
+          5:
+            <<: *isk_suite_default
+            name: 'freebsd'
     postfix: *formula_default
     postgres: *formula_default
     powerdns: *formula_default
