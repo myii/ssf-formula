@@ -1338,6 +1338,16 @@ ssf:
           - [oraclelinux  ,    0   ,   master,      0,              '']
           # # - [gentoo/stage3,    0   ,   master,      0,              '']
           - [arch-base    ,    0   ,   3002.5,      0,              '']
+          - [freebsd      ,    0   ,   latest,      3,              '']
+          - [openbsd      ,    0   ,   latest,      3,         package]
+          - [windows      ,    0   ,   latest,      3,              '']
+        testing_freebsd:
+          active: true
+        testing_openbsd:
+          active: true
+        testing_windows:
+          active: true
+          winrepo_ng: ['golang']
         use_tofs: true
       semrel_files: *semrel_files_default
     grafana:
