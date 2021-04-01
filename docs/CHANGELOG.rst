@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.257.0 <https://github.com/myii/ssf-formula/compare/v1.256.0...v1.257.0>`_ (2021-04-01)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **golang:** add FreeBSD, OpenBSD & Windows testing (Vagrant) (\ `32a6a61 <https://github.com/myii/ssf-formula/commit/32a6a6190738507f51e8a94b273b192a652f0c37>`_\ )
+
 `1.256.0 <https://github.com/myii/ssf-formula/compare/v1.255.0...v1.256.0>`_ (2021-03-31)
 ---------------------------------------------------------------------------------------------
 
