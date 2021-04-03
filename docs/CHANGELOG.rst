@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.258.0 <https://github.com/myii/ssf-formula/compare/v1.257.0...v1.258.0>`_ (2021-04-03)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **nginx:** add FreeBSD testing (Vagrant) (\ `91057a4 <https://github.com/myii/ssf-formula/commit/91057a463966a0f123d95eb8e9bc631dc4939d59>`_\ )
+
 `1.257.0 <https://github.com/myii/ssf-formula/compare/v1.256.0...v1.257.0>`_ (2021-04-01)
 ---------------------------------------------------------------------------------------------
 
