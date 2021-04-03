@@ -14,6 +14,7 @@ gem 'kitchen-inspec', '>= 2.2.1'
 gem 'kitchen-salt', '>= 0.6.3'
 {%- if semrel_formula in [
       'golang',
+      'nginx',
       'openssh',
       'openvpn',
       'packages',
