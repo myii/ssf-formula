@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.261.0](https://github.com/myii/ssf-formula/compare/v1.260.0...v1.261.0) (2021-04-05)
+
+
+### Features
+
+* **vagrant:** use pre-salted boxes & conditional local settings ([51cf404](https://github.com/myii/ssf-formula/commit/51cf404b66037677c21db9699d473b7cc5212147))
+
 # [1.260.0](https://github.com/myii/ssf-formula/compare/v1.259.0...v1.260.0) (2021-04-05)
 
 
