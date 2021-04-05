@@ -25,11 +25,9 @@
 stages:
   - *stage_lint
   - *stage_release
-variables:
-  DOCKER_DRIVER: 'overlay2'
 
 ###############################################################################
-# `lint` stage: `commitlint` & `pre-commit`
+# `lint` stage: `commitlint`, `pre-commit` & `rubocop` (latest, failure allowed)
 ###############################################################################
 commitlint:
   stage: *stage_lint
