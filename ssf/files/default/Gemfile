@@ -22,7 +22,7 @@ gem 'kitchen-salt', '>= 0.6.3'
       'php',
       'postgres',
       'salt',
-   ] %}
+    ] %}
 {%-   if semrel_formula in ['openvpn'] %}
 gem 'rspec-retry'
 {%-   endif %}

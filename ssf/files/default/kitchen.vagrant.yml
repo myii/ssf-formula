@@ -7,9 +7,15 @@ driver:
   customize:
     usbxhci: 'off'
   gui: false
-  linked_clone: true
   ssh:
     shell: /bin/sh
+  <% unless ENV['CI'] %>
+  linked_clone: true
+  synced_folders:
+    - - '.kitchen/kitchen-vagrant/%{instance_name}/vagrant'
+      - '/vagrant'
+      - 'create: true, disabled: false'
+  <% end %>
 
 platforms:
   {%- for platform in vagrantboxes %}
@@ -25,21 +31,24 @@ platforms:
   {%-   endif %}
   - name: {{ os | replace('/', '-') }}-{{ os_ver | replace('.', '') }}-{{ salt_ver | replace('.', '-') }}-py{{ py_ver }}
     driver:
-      {%- if os == 'freebsd' %}
-      box: {{ 'bento/{}-{}'.format(os, os_ver) }}
-      {%- elif os == 'openbsd' %}
-      box: {{ 'generic/{}{}'.format(os, os_ver | int) }}
+      {#- `box` first #}
+      {%- if os == 'windows' %}
+      box: {{ testing_windows.vagrant.platforms.driver.box }}
+      {%- else %}
+      box: {{ 'myii/{}-{}-{}-py{}'.format(os, os_ver, salt_ver, py_ver) }}
+      {%- endif %}
+      {#- Remaining settings #}
+      {%- if os == 'openbsd' %}
       ssh:
         {{ testing_openbsd.vagrant.platforms.driver.ssh | yaml(False) | indent(8) }}
+      synced_folders: []
       {%- elif os == 'windows' %}
-      box: {{ testing_windows.vagrant.platforms.driver.box }}
       cache_directory: "/omnibus/cache"
       customize: {}
       ssh: {}
       {%- endif %}
     {%- if os == 'windows' %}
     provisioner:
-      salt_install: none
       # yamllint disable rule:line-length
       init_environment: |
         # Workaround to allow `kitchen converge` to be used multiple times
@@ -58,6 +67,3 @@ platforms:
       # yamllint enable rule:line-length
     {%- endif %}
   {%- endfor %}
-
-provisioner:
-  salt_install: bootstrap
