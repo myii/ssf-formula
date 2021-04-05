@@ -20,13 +20,14 @@ extends: '{{ yamllint.extends }}'
 # 3. All YAML files under directory `node_modules/`, introduced during the Travis run
 # 4. Any SLS files under directory `test/`, which are actually state files
 # 5. Any YAML files under directory `.kitchen/`, introduced during local testing
+# 6. `kitchen.vagrant.yml`, which contains Embedded Ruby (ERB) template syntax
 {%- if semrel_formula == 'ssf' %}
-# 6. All Jinja templates under `ssf/files/` (result in `yamllint` syntax errors)
+# 7. All Jinja templates under `ssf/files/` (result in `yamllint` syntax errors)
 #    Not disabling via. `*.yml` since we may end up with non-Jinja YAML files here
 {%- elif semrel_formula == 'mysql' %}
-# 6. Any YAML files using Jinja (result in `yamllint` syntax errors)
+# 7. Any YAML files using Jinja (result in `yamllint` syntax errors)
 {%- elif semrel_formula in ['postgres', 'salt'] %}
-# 6. All YAML files heavily reliant on Jinja; these can be tackled in a subsequent PR
+# 7. All YAML files heavily reliant on Jinja; these can be tackled in a subsequent PR
 {%- endif %}
 {%- set yl_ignores = {'ignore':
   yamllint.ignore.default +
