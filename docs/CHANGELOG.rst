@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.260.0 <https://github.com/myii/ssf-formula/compare/v1.259.0...v1.260.0>`_ (2021-04-05)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **kitchen-vagrant:** update ``CODEOWNERS`` and ``.yamllint`` accordingly (\ `acc0b05 <https://github.com/myii/ssf-formula/commit/acc0b051ac5cbe1a02218f103de1b6f8fd48696b>`_\ )
+
 `1.259.0 <https://github.com/myii/ssf-formula/compare/v1.258.0...v1.259.0>`_ (2021-04-03)
 ---------------------------------------------------------------------------------------------
 
