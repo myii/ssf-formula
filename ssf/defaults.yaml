@@ -46,6 +46,8 @@ ssf_node_anchors:
               - '/Gemfile': '@saltstack-formulas/ssf'
               - '/Gemfile.lock': '@saltstack-formulas/ssf'
               - '/kitchen.yml': '@saltstack-formulas/ssf'
+              - '/kitchen.vagrant.yml': '@saltstack-formulas/ssf'
+              - '/kitchen.windows.yml': '@saltstack-formulas/ssf'
               - '/pre-commit_semantic-release.sh': '@saltstack-formulas/ssf'
               - '/release-rules.js': '@saltstack-formulas/ssf'
               - '/release.config.js': '@saltstack-formulas/ssf'
@@ -62,8 +64,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "ci: enable Vagrant-based testing using GitHub Actions"
-            body: '* Semi-automated using https://github.com/myii/ssf-formula/pull/309'
+            title: "chore: update '`'CODEOWNERS'`' & '`'.yamllint'`' re: '`'kitchen-vagrant'`' [skip ci]"
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/310'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
@@ -233,6 +235,7 @@ ssf_node_anchors:
             additional_ssf:
               - 'test/**/states/**/*.sls'
               - '.kitchen/'
+              - 'kitchen.vagrant.yml'
             additional: []
           yaml-files:
             default:

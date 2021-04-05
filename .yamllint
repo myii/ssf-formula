@@ -10,7 +10,8 @@ extends: 'default'
 # 3. All YAML files under directory `node_modules/`, introduced during the Travis run
 # 4. Any SLS files under directory `test/`, which are actually state files
 # 5. Any YAML files under directory `.kitchen/`, introduced during local testing
-# 6. All Jinja templates under `ssf/files/` (result in `yamllint` syntax errors)
+# 6. `kitchen.vagrant.yml`, which contains Embedded Ruby (ERB) template syntax
+# 7. All Jinja templates under `ssf/files/` (result in `yamllint` syntax errors)
 #    Not disabling via. `*.yml` since we may end up with non-Jinja YAML files here
 ignore: |
   .cache/
@@ -18,6 +19,7 @@ ignore: |
   node_modules/
   test/**/states/**/*.sls
   .kitchen/
+  kitchen.vagrant.yml
   ssf/files/default/.cirrus.yml
   ssf/files/default/.gitlab-ci.yml
   ssf/files/default/.pre-commit-config.yaml
@@ -27,11 +29,7 @@ ignore: |
   ssf/files/default/.yamllint
   ssf/files/default/inspec/inspec.yml
   ssf/files/default/kitchen.yml
-  ssf/files/default/kitchen.vagrant.yml
-  ssf/files/default/kitchen.windows.yml
   ssf/files/default/.github/workflows/kitchen.yml
-  ssf/files/default/.github/workflows/kitchen.vagrant.yml
-  ssf/files/default/.github/workflows/kitchen.windows.yml
   ssf/files/tofs_arvados-formula/.travis.yml
   ssf/files/tofs_ssf-formula/.yamllint
 
