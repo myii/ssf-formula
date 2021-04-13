@@ -16,6 +16,7 @@ gem 'kitchen-salt', '>= 0.6.3'
       'apache',
       'golang',
       'nginx',
+      'node',
       'openssh',
       'openvpn',
       'packages',
