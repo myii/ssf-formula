@@ -33,7 +33,7 @@ platforms:
     driver:
       {#- `box` first #}
       {%- if os == 'windows' %}
-      box: {{ testing_windows.vagrant.platforms.driver.box }}
+      box: {{ 'techneg/win{}x64-pro-salt'.format(os_ver | replace('.', '')) }}
       {%- else %}
       box: {{ 'myii/{}-{}-{}-py{}'.format(os, os_ver, salt_ver, py_ver) }}
       {%- endif %}
