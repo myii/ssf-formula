@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.262.0 <https://github.com/myii/ssf-formula/compare/v1.261.0...v1.262.0>`_ (2021-04-14)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **vagrant:** add Windows 10 pre-salted box (\ `e96ecdd <https://github.com/myii/ssf-formula/commit/e96ecdd67895d88340548d8ba307ad944d0d5c27>`_\ )
+
 `1.261.0 <https://github.com/myii/ssf-formula/compare/v1.260.0...v1.261.0>`_ (2021-04-05)
 ---------------------------------------------------------------------------------------------
 
