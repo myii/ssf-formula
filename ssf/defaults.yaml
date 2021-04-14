@@ -64,8 +64,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "ci(vagrant): use pre-salted boxes & conditional local settings [skip ci]"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/311'
+            title: "ci(vagrant): add Windows 10 pre-salted box [skip ci]"
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/313'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
@@ -213,7 +213,6 @@ ssf_node_anchors:
           vagrant:
             platforms:
               driver:
-                box: 'techneg/win81x64-pro-salt'
                 gui: 'false'
                 linked_clone: 'true'
           winrepo_ng: []
@@ -321,6 +320,7 @@ ssf:
     ### `openbsd`
     - [openbsd      ,    6.8 ,   3001.1,      3]  # obsd-06.8-master-py3
     ### `windows`
+    - [windows      ,   10   ,   latest,      3]  # wind-10.0-latest-py3
     - [windows      ,    8.1 ,   latest,      3]  # wind-08.1-latest-py3
   saltimages:
     ### `tiamat-py3`
