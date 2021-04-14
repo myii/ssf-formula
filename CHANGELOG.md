@@ -1,5 +1,13 @@
 # Changelog
 
+# [1.263.0](https://github.com/myii/ssf-formula/compare/v1.262.0...v1.263.0) (2021-04-14)
+
+
+### Features
+
+* **cert:** review PR 36 ([01004be](https://github.com/myii/ssf-formula/commit/01004be7a365552f645b214869fb39a31b138194))
+* **cert:** review PR 37 ([6ec7485](https://github.com/myii/ssf-formula/commit/6ec7485b0470bce4eab53a41bc2a4b494d3c4c1d))
+
 # [1.262.0](https://github.com/myii/ssf-formula/compare/v1.261.0...v1.262.0) (2021-04-14)
 
 
