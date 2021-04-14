@@ -6,8 +6,9 @@ ${ "# vim: ft=sls" }
 <% dir = map_jinja["dir"] %>\
 <% filename = map_jinja["filename"] %>\
 <% import_vars = map_jinja["verification"]["import"] %>\
+<% with_or_without = map_jinja["context"] %>\
 % for import_var in import_vars:
-{%- from tplroot ~ "${ dir }/${ filename }" import ${ import_var } with context %}
+{%- from tplroot ~ "${ dir }/${ filename }" import ${ import_var } ${with_or_without} context %}
 % endfor
 
 {%- set _mapdata = {

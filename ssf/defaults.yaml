@@ -142,6 +142,7 @@ ssf_node_anchors:
           driver:
             run_options: {}
         map_jinja:
+          context: 'with'
           dir: ''
           filename: 'map.jinja'
           verification: {}
