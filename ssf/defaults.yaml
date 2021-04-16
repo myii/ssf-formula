@@ -64,8 +64,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "ci(vagrant): add Windows 10 pre-salted box [skip ci]"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/313'
+            title: "ci(travis): maintain sync with GitLab CI [skip ci]"
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/315'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
