@@ -28,6 +28,9 @@ platforms:
            (os == 'openbsd' and not testing_openbsd.active) or
            (os == 'windows' and not testing_windows.active) %}
   {%-     continue %}
+  {#-   Avoid `master` boxes for the `salt-formula` #}
+  {%-   elif [semrel_formula, salt_ver] == ['salt', 'master'] %}
+  {%-     continue %}
   {%-   endif %}
   - name: {{ os | replace('/', '-') }}-{{ os_ver | replace('.', '') }}-{{ salt_ver | replace('.', '-') }}-py{{ py_ver }}
     driver:
@@ -46,6 +49,8 @@ platforms:
       cache_directory: "/omnibus/cache"
       customize: {}
       ssh: {}
+      {%- elif [os, os_ver] == ['freebsd', 13.0] %}
+      synced_folders: []  # https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=255208
       {%- endif %}
     {%- if os == 'windows' %}
     provisioner:

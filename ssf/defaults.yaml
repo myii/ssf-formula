@@ -64,8 +64,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "ci(travis): maintain sync with GitLab CI [skip ci]"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/315'
+            title: "ci(vagrant): add FreeBSD 13.0 [skip ci]"
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/316'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
@@ -314,8 +314,10 @@ ssf:
     - [windows      , 2016   ,   latest,      3]  # wind-2016-latest-py3
   vagrantboxes:
     ### `freebsd`
+    - [freebsd      ,   13.0 ,   master,      3]  # fbsd-13.0-master-py3
     - [freebsd      ,   12.2 ,   master,      3]  # fbsd-12.2-master-py3
     - [freebsd      ,   11.4 ,   master,      3]  # fbsd-11.4-master-py3
+    - [freebsd      ,   13.0 ,   3002.6,      3]  # fbsd-13.0-3002.6-py3
     - [freebsd      ,   12.2 ,   3002.6,      3]  # fbsd-12.2-3002.6-py3
     - [freebsd      ,   11.4 ,   3002.6,      3]  # fbsd-11.4-3002.6-py3
     ### `openbsd`
