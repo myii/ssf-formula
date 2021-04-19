@@ -2,6 +2,16 @@
 Changelog
 =========
 
+`1.265.0 <https://github.com/myii/ssf-formula/compare/v1.264.0...v1.265.0>`_ (2021-04-19)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **salt:** avoid FreeBSD ``master`` boxes (unused in the formula) (\ `cbaf92f <https://github.com/myii/ssf-formula/commit/cbaf92f5f81c17e20ab0f837c4bbcbab47a2e1d7>`_\ )
+* **vagrant:** add FreeBSD 13.0 testing across formulas (\ `8a85113 <https://github.com/myii/ssf-formula/commit/8a85113aee58af5b9a7c26f14b99ed46e53b4fca>`_\ )
+
 `1.264.0 <https://github.com/myii/ssf-formula/compare/v1.263.0...v1.264.0>`_ (2021-04-16)
 ---------------------------------------------------------------------------------------------
 
