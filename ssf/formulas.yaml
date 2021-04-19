@@ -5132,6 +5132,9 @@ ssf:
           - [oraclelinux  ,    0   ,   master,      0,              '']
           # # - [gentoo/stage3,    0   ,   master,      0,              '']
           - [arch-base    ,    0   ,   3002.5,      0,              '']
+          - [freebsd      ,    0   ,   master,      3,              '']
+        testing_freebsd:
+          active: true
       semrel_files: *semrel_files_default
     vim:
       context:
