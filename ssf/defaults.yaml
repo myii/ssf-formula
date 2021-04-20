@@ -64,8 +64,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "ci(vagrant): add FreeBSD 13.0 [skip ci]"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/316'
+            title: "chore: standardise structure [skip ci]"
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/317'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
@@ -1096,15 +1096,7 @@ ssf:
           2:
             <<: *isk_suite_default
             name: ''
-    rabbitmq:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          1:
-            <<: *isk_suite_default
-            name: 'latest'
+    rabbitmq: *formula_default
     redis: *formula_default
     rkhunter:
       <<: *formula_default

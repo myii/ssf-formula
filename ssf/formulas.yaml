@@ -3990,41 +3990,26 @@ ssf:
                     - ._mapdata
                     - states.files
                     - .
-                    - .config_files
-          1:
-            provisioner:
-              dependencies: *dependencies_files_and_states
-              state_top:
-                - '*':
-                    - ._mapdata
-                    - states.files
-                    - .latest
-                    - .config_files
-            verifier: *verifier_inspec_tests_default
-        inspec_suites_matrix:
-          - default
-          - latest
         map_jinja:
-          filename: 'package-map.jinja'
           verification:
-            import: ['pkgs']
+            import: ['mapdata']
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           # # - [debian       ,    0   ,   master,      0,         default]
-          - [debian       ,   10   ,   master,      0,          latest]
-          - [debian       ,    9   ,   master,      0,         default]
-          - [ubuntu       ,    0   ,   master,      0,         default]
+          - [debian       ,   10   ,   master,      0,         default]
+          # # - [ubuntu       ,    0   ,   master,      0,         default]
+          - [ubuntu       ,   20.04,   master,      0,         default]
+          - [ubuntu       ,   18.04,   master,      0,         default]
           # # - [centos       ,    0   ,   master,      0,         default]
-          - [centos       ,    7   ,   master,      0,         default]
-          # # - [fedora       ,    0   ,   master,      0,         default]
-          - [fedora       ,   33   ,   master,      0,          latest]
-          - [fedora       ,   32   ,   master,      0,         default]
+          - [fedora       ,    0   ,   master,      0,         default]
           # # - [opensuse/leap,    0   ,   master,      0,         default]
           # # - [opensuse/tmbl,    0   ,   master,      0,         default]
           # # - [amazonlinux  ,    0   ,   master,      0,         default]
           # # - [oraclelinux  ,    0   ,   master,      0,         default]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
-          # # - [arch-base    ,    0   ,   3002.5,      0,         default]
+          # # - [arch-base    ,    0   ,   3002.2,      0,         default]
+        use_libsaltcli: true
+        use_tofs: true
       semrel_files: *semrel_files_inc_map_jinja_verifier
     redis:
       context:
