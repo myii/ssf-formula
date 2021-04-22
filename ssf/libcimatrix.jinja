@@ -170,7 +170,7 @@
 {%-                 set comment = '# ' %}
 {#-                 Only include commented instances from the main platforms #}
 {#-                 Otherwise only use the first suite for the other platforms #}
-{%-                 if not (salt_ver == 'master' or [os, salt_ver] == ['arch-base', 3002.5]) %}
+{%-                 if not (salt_ver == 'master' or [os, salt_ver] == ['arch-base', 3003.0]) %}
 {%-                   if platform not in commented_platform_done %}
 {%-                     do commented_platform_done.append(platform) %}
 {%-                   else %}

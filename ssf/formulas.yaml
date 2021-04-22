@@ -138,7 +138,7 @@ ssf_node_anchors:
           - [amazonlinux  ,    0   ,   master,      0,         default]
           - [oraclelinux  ,    0   ,   master,      0,         default]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
-          # # - [arch-base    ,    0   ,   3002.5,      0,         default]
+          # # - [arch-base    ,    0   ,   3003.0,      0,         default]
         # yamllint disable-line rule:line-length
         platforms_matrix_without_arch_and_tumbleweed: &platforms_matrix_without_arch_and_tumbleweed
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
@@ -151,7 +151,7 @@ ssf_node_anchors:
           - [amazonlinux  ,    0   ,   master,      0,         default]
           - [oraclelinux  ,    0   ,   master,      0,         default]
           - [gentoo/stage3,    0   ,   master,      0,         default]
-          # # - [arch-base    ,    0   ,   3002.5,      0,         default]
+          # # - [arch-base    ,    0   ,   3003.0,      0,         default]
         platforms_matrix_without_gentoo: &platforms_matrix_without_gentoo
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,    0   ,   master,      0,         default]
@@ -163,7 +163,7 @@ ssf_node_anchors:
           - [amazonlinux  ,    0   ,   master,      0,         default]
           - [oraclelinux  ,    0   ,   master,      0,         default]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
-          - [arch-base    ,    0   ,   3002.5,      0,         default]
+          - [arch-base    ,    0   ,   3003.0,      0,         default]
         # yamllint disable-line rule:line-length
         platforms_matrix_without_gentoo_non_systemd: &platforms_matrix_without_gentoo_non_systemd
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
@@ -176,7 +176,7 @@ ssf_node_anchors:
           - [amazonlinux  ,    0   ,   master,      0,         default]
           - [oraclelinux  ,    0   ,   master,      0,         default]
           - [gentoo/stage3, systemd,   master,      0,         default]
-          - [arch-base    ,    0   ,   3002.5,      0,         default]
+          - [arch-base    ,    0   ,   3003.0,      0,         default]
         # yamllint disable-line rule:line-length
         platforms_matrix_without_centos_and_oracle: &platforms_matrix_without_centos_and_oracle
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
@@ -189,7 +189,7 @@ ssf_node_anchors:
           - [amazonlinux  ,    0   ,   master,      0,         default]
           # # - [oraclelinux  ,    0   ,   master,      0,         default]
           - [gentoo/stage3,    0   ,   master,      0,         default]
-          - [arch-base    ,    0   ,   3002.5,      0,         default]
+          - [arch-base    ,    0   ,   3003.0,      0,         default]
         platforms_matrix_without_rhel8: &platforms_matrix_without_rhel8
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,    0   ,   master,      0,         default]
@@ -203,7 +203,7 @@ ssf_node_anchors:
           # # - [oraclelinux  ,    0   ,   master,      0,         default]
           - [oraclelinux  ,    7   ,   master,      0,         default]
           - [gentoo/stage3,    0   ,   master,      0,         default]
-          - [arch-base    ,    0   ,   3002.5,      0,         default]
+          - [arch-base    ,    0   ,   3003.0,      0,         default]
         # yamllint disable-line rule:line-length
         platforms_matrix_without_rhel8_and_gentoo: &platforms_matrix_without_rhel8_and_gentoo
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
@@ -218,7 +218,7 @@ ssf_node_anchors:
           # # - [oraclelinux  ,    0   ,   master,      0,         default]
           - [oraclelinux  ,    7   ,   master,      0,         default]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
-          - [arch-base    ,    0   ,   3002.5,      0,         default]
+          - [arch-base    ,    0   ,   3003.0,      0,         default]
         platforms_matrix_jetbrains: &platforms_matrix_jetbrains
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,    0   ,   master,      0,         default]
@@ -233,7 +233,7 @@ ssf_node_anchors:
           # # - [oraclelinux  ,    0   ,   master,      0,         default]
           - [oraclelinux  ,    7   ,   master,      0,         default]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
-          - [arch-base    ,    0   ,   3002.5,      0,            arch]
+          - [arch-base    ,    0   ,   3003.0,      0,            arch]
         # yamllint disable-line rule:line-length
         travis_do_not_use_single_job_for_linters: &travis_do_not_use_single_job_for_linters
           use_single_job_for_linters: false
@@ -423,7 +423,7 @@ ssf:
           - [amazonlinux  ,    0   ,   master,      0,         default]
           - [oraclelinux  ,    7   ,   master,      0,              '']  # modules
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
-          - [arch-base    ,    0   ,   3002.5,      0,         modules]  # POSSIBLE
+          - [arch-base    ,    0   ,   3003.0,      0,         modules]  # POSSIBLE
           - [freebsd      ,    0   ,   master,      3,              '']
         testing_freebsd:
           active: true
@@ -770,7 +770,7 @@ ssf:
           # - [oraclelinux  ,    7   ,   master,      0,           shell]
           # - [oraclelinux  ,    7   ,   master,      0,       keepstore]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
-          # # - [arch-base    ,    0   ,   3002.2,      0,         default]
+          # # - [arch-base    ,    0   ,   3003.0,      0,         default]
         use_tofs: true
         yamllint:
           ignore:
@@ -819,7 +819,7 @@ ssf:
           - [amazonlinux  ,    0   ,   master,      0,         default]
           # # - [oraclelinux  ,    0   ,   master,      0,         default]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
-          # # - [arch-base    ,    0   ,   3002.5,      0,         default]
+          # # - [arch-base    ,    0   ,   3003.0,      0,         default]
         travis: *travis_do_not_use_single_job_for_linters
         yamllint:
           rules:
@@ -901,7 +901,7 @@ ssf:
           # # - [amazonlinux  ,    0   ,   master,      0,         default]
           - [oraclelinux  ,    0   ,   master,      0,         default]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
-          # # - [arch-base    ,    0   ,   3002.5,      0,         default]
+          # # - [arch-base    ,    0   ,   3003.0,      0,         default]
       semrel_files: *semrel_files_default
     consul:
       context:
@@ -979,7 +979,7 @@ ssf:
           # # - [amazonlinux  ,    0   ,   master,      0,         default]
           # # - [oraclelinux  ,    0   ,   master,      0,         default]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
-          # # - [arch-base    ,    0   ,   3002.5,      0,         default]
+          # # - [arch-base    ,    0   ,   3003.0,      0,         default]
         use_tofs: true
       semrel_files: *semrel_files_default
     devstack:
@@ -1050,7 +1050,7 @@ ssf:
           # # - [oraclelinux  ,    0   ,   master,      0,         default]
           - [oraclelinux  ,    7   ,   master,      0,         default]
           - [gentoo/stage3,    0   ,   master,      0,         default]
-          - [arch-base    ,    0   ,   3002.5,      0,         default]
+          - [arch-base    ,    0   ,   3003.0,      0,         default]
       semrel_files: *semrel_files_inc_map_jinja_verifier
     django:
       context:
@@ -1083,7 +1083,7 @@ ssf:
           - [amazonlinux  ,    0   ,   master,      0,         default]
           - [oraclelinux  ,    0   ,   master,      0,         default]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
-          - [arch-base    ,    0   ,   3002.5,      0,         default]
+          - [arch-base    ,    0   ,   3003.0,      0,         default]
       semrel_files: *semrel_files_default
     docker:
       context:
@@ -1144,7 +1144,7 @@ ssf:
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
           - [gentoo/stage3, systemd,   master,      0,         archive]
           - [gentoo/stage3, systemd,   master,      0,           clean]
-          - [arch-base    ,    0   ,   3002.5,      0,              '']
+          - [arch-base    ,    0   ,   3003.0,      0,              '']
         use_tofs: true
         yamllint:
           ignore:
@@ -1297,7 +1297,7 @@ ssf:
           - [amazonlinux  ,    0   ,   master,      0,         default]
           - [oraclelinux  ,    0   ,   master,      0,         default]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
-          - [arch-base    ,    0   ,   3002.5,      0,         default]
+          - [arch-base    ,    0   ,   3003.0,      0,         default]
       semrel_files: *semrel_files_inc_map_jinja_verifier
     golang:
       context:
@@ -1342,7 +1342,7 @@ ssf:
           - [amazonlinux  ,    0   ,   master,      0,              '']
           - [oraclelinux  ,    0   ,   master,      0,              '']
           # # - [gentoo/stage3,    0   ,   master,      0,              '']
-          - [arch-base    ,    0   ,   3002.5,      0,              '']
+          - [arch-base    ,    0   ,   3003.0,      0,              '']
           - [freebsd      ,    0   ,   master,      3,              '']
           - [openbsd      ,    0   ,   3001.1,      3,         package]
           - [windows      ,    0   ,   latest,      3,              '']
@@ -1468,7 +1468,7 @@ ssf:
           # # - [amazonlinux  ,    0   ,   master,      0,         default]
           # # - [oraclelinux  ,    0   ,   master,      0,         default]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
-          # # - [arch-base    ,    0   ,   3002.5,      0,         default]
+          # # - [arch-base    ,    0   ,   3003.0,      0,         default]
         use_github_actions: true
         yamllint:
           ignore:
@@ -1545,7 +1545,7 @@ ssf:
           - [oraclelinux  ,    8   ,   master,      0,         default]
           - [oraclelinux  ,    7   ,   master,      0,              '']
           - [gentoo/stage3,    0   ,   master,      0,              '']
-          - [arch-base    ,    0   ,   3002.5,      0,              '']
+          - [arch-base    ,    0   ,   3003.0,      0,              '']
         yamllint:
           rules:
             key-duplicates:
@@ -2046,7 +2046,7 @@ ssf:
           # # - [oraclelinux  ,    0   ,   master,      0,         default]
           - [oraclelinux  ,    7   ,   master,      0,         default]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
-          - [arch-base    ,    0   ,   3002.5,      0,            arch]
+          - [arch-base    ,    0   ,   3003.0,      0,            arch]
         use_tofs: true
         yamllint:
           ignore:
@@ -2586,7 +2586,7 @@ ssf:
           # # - [oraclelinux  ,    0   ,   master,      0,             rpm]
           - [oraclelinux  ,    8   ,   master,      0,             rpm]
           - [gentoo/stage3,    0   ,   master,      0,             git]
-          - [arch-base    ,    0   ,   3002.5,      0,             git]
+          - [arch-base    ,    0   ,   3003.0,      0,             git]
       semrel_files: *semrel_files_default
     libvirt:
       context:
@@ -2638,7 +2638,7 @@ ssf:
           # # - [amazonlinux  ,    0   ,   master,      0,         default]
           # # - [oraclelinux  ,    0   ,   master,      0,         default]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
-          # # - [arch-base    ,    0   ,   3002.5,      0,         default]
+          # # - [arch-base    ,    0   ,   3003.0,      0,         default]
         use_libsaltcli: true
         use_tofs: true
       semrel_files: *semrel_files_default
@@ -2689,7 +2689,7 @@ ssf:
           # - https://gitlab.com/myii/locale-formula/-/jobs/1040056073
           # # - [oraclelinux  ,    7   ,   master,      0,          redhat]
           - [gentoo/stage3,    0   ,   master,      0,         default]
-          - [arch-base    ,    0   ,   3002.5,      0,         default]
+          - [arch-base    ,    0   ,   3003.0,      0,         default]
       semrel_files: *semrel_files_default
     logrotate:
       context:
@@ -2806,7 +2806,7 @@ ssf:
           - [amazonlinux  ,    0   ,   master,      0,              '']
           - [oraclelinux  ,    0   ,   master,      0,              '']
           - [gentoo/stage3,    0   ,   master,      0,         default]
-          - [arch-base    ,    0   ,   3002.5,      0,         default]
+          - [arch-base    ,    0   ,   3003.0,      0,         default]
         use_tofs: true
       semrel_files: *semrel_files_default
     maven:
@@ -2893,7 +2893,7 @@ ssf:
           - [amazonlinux  ,    0   ,   master,      0,         default]
           # # - [oraclelinux  ,    0   ,   master,      0,         default]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
-          - [arch-base    ,    0   ,   3002.5,      0,         default]
+          - [arch-base    ,    0   ,   3003.0,      0,         default]
         use_tofs: true
         yamllint:
           ignore:
@@ -2955,7 +2955,7 @@ ssf:
           - [amazonlinux  ,    0   ,   master,      0,         default]
           - [oraclelinux  ,    0   ,   master,      0,         default]
           - [gentoo/stage3,    0   ,   master,      0,         default]
-          - [arch-base    ,    0   ,   3002.5,      0,         default]
+          - [arch-base    ,    0   ,   3003.0,      0,         default]
         yamllint:
           ignore:
             additional:
@@ -3022,7 +3022,7 @@ ssf:
           - [oraclelinux  ,    8   ,   master,      0,              '']
           - [oraclelinux  ,    7   ,   master,      0,         default]
           - [gentoo/stage3, systemd,   master,      0,         default]
-          - [arch-base    ,    0   ,   3002.5,      0,         default]
+          - [arch-base    ,    0   ,   3003.0,      0,         default]
           - [freebsd      ,    0   ,   master,      3,         default]
         testing_freebsd:
           active: true
@@ -3060,7 +3060,7 @@ ssf:
           - [amazonlinux  ,    0   ,   master,      0,         default]
           - [oraclelinux  ,    0   ,   master,      0,         default]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
-          # # - [arch-base    ,    0   ,   3002.5,      0,         default]
+          # # - [arch-base    ,    0   ,   3003.0,      0,         default]
         use_tofs: true
       semrel_files: *semrel_files_default
     node:
@@ -3118,7 +3118,7 @@ ssf:
           - [amazonlinux  ,    0   ,   master,      0,         archive]
           - [oraclelinux  ,    0   ,   master,      0,         default]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
-          - [arch-base    ,    0   ,   3002.5,      0,         default]
+          - [arch-base    ,    0   ,   3003.0,      0,         default]
         # Use this to start adopting the latest `platforms_matrix`
         use_tofs: true
         yamllint:
@@ -3201,7 +3201,7 @@ ssf:
           - [oraclelinux  ,    0   ,   master,      0,              '']
           - [gentoo/stage3,  latest,   master,      3,    mode-eq-none]
           - [gentoo/stage3, systemd,   master,      0,              '']
-          - [arch-base    ,    0   ,   3002.5,      0,              '']
+          - [arch-base    ,    0   ,   3003.0,      0,              '']
         use_tofs: true
         yamllint:
           ignore:
@@ -3249,7 +3249,7 @@ ssf:
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
           # Not configured at all for `arch-base`
           # https://wiki.archlinux.org/index.php/OpenLDAP
-          # # - [arch-base    ,    0   ,   3002.5,      0,         default]
+          # # - [arch-base    ,    0   ,   3003.0,      0,         default]
       semrel_files: *semrel_files_default
     openntpd:
       context:
@@ -3282,7 +3282,7 @@ ssf:
           # # - [amazonlinux  ,    0   ,   master,      0,         default]
           # # - [oraclelinux  ,    0   ,   master,      0,         default]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
-          - [arch-base    ,    0   ,   3002.5,      0,         default]
+          - [arch-base    ,    0   ,   3003.0,      0,         default]
       semrel_files: *semrel_files_inc_map_jinja_verifier
     openssh:
       context:
@@ -3319,7 +3319,7 @@ ssf:
           - [amazonlinux  ,    0   ,   master,      0,         default]
           - [oraclelinux  ,    0   ,   master,      0,         default]
           - [gentoo/stage3,    0   ,   master,      0,         default]
-          - [arch-base    ,    0   ,   3002.2,      0,         default]
+          - [arch-base    ,    0   ,   3003.0,      0,         default]
           - [freebsd      ,    0   ,   master,      3,         default]
           - [openbsd      ,    0   ,   3001.1,      3,         default]
         testing_freebsd:
@@ -3372,7 +3372,7 @@ ssf:
           # # - [oraclelinux  ,    0   ,   master,      0,         default]
           - [oraclelinux  ,    7   ,   master,      0,         default]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
-          # # - [arch-base    ,    0   ,   3002.5,      0,         default]
+          # # - [arch-base    ,    0   ,   3003.0,      0,         default]
           # # TODO: Fix 2 failing states in order to enable this
           # # - [freebsd      ,    0   ,   master,      3,         default]
           - [windows      ,    0   ,   latest,      3,         default]
@@ -3563,7 +3563,7 @@ ssf:
           - [oraclelinux  ,    8   ,   master,      0,         redhat8]
           - [oraclelinux  ,    7   ,   master,      0,          centos]
           - [gentoo/stage3,    0   ,   master,      0,          gentoo]
-          - [arch-base    ,    0   ,   3002.5,      0,            arch]
+          - [arch-base    ,    0   ,   3003.0,      0,            arch]
           - [windows      ,    0   ,   latest,      3,         windows]
         testing_windows:
           active: true
@@ -3665,7 +3665,7 @@ ssf:
           - [amazonlinux  ,    0   ,   master,      0,          redhat]
           - [oraclelinux  ,    0   ,   master,      0,          redhat]
           # # - [gentoo/stage3,    0   ,   master,      0,          gentoo]
-          # # - [arch-base    ,    0   ,   3002.5,      0,            arch]
+          # # - [arch-base    ,    0   ,   3003.0,      0,            arch]
           - [freebsd      ,    0   ,   master,      3,         freebsd]
         testing_freebsd:
           active: true
@@ -3737,7 +3737,7 @@ ssf:
           - [amazonlinux  ,    0   ,   master,      0,         default]
           - [oraclelinux  ,    0   ,   master,      0,         default]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
-          - [arch-base    ,    0   ,   3002.5,      0,         default]
+          - [arch-base    ,    0   ,   3003.0,      0,         default]
           - [freebsd      ,    0   ,   master,      3,         default]
           # # - [openbsd      ,    0   ,   3001.1,      3,         default]
           # # - [windows      ,    0   ,   latest,      3,         default]
@@ -3798,7 +3798,7 @@ ssf:
           # # - [amazonlinux  ,    0   ,   master,      0,         default]
           - [oraclelinux  ,    0   ,   master,      0,         default]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
-          # # - [arch-base    ,    0   ,   3002.5,      0,         default]
+          # # - [arch-base    ,    0   ,   3003.0,      0,         default]
         yamllint:
           ignore:
             additional:
@@ -3909,7 +3909,7 @@ ssf:
           # Gentoo (OpenRC): Service `proftpd' needs non existent service `net'
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
           - [gentoo/stage3, systemd,   master,      0,          gentoo]
-          # # - [arch-base    ,    0   ,   3002.5,      0,         default]
+          # # - [arch-base    ,    0   ,   3003.0,      0,         default]
         yamllint:
           ignore:
             additional:
@@ -3965,7 +3965,7 @@ ssf:
           # - [oraclelinux  ,    8   ,   master,      0,         default]
           # - [oraclelinux  ,    7   ,   master,      0,              '']
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
-          - [arch-base    ,    0   ,   3002.5,      0,         default]
+          - [arch-base    ,    0   ,   3003.0,      0,         default]
         use_tofs: true
         yamllint:
           ignore:
@@ -4007,7 +4007,7 @@ ssf:
           # # - [amazonlinux  ,    0   ,   master,      0,         default]
           # # - [oraclelinux  ,    0   ,   master,      0,         default]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
-          # # - [arch-base    ,    0   ,   3002.2,      0,         default]
+          # # - [arch-base    ,    0   ,   3003.0,      0,         default]
         use_libsaltcli: true
         use_tofs: true
       semrel_files: *semrel_files_inc_map_jinja_verifier
@@ -4083,7 +4083,7 @@ ssf:
           - [amazonlinux  ,    0   ,   master,      0,          redhat]
           - [oraclelinux  ,    0   ,   master,      0,          redhat]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
-          # # - [arch-base    ,    0   ,   3002.5,      0,         default]
+          # # - [arch-base    ,    0   ,   3003.0,      0,         default]
         travis: *travis_do_not_use_single_job_for_linters
         use_tofs: true
       semrel_files: *semrel_files_default
@@ -4139,7 +4139,7 @@ ssf:
           # # - [amazonlinux  ,    0   ,   master,      0,         default]
           # # - [oraclelinux  ,    0   ,   master,      0,         default]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
-          - [arch-base    ,    0   ,   3002.5,      0,         default]
+          - [arch-base    ,    0   ,   3003.0,      0,         default]
         yamllint:
           ignore:
             additional:
@@ -4263,7 +4263,7 @@ ssf:
           - [amazonlinux  ,    2   ,   3002.5,      3,       v3002-py3]
           - [oraclelinux  ,    8   ,   3002.5,      3,       v3002-py3]
           - [oraclelinux  ,    7   ,   3002.5,      3,       v3002-py3]
-          - [arch-base    ,  latest,   3002.5,      3,       v3002-py3]
+          - [arch-base    ,  latest,   3003.0,      3,       v3002-py3]
           - [gentoo/stage3,  latest,   3002.5,      3,       v3002-py3]
           - [gentoo/stage3, systemd,   3002.5,      3,       v3002-py3]
           - [freebsd      ,    0   ,   3002.6,      3,       v3002-py3]
@@ -4569,7 +4569,7 @@ ssf:
           # # - [oraclelinux  ,    0   ,   master,      0,         default]
           - [oraclelinux  ,    8   ,   master,      0,         default]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
-          # # - [arch-base    ,    0   ,   3002.5,      0,         default]
+          # # - [arch-base    ,    0   ,   3003.0,      0,         default]
         yamllint:
           ignore:
             additional:
@@ -4694,7 +4694,7 @@ ssf:
           - [amazonlinux  ,    0   ,   master,      0,         default]
           # # - [oraclelinux  ,    0   ,   master,      0,         default]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
-          # # - [arch-base    ,    0   ,   3002.5,      0,         default]
+          # # - [arch-base    ,    0   ,   3003.0,      0,         default]
         use_tofs: true
       semrel_files: *semrel_files_default
     telegraf:
@@ -4725,7 +4725,7 @@ ssf:
           - [amazonlinux  ,    0   ,   master,      0,         default]
           - [oraclelinux  ,    0   ,   master,      0,         default]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
-          # # - [arch-base    ,    0   ,   3002.5,      0,         default]
+          # # - [arch-base    ,    0   ,   3003.0,      0,         default]
         use_tofs: true
       semrel_files: *semrel_files_default
     template:
@@ -4789,7 +4789,7 @@ ssf:
           - [amazonlinux  ,    0   ,   master,      0,         default]
           - [oraclelinux  ,    0   ,   master,      0,         default]
           - [gentoo/stage3,    0   ,   master,      0,          gentoo]
-          - [arch-base    ,    0   ,   3002.5,      0,         default]
+          - [arch-base    ,    0   ,   3003.0,      0,         default]
         use_libsaltcli: true
         use_tofs: true
       semrel_files:
@@ -4930,7 +4930,7 @@ ssf:
           - [oraclelinux  ,    8   ,   master,      0,         default]
           - [oraclelinux  ,    7   ,   master,      0,    without-ipv6]
           - [gentoo/stage3,    0   ,   master,      0,    without-ipv6]
-          - [arch-base    ,    0   ,   3002.5,      0,    without-ipv6]
+          - [arch-base    ,    0   ,   3003.0,      0,    without-ipv6]
         use_tofs: true
       semrel_files: *semrel_files_default
     users:
@@ -4989,7 +4989,7 @@ ssf:
           - [amazonlinux  ,    0   ,   master,      0,           vimrc]
           - [oraclelinux  ,    0   ,   master,      0,           vimrc]
           # # - [gentoo/stage3,    0   ,   master,      0,           vimrc]
-          # # - [arch-base    ,    0   ,   3002.5,      0,           vimrc]
+          # # - [arch-base    ,    0   ,   3003.0,      0,           vimrc]
       semrel_files: *semrel_files_default
     varnish:
       context:
@@ -5051,7 +5051,7 @@ ssf:
           # # - [oraclelinux  ,    0   ,   master,      0,         default]
           - [oraclelinux  ,    8   ,   master,      0,         default]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
-          - [arch-base    ,    0   ,   3002.5,      0,         default]
+          - [arch-base    ,    0   ,   3003.0,      0,         default]
         # TODO: Upgrade to latest TOFS in a subsequent PR, since a legacy version
         # is active for the time being (needs to be checked for regressions)
         use_tofs: legacy
@@ -5116,7 +5116,7 @@ ssf:
           - [amazonlinux  ,    0   ,   master,      0,              '']
           - [oraclelinux  ,    0   ,   master,      0,              '']
           # # - [gentoo/stage3,    0   ,   master,      0,              '']
-          - [arch-base    ,    0   ,   3002.5,      0,              '']
+          - [arch-base    ,    0   ,   3003.0,      0,              '']
       semrel_files: *semrel_files_default
     vim:
       context:
@@ -5197,7 +5197,7 @@ ssf:
           # # - [amazonlinux  ,    0   ,   master,      0,         default]
           # # - [oraclelinux  ,    0   ,   master,      0,         default]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
-          # # - [arch-base    ,    0   ,   3002.5,      0,         default]
+          # # - [arch-base    ,    0   ,   3003.0,      0,         default]
         use_tofs: true
         yamllint:
           rules:
