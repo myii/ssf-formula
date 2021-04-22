@@ -1211,14 +1211,17 @@ ssf:
           <<: *isk_default
           0:
             <<: *isk_suite_default
-            name: 'v3002-py3'
+            name: 'v3003-py3'
           1:
             <<: *isk_suite_default
-            name: 'v3001-py3'
+            name: 'v3002-py3'
           2:
             <<: *isk_suite_default
-            name: 'v3000-py3'
+            name: 'v3001-py3'
           3:
+            <<: *isk_suite_default
+            name: 'v3000-py3'
+          4:
             <<: *isk_suite_default
             name: 'v3000-py2'
     sqldeveloper: *formula_default
