@@ -1,5 +1,21 @@
 # Changelog
 
+# [1.267.0](https://github.com/myii/ssf-formula/compare/v1.266.0...v1.267.0) (2021-04-23)
+
+
+### Features
+
+* **arch:** use `3003.0` across all formulas ([16438c2](https://github.com/myii/ssf-formula/commit/16438c276c82c973cae6afc0fce39b46d4978dff))
+* **kitchen:** use multi-formula block for new Fedora `crypto-policies` ([d53cdd9](https://github.com/myii/ssf-formula/commit/d53cdd97d83cc81acbe006dcc97a9b101716772d))
+* **locale:** workaround locale settings in base Arch Linux container ([6f8f785](https://github.com/myii/ssf-formula/commit/6f8f7856a3b90ce2d308b28483c982f9c4ec0c6d)), closes [/gitlab.archlinux.org/archlinux/archlinux-docker/-/blob/96bb688fb772/pacman-conf.d-noextract.conf#L4-7](https://github.com//gitlab.archlinux.org/archlinux/archlinux-docker/-/blob/96bb688fb772/pacman-conf.d-noextract.conf/issues/L4-7)
+* **salt:** adjust matrix to add Aluminium `3003` ([778ea4e](https://github.com/myii/ssf-formula/commit/778ea4e093272bd6a9eea0da405866d177a184c4))
+* **saltimages:** update with latest changes from `salt-image-builder` ([3c6b9fd](https://github.com/myii/ssf-formula/commit/3c6b9fdd076e571303d426ccff27bd10842dfbab))
+
+
+### Reverts
+
+* **salt:** avoid FreeBSD `master` boxes (unused in the formula) ([3d09db7](https://github.com/myii/ssf-formula/commit/3d09db7ee5986dd09078d7985269462a2f8b1ceb))
+
 # [1.266.0](https://github.com/myii/ssf-formula/compare/v1.265.0...v1.266.0) (2021-04-22)
 
 
