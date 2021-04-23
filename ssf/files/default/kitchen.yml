@@ -143,6 +143,11 @@ image: {{ 'saltimages' if [os, os_ver, salt_ver, py_ver] in saltimages else 'net
 {%-       elif os in ['gentoo/stage3'] %}
 {%-         do prov_cmds.append('emerge --noreplace --quiet --with-bdeps-auto=n net-firewall/conntrack-tools') %}
 {%-       endif %}
+{%-     elif semrel_formula == 'locale' %}
+{%-       if os in ['arch-base'] %}
+{%-         do prov_cmds.append('- sed -i -e "/locale/s/^/#/" /etc/pacman.conf') %}
+{%-         do prov_cmds.append('- pacman --noconfirm -Syu glibc') %}
+{%-       endif %}
 {%-     endif %}
 {#-     Specific to newer versions of Fedora (from `33`) across some of the formulas #}
 {#-     These instances install `crypto-policies-scripts` during the `kitchen converge`, #}
