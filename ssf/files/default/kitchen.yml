@@ -127,12 +127,6 @@ image: {{ 'saltimages' if [os, os_ver, salt_ver, py_ver] in saltimages else 'net
 {%-       elif os in ['arch-base'] %}
 {%-         do prov_cmds.append('- pacman --noconfirm -Syu systemd') %}
 {%-       endif %}
-{%-     elif semrel_formula == 'libvirt' %}
-{%-       if [os, os_ver] in [['fedora', 33]] %}
-{%-         do prov_cmds.append('- dnf -y update') %}
-{%-         do prov_cmds.append('- dnf install -y crypto-policies-scripts') %}
-{%-         do prov_cmds.append('- update-crypto-policies --set LEGACY') %}
-{%-       endif %}
 {%-     elif semrel_formula == 'docker' %}
 {%-       if os in ['debian', 'ubuntu'] %}
 {%-         do prov_cmds.append('- apt-get update') %}
@@ -148,6 +142,25 @@ image: {{ 'saltimages' if [os, os_ver, salt_ver, py_ver] in saltimages else 'net
 {%-         do prov_cmds.append('- pacman -S --noconfirm conntrack-tools tar') %}
 {%-       elif os in ['gentoo/stage3'] %}
 {%-         do prov_cmds.append('emerge --noreplace --quiet --with-bdeps-auto=n net-firewall/conntrack-tools') %}
+{%-       endif %}
+{%-     elif semrel_formula == 'locale' %}
+{%-       if os in ['arch-base'] %}
+{%-         do prov_cmds.append('- sed -i -e "/locale/s/^/#/" /etc/pacman.conf') %}
+{%-         do prov_cmds.append('- pacman --noconfirm -Syu glibc') %}
+{%-       endif %}
+{%-     endif %}
+{#-     Specific to newer versions of Fedora (from `33`) across some of the formulas #}
+{#-     These instances install `crypto-policies-scripts` during the `kitchen converge`, #}
+{#-     which then results in the `kitchen verify` hitting the SSH authentication error #}
+{%-     if os == 'fedora' %}
+{%-       if [semrel_formula, os_ver] in [
+            ['libvirt', 33],
+            ['libvirt', 34],
+            ['sysstat', 34],
+          ] %}
+{%-         do prov_cmds.append('- dnf -y update') %}
+{%-         do prov_cmds.append('- dnf install -y crypto-policies-scripts') %}
+{%-         do prov_cmds.append('- update-crypto-policies --set LEGACY') %}
 {%-       endif %}
 {%-     endif %}
 {#-     Prepare the commands if available#}
