@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.268.0 <https://github.com/myii/ssf-formula/compare/v1.267.0...v1.268.0>`_ (2021-04-24)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **kitchen:** remove Fedora legacy ``crypto-policies`` workaround (\ `f4003e6 <https://github.com/myii/ssf-formula/commit/f4003e63059cc876092ce49aa9f9601bce87c665>`_\ )
+
 `1.267.0 <https://github.com/myii/ssf-formula/compare/v1.266.0...v1.267.0>`_ (2021-04-23)
 ---------------------------------------------------------------------------------------------
 
