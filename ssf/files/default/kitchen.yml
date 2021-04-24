@@ -149,20 +149,6 @@ image: {{ 'saltimages' if [os, os_ver, salt_ver, py_ver] in saltimages else 'net
 {%-         do prov_cmds.append('- pacman --noconfirm -Syu glibc') %}
 {%-       endif %}
 {%-     endif %}
-{#-     Specific to newer versions of Fedora (from `33`) across some of the formulas #}
-{#-     These instances install `crypto-policies-scripts` during the `kitchen converge`, #}
-{#-     which then results in the `kitchen verify` hitting the SSH authentication error #}
-{%-     if os == 'fedora' %}
-{%-       if [semrel_formula, os_ver] in [
-            ['libvirt', 33],
-            ['libvirt', 34],
-            ['sysstat', 34],
-          ] %}
-{%-         do prov_cmds.append('- dnf -y update') %}
-{%-         do prov_cmds.append('- dnf install -y crypto-policies-scripts') %}
-{%-         do prov_cmds.append('- update-crypto-policies --set LEGACY') %}
-{%-       endif %}
-{%-     endif %}
 {#-     Prepare the commands if available#}
 {%-     if prov_cmds %}
 provision_command:
