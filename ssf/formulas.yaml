@@ -2974,8 +2974,16 @@ ssf:
               summary: >-
                 Verify that the nginx formula is setup and configured correctly
             provisioner:
+              dependencies:
+                - name: 'test_dep'
+                  path: 'test/salt/default/states'
               pillars_from_files:
                 - .sls: 'test/salt/default/pillar/nginx.sls'
+              state_top:
+                - '*':
+                    - test_dep.create_dependency_file
+                    - ._mapdata
+                    - .
           1:
             # TODO: Other platforms might have packages for `passenger`
             #       Check https://pkgs.org/search/?q=passenger
