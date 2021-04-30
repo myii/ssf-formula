@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.270.0](https://github.com/myii/ssf-formula/compare/v1.269.0...v1.270.0) (2021-04-30)
+
+
+### Features
+
+* **nginx:** review PR 278 ([f515635](https://github.com/myii/ssf-formula/commit/f515635a9bf287b38ba313c61935ae02a0365d1b))
+
 # [1.269.0](https://github.com/myii/ssf-formula/compare/v1.268.0...v1.269.0) (2021-04-26)
 
 
