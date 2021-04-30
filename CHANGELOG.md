@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.271.0](https://github.com/myii/ssf-formula/compare/v1.270.0...v1.271.0) (2021-04-30)
+
+
+### Features
+
+* **salt:** update Fedora testing after `3003` release ([8f89bf2](https://github.com/myii/ssf-formula/commit/8f89bf22be24b73c3bc85a969361e492e4d10019))
+
 # [1.270.0](https://github.com/myii/ssf-formula/compare/v1.269.0...v1.270.0) (2021-04-30)
 
 
