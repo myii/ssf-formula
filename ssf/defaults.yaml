@@ -367,6 +367,7 @@ ssf:
     - [amazonlinux  ,    2   ,   master,      3]  # amaz-02.0-master-py3
     - [oraclelinux  ,    8   ,   master,      3]  # orac-08.0-master-py3
     - [oraclelinux  ,    7   ,   master,      3]  # orac-07.0-master-py3
+    - [arch-base    ,  latest,   master,      3]  # arch-late-master-py3
     - [gentoo/stage3,  latest,   master,      3]  # gent-late-master-py3
     - [gentoo/stage3, systemd,   master,      3]  # gent-sysd-master-py3
 
