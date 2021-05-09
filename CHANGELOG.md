@@ -1,5 +1,13 @@
 # Changelog
 
+# [1.272.0](https://github.com/myii/ssf-formula/compare/v1.271.0...v1.272.0) (2021-05-09)
+
+
+### Features
+
+* **arch:** use `master` as default instance for Arch Linux ([c4c952c](https://github.com/myii/ssf-formula/commit/c4c952c99a3ee084d40c7b430ca3ddd838c01a36))
+* **saltimages:** update with latest changes from `salt-image-builder` ([61becba](https://github.com/myii/ssf-formula/commit/61becba2ad82bf72f23df445df44cfd07ec1d92f))
+
 # [1.271.0](https://github.com/myii/ssf-formula/compare/v1.270.0...v1.271.0) (2021-04-30)
 
 
