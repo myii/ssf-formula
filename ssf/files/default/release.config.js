@@ -15,7 +15,8 @@ module.exports = {
         prepareCmd: 'sh ./pre-commit_semantic-release.sh ${nextRelease.version}',
       }],
       ['@semantic-release/git', {
-        assets: ['*.md', 'docs/*.rst', 'FORMULA'],
+        {#- Temporary hack required until all formulas are converted over to use with Antora #}
+        assets: ['*.md', 'docs/*.rst', 'FORMULA'{{ ", 'docs/antora.yml', 'docs/modules/ROOT/pages/*.adoc'" if semrel_formula in ["apache"] else "" }}],
       }],
       '@semantic-release/github',
   ],

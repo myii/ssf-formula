@@ -368,6 +368,7 @@ ssf_node_anchors:
         pre-commit_semantic-release.sh: &file__pre-commit_semantic-release--sh
           <<: *file_default
           mode: 755
+          template: 'jinja'  # When removing this, also remove the pre-commit exclusion
         release-rules.js: &file__release-rules--js
           <<: *file_default
         release.config.js: &file__release--config--js
