@@ -151,12 +151,7 @@
 {%-                       do platforms_matrix_expanded.append(matrix_platform + [ch_suite]) %}
 {#-                       We want to break in all conditions except the following: #}
 {#-                       1. The `java-formula` should only have extra lines for `ubuntu` #}
-{#-                       2. The `arvados-formula` should only have extra lines for: #}
-{#-                          - `debian-10` #}
-{#-                          - `ubuntu-18.04` #}
-{#-                          - `centos-7` #}
-{%-                       if not (semrel_formula in ['java'] and ch_os in ['ubuntu']) and
-                             not (semrel_formula in ['arvados'] and [ch_os, ch_os_ver] in [['debian', 10], ['ubuntu', 18.04], ['centos', 7]]) %}
+{%-                       if not (semrel_formula in ['java'] and ch_os in ['ubuntu']) %}
 {%-                         break %}
 {%-                       endif %}
 {%-                     endif %}

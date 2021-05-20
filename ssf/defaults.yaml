@@ -754,24 +754,6 @@ ssf:
             <<: *isk_suite_default
             name: ''
     apt-cacher: *formula_default
-    arvados:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          0:
-            <<: *isk_suite_default
-            name: 'api'
-          1:
-            <<: *isk_suite_default
-            name: 'workbench'
-          2:
-            <<: *isk_suite_default
-            name: 'shell'
-          3:
-            <<: *isk_suite_default
-            name: 'keepstore'
     bind: *formula_default
     cert: *formula_default
     chrony: *formula_default

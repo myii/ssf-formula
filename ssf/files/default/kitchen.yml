@@ -271,16 +271,6 @@ suites:
   {#-   Only include the suite if the `suite.name` is set #}
   {#-   Furthermore, do not include if `includes: *includes_NONE` has been set #}
   {%-   if suite.name and not (suite.includes and not suite.includes[0]) %}
-  {#-     Add comment above suite where required (avoid, keep limited to `arvados` if possible #}
-  {%-     if semrel_formula == 'arvados' %}
-  {%-       set suite_name_comment = suite.name %}
-  {%-       if suite.name == 'api' %}
-  {%-         set suite_name_comment = suite_name_comment ~ ',websocket,keepproxy,keepweb,controller' %}
-  {%-       elif suite.name == 'workbench' %}
-  {%-         set suite_name_comment = suite_name_comment ~ ',workbench2' %}
-  {%-       endif %}
-  #### {{ suite_name_comment }}
-  {%-     endif %}
   - name: {{ suite.name }}
     {{- format_includes_excludes(suite, 'excludes') }}
     {{- format_includes_excludes(suite, 'includes') }}
