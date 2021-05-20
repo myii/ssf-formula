@@ -181,7 +181,6 @@ These formulas are already compatible with semantic-release *and* have global ``
 
 #. `apache-formula <https://github.com/saltstack-formulas/apache-formula>`_
 #. `apt-formula <https://github.com/saltstack-formulas/apt-formula>`_
-#. `arvados-formula <https://github.com/saltstack-formulas/arvados-formula>`_
 #. `bind-formula <https://github.com/saltstack-formulas/bind-formula>`_
 #. `deepsea-formula <https://github.com/saltstack-formulas/deepsea-formula>`_
 #. `devstack-formula <https://github.com/saltstack-formulas/devstack-formula>`_
@@ -236,7 +235,7 @@ These formulas are already compatible with semantic-release *and* have global ``
 
 These formulas are also compatible with semantic-release:
 
-55. `apt-cacher-formula <https://github.com/saltstack-formulas/apt-cacher-formula>`_
+54. `apt-cacher-formula <https://github.com/saltstack-formulas/apt-cacher-formula>`_
 #. `cert-formula <https://github.com/saltstack-formulas/cert-formula>`_
 #. `chrony-formula <https://github.com/saltstack-formulas/chrony-formula>`_
 #. `collectd-formula <https://github.com/saltstack-formulas/collectd-formula>`_
