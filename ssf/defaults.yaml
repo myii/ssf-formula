@@ -64,8 +64,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "ci: add '`'arch-master'`' to matrix and update '`'.travis.yml'`' [skip ci]"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/323'
+            title: "chore(pre-commit): use '`'info'`' report level for '`'rstcheck'`' [skip ci]"
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/325'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
