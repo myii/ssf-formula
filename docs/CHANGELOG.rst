@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.274.0 <https://github.com/myii/ssf-formula/compare/v1.273.0...v1.274.0>`_ (2021-05-20)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **pre-commit:** use ``info`` report level for ``rstcheck`` (\ `e8c43fc <https://github.com/myii/ssf-formula/commit/e8c43fcefd140d7b098f687eb627a87af618c2e2>`_\ )
+
 `1.273.0 <https://github.com/myii/ssf-formula/compare/v1.272.0...v1.273.0>`_ (2021-05-20)
 ---------------------------------------------------------------------------------------------
 
