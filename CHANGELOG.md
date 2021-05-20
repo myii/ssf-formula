@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.273.0](https://github.com/myii/ssf-formula/compare/v1.272.0...v1.273.0) (2021-05-20)
+
+
+### Features
+
+* **formula:** remove `arvados-formula` (archived) ([ef0011b](https://github.com/myii/ssf-formula/commit/ef0011b9cfcad66977061d0abda7157cd53fa7d9))
+
 # [1.272.0](https://github.com/myii/ssf-formula/compare/v1.271.0...v1.272.0) (2021-05-09)
 
 
