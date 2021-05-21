@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.275.0](https://github.com/myii/ssf-formula/compare/v1.274.0...v1.275.0) (2021-05-21)
+
+
+### Features
+
+* **docker:** review PR 285 ([1b8bfc7](https://github.com/myii/ssf-formula/commit/1b8bfc7f831f8129fc69044ed2c6661504f8b58f))
+
 # [1.274.0](https://github.com/myii/ssf-formula/compare/v1.273.0...v1.274.0) (2021-05-20)
 
 
