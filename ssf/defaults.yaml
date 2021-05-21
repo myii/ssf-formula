@@ -786,8 +786,11 @@ ssf:
             name: 'package'
           2:
             <<: *isk_suite_default
-            name: 'clean'
+            name: 'repo'
           3:
+            <<: *isk_suite_default
+            name: 'clean'
+          4:
             <<: *isk_suite_default
             name: ''
     eclipse:

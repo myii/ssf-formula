@@ -860,15 +860,26 @@ ssf:
                 Verify that the docker formula is setup and configured correctly
             provisioner:
               pillars_from_files:
-                - .sls: 'test/salt/pillar/archive.sls'
+                - .sls: 'test/salt/pillar/repo.sls'
+            verifier:
+              inspec_tests:
+                - package
+          3:
+            inspec_yml:
+              summary: >-
+                Verify that the docker formula is setup and configured correctly
+            provisioner:
+              pillars_from_files:
+                - .sls: 'test/salt/pillar/repo.sls'
               state_top:
                 - '*':
                     - ._mapdata
                     - .clean
-          3: {}
+          4: {}
         inspec_suites_matrix:
           - archive
           - package
+          - repo
           - clean
           - ''
         map_jinja:
