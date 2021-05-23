@@ -64,8 +64,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "chore(pre-commit): use '`'info'`' report level for '`'rstcheck'`' [skip ci]"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/325'
+            title: "ci(vagrant): add OpenBSD 6.9 [skip ci]"
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/327'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
@@ -323,7 +323,8 @@ ssf:
     - [freebsd      ,   12.2 ,   3002.6,      3]  # fbsd-12.2-3002.6-py3
     - [freebsd      ,   11.4 ,   3002.6,      3]  # fbsd-11.4-3002.6-py3
     ### `openbsd`
-    - [openbsd      ,    6.8 ,   3001.1,      3]  # obsd-06.8-master-py3
+    - [openbsd      ,    6.9 ,   3002.6,      3]  # obsd-06.9-3002.6-py3
+    - [openbsd      ,    6.8 ,   3001.1,      3]  # obsd-06.8-3001.1-py3
     ### `windows`
     - [windows      ,   10   ,   latest,      3]  # wind-10.0-latest-py3
     - [windows      ,    8.1 ,   latest,      3]  # wind-08.1-latest-py3
