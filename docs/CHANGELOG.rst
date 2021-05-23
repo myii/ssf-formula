@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.276.0 <https://github.com/myii/ssf-formula/compare/v1.275.0...v1.276.0>`_ (2021-05-23)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **vagrant:** add OpenBSD 6.9 testing across formulas (\ `6bd95a3 <https://github.com/myii/ssf-formula/commit/6bd95a3cbed7233802021fe951d26fc1ee345391>`_\ )
+
 `1.275.0 <https://github.com/myii/ssf-formula/compare/v1.274.0...v1.275.0>`_ (2021-05-21)
 ---------------------------------------------------------------------------------------------
 
