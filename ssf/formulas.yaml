@@ -4137,6 +4137,7 @@ ssf:
             additional:
               - salt/osfamilymap.yaml
               - salt/osmap.yaml
+              - salt/osfingermap.yaml
       semrel_files: *semrel_files_inc_map_jinja_verifier
     sqldeveloper:
       context:
