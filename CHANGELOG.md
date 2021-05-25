@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.277.0](https://github.com/myii/ssf-formula/compare/v1.276.0...v1.277.0) (2021-05-25)
+
+
+### Features
+
+* **salt:** review PR 506 ([be1031c](https://github.com/myii/ssf-formula/commit/be1031cb87605a1d04889000ff326adfe66732ae))
+
 # [1.276.0](https://github.com/myii/ssf-formula/compare/v1.275.0...v1.276.0) (2021-05-23)
 
 
