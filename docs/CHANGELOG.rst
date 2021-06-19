@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.278.0 <https://github.com/myii/ssf-formula/compare/v1.277.0...v1.278.0>`_ (2021-06-19)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **redis:** enable Arch Linux instance (\ `c1113c7 <https://github.com/myii/ssf-formula/commit/c1113c7fd35899e74c9e456386b7136a261db582>`_\ )
+
 `1.277.0 <https://github.com/myii/ssf-formula/compare/v1.276.0...v1.277.0>`_ (2021-05-25)
 ---------------------------------------------------------------------------------------------
 
