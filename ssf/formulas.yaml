@@ -3798,7 +3798,7 @@ ssf:
         map_jinja:
           verification:
             import: ['redis_settings']
-        platforms_matrix: *platforms_matrix_without_arch_and_gentoo
+        platforms_matrix: *platforms_matrix_without_gentoo
       semrel_files: *semrel_files_default
     rkhunter:
       context:
