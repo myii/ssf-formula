@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.279.0](https://github.com/myii/ssf-formula/compare/v1.278.0...v1.279.0) (2021-06-21)
+
+
+### Features
+
+* **saltimages:** update with latest changes from `salt-image-builder` ([9750033](https://github.com/myii/ssf-formula/commit/9750033f9975dbe74d52090c01a9cc7c9a6c6e8c)), closes [#329](https://github.com/myii/ssf-formula/issues/329)
+
 # [1.278.0](https://github.com/myii/ssf-formula/compare/v1.277.0...v1.278.0) (2021-06-19)
 
 
