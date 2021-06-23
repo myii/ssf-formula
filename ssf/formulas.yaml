@@ -3856,8 +3856,15 @@ ssf:
               summary: >-
                 Verify that the rng-tools formula is setup and configured correctly
             provisioner:
+              dependencies: *dependencies_states
               pillars_from_files:
                 - .sls: 'test/salt/pillar/rng-tools.sls'
+              state_top:
+                - '*':
+                    - ._mapdata
+                    - .
+                - 'G@init:systemd and ( G@os:Fedora or G@os:Gentoo or G@os:SUSE )':
+                    - states.custom_systemd_service
         map_jinja:
           verification:
             import: ['rng_tools']
