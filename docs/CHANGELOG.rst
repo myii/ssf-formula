@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.281.0 <https://github.com/myii/ssf-formula/compare/v1.280.0...v1.281.0>`_ (2021-06-23)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **ntp:** add helper state to run service in containers (\ `59706eb <https://github.com/myii/ssf-formula/commit/59706ebd03f522db91aa35a109c580c4d9ef5bc1>`_\ ), closes `#332 <https://github.com/myii/ssf-formula/issues/332>`_
+
 `1.280.0 <https://github.com/myii/ssf-formula/compare/v1.279.0...v1.280.0>`_ (2021-06-23)
 ---------------------------------------------------------------------------------------------
 
