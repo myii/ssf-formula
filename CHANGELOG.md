@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.280.0](https://github.com/myii/ssf-formula/compare/v1.279.0...v1.280.0) (2021-06-23)
+
+
+### Features
+
+* **rng-tools:** review PR 4 ([21ceda9](https://github.com/myii/ssf-formula/commit/21ceda9ff4eb1f23327faeeeb7fbf20d93e58649))
+
 # [1.279.0](https://github.com/myii/ssf-formula/compare/v1.278.0...v1.279.0) (2021-06-21)
 
 
