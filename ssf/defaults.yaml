@@ -117,6 +117,8 @@ ssf_node_anchors:
                 - oracle
                 - arch
                 - gentoo
+                - almalinux
+                - rocky
                 - windows
             provisioner:
               dependencies: []
@@ -163,6 +165,8 @@ ssf_node_anchors:
           # - [oraclelinux  ,    0   ,   master,      0,         default]
           # - [arch-base    ,    0   ,   master,      0,         default]
           # - [gentoo/stage3,    0   ,   master,      0,         default]
+          # - [almalinux    ,    0   ,   master,      0,         default]
+          # - [rockylinux   ,    0   ,   master,      0,         default]
         # To deal with excessive instances when mimicking `kitchen list -b`
         # If values are set, only use these as commented entries in the matrix
         platforms_matrix_commented_includes: []
@@ -332,7 +336,7 @@ ssf:
     ### Already available but not using across the Formulas' org until released
     # - [fedora       ,   35   ,   tiamat,      3]  # fedo-35.0-tiamat-py3
     - [fedora       ,   35   ,   master,      3]  # fedo-35.0-master-py3
-    # - [fedora       ,   35   ,   3003.1,      3]  # fedo-35.0-3003.1-py3
+    - [fedora       ,   35   ,   3003.1,      3]  # fedo-35.0-3003.1-py3
     - [fedora       ,   35   ,   3003.0,      3]  # fedo-35.0-3003.0-py3
     - [fedora       ,   35   ,   3002.6,      3]  # fedo-35.0-3002.6-py3
     - [fedora       ,   35   ,   3001.7,      3]  # fedo-35.0-3001.7-py3
@@ -353,6 +357,8 @@ ssf:
     - [amazonlinux  ,    2   ,   tiamat,      3]  # amaz-02.0-tiamat-py3
     - [oraclelinux  ,    8   ,   tiamat,      3]  # orac-08.0-tiamat-py3
     - [oraclelinux  ,    7   ,   tiamat,      3]  # orac-07.0-tiamat-py3
+    - [almalinux    ,    8   ,   tiamat,      3]  # alma-08.0-tiamat-py3
+    - [rockylinux   ,    8   ,   tiamat,      3]  # rock-08.0-tiamat-py3
 
     ### `master-py3`
     - [debian       ,   10   ,   master,      3]  # debi-10.0-master-py3
@@ -372,6 +378,8 @@ ssf:
     - [arch-base    ,  latest,   master,      3]  # arch-late-master-py3
     - [gentoo/stage3,  latest,   master,      3]  # gent-late-master-py3
     - [gentoo/stage3, systemd,   master,      3]  # gent-sysd-master-py3
+    - [almalinux    ,    8   ,   master,      3]  # alma-08.0-master-py3
+    - [rockylinux   ,    8   ,   master,      3]  # rock-08.0-master-py3
 
     ### `3003.1-py3`
     - [debian       ,   10   ,   3003.1,      3]  # debi-10.0-3003.1-py3
@@ -380,8 +388,8 @@ ssf:
     - [ubuntu       ,   18.04,   3003.1,      3]  # ubun-18.0-3003.1-py3
     - [centos       ,    8   ,   3003.1,      3]  # cent-08.0-3003.1-py3
     - [centos       ,    7   ,   3003.1,      3]  # cent-07.0-3003.1-py3
-    # - [fedora       ,   34   ,   3003.1,      3]  # fedo-34.0-3003.1-py3
-    # - [fedora       ,   33   ,   3003.1,      3]  # fedo-33.0-3003.1-py3
+    - [fedora       ,   34   ,   3003.1,      3]  # fedo-34.0-3003.1-py3
+    - [fedora       ,   33   ,   3003.1,      3]  # fedo-33.0-3003.1-py3
     - [opensuse/leap,   15.3 ,   3003.1,      3]  # opsu-15.3-3003.1-py3
     - [opensuse/leap,   15.2 ,   3003.1,      3]  # opsu-15.2-3003.1-py3
     - [opensuse/tmbl,  latest,   3003.1,      3]  # opsu-tmbl-3003.1-py3
@@ -389,13 +397,8 @@ ssf:
     - [oraclelinux  ,    8   ,   3003.1,      3]  # orac-08.0-3003.1-py3
     - [oraclelinux  ,    7   ,   3003.1,      3]  # orac-07.0-3003.1-py3
     - [arch-base    ,  latest,   3003.1,      3]  # arch-late-3003.1-py3
-    # - [gentoo/stage3,  latest,   3003.1,      3]  # gent-late-3003.1-py3
-    # - [gentoo/stage3, systemd,   3003.1,      3]  # gent-sysd-3003.1-py3
-    ### `3003.0-py3`
-    - [fedora       ,   34   ,   3003.0,      3]  # fedo-34.0-3003.0-py3
-    - [fedora       ,   33   ,   3003.0,      3]  # fedo-33.0-3003.0-py3
-    - [gentoo/stage3,  latest,   3003.0,      3]  # gent-late-3003.0-py3
-    - [gentoo/stage3, systemd,   3003.0,      3]  # gent-sysd-3003.0-py3
+    - [gentoo/stage3,  latest,   3003.1,      3]  # gent-late-3003.1-py3
+    - [gentoo/stage3, systemd,   3003.1,      3]  # gent-sysd-3003.1-py3
 
     ### `3002.6-py3`
     - [debian       ,   10   ,   3002.6,      3]  # debi-10.0-3002.6-py3
@@ -413,11 +416,8 @@ ssf:
     - [oraclelinux  ,    8   ,   3002.6,      3]  # orac-08.0-3002.6-py3
     - [oraclelinux  ,    7   ,   3002.6,      3]  # orac-07.0-3002.6-py3
     - [arch-base    ,  latest,   3002.6,      3]  # arch-late-3002.6-py3
-    # - [gentoo/stage3,  latest,   3002.6,      3]  # gent-late-3002.6-py3
-    # - [gentoo/stage3, systemd,   3002.6,      3]  # gent-sysd-3002.6-py3
-    ### `3002.5-py3`
-    - [gentoo/stage3,  latest,   3002.5,      3]  # gent-late-3002.5-py3
-    - [gentoo/stage3, systemd,   3002.5,      3]  # gent-sysd-3002.5-py3
+    - [gentoo/stage3,  latest,   3002.6,      3]  # gent-late-3002.6-py3
+    - [gentoo/stage3, systemd,   3002.6,      3]  # gent-sysd-3002.6-py3
     ### `3002.2-py3`
     - [opensuse/leap,   15.3 ,   3002.2,      3]  # opsu-15.3-3002.2-py3
     - [opensuse/leap,   15.2 ,   3002.2,      3]  # opsu-15.2-3002.2-py3
@@ -439,11 +439,8 @@ ssf:
     - [oraclelinux  ,    8   ,   3001.7,      3]  # orac-08.0-3001.7-py3
     - [oraclelinux  ,    7   ,   3001.7,      3]  # orac-07.0-3001.7-py3
     - [arch-base    ,  latest,   3001.7,      3]  # arch-late-3001.7-py3
-    # - [gentoo/stage3,  latest,   3001.7,      3]  # gent-late-3001.7-py3
-    # - [gentoo/stage3, systemd,   3001.7,      3]  # gent-sysd-3001.7-py3
-    ### `3001.6-py3`
-    - [gentoo/stage3,  latest,   3001.6,      3]  # gent-late-3001.6-py3
-    - [gentoo/stage3, systemd,   3001.6,      3]  # gent-sysd-3001.6-py3
+    - [gentoo/stage3,  latest,   3001.7,      3]  # gent-late-3001.7-py3
+    - [gentoo/stage3, systemd,   3001.7,      3]  # gent-sysd-3001.7-py3
 
     ### `3000.9-py3`
     - [debian       ,   10   ,   3000.9,      3]  # debi-10.0-3000.9-py3
@@ -461,6 +458,25 @@ ssf:
     ### `3000.9-py2`
     - [ubuntu       ,   18.04,   3000.9,      2]  # ubun-18.0-3000.9-py2
     - [arch-base    ,  latest,   3000.9,      2]  # arch-late-3000.9-py2
+
+  saltimages_deprecated_stable_by_git:
+    ### These aren't deprecated per se, since they are the latest `stable` images
+    ### available; however, a latest version `git`-based image is available so using
+    ### that instead to avoid numerous inconsistencies across the org
+    ### Both issues from this formula and in the rendered files such as `kitchen.yml`
+    ### `3003.0-py3`
+    - [fedora       ,   34   ,   3003.0,      3]  # fedo-34.0-3003.0-py3
+    - [fedora       ,   33   ,   3003.0,      3]  # fedo-33.0-3003.0-py3
+    - [gentoo/stage3,  latest,   3003.0,      3]  # gent-late-3003.0-py3
+    - [gentoo/stage3, systemd,   3003.0,      3]  # gent-sysd-3003.0-py3
+
+    ### `3002.5-py3`
+    - [gentoo/stage3,  latest,   3002.5,      3]  # gent-late-3002.5-py3
+    - [gentoo/stage3, systemd,   3002.5,      3]  # gent-sysd-3002.5-py3
+
+    ### `3001.6-py3`
+    - [gentoo/stage3,  latest,   3001.6,      3]  # gent-late-3001.6-py3
+    - [gentoo/stage3, systemd,   3001.6,      3]  # gent-sysd-3001.6-py3
 
   saltimages_deprecated:
     ### Deprecated, no longer being built but still available in Docker Hub
