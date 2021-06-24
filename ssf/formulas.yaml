@@ -2711,6 +2711,12 @@ ssf:
           - [oraclelinux  ,    0   ,   master,      0,         default]
           - [arch-base    ,    0   ,   master,      0,         default]
           - [gentoo/stage3,    0   ,   master,      0,         default]
+          - [freebsd      ,    0   ,   master,      3,         default]
+          - [openbsd      ,    0   ,      0  ,      3,         default]
+        testing_freebsd:
+          active: true
+        testing_openbsd:
+          active: true
         yamllint:
           ignore:
             additional:

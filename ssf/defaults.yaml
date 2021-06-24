@@ -64,8 +64,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "ci(kitchen+gitlab): remove Ubuntu 16.04 & Fedora 32 (EOL) [skip ci]"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/331'
+            title: "ci: enable Vagrant-based testing using GitHub Actions"
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/334'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
