@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.282.0](https://github.com/myii/ssf-formula/compare/v1.281.0...v1.282.0) (2021-06-24)
+
+
+### Features
+
+* **nfs:** add FreeBSD & OpenBSD testing (Vagrant) ([903c172](https://github.com/myii/ssf-formula/commit/903c172ed3a20e4ece0db0a22c7433b015316cd3))
+
 # [1.281.0](https://github.com/myii/ssf-formula/compare/v1.280.0...v1.281.0) (2021-06-23)
 
 
