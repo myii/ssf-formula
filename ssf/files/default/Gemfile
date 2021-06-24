@@ -15,6 +15,7 @@ gem 'kitchen-salt', '>= 0.6.3'
 {%- if semrel_formula in [
       'apache',
       'golang',
+      'nfs',
       'nginx',
       'openssh',
       'openvpn',
