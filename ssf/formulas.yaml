@@ -2848,7 +2848,11 @@ ssf:
           - [debian       ,    0   ,   master,      0,              '']
           # # - [ubuntu       ,    0   ,   master,      0,         default]
           - [ubuntu       ,    0   ,   master,      0,              '']
-          - [centos       ,    0   ,   master,      0,              '']
+          # # Use this again when the `passenger` issue is resolved
+          # # https://github.com/phusion/passenger/issues/2364#issuecomment-866313663
+          # # - [centos       ,    0   ,   master,      0,              '']
+          - [centos       ,    8   ,   master,      0,              '']
+          - [centos       ,    7   ,   master,      0,         default]
           - [fedora       ,    0   ,   master,      0,         default]
           - [opensuse/leap,    0   ,   master,      0,         default]
           - [opensuse/tmbl,    0   ,   master,      0,         default]
