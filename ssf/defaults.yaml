@@ -467,8 +467,6 @@ ssf:
     ### `3003.0-py3`
     - [fedora       ,   34   ,   3003.0,      3]  # fedo-34.0-3003.0-py3
     - [fedora       ,   33   ,   3003.0,      3]  # fedo-33.0-3003.0-py3
-    - [gentoo/stage3,  latest,   3003.0,      3]  # gent-late-3003.0-py3
-    - [gentoo/stage3, systemd,   3003.0,      3]  # gent-sysd-3003.0-py3
 
     ### `3002.5-py3`
     - [gentoo/stage3,  latest,   3002.5,      3]  # gent-late-3002.5-py3
@@ -503,6 +501,8 @@ ssf:
     - [oraclelinux  ,    8   ,   3003.0,      3]  # orac-08.0-3003.0-py3
     - [oraclelinux  ,    7   ,   3003.0,      3]  # orac-07.0-3003.0-py3
     - [arch-base    ,  latest,   3003.0,      3]  # arch-late-3003.0-py3
+    - [gentoo/stage3,  latest,   3003.0,      3]  # gent-late-3003.0-py3
+    - [gentoo/stage3, systemd,   3003.0,      3]  # gent-sysd-3003.0-py3
 
     ### `3002.6-py3`
     - [ubuntu       ,   16.04,   3002.6,      3]  # ubun-16.0-3002.6-py3
