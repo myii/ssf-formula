@@ -68,6 +68,9 @@ repos:
                 {%- if semrel_formula == 'template' %}
                 docs/CONTRIBUTING_DOCS.rst|
                 docs/index.rst|
+                {#- Required until the `TOFS_pattern.rst` template is fixed #}
+                {%- elif semrel_formula == 'ssf' %}
+                ssf/files/default/docs/TOFS_pattern.rst|
                 {%- endif  %}
             )$
         additional_dependencies: [pygments==2.9.0]
