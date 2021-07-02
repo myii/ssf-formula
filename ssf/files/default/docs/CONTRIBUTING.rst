@@ -165,7 +165,7 @@ To preserve good formatting of these notes, the following format is prescribed:
 
 An example of that:
 
-.. code-block:: git
+.. code-block:: console
 
    ...
 

@@ -17,16 +17,20 @@ ssf_node_anchors:
                 - debian
                 - ubuntu
               # yamllint disable-line rule:line-length
-              supports_debian_ubuntu_centos_fedora_opensuse: &supports_debian_ubuntu_centos_fedora_opensuse
+              supports_debian_ubuntu_centos_fedora_opensuse_alma_rocky: &supports_debian_ubuntu_centos_fedora_opensuse_alma_rocky
                 - debian
                 - ubuntu
                 - centos
                 - fedora
                 - opensuse
-              supports_centos_amazon_oracle: &supports_centos_amazon_oracle
+                - almalinux
+                - rocky
+              supports_redhat_except_fedora: &supports_redhat_except_fedora
                 - centos
                 - amazon
                 - oracle
+                - almalinux
+                - rocky
               supports_windows_only: &supports_windows_only
                 - windows
             provisioner:
@@ -65,6 +69,8 @@ ssf_node_anchors:
           - [fedora       ,    0   ,      0  ,      0]
           - [amazonlinux  ,    0   ,      0  ,      0]
           - [oraclelinux  ,    0   ,      0  ,      0]
+          - [almalinux    ,    0   ,      0  ,      0]
+          - [rockylinux   ,    0   ,      0  ,      0]
         # yamllint disable-line rule:line-length
         platforms_osfamily_redhat_without_fedora: &platforms_osfamily_redhat_without_fedora
           # [os           ,  os_ver, salt_ver, py_ver]
@@ -72,6 +78,8 @@ ssf_node_anchors:
           # # - [fedora       ,    0   ,      0  ,      0]
           - [amazonlinux  ,    0   ,      0  ,      0]
           - [oraclelinux  ,    0   ,      0  ,      0]
+          - [almalinux    ,    0   ,      0  ,      0]
+          - [rockylinux   ,    0   ,      0  ,      0]
         # yamllint disable-line rule:line-length
         platforms_osfamily_redhat_without_amazon: &platforms_osfamily_redhat_without_amazon
           # [os           ,  os_ver, salt_ver, py_ver]
@@ -79,6 +87,8 @@ ssf_node_anchors:
           - [fedora       ,    0   ,      0  ,      0]
           # # - [amazonlinux  ,    0   ,      0  ,      0]
           - [oraclelinux  ,    0   ,      0  ,      0]
+          - [almalinux    ,    0   ,      0  ,      0]
+          - [rockylinux   ,    0   ,      0  ,      0]
         platforms_osfamily_suse: &platforms_osfamily_suse
           # [os           ,  os_ver, salt_ver, py_ver]
           - [opensuse/leap,    0   ,      0  ,      0]
@@ -106,6 +116,8 @@ ssf_node_anchors:
           - [amazonlinux  ,    0   ,      0  ,      0]
           # # - [oraclelinux  ,    0   ,      0  ,      0]
           - [oraclelinux  ,    8   ,      0  ,      0]
+          - [almalinux    ,    0   ,      0  ,      0]
+          - [rockylinux   ,    0   ,      0  ,      0]
         platforms_os_gentoo: &platforms_os_gentoo
           # [os           ,  os_ver, salt_ver, py_ver]
           - [gentoo/stage3,    0   ,      0  ,      0]
@@ -126,6 +138,8 @@ ssf_node_anchors:
           # # - [fedora       ,    0   ,   master,      0,         default]
           - [amazonlinux  ,    0   ,   master,      0,         default]
           - [oraclelinux  ,    0   ,   master,      0,         default]
+          - [almalinux    ,    0   ,   master,      0,         default]
+          - [rockylinux   ,    0   ,   master,      0,         default]
         # yamllint disable-line rule:line-length
         platforms_matrix_without_arch_and_gentoo: &platforms_matrix_without_arch_and_gentoo
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
@@ -139,6 +153,8 @@ ssf_node_anchors:
           - [oraclelinux  ,    0   ,   master,      0,         default]
           # # - [arch-base    ,    0   ,   master,      0,         default]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
+          - [almalinux    ,    0   ,   master,      0,         default]
+          - [rockylinux   ,    0   ,   master,      0,         default]
         # yamllint disable-line rule:line-length
         platforms_matrix_without_arch_and_tumbleweed: &platforms_matrix_without_arch_and_tumbleweed
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
@@ -152,6 +168,8 @@ ssf_node_anchors:
           - [oraclelinux  ,    0   ,   master,      0,         default]
           # # - [arch-base    ,    0   ,   master,      0,         default]
           - [gentoo/stage3,    0   ,   master,      0,         default]
+          - [almalinux    ,    0   ,   master,      0,         default]
+          - [rockylinux   ,    0   ,   master,      0,         default]
         platforms_matrix_without_gentoo: &platforms_matrix_without_gentoo
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,    0   ,   master,      0,         default]
@@ -164,6 +182,8 @@ ssf_node_anchors:
           - [oraclelinux  ,    0   ,   master,      0,         default]
           - [arch-base    ,    0   ,   master,      0,         default]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
+          - [almalinux    ,    0   ,   master,      0,         default]
+          - [rockylinux   ,    0   ,   master,      0,         default]
         # yamllint disable-line rule:line-length
         platforms_matrix_without_gentoo_non_systemd: &platforms_matrix_without_gentoo_non_systemd
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
@@ -177,8 +197,10 @@ ssf_node_anchors:
           - [oraclelinux  ,    0   ,   master,      0,         default]
           - [arch-base    ,    0   ,   master,      0,         default]
           - [gentoo/stage3, systemd,   master,      0,         default]
+          - [almalinux    ,    0   ,   master,      0,         default]
+          - [rockylinux   ,    0   ,   master,      0,         default]
         # yamllint disable-line rule:line-length
-        platforms_matrix_without_centos_and_oracle: &platforms_matrix_without_centos_and_oracle
+        platforms_matrix_without_centos_oracle_alma_and_rocky: &platforms_matrix_without_centos_oracle_alma_and_rocky
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,    0   ,   master,      0,         default]
           - [ubuntu       ,    0   ,   master,      0,         default]
@@ -190,6 +212,8 @@ ssf_node_anchors:
           # # - [oraclelinux  ,    0   ,   master,      0,         default]
           - [arch-base    ,    0   ,   master,      0,         default]
           - [gentoo/stage3,    0   ,   master,      0,         default]
+          # # - [almalinux    ,    0   ,   master,      0,         default]
+          # # - [rockylinux   ,    0   ,   master,      0,         default]
         platforms_matrix_without_rhel8: &platforms_matrix_without_rhel8
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,    0   ,   master,      0,         default]
@@ -204,6 +228,8 @@ ssf_node_anchors:
           - [oraclelinux  ,    7   ,   master,      0,         default]
           - [arch-base    ,    0   ,   master,      0,         default]
           - [gentoo/stage3,    0   ,   master,      0,         default]
+          # # - [almalinux    ,    0   ,   master,      0,         default]
+          # # - [rockylinux   ,    0   ,   master,      0,         default]
         # yamllint disable-line rule:line-length
         platforms_matrix_without_rhel8_and_gentoo: &platforms_matrix_without_rhel8_and_gentoo
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
@@ -219,6 +245,8 @@ ssf_node_anchors:
           - [oraclelinux  ,    7   ,   master,      0,         default]
           - [arch-base    ,    0   ,   master,      0,         default]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
+          # # - [almalinux    ,    0   ,   master,      0,         default]
+          # # - [rockylinux   ,    0   ,   master,      0,         default]
         platforms_matrix_jetbrains: &platforms_matrix_jetbrains
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,    0   ,   master,      0,         default]
@@ -233,6 +261,8 @@ ssf_node_anchors:
           - [oraclelinux  ,    7   ,   master,      0,         default]
           - [arch-base    ,    0   ,   master,      0,            arch]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
+          # # - [almalinux    ,    0   ,   master,      0,         default]
+          # # - [rockylinux   ,    0   ,   master,      0,         default]
         # yamllint disable-line rule:line-length
         travis_do_not_use_single_job_for_linters: &travis_do_not_use_single_job_for_linters
           use_single_job_for_linters: false
@@ -423,6 +453,8 @@ ssf:
           - [oraclelinux  ,    7   ,   master,      0,              '']  # modules
           - [arch-base    ,    0   ,   master,      0,         modules]  # POSSIBLE
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
+          - [almalinux    ,    0   ,   master,      0,              '']  # modules
+          - [rockylinux   ,    0   ,   master,      0,              '']  # modules
           - [freebsd      ,    0   ,   master,      3,              '']
         testing_freebsd:
           active: true
@@ -570,6 +602,8 @@ ssf:
           # # - [oraclelinux  ,    0   ,   master,      0,         default]
           # # - [arch-base    ,    0   ,   master,      0,         default]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
+          # # - [almalinux    ,    0   ,   master,      0,         default]
+          # # - [rockylinux   ,    0   ,   master,      0,         default]
         travis: *travis_do_not_use_single_job_for_linters
         yamllint:
           rules:
@@ -618,7 +652,7 @@ ssf:
         map_jinja:
           verification:
             import: ['chrony']
-        platforms_matrix: *platforms_matrix_without_centos_and_oracle
+        platforms_matrix: *platforms_matrix_without_centos_oracle_alma_and_rocky
         use_tofs: true
       semrel_files: *semrel_files_default
     collectd:
@@ -650,6 +684,8 @@ ssf:
           - [oraclelinux  ,    0   ,   master,      0,         default]
           # # - [arch-base    ,    0   ,   master,      0,         default]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
+          - [almalinux    ,    0   ,   master,      0,         default]
+          - [rockylinux   ,    0   ,   master,      0,         default]
       semrel_files: *semrel_files_default
     consul:
       context:
@@ -728,6 +764,8 @@ ssf:
           # # - [oraclelinux  ,    0   ,   master,      0,         default]
           # # - [arch-base    ,    0   ,   master,      0,         default]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
+          # # - [almalinux    ,    0   ,   master,      0,         default]
+          # # - [rockylinux   ,    0   ,   master,      0,         default]
         use_tofs: true
       semrel_files: *semrel_files_default
     devstack:
@@ -799,6 +837,8 @@ ssf:
           - [oraclelinux  ,    7   ,   master,      0,         default]
           - [arch-base    ,    0   ,   master,      0,         default]
           - [gentoo/stage3,    0   ,   master,      0,         default]
+          # # - [almalinux    ,    0   ,   master,      0,         default]
+          # # - [rockylinux   ,    0   ,   master,      0,         default]
       semrel_files: *semrel_files_inc_map_jinja_verifier
     django:
       context:
@@ -831,6 +871,8 @@ ssf:
           - [oraclelinux  ,    0   ,   master,      0,         default]
           - [arch-base    ,    0   ,   master,      0,         default]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
+          - [almalinux    ,    0   ,   master,      0,         default]
+          - [rockylinux   ,    0   ,   master,      0,         default]
       semrel_files: *semrel_files_default
     docker:
       context:
@@ -903,6 +945,8 @@ ssf:
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
           - [gentoo/stage3, systemd,   master,      0,         archive]
           - [gentoo/stage3, systemd,   master,      0,           clean]
+          - [almalinux    ,    0   ,   master,      0,              '']
+          - [rockylinux   ,    0   ,   master,      0,              '']
         use_tofs: true
         yamllint:
           ignore:
@@ -970,7 +1014,7 @@ ssf:
             inspec_yml:
               summary: >-
                 Verify that the epel formula is setup and configured correctly
-              supports: *supports_centos_amazon_oracle
+              supports: *supports_redhat_except_fedora
             provisioner:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/default.sls'
@@ -1055,6 +1099,8 @@ ssf:
           - [oraclelinux  ,    0   ,   master,      0,         default]
           - [arch-base    ,    0   ,   master,      0,         default]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
+          - [almalinux    ,    0   ,   master,      0,         default]
+          - [rockylinux   ,    0   ,   master,      0,         default]
       semrel_files: *semrel_files_inc_map_jinja_verifier
     golang:
       context:
@@ -1100,6 +1146,8 @@ ssf:
           - [oraclelinux  ,    0   ,   master,      0,              '']
           - [arch-base    ,    0   ,   master,      0,              '']
           # # - [gentoo/stage3,    0   ,   master,      0,              '']
+          - [almalinux    ,    0   ,   master,      0,              '']
+          - [rockylinux   ,    0   ,   master,      0,              '']
           - [freebsd      ,    0   ,   master,      3,              '']
           - [openbsd      ,    0   ,      0  ,      3,         package]
           - [windows      ,    0   ,   latest,      3,              '']
@@ -1226,6 +1274,8 @@ ssf:
           # # - [oraclelinux  ,    0   ,   master,      0,         default]
           # # - [arch-base    ,    0   ,   master,      0,         default]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
+          # # - [almalinux    ,    0   ,   master,      0,         default]
+          # # - [rockylinux   ,    0   ,   master,      0,         default]
         use_github_actions: true
         yamllint:
           ignore:
@@ -1303,6 +1353,8 @@ ssf:
           - [oraclelinux  ,    7   ,   master,      0,              '']
           - [arch-base    ,    0   ,   master,      0,              '']
           - [gentoo/stage3,    0   ,   master,      0,              '']
+          - [almalinux    ,    0   ,   master,      0,         default]
+          - [rockylinux   ,    0   ,   master,      0,         default]
         yamllint:
           rules:
             key-duplicates:
@@ -1803,6 +1855,8 @@ ssf:
           - [oraclelinux  ,    7   ,   master,      0,         default]
           - [arch-base    ,    0   ,   master,      0,            arch]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
+          # # - [almalinux    ,    0   ,   master,      0,         default]
+          # # - [rockylinux   ,    0   ,   master,      0,         default]
         use_tofs: true
         yamllint:
           ignore:
@@ -2343,6 +2397,8 @@ ssf:
           - [oraclelinux  ,    8   ,   master,      0,             rpm]
           - [arch-base    ,    0   ,   master,      0,             git]
           - [gentoo/stage3,    0   ,   master,      0,             git]
+          - [almalinux    ,    0   ,   master,      0,             rpm]
+          - [rockylinux   ,    0   ,   master,      0,             rpm]
       semrel_files: *semrel_files_default
     libvirt:
       context:
@@ -2358,7 +2414,7 @@ ssf:
             inspec_yml:
               summary: >-
                 Verify that the libvirt formula is setup and configured correctly
-              supports: *supports_debian_ubuntu_centos_fedora_opensuse
+              supports: *supports_debian_ubuntu_centos_fedora_opensuse_alma_rocky
           1:
             includes:
               # [os           ,  os_ver, salt_ver, py_ver]
@@ -2366,7 +2422,7 @@ ssf:
             inspec_yml:
               summary: >-
                 Verify that the libvirt formula can cleanup correctly
-              supports: *supports_debian_ubuntu_centos_fedora_opensuse
+              supports: *supports_debian_ubuntu_centos_fedora_opensuse_alma_rocky
             provisioner:
               state_top:
                 - '*':
@@ -2395,6 +2451,8 @@ ssf:
           # # - [oraclelinux  ,    0   ,   master,      0,         default]
           # # - [arch-base    ,    0   ,   master,      0,         default]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
+          - [almalinux    ,    0   ,   master,      0,         default]
+          - [rockylinux   ,    0   ,   master,      0,         default]
         use_libsaltcli: true
         use_tofs: true
       semrel_files: *semrel_files_default
@@ -2446,6 +2504,8 @@ ssf:
           # # - [oraclelinux  ,    7   ,   master,      0,          redhat]
           - [arch-base    ,    0   ,   master,      0,         default]
           - [gentoo/stage3,    0   ,   master,      0,         default]
+          - [almalinux    ,    0   ,   master,      0,          redhat]
+          - [rockylinux   ,    0   ,   master,      0,          redhat]
       semrel_files: *semrel_files_default
     logrotate:
       context:
@@ -2563,6 +2623,8 @@ ssf:
           - [oraclelinux  ,    0   ,   master,      0,              '']
           - [arch-base    ,    0   ,   master,      0,         default]
           - [gentoo/stage3,    0   ,   master,      0,         default]
+          - [almalinux    ,    0   ,   master,      0,              '']
+          - [rockylinux   ,    0   ,   master,      0,              '']
         use_tofs: true
       semrel_files: *semrel_files_default
     maven:
@@ -2649,6 +2711,8 @@ ssf:
           # # - [oraclelinux  ,    0   ,   master,      0,         default]
           - [arch-base    ,    0   ,   master,      0,         default]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
+          # # - [almalinux    ,    0   ,   master,      0,         default]
+          # # - [rockylinux   ,    0   ,   master,      0,         default]
         use_tofs: true
         yamllint:
           ignore:
@@ -2711,6 +2775,8 @@ ssf:
           - [oraclelinux  ,    0   ,   master,      0,         default]
           - [arch-base    ,    0   ,   master,      0,         default]
           - [gentoo/stage3,    0   ,   master,      0,         default]
+          - [almalinux    ,    0   ,   master,      0,         default]
+          - [rockylinux   ,    0   ,   master,      0,         default]
           - [freebsd      ,    0   ,   master,      3,         default]
           - [openbsd      ,    0   ,      0  ,      3,         default]
         testing_freebsd:
@@ -2757,6 +2823,8 @@ ssf:
               - [ubuntu       ,   18.04,      0  ,      0]
               - [centos       ,    0   ,      0  ,      0]
               - [oraclelinux  ,    8   ,      0  ,      0]
+              - [almalinux    ,    0   ,      0  ,      0]
+              - [rockylinux   ,    0   ,      0  ,      0]
             inspec_yml:
               summary: >-
                 Verify that the nginx formula is setup and configured correctly
@@ -2780,7 +2848,11 @@ ssf:
           - [debian       ,    0   ,   master,      0,              '']
           # # - [ubuntu       ,    0   ,   master,      0,         default]
           - [ubuntu       ,    0   ,   master,      0,              '']
-          - [centos       ,    0   ,   master,      0,              '']
+          # # Use this again when the `passenger` issue is resolved
+          # # https://github.com/phusion/passenger/issues/2364#issuecomment-866313663
+          # # - [centos       ,    0   ,   master,      0,              '']
+          - [centos       ,    8   ,   master,      0,              '']
+          - [centos       ,    7   ,   master,      0,         default]
           - [fedora       ,    0   ,   master,      0,         default]
           - [opensuse/leap,    0   ,   master,      0,         default]
           - [opensuse/tmbl,    0   ,   master,      0,         default]
@@ -2790,6 +2862,8 @@ ssf:
           - [oraclelinux  ,    7   ,   master,      0,         default]
           - [arch-base    ,    0   ,   master,      0,         default]
           - [gentoo/stage3, systemd,   master,      0,         default]
+          - [almalinux    ,    0   ,   master,      0,              '']
+          - [rockylinux   ,    0   ,   master,      0,              '']
           - [freebsd      ,    0   ,   master,      3,         default]
         testing_freebsd:
           active: true
@@ -2828,6 +2902,8 @@ ssf:
           - [oraclelinux  ,    0   ,   master,      0,         default]
           # # - [arch-base    ,    0   ,   master,      0,         default]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
+          - [almalinux    ,    0   ,   master,      0,         default]
+          - [rockylinux   ,    0   ,   master,      0,         default]
         use_tofs: true
       semrel_files: *semrel_files_default
     node:
@@ -2886,6 +2962,8 @@ ssf:
           - [oraclelinux  ,    0   ,   master,      0,         default]
           - [arch-base    ,    0   ,   master,      0,         default]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
+          - [almalinux    ,    0   ,   master,      0,         default]
+          - [rockylinux   ,    0   ,   master,      0,         default]
         # Use this to start adopting the latest `platforms_matrix`
         use_tofs: true
         yamllint:
@@ -2970,6 +3048,8 @@ ssf:
           - [arch-base    ,    0   ,   master,      0,              '']
           - [gentoo/stage3,  latest,   master,      3,    mode-eq-none]
           - [gentoo/stage3, systemd,   master,      0,              '']
+          - [almalinux    ,    0   ,   master,      0,              '']
+          - [rockylinux   ,    0   ,   master,      0,              '']
         use_tofs: true
         yamllint:
           ignore:
@@ -3018,6 +3098,8 @@ ssf:
           # https://wiki.archlinux.org/index.php/OpenLDAP
           # # - [arch-base    ,    0   ,   master,      0,         default]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
+          # # - [almalinux    ,    0   ,   master,      0,         default]
+          # # - [rockylinux   ,    0   ,   master,      0,         default]
       semrel_files: *semrel_files_default
     openntpd:
       context:
@@ -3051,6 +3133,8 @@ ssf:
           # # - [oraclelinux  ,    0   ,   master,      0,         default]
           - [arch-base    ,    0   ,   master,      0,         default]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
+          # # - [almalinux    ,    0   ,   master,      0,         default]
+          # # - [rockylinux   ,    0   ,   master,      0,         default]
       semrel_files: *semrel_files_inc_map_jinja_verifier
     openssh:
       context:
@@ -3088,6 +3172,8 @@ ssf:
           - [oraclelinux  ,    0   ,   master,      0,         default]
           - [arch-base    ,    0   ,   master,      0,         default]
           - [gentoo/stage3,    0   ,   master,      0,         default]
+          - [almalinux    ,    0   ,   master,      0,         default]
+          - [rockylinux   ,    0   ,   master,      0,         default]
           - [freebsd      ,    0   ,   master,      3,         default]
           - [openbsd      ,    0   ,      0  ,      3,         default]
         testing_freebsd:
@@ -3141,6 +3227,8 @@ ssf:
           - [oraclelinux  ,    7   ,   master,      0,         default]
           # # - [arch-base    ,    0   ,   master,      0,         default]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
+          # # - [almalinux    ,    0   ,   master,      0,         default]
+          # # - [rockylinux   ,    0   ,   master,      0,         default]
           # # TODO: Fix 2 failing states in order to enable this
           # # - [freebsd      ,    0   ,   master,      3,         default]
           - [windows      ,    0   ,   latest,      3,         default]
@@ -3218,6 +3306,8 @@ ssf:
               # Some of `*platforms_os_centos` + `oraclelinux-8`
               - [centos       ,    8   ,      0  ,      0]
               - [oraclelinux  ,    8   ,      0  ,      0]
+              - [almalinux    ,    0   ,      0  ,      0]
+              - [rockylinux   ,    0   ,      0  ,      0]
             provisioner:
               dependencies: *dependencies_epel
               pillars_from_files:
@@ -3331,6 +3421,8 @@ ssf:
           - [oraclelinux  ,    7   ,   master,      0,          centos]
           - [arch-base    ,    0   ,   master,      0,            arch]
           - [gentoo/stage3,    0   ,   master,      0,          gentoo]
+          - [almalinux    ,    0   ,   master,      0,         redhat8]
+          - [rockylinux   ,    0   ,   master,      0,         redhat8]
           - [windows      ,    0   ,   latest,      3,         windows]
         testing_windows:
           active: true
@@ -3433,6 +3525,8 @@ ssf:
           - [oraclelinux  ,    0   ,   master,      0,          redhat]
           # # - [arch-base    ,    0   ,   master,      0,            arch]
           # # - [gentoo/stage3,    0   ,   master,      0,          gentoo]
+          - [almalinux    ,    0   ,   master,      0,          redhat]
+          - [rockylinux   ,    0   ,   master,      0,          redhat]
           - [freebsd      ,    0   ,   master,      3,         freebsd]
         testing_freebsd:
           active: true
@@ -3505,6 +3599,8 @@ ssf:
           - [oraclelinux  ,    0   ,   master,      0,         default]
           - [arch-base    ,    0   ,   master,      0,         default]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
+          - [almalinux    ,    0   ,   master,      0,         default]
+          - [rockylinux   ,    0   ,   master,      0,         default]
           - [freebsd      ,    0   ,   master,      3,         default]
           # # - [openbsd      ,    0   ,      0  ,      3,         default]
           # # - [windows      ,    0   ,   latest,      3,         default]
@@ -3564,6 +3660,8 @@ ssf:
           - [oraclelinux  ,    0   ,   master,      0,         default]
           # # - [arch-base    ,    0   ,   master,      0,         default]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
+          - [almalinux    ,    0   ,   master,      0,         default]
+          - [rockylinux   ,    0   ,   master,      0,         default]
         yamllint:
           ignore:
             additional:
@@ -3671,10 +3769,12 @@ ssf:
           - [opensuse/tmbl,    0   ,   master,      0,            suse]
           - [amazonlinux  ,    0   ,   master,      0,     amazonlinux]
           - [oraclelinux  ,    0   ,   master,      0,          redhat]
-          # # - [arch-base    ,    0   ,   3003.0,      0,         default]
+          # # - [arch-base    ,    0   ,   master,      0,         default]
           # Gentoo (OpenRC): Service `proftpd' needs non existent service `net'
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
           - [gentoo/stage3, systemd,   master,      0,          gentoo]
+          - [almalinux    ,    0   ,   master,      0,          redhat]
+          - [rockylinux   ,    0   ,   master,      0,          redhat]
         yamllint:
           ignore:
             additional:
@@ -3729,6 +3829,8 @@ ssf:
           # - [oraclelinux  ,    7   ,   master,      0,              '']
           - [arch-base    ,    0   ,   master,      0,         default]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
+          - [almalinux    ,    0   ,   master,      0,              '']
+          - [rockylinux   ,    0   ,   master,      0,              '']
         use_tofs: true
         yamllint:
           ignore:
@@ -3771,6 +3873,8 @@ ssf:
           # # - [oraclelinux  ,    0   ,   master,      0,         default]
           # # - [arch-base    ,    0   ,   master,      0,         default]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
+          # # - [almalinux    ,    0   ,   master,      0,         default]
+          # # - [rockylinux   ,    0   ,   master,      0,         default]
         use_libsaltcli: true
         use_tofs: true
       semrel_files: *semrel_files_inc_map_jinja_verifier
@@ -3847,6 +3951,8 @@ ssf:
           - [oraclelinux  ,    0   ,   master,      0,          redhat]
           # # - [arch-base    ,    0   ,   master,      0,         default]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
+          - [almalinux    ,    0   ,   master,      0,          redhat]
+          - [rockylinux   ,    0   ,   master,      0,          redhat]
         travis: *travis_do_not_use_single_job_for_linters
         use_tofs: true
       semrel_files: *semrel_files_default
@@ -3910,6 +4016,8 @@ ssf:
           # # - [oraclelinux  ,    0   ,   master,      0,         default]
           - [arch-base    ,    0   ,   master,      0,         default]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
+          - [almalinux    ,    0   ,   master,      0,         default]
+          - [rockylinux   ,    0   ,   master,      0,         default]
         yamllint:
           ignore:
             additional:
@@ -3941,7 +4049,7 @@ ssf:
           0:
             includes:
               # [os           ,  os_ver, salt_ver, py_ver]
-              - [0            ,    0   ,   3003.0,      3]
+              - [0            ,    0   ,   3003.1,      3]
               - [windows      ,    0   ,   latest,      3]
             inspec_yml:
               summary: >-
@@ -3959,7 +4067,6 @@ ssf:
             includes:
               # [os           ,  os_ver, salt_ver, py_ver]
               - [0            ,    0   ,   3002.6,      3]
-              - [0            ,    0   ,   3002.5,      3]
               - [0            ,    0   ,   3002.2,      3]
             inspec_yml:
               summary: >-
@@ -4034,24 +4141,31 @@ ssf:
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           ### `v3003-py3`
-          - [debian       ,   10   ,   3003.0,      3,       v3003-py3]
-          # - [debian       ,    9   ,   3003.0,      3,       v3003-py3]
-          - [ubuntu       ,   20.04,   3003.0,      3,       v3003-py3]
-          # - [ubuntu       ,   18.04,   3003.0,      3,       v3003-py3]
-          - [centos       ,    8   ,   3003.0,      3,       v3003-py3]
-          # - [centos       ,    7   ,   3003.0,      3,       v3003-py3]
+          - [debian       ,   10   ,   3003.1,      3,       v3003-py3]
+          # - [debian       ,    9   ,   3003.1,      3,       v3003-py3]
+          - [ubuntu       ,   20.04,   3003.1,      3,       v3003-py3]
+          # - [ubuntu       ,   18.04,   3003.1,      3,       v3003-py3]
+          - [centos       ,    8   ,   3003.1,      3,       v3003-py3]
+          # - [centos       ,    7   ,   3003.1,      3,       v3003-py3]
           # # Unavailable below since only installs `3003.X`
-          - [fedora       ,   34   ,   3003.0,      3,       v3003-py3]
-          - [fedora       ,   33   ,   3003.0,      3,       v3003-py3]
-          # # TODO: Fix when `3003.0` released
-          # # - [opensuse/leap,   15.2 ,   3003.0,      3,       v3003-py3]
-          # # - [opensuse/tmbl,  latest,   3003.0,      3,       v3003-py3]
-          - [amazonlinux  ,    2   ,   3003.0,      3,       v3003-py3]
-          - [oraclelinux  ,    8   ,   3003.0,      3,       v3003-py3]
-          # - [oraclelinux  ,    7   ,   3003.0,      3,       v3003-py3]
-          - [arch-base    ,  latest,   3003.0,      3,       v3003-py3]
-          - [gentoo/stage3,  latest,   3003.0,      3,       v3003-py3]
-          - [gentoo/stage3, systemd,   3003.0,      3,       v3003-py3]
+          - [fedora       ,   34   ,   3003.1,      3,       v3003-py3]
+          - [fedora       ,   33   ,   3003.1,      3,       v3003-py3]
+          # # TODO: Fix when `3003.1` released; however, see the note below about
+          # #       using either `15.3` or `15.2` due to a shared `_mapdata`
+          # #       verification file within the same InSpec suite
+          # # - [opensuse/leap,   15.3 ,   3003.1,      3,       v3003-py3]
+          # # - [opensuse/leap,   15.2 ,   3003.1,      3,       v3003-py3]
+          # # - [opensuse/tmbl,  latest,   3003.1,      3,       v3003-py3]
+          - [amazonlinux  ,    2   ,   3003.1,      3,       v3003-py3]
+          - [oraclelinux  ,    8   ,   3003.1,      3,       v3003-py3]
+          # - [oraclelinux  ,    7   ,   3003.1,      3,       v3003-py3]
+          - [arch-base    ,  latest,   3003.1,      3,       v3003-py3]
+          - [gentoo/stage3,  latest,   3003.1,      3,       v3003-py3]
+          - [gentoo/stage3, systemd,   3003.1,      3,       v3003-py3]
+          # # TODO: When supported in an official release, move these two platforms
+          # #       to that release (as a minimum, no other Salt versions)
+          - [almalinux    ,    0   ,   3003.1,      3,       v3003-py3]
+          - [rockylinux   ,    0   ,   3003.1,      3,       v3003-py3]
           - [windows      ,    0   ,   latest,      3,       v3003-py3]
 
           ### `v3002-py3`
@@ -4062,15 +4176,18 @@ ssf:
           # - [centos       ,    8   ,   3002.6,      3,       v3002-py3]
           - [centos       ,    7   ,   3002.6,      3,       v3002-py3]
           # # Note, `3002.2` is the last in this series for openSUSE
+          # # Furthermore, can't use both `15.3` & `15.2` together within the same
+          # # InSpec suite when there's a shared `_mapdata` verification file --
+          # # using the currently supported version for now (re: Salt repo)
+          # - [opensuse/leap,   15.3 ,   3002.2,      3,       v3002-py3]
           - [opensuse/leap,   15.2 ,   3002.2,      3,       v3002-py3]
           - [opensuse/tmbl,  latest,   3002.2,      3,       v3002-py3]
           - [amazonlinux  ,    2   ,   3002.6,      3,       v3002-py3]
           # - [oraclelinux  ,    8   ,   3002.6,      3,       v3002-py3]
           - [oraclelinux  ,    7   ,   3002.6,      3,       v3002-py3]
           # # - [arch-base    ,  latest,   3002.6,      3,       v3002-py3]
-          # # Note, `3002.6` hasn't been released yet for Gentoo
-          # - [gentoo/stage3,  latest,   3002.5,      3,       v3002-py3]
-          # - [gentoo/stage3, systemd,   3002.5,      3,       v3002-py3]
+          # - [gentoo/stage3,  latest,   3002.6,      3,       v3002-py3]
+          # - [gentoo/stage3, systemd,   3002.6,      3,       v3002-py3]
           - [freebsd      ,    0   ,   3002.6,      3,       v3002-py3]
           - [openbsd      ,    0   ,   3002.6,      3,       v3002-py3]
 
@@ -4082,6 +4199,7 @@ ssf:
           - [centos       ,    8   ,   3001.7,      3,       v3001-py3]
           # - [centos       ,    7   ,   3001.7,      3,       v3001-py3]
           # # Installs `3002.X`
+          # # - [opensuse/leap,   15.3 ,   3001.7,      3,       v3001-py3]
           # # - [opensuse/leap,   15.2 ,   3001.7,      3,       v3001-py3]
           # # - [opensuse/tmbl,  latest,   3001.7,      3,       v3001-py3]
           # - [amazonlinux  ,    2   ,   3001.7,      3,       v3001-py3]
@@ -4099,6 +4217,7 @@ ssf:
           # - [centos       ,    8   ,   3000.9,      3,       v3000-py3]
           - [centos       ,    7   ,   3000.9,      3,       v3000-py3]
           # # Installs `3002.X`
+          # # - [opensuse/leap,   15.3 ,   3000.9,      3,       v3000-py3]
           # # - [opensuse/leap,   15.2 ,   3000.9,      3,       v3000-py3]
           # - [amazonlinux  ,    2   ,   3000.9,      3,       v3000-py3]
           # - [oraclelinux  ,    8   ,   3000.9,      3,       v3000-py3]
@@ -4118,7 +4237,7 @@ ssf:
           github:
             platforms:
               provisioner:
-                salt_bootstrap_options: '-pythonVersion 3 -version 3003'
+                salt_bootstrap_options: '-pythonVersion 3 -version 3003.1'
           winrepo_ng: ['salt-minion-py3']
         use_tofs: true
         yamllint:
@@ -4366,15 +4485,15 @@ ssf:
           # # - [debian       ,    0   ,   master,      0,         default]
           - [ubuntu       ,    0   ,   master,      0,         default]
           # # - [centos       ,    0   ,   master,      0,         default]
-          - [centos       ,    8   ,   master,      0,         default]
           # # - [fedora       ,    0   ,   master,      0,         default]
           # # - [opensuse/leap,    0   ,   master,      0,         default]
           # # - [opensuse/tmbl,    0   ,   master,      0,         default]
           # # - [amazonlinux  ,    0   ,   master,      0,         default]
           # # - [oraclelinux  ,    0   ,   master,      0,         default]
-          - [oraclelinux  ,    8   ,   master,      0,         default]
           # # - [arch-base    ,    0   ,   master,      0,         default]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
+          # # - [almalinux    ,    0   ,   master,      0,         default]
+          # # - [rockylinux   ,    0   ,   master,      0,         default]
         yamllint:
           ignore:
             additional:
@@ -4500,6 +4619,8 @@ ssf:
           # # - [oraclelinux  ,    0   ,   master,      0,         default]
           # # - [arch-base    ,    0   ,   master,      0,         default]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
+          # # - [almalinux    ,    0   ,   master,      0,         default]
+          # # - [rockylinux   ,    0   ,   master,      0,         default]
         use_tofs: true
       semrel_files: *semrel_files_default
     telegraf:
@@ -4530,6 +4651,8 @@ ssf:
           - [oraclelinux  ,    0   ,   master,      0,         default]
           # # - [arch-base    ,    0   ,   master,      0,         default]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
+          - [almalinux    ,    0   ,   master,      0,         default]
+          - [rockylinux   ,    0   ,   master,      0,         default]
         use_tofs: true
       semrel_files: *semrel_files_default
     template:
@@ -4594,6 +4717,8 @@ ssf:
           - [oraclelinux  ,    0   ,   master,      0,         default]
           - [arch-base    ,    0   ,   master,      0,         default]
           - [gentoo/stage3,    0   ,   master,      0,          gentoo]
+          - [almalinux    ,    0   ,   master,      0,         default]
+          - [rockylinux   ,    0   ,   master,      0,         default]
         use_libsaltcli: true
         use_tofs: true
       semrel_files:
@@ -4691,6 +4816,8 @@ ssf:
               - [debian       ,   10   ,      0  ,      0]
               - [centos       ,    8   ,      0  ,      0]
               - [oraclelinux  ,    8   ,      0  ,      0]
+              - [almalinux    ,    0   ,      0  ,      0]
+              - [rockylinux   ,    0   ,      0  ,      0]
             inspec_yml:
               summary: >-
                 Verify that the ufw formula is setup and configured correctly
@@ -4735,6 +4862,8 @@ ssf:
           - [oraclelinux  ,    7   ,   master,      0,    without-ipv6]
           - [arch-base    ,    0   ,   master,      0,    without-ipv6]
           - [gentoo/stage3,    0   ,   master,      0,    without-ipv6]
+          - [almalinux    ,    0   ,   master,      0,         default]
+          - [rockylinux   ,    0   ,   master,      0,         default]
         use_tofs: true
       semrel_files: *semrel_files_default
     users:
@@ -4794,6 +4923,8 @@ ssf:
           - [oraclelinux  ,    0   ,   master,      0,           vimrc]
           # # - [arch-base    ,    0   ,   master,      0,           vimrc]
           # # - [gentoo/stage3,    0   ,   master,      0,           vimrc]
+          - [almalinux    ,    0   ,   master,      0,           vimrc]
+          - [rockylinux   ,    0   ,   master,      0,           vimrc]
       semrel_files: *semrel_files_default
     varnish:
       context:
@@ -4856,6 +4987,8 @@ ssf:
           - [oraclelinux  ,    8   ,   master,      0,         default]
           - [arch-base    ,    0   ,   master,      0,         default]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
+          - [almalinux    ,    0   ,   master,      0,         default]
+          - [rockylinux   ,    0   ,   master,      0,         default]
         # TODO: Upgrade to latest TOFS in a subsequent PR, since a legacy version
         # is active for the time being (needs to be checked for regressions)
         use_tofs: legacy
@@ -4920,6 +5053,8 @@ ssf:
           - [oraclelinux  ,    0   ,   master,      0,              '']
           - [arch-base    ,    0   ,   master,      0,              '']
           # # - [gentoo/stage3,    0   ,   master,      0,              '']
+          - [almalinux    ,    0   ,   master,      0,              '']
+          - [rockylinux   ,    0   ,   master,      0,              '']
       semrel_files: *semrel_files_default
     vim:
       context:
@@ -5000,6 +5135,8 @@ ssf:
           # # - [oraclelinux  ,    0   ,   master,      0,         default]
           # # - [arch-base    ,    0   ,   master,      0,         default]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
+          # # - [almalinux    ,    0   ,   master,      0,         default]
+          # # - [rockylinux   ,    0   ,   master,      0,         default]
         use_tofs: true
         yamllint:
           rules:
