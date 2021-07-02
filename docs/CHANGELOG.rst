@@ -2,6 +2,27 @@
 Changelog
 =========
 
+`1.283.0 <https://github.com/myii/ssf-formula/compare/v1.282.0...v1.283.0>`_ (2021-07-02)
+---------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* **rst-lint:** fix violations (\ `2ef7b8c <https://github.com/myii/ssf-formula/commit/2ef7b8cb398c9bd2f6f5b2e7becb3dfc639a92c4>`_\ )
+
+Features
+^^^^^^^^
+
+
+* **gemfile.lock:** update ``kitchen-docker`` revision (\ `338ed9a <https://github.com/myii/ssf-formula/commit/338ed9aaab34f8c26830f6f522914689b83a5b73>`_\ )
+* **nginx:** disable failing instance until upstream issue resolved (\ `f638761 <https://github.com/myii/ssf-formula/commit/f638761348eec9debef00d6e83bc315886222c97>`_\ ), closes `/github.com/phusion/passenger/issues/2364#issuecomment-866313663 <https://github.com//github.com/phusion/passenger/issues/2364/issues/issuecomment-866313663>`_
+* **pre-commit:** add ``rst-lint`` (\ `25ce78a <https://github.com/myii/ssf-formula/commit/25ce78a3e7d50584f8d41dc3ebce0b8f2e6ed3fd>`_\ )
+* **saltimages:** update with latest changes from ``salt-image-builder`` (\ `d8310d3 <https://github.com/myii/ssf-formula/commit/d8310d385872d68ac24f108580f9415ab2db63cb>`_\ )
+* **saltimages:** update with latest changes from ``salt-image-builder`` (\ `f00ec52 <https://github.com/myii/ssf-formula/commit/f00ec522262097652f6778b90f4aa14dc939d0c0>`_\ )
+* **saltimages:** update with latest changes from ``salt-image-builder`` (\ `f76e21a <https://github.com/myii/ssf-formula/commit/f76e21abbabc25415e38e5c079be7e8a49ea81cf>`_\ )
+* **suricata:** disable failing instances (\ `2bd30f3 <https://github.com/myii/ssf-formula/commit/2bd30f3cba86ad4e76b401adc08c88af62ef30f4>`_\ )
+
 `1.282.0 <https://github.com/myii/ssf-formula/compare/v1.281.0...v1.282.0>`_ (2021-06-24)
 ---------------------------------------------------------------------------------------------
 
