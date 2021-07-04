@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.284.0](https://github.com/myii/ssf-formula/compare/v1.283.0...v1.284.0) (2021-07-04)
+
+
+### Features
+
+* **letsencrypt:** review PR 83 ([71fe009](https://github.com/myii/ssf-formula/commit/71fe0099db6b96d8c02b1aac41c1dc0dd5d0819b))
+
 # [1.283.0](https://github.com/myii/ssf-formula/compare/v1.282.0...v1.283.0) (2021-07-02)
 
 
