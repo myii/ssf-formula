@@ -2376,17 +2376,35 @@ ssf:
                     - ._mapdata
                     - .install
                     - .config
+          3:
+            includes: *platforms_osfamily_debian
+            inspec_yml:
+              summary: >-
+                Verify that certificates can be requested/issued correctly on Debian
+              supports: *supports_debian_ubuntu
+            provisioner:
+              dependencies: *dependencies_states
+              pillars_from_files:
+                - .sls: 'test/salt/pillar/domains.sls'
+              state_top:
+                - '*':
+                    - ._mapdata
+                    - states.install_letsencrypt_test_server
+                    - .
         inspec_suites_matrix:
           - git
           - deb
           - rpm
+          - domains
         map_jinja:
           verification:
             import: ['letsencrypt']
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
+          - [debian       ,   10   ,   tiamat,      0,         domains]
           - [debian       ,    0   ,   master,      0,             deb]
-          - [ubuntu       ,    0   ,   master,      0,             deb]
+          - [ubuntu       ,   20.04,   tiamat,      0,         domains]
+          - [ubuntu       ,    0   ,   master,      0,             git]
           - [centos       ,    0   ,   master,      0,             rpm]
           - [fedora       ,    0   ,   master,      0,             rpm]
           - [opensuse/leap,    0   ,   master,      0,             git]
