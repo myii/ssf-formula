@@ -1524,7 +1524,8 @@ ssf:
           - [ubuntu       ,    0   ,   master,      0,          amazon]
           - [ubuntu       ,    0   ,   master,      0,         graalvm]
           - [ubuntu       ,    0   ,   master,      0,         haikuvm]
-          - [ubuntu       ,    0   ,   master,      0,        intellij]
+          # # `intellij` now failing due to missing bintray download
+          # # - [ubuntu       ,    0   ,   master,      0,        intellij]
           # # - [ubuntu       ,    0   ,   master,      0,          oracle]
           - [ubuntu       ,    0   ,   master,      0,            zulu]
         use_libsaltcli: true
