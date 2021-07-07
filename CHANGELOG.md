@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.286.0](https://github.com/myii/ssf-formula/compare/v1.285.0...v1.286.0) (2021-07-07)
+
+
+### Features
+
+* **logrotate:** review PR 58 ([3550d4d](https://github.com/myii/ssf-formula/commit/3550d4dd427e4c91d1657af3cdd312f137e7a69d))
+
 # [1.285.0](https://github.com/myii/ssf-formula/compare/v1.284.0...v1.285.0) (2021-07-05)
 
 
