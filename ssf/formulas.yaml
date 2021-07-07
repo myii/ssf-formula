@@ -2544,7 +2544,6 @@ ssf:
                 - '*':
                     - ._mapdata
                     - .
-                    - .jobs
         map_jinja:
           verification:
             import: ['logrotate']
