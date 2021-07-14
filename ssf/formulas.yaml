@@ -4206,7 +4206,10 @@ ssf:
           # # - [arch-base    ,  latest,   3002.6,      3,       v3002-py3]
           # - [gentoo/stage3,  latest,   3002.6,      3,       v3002-py3]
           # - [gentoo/stage3, systemd,   3002.6,      3,       v3002-py3]
-          - [freebsd      ,    0   ,   3002.6,      3,       v3002-py3]
+          # # TODO: Re-enable once the pre-salted Vagrant boxes have been
+          # #       updated with the `py38-*`-based Salt packages
+          # #       See https://github.com/saltstack/salt-bootstrap/pull/1574
+          # - [freebsd      ,    0   ,   3002.6,      3,       v3002-py3]
           - [openbsd      ,    0   ,   3002.6,      3,       v3002-py3]
 
           ### `v3001-py3`
