@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.287.0](https://github.com/myii/ssf-formula/compare/v1.286.0...v1.287.0) (2021-07-14)
+
+
+### Features
+
+* **gemfile.lock:** bump `addressable` from `2.7.0` to `2.8.0` ([75d2b36](https://github.com/myii/ssf-formula/commit/75d2b36f5355b37f0881e3ee2640f63acfc8b29e))
+
 # [1.286.0](https://github.com/myii/ssf-formula/compare/v1.285.0...v1.286.0) (2021-07-07)
 
 
