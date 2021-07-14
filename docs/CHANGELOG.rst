@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.288.0 <https://github.com/myii/ssf-formula/compare/v1.287.0...v1.288.0>`_ (2021-07-14)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **salt:** disable FreeBSD until pre-salted boxes updated (\ `b8e644e <https://github.com/myii/ssf-formula/commit/b8e644e560b16bbbcb79aeb0100297af5a5ebfce>`_\ )
+
 `1.287.0 <https://github.com/myii/ssf-formula/compare/v1.286.0...v1.287.0>`_ (2021-07-14)
 ---------------------------------------------------------------------------------------------
 
