@@ -64,8 +64,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "ci(kitchen.vagrant.yml): disable FreeBSD until pre-salted boxes updated"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/341'
+            title: "ci(gitlab-ci): enable instance after upstream issue resolved [skip ci]"
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/342'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
