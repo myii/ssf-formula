@@ -161,10 +161,11 @@ provision_command:
 
 {%- macro format_driver_run_cmds(os, os_ver) %}
 {%-   filter indent(6) %}
-{%-     if os in ['opensuse/leap', 'opensuse/tmbl', 'arch-base'] %}
-run_command: /usr/lib/systemd/systemd
-{%-     elif [os, os_ver] in [['amazonlinux', 1], ['centos', 6], ['gentoo/stage3', 'latest']] %}
+{#-     Ordering of `if` and `elif` is important here, since we need to differentiate between the two Gentoo platforms #}
+{%-     if [os, os_ver] in [['gentoo/stage3', 'latest']] %}
 run_command: /sbin/init
+{%-     elif os in ['debian', 'ubuntu', 'gentoo'] %}
+run_command: /lib/systemd/systemd
 {%-     endif %}
 {%-   endfilter %}
 {%- endmacro %}
@@ -173,7 +174,7 @@ driver:
   name: docker
   use_sudo: false
   privileged: true
-  run_command: /lib/systemd/systemd
+  run_command: /usr/lib/systemd/systemd
   {%- set run_options = kitchen.driver.run_options %}
   {%- if run_options %}
   {%-   if semrel_formula == 'proftpd' %}
