@@ -15,19 +15,20 @@ ignore: |
 extends: '{{ yamllint.extends }}'
 
 # Files to ignore completely
-# 1. All YAML files under directory `.cache/`, introduced during the GitLab CI run
-# 2. All YAML files under directory `.git/`
-# 3. All YAML files under directory `node_modules/`, introduced during the Travis run
-# 4. Any SLS files under directory `test/`, which are actually state files
-# 5. Any YAML files under directory `.kitchen/`, introduced during local testing
-# 6. `kitchen.vagrant.yml`, which contains Embedded Ruby (ERB) template syntax
+# 1. All YAML files under directory `.bundle/`, introduced if gems are installed locally
+# 2. All YAML files under directory `.cache/`, introduced during the CI run
+# 3. All YAML files under directory `.git/`
+# 4. All YAML files under directory `node_modules/`, introduced during the CI run
+# 5. Any SLS files under directory `test/`, which are actually state files
+# 6. Any YAML files under directory `.kitchen/`, introduced during local testing
+# 7. `kitchen.vagrant.yml`, which contains Embedded Ruby (ERB) template syntax
 {%- if semrel_formula == 'ssf' %}
-# 7. All Jinja templates under `ssf/files/` (result in `yamllint` syntax errors)
+# 8. All Jinja templates under `ssf/files/` (result in `yamllint` syntax errors)
 #    Not disabling via. `*.yml` since we may end up with non-Jinja YAML files here
 {%- elif semrel_formula == 'mysql' %}
-# 7. Any YAML files using Jinja (result in `yamllint` syntax errors)
+# 8. Any YAML files using Jinja (result in `yamllint` syntax errors)
 {%- elif semrel_formula in ['postgres', 'salt'] %}
-# 7. All YAML files heavily reliant on Jinja; these can be tackled in a subsequent PR
+# 8. All YAML files heavily reliant on Jinja; these can be tackled in a subsequent PR
 {%- endif %}
 {%- set yl_ignores = {'ignore':
   yamllint.ignore.default +

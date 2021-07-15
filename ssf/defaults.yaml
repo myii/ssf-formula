@@ -237,6 +237,7 @@ ssf_node_anchors:
           extends: 'default'
           ignore:
             default:
+              - '.bundle/'
               - '.cache/'
               - '.git/'
               - 'node_modules/'
