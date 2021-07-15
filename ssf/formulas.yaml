@@ -3871,6 +3871,7 @@ ssf:
                 - '*':
                     - ._mapdata
                     - states.files
+                    - .clean
                     - .
         map_jinja:
           verification:
