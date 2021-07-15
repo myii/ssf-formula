@@ -235,7 +235,7 @@ jobs:
         - '[ $(git rev-list HEAD --count) -eq 2 ]'
         # Quick visual check that correct files have been updated
         - git show --pretty="" --name-status
-        - bin/kitchen verify default-debian-10-tiamat-py3
+        - bin/kitchen verify default-debian-11-master-py3
     # REMOVEME>
     {%- endif %}
 

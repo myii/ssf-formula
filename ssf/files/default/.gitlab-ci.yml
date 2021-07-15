@@ -176,7 +176,7 @@ rubocop:
     - 'bundle config set without "${BUNDLE_WITHOUT}"'
     - 'bundle install'
   script:
-    - '{{ script_kitchen.bin }} {{ script_kitchen.cmd }} default-debian-10-tiamat-py3'
+    - '{{ script_kitchen.bin }} {{ script_kitchen.cmd }} default-debian-11-master-py3'
 # REMOVEME>
 {%-   endif %}
 
