@@ -193,6 +193,16 @@ driver:
     {%- endfor %}
   {%- endif %}
 
+provisioner:
+  name: salt_solo
+  log_level: {{ 'info' if semrel_formula in ['devstack'] else 'debug' }}
+  salt_install: none
+  require_chef: false
+  formula: {{ semrel_formula }}
+  salt_copy_filter:
+    - .kitchen
+    - .git
+
 platforms:
 {#- Centralise duplication from here and `libcimatrix.jinja` #}
 {%- set ns_platforms = namespace(prev_comment='') %}
@@ -246,16 +256,6 @@ platforms:
       max_ssh_sessions: 1
     {%- endif %}
 {%- endfor %}
-
-provisioner:
-  name: salt_solo
-  log_level: {{ 'info' if semrel_formula in ['devstack'] else 'debug' }}
-  salt_install: none
-  require_chef: false
-  formula: {{ semrel_formula }}
-  salt_copy_filter:
-    - .kitchen
-    - .git
 
 verifier:
   # https://www.inspec.io/
