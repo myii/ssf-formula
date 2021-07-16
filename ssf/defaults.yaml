@@ -143,6 +143,8 @@ ssf_node_anchors:
         kitchen:
           driver:
             run_options: {}
+          verifier:
+            backend_cache: true
         map_jinja:
           context: 'with'
           dir: ''
