@@ -3839,7 +3839,7 @@ ssf:
           - [fedora       ,    0   ,   master,      0,         default]
           - [opensuse/leap,    0   ,   master,      0,         default]
           - [opensuse/tmbl,    0   ,   master,      0,         default]
-          - [amazonlinux  ,    0   ,   master,      0,         default]
+          - [amazonlinux  ,    0   ,   master,      0,              '']
           - [oraclelinux  ,    0   ,   master,      0,              '']
           # TODO: Fix since `centos-8` works
           # - [oraclelinux  ,    8   ,   master,      0,         default]
