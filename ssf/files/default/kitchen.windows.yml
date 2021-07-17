@@ -9,15 +9,6 @@ driver:
   username: {{ testing_windows.github.driver.username }}
   password: {{ testing_windows.github.driver.password }}
 
-platforms:
-  {%- for platform in proxyplatformswindows %}
-  {%-   set os       = platform[0] | d('') %}
-  {%-   set os_ver   = platform[1] | d('') %}
-  {%-   set salt_ver = platform[2] | d('') %}
-  {%-   set py_ver   = platform[3] | d('') %}
-  - name: {{ os | replace('/', '-') }}-{{ os_ver | replace('.', '') }}-{{ salt_ver | replace('.', '-') }}-py{{ py_ver }}
-  {%- endfor %}
-
 provisioner:
   salt_install: {{ testing_windows.github.platforms.provisioner.salt_install }}
   salt_bootstrap_options: {{ testing_windows.github.platforms.provisioner.salt_bootstrap_options }}
@@ -33,3 +24,12 @@ provisioner:
     {%- endfor %}
   # yamllint enable rule:line-length
   {%- endif %}
+
+platforms:
+  {%- for platform in proxyplatformswindows %}
+  {%-   set os       = platform[0] | d('') %}
+  {%-   set os_ver   = platform[1] | d('') %}
+  {%-   set salt_ver = platform[2] | d('') %}
+  {%-   set py_ver   = platform[3] | d('') %}
+  - name: {{ os | replace('/', '-') }}-{{ os_ver | replace('.', '') }}-{{ salt_ver | replace('.', '-') }}-py{{ py_ver }}
+  {%- endfor %}
