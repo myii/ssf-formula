@@ -2,6 +2,17 @@
 Changelog
 =========
 
+`1.290.0 <https://github.com/myii/ssf-formula/compare/v1.289.0...v1.290.0>`_ (2021-07-17)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **kitchen:** use general ``run_command`` of ``/usr/lib/systemd/systemd`` (\ `b7316cd <https://github.com/myii/ssf-formula/commit/b7316cd027fbabe0c7bf99d23abec5e9b12ba8f4>`_\ )
+* **kitchen.*.yml:** move ``provisioner`` block above ``platforms`` (\ `a490172 <https://github.com/myii/ssf-formula/commit/a4901720493828e604a91688025e460b01c37572>`_\ )
+* **rabbitmq:** review PR 78 (\ `128e433 <https://github.com/myii/ssf-formula/commit/128e433db32e562291fdf0d1a5a28a35b7c1f6fd>`_\ )
+
 `1.289.0 <https://github.com/myii/ssf-formula/compare/v1.288.1...v1.289.0>`_ (2021-07-17)
 ---------------------------------------------------------------------------------------------
 
