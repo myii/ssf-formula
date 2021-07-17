@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.288.1](https://github.com/myii/ssf-formula/compare/v1.288.0...v1.288.1) (2021-07-17)
+
+
+### Reverts
+
+* **nginx:** disable failing instance until upstream issue resolved ([84199b8](https://github.com/myii/ssf-formula/commit/84199b8c9b14546cc2c98e15111949a255e846d3))
+
 # [1.288.0](https://github.com/myii/ssf-formula/compare/v1.287.0...v1.288.0) (2021-07-14)
 
 
