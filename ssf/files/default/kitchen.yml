@@ -261,9 +261,15 @@ verifier:
   # https://www.inspec.io/
   name: inspec
   sudo: true
-  # cli, documentation, html, progress, json, json-min, json-rspec, junit
   reporter:
+    # cli, documentation, html, progress, json, json-min, json-rspec, junit
     - cli
+  {%- if not kitchen.verifier.backend_cache %}
+  # This formula has InSpec controls which involve retrying tests, to allow time,
+  # for example, for services to start up fully.  These retries will not pick
+  # up these changes if the backend cache is in use, so it's set to `false` here.
+  backend_cache: false
+  {%- endif %}
 
 suites:
   {%- for index in range(0, inspec_suites_kitchen | length) %}

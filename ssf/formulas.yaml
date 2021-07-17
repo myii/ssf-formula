@@ -3222,6 +3222,9 @@ ssf:
                 - '*':
                     - ._mapdata
                     - .config
+        kitchen:
+          verifier:
+            backend_cache: false
         map_jinja:
           verification:
             import: ['mapdata']
@@ -4013,6 +4016,9 @@ ssf:
             inspec_yml:
               summary: >-
                 Verify that the Rspamd repositories are configured correctly
+        kitchen:
+          verifier:
+            backend_cache: false
         map_jinja:
           verification:
             import: ['rspamd']
