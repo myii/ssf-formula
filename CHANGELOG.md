@@ -1,5 +1,13 @@
 # Changelog
 
+# [1.289.0](https://github.com/myii/ssf-formula/compare/v1.288.1...v1.289.0) (2021-07-17)
+
+
+### Features
+
+* **gemfile+lock:** use `bundle update` to get latest gems [2021-W28] ([a93122b](https://github.com/myii/ssf-formula/commit/a93122b2c96a260b72e88a164ad675350319caf2))
+* **kitchen:** manage InSpec verifier `backend_cache` ([3556e59](https://github.com/myii/ssf-formula/commit/3556e597a296c9bd1de92b168b6d1f1f8b533307))
+
 ## [1.288.1](https://github.com/myii/ssf-formula/compare/v1.288.0...v1.288.1) (2021-07-17)
 
 
