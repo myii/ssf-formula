@@ -169,6 +169,9 @@ ssf_node_anchors:
           # - [gentoo/stage3,    0   ,   master,      0,         default]
           # - [almalinux    ,    0   ,   master,      0,         default]
           # - [rockylinux   ,    0   ,   master,      0,         default]
+        # Instances to allow failure for, such as new platforms which aren't
+        # currently working because waiting for upstream repos to be provided
+        platforms_matrix_allow_failure: []
         # To deal with excessive instances when mimicking `kitchen list -b`
         # If values are set, only use these as commented entries in the matrix
         platforms_matrix_commented_includes: []

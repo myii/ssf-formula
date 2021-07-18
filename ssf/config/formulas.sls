@@ -179,6 +179,7 @@ remove-previous-file-location-for-{{ formula }}-{{ dest_file }}:
         map_jinja: {{ map_jinja | yaml }}
         platforms: {{ context.platforms | yaml }}
         platforms_matrix: {{ context.platforms_matrix | yaml }}
+        platforms_matrix_allow_failure: {{ context.platforms_matrix_allow_failure | yaml }}
         platforms_matrix_commented_includes: {{ context.platforms_matrix_commented_includes | yaml }}
         proxyplatformswindows: {{ ssf.proxyplatformswindows | yaml }}
         rubocop: {{ context.rubocop | yaml }}

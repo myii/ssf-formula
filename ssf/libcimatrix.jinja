@@ -6,6 +6,7 @@
               inspec_suites_kitchen,
               inspec_suites_matrix,
               platforms_matrix,
+              platforms_matrix_allow_failure,
               platforms_matrix_commented_includes,
               semrel_formula,
               width=4,
@@ -184,6 +185,9 @@
 {%-               if use_gitlab_format %}
 {%-                 set list_format = '' %}
 {%-                 set test_template = ": {extends: '.test_instance'}" %}
+{%-                 if [os, os_ver, salt_ver, py_ver, suite_name] in platforms_matrix_allow_failure %}
+{%-                   set test_template = ": {extends: '.test_instance_failure_permitted'}" %}
+{%-                 endif %}
 {%-               else %}
 {%-                 set list_format = '- ' %}
 {%-                 set test_template = "" %}

@@ -214,7 +214,7 @@ jobs:
     #       Ref: https://github.com/saltstack-formulas/template-formula/issues/118
     #       Ref: https://github.com/saltstack-formulas/template-formula/issues/121
     {%-   endif %}
-    {{- format_ci_matrix(platforms, inspec_suites_kitchen, inspec_suites_matrix, platforms_matrix, platforms_matrix_commented_includes, semrel_formula, use_new_travis_format=True) }}
+    {{- format_ci_matrix(platforms, inspec_suites_kitchen, inspec_suites_matrix, platforms_matrix, platforms_matrix_allow_failure, platforms_matrix_commented_includes, semrel_formula, use_new_travis_format=True) }}
     {%- endif %}
 
     {%- if semrel_formula == 'template' %}
