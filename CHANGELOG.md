@@ -1,5 +1,18 @@
 # Changelog
 
+# [1.291.0](https://github.com/myii/ssf-formula/compare/v1.290.0...v1.291.0) (2021-07-18)
+
+
+### Features
+
+* **gitlab-ci:** implement `allow_failure` to be used for instances ([87e4244](https://github.com/myii/ssf-formula/commit/87e4244e0bb4b23cb11b6fc2df3a6d6f14a42fe1))
+* **gitlab-ci:** use `allow_failure` for instances that should work soon ([4029161](https://github.com/myii/ssf-formula/commit/40291616702bc3b9b950450eaa98c45b9e8d2bf6))
+* **proftpd:** add `yamllint` ignore for Debian 11 support ([9645758](https://github.com/myii/ssf-formula/commit/964575889128b145ba4809438014c8228582c6c1))
+* **prometheus:** review PR 67 ([e16d3a4](https://github.com/myii/ssf-formula/commit/e16d3a4ea90f88a200a1d72d53ff0a07b2b1c19f))
+* **saltimages:** update with latest changes from `salt-image-builder` ([767cb2b](https://github.com/myii/ssf-formula/commit/767cb2bf146956fa170b5de324a09664ffd4ff92))
+* **saltimages:** update with latest changes from `salt-image-builder` ([ee6a49b](https://github.com/myii/ssf-formula/commit/ee6a49bf34bb33ebebb3999cc82b53b4ea8ed752))
+* **yamllint:** add `.bundle/` to the default `ignore` list ([8d4cdf0](https://github.com/myii/ssf-formula/commit/8d4cdf059cbf3c6464fd9413ee492a2f760e701d)), closes [/github.com/saltstack-formulas/prometheus-formula/pull/60#issuecomment-880428271](https://github.com//github.com/saltstack-formulas/prometheus-formula/pull/60/issues/issuecomment-880428271)
+
 # [1.290.0](https://github.com/myii/ssf-formula/compare/v1.289.0...v1.290.0) (2021-07-17)
 
 
