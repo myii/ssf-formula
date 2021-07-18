@@ -5,15 +5,17 @@
 extends: 'default'
 
 # Files to ignore completely
-# 1. All YAML files under directory `.cache/`, introduced during the GitLab CI run
-# 2. All YAML files under directory `.git/`
-# 3. All YAML files under directory `node_modules/`, introduced during the Travis run
-# 4. Any SLS files under directory `test/`, which are actually state files
-# 5. Any YAML files under directory `.kitchen/`, introduced during local testing
-# 6. `kitchen.vagrant.yml`, which contains Embedded Ruby (ERB) template syntax
-# 7. All Jinja templates under `ssf/files/` (result in `yamllint` syntax errors)
+# 1. All YAML files under directory `.bundle/`, introduced if gems are installed locally
+# 2. All YAML files under directory `.cache/`, introduced during the CI run
+# 3. All YAML files under directory `.git/`
+# 4. All YAML files under directory `node_modules/`, introduced during the CI run
+# 5. Any SLS files under directory `test/`, which are actually state files
+# 6. Any YAML files under directory `.kitchen/`, introduced during local testing
+# 7. `kitchen.vagrant.yml`, which contains Embedded Ruby (ERB) template syntax
+# 8. All Jinja templates under `ssf/files/` (result in `yamllint` syntax errors)
 #    Not disabling via. `*.yml` since we may end up with non-Jinja YAML files here
 ignore: |
+  .bundle/
   .cache/
   .git/
   node_modules/

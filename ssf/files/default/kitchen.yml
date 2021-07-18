@@ -115,7 +115,7 @@ image: {{ 'saltimages' if [os, os_ver, salt_ver, py_ver] in saltimages else 'net
 {%-     endif %}
 {#-     General for all Salt versions #}
 {%-     if semrel_formula == 'packages' %}
-{%-       if [os, os_ver] in [['debian', 10], ['debian', 9]] %}
+{%-       if os in ['debian'] %}
 {%-         do prov_cmds.append('- apt-get update') %}
 {%-         do prov_cmds.append('- apt-get install --reinstall -y udev') %}
 {%-         do prov_cmds.append('- apt-get install -y snapd') %}

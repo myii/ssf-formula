@@ -20,7 +20,7 @@ jobs:
       fail-fast: false
       matrix:
         instance:
-          {{- format_ci_matrix(platforms, inspec_suites_kitchen, inspec_suites_matrix, platforms_matrix, platforms_matrix_commented_includes, semrel_formula, width=10, use_github_format=True) }}
+          {{- format_ci_matrix(platforms, inspec_suites_kitchen, inspec_suites_matrix, platforms_matrix, platforms_matrix_allow_failure, platforms_matrix_commented_includes, semrel_formula, width=10, use_github_format=True) }}
     {%- raw %}
     steps:
       - name: 'Check out code'
