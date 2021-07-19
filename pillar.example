@@ -75,10 +75,12 @@ ssf:
   ### State the formulas and files to work through when running the formula
   active:
     semrel_formulas:
+      - aegir
       - apache
       - apt
       - apt-cacher
       - backupninja
+      - bareos
       - bind
       - cert
       - charles
@@ -155,6 +157,7 @@ ssf:
       - rng-tools
       - rspamd
       - rstudio
+      - rundeck
       - salt
       - sqldeveloper
       - sqlplus

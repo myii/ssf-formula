@@ -402,12 +402,20 @@ ssf:
         docs/CONTRIBUTING.rst:
           <<: *file__docs__CONTRIBUTING--rst
           dest_file: 'CONTRIBUTING.rst'
-    # aegir:
-    #   context:
-    #     codeowners:
-    #       entries:
-    #         global:
-    #           - '*': '@javierbertoli'
+    aegir:
+      context:
+        codeowners:
+          entries:
+            global:
+              - '*': '@javierbertoli'
+        git:
+          github:
+            repo: 'aegir-formula'
+        inspec_suites_kitchen: {}
+        inspec_suites_matrix: []
+        platforms: []
+        platforms_matrix: []
+      semrel_files: *semrel_files_mainly_gemfiles_only
     apache:
       context:
         codeowners:
@@ -581,12 +589,20 @@ ssf:
         platforms: []
         platforms_matrix: []
       semrel_files: *semrel_files_mainly_gemfiles_only
-    # bareos:
-    #   context:
-    #     codeowners:
-    #       entries:
-    #         global:
-    #           - '*': '@javierbertoli'
+    bareos:
+      context:
+        codeowners:
+          entries:
+            global:
+              - '*': '@javierbertoli'
+        git:
+          github:
+            repo: 'bareos-formula'
+        inspec_suites_kitchen: {}
+        inspec_suites_matrix: []
+        platforms: []
+        platforms_matrix: []
+      semrel_files: *semrel_files_mainly_gemfiles_only
     bind:
       context:
         codeowners:
@@ -4174,12 +4190,6 @@ ssf:
             additional:
               - rspamd/osfamilymap.yaml
       semrel_files: *semrel_files_default
-    # rundeck:
-    #   context:
-    #     codeowners:
-    #       entries:
-    #         global:
-    #           - '*': '@sticky-note'
     rstudio:
       context:
         codeowners:
@@ -4189,6 +4199,20 @@ ssf:
         git:
           github:
             repo: 'rstudio-formula'
+        inspec_suites_kitchen: {}
+        inspec_suites_matrix: []
+        platforms: []
+        platforms_matrix: []
+      semrel_files: *semrel_files_mainly_gemfiles_only
+    rundeck:
+      context:
+        codeowners:
+          entries:
+            global:
+              - '*': '@sticky-note'
+        git:
+          github:
+            repo: 'rundeck-formula'
         inspec_suites_kitchen: {}
         inspec_suites_matrix: []
         platforms: []

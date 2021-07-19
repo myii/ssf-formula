@@ -65,7 +65,7 @@ ssf_node_anchors:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
             title: "chore(gemfile+lock): update to latest gem versions (2021-W28) [skip ci]"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/346'
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/347'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
@@ -780,6 +780,7 @@ ssf:
 
   semrel_formulas:
     .github: *formula_default
+    aegir: *formula_default
     apache:
       <<: *formula_default
       context:
@@ -812,6 +813,7 @@ ssf:
             name: ''
     apt-cacher: *formula_default
     backupninja: *formula_default
+    bareos: *formula_default
     bind: *formula_default
     cert: *formula_default
     charles: *formula_default
@@ -1259,6 +1261,7 @@ ssf:
     rng-tools: *formula_default
     rspamd: *formula_default
     rstudio: *formula_default
+    rundeck: *formula_default
     salt:
       <<: *formula_default
       context:
