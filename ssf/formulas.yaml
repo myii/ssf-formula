@@ -1665,10 +1665,6 @@ ssf:
         kitchen.yml:
           <<: *file__kitchen--yml
           alt_semrel_formula: 'appcode'
-    #     # Overrides for extra files in `*semrel_files_inc_map_jinja_verifier`
-    #     inspec/controls/_mapdata.rb:
-    #       <<: *file__inspec__controls___mapdata--rb
-    #       alt_semrel_formula: 'appcode'
     jetbrains-clion:
       context:
         codeowners:
@@ -1735,10 +1731,6 @@ ssf:
         kitchen.yml:
           <<: *file__kitchen--yml
           alt_semrel_formula: 'clion'
-    #     # Overrides for extra files in `*semrel_files_inc_map_jinja_verifier`
-    #     inspec/controls/_mapdata.rb:
-    #       <<: *file__inspec__controls___mapdata--rb
-    #       alt_semrel_formula: 'clion'
     jetbrains-datagrip:
       context:
         codeowners:
@@ -1805,10 +1797,6 @@ ssf:
         kitchen.yml:
           <<: *file__kitchen--yml
           alt_semrel_formula: 'datagrip'
-    #     # Overrides for extra files in `*semrel_files_inc_map_jinja_verifier`
-    #     inspec/controls/_mapdata.rb:
-    #       <<: *file__inspec__controls___mapdata--rb
-    #       alt_semrel_formula: 'datagrip'
     jetbrains-goland:
       context:
         codeowners:
@@ -1875,10 +1863,6 @@ ssf:
         kitchen.yml:
           <<: *file__kitchen--yml
           alt_semrel_formula: 'goland'
-    #     # Overrides for extra files in `*semrel_files_inc_map_jinja_verifier`
-    #     inspec/controls/_mapdata.rb:
-    #       <<: *file__inspec__controls___mapdata--rb
-    #       alt_semrel_formula: 'goland'
     jetbrains-intellij:
       context:
         codeowners:
@@ -1961,10 +1945,6 @@ ssf:
         kitchen.yml:
           <<: *file__kitchen--yml
           alt_semrel_formula: 'intellij'
-    #     # Overrides for extra files in `*semrel_files_inc_map_jinja_verifier`
-    #     inspec/controls/_mapdata.rb:
-    #       <<: *file__inspec__controls___mapdata--rb
-    #       alt_semrel_formula: 'intellij'
     jetbrains-phpstorm:
       context:
         codeowners:
@@ -2031,10 +2011,6 @@ ssf:
         kitchen.yml:
           <<: *file__kitchen--yml
           alt_semrel_formula: 'phpstorm'
-    #     # Overrides for extra files in `*semrel_files_inc_map_jinja_verifier`
-    #     inspec/controls/_mapdata.rb:
-    #       <<: *file__inspec__controls___mapdata--rb
-    #       alt_semrel_formula: 'phpstorm'
     jetbrains-pycharm:
       context:
         codeowners:
@@ -2103,10 +2079,6 @@ ssf:
         kitchen.yml:
           <<: *file__kitchen--yml
           alt_semrel_formula: 'pycharm'
-    #     # Overrides for extra files in `*semrel_files_inc_map_jinja_verifier`
-    #     inspec/controls/_mapdata.rb:
-    #       <<: *file__inspec__controls___mapdata--rb
-    #       alt_semrel_formula: 'pycharm'
     jetbrains-resharper:
       context:
         codeowners:
@@ -2150,10 +2122,6 @@ ssf:
         kitchen.yml:
           <<: *file__kitchen--yml
           alt_semrel_formula: 'resharper'
-    #     # Overrides for extra files in `*semrel_files_inc_map_jinja_verifier`
-    #     inspec/controls/_mapdata.rb:
-    #       <<: *file__inspec__controls___mapdata--rb
-    #       alt_semrel_formula: 'resharper'
     jetbrains-rider:
       context:
         codeowners:
@@ -2220,10 +2188,6 @@ ssf:
         kitchen.yml:
           <<: *file__kitchen--yml
           alt_semrel_formula: 'rider'
-    #     # Overrides for extra files in `*semrel_files_inc_map_jinja_verifier`
-    #     inspec/controls/_mapdata.rb:
-    #       <<: *file__inspec__controls___mapdata--rb
-    #       alt_semrel_formula: 'rider'
     jetbrains-rubymine:
       context:
         codeowners:
@@ -2290,10 +2254,6 @@ ssf:
         kitchen.yml:
           <<: *file__kitchen--yml
           alt_semrel_formula: 'rubymine'
-    #     # Overrides for extra files in `*semrel_files_inc_map_jinja_verifier`
-    #     inspec/controls/_mapdata.rb:
-    #       <<: *file__inspec__controls___mapdata--rb
-    #       alt_semrel_formula: 'rubymine'
     jetbrains-webstorm:
       context:
         codeowners:
@@ -2360,10 +2320,6 @@ ssf:
         kitchen.yml:
           <<: *file__kitchen--yml
           alt_semrel_formula: 'webstorm'
-    #     # Overrides for extra files in `*semrel_files_inc_map_jinja_verifier`
-    #     inspec/controls/_mapdata.rb:
-    #       <<: *file__inspec__controls___mapdata--rb
-    #       alt_semrel_formula: 'webstorm'
     keepalived:
       context:
         git:
@@ -4760,10 +4716,6 @@ ssf:
         kitchen.yml:
           <<: *file__kitchen--yml
           alt_semrel_formula: 'syslog_ng'
-    #     # Overrides for extra files in `*semrel_files_inc_map_jinja_verifier`
-    #     inspec/controls/_mapdata.rb:
-    #       <<: *file__inspec__controls___mapdata--rb
-    #       alt_semrel_formula: 'syslog_ng'
     sysstat:
       context:
         git:
