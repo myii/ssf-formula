@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.293.0 <https://github.com/myii/ssf-formula/compare/v1.292.0...v1.293.0>`_ (2021-07-19)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **formulas:** add basic management for ``Gemfile+lock`` formulas (\ `04b7f8d <https://github.com/myii/ssf-formula/commit/04b7f8d323d3633a6583f2c095e9a4221b7f9bcf>`_\ )
+
 `1.292.0 <https://github.com/myii/ssf-formula/compare/v1.291.0...v1.292.0>`_ (2021-07-19)
 ---------------------------------------------------------------------------------------------
 
