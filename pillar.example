@@ -78,15 +78,19 @@ ssf:
       - apache
       - apt
       - apt-cacher
+      - backupninja
       - bind
       - cert
+      - charles
       - chrony
       - collectd
       - consul
       - cron
+      - dbeaver
       - deepsea
       - devstack
       - dhcpd
+      - diaspora
       - django
       - docker
       - eclipse
@@ -115,6 +119,7 @@ ssf:
       - jetbrains-rubymine
       - jetbrains-webstorm
       - keepalived
+      - kubernetes
       - letsencrypt
       - libvirt
       - locale
@@ -125,6 +130,7 @@ ssf:
       - maven
       - mongodb
       - mysql
+      - nextcloud
       - nfs
       - nginx
       - nifi
@@ -145,8 +151,10 @@ ssf:
       - rabbitmq
       - redis
       - rkhunter
+      - rlang
       - rng-tools
       - rspamd
+      - rstudio
       - salt
       - sqldeveloper
       - sqlplus
@@ -170,7 +178,9 @@ ssf:
       - vault
       - vim
       - vsftpd
+      - wireguard
       - zabbix
+      - zookeeper
     semrel_files:
       - .github/workflows/commitlint.yml
       - .github/workflows/kitchen.yml
