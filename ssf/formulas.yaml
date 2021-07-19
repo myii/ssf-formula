@@ -378,6 +378,13 @@ ssf_node_anchors:
         inspec/controls/_mapdata.rb: &file__inspec__controls___mapdata--rb
           <<: *file_default
           template: 'jinja'
+      # Formulas only managed for the very basics, such as the `Gemfile+lock`,
+      # in order to avoid security warnings
+      semrel_files_mainly_gemfiles_only: &semrel_files_mainly_gemfiles_only
+        .github/workflows/commitlint.yml: *file__--github__workflows__commitlint--yml
+        CODEOWNERS: *file__CODEOWNERS
+        Gemfile: *file__Gemfile
+        Gemfile.lock: *file__Gemfile--lock
 
 ssf:
   semrel_formulas:
@@ -560,6 +567,20 @@ ssf:
         formula/libtofs.jinja:
           <<: *file__formula__libtofs--jinja
           dest_file: 'formula/ng/libtofs.jinja'
+    backupninja:
+      context:
+        codeowners:
+          entries:
+            global:
+              - '*': '@alxwr'
+        git:
+          github:
+            repo: 'backupninja-formula'
+        inspec_suites_kitchen: {}
+        inspec_suites_matrix: []
+        platforms: []
+        platforms_matrix: []
+      semrel_files: *semrel_files_mainly_gemfiles_only
     # bareos:
     #   context:
     #     codeowners:
@@ -640,6 +661,20 @@ ssf:
             import: ['mapdata']
         use_libsaltcli: true
       semrel_files: *semrel_files_inc_map_jinja_verifier
+    charles:
+      context:
+        codeowners:
+          entries:
+            global:
+              - '*': '@noelmcloughlin'
+        git:
+          github:
+            repo: 'charles-formula'
+        inspec_suites_kitchen: {}
+        inspec_suites_matrix: []
+        platforms: []
+        platforms_matrix: []
+      semrel_files: *semrel_files_mainly_gemfiles_only
     chrony:
       context:
         git:
@@ -735,6 +770,20 @@ ssf:
             import: ['cron']
         platforms_matrix: *platforms_matrix_without_gentoo
       semrel_files: *semrel_files_default
+    dbeaver:
+      context:
+        codeowners:
+          entries:
+            global:
+              - '*': '@noelmcloughlin'
+        git:
+          github:
+            repo: 'dbeaver-formula'
+        inspec_suites_kitchen: {}
+        inspec_suites_matrix: []
+        platforms: []
+        platforms_matrix: []
+      semrel_files: *semrel_files_mainly_gemfiles_only
     deepsea:
       context:
         codeowners:
@@ -841,6 +890,20 @@ ssf:
           # # - [almalinux    ,    0   ,   master,      0,         default]
           # # - [rockylinux   ,    0   ,   master,      0,         default]
       semrel_files: *semrel_files_inc_map_jinja_verifier
+    diaspora:
+      context:
+        codeowners:
+          entries:
+            global:
+              - '*': '@SuperTux88'
+        git:
+          github:
+            repo: 'diaspora-formula'
+        inspec_suites_kitchen: {}
+        inspec_suites_matrix: []
+        platforms: []
+        platforms_matrix: []
+      semrel_files: *semrel_files_mainly_gemfiles_only
     django:
       context:
         git:
@@ -2310,6 +2373,20 @@ ssf:
                 - ipvsadm
         use_tofs: true
       semrel_files: *semrel_files_default
+    kubernetes:
+      context:
+        codeowners:
+          entries:
+            global:
+              - '*': '@noelmcloughlin'
+        git:
+          github:
+            repo: 'kubernetes-formula'
+        inspec_suites_kitchen: {}
+        inspec_suites_matrix: []
+        platforms: []
+        platforms_matrix: []
+      semrel_files: *semrel_files_mainly_gemfiles_only
     letsencrypt:
       context:
         codeowners:
@@ -2773,6 +2850,20 @@ ssf:
             additional:
               - mysql/supported_sections.yaml
       semrel_files: *semrel_files_default
+    nextcloud:
+      context:
+        codeowners:
+          entries:
+            global:
+              - '*': '@alxwr'
+        git:
+          github:
+            repo: 'nextcloud-formula'
+        inspec_suites_kitchen: {}
+        inspec_suites_matrix: []
+        platforms: []
+        platforms_matrix: []
+      semrel_files: *semrel_files_mainly_gemfiles_only
     nfs:
       context:
         git:
@@ -3996,6 +4087,20 @@ ssf:
         travis: *travis_do_not_use_single_job_for_linters
         use_tofs: true
       semrel_files: *semrel_files_default
+    rlang:
+      context:
+        codeowners:
+          entries:
+            global:
+              - '*': '@noelmcloughlin'
+        git:
+          github:
+            repo: 'rlang-formula'
+        inspec_suites_kitchen: {}
+        inspec_suites_matrix: []
+        platforms: []
+        platforms_matrix: []
+      semrel_files: *semrel_files_mainly_gemfiles_only
     rng-tools:
       context:
         codeowners:
@@ -4075,6 +4180,20 @@ ssf:
     #       entries:
     #         global:
     #           - '*': '@sticky-note'
+    rstudio:
+      context:
+        codeowners:
+          entries:
+            global:
+              - '*': '@noelmcloughlin'
+        git:
+          github:
+            repo: 'rstudio-formula'
+        inspec_suites_kitchen: {}
+        inspec_suites_matrix: []
+        platforms: []
+        platforms_matrix: []
+      semrel_files: *semrel_files_mainly_gemfiles_only
     salt:
       context:
         codeowners:
@@ -5156,6 +5275,20 @@ ssf:
         # Gentoo (OpenRC): Service `vsftpd' needs non existent service `net'
         platforms_matrix: *platforms_matrix_without_gentoo_non_systemd
       semrel_files: *semrel_files_default
+    wireguard:
+      context:
+        codeowners:
+          entries:
+            global:
+              - '*': '@alxwr'
+        git:
+          github:
+            repo: 'wireguard-formula'
+        inspec_suites_kitchen: {}
+        inspec_suites_matrix: []
+        platforms: []
+        platforms_matrix: []
+      semrel_files: *semrel_files_mainly_gemfiles_only
     zabbix:
       context:
         codeowners:
@@ -5209,3 +5342,17 @@ ssf:
             key-duplicates:
               ignore: *ignore_pillar_example
       semrel_files: *semrel_files_default
+    zookeeper:
+      context:
+        codeowners:
+          entries:
+            global:
+              - '*': '@codeboyQ2n5ha45'
+        git:
+          github:
+            repo: 'zookeeper-formula'
+        inspec_suites_kitchen: {}
+        inspec_suites_matrix: []
+        platforms: []
+        platforms_matrix: []
+      semrel_files: *semrel_files_mainly_gemfiles_only

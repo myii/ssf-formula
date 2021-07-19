@@ -64,8 +64,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "ci: add Debian 11 Bullseye & update '`'yamllint'`' configuration [skip ci]"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/345'
+            title: "chore(gemfile+lock): update to latest gem versions (2021-W28) [skip ci]"
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/346'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
@@ -811,12 +811,15 @@ ssf:
             <<: *isk_suite_default
             name: ''
     apt-cacher: *formula_default
+    backupninja: *formula_default
     bind: *formula_default
     cert: *formula_default
+    charles: *formula_default
     chrony: *formula_default
     collectd: *formula_default
     consul: *formula_default
     cron: *formula_default
+    dbeaver: *formula_default
     deepsea: *formula_default
     devstack:
       <<: *formula_default
@@ -828,6 +831,7 @@ ssf:
             <<: *isk_suite_default
             name: 'ubuntu'
     dhcpd: *formula_default
+    diaspora: *formula_default
     django: *formula_default
     docker:
       <<: *formula_default
@@ -1021,6 +1025,7 @@ ssf:
             <<: *isk_suite_default
             name: 'arch'
     keepalived: *formula_default
+    kubernetes: *formula_default
     letsencrypt:
       <<: *formula_default
       context:
@@ -1093,6 +1098,7 @@ ssf:
             name: 'arch'
     mongodb: *formula_default
     mysql: *formula_default
+    nextcloud: *formula_default
     nfs: *formula_default
     nginx:
       <<: *formula_default
@@ -1249,8 +1255,10 @@ ssf:
           3:
             <<: *isk_suite_default
             name: 'suse'
+    rlang: *formula_default
     rng-tools: *formula_default
     rspamd: *formula_default
+    rstudio: *formula_default
     salt:
       <<: *formula_default
       context:
@@ -1342,4 +1350,6 @@ ssf:
             name: ''
     vim: *formula_default
     vsftpd: *formula_default
+    wireguard: *formula_default
     zabbix: *formula_default
+    zookeeper: *formula_default
