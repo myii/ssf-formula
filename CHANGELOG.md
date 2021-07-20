@@ -1,5 +1,17 @@
 # Changelog
 
+# [1.294.0](https://github.com/myii/ssf-formula/compare/v1.293.0...v1.294.0) (2021-07-20)
+
+
+### Code Refactoring
+
+* **formulas:** use wildcards again where possible after `16.04` EOL ([9df819e](https://github.com/myii/ssf-formula/commit/9df819e34e9c6ac0ddf20446821127a4bdf553a3))
+
+
+### Features
+
+* **postgres:** add `repo` suite ([d8c6103](https://github.com/myii/ssf-formula/commit/d8c61032495114ed26a8e1d46c25271fcdf2eb8a))
+
 # [1.293.0](https://github.com/myii/ssf-formula/compare/v1.292.0...v1.293.0) (2021-07-19)
 
 
