@@ -1205,7 +1205,18 @@ ssf:
             <<: *isk_suite_default
             name: 'freebsd'
     postfix: *formula_default
-    postgres: *formula_default
+    postgres:
+      <<: *formula_default
+      context:
+        <<: *context_default
+        inspec_suites_kitchen:
+          <<: *isk_default
+          1:
+            <<: *isk_suite_default
+            name: 'repo'
+          2:
+            <<: *isk_suite_default
+            name: ''
     powerdns: *formula_default
     proftpd:
       <<: *formula_default
