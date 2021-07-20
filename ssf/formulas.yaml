@@ -1343,9 +1343,7 @@ ssf:
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,    0   ,   master,      0,         default]
-          # # - [ubuntu       ,    0   ,   master,      0,         default]
-          - [ubuntu       ,   20.04,   master,      0,         default]
-          - [ubuntu       ,   18.04,   master,      0,         default]
+          - [ubuntu       ,    0   ,   master,      0,         default]
           # # - [centos       ,    0   ,   master,      0,         default]
           # # - [fedora       ,    0   ,   master,      0,         default]
           # # - [opensuse/leap,    0   ,   master,      0,         default]
@@ -2565,9 +2563,7 @@ ssf:
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,    0   ,   master,      0,         default]
-          # # - [ubuntu       ,    0   ,   master,      0,         default]
-          - [ubuntu       ,   20.04,   master,      0,         default]
-          - [ubuntu       ,   18.04,   master,      0,         default]
+          - [ubuntu       ,    0   ,   master,      0,         default]
           - [centos       ,    8   ,   master,      0,          redhat]
           # RedHat-7 not working with the `redhat` suite, due to packages
           # - `glibc-langpack-de` not available, `glibc-common` is sufficient
@@ -2857,9 +2853,7 @@ ssf:
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,    0   ,   master,      0,         default]
-          # # - [ubuntu       ,    0   ,   master,      0,         default]
-          - [ubuntu       ,   20.04,   master,      0,         default]
-          - [ubuntu       ,   18.04,   master,      0,         default]
+          - [ubuntu       ,    0   ,   master,      0,         default]
           - [centos       ,    0   ,   master,      0,         default]
           - [fedora       ,    0   ,   master,      0,         default]
           - [opensuse/leap,    0   ,   master,      0,         default]
@@ -2912,8 +2906,7 @@ ssf:
             includes:
               # [os           ,  os_ver, salt_ver, py_ver]
               - [debian       ,    0   ,      0  ,      0]
-              - [ubuntu       ,   20.04,      0  ,      0]
-              - [ubuntu       ,   18.04,      0  ,      0]
+              - [ubuntu       ,    0   ,      0  ,      0]
               - [centos       ,    0   ,      0  ,      0]
               - [oraclelinux  ,    8   ,      0  ,      0]
               - [almalinux    ,    0   ,      0  ,      0]
@@ -2939,7 +2932,6 @@ ssf:
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,    0   ,   master,      0,              '']
-          # # - [ubuntu       ,    0   ,   master,      0,         default]
           - [ubuntu       ,    0   ,   master,      0,              '']
           - [centos       ,    0   ,   master,      0,              '']
           - [fedora       ,    0   ,   master,      0,         default]
@@ -3310,9 +3302,7 @@ ssf:
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,    0   ,   master,      0,         default]
-          # # - [ubuntu       ,    0   ,   master,      0,         default]
-          - [ubuntu       ,   20.04,   master,      0,         default]
-          - [ubuntu       ,   18.04,   master,      0,         default]
+          - [ubuntu       ,    0   ,   master,      0,         default]
           # # - [centos       ,    0   ,   master,      0,         default]
           - [centos       ,    7   ,   master,      0,         default]
           # # - [fedora       ,    0   ,   master,      0,         default]
@@ -3686,9 +3676,7 @@ ssf:
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,    0   ,   master,      0,         default]
-          # # - [ubuntu       ,    0   ,   master,      0,         default]
-          - [ubuntu       ,   20.04,   master,      0,         default]
-          - [ubuntu       ,   18.04,   master,      0,         default]
+          - [ubuntu       ,    0   ,   master,      0,         default]
           - [centos       ,    0   ,   master,      0,         default]
           - [fedora       ,    0   ,   master,      0,         default]
           - [opensuse/leap,    0   ,   master,      0,         default]
@@ -3965,9 +3953,7 @@ ssf:
           # # - [debian       ,    0   ,   master,      0,         default]
           - [debian       ,   11   ,   master,      0,         default]
           - [debian       ,   10   ,   master,      0,         default]
-          # # - [ubuntu       ,    0   ,   master,      0,         default]
-          - [ubuntu       ,   20.04,   master,      0,         default]
-          - [ubuntu       ,   18.04,   master,      0,         default]
+          - [ubuntu       ,    0   ,   master,      0,         default]
           # # - [centos       ,    0   ,   master,      0,         default]
           - [fedora       ,    0   ,   master,      0,         default]
           # # - [opensuse/leap,    0   ,   master,      0,         default]
@@ -5201,9 +5187,7 @@ ssf:
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,    0   ,   master,      0,              '']
-          # # - [ubuntu       ,    0   ,   master,      0,              '']
-          - [ubuntu       ,   20.04,   master,      0,              '']
-          - [ubuntu       ,   18.04,   master,      0,              '']
+          - [ubuntu       ,    0   ,   master,      0,              '']
           - [centos       ,    0   ,   master,      0,              '']
           # # - [fedora       ,    0   ,   master,      0,              '']
           - [opensuse/leap,    0   ,   master,      0,              '']
