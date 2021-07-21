@@ -1,5 +1,17 @@
 # Changelog
 
+# [1.295.0](https://github.com/myii/ssf-formula/compare/v1.294.0...v1.295.0) (2021-07-21)
+
+
+### Bug Fixes
+
+* **system.rb:** fix `kitchen.yaml` => `kitchen.yml` ([875289f](https://github.com/myii/ssf-formula/commit/875289fb7089fd961cea8d55fbbc787bdfcfd98c))
+
+
+### Features
+
+* **gemfile.lock:** use `bundle update` to get latest gems [2021-W29] ([9986d6b](https://github.com/myii/ssf-formula/commit/9986d6bde3d2b3aab32761af442eaf2ad63f29f7))
+
 # [1.294.0](https://github.com/myii/ssf-formula/compare/v1.293.0...v1.294.0) (2021-07-20)
 
 
