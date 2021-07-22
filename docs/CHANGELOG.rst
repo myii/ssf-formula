@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.296.0 <https://github.com/myii/ssf-formula/compare/v1.295.0...v1.296.0>`_ (2021-07-22)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **freebsd:** update with latest pre-salted Vagrant boxes (\ `2b3ee4b <https://github.com/myii/ssf-formula/commit/2b3ee4b08579eff64a03f92fab651005d0d85bea>`_\ )
+
 `1.295.0 <https://github.com/myii/ssf-formula/compare/v1.294.0...v1.295.0>`_ (2021-07-21)
 ---------------------------------------------------------------------------------------------
 
