@@ -81,6 +81,12 @@ rules:
 
   {#- Don't need the `if` here since we're always providing a `line-length` setting #}
   line-length:
+    {%- if semrel_formula == 'ssf' %}
+    # Allow comment that requires Jinja escapes, which renders without excessive
+    # line length
+    ignore: |
+      ssf/files/tofs_rabbitmq-formula/.salt-lint
+    {%- endif %}
     {%- set yl_ll = yamllint.rules.get('line-length') %}
     {{- format_ignore(yl_ll) }}
     {%- if yl_ll.max == yl_ll.bugbear %}

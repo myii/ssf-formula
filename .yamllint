@@ -56,6 +56,10 @@ rules:
     forbid-in-block-mappings: true
     forbid-in-flow-mappings: true
   line-length:
+    # Allow comment that requires Jinja escapes, which renders without excessive
+    # line length
+    ignore: |
+      ssf/files/tofs_rabbitmq-formula/.salt-lint
     # Increase from default of `80`
     # Based on https://github.com/PyCQA/flake8-bugbear#opinionated-warnings (`B950`)
     max: 88
