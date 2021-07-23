@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.297.0](https://github.com/myii/ssf-formula/compare/v1.296.0...v1.297.0) (2021-07-23)
+
+
+### Features
+
+* **rabbitmq:** review PR 84 (inc. `yamllint` update) ([92ced69](https://github.com/myii/ssf-formula/commit/92ced698f64392f25c5e1337c7be37c403a7fa6d))
+
 # [1.296.0](https://github.com/myii/ssf-formula/compare/v1.295.0...v1.296.0) (2021-07-22)
 
 
