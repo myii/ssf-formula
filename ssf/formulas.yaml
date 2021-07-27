@@ -4116,7 +4116,7 @@ ssf:
                 - '*':
                     - ._mapdata
                     - .
-                - 'G@init:systemd and ( G@os:Fedora or G@os:Gentoo or G@os:SUSE )':
+                - 'G@init:systemd and ( G@os:Fedora or G@os:Gentoo or G@os:SUSE or G@os:Arch )':
                     - states.custom_systemd_service
         map_jinja:
           verification:
