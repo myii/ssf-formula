@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.300.0 <https://github.com/myii/ssf-formula/compare/v1.299.0...v1.300.0>`_ (2021-07-27)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **rng-tools:** use helper state for Arch Linux as well (\ `b2328a5 <https://github.com/myii/ssf-formula/commit/b2328a5c82eea065e0a474d76fd795c5d4f67c9f>`_\ )
+
 `1.299.0 <https://github.com/myii/ssf-formula/compare/v1.298.0...v1.299.0>`_ (2021-07-26)
 ---------------------------------------------------------------------------------------------
 
