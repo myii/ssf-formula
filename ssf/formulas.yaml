@@ -3979,26 +3979,46 @@ ssf:
                     - states.files
                     - .clean
                     - .
+          1:
+            inspec_yml:
+              summary: >-
+                Verify that the rabbitmq formula is setup and configured correctly
+                (when running the formula without supplying any data from pillars)
+            provisioner:
+              dependencies: *dependencies_files_and_states
+              pillars_from_files:
+                - .sls: 'test/salt/pillar/nopillars.sls'
+              state_top:
+                - '*':
+                    - ._mapdata
+                    - states.files
+                    - .clean
+                    - .
+          2: {}
+        inspec_suites_matrix:
+          - default
+          - nopillars
+          - ''
         map_jinja:
           verification:
             import: ['mapdata']
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           # # - [debian       ,    0   ,   master,      0,         default]
-          - [debian       ,   11   ,   master,      0,         default]
-          - [debian       ,   10   ,   master,      0,         default]
-          - [ubuntu       ,    0   ,   master,      0,         default]
-          - [centos       ,    0   ,   master,      0,         default]
+          - [debian       ,   11   ,   master,      0,              '']
+          - [debian       ,   10   ,   master,      0,              '']
+          - [ubuntu       ,    0   ,   master,      0,              '']
+          - [centos       ,    0   ,   master,      0,              '']
           - [fedora       ,    0   ,   master,      0,         default]
           # # - [opensuse/leap,    0   ,   master,      0,         default]
           - [opensuse/leap,   15.3 ,   master,      0,         default]
           - [opensuse/tmbl,    0   ,   master,      0,         default]
           # # - [amazonlinux  ,    0   ,   master,      0,         default]
-          # # - [oraclelinux  ,    0   ,   master,      0,         default]
+          - [oraclelinux  ,    0   ,   master,      0,              '']
           # # - [arch-base    ,    0   ,   master,      0,         default]
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
-          # # - [almalinux    ,    0   ,   master,      0,         default]
-          # # - [rockylinux   ,    0   ,   master,      0,         default]
+          - [almalinux    ,    0   ,   master,      0,              '']
+          - [rockylinux   ,    0   ,   master,      0,              '']
         use_libsaltcli: true
         use_tofs: true
       semrel_files: *semrel_files_inc_map_jinja_verifier
