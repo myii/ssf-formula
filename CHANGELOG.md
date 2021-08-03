@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.301.0](https://github.com/myii/ssf-formula/compare/v1.300.0...v1.301.0) (2021-08-03)
+
+
+### Features
+
+* **rabbitmq:** review PR 89 ([653413e](https://github.com/myii/ssf-formula/commit/653413eed61ab3ac5e10a760266d2ab312f7abb6))
+
 # [1.300.0](https://github.com/myii/ssf-formula/compare/v1.299.0...v1.300.0) (2021-07-27)
 
 
