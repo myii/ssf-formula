@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.303.0 <https://github.com/myii/ssf-formula/compare/v1.302.0...v1.303.0>`_ (2021-08-04)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **gemfile+lock:** use ``ssf`` customised ``inspec`` repo (\ `d45c54f <https://github.com/myii/ssf-formula/commit/d45c54fe86afe6dd5e1890af6153773619ddd696>`_\ )
+
 `1.302.0 <https://github.com/myii/ssf-formula/compare/v1.301.0...v1.302.0>`_ (2021-08-04)
 ---------------------------------------------------------------------------------------------
 
