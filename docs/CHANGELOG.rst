@@ -2,6 +2,16 @@
 Changelog
 =========
 
+`1.306.0 <https://github.com/myii/ssf-formula/compare/v1.305.0...v1.306.0>`_ (2021-08-19)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **salt:** adjust matrix for ``3003.2`` (\ `0ccffcb <https://github.com/myii/ssf-formula/commit/0ccffcb6e7c478b9c74bf557cf13c9e886de0ec4>`_\ )
+* **saltimages:** update with latest changes from ``salt-image-builder`` (\ `1c709fe <https://github.com/myii/ssf-formula/commit/1c709fe20624afe699e71fc696098560845253dd>`_\ )
+
 `1.305.0 <https://github.com/myii/ssf-formula/compare/v1.304.0...v1.305.0>`_ (2021-08-16)
 ---------------------------------------------------------------------------------------------
 
