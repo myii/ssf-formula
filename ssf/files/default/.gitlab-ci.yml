@@ -31,7 +31,7 @@
   {%- if use_stage_test %}
   image_dindruby: &image_dindruby 'myii/ssf-dind-ruby:2.7.1-r3'
   {%-   if semrel_formula == 'template' %}
-  image_dindrubybionic: &image_dindrubybionic 'myii/ssf-dind-ruby-bionic:1_2.5.1'
+  image_dindrubybionic: &image_dindrubybionic 'myii/ssf-dind-ruby-bionic:2.7.1-1bbox1'
   {%-   endif  %}
   {%- endif  %}
   image_precommit: &image_precommit
@@ -184,7 +184,9 @@ rubocop:
     # TODO: This should work from the env vars above automatically
     - 'bundle config set path "${BUNDLE_CACHE_PATH}"'
     - 'bundle config set without "${BUNDLE_WITHOUT}"'
-    - 'bundle install'
+    - 'bundle update --bundler --conservative'
+    - 'bundle binstubs bundler --force'
+    - 'PATH=./bin:"$PATH" bundle install'
   script:
     - '{{ script_kitchen.bin }} {{ script_kitchen.cmd }} default-debian-11-master-py3'
 # REMOVEME>
