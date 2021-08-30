@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.309.0](https://github.com/myii/ssf-formula/compare/v1.308.0...v1.309.0) (2021-08-30)
+
+
+### Features
+
+* **sudoers:** review PR 78 ([5b91d26](https://github.com/myii/ssf-formula/commit/5b91d2629f8632b973555db3b46e88f33211ece8))
+
 # [1.308.0](https://github.com/myii/ssf-formula/compare/v1.307.0...v1.308.0) (2021-08-23)
 
 
