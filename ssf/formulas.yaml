@@ -1031,6 +1031,7 @@ ssf:
         yamllint:
           ignore:
             additional:
+              - docker/osarchmap.yaml
               - docker/osfamilymap.yaml
               - docker/osmap.yaml
         use_github_actions: true
