@@ -889,6 +889,12 @@ ssf:
             name: 'clean'
           4:
             <<: *isk_suite_default
+            name: 'composeclean'
+          5:
+            <<: *isk_suite_default
+            name: 'dockeronly'
+          6:
+            <<: *isk_suite_default
             name: ''
     eclipse:
       <<: *formula_default
