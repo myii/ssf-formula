@@ -2817,6 +2817,7 @@ ssf:
           ignore:
             additional:
               - mysql/supported_sections.yaml
+              - mysql/osfingermap.yaml
       semrel_files: *semrel_files_default
     nextcloud:
       context:
