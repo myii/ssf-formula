@@ -1,5 +1,13 @@
 # Changelog
 
+# [1.312.0](https://github.com/myii/ssf-formula/compare/v1.311.0...v1.312.0) (2021-09-08)
+
+
+### Features
+
+* **docker:** review PR 287 ([8f9dbb3](https://github.com/myii/ssf-formula/commit/8f9dbb3e59915bbe3b8ede4e493506f1e0e8ea29))
+* **docker:** review PR 300 ([90ae5aa](https://github.com/myii/ssf-formula/commit/90ae5aa07e26ac3398378fb7f2a2fcd89c7562ec))
+
 # [1.311.0](https://github.com/myii/ssf-formula/compare/v1.310.0...v1.311.0) (2021-09-08)
 
 
