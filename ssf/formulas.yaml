@@ -985,6 +985,8 @@ ssf:
               inspec_tests:
                 - package
           3:
+            excludes:
+              - [debian       ,   10   ,   master,      0]
             inspec_yml:
               summary: >-
                 Verify that the docker formula is setup and configured correctly
@@ -994,13 +996,38 @@ ssf:
               state_top:
                 - '*':
                     - ._mapdata
+                    - .
                     - .clean
-          4: {}
+          4:
+            inspec_yml:
+              summary: >-
+                Verify that the docker formula is setup and configured correctly
+            provisioner:
+              pillars_from_files:
+                - .sls: 'test/salt/pillar/dockeronly.sls'
+              state_top:
+                - '*':
+                    - ._mapdata
+                    - .
+                    - .compose.clean
+            verifier:
+              inspec_tests:
+                - dockeronly
+          5:
+            inspec_yml:
+              summary: >-
+                Verify that the docker formula is setup and configured correctly
+            provisioner:
+              pillars_from_files:
+                - .sls: 'test/salt/pillar/dockeronly.sls'
+          6: {}
         inspec_suites_matrix:
           - archive
           - package
           - repo
           - clean
+          - composeclean
+          - dockeronly
           - ''
         map_jinja:
           verification:
@@ -1012,7 +1039,7 @@ ssf:
           - [ubuntu       ,    0   ,   master,      0,              '']
           - [centos       ,    0   ,   master,      0,              '']
           - [fedora       ,    0   ,   master,      0,              '']
-          - [opensuse/leap,    0   ,   master,      0,              '']
+          # # - [opensuse/leap,    0   ,   master,      0,              '']
           # # - [opensuse/tmbl,    0   ,   master,      0,         default]
           - [opensuse/tmbl,    0   ,   master,      0,           clean]
           # # - [amazonlinux  ,    0   ,   master,      0,         default]
