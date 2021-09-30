@@ -1387,21 +1387,7 @@ ssf:
     rspamd: *formula_default
     rstudio: *formula_default
     rundeck: *formula_default
-    salt:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          0:
-            <<: *isk_suite_default
-            name: 'v3003-py3'
-          1:
-            <<: *isk_suite_default
-            name: 'v3002-py3'
-          2:
-            <<: *isk_suite_default
-            name: 'v3001-py3'
+    salt: *formula_default
     splunkforwarder: *formula_default
     sqldeveloper: *formula_default
     sqlplus: *formula_default
