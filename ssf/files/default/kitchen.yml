@@ -2,6 +2,7 @@
 # vim: ft=yaml
 ---
 {#- {%- from tplroot ~ "/libcontext.jinja" import format_context, format_kwargs, format_list with context %} #}
+{#- Centralise duplication from here and `test/salt/pillar/top.sls` #}
 {%- macro format_matcher(matcher_parent, width=10) %}
 {%-   filter indent(width) %}
 {%-     for mp in matcher_parent %}

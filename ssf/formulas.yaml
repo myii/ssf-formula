@@ -330,6 +330,9 @@ ssf_node_anchors:
         # yamllint disable rule:line-length
         test/integration/share/libraries/system.rb: &file__test__integration__share__libraries__system--rb
           <<: *file_default
+        test/salt/pillar/top.sls: &file__test__salt__pillar__top--sls
+          <<: *file_default
+          template: 'jinja'
         .gitignore: &file__--gitignore
           <<: *file_default
         .cirrus.yml: &file__--cirrus--yml

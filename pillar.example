@@ -213,6 +213,7 @@ ssf:
       - test/integration/share/inspec.yml
       - test/integration/share/README.md
       - test/integration/share/libraries/system.rb
+      - test/salt/pillar/top.sls
       - .gitignore
       - .cirrus.yml
       - .gitlab-ci.yml
