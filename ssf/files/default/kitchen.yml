@@ -203,6 +203,13 @@ provisioner:
   salt_copy_filter:
     - .kitchen
     - .git
+  {%- set pillars_from_directories = kitchen.provisioner.pillars_from_directories %}
+  {%- if pillars_from_directories %}
+  pillars_from_directories:
+    {%- for pfd in pillars_from_directories %}
+    - {{ pfd }}
+    {%- endfor %}
+  {%- endif %}
 
 platforms:
 {#- Centralise duplication from here and `libcimatrix.jinja` #}
@@ -306,27 +313,30 @@ suites:
       state_top:
         base:
           {{- format_matcher(suite.provisioner.state_top) }}
+      {#- Only include `pillars` and `pillars_from_files` if `pillars_from_directories` hasn't been provided #}
+      {%- if not pillars_from_directories %}
       pillars:
         top.sls:
           base:
             {{- format_matcher(suite.provisioner.pillars, width=12) }}
-      {#- pillars_from_files #}
-      {%- set pillars_from_files = suite.provisioner.pillars_from_files %}
-      {%- if pillars_from_files %}
+      {#-   pillars_from_files #}
+      {%-   set pillars_from_files = suite.provisioner.pillars_from_files %}
+      {%-   if pillars_from_files %}
       pillars_from_files:
-        {%- for pff in pillars_from_files %}
-        {#- To allow comments interspersed the list, check for string #}
-        {%-   if pff is string %}
+        {%-   for pff in pillars_from_files %}
+        {#-   To allow comments interspersed the list, check for string #}
+        {%-     if pff is string %}
         {{ pff }}
-        {%-   else %}
-        {%-     for k, v in pff.items() %}
-        {%-       if k.startswith('.') %}
-        {%-         set k = semrel_formula ~ k %}
-        {%-       endif %}
+        {%-     else %}
+        {%-       for k, v in pff.items() %}
+        {%-         if k.startswith('.') %}
+        {%-           set k = semrel_formula ~ k %}
+        {%-         endif %}
         {{ k }}: {{ v }}
-        {%-     endfor %}
-        {%-   endif %}
-        {%- endfor %}
+        {%-       endfor %}
+        {%-     endif %}
+        {%-   endfor %}
+      {%-   endif %}
       {%- endif %}
     verifier:
       {%- set controls = suite.verifier.controls %}

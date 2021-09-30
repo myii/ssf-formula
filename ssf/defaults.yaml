@@ -146,6 +146,12 @@ ssf_node_anchors:
         kitchen:
           driver:
             run_options: {}
+          provisioner:
+            # From a SaltStack Formulas perspective, `pillars_from_directories`
+            # is mutually exclusive to `pillars` & `pillars_from_files`
+            # So if values for this are provided, `pillars` & `pillars_from_files`
+            # will not be rendered under any of the suites
+            pillars_from_directories: []
           verifier:
             backend_cache: true
         map_jinja:
