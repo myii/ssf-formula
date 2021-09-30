@@ -4976,7 +4976,6 @@ ssf:
             repo: 'template-formula'
         inspec_suites_kitchen:
           0:
-            excludes: *platforms_os_gentoo
             inspec_yml:
               summary: >-
                 Verify that the TEMPLATE formula is setup and configured correctly
@@ -4985,51 +4984,25 @@ ssf:
                 - '*':
                     - TEMPLATE
                     - define_roles
-              pillars_from_files:
-                - TEMPLATE.sls: 'pillar.example'
-                - define_roles.sls: 'test/salt/pillar/define_roles.sls'
               state_top:
                 - '*':
                     - ._mapdata
                     - TEMPLATE
-          1:
-            includes: *platforms_os_gentoo
-            provisioner:
-              pillars:
-                - '*':
-                    - TEMPLATE
-                    - gentoo
-                    - define_roles
-              pillars_from_files:
-                - TEMPLATE.sls: 'pillar.example'
-                - gentoo.sls: 'test/salt/pillar/gentoo.sls'
-                - define_roles.sls: 'test/salt/pillar/define_roles.sls'
-              state_top:
-                - '*':
-                    - ._mapdata
-                    - TEMPLATE
-            verifier: *verifier_inspec_tests_default
-        inspec_suites_matrix:
-          - default
-          - gentoo
+        kitchen:
+          provisioner:
+            pillars_from_directories:
+              - test/salt/pillar
+            top_sls:
+              - '*':
+                  - default
+              - 'G@os_family:Gentoo':
+                  - gentoo
+              - 'os:*':
+                  - define_roles
         map_jinja:
           verification:
             import: ['mapdata']
           version: 5
-        platforms_matrix:
-          # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
-          - [debian       ,    0   ,   master,      0,         default]
-          - [ubuntu       ,    0   ,   master,      0,         default]
-          - [centos       ,    0   ,   master,      0,         default]
-          - [fedora       ,    0   ,   master,      0,         default]
-          - [opensuse/leap,    0   ,   master,      0,         default]
-          - [opensuse/tmbl,    0   ,   master,      0,         default]
-          - [amazonlinux  ,    0   ,   master,      0,         default]
-          - [oraclelinux  ,    0   ,   master,      0,         default]
-          - [arch-base    ,    0   ,   master,      0,         default]
-          - [gentoo/stage3,    0   ,   master,      0,          gentoo]
-          - [almalinux    ,    0   ,   master,      0,         default]
-          - [rockylinux   ,    0   ,   master,      0,         default]
         use_libsaltcli: true
         use_tofs: true
       semrel_files:

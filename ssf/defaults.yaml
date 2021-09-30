@@ -1426,15 +1426,7 @@ ssf:
     sysstat: *formula_default
     systemd: *formula_default
     telegraf: *formula_default
-    template:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          1:
-            <<: *isk_suite_default
-            name: 'gentoo'
+    template: *formula_default
     test: *formula_default
     timezone: *formula_default
     tomcat: *formula_default
