@@ -1,5 +1,13 @@
 # Changelog
 
+# [1.317.0](https://github.com/myii/ssf-formula/compare/v1.316.0...v1.317.0) (2021-10-02)
+
+
+### Features
+
+* **packages:** manage `map.jinja` verification ([651e373](https://github.com/myii/ssf-formula/commit/651e3737f2be923effda5d34fe94d29194540c4d))
+* **packages:** use `test-kitchen` branch for `node-formula` dependency ([af6f43b](https://github.com/myii/ssf-formula/commit/af6f43bded9a88d2e95bb2fdb5d74b03a59f0b7d))
+
 # [1.316.0](https://github.com/myii/ssf-formula/compare/v1.315.0...v1.316.0) (2021-09-30)
 
 
