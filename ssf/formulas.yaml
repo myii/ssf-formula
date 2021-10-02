@@ -3381,6 +3381,7 @@ ssf:
             provisioner:
               dependencies:
                 - name: 'node'
+                  branch: 'test-kitchen'
                   repo: 'git'
                   source: 'https://github.com/saltstack-formulas/node-formula.git'
               pillars_from_files:
