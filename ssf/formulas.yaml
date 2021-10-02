@@ -3503,6 +3503,7 @@ ssf:
                 - .sls: 'test/salt/pillar/windows.sls'
               state_top:
                 - '*':
+                    - ._mapdata
                     - .chocolatey
         inspec_suites_matrix:
           - default
@@ -3543,7 +3544,7 @@ ssf:
           - [debian       ,   11   ,   master,      3,          debian]
         testing_windows:
           active: true
-      semrel_files: *semrel_files_default
+      semrel_files: *semrel_files_inc_map_jinja_verifier
     php:
       context:
         codeowners:
