@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.319.0 <https://github.com/myii/ssf-formula/compare/v1.318.0...v1.319.0>`_ (2021-10-04)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **formulas:** use ``git stash`` before making changes to formulas (\ `73d8c63 <https://github.com/myii/ssf-formula/commit/73d8c63006fae3b864264cf3ac56d3870c65d9e9>`_\ )
+
 `1.318.0 <https://github.com/myii/ssf-formula/compare/v1.317.0...v1.318.0>`_ (2021-10-04)
 ---------------------------------------------------------------------------------------------
 
