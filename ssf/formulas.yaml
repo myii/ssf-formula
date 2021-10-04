@@ -304,10 +304,19 @@ ssf_node_anchors:
         formula/_mapdata/init.sls: &file__formula___mapdata___init--sls
           <<: *file_default
           template: 'mako'
+        formula/libmapstack.jinja: &file__formula__libmapstack--jinja
+          <<: *file_default
+          template: 'mako'
+        formula/libmatchers.jinja: &file__formula__libmatchers--jinja
+          <<: *file_default
+          template: 'mako'
         formula/libsaltcli.jinja: &file__formula__libsaltcli--jinja
           <<: *file_default
         formula/libtofs.jinja: &file__formula__libtofs--jinja
           <<: *file_default
+        formula/map.jinja: &file__formula__map--jinja
+          <<: *file_default
+          template: 'mako'
         inspec/inspec.yml: &file__inspec__inspec--yml
           <<: *file_default
           template: 'jinja'
@@ -5022,11 +5031,20 @@ ssf:
         formula/_mapdata/init.sls:
           <<: *file__formula___mapdata___init--sls
           alt_semrel_formula: 'TEMPLATE'
+        formula/libmapstack.jinja:
+          <<: *file__formula__libmapstack--jinja
+          alt_semrel_formula: 'TEMPLATE'
+        formula/libmatchers.jinja:
+          <<: *file__formula__libmatchers--jinja
+          alt_semrel_formula: 'TEMPLATE'
         formula/libsaltcli.jinja:
           <<: *file__formula__libsaltcli--jinja
           alt_semrel_formula: 'TEMPLATE'
         formula/libtofs.jinja:
           <<: *file__formula__libtofs--jinja
+          alt_semrel_formula: 'TEMPLATE'
+        formula/map.jinja:
+          <<: *file__formula__map--jinja
           alt_semrel_formula: 'TEMPLATE'
         inspec/inspec.yml:
           <<: *file__inspec__inspec--yml

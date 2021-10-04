@@ -23,8 +23,11 @@ ssf_node_anchors:
               - '/docs/CHANGELOG.rst': '@saltstack-formulas/ssf'
               - '/docs/TOFS_pattern.rst': '@saltstack-formulas/ssf'
               - '/*/_mapdata/': '@saltstack-formulas/ssf'
+              - '/*/libmapstack.jinja': '@saltstack-formulas/ssf'
+              - '/*/libmatchers.jinja': '@saltstack-formulas/ssf'
               - '/*/libsaltcli.jinja': '@saltstack-formulas/ssf'
               - '/*/libtofs.jinja': '@saltstack-formulas/ssf'
+              - '/*/map.jinja': '@saltstack-formulas/ssf'
               - '/test/integration/**/_mapdata.rb': '@saltstack-formulas/ssf'
               - '/test/integration/**/libraries/system.rb': '@saltstack-formulas/ssf'
               - '/test/integration/**/inspec.yml': '@saltstack-formulas/ssf'
@@ -150,6 +153,9 @@ ssf_node_anchors:
           dir: ''
           filename: 'map.jinja'
           verification: {}
+          # This key controls whether the new `map.jinja` files are managed or not
+          # A value of (version) 5 or more is required to trigger the file management
+          version: 0
         platforms:
           # [os           ,  os_ver, salt_ver, py_ver]
           - [0            ,    0   ,      0  ,      0]

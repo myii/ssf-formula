@@ -138,6 +138,7 @@ prepare-git-branch-for-{{ formula }}:
 {#-           Furthermore, remove `.travis.yml` for the `ssf-formula` #}
 {#-           Also: remove both `kitchen.vagrant.yml` files if relevant testing not active #}
 {#-           Also: remove both `kitchen.windows.yml` files if relevant testing not active #}
+{#-           Also: remove both Jinja libaries used for the new `map.jinja` if a v5+ `map.jinja` isn't involved #}
 {%-           if (semrel_file == '.cirrus.yml' and not use_cirrus_ci) or
                  (semrel_file == '.github/workflows/kitchen.yml' and not use_github_actions) or
                  (semrel_file == 'formula/libsaltcli.jinja' and not use_libsaltcli) or
@@ -145,9 +146,13 @@ prepare-git-branch-for-{{ formula }}:
                  (semrel_file in ['docs/CONTRIBUTING.rst'] and formula not in ['.github', 'ssf-formula']) or
                  (semrel_file in ['.travis.yml'] and formula in ['ssf-formula']) or
                  (semrel_file.endswith('kitchen.vagrant.yml') and not testing_freebsd.active and not testing_openbsd.active and not testing_windows.active) or
-                 (semrel_file.endswith('kitchen.windows.yml') and not testing_windows.active)
+                 (semrel_file.endswith('kitchen.windows.yml') and not testing_windows.active) or
+                 (semrel_file in ['formula/libmapstack.jinja', 'formula/libmatchers.jinja'] and map_jinja.version < 5)
 %}
 {%-             set add_or_rm = ['rm', 'remove', 'absent'] %}
+{#-           Never remove `map.jinja` but only ever manage it if a v5+ `map.jinja` is involved #}
+{%-           elif (semrel_file == 'formula/map.jinja' and map_jinja.version < 5) %}
+{%-             continue %}
 {%-           endif %}
 
 {#-           Pre-Stage 2: Remove previous file location, where applicable #}
