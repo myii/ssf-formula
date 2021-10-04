@@ -26,12 +26,31 @@
 {#-   Determine the TOFS override directory for the current formula #}
 {#-   Can't use `formula` directly because some formula names are used as top-level pillar/config keys, such as `users-formula` #}
 {%-   set formula_tofs_dir = 'tofs_' ~ formula %}
+{%-   set system_date_time = salt['system.get_system_date_time']() | replace(' ', '')
+                                                                   | replace(':', '')
+                                                                   | replace('-', '') %}
+{%-   set stash_message = 'stashed by the ssf-formula at ' ~ system_date_time %}
 {%-   set branch_current = salt['git.current_branch']('{0}/{1}'.format(ssf.formulas_path, formula)) %}
 {%-   set branch_pr = context.git.branch.pr %}
 {%-   if not ssf.git.states.commit_push.push.via_PR %}
-{%-     set branch_pr = salt['system.get_system_date_time']() | replace(' ', '')
-                                                              | replace(':', '')
-                                                              | replace('-', '')  %}
+{%-     set branch_pr = system_date_time %}
+{%-   endif %}
+
+
+{#-   Stage 0: Run `git stash` with a custom message, which will be used later to `pop` (in case anything was stashed) #}
+{%-   if ssf.git.states.prepare.active %}
+push-git-stash-with-custom-message-for-{{ formula }}:
+  {#-   TODO: Convert to `cmd.script`? #}
+  cmd.run:
+    - name: |
+        git stash push -m "{{ stash_message }}"
+    - cwd: {{ ssf.formulas_path }}/{{ formula }}/
+    {%- if running_as_root %}
+    - runas: {{ ssf.user }}
+    {%- endif %}
+    - require_in:
+      - cmd: prepare-git-branch-for-{{ formula }}
+      - cmd: pop-git-stash-if-custom-message-found-for-{{ formula }}
 {%-   endif %}
 
 
@@ -225,6 +244,7 @@ remove-previous-file-location-for-{{ formula }}-{{ dest_file }}:
     {%-         if not ssf.git.states.commit_push.push.via_PR and ssf.git.states.prepare.active %}
     - require_in:
       - cmd: cleanup-date-based-branch-for-{{ formula }}
+      - cmd: pop-git-stash-if-custom-message-found-for-{{ formula }}
     {%-         endif %}
 {%-           endif %}
 {%-         endif %}
@@ -265,6 +285,7 @@ commit-and-push-{{ formula }}:
     {%- if not ssf.git.states.commit_push.push.via_PR and ssf.git.states.prepare.active %}
     - require_in:
       - cmd: cleanup-date-based-branch-for-{{ formula }}
+      - cmd: pop-git-stash-if-custom-message-found-for-{{ formula }}
     {%- endif %}
 {%-   endif %}
 
@@ -296,6 +317,7 @@ create-github-PR-for-{{ formula }}:
     {%- if not ssf.git.states.commit_push.push.via_PR and ssf.git.states.prepare.active %}
     - require_in:
       - cmd: cleanup-date-based-branch-for-{{ formula }}
+      - cmd: pop-git-stash-if-custom-message-found-for-{{ formula }}
     {%- endif %}
 {%-   endif %}
 
@@ -309,6 +331,26 @@ cleanup-date-based-branch-for-{{ formula }}:
         git checkout {{ branch_current }}
         if [ "$(git branch --list {{ branch_pr }})" ]; then
           git branch -d {{ branch_pr }}
+        fi
+    - cwd: {{ ssf.formulas_path }}/{{ formula }}/
+    {%- if running_as_root %}
+    - runas: {{ ssf.user }}
+    {%- endif %}
+    - require_in:
+      - cmd: pop-git-stash-if-custom-message-found-for-{{ formula }}
+{%-   endif %}
+
+
+{#-   Stage 6: Run `git stash pop` only if anything was stashed earlier with the custom message #}
+{%-   if ssf.git.states.prepare.active %}
+pop-git-stash-if-custom-message-found-for-{{ formula }}:
+  {#-   TODO: Convert to `cmd.script`? #}
+  cmd.run:
+    - name: |
+        STASH_REVISION=$(git stash list | grep "{{ stash_message }}" | cut -d: -f1)
+        if [ "${STASH_REVISION}" ]; then
+          git checkout {{ branch_current }}
+          git stash pop "${STASH_REVISION}"
         fi
     - cwd: {{ ssf.formulas_path }}/{{ formula }}/
     {%- if running_as_root %}
