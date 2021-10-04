@@ -713,6 +713,7 @@ ssf:
           context: 'without'
           verification:
             import: ['mapdata']
+          version: 5
         use_libsaltcli: true
       semrel_files: *semrel_files_inc_map_jinja_verifier
     charles:
@@ -1661,6 +1662,7 @@ ssf:
         map_jinja:
           verification:
             import: ['mapdata']
+          version: 5
         platforms_matrix:
           # TODO: Going to need to fix `libcimatrix.jinja` to allow multipe
           #       suites per specific platform
@@ -3326,6 +3328,7 @@ ssf:
         map_jinja:
           verification:
             import: ['mapdata']
+          version: 5
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,    0   ,   master,      0,         default]
@@ -3380,6 +3383,7 @@ ssf:
         map_jinja:
           verification:
             import: ['mapdata']
+          version: 5
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,    0   ,   master,      0,         default]
@@ -4099,6 +4103,7 @@ ssf:
         map_jinja:
           verification:
             import: ['mapdata']
+          version: 5
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           # # - [debian       ,    0   ,   master,      0,         default]
@@ -5007,6 +5012,7 @@ ssf:
         map_jinja:
           verification:
             import: ['mapdata']
+          version: 5
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,    0   ,   master,      0,         default]
