@@ -65,7 +65,7 @@ ssf_node_anchors:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
             title: "chore(gemfile.lock): update to latest gem versions (2021-W40) [skip ci]"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/375'
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/376'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
@@ -859,7 +859,9 @@ ssf:
 
   semrel_formulas:
     .github: *formula_default
+    ad: *formula_default
     aegir: *formula_default
+    airflow: *formula_default
     apache:
       <<: *formula_default
       context:
@@ -1215,6 +1217,7 @@ ssf:
           3:
             <<: *isk_suite_default
             name: 'repo'
+    nsd: *formula_default
     ntp: *formula_default
     nut:
       <<: *formula_default
@@ -1268,6 +1271,7 @@ ssf:
           10:
             <<: *isk_suite_default
             name: 'windows'
+    pam-mount: *formula_default
     php:
       <<: *formula_default
       context:
@@ -1384,6 +1388,7 @@ ssf:
           2:
             <<: *isk_suite_default
             name: 'v3001-py3'
+    splunkforwarder: *formula_default
     sqldeveloper: *formula_default
     sqlplus: *formula_default
     ssf: *formula_default
@@ -1416,6 +1421,7 @@ ssf:
           1:
             <<: *isk_suite_default
             name: 'gentoo'
+    test: *formula_default
     timezone: *formula_default
     tomcat: *formula_default
     ufw:
@@ -1427,6 +1433,7 @@ ssf:
           1:
             <<: *isk_suite_default
             name: 'without-ipv6'
+    unbound: *formula_default
     users:
       <<: *formula_default
       context:

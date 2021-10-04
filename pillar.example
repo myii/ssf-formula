@@ -75,7 +75,9 @@ ssf:
   ### State the formulas and files to work through when running the formula
   active:
     semrel_formulas:
+      - ad
       - aegir
+      - airflow
       - apache
       - apt
       - apt-cacher
@@ -137,6 +139,7 @@ ssf:
       - nginx
       - nifi
       - node
+      - nsd
       - ntp
       - nut
       - openldap
@@ -144,6 +147,7 @@ ssf:
       - openssh
       - openvpn
       - packages
+      - pam-mount
       - php
       - postfix
       - postgres
@@ -159,6 +163,7 @@ ssf:
       - rstudio
       - rundeck
       - salt
+      - splunkforwarder
       - sqldeveloper
       - sqlplus
       - ssf
@@ -173,9 +178,11 @@ ssf:
       - systemd
       - telegraf
       - template
+      - test
       - timezone
       - tomcat
       - ufw
+      - unbound
       - users
       - varnish
       - vault
