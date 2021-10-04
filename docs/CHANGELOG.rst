@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.318.0 <https://github.com/myii/ssf-formula/compare/v1.317.0...v1.318.0>`_ (2021-10-04)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **antora:** add initial support (only for ``apache-formula`` currently) (\ `11ecafc <https://github.com/myii/ssf-formula/commit/11ecafcf73e7627a6337011bba3f832b0b138e55>`_\ )
+
 `1.317.0 <https://github.com/myii/ssf-formula/compare/v1.316.0...v1.317.0>`_ (2021-10-02)
 ---------------------------------------------------------------------------------------------
 
