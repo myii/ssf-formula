@@ -2,6 +2,18 @@
 Changelog
 =========
 
+`1.320.0 <https://github.com/myii/ssf-formula/compare/v1.319.0...v1.320.0>`_ (2021-10-05)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **freebsd:** deprecate ``11.4`` (EOL: 2021-09-30) (\ `288eb80 <https://github.com/myii/ssf-formula/commit/288eb8021cee4660607562a6463c977e3668c658>`_\ )
+* **gitignore:** allow test pillar ``top.sls`` (\ ``template-formula`` PR) (\ `dbe0823 <https://github.com/myii/ssf-formula/commit/dbe08234f24e541db21e6c508d3c5eb8d7eab2be>`_\ )
+* **salt:** adjust matrix for ``3003.3``\ , ``3002.7`` & ``3001.8`` (\ `f79d060 <https://github.com/myii/ssf-formula/commit/f79d060d10803c4267d3f6099d960d54239eef6b>`_\ )
+* **saltimages:** update with latest changes from ``salt-image-builder`` (\ `9e75900 <https://github.com/myii/ssf-formula/commit/9e75900664c0b80f96595739307f0fbf5f951fbc>`_\ )
+
 `1.319.0 <https://github.com/myii/ssf-formula/compare/v1.318.0...v1.319.0>`_ (2021-10-04)
 ---------------------------------------------------------------------------------------------
 
