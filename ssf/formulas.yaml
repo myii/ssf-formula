@@ -403,6 +403,20 @@ ssf:
         docs/CONTRIBUTING.rst:
           <<: *file__docs__CONTRIBUTING--rst
           dest_file: 'CONTRIBUTING.rst'
+    ad:
+      context:
+        codeowners:
+          entries:
+            global:
+              - '*': '@baby-gnu'
+        git:
+          github:
+            repo: 'ad-formula'
+        inspec_suites_kitchen: {}
+        inspec_suites_matrix: []
+        platforms: []
+        platforms_matrix: []
+      semrel_files: *semrel_files_mainly_gemfiles_only
     aegir:
       context:
         codeowners:
@@ -412,6 +426,20 @@ ssf:
         git:
           github:
             repo: 'aegir-formula'
+        inspec_suites_kitchen: {}
+        inspec_suites_matrix: []
+        platforms: []
+        platforms_matrix: []
+      semrel_files: *semrel_files_mainly_gemfiles_only
+    airflow:
+      context:
+        codeowners:
+          entries:
+            global:
+              - '*': '@noelmcloughlin'
+        git:
+          github:
+            repo: 'airflow-formula'
         inspec_suites_kitchen: {}
         inspec_suites_matrix: []
         platforms: []
@@ -3086,6 +3114,20 @@ ssf:
             additional:
               - node/osfamilymap.yaml
       semrel_files: *semrel_files_default
+    nsd:
+      context:
+        codeowners:
+          entries:
+            global:
+              - '*': '@alxwr'
+        git:
+          github:
+            repo: 'nsd-formula'
+        inspec_suites_kitchen: {}
+        inspec_suites_matrix: []
+        platforms: []
+        platforms_matrix: []
+      semrel_files: *semrel_files_mainly_gemfiles_only
     ntp:
       context:
         git:
@@ -3547,6 +3589,20 @@ ssf:
         testing_windows:
           active: true
       semrel_files: *semrel_files_inc_map_jinja_verifier
+    pam-mount:
+      context:
+        codeowners:
+          entries:
+            global:
+              - '*': '@baby-gnu'
+        git:
+          github:
+            repo: 'pam-mount-formula'
+        inspec_suites_kitchen: {}
+        inspec_suites_matrix: []
+        platforms: []
+        platforms_matrix: []
+      semrel_files: *semrel_files_mainly_gemfiles_only
     php:
       context:
         codeowners:
@@ -4434,6 +4490,20 @@ ssf:
               - salt/osmap.yaml
               - salt/osfingermap.yaml
       semrel_files: *semrel_files_inc_map_jinja_verifier
+    splunkforwarder:
+      context:
+        codeowners:
+          entries:
+            global:
+              - '*': '@codeboyQ2n5ha45'
+        git:
+          github:
+            repo: 'splunkforwarder-formula'
+        inspec_suites_kitchen: {}
+        inspec_suites_matrix: []
+        platforms: []
+        platforms_matrix: []
+      semrel_files: *semrel_files_mainly_gemfiles_only
     sqldeveloper:
       context:
         codeowners:
@@ -4968,6 +5038,20 @@ ssf:
         inspec/controls/_mapdata.rb:
           <<: *file__inspec__controls___mapdata--rb
           alt_semrel_formula: 'TEMPLATE'
+    test:
+      context:
+        codeowners:
+          entries:
+            global:
+              - '*': '@myii'
+        git:
+          github:
+            repo: 'test-formula'
+        inspec_suites_kitchen: {}
+        inspec_suites_matrix: []
+        platforms: []
+        platforms_matrix: []
+      semrel_files: *semrel_files_mainly_gemfiles_only
     timezone:
       context:
         git:
@@ -5091,6 +5175,20 @@ ssf:
           - [rockylinux   ,    0   ,   master,      0,         default]
         use_tofs: true
       semrel_files: *semrel_files_default
+    unbound:
+      context:
+        codeowners:
+          entries:
+            global:
+              - '*': '@alxwr'
+        git:
+          github:
+            repo: 'unbound-formula'
+        inspec_suites_kitchen: {}
+        inspec_suites_matrix: []
+        platforms: []
+        platforms_matrix: []
+      semrel_files: *semrel_files_mainly_gemfiles_only
     users:
       context:
         git:
