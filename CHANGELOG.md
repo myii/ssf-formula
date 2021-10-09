@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.323.0](https://github.com/myii/ssf-formula/compare/v1.322.0...v1.323.0) (2021-10-09)
+
+
+### Features
+
+* **systemd:** enable all `master` platforms except `oraclelinux-7` ([9ba3060](https://github.com/myii/ssf-formula/commit/9ba3060ad2362d14db8b5078dfce62176c77ac2c))
+
 # [1.322.0](https://github.com/myii/ssf-formula/compare/v1.321.0...v1.322.0) (2021-10-06)
 
 
