@@ -376,6 +376,7 @@ ssf:
     - [debian       ,    9   ,   tiamat,      3]  # debi-09.0-tiamat-py3
     - [ubuntu       ,   20.04,   tiamat,      3]  # ubun-20.0-tiamat-py3
     - [ubuntu       ,   18.04,   tiamat,      3]  # ubun-18.0-tiamat-py3
+    - [centos       , stream8,   tiamat,      3]  # cstr-08.0-tiamat-py3
     - [centos       ,    8   ,   tiamat,      3]  # cent-08.0-tiamat-py3
     - [centos       ,    7   ,   tiamat,      3]  # cent-07.0-tiamat-py3
     # # Not available at the current time
@@ -396,6 +397,7 @@ ssf:
     - [debian       ,    9   ,   master,      3]  # debi-09.0-master-py3
     - [ubuntu       ,   20.04,   master,      3]  # ubun-20.0-master-py3
     - [ubuntu       ,   18.04,   master,      3]  # ubun-18.0-master-py3
+    - [centos       , stream8,   master,      3]  # cstr-08.0-master-py3
     - [centos       ,    8   ,   master,      3]  # cent-08.0-master-py3
     - [centos       ,    7   ,   master,      3]  # cent-07.0-master-py3
     - [fedora       ,   34   ,   master,      3]  # fedo-34.0-master-py3
@@ -418,6 +420,7 @@ ssf:
     - [debian       ,    9   ,   3003.3,      3]  # debi-09.0-3003.3-py3
     - [ubuntu       ,   20.04,   3003.3,      3]  # ubun-20.0-3003.3-py3
     - [ubuntu       ,   18.04,   3003.3,      3]  # ubun-18.0-3003.3-py3
+    - [centos       , stream8,   3003.3,      3]  # cstr-08.0-3003.3-py3
     - [centos       ,    8   ,   3003.3,      3]  # cent-08.0-3003.3-py3
     - [centos       ,    7   ,   3003.3,      3]  # cent-07.0-3003.3-py3
     - [fedora       ,   34   ,   3003.3,      3]  # fedo-34.0-3003.3-py3
