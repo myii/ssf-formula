@@ -363,9 +363,11 @@ ssf:
     - [freebsd      ,   11.4 ,   3002.6,      3]  # fbsd-11.4-3002.6-py3
   saltimages_proposed:
     ### Already available but not using across the Formulas' org until released
+    ### Or not currently being built successfully due to Docker issues
     - [debian       ,   12   ,   tiamat,      3]  # debi-12.0-tiamat-py3
     # - [fedora       ,   35   ,   tiamat,      3]  # fedo-35.0-tiamat-py3
     - [fedora       ,   35   ,   master,      3]  # fedo-35.0-master-py3
+    # - [fedora       ,   35   ,   3004.0,      3]  # fedo-35.0-3004.0-py3
     # - [fedora       ,   35   ,   3003.3,      3]  # fedo-35.0-3003.3-py3
     # - [fedora       ,   35   ,   3002.7,      3]  # fedo-35.0-3002.7-py3
     # - [fedora       ,   35   ,   3001.8,      3]  # fedo-35.0-3001.8-py3
@@ -413,6 +415,29 @@ ssf:
     - [gentoo/stage3, systemd,   master,      3]  # gent-sysd-master-py3
     - [almalinux    ,    8   ,   master,      3]  # alma-08.0-master-py3
     - [rockylinux   ,    8   ,   master,      3]  # rock-08.0-master-py3
+
+    ### `3004.0-py3`
+    - [debian       ,   11   ,   3004.0,      3]  # debi-11.0-3004.0-py3
+    - [debian       ,   10   ,   3004.0,      3]  # debi-10.0-3004.0-py3
+    - [debian       ,    9   ,   3004.0,      3]  # debi-09.0-3004.0-py3
+    - [ubuntu       ,   20.04,   3004.0,      3]  # ubun-20.0-3004.0-py3
+    - [ubuntu       ,   18.04,   3004.0,      3]  # ubun-18.0-3004.0-py3
+    - [centos       , stream8,   3004.0,      3]  # cstr-08.0-3004.0-py3
+    - [centos       ,    8   ,   3004.0,      3]  # cent-08.0-3004.0-py3
+    - [centos       ,    7   ,   3004.0,      3]  # cent-07.0-3004.0-py3
+    - [fedora       ,   34   ,   3004.0,      3]  # fedo-34.0-3004.0-py3
+    - [fedora       ,   33   ,   3004.0,      3]  # fedo-33.0-3004.0-py3
+    - [opensuse/leap,   15.3 ,   3004.0,      3]  # opsu-15.3-3004.0-py3
+    - [opensuse/leap,   15.2 ,   3004.0,      3]  # opsu-15.2-3004.0-py3
+    - [opensuse/tmbl,  latest,   3004.0,      3]  # opsu-tmbl-3004.0-py3
+    - [amazonlinux  ,    2   ,   3004.0,      3]  # amaz-02.0-3004.0-py3
+    - [oraclelinux  ,    8   ,   3004.0,      3]  # orac-08.0-3004.0-py3
+    - [oraclelinux  ,    7   ,   3004.0,      3]  # orac-07.0-3004.0-py3
+    - [arch-base    ,  latest,   3004.0,      3]  # arch-late-3004.0-py3
+    - [gentoo/stage3,  latest,   3004.0,      3]  # gent-late-3004.0-py3
+    - [gentoo/stage3, systemd,   3004.0,      3]  # gent-sysd-3004.0-py3
+    - [almalinux    ,    8   ,   3004.0,      3]  # alma-08.0-3004.0-py3
+    - [rockylinux   ,    8   ,   3004.0,      3]  # rock-08.0-3004.0-py3
 
     ### `3003.3-py3`
     - [debian       ,   11   ,   3003.3,      3]  # debi-11.0-3003.3-py3
