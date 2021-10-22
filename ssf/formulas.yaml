@@ -5261,6 +5261,7 @@ ssf:
               summary: >-
                 Verify that the varnish formula is setup and configured correctly
             provisioner:
+              dependencies: *dependencies_states
               pillars:
                 - '*':
                     - .
@@ -5272,6 +5273,8 @@ ssf:
                 - '*':
                     - .ng._mapdata
                     - .ng
+                - 'G@init:systemd and ( G@os:Arch )':
+                    - states.custom_systemd_service
           1:
             includes: *platforms_osfamily_suse
             provisioner:
