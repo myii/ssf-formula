@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.325.0](https://github.com/myii/ssf-formula/compare/v1.324.0...v1.325.0) (2021-10-23)
+
+
+### Features
+
+* **varnish:** add helper state to run service in Arch Linux container ([fe6c55a](https://github.com/myii/ssf-formula/commit/fe6c55a5ba99f3e425021f5dda4fabfe48cbc8b6))
+
 # [1.324.0](https://github.com/myii/ssf-formula/compare/v1.323.0...v1.324.0) (2021-10-15)
 
 
