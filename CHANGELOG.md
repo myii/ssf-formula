@@ -1,5 +1,13 @@
 # Changelog
 
+# [1.328.0](https://github.com/myii/ssf-formula/compare/v1.327.0...v1.328.0) (2021-10-26)
+
+
+### Features
+
+* **formulas:** set `map_jinja:version` for v5 `map.jinja` formulas ([62e5207](https://github.com/myii/ssf-formula/commit/62e520773df96bb7244cefee204e2f7455998c06))
+* **map.jinja:** manage new v5+ `map.jinja`-related files ([357ffde](https://github.com/myii/ssf-formula/commit/357ffde1ed5beffe5cfd55a38e48854b91d8dda0))
+
 # [1.327.0](https://github.com/myii/ssf-formula/compare/v1.326.0...v1.327.0) (2021-10-26)
 
 
