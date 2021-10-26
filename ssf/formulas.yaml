@@ -304,10 +304,19 @@ ssf_node_anchors:
         formula/_mapdata/init.sls: &file__formula___mapdata___init--sls
           <<: *file_default
           template: 'mako'
+        formula/libmapstack.jinja: &file__formula__libmapstack--jinja
+          <<: *file_default
+          template: 'mako'
+        formula/libmatchers.jinja: &file__formula__libmatchers--jinja
+          <<: *file_default
+          template: 'mako'
         formula/libsaltcli.jinja: &file__formula__libsaltcli--jinja
           <<: *file_default
         formula/libtofs.jinja: &file__formula__libtofs--jinja
           <<: *file_default
+        formula/map.jinja: &file__formula__map--jinja
+          <<: *file_default
+          template: 'mako'
         inspec/inspec.yml: &file__inspec__inspec--yml
           <<: *file_default
           template: 'jinja'
@@ -704,6 +713,7 @@ ssf:
           context: 'without'
           verification:
             import: ['mapdata']
+          version: 5
         use_libsaltcli: true
       semrel_files: *semrel_files_inc_map_jinja_verifier
     charles:
@@ -1652,6 +1662,7 @@ ssf:
         map_jinja:
           verification:
             import: ['mapdata']
+          version: 5
         platforms_matrix:
           # TODO: Going to need to fix `libcimatrix.jinja` to allow multipe
           #       suites per specific platform
@@ -3317,6 +3328,7 @@ ssf:
         map_jinja:
           verification:
             import: ['mapdata']
+          version: 5
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,    0   ,   master,      0,         default]
@@ -3371,6 +3383,7 @@ ssf:
         map_jinja:
           verification:
             import: ['mapdata']
+          version: 5
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,    0   ,   master,      0,         default]
@@ -4090,6 +4103,7 @@ ssf:
         map_jinja:
           verification:
             import: ['mapdata']
+          version: 5
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           # # - [debian       ,    0   ,   master,      0,         default]
@@ -4998,6 +5012,7 @@ ssf:
         map_jinja:
           verification:
             import: ['mapdata']
+          version: 5
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,    0   ,   master,      0,         default]
@@ -5022,11 +5037,20 @@ ssf:
         formula/_mapdata/init.sls:
           <<: *file__formula___mapdata___init--sls
           alt_semrel_formula: 'TEMPLATE'
+        formula/libmapstack.jinja:
+          <<: *file__formula__libmapstack--jinja
+          alt_semrel_formula: 'TEMPLATE'
+        formula/libmatchers.jinja:
+          <<: *file__formula__libmatchers--jinja
+          alt_semrel_formula: 'TEMPLATE'
         formula/libsaltcli.jinja:
           <<: *file__formula__libsaltcli--jinja
           alt_semrel_formula: 'TEMPLATE'
         formula/libtofs.jinja:
           <<: *file__formula__libtofs--jinja
+          alt_semrel_formula: 'TEMPLATE'
+        formula/map.jinja:
+          <<: *file__formula__map--jinja
           alt_semrel_formula: 'TEMPLATE'
         inspec/inspec.yml:
           <<: *file__inspec__inspec--yml

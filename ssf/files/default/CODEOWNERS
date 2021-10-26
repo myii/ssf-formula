@@ -15,6 +15,11 @@
 {{ heading }}
 {%-     for entry in entries_section %}
 {%-       for file_pattern, owners in entry.items() %}
+{#-         Do not add v5 `map.jinja` files where they aren't actually being managed #}
+{%-         if file_pattern in ['/*/libmapstack.jinja' , '/*/libmatchers.jinja' , '/*/map.jinja'] and map_jinja.version < 5 %}
+{%-           continue %}
+{%-         endif %}
+{#-         Expand `/./` to the name of the formula #}
 {%-         if file_pattern.startswith('/./') %}
 {%-           set file_pattern = file_pattern.replace('./', '{0}/'.format(semrel_formula)) %}
 {%-         endif %}

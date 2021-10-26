@@ -202,8 +202,11 @@ ssf:
       - docs/TOFS_pattern.rst
       - formula/_mapdata/_mapdata.jinja
       - formula/_mapdata/init.sls
+      - formula/libmapstack.jinja
+      - formula/libmatchers.jinja
       - formula/libsaltcli.jinja
       - formula/libtofs.jinja
+      - formula/map.jinja
       - inspec/controls/_mapdata.rb
       - inspec/inspec.yml
       - inspec/README.md
