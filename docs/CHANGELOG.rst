@@ -2,6 +2,17 @@
 Changelog
 =========
 
+`1.329.0 <https://github.com/myii/ssf-formula/compare/v1.328.0...v1.329.0>`_ (2021-11-16)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **pillars_from_directories:** allow configuration in ``kitchen.yml`` (\ `758f9c1 <https://github.com/myii/ssf-formula/commit/758f9c1dd4b8eb03001939d3195eb3ba111a536e>`_\ )
+* **template:** review PR 238 (use ``pillars_from_directories``\ , etc.) (\ `e3808e6 <https://github.com/myii/ssf-formula/commit/e3808e6bac8e01d747c2aa7ad6caa0db5ddd8aac>`_\ )
+* **test/salt/pillar/top.sls:** manage across formulas (\ `b6454d7 <https://github.com/myii/ssf-formula/commit/b6454d7cde89bd2e5e1f285052724ab551c841d9>`_\ )
+
 `1.328.0 <https://github.com/myii/ssf-formula/compare/v1.327.0...v1.328.0>`_ (2021-10-26)
 ---------------------------------------------------------------------------------------------
 
