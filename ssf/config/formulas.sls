@@ -13,6 +13,7 @@
 {#-   Use shorter variables to make the code a little easier to follow #}
 {%-   set context = semrel_formula_specs.context %}
 {%-   set inspec_suites_kitchen = context.inspec_suites_kitchen %}
+{%-   set kitchen = context.kitchen %}
 {%-   set testing_freebsd = context.testing_freebsd %}
 {%-   set testing_openbsd = context.testing_openbsd %}
 {%-   set testing_windows = context.testing_windows %}
@@ -139,6 +140,7 @@ prepare-git-branch-for-{{ formula }}:
 {#-           Also: remove both `kitchen.vagrant.yml` files if relevant testing not active #}
 {#-           Also: remove both `kitchen.windows.yml` files if relevant testing not active #}
 {#-           Also: remove both Jinja libaries used for the new `map.jinja` if a v5+ `map.jinja` isn't involved #}
+{#-           Also: remove `test/salt/pillar/top.sls` if relevant configuration not active #}
 {%-           if (semrel_file == '.cirrus.yml' and not use_cirrus_ci) or
                  (semrel_file == '.github/workflows/kitchen.yml' and not use_github_actions) or
                  (semrel_file == 'formula/libsaltcli.jinja' and not use_libsaltcli) or
@@ -147,7 +149,8 @@ prepare-git-branch-for-{{ formula }}:
                  (semrel_file in ['.travis.yml'] and formula in ['ssf-formula']) or
                  (semrel_file.endswith('kitchen.vagrant.yml') and not testing_freebsd.active and not testing_openbsd.active and not testing_windows.active) or
                  (semrel_file.endswith('kitchen.windows.yml') and not testing_windows.active) or
-                 (semrel_file in ['formula/libmapstack.jinja', 'formula/libmatchers.jinja'] and map_jinja.version < 5)
+                 (semrel_file in ['formula/libmapstack.jinja', 'formula/libmatchers.jinja'] and map_jinja.version < 5) or
+                 (semrel_file == 'test/salt/pillar/top.sls' and not kitchen.provisioner.top_sls)
 %}
 {%-             set add_or_rm = ['rm', 'remove', 'absent'] %}
 {#-           Never remove `map.jinja` but only ever manage it if a v5+ `map.jinja` is involved #}
@@ -199,7 +202,7 @@ remove-previous-file-location-for-{{ formula }}-{{ dest_file }}:
         gitlab: {{ context.git.gitlab | yaml }}
         inspec_suites_kitchen: {{ inspec_suites_kitchen | yaml }}
         inspec_suites_matrix: {{ context.inspec_suites_matrix | yaml }}
-        kitchen: {{ context.kitchen | yaml }}
+        kitchen: {{ kitchen | yaml }}
         map_jinja: {{ map_jinja | yaml }}
         platforms: {{ context.platforms | yaml }}
         platforms_matrix: {{ context.platforms_matrix | yaml }}

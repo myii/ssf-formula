@@ -32,6 +32,7 @@ ssf_node_anchors:
               - '/test/integration/**/libraries/system.rb': '@saltstack-formulas/ssf'
               - '/test/integration/**/inspec.yml': '@saltstack-formulas/ssf'
               - '/test/integration/**/README.md': '@saltstack-formulas/ssf'
+              - '/test/salt/pillar/top.sls': '@saltstack-formulas/ssf'
               - '/.gitignore': '@saltstack-formulas/ssf'
               - '/.cirrus.yml': '@saltstack-formulas/ssf'
               - '/.gitlab-ci.yml': '@saltstack-formulas/ssf'
@@ -67,8 +68,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "refactor(map.jinja): standardise v5 structure [skip ci]"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/382'
+            title: "ci: use '`'pillars_from_directories'`' & '`'test/salt/pillar/top.sls'`'"
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/383'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
@@ -146,6 +147,13 @@ ssf_node_anchors:
         kitchen:
           driver:
             run_options: {}
+          provisioner:
+            # From a SaltStack Formulas perspective, `pillars_from_directories`
+            # is mutually exclusive to `pillars` & `pillars_from_files`
+            # So if values for this are provided, `pillars` & `pillars_from_files`
+            # will not be rendered under any of the suites
+            pillars_from_directories: []
+            top_sls: []
           verifier:
             backend_cache: true
         map_jinja:
@@ -1418,15 +1426,7 @@ ssf:
     sysstat: *formula_default
     systemd: *formula_default
     telegraf: *formula_default
-    template:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          1:
-            <<: *isk_suite_default
-            name: 'gentoo'
+    template: *formula_default
     test: *formula_default
     timezone: *formula_default
     tomcat: *formula_default
