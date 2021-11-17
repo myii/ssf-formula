@@ -2,6 +2,22 @@
 Changelog
 =========
 
+`1.330.0 <https://github.com/myii/ssf-formula/compare/v1.329.0...v1.330.0>`_ (2021-11-17)
+---------------------------------------------------------------------------------------------
+
+Code Refactoring
+^^^^^^^^^^^^^^^^
+
+
+* **salt:** centralise and condense ``platforms_matrix`` for clarity (\ `0c6a1d7 <https://github.com/myii/ssf-formula/commit/0c6a1d79cfa9fa97816215d1e0bf84828fadd36d>`_\ )
+
+Features
+^^^^^^^^
+
+
+* **kitchen:** allow configuration of ``platforms.verifier.inputs`` (\ `ea97df5 <https://github.com/myii/ssf-formula/commit/ea97df5ea6d0944b892e68a58a6a4477cf102213>`_\ )
+* **salt:** use ``pillars_from_directories`` & ``test/salt/pillar/top.sls`` (\ `1056947 <https://github.com/myii/ssf-formula/commit/10569470e5126342bda0adec3e7a227668f6af2e>`_\ )
+
 `1.329.0 <https://github.com/myii/ssf-formula/compare/v1.328.0...v1.329.0>`_ (2021-11-16)
 ---------------------------------------------------------------------------------------------
 
