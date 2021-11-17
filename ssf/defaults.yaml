@@ -69,7 +69,7 @@ ssf_node_anchors:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
             title: "ci: use '`'pillars_from_directories'`' & '`'test/salt/pillar/top.sls'`'"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/383'
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/384'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
@@ -147,6 +147,9 @@ ssf_node_anchors:
         kitchen:
           driver:
             run_options: {}
+          platforms:
+            verifier:
+              inputs: {}
           provisioner:
             # From a SaltStack Formulas perspective, `pillars_from_directories`
             # is mutually exclusive to `pillars` & `pillars_from_files`
@@ -1387,21 +1390,7 @@ ssf:
     rspamd: *formula_default
     rstudio: *formula_default
     rundeck: *formula_default
-    salt:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          0:
-            <<: *isk_suite_default
-            name: 'v3003-py3'
-          1:
-            <<: *isk_suite_default
-            name: 'v3002-py3'
-          2:
-            <<: *isk_suite_default
-            name: 'v3001-py3'
+    salt: *formula_default
     splunkforwarder: *formula_default
     sqldeveloper: *formula_default
     sqlplus: *formula_default

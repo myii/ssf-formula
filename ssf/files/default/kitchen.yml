@@ -264,6 +264,18 @@ platforms:
     transport:
       max_ssh_sessions: 1
     {%- endif %}
+    {#- Centralise duplication from here and `kitchen*.yml` #}
+    {%- if kitchen.platforms.verifier.inputs %}
+    verifier:
+      inputs:
+        {%- for input_name, input_val in kitchen.platforms.verifier.inputs.items() %}
+        {%-   if [semrel_formula, input_name] in [['salt', 'saltmajorversion']] %}
+        {{ input_name }}: {{ input_val.get(salt_ver, salt_ver | int) }}
+        {%-   else %}
+        {{ input_name }}: {{ input_val }}
+        {%-   endif %}
+        {%- endfor %}
+    {%- endif %}
 {%- endfor %}
 
 verifier:
