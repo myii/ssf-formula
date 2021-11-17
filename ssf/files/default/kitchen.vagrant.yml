@@ -68,4 +68,16 @@ platforms:
         exit 0
       # yamllint enable rule:line-length
     {%- endif %}
+    {#- Centralise duplication from here and `kitchen*.yml` #}
+    {%- if kitchen.platforms.verifier.inputs %}
+    verifier:
+      inputs:
+        {%- for input_name, input_val in kitchen.platforms.verifier.inputs.items() %}
+        {%-   if [semrel_formula, input_name] in [['salt', 'saltmajorversion']] %}
+        {{ input_name }}: {{ input_val.get(salt_ver, salt_ver | int) }}
+        {%-   else %}
+        {{ input_name }}: {{ input_val }}
+        {%-   endif %}
+        {%- endfor %}
+    {%- endif %}
   {%- endfor %}

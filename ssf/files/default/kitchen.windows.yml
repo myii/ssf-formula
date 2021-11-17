@@ -32,4 +32,16 @@ platforms:
   {%-   set salt_ver = platform[2] | d('') %}
   {%-   set py_ver   = platform[3] | d('') %}
   - name: {{ os | replace('/', '-') }}-{{ os_ver | replace('.', '') }}-{{ salt_ver | replace('.', '-') }}-py{{ py_ver }}
+    {#- Centralise duplication from here and `kitchen*.yml` #}
+    {%- if kitchen.platforms.verifier.inputs %}
+    verifier:
+      inputs:
+        {%- for input_name, input_val in kitchen.platforms.verifier.inputs.items() %}
+        {%-   if [semrel_formula, input_name] in [['salt', 'saltmajorversion']] %}
+        {{ input_name }}: {{ input_val.get(salt_ver, salt_ver | int) }}
+        {%-   else %}
+        {{ input_name }}: {{ input_val }}
+        {%-   endif %}
+        {%- endfor %}
+    {%- endif %}
   {%- endfor %}

@@ -4343,6 +4343,16 @@ ssf:
                     - .master
                     - .minion
         kitchen:
+          platforms:
+            verifier:
+              inputs:
+                # Using this input in a custom fashion; the sub-key is compared
+                # against the Salt version of the pre-salted image/box and
+                # translated accordingly (to the formula's current CI state)
+                saltmajorversion:
+                  latest: 3003  # Only used for Windows, which isn't always up-to-date
+                  master: 3004
+                  tiamat: 3004
           provisioner:
             pillars_from_directories:
               - test/salt/pillar
