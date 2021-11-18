@@ -349,7 +349,6 @@ ssf:
     - [freebsd      ,   12.2 ,   3003.1,      3]  # fbsd-12.2-3003.1-py3
     ### `openbsd`
     - [openbsd      ,    6.9 ,   3002.6,      3]  # obsd-06.9-3002.6-py3
-    - [openbsd      ,    6.8 ,   3001.1,      3]  # obsd-06.8-3001.1-py3
     ### `windows`
     - [windows      ,   10   ,   latest,      3]  # wind-10.0-latest-py3
     - [windows      ,    8.1 ,   latest,      3]  # wind-08.1-latest-py3
@@ -361,6 +360,8 @@ ssf:
     - [freebsd      ,   13.0 ,   3002.6,      3]  # fbsd-13.0-3002.6-py3
     - [freebsd      ,   12.2 ,   3002.6,      3]  # fbsd-12.2-3002.6-py3
     - [freebsd      ,   11.4 ,   3002.6,      3]  # fbsd-11.4-3002.6-py3
+    ### `openbsd`
+    - [openbsd      ,    6.8 ,   3001.1,      3]  # obsd-06.8-3001.1-py3
   saltimages_proposed:
     ### Already available but not using across the Formulas' org until released
     ### Or not currently being built successfully due to Docker issues
