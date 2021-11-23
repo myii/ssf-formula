@@ -2441,12 +2441,9 @@ ssf:
                 Verify that the letsencrypt formula is setup and configured correctly
                 using `git`
             provisioner:
-              pillars:
-                - '*':
-                    - .
               pillars_from_files:
                 - .sls: 'test/salt/pillar/git.sls'
-              state_top:
+              state_top: &state_top_letsencrypt_install_and_config
                 - '*':
                     - ._mapdata
                     - .install
@@ -2484,16 +2481,9 @@ ssf:
                 Verify that the letsencrypt formula is setup and configured correctly
                 on RedHat (and derivatives)
             provisioner:
-              pillars:
-                - '*':
-                    - .
               pillars_from_files:
                 - .sls: 'test/salt/pillar/rpm.sls'
-              state_top:
-                - '*':
-                    - ._mapdata
-                    - .install
-                    - .config
+              state_top: *state_top_letsencrypt_install_and_config
           3:
             includes: *platforms_osfamily_debian
             inspec_yml:
@@ -2509,11 +2499,21 @@ ssf:
                     - ._mapdata
                     - states.install_letsencrypt_test_server
                     - .
+          4:
+            inspec_yml:
+              summary: >-
+                Verify that the letsencrypt formula is setup and configured correctly
+                using `pip`
+            provisioner:
+              pillars_from_files:
+                - .sls: 'test/salt/pillar/pip.sls'
+              state_top: *state_top_letsencrypt_install_and_config
         inspec_suites_matrix:
           - git
           - deb
           - rpm
           - domains
+          - pip
         map_jinja:
           verification:
             import: ['letsencrypt']
@@ -2540,8 +2540,9 @@ ssf:
           # # Should work but failing dependency resolution
           # # - [oraclelinux  ,    0   ,   master,      0,             rpm]
           - [oraclelinux  ,    8   ,   master,      0,             rpm]
-          - [arch-base    ,    0   ,   master,      0,             git]
-          - [gentoo/stage3,    0   ,   master,      0,             git]
+          - [arch-base    ,    0   ,   master,      0,             pip]
+          - [gentoo/stage3,  latest,   master,      0,             git]
+          - [gentoo/stage3, systemd,   master,      0,             pip]
           - [almalinux    ,    0   ,   master,      0,             rpm]
           - [rockylinux   ,    0   ,   master,      0,             rpm]
       semrel_files: *semrel_files_default
