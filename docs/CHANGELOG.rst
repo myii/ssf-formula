@@ -2,6 +2,23 @@
 Changelog
 =========
 
+`1.331.0 <https://github.com/myii/ssf-formula/compare/v1.330.0...v1.331.0>`_ (2021-11-23)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **gitlab-ci:** allow failure for new/unstable platforms in general (\ `0c76ba8 <https://github.com/myii/ssf-formula/commit/0c76ba86b2aea2e2961b22d264b94831f60a3dd8>`_\ )
+* **letsencrypt:** review PR 85 (\ `d681cc4 <https://github.com/myii/ssf-formula/commit/d681cc419241cea6c0cb34dd49a883a71e6195b7>`_\ )
+* **node:** review PR 61 (\ `3c3eefa <https://github.com/myii/ssf-formula/commit/3c3eefa988a0ce8af333a8fc650c589141d6e73e>`_\ )
+* **openbsd:** deprecate ``6.8`` (EOL: 2021-10-14) (\ `f86b9fb <https://github.com/myii/ssf-formula/commit/f86b9fbdedf8cebd51f50934ade821c513e4ed6a>`_\ )
+* **salt:** adjust matrix for ``3004.0`` (\ `ce0d22e <https://github.com/myii/ssf-formula/commit/ce0d22e32ebb61faebce548b3d919a7f1fdb3efa>`_\ )
+* **saltimages:** update with latest changes from ``salt-image-builder`` (\ `28eb0a9 <https://github.com/myii/ssf-formula/commit/28eb0a912b9a41861f04a1116d6349818cb675ae>`_\ )
+* **saltimages:** update with latest changes from ``salt-image-builder`` (\ `ebf6388 <https://github.com/myii/ssf-formula/commit/ebf6388a4c5ae4dd9305f054e33706cf379a0f67>`_\ )
+* **vagrant:** add FreeBSD ``3004.0`` testing across formulas (\ `0bb2a8f <https://github.com/myii/ssf-formula/commit/0bb2a8fb6047905dda74de5ad24ec6ff8f91f0b4>`_\ )
+* **vagrant:** add OpenBSD 7.0 testing across formulas (\ `35d93e6 <https://github.com/myii/ssf-formula/commit/35d93e6bb113e397b170856d646b6c103bf5d950>`_\ )
+
 `1.330.0 <https://github.com/myii/ssf-formula/compare/v1.329.0...v1.330.0>`_ (2021-11-17)
 ---------------------------------------------------------------------------------------------
 
