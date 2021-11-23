@@ -105,6 +105,7 @@ ssf_node_anchors:
         platforms_os_redhat_locale_specific: &platforms_os_redhat_locale_specific
           # [os           ,  os_ver, salt_ver, py_ver]
           # # - [centos       ,    0   ,      0  ,      0]
+          - [centos       , stream8,      0  ,      0]
           - [centos       ,    8   ,      0  ,      0]
           - [fedora       ,    0   ,      0  ,      0]
           - [amazonlinux  ,    0   ,      0  ,      0]
@@ -1281,6 +1282,7 @@ ssf:
           - [debian       ,    0   ,   master,      0,              '']
           - [ubuntu       ,    0   ,   master,      0,              '']
           # # - [centos       ,    0   ,   master,      0,              '']
+          - [centos       , stream8,   master,      0,              '']
           - [centos       ,    8   ,   master,      0,              '']
           - [centos       ,    7   ,   master,      0,         package]
           - [fedora       ,    0   ,   master,      0,              '']
@@ -1486,6 +1488,7 @@ ssf:
           - [debian       ,   10   ,   master,      0,         default]
           - [debian       ,    9   ,   master,      0,              '']
           - [ubuntu       ,    0   ,   master,      0,              '']
+          - [centos       , stream8,   master,      0,         default]
           - [centos       ,    8   ,   master,      0,         default]
           - [centos       ,    7   ,   master,      0,              '']
           - [fedora       ,    0   ,   master,      0,              '']
@@ -2438,12 +2441,9 @@ ssf:
                 Verify that the letsencrypt formula is setup and configured correctly
                 using `git`
             provisioner:
-              pillars:
-                - '*':
-                    - .
               pillars_from_files:
                 - .sls: 'test/salt/pillar/git.sls'
-              state_top:
+              state_top: &state_top_letsencrypt_install_and_config
                 - '*':
                     - ._mapdata
                     - .install
@@ -2481,16 +2481,9 @@ ssf:
                 Verify that the letsencrypt formula is setup and configured correctly
                 on RedHat (and derivatives)
             provisioner:
-              pillars:
-                - '*':
-                    - .
               pillars_from_files:
                 - .sls: 'test/salt/pillar/rpm.sls'
-              state_top:
-                - '*':
-                    - ._mapdata
-                    - .install
-                    - .config
+              state_top: *state_top_letsencrypt_install_and_config
           3:
             includes: *platforms_osfamily_debian
             inspec_yml:
@@ -2506,11 +2499,21 @@ ssf:
                     - ._mapdata
                     - states.install_letsencrypt_test_server
                     - .
+          4:
+            inspec_yml:
+              summary: >-
+                Verify that the letsencrypt formula is setup and configured correctly
+                using `pip`
+            provisioner:
+              pillars_from_files:
+                - .sls: 'test/salt/pillar/pip.sls'
+              state_top: *state_top_letsencrypt_install_and_config
         inspec_suites_matrix:
           - git
           - deb
           - rpm
           - domains
+          - pip
         map_jinja:
           verification:
             import: ['letsencrypt']
@@ -2537,8 +2540,9 @@ ssf:
           # # Should work but failing dependency resolution
           # # - [oraclelinux  ,    0   ,   master,      0,             rpm]
           - [oraclelinux  ,    8   ,   master,      0,             rpm]
-          - [arch-base    ,    0   ,   master,      0,             git]
-          - [gentoo/stage3,    0   ,   master,      0,             git]
+          - [arch-base    ,    0   ,   master,      0,             pip]
+          - [gentoo/stage3,  latest,   master,      0,             git]
+          - [gentoo/stage3, systemd,   master,      0,             pip]
           - [almalinux    ,    0   ,   master,      0,             rpm]
           - [rockylinux   ,    0   ,   master,      0,             rpm]
       semrel_files: *semrel_files_default
@@ -2629,6 +2633,7 @@ ssf:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,    0   ,   master,      0,         default]
           - [ubuntu       ,    0   ,   master,      0,         default]
+          - [centos       , stream8,   master,      0,          redhat]
           - [centos       ,    8   ,   master,      0,          redhat]
           # RedHat-7 not working with the `redhat` suite, due to packages
           # - `glibc-langpack-de` not available, `glibc-common` is sufficient
@@ -3121,6 +3126,7 @@ ssf:
           ignore:
             additional:
               - node/osfamilymap.yaml
+              - test/salt/pillar/repo.sls
       semrel_files: *semrel_files_default
     nsd:
       context:
@@ -3473,6 +3479,7 @@ ssf:
           4:
             includes:
               # Some of `*platforms_os_centos` + `oraclelinux-8`
+              - [centos       , stream8,      0  ,      0]
               - [centos       ,    8   ,      0  ,      0]
               - [oraclelinux  ,    8   ,      0  ,      0]
               - [almalinux    ,    0   ,      0  ,      0]
@@ -3580,6 +3587,7 @@ ssf:
           # # - [ubuntu       ,    0   ,   master,      0,          ubuntu]
           - [ubuntu       ,   18.04,   master,      0,          ubuntu]
           # # - [centos       ,    0   ,   master,      0,         redhat8]
+          - [centos       , stream8,   master,      0,         redhat8]
           - [centos       ,    8   ,   master,      0,         redhat8]
           - [centos       ,    7   ,   master,      0,          centos]
           # # - [fedora       ,    0   ,   master,      0,          fedora]
@@ -4359,6 +4367,8 @@ ssf:
             top_sls:
               - '*':
                   - salt
+              - 'G@saltversioninfo:0:3004 and G@pythonversion:0:3':
+                  - v3004-py3
               - 'G@saltversioninfo:0:3003 and G@pythonversion:0:3':
                   - v3003-py3
               - 'G@saltversioninfo:0:3002 and G@pythonversion:0:3':
@@ -4370,14 +4380,17 @@ ssf:
             import: ['salt_settings', 'formulas_settings']
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
-          - [debian       ,   11   ,   3003.3,      3,         default]
-          - [debian       ,   10   ,   3002.7,      3,         default]
-          - [debian       ,    9   ,   3001.8,      3,         default]
-          - [ubuntu       ,   20.04,   3003.3,      3,         default]
-          - [ubuntu       ,   18.04,   3002.7,      3,         default]
-          - [centos       ,    8   ,   3003.3,      3,         default]
-          - [centos       ,    7   ,   3002.7,      3,         default]
+          - [debian       ,   11   ,   3004.0,      3,         default]
+          - [debian       ,   10   ,   3003.3,      3,         default]
+          - [debian       ,    9   ,   3002.7,      3,         default]
+          - [ubuntu       ,   20.04,   3004.0,      3,         default]
+          - [ubuntu       ,   18.04,   3003.3,      3,         default]
+          # # `centos-stream8` only available after `3003.X`
+          - [centos       , stream8,   3004.0,      3,         default]
+          - [centos       ,    8   ,   3004.0,      3,         default]
+          - [centos       ,    7   ,   3003.3,      3,         default]
           # # `fedora` only installs `3003.X`
+          - [fedora       ,   35   ,   3003.3,      3,         default]
           - [fedora       ,   34   ,   3003.3,      3,         default]
           - [fedora       ,   33   ,   3003.3,      3,         default]
           # # `opensuse/*` only installs `3003.X`
@@ -4385,27 +4398,23 @@ ssf:
           # # InSpec suite when there's a shared `_mapdata` verification file --
           # # using the currently supported version for now (re: Salt repo)
           - [opensuse/leap,   15.3 ,   3003.3,      3,         default]
+          # - [opensuse/leap,   15.2 ,   3003.3,      3,         default]
           - [opensuse/tmbl,  latest,   3003.3,      3,         default]
-          - [amazonlinux  ,    2   ,   3003.3,      3,         default]
-          - [oraclelinux  ,    8   ,   3003.3,      3,         default]
-          - [oraclelinux  ,    7   ,   3002.7,      3,         default]
+          - [amazonlinux  ,    2   ,   3004.0,      3,         default]
+          - [oraclelinux  ,    8   ,   3004.0,      3,         default]
+          - [oraclelinux  ,    7   ,   3003.3,      3,         default]
           # # `arch` only installs `3004.X`
-          # # This doesn't do anything right now until the `3004.0` pre-salted
-          # # images are pushed to the formula
           - [arch-base    ,  latest,   3004.0,      3,         default]
           - [gentoo/stage3,  latest,   3003.3,      3,         default]
           - [gentoo/stage3, systemd,   3003.3,      3,         default]
-          - [almalinux    ,    8   ,   3003.3,      3,         default]
-          # # TODO: When supported in an official release, move this platform
-          # #       to that release (as a minimum, no other Salt versions)
-          - [rockylinux   ,    8   ,   3003.3,      3,         default]
+          - [almalinux    ,    8   ,   3004.0,      3,         default]
+          - [rockylinux   ,    8   ,   3004.0,      3,         default]
           # # FreeBSD and Windows won't always be in sync with the Linux
           # # platforms above
-          - [freebsd      ,    0   ,   3003.1,      3,         default]
-          - [openbsd      ,    0   ,   3002.6,      3,         default]
+          - [freebsd      ,    0   ,   3004.0,      3,         default]
+          - [openbsd      ,    7.0 ,   3003.3,      3,         default]
+          - [openbsd      ,    6.9 ,   3002.6,      3,         default]
           - [windows      ,    0   ,   latest,      3,         default]
-        platforms_matrix_allow_failure:
-          - [debian       ,   11   ,   3003.3,      3,         default]
         testing_freebsd:
           active: true
         testing_openbsd:
@@ -5040,6 +5049,7 @@ ssf:
             includes:
               - [debian       ,   11   ,      0  ,      0]
               - [debian       ,   10   ,      0  ,      0]
+              - [centos       , stream8,      0  ,      0]
               - [centos       ,    8   ,      0  ,      0]
               - [oraclelinux  ,    8   ,      0  ,      0]
               - [almalinux    ,    0   ,      0  ,      0]
@@ -5078,6 +5088,7 @@ ssf:
           - [debian       ,    9   ,   master,      0,    without-ipv6]
           - [ubuntu       ,    0   ,   master,      0,    without-ipv6]
           # # - [centos       ,    0   ,   master,      0,    without-ipv6]
+          - [centos       , stream8,   master,      0,         default]
           - [centos       ,    8   ,   master,      0,         default]
           - [centos       ,    7   ,   master,      0,    without-ipv6]
           - [fedora       ,    0   ,   master,      0,    without-ipv6]
@@ -5223,6 +5234,7 @@ ssf:
           # # - [ubuntu       ,    0   ,   master,      0,         default]
           - [ubuntu       ,   20.04,   master,      0,         default]
           # # - [centos       ,    0   ,   master,      0,         default]
+          - [centos       , stream8,   master,      0,         default]
           - [centos       ,    8   ,   master,      0,         default]
           - [fedora       ,    0   ,   master,      0,         default]
           - [opensuse/leap,    0   ,   master,      0,         default]

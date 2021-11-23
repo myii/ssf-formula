@@ -135,7 +135,7 @@ rubocop:
 ###############################################################################
 # Define `test` template
 ###############################################################################
-.test_instance:{{ ' &test_instance' if platforms_matrix_allow_failure else '' }}
+.test_instance: &test_instance
   stage: *stage_test
   image: *image_dindruby
   services: *services_docker_dind
@@ -154,15 +154,12 @@ rubocop:
     # Alternative value to consider: `${CI_JOB_NAME}`
     - '{{ script_kitchen.bin }} {{ script_kitchen.cmd }} "${DOCKER_ENV_CI_JOB_NAME}"'
 
-{%-   if platforms_matrix_allow_failure %}
-
 ###############################################################################
 # Define `test` template (`allow_failure: true`)
 ###############################################################################
 .test_instance_failure_permitted:
   <<: *test_instance
   allow_failure: true
-{%-   endif %}
 
 {%-   if semrel_formula == 'template' %}
 # <REMOVEME
