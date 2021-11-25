@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.333.0](https://github.com/myii/ssf-formula/compare/v1.332.0...v1.333.0) (2021-11-25)
+
+
+### Features
+
+* **proftpd:** use `pillars_from_directories` & test `pillar/top.sls` ([b0b6549](https://github.com/myii/ssf-formula/commit/b0b65493c766cbd52edd00762212e2ce7ad9fedb))
+
 # [1.332.0](https://github.com/myii/ssf-formula/compare/v1.331.0...v1.332.0) (2021-11-23)
 
 
