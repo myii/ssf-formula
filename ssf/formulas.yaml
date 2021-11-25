@@ -3906,103 +3906,55 @@ ssf:
             repo: 'proftpd-formula'
         inspec_suites_kitchen:
           0:
-            # None of the platforms use `default` directly
-            includes: *includes_NONE
             inspec_yml:
               summary: >-
                 Verify that the proftpd formula is setup and configured correctly
-          1:
-            includes: *platforms_osfamily_debian
-            provisioner:
-              pillars:
-                - '*':
-                    - default
-                    - .
-              pillars_from_files:
-                - default.sls: 'test/salt/pillar/default.sls'
-                - .sls: 'test/salt/pillar/debian.sls'
-            verifier: *verifier_inspec_tests_default
-          2:
-            includes: *platforms_osfamily_redhat_without_amazon
-            provisioner:
-              pillars:
-                - '*':
-                    - default
-                    - .
-              pillars_from_files:
-                - default.sls: 'test/salt/pillar/default.sls'
-                - .sls: 'test/salt/pillar/redhat.sls'
-            verifier: *verifier_inspec_tests_default
-          3:
-            includes: *platforms_osfamily_suse
-            provisioner:
-              pillars:
-                - '*':
-                    - default
-                    - .
-              pillars_from_files:
-                - default.sls: 'test/salt/pillar/default.sls'
-                - .sls: 'test/salt/pillar/suse.sls'
-            verifier: *verifier_inspec_tests_default
-          4:
-            includes: *platforms_os_amazonlinux
             provisioner:
               dependencies: *dependencies_epel
-              pillars:
-                - '*':
-                    - default
-                    - .
-              pillars_from_files:
-                - default.sls: 'test/salt/pillar/default.sls'
-                - .sls: 'test/salt/pillar/redhat.sls'
               state_top:
+                - 'G@os:Amazon':
+                    - epel
                 - '*':
                     - ._mapdata
-                    - epel
                     - .
-            verifier: *verifier_inspec_tests_default
-          5:
-            includes: *platforms_os_gentoo
-            provisioner:
-              pillars:
-                - '*':
-                    - default
-                    - .
-              pillars_from_files:
-                - default.sls: 'test/salt/pillar/default.sls'
-                - .sls: 'test/salt/pillar/gentoo.sls'
-            verifier: *verifier_inspec_tests_default
-        inspec_suites_matrix:
-          - default
-          - debian
-          - redhat
-          - suse
-          - amazonlinux
-          - gentoo
         kitchen:
           driver:
             run_options:
               add-host:
                 - 'localhost.localdomain:127.0.0.1'
+          provisioner:
+            pillars_from_directories:
+              - test/salt/pillar
+            top_sls:
+              - '*':
+                  - default
+              - 'G@os_family:Debian':
+                  - debian
+              - 'G@os_family:RedHat':
+                  - redhat
+              - 'G@os_family:Suse':
+                  - suse
+              - 'G@os_family:Gentoo':
+                  - gentoo
         map_jinja:
           verification:
             import: ['proftpd']
         platforms_matrix:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
-          - [debian       ,    0   ,   master,      0,          debian]
-          - [ubuntu       ,    0   ,   master,      0,          debian]
-          - [centos       ,    0   ,   master,      0,          redhat]
-          - [fedora       ,    0   ,   master,      0,          redhat]
-          - [opensuse/leap,    0   ,   master,      0,            suse]
-          - [opensuse/tmbl,    0   ,   master,      0,            suse]
-          - [amazonlinux  ,    0   ,   master,      0,     amazonlinux]
-          - [oraclelinux  ,    0   ,   master,      0,          redhat]
+          - [debian       ,    0   ,   master,      0,         default]
+          - [ubuntu       ,    0   ,   master,      0,         default]
+          - [centos       ,    0   ,   master,      0,         default]
+          - [fedora       ,    0   ,   master,      0,         default]
+          - [opensuse/leap,    0   ,   master,      0,         default]
+          - [opensuse/tmbl,    0   ,   master,      0,         default]
+          - [amazonlinux  ,    0   ,   master,      0,         default]
+          - [oraclelinux  ,    0   ,   master,      0,         default]
           # # - [arch-base    ,    0   ,   master,      0,         default]
           # Gentoo (OpenRC): Service `proftpd' needs non existent service `net'
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
-          - [gentoo/stage3, systemd,   master,      0,          gentoo]
-          - [almalinux    ,    0   ,   master,      0,          redhat]
-          - [rockylinux   ,    0   ,   master,      0,          redhat]
+          - [gentoo/stage3, systemd,   master,      0,         default]
+          - [almalinux    ,    0   ,   master,      0,         default]
+          - [rockylinux   ,    0   ,   master,      0,         default]
         yamllint:
           ignore:
             additional:
