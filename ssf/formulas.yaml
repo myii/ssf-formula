@@ -4195,7 +4195,8 @@ ssf:
                 - '*':
                     - ._mapdata
                     - .
-                - 'G@init:systemd and ( G@os:Fedora or G@os:Gentoo or G@os:SUSE or G@os:Arch )':
+                - '# yamllint disable-line rule:line-length'
+                - 'G@init:systemd and ( G@os_family:RedHat or G@os_family:Gentoo or G@os_family:Suse or G@os_family:Arch )':
                     - states.custom_systemd_service
         map_jinja:
           verification:
