@@ -5264,6 +5264,8 @@ ssf:
           # # - [gentoo/stage3,    0   ,   master,      0,              '']
           - [almalinux    ,    0   ,   master,      0,              '']
           - [rockylinux   ,    0   ,   master,      0,              '']
+        platforms_matrix_allow_failure:
+          - [opensuse/leap,   15.2 ,   master,      3,              '']
       semrel_files: *semrel_files_default
     vim:
       context:
