@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.335.0](https://github.com/myii/ssf-formula/compare/v1.334.0...v1.335.0) (2021-12-10)
+
+
+### Features
+
+* **vault:** allow failure for OpenSUSE Leap 15.2 ([1a11024](https://github.com/myii/ssf-formula/commit/1a1102484feb48d65489ef9e9cbd921d2766effd))
+
 # [1.334.0](https://github.com/myii/ssf-formula/compare/v1.333.0...v1.334.0) (2021-12-06)
 
 
