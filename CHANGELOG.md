@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.336.0](https://github.com/myii/ssf-formula/compare/v1.335.0...v1.336.0) (2021-12-10)
+
+
+### Features
+
+* **rng-tools:** use helper state for `RedHat` platforms as well ([626a254](https://github.com/myii/ssf-formula/commit/626a25460e296f2a9f013bb324920e6c37b6897a))
+
 # [1.335.0](https://github.com/myii/ssf-formula/compare/v1.334.0...v1.335.0) (2021-12-10)
 
 
