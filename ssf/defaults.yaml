@@ -68,8 +68,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "chore(gemfile.lock): update to latest gem versions (2021-W50) [skip ci]"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/391'
+            title: "ci(proxy+windows): fix setting up WinRM"
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/392'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
@@ -238,7 +238,9 @@ ssf_node_anchors:
             platforms:
               provisioner:
                 salt_install: 'bootstrap'
-                salt_bootstrap_options: '-pythonVersion 3'
+                # `3003.3` is the latest version that works; reset this once
+                # `kitchen-salt` has been fixed (or wherever the fix is required)
+                salt_bootstrap_options: '-pythonVersion 3 -version 3003.3'
           vagrant:
             platforms:
               driver:
