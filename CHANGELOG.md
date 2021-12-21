@@ -1,5 +1,13 @@
 # Changelog
 
+# [1.338.0](https://github.com/myii/ssf-formula/compare/v1.337.0...v1.338.0) (2021-12-21)
+
+
+### Features
+
+* **proxy:** fix setting up WinRM ([424123f](https://github.com/myii/ssf-formula/commit/424123fd8b76ff04296d5effe25105dc34a717ab))
+* **proxy:** use `3003.3` as `latest` until fixed (e.g. `kitchen-salt`) ([17762bc](https://github.com/myii/ssf-formula/commit/17762bc58133e0b0b065ed793fb07bc2c4585cba))
+
 # [1.337.0](https://github.com/myii/ssf-formula/compare/v1.336.0...v1.337.0) (2021-12-14)
 
 
