@@ -17,7 +17,7 @@ provisioner:
   # yamllint disable rule:line-length
   init_environment: |
     {%- for pkg in testing_windows.winrepo_ng %}
-    C:\salt\salt-call --local state.single file.managed `
+    salt-call --local state.single file.managed `
       C:\Users\kitchen\AppData\Local\Temp\kitchen\srv\salt\win\repo-ng\{{ pkg }}.sls `
       source=https://github.com/saltstack/salt-winrepo-ng/raw/master/{{ pkg }}.sls `
       skip_verify=True makedirs=True
