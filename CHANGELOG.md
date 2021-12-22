@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.340.0](https://github.com/myii/ssf-formula/compare/v1.339.0...v1.340.0) (2021-12-22)
+
+
+### Features
+
+* **gemfile.lock:** use `bundle update` to get latest gems [2021-W51] ([4cd078a](https://github.com/myii/ssf-formula/commit/4cd078a913dfc5e5fdc02f0d7e668cb4a9bfc4d8))
+
 # [1.339.0](https://github.com/myii/ssf-formula/compare/v1.338.0...v1.339.0) (2021-12-22)
 
 
