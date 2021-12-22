@@ -64,8 +64,8 @@ ssf_node_anchors:
             upstream: 'upstream'
           commit:
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "ci(proxy): replace deprecated Windows '`'2016'`' with '`'2022'`' [skip ci]"
-            body: '* Semi-automated using https://github.com/myii/ssf-formula/pull/393'
+            title: "chore(gemfile.lock): update to latest gem versions (2021-W51) [skip ci]"
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/394'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
