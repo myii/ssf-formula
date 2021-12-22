@@ -1,5 +1,13 @@
 # Changelog
 
+# [1.339.0](https://github.com/myii/ssf-formula/compare/v1.338.0...v1.339.0) (2021-12-22)
+
+
+### Features
+
+* **proxy:** remove literal `C:\salt\` from `salt-call` command ([d6717b4](https://github.com/myii/ssf-formula/commit/d6717b4fa154e5398828b39fb1b293a0e88a0afe))
+* **proxy:** replace deprecated Windows `2016` with `2022` ([0b05b5d](https://github.com/myii/ssf-formula/commit/0b05b5de6b5ab3257607c437126ea45aa8c95835))
+
 # [1.338.0](https://github.com/myii/ssf-formula/compare/v1.337.0...v1.338.0) (2021-12-21)
 
 
