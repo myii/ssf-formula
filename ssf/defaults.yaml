@@ -64,8 +64,8 @@ ssf_node_anchors:
             upstream: 'upstream'
           commit:
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "ci(proxy+windows): fix setting up WinRM"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/392'
+            title: "ci(proxy): replace deprecated Windows '`'2016'`' with '`'2022'`' [skip ci]"
+            body: '* Semi-automated using https://github.com/myii/ssf-formula/pull/393'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
@@ -337,7 +337,10 @@ ssf:
         source: 'salt://ssf/files/default/git/git_30_create_PR.sh'
   proxyplatformswindows:
     ### `windows`
+    - [windows      , 2022   ,   latest,      3]  # wind-2022-latest-py3
     - [windows      , 2019   ,   latest,      3]  # wind-2019-latest-py3
+  proxyplatformswindows_deprecated:
+    ### `windows`
     - [windows      , 2016   ,   latest,      3]  # wind-2016-latest-py3
   vagrantboxes:
     ### `freebsd`
