@@ -3406,8 +3406,8 @@ ssf:
           # # TODO: Fix 2 failing states in order to enable this
           # # - [freebsd      ,    0   ,   master,      3,         default]
           - [windows      ,    0   ,   latest,      3,         default]
-        testing_freebsd:
-          active: true
+        # testing_freebsd:
+        #   active: true
         testing_windows:
           active: true
           winrepo_ng: ['openvpn']
