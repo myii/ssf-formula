@@ -1,5 +1,13 @@
 # Changelog
 
+# [1.341.0](https://github.com/myii/ssf-formula/compare/v1.340.0...v1.341.0) (2021-12-24)
+
+
+### Features
+
+* **vagrant:** allow `synced_folders` on FreeBSD 13.0 (bug fixed) ([92ea9db](https://github.com/myii/ssf-formula/commit/92ea9db7923ef9d7244a521de1bb888b8aff1fa9))
+* **vagrant:** replace FreeBSD 12.2 with 12.3 ([4c54673](https://github.com/myii/ssf-formula/commit/4c54673496031aadbe88c0b1f19009fdab03060c))
+
 # [1.340.0](https://github.com/myii/ssf-formula/compare/v1.339.0...v1.340.0) (2021-12-22)
 
 
