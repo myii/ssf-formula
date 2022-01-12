@@ -234,9 +234,7 @@ ssf_node_anchors:
             platforms:
               provisioner:
                 salt_install: 'bootstrap'
-                # `3003.3` is the latest version that works; reset this once
-                # `kitchen-salt` has been fixed (or wherever the fix is required)
-                salt_bootstrap_options: '-pythonVersion 3 -version 3003.3'
+                salt_bootstrap_options: '-pythonVersion 3'
           vagrant:
             platforms:
               driver:

@@ -4374,12 +4374,10 @@ ssf:
           active: true
         testing_windows:
           active: true
-          # Re-enable this section once the default value is reset to use
-          # `latest` (implicitly, the `-version` switch isn't used normally)
-          # github:
-          #   platforms:
-          #     provisioner:
-          #       salt_bootstrap_options: '-pythonVersion 3 -version 3003.3'
+          github:
+            platforms:
+              provisioner:
+                salt_bootstrap_options: '-pythonVersion 3 -version 3003.3'
           winrepo_ng: ['salt-minion-py3']
         use_tofs: true
         yamllint:
