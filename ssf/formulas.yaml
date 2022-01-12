@@ -4311,7 +4311,7 @@ ssf:
                 # against the Salt version of the pre-salted image/box and
                 # translated accordingly (to the formula's current CI state)
                 saltmajorversion:
-                  latest: 3003  # Only used for Windows, which isn't always up-to-date
+                  latest: 3004  # Only used for Windows, which isn't always up-to-date
                   master: 3004
                   tiamat: 3004
           provisioner:
@@ -4377,7 +4377,7 @@ ssf:
           github:
             platforms:
               provisioner:
-                salt_bootstrap_options: '-pythonVersion 3 -version 3003.3'
+                salt_bootstrap_options: '-pythonVersion 3 -version 3004-2'
           winrepo_ng: ['salt-minion-py3']
         use_tofs: true
         yamllint:
