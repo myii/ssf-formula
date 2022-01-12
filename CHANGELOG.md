@@ -1,5 +1,17 @@
 # Changelog
 
+# [1.345.0](https://github.com/myii/ssf-formula/compare/v1.344.0...v1.345.0) (2022-01-12)
+
+
+### Features
+
+* **salt:** use Salt version `3004` for Windows in CI ([99ec258](https://github.com/myii/ssf-formula/commit/99ec258e78ff7d8bb90514b481c1fe189b297a9f))
+
+
+### Reverts
+
+* **proxy:** use `3003.3` as `latest` until fixed (in `kitchen-salt`) ([679d01f](https://github.com/myii/ssf-formula/commit/679d01f8d62603a1b3cf1b4ee9657b0c4a6f4724))
+
 # [1.344.0](https://github.com/myii/ssf-formula/compare/v1.343.0...v1.344.0) (2022-01-11)
 
 
