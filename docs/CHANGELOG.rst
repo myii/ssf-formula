@@ -2,6 +2,159 @@
 Changelog
 =========
 
+`1.348.1 <https://github.com/myii/ssf-formula/compare/v1.348.0...v1.348.1>`_ (2022-01-14)
+---------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* replace broken ``m2r`` with ``m2r2`` (\ `9fb283b <https://github.com/myii/ssf-formula/commit/9fb283b6de5b64e7d8c99bab0fd03e1327ccaefe>`_\ ), closes `/github.com/miyakogi/m2r/issues/66#issuecomment-988733957 <https://github.com//github.com/miyakogi/m2r/issues/66/issues/issuecomment-988733957>`_
+
+`1.348.0 <https://github.com/myii/ssf-formula/compare/v1.347.0...v1.348.0>`_ (2022-01-14)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **formula:** add ``snmp-formula`` (\ `2e9623b <https://github.com/myii/ssf-formula/commit/2e9623b6ecf18675a496cb7255a4036790689ba0>`_\ ), closes `/github.com/saltstack-formulas/snmp-formula/pull/43#issuecomment-1012833124 <https://github.com//github.com/saltstack-formulas/snmp-formula/pull/43/issues/issuecomment-1012833124>`_
+
+`1.347.0 <https://github.com/myii/ssf-formula/compare/v1.346.0...v1.347.0>`_ (2022-01-14)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **logrotate:** use ``cron-formula`` dep instead of single ``cron`` state (\ `bb0ec87 <https://github.com/myii/ssf-formula/commit/bb0ec87531b6fec3da4bbee35ca9c42872d5bb67>`_\ ), closes `/github.com/saltstack-formulas/logrotate-formula/pull/60#issuecomment-1013031092 <https://github.com//github.com/saltstack-formulas/logrotate-formula/pull/60/issues/issuecomment-1013031092>`_
+
+`1.346.0 <https://github.com/myii/ssf-formula/compare/v1.345.0...v1.346.0>`_ (2022-01-14)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **cron:** add Gentoo support (\ `cddc875 <https://github.com/myii/ssf-formula/commit/cddc8758311f9d5cb9daaf5a24fba6f0176aa721>`_\ )
+
+`1.345.0 <https://github.com/myii/ssf-formula/compare/v1.344.0...v1.345.0>`_ (2022-01-12)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **salt:** use Salt version ``3004`` for Windows in CI (\ `99ec258 <https://github.com/myii/ssf-formula/commit/99ec258e78ff7d8bb90514b481c1fe189b297a9f>`_\ )
+
+Reverts
+^^^^^^^
+
+
+* **proxy:** use ``3003.3`` as ``latest`` until fixed (in ``kitchen-salt``\ ) (\ `679d01f <https://github.com/myii/ssf-formula/commit/679d01f8d62603a1b3cf1b4ee9657b0c4a6f4724>`_\ )
+
+`1.344.0 <https://github.com/myii/ssf-formula/compare/v1.343.0...v1.344.0>`_ (2022-01-11)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **gemfile.lock:** use ``bundle update`` to get latest gems [2022-W02] (\ `25afecd <https://github.com/myii/ssf-formula/commit/25afecd4278fabf8c0afaf029bb2a24e1dd28cd4>`_\ )
+
+`1.343.0 <https://github.com/myii/ssf-formula/compare/v1.342.0...v1.343.0>`_ (2022-01-06)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **gemfile.lock:** use ``bundle update`` to get latest gems [2022-W01] (\ `92a3f81 <https://github.com/myii/ssf-formula/commit/92a3f81fc8f3888087fe41a4f457edfcd66d5e6e>`_\ )
+
+`1.342.0 <https://github.com/myii/ssf-formula/compare/v1.341.0...v1.342.0>`_ (2021-12-28)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **gemfile.lock:** use ``bundle update`` to get latest gems [2021-W52] (\ `7b8998f <https://github.com/myii/ssf-formula/commit/7b8998fd5c9e78969bd3e18565ba132a23c33ac9>`_\ )
+
+`1.341.0 <https://github.com/myii/ssf-formula/compare/v1.340.0...v1.341.0>`_ (2021-12-24)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **vagrant:** allow ``synced_folders`` on FreeBSD 13.0 (bug fixed) (\ `92ea9db <https://github.com/myii/ssf-formula/commit/92ea9db7923ef9d7244a521de1bb888b8aff1fa9>`_\ )
+* **vagrant:** replace FreeBSD 12.2 with 12.3 (\ `4c54673 <https://github.com/myii/ssf-formula/commit/4c54673496031aadbe88c0b1f19009fdab03060c>`_\ )
+
+`1.340.0 <https://github.com/myii/ssf-formula/compare/v1.339.0...v1.340.0>`_ (2021-12-22)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **gemfile.lock:** use ``bundle update`` to get latest gems [2021-W51] (\ `4cd078a <https://github.com/myii/ssf-formula/commit/4cd078a913dfc5e5fdc02f0d7e668cb4a9bfc4d8>`_\ )
+
+`1.339.0 <https://github.com/myii/ssf-formula/compare/v1.338.0...v1.339.0>`_ (2021-12-22)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **proxy:** remove literal ``C:\salt\`` from ``salt-call`` command (\ `d6717b4 <https://github.com/myii/ssf-formula/commit/d6717b4fa154e5398828b39fb1b293a0e88a0afe>`_\ )
+* **proxy:** replace deprecated Windows ``2016`` with ``2022`` (\ `0b05b5d <https://github.com/myii/ssf-formula/commit/0b05b5de6b5ab3257607c437126ea45aa8c95835>`_\ )
+
+`1.338.0 <https://github.com/myii/ssf-formula/compare/v1.337.0...v1.338.0>`_ (2021-12-21)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **proxy:** fix setting up WinRM (\ `424123f <https://github.com/myii/ssf-formula/commit/424123fd8b76ff04296d5effe25105dc34a717ab>`_\ )
+* **proxy:** use ``3003.3`` as ``latest`` until fixed (e.g. ``kitchen-salt``\ ) (\ `17762bc <https://github.com/myii/ssf-formula/commit/17762bc58133e0b0b065ed793fb07bc2c4585cba>`_\ )
+
+`1.337.0 <https://github.com/myii/ssf-formula/compare/v1.336.0...v1.337.0>`_ (2021-12-14)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **gemfile.lock:** use ``bundle update`` to get latest gems [2021-W50] (\ `483c79f <https://github.com/myii/ssf-formula/commit/483c79fe8410dd3dc19783ee874ff290ffc1c103>`_\ )
+
+`1.336.0 <https://github.com/myii/ssf-formula/compare/v1.335.0...v1.336.0>`_ (2021-12-10)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **rng-tools:** use helper state for ``RedHat`` platforms as well (\ `626a254 <https://github.com/myii/ssf-formula/commit/626a25460e296f2a9f013bb324920e6c37b6897a>`_\ )
+
+`1.335.0 <https://github.com/myii/ssf-formula/compare/v1.334.0...v1.335.0>`_ (2021-12-10)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **vault:** allow failure for OpenSUSE Leap 15.2 (\ `1a11024 <https://github.com/myii/ssf-formula/commit/1a1102484feb48d65489ef9e9cbd921d2766effd>`_\ )
+
+`1.334.0 <https://github.com/myii/ssf-formula/compare/v1.333.0...v1.334.0>`_ (2021-12-06)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **gemfile.lock:** use ``bundle update`` to get latest gems [2021-W49] (\ `be34d28 <https://github.com/myii/ssf-formula/commit/be34d2849cdd2bb4a6eee9b9fbad3b2cf1276f28>`_\ )
+
 `1.333.0 <https://github.com/myii/ssf-formula/compare/v1.332.0...v1.333.0>`_ (2021-11-25)
 ---------------------------------------------------------------------------------------------
 

@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.348.1](https://github.com/myii/ssf-formula/compare/v1.348.0...v1.348.1) (2022-01-14)
+
+
+### Bug Fixes
+
+* replace broken `m2r` with `m2r2` ([9fb283b](https://github.com/myii/ssf-formula/commit/9fb283b6de5b64e7d8c99bab0fd03e1327ccaefe)), closes [/github.com/miyakogi/m2r/issues/66#issuecomment-988733957](https://github.com//github.com/miyakogi/m2r/issues/66/issues/issuecomment-988733957)
+
 # [1.348.0](https://github.com/myii/ssf-formula/compare/v1.347.0...v1.348.0) (2022-01-14)
 
 
