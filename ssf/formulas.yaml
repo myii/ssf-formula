@@ -2663,12 +2663,14 @@ ssf:
               summary: >-
                 Verify that the logrotate formula is setup and configured correctly
             provisioner:
-              dependencies: *dependencies_states
+              dependencies:
+                - name: 'cron'
+                  repo: 'git'
+                  source: 'https://github.com/saltstack-formulas/cron-formula.git'
               state_top:
-                - 'G@os_family:Suse or G@os_family:Debian':
-                    - states.cron
                 - '*':
                     - ._mapdata
+                    - cron
                     - .
         map_jinja:
           verification:
