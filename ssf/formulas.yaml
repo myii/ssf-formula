@@ -821,7 +821,6 @@ ssf:
         map_jinja:
           verification:
             import: ['cron']
-        platforms_matrix: *platforms_matrix_without_gentoo
       semrel_files: *semrel_files_default
     dbeaver:
       context:
