@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.347.0](https://github.com/myii/ssf-formula/compare/v1.346.0...v1.347.0) (2022-01-14)
+
+
+### Features
+
+* **logrotate:** use `cron-formula` dep instead of single `cron` state ([bb0ec87](https://github.com/myii/ssf-formula/commit/bb0ec87531b6fec3da4bbee35ca9c42872d5bb67)), closes [/github.com/saltstack-formulas/logrotate-formula/pull/60#issuecomment-1013031092](https://github.com//github.com/saltstack-formulas/logrotate-formula/pull/60/issues/issuecomment-1013031092)
+
 # [1.346.0](https://github.com/myii/ssf-formula/compare/v1.345.0...v1.346.0) (2022-01-14)
 
 
