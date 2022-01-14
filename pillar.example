@@ -163,6 +163,7 @@ ssf:
       - rstudio
       - rundeck
       - salt
+      - snmp
       - splunkforwarder
       - sqldeveloper
       - sqlplus

@@ -64,8 +64,8 @@ ssf_node_anchors:
             upstream: 'upstream'
           commit:
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "ci(kitchen): use '`'cron-formula'`' dependency instead of '`'cron'`' state"
-            body: '* Semi-automated using https://github.com/myii/ssf-formula/pull/401'
+            title: "feat: implement '`'semantic-release'`'"
+            body: '* Semi-automated using https://github.com/myii/ssf-formula/pull/402'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
@@ -1407,6 +1407,7 @@ ssf:
     rstudio: *formula_default
     rundeck: *formula_default
     salt: *formula_default
+    snmp: *formula_default
     splunkforwarder: *formula_default
     sqldeveloper: *formula_default
     sqlplus: *formula_default
