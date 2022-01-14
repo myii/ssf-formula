@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.346.0](https://github.com/myii/ssf-formula/compare/v1.345.0...v1.346.0) (2022-01-14)
+
+
+### Features
+
+* **cron:** add Gentoo support ([cddc875](https://github.com/myii/ssf-formula/commit/cddc8758311f9d5cb9daaf5a24fba6f0176aa721))
+
 # [1.345.0](https://github.com/myii/ssf-formula/compare/v1.344.0...v1.345.0) (2022-01-12)
 
 
