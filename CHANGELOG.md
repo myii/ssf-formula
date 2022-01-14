@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.348.0](https://github.com/myii/ssf-formula/compare/v1.347.0...v1.348.0) (2022-01-14)
+
+
+### Features
+
+* **formula:** add `snmp-formula` ([2e9623b](https://github.com/myii/ssf-formula/commit/2e9623b6ecf18675a496cb7255a4036790689ba0)), closes [/github.com/saltstack-formulas/snmp-formula/pull/43#issuecomment-1012833124](https://github.com//github.com/saltstack-formulas/snmp-formula/pull/43/issues/issuecomment-1012833124)
+
 # [1.347.0](https://github.com/myii/ssf-formula/compare/v1.346.0...v1.347.0) (2022-01-14)
 
 
