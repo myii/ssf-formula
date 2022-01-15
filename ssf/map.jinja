@@ -35,3 +35,12 @@
 
 {#- Prepare the export #}
 {%- set ssf = defaults[tplroot] %}
+
+{#- Reduce map size further, by removing formulas that don't have any active `semrel_files` #}
+{%- for k, v in ssf.semrel_formulas.copy().items() %}
+{#-   Only remove formulas other than the `ssf`, when no active `semrel_files` remain #}
+{%-   if k != 'ssf' and not v.semrel_files %}
+{%-     do ssf.semrel_formulas.pop(k, None) %}
+{%-     do ssf.active.semrel_formulas.remove(k) %}
+{%-   endif %}
+{%- endfor %}
