@@ -1,5 +1,18 @@
 # Changelog
 
+# [1.349.0](https://github.com/myii/ssf-formula/compare/v1.348.1...v1.349.0) (2022-01-16)
+
+
+### Features
+
+* **map.jinja:** remove formulas with no active `semrel_files` ([7e9ff2f](https://github.com/myii/ssf-formula/commit/7e9ff2f9598a4ea63f98c980ffa320dfd0359270))
+* **node:** remove `test/salt/pillar/repo.sls` from `yamllint` ignores ([ca094e3](https://github.com/myii/ssf-formula/commit/ca094e3152794e2eabcf07dad128e1edb03e7e5d))
+
+
+### Reverts
+
+* **packages:** use `test-kitchen` branch for node-formula dependency ([8abe6fb](https://github.com/myii/ssf-formula/commit/8abe6fbbef265ad0f6fba28082c7c3d131fe9ea4))
+
 ## [1.348.1](https://github.com/myii/ssf-formula/compare/v1.348.0...v1.348.1) (2022-01-14)
 
 
