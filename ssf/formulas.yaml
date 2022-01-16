@@ -3127,7 +3127,6 @@ ssf:
           ignore:
             additional:
               - node/osfamilymap.yaml
-              - test/salt/pillar/repo.sls
       semrel_files: *semrel_files_default
     nsd:
       context:
