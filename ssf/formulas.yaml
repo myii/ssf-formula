@@ -3127,7 +3127,6 @@ ssf:
           ignore:
             additional:
               - node/osfamilymap.yaml
-              - test/salt/pillar/repo.sls
       semrel_files: *semrel_files_default
     nsd:
       context:
@@ -3441,7 +3440,6 @@ ssf:
             provisioner:
               dependencies:
                 - name: 'node'
-                  branch: 'test-kitchen'
                   repo: 'git'
                   source: 'https://github.com/saltstack-formulas/node-formula.git'
               pillars_from_files:
