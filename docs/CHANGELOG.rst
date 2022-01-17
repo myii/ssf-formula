@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.350.0 <https://github.com/myii/ssf-formula/compare/v1.349.0...v1.350.0>`_ (2022-01-17)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **pre-commit_semantic-release.sh:** replace broken ``m2r`` with ``m2r2`` (\ `a9a06a1 <https://github.com/myii/ssf-formula/commit/a9a06a1ff47ff7ed9611abd49d07752011716f6d>`_\ ), closes `/github.com/miyakogi/m2r/issues/66#issuecomment-988733957 <https://github.com//github.com/miyakogi/m2r/issues/66/issues/issuecomment-988733957>`_
+
 `1.349.0 <https://github.com/myii/ssf-formula/compare/v1.348.1...v1.349.0>`_ (2022-01-16)
 ---------------------------------------------------------------------------------------------
 
