@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.352.0](https://github.com/myii/ssf-formula/compare/v1.351.0...v1.352.0) (2022-01-19)
+
+
+### Features
+
+* **salt:** update to Salt version `3004-3` for (proxy) Windows in CI ([23cece9](https://github.com/myii/ssf-formula/commit/23cece911f4fb089609e15aa43b58f8c789ba797))
+
 # [1.351.0](https://github.com/myii/ssf-formula/compare/v1.350.0...v1.351.0) (2022-01-17)
 
 
