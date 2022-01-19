@@ -4376,7 +4376,7 @@ ssf:
           github:
             platforms:
               provisioner:
-                salt_bootstrap_options: '-pythonVersion 3 -version 3004-2'
+                salt_bootstrap_options: '-pythonVersion 3 -version 3004-3'
           winrepo_ng: ['salt-minion-py3']
         use_tofs: true
         yamllint:
