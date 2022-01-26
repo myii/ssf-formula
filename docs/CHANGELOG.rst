@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.354.0 <https://github.com/myii/ssf-formula/compare/v1.353.0...v1.354.0>`_ (2022-01-26)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **gemfile:** allow rubygems proxy to be provided as an env var (\ `b690814 <https://github.com/myii/ssf-formula/commit/b6908146fa73f31571ec7eaa2ce7421ff984c84b>`_\ )
+
 `1.353.0 <https://github.com/myii/ssf-formula/compare/v1.352.0...v1.353.0>`_ (2022-01-25)
 ---------------------------------------------------------------------------------------------
 
