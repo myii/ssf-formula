@@ -1,5 +1,13 @@
 # Changelog
 
+# [1.355.0](https://github.com/myii/ssf-formula/compare/v1.354.0...v1.355.0) (2022-02-01)
+
+
+### Features
+
+* **gemfile:** update `kitchen-salt` version requirement ([4afa01e](https://github.com/myii/ssf-formula/commit/4afa01e3f0aa1c59014a95a86f524a2bc7b9dd71))
+* **gemfile.lock:** use `bundle update` to get latest gems [2022-W05] ([2d2887e](https://github.com/myii/ssf-formula/commit/2d2887e9bfb6858ec522d93443dc0137fbe43a56))
+
 # [1.354.0](https://github.com/myii/ssf-formula/compare/v1.353.0...v1.354.0) (2022-01-26)
 
 
