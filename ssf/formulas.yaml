@@ -106,7 +106,6 @@ ssf_node_anchors:
           # [os           ,  os_ver, salt_ver, py_ver]
           # # - [centos       ,    0   ,      0  ,      0]
           - [centos       , stream8,      0  ,      0]
-          - [centos       ,    8   ,      0  ,      0]
           - [fedora       ,    0   ,      0  ,      0]
           - [amazonlinux  ,    0   ,      0  ,      0]
           # # - [oraclelinux  ,    0   ,      0  ,      0]
@@ -1282,7 +1281,6 @@ ssf:
           - [ubuntu       ,    0   ,   master,      0,              '']
           # # - [centos       ,    0   ,   master,      0,              '']
           - [centos       , stream8,   master,      0,              '']
-          - [centos       ,    8   ,   master,      0,              '']
           - [centos       ,    7   ,   master,      0,         package]
           - [fedora       ,    0   ,   master,      0,              '']
           - [opensuse/leap,    0   ,   master,      0,              '']
@@ -1488,7 +1486,6 @@ ssf:
           - [debian       ,    9   ,   master,      0,              '']
           - [ubuntu       ,    0   ,   master,      0,              '']
           - [centos       , stream8,   master,      0,         default]
-          - [centos       ,    8   ,   master,      0,         default]
           - [centos       ,    7   ,   master,      0,              '']
           - [fedora       ,    0   ,   master,      0,              '']
           - [opensuse/leap,    0   ,   master,      0,              '']
@@ -2633,7 +2630,6 @@ ssf:
           - [debian       ,    0   ,   master,      0,         default]
           - [ubuntu       ,    0   ,   master,      0,         default]
           - [centos       , stream8,   master,      0,          redhat]
-          - [centos       ,    8   ,   master,      0,          redhat]
           # RedHat-7 not working with the `redhat` suite, due to packages
           # - `glibc-langpack-de` not available, `glibc-common` is sufficient
           - [centos       ,    7   ,   master,      0,         default]
@@ -3253,7 +3249,7 @@ ssf:
           # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
           - [debian       ,    0   ,   master,      0,         default]
           - [ubuntu       ,    0   ,   master,      0,         default]
-          # Unavailable for `centos-8`
+          # Was unavailable for `centos-8` (TODO: check for `centos-stream8`)
           # https://bugs.centos.org/view.php?id=16959
           # `centos-7`: Docker/Systemd problem:
           #   ... and PID file is not owned by root. Refusing.
@@ -3479,7 +3475,6 @@ ssf:
             includes:
               # Some of `*platforms_os_centos` + `oraclelinux-8`
               - [centos       , stream8,      0  ,      0]
-              - [centos       ,    8   ,      0  ,      0]
               - [oraclelinux  ,    8   ,      0  ,      0]
               - [almalinux    ,    0   ,      0  ,      0]
               - [rockylinux   ,    0   ,      0  ,      0]
@@ -3587,7 +3582,6 @@ ssf:
           - [ubuntu       ,   18.04,   master,      0,          ubuntu]
           # # - [centos       ,    0   ,   master,      0,         redhat8]
           - [centos       , stream8,   master,      0,         redhat8]
-          - [centos       ,    8   ,   master,      0,         redhat8]
           - [centos       ,    7   ,   master,      0,          centos]
           # # - [fedora       ,    0   ,   master,      0,          fedora]
           - [opensuse/leap,    0   ,   master,      0,            suse]
@@ -3825,10 +3819,6 @@ ssf:
           - [freebsd      ,    0   ,   master,      3,         default]
           # # - [openbsd      ,    0   ,      0  ,      3,         default]
           # # - [windows      ,    0   ,   latest,      3,         default]
-        platforms_matrix_allow_failure:
-          # These were working recently so perhaps only need temporarily
-          - [opensuse/leap,   15.2 ,   master,      3,              '']
-          - [opensuse/leap,   15.2 ,   master,      3,            repo]
         testing_freebsd:
           active: true
         # # Too much work for now (both OpenBSD and Windows)
@@ -4004,7 +3994,7 @@ ssf:
           - [opensuse/tmbl,    0   ,   master,      0,         default]
           - [amazonlinux  ,    0   ,   master,      0,              '']
           - [oraclelinux  ,    0   ,   master,      0,              '']
-          # TODO: Fix since `centos-8` works
+          # TODO: Fix since `centos-8` worked until EOL
           # - [oraclelinux  ,    8   ,   master,      0,         default]
           # - [oraclelinux  ,    7   ,   master,      0,              '']
           - [arch-base    ,    0   ,   master,      0,         default]
@@ -4325,8 +4315,6 @@ ssf:
                   - v3003-py3
               - 'G@saltversioninfo:0:3002 and G@pythonversion:0:3':
                   - v3002-py3
-              - 'G@saltversioninfo:0:3001 and G@pythonversion:0:3':
-                  - v3001-py3
         map_jinja:
           verification:
             import: ['salt_settings', 'formulas_settings']
@@ -4339,19 +4327,13 @@ ssf:
           - [ubuntu       ,   18.04,   3003.3,      3,         default]
           # # `centos-stream8` only available after `3003.X`
           - [centos       , stream8,   3004.0,      3,         default]
-          - [centos       ,    8   ,   3004.0,      3,         default]
           - [centos       ,    7   ,   3003.3,      3,         default]
           # # `fedora` only installs `3003.X`
           - [fedora       ,   35   ,   3003.3,      3,         default]
           - [fedora       ,   34   ,   3003.3,      3,         default]
-          - [fedora       ,   33   ,   3003.3,      3,         default]
-          # # `opensuse/*` only installs `3003.X`
-          # # Can't use both `15.3` & `15.2` together within the same
-          # # InSpec suite when there's a shared `_mapdata` verification file --
-          # # using the currently supported version for now (re: Salt repo)
-          - [opensuse/leap,   15.3 ,   3003.3,      3,         default]
-          # - [opensuse/leap,   15.2 ,   3003.3,      3,         default]
-          - [opensuse/tmbl,  latest,   3003.3,      3,         default]
+          # # `opensuse/*` only installs `3004.X`
+          - [opensuse/leap,   15.3 ,   3004.0,      3,         default]
+          - [opensuse/tmbl,  latest,   3004.0,      3,         default]
           - [amazonlinux  ,    2   ,   3004.0,      3,         default]
           - [oraclelinux  ,    8   ,   3004.0,      3,         default]
           - [oraclelinux  ,    7   ,   3003.3,      3,         default]
@@ -5045,7 +5027,6 @@ ssf:
               - [debian       ,   11   ,      0  ,      0]
               - [debian       ,   10   ,      0  ,      0]
               - [centos       , stream8,      0  ,      0]
-              - [centos       ,    8   ,      0  ,      0]
               - [oraclelinux  ,    8   ,      0  ,      0]
               - [almalinux    ,    0   ,      0  ,      0]
               - [rockylinux   ,    0   ,      0  ,      0]
@@ -5084,7 +5065,6 @@ ssf:
           - [ubuntu       ,    0   ,   master,      0,    without-ipv6]
           # # - [centos       ,    0   ,   master,      0,    without-ipv6]
           - [centos       , stream8,   master,      0,         default]
-          - [centos       ,    8   ,   master,      0,         default]
           - [centos       ,    7   ,   master,      0,    without-ipv6]
           - [fedora       ,    0   ,   master,      0,    without-ipv6]
           - [opensuse/leap,    0   ,   master,      0,    without-ipv6]
@@ -5230,7 +5210,6 @@ ssf:
           - [ubuntu       ,   20.04,   master,      0,         default]
           # # - [centos       ,    0   ,   master,      0,         default]
           - [centos       , stream8,   master,      0,         default]
-          - [centos       ,    8   ,   master,      0,         default]
           - [fedora       ,    0   ,   master,      0,         default]
           - [opensuse/leap,    0   ,   master,      0,         default]
           - [opensuse/tmbl,    0   ,   master,      0,         default]
@@ -5307,8 +5286,6 @@ ssf:
           # # - [gentoo/stage3,    0   ,   master,      0,              '']
           - [almalinux    ,    0   ,   master,      0,              '']
           - [rockylinux   ,    0   ,   master,      0,              '']
-        platforms_matrix_allow_failure:
-          - [opensuse/leap,   15.2 ,   master,      3,              '']
       semrel_files: *semrel_files_default
     vim:
       context:
