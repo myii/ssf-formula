@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.357.0 <https://github.com/myii/ssf-formula/compare/v1.356.0...v1.357.0>`_ (2022-02-04)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **libsaltcli+libmatchers:** update to ensure Salt client API detection (\ `4290d7b <https://github.com/myii/ssf-formula/commit/4290d7bbe88c8d3f8e2d104e54502883ca36d057>`_\ )
+
 `1.356.0 <https://github.com/myii/ssf-formula/compare/v1.355.0...v1.356.0>`_ (2022-02-02)
 ---------------------------------------------------------------------------------------------
 
