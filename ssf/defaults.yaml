@@ -64,8 +64,8 @@ ssf_node_anchors:
             upstream: 'upstream'
           commit:
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "fix(libsaltcli+libmatchers): ensure Salt client API detection [skip ci]"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/411'
+            title: "chore(gemfile.lock): update to latest gem versions (2022-W06) [skip ci]"
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/412'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
