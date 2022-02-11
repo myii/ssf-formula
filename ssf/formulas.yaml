@@ -1010,6 +1010,7 @@ ssf:
               pillars_from_files:
                 - .sls: 'test/salt/pillar/package.sls'
           2:
+            excludes: *platforms_os_arch_base
             inspec_yml:
               summary: >-
                 Verify that the docker formula is setup and configured correctly
