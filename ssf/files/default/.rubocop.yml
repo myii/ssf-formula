@@ -27,10 +27,9 @@
     - {{ path }}
     {%- endfor %}
 
-{%- if rubocop.AllCops %}
-
 # General settings across all cops in this formula
 AllCops:
+  NewCops: enable
   {#- This is purposefully simplistic for the time being,
       until (if ever) more advanced configuration is necessary #}
   {%- if rubocop.AllCops.get('Exclude', []) %}
@@ -40,7 +39,6 @@ AllCops:
     - {{ path }}
     {%- endfor %}
   {%- endif %}
-{%- endif %}
 
 # Any offenses that should be fixed, e.g. collected via. `rubocop --auto-gen-config`
 {%- for cop, config in rubocop.Cops.items() if cop not in [LLL, MBL, SYL] %}
