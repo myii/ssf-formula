@@ -1,5 +1,14 @@
 # Changelog
 
+# [1.360.0](https://github.com/myii/ssf-formula/compare/v1.359.0...v1.360.0) (2022-02-13)
+
+
+### Features
+
+* **formulas:** add changes made to fix linting ([882948d](https://github.com/myii/ssf-formula/commit/882948d40f9864d56ee5388ca0ddacb51f57a761))
+* **formulas:** update linters to latest versions ([01868c7](https://github.com/myii/ssf-formula/commit/01868c7724657729ba333521f982826d40b927d7))
+* **template:** use updated `ssf-dind-ruby-bionic` image ([ac936cc](https://github.com/myii/ssf-formula/commit/ac936cc345f0ef9d2d8dd6cb41e5cd7c10d4f2b8))
+
 # [1.359.0](https://github.com/myii/ssf-formula/compare/v1.358.0...v1.359.0) (2022-02-12)
 
 
