@@ -533,7 +533,7 @@ ssf:
               supports: *supports_debian_ubuntu
             provisioner:
               pillars_from_files:
-                - .sls: 'test/salt/pillar/repositories.pillar.sls'
+                - .sls: 'test/salt/pillar/repositories.sls'
               state_top:
                 - '*':
                     - ._mapdata
@@ -546,7 +546,7 @@ ssf:
               supports: *supports_debian_ubuntu
             provisioner:
               pillars_from_files:
-                - .sls: 'test/salt/pillar/preferences.pillar.sls'
+                - .sls: 'test/salt/pillar/preferences.sls'
               state_top:
                 - '*':
                     - ._mapdata
@@ -558,7 +558,7 @@ ssf:
               supports: *supports_debian_ubuntu
             provisioner:
               pillars_from_files:
-                - .sls: 'test/salt/pillar/unattended.pillar.sls'
+                - .sls: 'test/salt/pillar/unattended.sls'
               state_top:
                 - '*':
                     - ._mapdata
@@ -1458,7 +1458,7 @@ ssf:
                 Verify that iptables is installed and configured correctly
             provisioner:
               pillars_from_files:
-                - .sls: 'test/salt/pillar/default.pillar.sls'
+                - .sls: 'test/salt/pillar/default.sls'
           1:
             inspec_yml:
               summary: >-
@@ -1466,7 +1466,7 @@ ssf:
                 in pillars
             provisioner:
               pillars_from_files:
-                - .sls: 'test/salt/pillar/tables.pillar.sls'
+                - .sls: 'test/salt/pillar/tables.sls'
               state_top:
                 - '*':
                     - ._mapdata
