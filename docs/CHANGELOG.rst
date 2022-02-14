@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.361.0 <https://github.com/myii/ssf-formula/compare/v1.360.1...v1.361.0>`_ (2022-02-14)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **system.rb:** add ``build_platform_codename`` (\ `9b69dba <https://github.com/myii/ssf-formula/commit/9b69dbad34bed708c76af64fb5629eac8c6c5d2f>`_\ )
+
 `1.360.1 <https://github.com/myii/ssf-formula/compare/v1.360.0...v1.360.1>`_ (2022-02-14)
 ---------------------------------------------------------------------------------------------
 
