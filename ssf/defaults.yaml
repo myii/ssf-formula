@@ -189,7 +189,8 @@ ssf_node_anchors:
         # If values are set, only use these as commented entries in the matrix
         platforms_matrix_commented_includes: []
         rubocop:
-          AllCops: {}
+          AllCops:
+            NewCops: enable
           Cops:
             Layout/LineLength:
               Bugbear: *line_length_bugbear

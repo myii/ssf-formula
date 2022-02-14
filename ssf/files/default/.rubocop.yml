@@ -29,7 +29,7 @@
 
 # General settings across all cops in this formula
 AllCops:
-  NewCops: enable
+  NewCops: {{ rubocop.AllCops.NewCops }}
   {#- This is purposefully simplistic for the time being,
       until (if ever) more advanced configuration is necessary #}
   {%- if rubocop.AllCops.get('Exclude', []) %}
