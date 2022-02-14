@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.360.1 <https://github.com/myii/ssf-formula/compare/v1.360.0...v1.360.1>`_ (2022-02-14)
+---------------------------------------------------------------------------------------------
+
+Code Refactoring
+^^^^^^^^^^^^^^^^
+
+
+* **rubocop:** provide ``NewCops`` setting from ``defaults.yaml`` (\ `e06eba7 <https://github.com/myii/ssf-formula/commit/e06eba7a6f8300be7c87ef23dc9b8b0dba694fa9>`_\ ), closes `#414 <https://github.com/myii/ssf-formula/issues/414>`_
+
 `1.360.0 <https://github.com/myii/ssf-formula/compare/v1.359.0...v1.360.0>`_ (2022-02-13)
 ---------------------------------------------------------------------------------------------
 
