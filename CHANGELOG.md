@@ -1,5 +1,13 @@
 # Changelog
 
+# [1.364.0](https://github.com/myii/ssf-formula/compare/v1.363.0...v1.364.0) (2022-02-21)
+
+
+### Features
+
+* **gemfile.lock:** use `bundle update` to get latest gems [2022-W08] ([753c34b](https://github.com/myii/ssf-formula/commit/753c34b0d1ec81d2fc8dcf853112a63f59ac0c5c))
+* **gitlab-ci:** disable line length `yamllint` for CI matrix block ([f28a76a](https://github.com/myii/ssf-formula/commit/f28a76a8c27c6f3bb04e3a8038b66858ab1a0c27))
+
 # [1.363.0](https://github.com/myii/ssf-formula/compare/v1.362.0...v1.363.0) (2022-02-21)
 
 
