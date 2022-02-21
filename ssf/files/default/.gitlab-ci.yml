@@ -217,7 +217,9 @@ rubocop:
 test-formula-conversion: {extends: '.test_conversion'}
 # REMOVEME>
 {%-   endif %}
+# yamllint disable rule:line-length
 {{- format_ci_matrix(platforms, inspec_suites_kitchen, inspec_suites_matrix, platforms_matrix, platforms_matrix_allow_failure, platforms_matrix_commented_includes, semrel_formula, width=0, use_gitlab_format=True) }}
+# yamllint enable rule:line-length
 {%- endif %}
 
 ###############################################################################
