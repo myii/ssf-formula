@@ -96,6 +96,7 @@ ssf:
       - dhcpd
       - diaspora
       - django
+      - dnsmasq
       - docker
       - eclipse
       - epel

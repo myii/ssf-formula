@@ -185,6 +185,7 @@ These formulas are already compatible with semantic-release *and* have global ``
 #. `deepsea-formula <https://github.com/saltstack-formulas/deepsea-formula>`_
 #. `devstack-formula <https://github.com/saltstack-formulas/devstack-formula>`_
 #. `dhcpd-formula <https://github.com/saltstack-formulas/dhcpd-formula>`_
+#. `dnsmasq-formula <https://github.com/saltstack-formulas/dnsmasq-formula>`_
 #. `eclipse-formula <https://github.com/saltstack-formulas/eclipse-formula>`_
 #. `fail2ban-formula <https://github.com/saltstack-formulas/fail2ban-formula>`_
 #. `golang-formula <https://github.com/saltstack-formulas/golang-formula>`_
@@ -235,7 +236,7 @@ These formulas are already compatible with semantic-release *and* have global ``
 
 These formulas are also compatible with semantic-release:
 
-54. `apt-cacher-formula <https://github.com/saltstack-formulas/apt-cacher-formula>`_
+55. `apt-cacher-formula <https://github.com/saltstack-formulas/apt-cacher-formula>`_
 #. `cert-formula <https://github.com/saltstack-formulas/cert-formula>`_
 #. `chrony-formula <https://github.com/saltstack-formulas/chrony-formula>`_
 #. `collectd-formula <https://github.com/saltstack-formulas/collectd-formula>`_
