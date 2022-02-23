@@ -64,8 +64,8 @@ ssf_node_anchors:
             upstream: 'upstream'
           commit:
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "chore(gemfile.lock): update to latest gem versions (2022-W08) [skip ci]"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/419'
+            title: "feat: standardise '`'semantic-release'`' implementation"
+            body: '* Semi-automated using https://github.com/myii/ssf-formula/pull/420'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
@@ -970,6 +970,7 @@ ssf:
     dhcpd: *formula_default
     diaspora: *formula_default
     django: *formula_default
+    dnsmasq: *formula_default
     docker:
       <<: *formula_default
       context:
