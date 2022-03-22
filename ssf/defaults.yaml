@@ -64,8 +64,8 @@ ssf_node_anchors:
             upstream: 'upstream'
           commit:
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "chore(gemfile.lock): update to latest gem versions (2022-W11) [skip ci]"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/423'
+            title: "chore(gemfile.lock): update to latest gem versions (2022-W12) [skip ci]"
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/424'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
