@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.370.0](https://github.com/myii/ssf-formula/compare/v1.369.0...v1.370.0) (2022-03-23)
+
+
+### Features
+
+* **vault:** add FreeBSD testing (Vagrant) ([2692eb6](https://github.com/myii/ssf-formula/commit/2692eb6dd096a4787f907cda7bda8908834e1821))
+
 # [1.369.0](https://github.com/myii/ssf-formula/compare/v1.368.0...v1.369.0) (2022-03-22)
 
 
