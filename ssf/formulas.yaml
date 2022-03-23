@@ -5333,6 +5333,9 @@ ssf:
           # # - [gentoo/stage3,    0   ,   master,      0,              '']
           - [almalinux    ,    0   ,   master,      0,              '']
           - [rockylinux   ,    0   ,   master,      0,              '']
+          - [freebsd      ,    0   ,   master,      3,              '']
+        testing_freebsd:
+          active: true
       semrel_files: *semrel_files_default
     vim:
       context:
