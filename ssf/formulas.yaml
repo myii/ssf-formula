@@ -3162,8 +3162,18 @@ ssf:
           # # - [gentoo/stage3,    0   ,   master,      0,         default]
           - [almalinux    ,    0   ,   master,      0,         default]
           - [rockylinux   ,    0   ,   master,      0,         default]
+          - [freebsd      ,    0   ,   master,      3,         default]
+          - [openbsd      ,    0   ,      0  ,      3,         default]
+          - [windows      ,    0   ,   latest,      3,         default]
         platforms_matrix_allow_failure:
           - [debian       ,   11   ,   master,      3,            repo]
+        testing_freebsd:
+          active: true
+        testing_openbsd:
+          active: true
+        testing_windows:
+          active: true
+          winrepo_ng: ['node.js']  # 'node.js-lts' also available
         # Use this to start adopting the latest `platforms_matrix`
         use_tofs: true
         yamllint:

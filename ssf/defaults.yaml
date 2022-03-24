@@ -65,7 +65,7 @@ ssf_node_anchors:
           commit:
             # yamllint disable rule:line-length rule:quoted-strings
             title: "ci: enable Vagrant-based testing using GitHub Actions"
-            body: '* Semi-automated using https://github.com/myii/ssf-formula/pull/305'
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/312'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
