@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.371.0](https://github.com/myii/ssf-formula/compare/v1.370.0...v1.371.0) (2022-03-24)
+
+
+### Features
+
+* **node:** add FreeBSD, OpenBSD & Windows testing (Vagrant) ([cd0ec95](https://github.com/myii/ssf-formula/commit/cd0ec9571a71edd56c51361a747d6fd139e8cc14))
+
 # [1.370.0](https://github.com/myii/ssf-formula/compare/v1.369.0...v1.370.0) (2022-03-23)
 
 
