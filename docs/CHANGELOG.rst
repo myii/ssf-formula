@@ -2,6 +2,16 @@
 Changelog
 =========
 
+`1.372.0 <https://github.com/myii/ssf-formula/compare/v1.371.0...v1.372.0>`_ (2022-04-01)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **fedora-35:** enable across all repos (\ `0b6221e <https://github.com/myii/ssf-formula/commit/0b6221e83f8086b0369d03ca8af23f146a232428>`_\ )
+* **gemfile.lock:** use ``bundle update`` to get latest gems [2022-W13] (\ `a756897 <https://github.com/myii/ssf-formula/commit/a75689708d90339a5f4add360292a1e0801c89ee>`_\ )
+
 `1.371.0 <https://github.com/myii/ssf-formula/compare/v1.370.0...v1.371.0>`_ (2022-03-24)
 ---------------------------------------------------------------------------------------------
 
