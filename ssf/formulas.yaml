@@ -858,7 +858,8 @@ ssf:
           # # - [ubuntu       ,    0   ,   master,      0,         default]
           # # - [centos       ,    0   ,   master,      0,         default]
           - [centos       ,    7   ,   master,      0,         default]
-          - [fedora       ,    0   ,   master,      0,         default]
+          # - [fedora       ,    0   ,   master,      0,         default]
+          - [fedora       ,   34   ,   master,      0,         default]
           - [opensuse/leap,    0   ,   master,      0,         default]
           # # - [opensuse/tmbl,    0   ,   master,      0,         default]
           # # - [amazonlinux  ,    0   ,   master,      0,         default]
@@ -4406,6 +4407,8 @@ ssf:
           - [openbsd      ,    7.0 ,   3003.3,      3,         default]
           - [openbsd      ,    6.9 ,   3002.6,      3,         default]
           - [windows      ,    0   ,   latest,      3,         default]
+        platforms_matrix_allow_failure:
+          - [fedora       ,   35   ,   3003.3,      3,         default]
         testing_freebsd:
           active: true
         testing_openbsd:
@@ -5279,6 +5282,7 @@ ssf:
           - [rockylinux   ,    0   ,   master,      0,         default]
         platforms_matrix_allow_failure:
           - [debian       ,   11   ,   master,      3,         default]
+          - [fedora       ,   35   ,   master,      0,         default]
         # TODO: Upgrade to latest TOFS in a subsequent PR, since a legacy version
         # is active for the time being (needs to be checked for regressions)
         use_tofs: legacy
