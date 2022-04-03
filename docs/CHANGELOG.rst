@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.373.0 <https://github.com/myii/ssf-formula/compare/v1.372.0...v1.373.0>`_ (2022-04-03)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **saltimages:** update with latest changes from ``salt-image-builder`` (\ `578171b <https://github.com/myii/ssf-formula/commit/578171b152dd5835c258b3e95307128303f9f906>`_\ )
+
 `1.372.0 <https://github.com/myii/ssf-formula/compare/v1.371.0...v1.372.0>`_ (2022-04-01)
 ---------------------------------------------------------------------------------------------
 
