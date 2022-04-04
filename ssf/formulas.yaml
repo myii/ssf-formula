@@ -5280,7 +5280,7 @@ ssf:
           - [rockylinux   ,    0   ,   master,      0,         default]
         platforms_matrix_allow_failure:
           - [debian       ,   11   ,   master,      3,         default]
-          - [fedora       ,   35   ,   master,      0,         default]
+          - [fedora       ,   35   ,   master,      3,         default]
         # TODO: Upgrade to latest TOFS in a subsequent PR, since a legacy version
         # is active for the time being (needs to be checked for regressions)
         use_tofs: legacy
