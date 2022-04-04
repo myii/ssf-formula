@@ -2,6 +2,21 @@
 Changelog
 =========
 
+`1.374.0 <https://github.com/myii/ssf-formula/compare/v1.373.0...v1.374.0>`_ (2022-04-04)
+---------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* **varnish:** fix allowing failure for Fedora 35 instance [skip ci] (\ `ba3b455 <https://github.com/myii/ssf-formula/commit/ba3b455c7d45a11bd78ec65f168909a635cbe478>`_\ )
+
+Features
+^^^^^^^^
+
+
+* **gemfile.lock:** use ``bundle update`` to get latest gems [2022-W14] (\ `b59d4f6 <https://github.com/myii/ssf-formula/commit/b59d4f6bb5453d1104fa41f86766db0312e0d178>`_\ )
+
 `1.373.0 <https://github.com/myii/ssf-formula/compare/v1.372.0...v1.373.0>`_ (2022-04-03)
 ---------------------------------------------------------------------------------------------
 
