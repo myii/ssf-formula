@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.377.0](https://github.com/myii/ssf-formula/compare/v1.376.0...v1.377.0) (2022-04-11)
+
+
+### Features
+
+* **tomcat:** use `pillars_from_directories` & test `pillar/top.sls` ([47331ed](https://github.com/myii/ssf-formula/commit/47331eddd49a3a8987da1945be6a6785959ffe4f))
+
 # [1.376.0](https://github.com/myii/ssf-formula/compare/v1.375.0...v1.376.0) (2022-04-11)
 
 
