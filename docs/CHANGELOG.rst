@@ -2,6 +2,21 @@
 Changelog
 =========
 
+`1.375.0 <https://github.com/myii/ssf-formula/compare/v1.374.0...v1.375.0>`_ (2022-04-11)
+---------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* **salt:** fix Salt version for Windows proxy instances [skip ci] (\ `75e7555 <https://github.com/myii/ssf-formula/commit/75e75559d6bf6c1c1321299613dbf81058f2a0d6>`_\ )
+
+Features
+^^^^^^^^
+
+
+* **saltimages:** update with latest changes from ``salt-image-builder`` (\ `e13fc8f <https://github.com/myii/ssf-formula/commit/e13fc8f6665e3af5e00fb7d04c59def52f425cab>`_\ )
+
 `1.374.0 <https://github.com/myii/ssf-formula/compare/v1.373.0...v1.374.0>`_ (2022-04-04)
 ---------------------------------------------------------------------------------------------
 
