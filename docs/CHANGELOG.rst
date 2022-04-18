@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.377.1 <https://github.com/myii/ssf-formula/compare/v1.377.0...v1.377.1>`_ (2022-04-18)
+---------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* **formulas:** provide ``user`` when using ``salt['git.current_branch']`` (\ `7d58efb <https://github.com/myii/ssf-formula/commit/7d58efb7506c7149c8a3442c1d61ac299792a510>`_\ )
+
 `1.377.0 <https://github.com/myii/ssf-formula/compare/v1.376.0...v1.377.0>`_ (2022-04-11)
 ---------------------------------------------------------------------------------------------
 
