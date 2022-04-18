@@ -31,7 +31,10 @@
                                                                    | replace(':', '')
                                                                    | replace('-', '') %}
 {%-   set stash_message = 'stashed by the ssf-formula at ' ~ system_date_time %}
-{%-   set branch_current = salt['git.current_branch']('{0}/{1}'.format(ssf.formulas_path, formula)) %}
+{%-   set branch_current = salt['git.current_branch'](
+        '{0}/{1}'.format(ssf.formulas_path, formula),
+        user=ssf.user,
+      ) %}
 {%-   set branch_pr = context.git.branch.pr %}
 {%-   if not ssf.git.states.commit_push.push.via_PR %}
 {%-     set branch_pr = system_date_time %}
