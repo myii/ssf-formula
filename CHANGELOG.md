@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.379.0](https://github.com/myii/ssf-formula/compare/v1.378.0...v1.379.0) (2022-04-25)
+
+
+### Features
+
+* **consul:** review PR 56 ([a90cc83](https://github.com/myii/ssf-formula/commit/a90cc8346cecbe35582e675304b04653a03216b1))
+
 # [1.378.0](https://github.com/myii/ssf-formula/compare/v1.377.1...v1.378.0) (2022-04-18)
 
 
