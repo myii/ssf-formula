@@ -796,8 +796,10 @@ ssf:
         # TODO: Work out what to do about `consul-template/map.jinja`
         map_jinja:
           verification:
-            import: ['consul']
+            import: ['mapdata']
+          version: 5
         platforms_matrix: *platforms_matrix_without_gentoo_non_systemd
+        use_libsaltcli: true
       semrel_files: *semrel_files_inc_map_jinja_verifier
     cron:
       context:
