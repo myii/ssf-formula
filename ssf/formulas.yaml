@@ -800,6 +800,7 @@ ssf:
           version: 5
         platforms_matrix: *platforms_matrix_without_gentoo_non_systemd
         use_libsaltcli: true
+        use_tofs: true
       semrel_files: *semrel_files_inc_map_jinja_verifier
     cron:
       context:
