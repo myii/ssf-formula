@@ -64,8 +64,8 @@ ssf_node_anchors:
             upstream: 'upstream'
           commit:
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "ci(kitchen+gitlab): update for new pre-salted images [skip ci]"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/436'
+            title: "chore(gemfile.lock): update to latest gem versions (2022-W18) [skip ci]"
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/437'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
