@@ -19,6 +19,7 @@ gem 'kitchen-inspec', '>= 2.5.0'
 gem 'kitchen-salt', '>= 0.7.2'
 {%- if semrel_formula in [
       'apache',
+      'consul',
       'dnsmasq',
       'golang',
       'nfs',
