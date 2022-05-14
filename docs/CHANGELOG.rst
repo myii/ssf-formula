@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.388.0 <https://github.com/myii/ssf-formula/compare/v1.387.0...v1.388.0>`_ (2022-05-14)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **vagrant:** use ``linked_clone`` at all times (inc. CI) (\ `8d68dc6 <https://github.com/myii/ssf-formula/commit/8d68dc6ee837f635becd87658d5e9bb63d66ffef>`_\ )
+
 `1.387.0 <https://github.com/myii/ssf-formula/compare/v1.386.0...v1.387.0>`_ (2022-05-10)
 ---------------------------------------------------------------------------------------------
 
