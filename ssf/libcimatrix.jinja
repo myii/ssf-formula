@@ -14,18 +14,21 @@
               use_gitlab_format=False,
               use_github_format=False,
               use_vagrant_platforms=False,
-              use_proxy_platforms_windows=[]
+              use_proxy_platforms_windows=[],
+              use_exec_platforms_macos=[]
           ) %}
 {%-   filter indent(width) %}
 {#-     Centralise duplication from here and `kitchen.yml` #}
 {%-     set platform_and_suite_names_done = [] %}
 {%-     set commented_platform_done = [] %}
-{%-     set all_platforms = saltimages + vagrantboxes + proxyplatformswindows %}
+{%-     set all_platforms = saltimages + vagrantboxes + proxyplatformswindows + execplatformsmacos %}
 {%-     set driver_platforms = saltimages %}
 {%-     if use_vagrant_platforms %}
 {%-       set driver_platforms = vagrantboxes %}
 {%-     elif use_proxy_platforms_windows %}
 {%-       set driver_platforms = proxyplatformswindows %}
+{%-     elif use_exec_platforms_macos %}
+{%-       set driver_platforms = execplatformsmacos %}
 {%-     endif %}
 {%-     for platform in driver_platforms %}
 {%-       set os       = platform[0] %}
@@ -34,6 +37,7 @@
 {%-       set py_ver   = platform[3] %}
 {#-       Go to the next platform where not set as active #}
 {%-       if (os == 'freebsd' and not testing_freebsd.active) or
+             (os == 'macos'   and not testing_macos.active) or
              (os == 'openbsd' and not testing_openbsd.active) or
              (os == 'windows' and not testing_windows.active) %}
 {%-         continue %}
@@ -53,8 +57,10 @@
 {%-       endfor %}
 {#-       If a match hasn't been found, go to the next entry under `driver_platforms` #}
 {#-       Likewise, if working with Windows proxy platforms and doesn't match the platform sent through #}
+{#-       Likewise, if working with macOS exec platforms and doesn't match the platform sent through #}
 {%-       if (not ns_check_platform.match) or
-             (use_proxy_platforms_windows and use_proxy_platforms_windows != platform)
+             (use_proxy_platforms_windows and use_proxy_platforms_windows != platform) or
+             (use_exec_platforms_macos and use_exec_platforms_macos != platform)
 %}
 {%-         continue %}
 {%-       endif %}

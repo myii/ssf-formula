@@ -64,8 +64,8 @@ ssf_node_anchors:
             upstream: 'upstream'
           commit:
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "test(system.rb): add support for '`'mac_os_x'`' [skip ci]"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/442'
+            title: "ci(macos): enable testing using GitHub Actions"
+            body: '* Automated using https://github.com/myii/ssf-formula/pull/443'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
@@ -119,6 +119,7 @@ ssf_node_anchors:
                 - gentoo
                 - almalinux
                 - rocky
+                - mac_os_x
                 - windows
             provisioner:
               dependencies: []
@@ -215,6 +216,17 @@ ssf_node_anchors:
           exclude_paths: []
         testing_freebsd:
           active: false
+        testing_macos:
+          active: false
+          github:
+            driver:
+              name: 'exec'
+            platforms:
+              provisioner:
+                sudo: 'true'  # So that this comes through as `true` vs. `True`
+                salt_install: 'bootstrap'
+                salt_bootstrap_options: '-P stable latest'
+                salt_call_command: '/opt/salt/bin/salt-call'
         testing_openbsd:
           active: false
           vagrant:
@@ -334,6 +346,11 @@ ssf:
       create_PR:
         active: false
         source: 'salt://ssf/files/default/git/git_30_create_PR.sh'
+  execplatformsmacos:
+    ### `macos`
+    - [macos        ,   12   ,   latest,      3]  # maco-1200-latest-py3
+    - [macos        ,   11   ,   latest,      3]  # maco-1100-latest-py3
+    - [macos        ,   10.15,   latest,      3]  # maco-1015-latest-py3
   proxyplatformswindows:
     ### `windows`
     - [windows      , 2022   ,   latest,      3]  # wind-2022-latest-py3

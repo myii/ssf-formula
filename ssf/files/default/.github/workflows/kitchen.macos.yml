@@ -1,0 +1,42 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+---
+{%- from tplroot ~ "/libcimatrix.jinja" import format_ci_matrix with context %}
+name: 'Kitchen (macOS)'
+'on': ['push', 'pull_request']
+
+env:
+  KITCHEN_LOCAL_YAML: 'kitchen.macos.yml'
+
+jobs:
+  {%- for platform in execplatformsmacos %}
+  {%-   set os       = platform[0] | d('') %}
+  {%-   set os_ver   = platform[1] | d('') %}
+  {#-   set salt_ver = platform[2] | d('') #}
+  {#-   set py_ver   = platform[3] | d('') #}
+  test-{{ os_ver | replace('.', '') }}:
+    runs-on: '{{ os }}-{{ os_ver }}'
+    strategy:
+      fail-fast: false
+      matrix:
+        instance:
+          {{- format_ci_matrix(platforms, inspec_suites_kitchen, inspec_suites_matrix, platforms_matrix, platforms_matrix_allow_failure, platforms_matrix_commented_includes, semrel_formula, width=10, use_github_format=True, use_exec_platforms_macos=platform) }}
+    {%- raw %}
+    steps:
+      - name: 'Check out code'
+        uses: 'actions/checkout@v2'
+      - name: 'Set up Bundler cache'
+        uses: 'actions/cache@v1'
+        with:
+          path: 'vendor/bundle'
+          key: "${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}"
+          restore-keys: "${{ runner.os }}-gems-"
+      - name: 'Run Bundler'
+        run: |
+          ruby --version
+          bundle config path vendor/bundle
+          bundle install --jobs 4 --retry 3
+      - name: 'Run Test Kitchen'
+        run: 'bundle exec kitchen verify ${{ matrix.instance }}'
+    {%- endraw %}
+  {%- endfor %}

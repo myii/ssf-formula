@@ -1,0 +1,32 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+---
+driver:
+  name: {{ testing_macos.github.driver.name }}
+
+provisioner:
+  sudo: {{ testing_macos.github.platforms.provisioner.sudo }}
+  salt_install: {{ testing_macos.github.platforms.provisioner.salt_install }}
+  salt_bootstrap_options: {{ testing_macos.github.platforms.provisioner.salt_bootstrap_options }}
+  salt_call_command: {{ testing_macos.github.platforms.provisioner.salt_call_command }}
+
+platforms:
+  {%- for platform in execplatformsmacos %}
+  {%-   set os       = platform[0] | d('') %}
+  {%-   set os_ver   = platform[1] | d('') %}
+  {%-   set salt_ver = platform[2] | d('') %}
+  {%-   set py_ver   = platform[3] | d('') %}
+  - name: {{ os | replace('/', '-') }}-{{ os_ver | replace('.', '') }}-{{ salt_ver | replace('.', '-') }}-py{{ py_ver }}
+    {#- Centralise duplication from here and `kitchen*.yml` #}
+    {%- if kitchen.platforms.verifier.inputs %}
+    verifier:
+      inputs:
+        {%- for input_name, input_val in kitchen.platforms.verifier.inputs.items() %}
+        {%-   if [semrel_formula, input_name] in [['salt', 'saltmajorversion']] %}
+        {{ input_name }}: {{ input_val.get(salt_ver, salt_ver | int) }}
+        {%-   else %}
+        {{ input_name }}: {{ input_val }}
+        {%-   endif %}
+        {%- endfor %}
+    {%- endif %}
+  {%- endfor %}

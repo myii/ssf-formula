@@ -31,8 +31,10 @@ ignore: |
   ssf/files/default/.yamllint
   ssf/files/default/inspec/inspec.yml
   ssf/files/default/kitchen.yml
+  ssf/files/default/kitchen.macos.yml
   ssf/files/default/kitchen.windows.yml
   ssf/files/default/.github/workflows/kitchen.yml
+  ssf/files/default/.github/workflows/kitchen.macos.yml
   ssf/files/default/.github/workflows/kitchen.windows.yml
   ssf/files/tofs_ssf-formula/.yamllint
 
