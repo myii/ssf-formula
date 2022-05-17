@@ -4438,7 +4438,10 @@ ssf:
           - [openbsd      ,    7.0 ,   3003.3,      3,         default]
           - [openbsd      ,    6.9 ,   3002.6,      3,         default]
           - [windows      ,    0   ,   latest,      3,         default]
+          - [macos        ,    0   ,   latest,      3,         default]
         testing_freebsd:
+          active: true
+        testing_macos:
           active: true
         testing_openbsd:
           active: true
