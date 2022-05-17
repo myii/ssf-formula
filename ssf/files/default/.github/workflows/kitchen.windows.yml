@@ -13,12 +13,12 @@ env:
 
 jobs:
   {%- for platform in proxyplatformswindows %}
-  {#-   set os       = platform[0] | d('') #}
+  {%-   set os       = platform[0] | d('') %}
   {%-   set os_ver   = platform[1] | d('') %}
   {#-   set salt_ver = platform[2] | d('') #}
   {#-   set py_ver   = platform[3] | d('') #}
-  test-{{ os_ver }}:
-    runs-on: 'windows-{{ os_ver }}'
+  test-{{ os_ver | replace('.', '') }}:
+    runs-on: '{{ os }}-{{ os_ver }}'
     strategy:
       fail-fast: false
       matrix:

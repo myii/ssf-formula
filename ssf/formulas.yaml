@@ -276,6 +276,10 @@ ssf_node_anchors:
           <<: *file_default
           template: 'jinja'
         # yamllint disable-line rule:line-length
+        .github/workflows/kitchen.macos.yml: &file__--github__workflows__kitchen--macos--yml
+          <<: *file_default
+          template: 'jinja'
+        # yamllint disable-line rule:line-length
         .github/workflows/kitchen.vagrant.yml: &file__--github__workflows__kitchen--vagrant--yml
           <<: *file_default
           template: 'jinja'
@@ -363,6 +367,9 @@ ssf_node_anchors:
         Gemfile.lock: &file__Gemfile--lock
           <<: *file_default
         kitchen.yml: &file__kitchen--yml
+          <<: *file_default
+          template: 'jinja'
+        kitchen.macos.yml: &file__kitchen--macos--yml
           <<: *file_default
           template: 'jinja'
         kitchen.vagrant.yml: &file__kitchen--vagrant--yml
@@ -4431,7 +4438,10 @@ ssf:
           - [openbsd      ,    7.0 ,   3003.3,      3,         default]
           - [openbsd      ,    6.9 ,   3002.6,      3,         default]
           - [windows      ,    0   ,   latest,      3,         default]
+          - [macos        ,    0   ,   latest,      3,         default]
         testing_freebsd:
+          active: true
+        testing_macos:
           active: true
         testing_openbsd:
           active: true
@@ -4616,8 +4626,10 @@ ssf:
               - ssf/files/default/.yamllint
               - ssf/files/default/inspec/inspec.yml
               - ssf/files/default/kitchen.yml
+              - ssf/files/default/kitchen.macos.yml
               - ssf/files/default/kitchen.windows.yml
               - ssf/files/default/.github/workflows/kitchen.yml
+              - ssf/files/default/.github/workflows/kitchen.macos.yml
               - ssf/files/default/.github/workflows/kitchen.windows.yml
               - ssf/files/tofs_ssf-formula/.yamllint
           rules:
