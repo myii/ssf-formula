@@ -2,6 +2,16 @@
 Changelog
 =========
 
+`1.390.0 <https://github.com/myii/ssf-formula/compare/v1.389.0...v1.390.0>`_ (2022-05-17)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **macos:** add ``exec``\ -based testing via. GitHub Actions (\ `2a843ea <https://github.com/myii/ssf-formula/commit/2a843ead8bc64dcac2ed3749861da8bdad82a630>`_\ )
+* **salt:** add macOS testing (\ `c06e179 <https://github.com/myii/ssf-formula/commit/c06e179c1dfe6aefb49c9af906b07016e64255b3>`_\ )
+
 `1.389.0 <https://github.com/myii/ssf-formula/compare/v1.388.0...v1.389.0>`_ (2022-05-17)
 ---------------------------------------------------------------------------------------------
 
