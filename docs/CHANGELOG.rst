@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.391.0 <https://github.com/myii/ssf-formula/compare/v1.390.0...v1.391.0>`_ (2022-05-17)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **gemfile.lock:** use ``bundle update`` to get latest gems [2022-W20] (\ `730f88b <https://github.com/myii/ssf-formula/commit/730f88b0ffa6678ecf8c85ac11d0a10cdf775853>`_\ )
+
 `1.390.0 <https://github.com/myii/ssf-formula/compare/v1.389.0...v1.390.0>`_ (2022-05-17)
 ---------------------------------------------------------------------------------------------
 
