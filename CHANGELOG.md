@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.392.0](https://github.com/myii/ssf-formula/compare/v1.391.0...v1.392.0) (2022-05-19)
+
+
+### Features
+
+* **formula:** add `caddy-formula` ([aae392b](https://github.com/myii/ssf-formula/commit/aae392b13fa5fb7f35c5fe0651cd7e2cae4980fa))
+
 # [1.391.0](https://github.com/myii/ssf-formula/compare/v1.390.0...v1.391.0) (2022-05-17)
 
 
