@@ -694,6 +694,48 @@ ssf:
             line-length:
               ignore: *ignore_pillar_example_and_with_views_example
       semrel_files: *semrel_files_default
+    caddy:
+      context:
+        codeowners:
+          entries:
+            global:
+              - '*': '@javierbertoli'
+        git:
+          github:
+            repo: 'caddy-formula'
+        kitchen:
+          provisioner:
+            pillars_from_directories:
+              - test/salt/pillar
+            top_sls:
+              - '*':
+                  - default
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: >-
+                Verify that the caddy formula is setup and configured correctly
+        map_jinja:
+          verification:
+            import: ['mapdata']
+          version: 5
+        platforms_matrix:
+          # [os           ,  os_ver, salt_ver, py_ver,    inspec_suite]
+          - [debian       ,    0   ,   master,      0,         default]
+          - [ubuntu       ,    0   ,   master,      0,         default]
+          # # - [centos       ,    0   ,   master,      0,         default]
+          # # - [fedora       ,    0   ,   master,      0,         default]
+          # # - [opensuse/leap,    0   ,   master,      0,         default]
+          # # - [opensuse/tmbl,    0   ,   master,      0,         default]
+          # # - [amazonlinux  ,    0   ,   master,      0,         default]
+          # # - [oraclelinux  ,    0   ,   master,      0,         default]
+          # # - [arch-base    ,    0   ,   master,      0,         default]
+          # # - [gentoo/stage3,    0   ,   master,      0,         default]
+          # # - [almalinux    ,    0   ,   master,      0,         default]
+          # # - [rockylinux   ,    0   ,   master,      0,         default]
+        use_libsaltcli: true
+        use_tofs: true
+      semrel_files: *semrel_files_inc_map_jinja_verifier
     cert:
       context:
         git:

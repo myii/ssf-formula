@@ -84,6 +84,7 @@ ssf:
       - backupninja
       - bareos
       - bind
+      - caddy
       - cert
       - charles
       - chrony
