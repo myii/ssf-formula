@@ -804,7 +804,12 @@ ssf:
                 Verify that the collectd formula is setup and configured correctly
             provisioner:
               pillars_from_files:
-                - .sls: 'test/salt/default/pillar/collectd.sls'
+                - .sls: 'test/salt/pillar/default/collectd.sls'
+              state_top:
+                - '*':
+                    - ._mapdata
+                    - .
+                    - .postgresql
         map_jinja:
           verification:
             import: ['collectd_settings']
