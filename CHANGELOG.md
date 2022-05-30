@@ -1,5 +1,13 @@
 # Changelog
 
+# [1.394.0](https://github.com/myii/ssf-formula/compare/v1.393.0...v1.394.0) (2022-05-30)
+
+
+### Features
+
+* **gemfile:** update with fix for recent `rubocop` violation ([d57cf4d](https://github.com/myii/ssf-formula/commit/d57cf4db5e236ef3359e98ac98553384edd156b8))
+* **gemfile.lock:** use `bundle update` to get latest gems [2022-W22] ([6409f8a](https://github.com/myii/ssf-formula/commit/6409f8ad73bc7f3b92ce8541412ba904a3e44d8f))
+
 # [1.393.0](https://github.com/myii/ssf-formula/compare/v1.392.0...v1.393.0) (2022-05-24)
 
 
