@@ -2,6 +2,18 @@
 Changelog
 =========
 
+`1.396.0 <https://github.com/myii/ssf-formula/compare/v1.395.0...v1.396.0>`_ (2022-06-08)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **formulas:** add ``pre-commit`` config to basic management formulas (\ `2043a36 <https://github.com/myii/ssf-formula/commit/2043a366dd503dd6bd6e155d0f82a0c276660e8b>`_\ )
+* **pre-commit:** add pre-commit.ci section to configuration (\ `f318978 <https://github.com/myii/ssf-formula/commit/f3189782f629e1ea10c94fd0e5abc19cecbd5237>`_\ )
+* **pre-commit:** update ``rubocop`` linter version (\ `739db37 <https://github.com/myii/ssf-formula/commit/739db372ac5fce5f4f89c0bef94d8b53b53256e3>`_\ )
+* **saltimages:** update with latest changes from ``salt-image-builder`` (\ `63235a3 <https://github.com/myii/ssf-formula/commit/63235a34483e103027b09f75f5b8af475f39b36b>`_\ )
+
 `1.395.0 <https://github.com/myii/ssf-formula/compare/v1.394.0...v1.395.0>`_ (2022-06-07)
 ---------------------------------------------------------------------------------------------
 
