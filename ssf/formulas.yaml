@@ -396,6 +396,7 @@ ssf_node_anchors:
       # in order to avoid security warnings
       semrel_files_mainly_gemfiles_only: &semrel_files_mainly_gemfiles_only
         .github/workflows/commitlint.yml: *file__--github__workflows__commitlint--yml
+        .pre-commit-config.yaml: *file__--pre-commit-config--yaml
         CODEOWNERS: *file__CODEOWNERS
         Gemfile: *file__Gemfile
         Gemfile.lock: *file__Gemfile--lock
