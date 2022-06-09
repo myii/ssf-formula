@@ -183,6 +183,7 @@ These formulas are already compatible with semantic-release *and* have global ``
 #. `apt-formula <https://github.com/saltstack-formulas/apt-formula>`_
 #. `bind-formula <https://github.com/saltstack-formulas/bind-formula>`_
 #. `caddy-formula <https://github.com/saltstack-formulas/caddy-formula>`_
+#. `carbon-relay-ng-formula <https://github.com/saltstack-formulas/carbon-relay-ng-formula>`_
 #. `deepsea-formula <https://github.com/saltstack-formulas/deepsea-formula>`_
 #. `devstack-formula <https://github.com/saltstack-formulas/devstack-formula>`_
 #. `dhcpd-formula <https://github.com/saltstack-formulas/dhcpd-formula>`_
@@ -237,7 +238,7 @@ These formulas are already compatible with semantic-release *and* have global ``
 
 These formulas are also compatible with semantic-release:
 
-56. `apt-cacher-formula <https://github.com/saltstack-formulas/apt-cacher-formula>`_
+57. `apt-cacher-formula <https://github.com/saltstack-formulas/apt-cacher-formula>`_
 #. `cert-formula <https://github.com/saltstack-formulas/cert-formula>`_
 #. `chrony-formula <https://github.com/saltstack-formulas/chrony-formula>`_
 #. `collectd-formula <https://github.com/saltstack-formulas/collectd-formula>`_
