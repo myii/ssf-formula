@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.397.0 <https://github.com/myii/ssf-formula/compare/v1.396.0...v1.397.0>`_ (2022-06-09)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **formula:** add ``carbon-relay-ng-formula`` (\ `cb5fb73 <https://github.com/myii/ssf-formula/commit/cb5fb733bddd9be2b25905375619fd9ea76b7a06>`_\ )
+
 `1.396.0 <https://github.com/myii/ssf-formula/compare/v1.395.0...v1.396.0>`_ (2022-06-08)
 ---------------------------------------------------------------------------------------------
 
