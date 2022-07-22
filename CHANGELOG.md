@@ -1,5 +1,14 @@
 # Changelog
 
+# [1.400.0](https://github.com/myii/ssf-formula/compare/v1.399.0...v1.400.0) (2022-07-22)
+
+
+### Features
+
+* **bin/kitchen:** fix `rubocop` violations ([3287920](https://github.com/myii/ssf-formula/commit/3287920a6dbb61400f08293f7149a452ec83f8ad))
+* **gemfile.lock:** use `bundle update` to get latest gems [2022-W28] ([e8ccada](https://github.com/myii/ssf-formula/commit/e8ccada94e28091667d518846c1191c972aabcdf))
+* **system.rb:** add Ubuntu 22.04 to `build_platform_codename` ([c70077b](https://github.com/myii/ssf-formula/commit/c70077b4e68333ffc8f717995fdf14bf6752c3ee))
+
 # [1.399.0](https://github.com/myii/ssf-formula/compare/v1.398.0...v1.399.0) (2022-06-30)
 
 
