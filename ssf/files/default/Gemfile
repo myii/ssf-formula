@@ -41,4 +41,9 @@ gem 'rspec-retry'
 group :vagrant do
   gem 'kitchen-vagrant'
 end
+{%-   if semrel_formula in ['vault'] %}
+
+# v7 needed for compatibility with OpenSSL v3
+gem 'net-ssh', '~> 7'
+{%-   endif %}
 {%- endif %}
