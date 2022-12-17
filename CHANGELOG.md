@@ -1,5 +1,14 @@
 # Changelog
 
+# [1.401.0](https://github.com/myii/ssf-formula/compare/v1.400.0...v1.401.0) (2022-12-17)
+
+
+### Features
+
+* **proftpd:** review PR 11 ([51e0b58](https://github.com/myii/ssf-formula/commit/51e0b58a51b2abb0879790fa3628e3b11150760a))
+* **salt:** review PR 542 ([955b527](https://github.com/myii/ssf-formula/commit/955b527d71a667d4dbb09178e3367e46f3928902))
+* **vault:** review PR 63 ([e8594c7](https://github.com/myii/ssf-formula/commit/e8594c7f63c1e6363df0aee7b7184a51f9881212))
+
 # [1.400.0](https://github.com/myii/ssf-formula/compare/v1.399.0...v1.400.0) (2022-07-22)
 
 

@@ -2,6 +2,28 @@
 Changelog
 =========
 
+`1.401.0 <https://github.com/myii/ssf-formula/compare/v1.400.0...v1.401.0>`_ (2022-12-17)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **proftpd:** review PR 11 (\ `51e0b58 <https://github.com/myii/ssf-formula/commit/51e0b58a51b2abb0879790fa3628e3b11150760a>`_\ )
+* **salt:** review PR 542 (\ `955b527 <https://github.com/myii/ssf-formula/commit/955b527d71a667d4dbb09178e3367e46f3928902>`_\ )
+* **vault:** review PR 63 (\ `e8594c7 <https://github.com/myii/ssf-formula/commit/e8594c7f63c1e6363df0aee7b7184a51f9881212>`_\ )
+
+`1.400.0 <https://github.com/myii/ssf-formula/compare/v1.399.0...v1.400.0>`_ (2022-07-22)
+---------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **bin/kitchen:** fix ``rubocop`` violations (\ `3287920 <https://github.com/myii/ssf-formula/commit/3287920a6dbb61400f08293f7149a452ec83f8ad>`_\ )
+* **gemfile.lock:** use ``bundle update`` to get latest gems [2022-W28] (\ `e8ccada <https://github.com/myii/ssf-formula/commit/e8ccada94e28091667d518846c1191c972aabcdf>`_\ )
+* **system.rb:** add Ubuntu 22.04 to ``build_platform_codename`` (\ `c70077b <https://github.com/myii/ssf-formula/commit/c70077b4e68333ffc8f717995fdf14bf6752c3ee>`_\ )
+
 `1.399.0 <https://github.com/myii/ssf-formula/compare/v1.398.0...v1.399.0>`_ (2022-06-30)
 ---------------------------------------------------------------------------------------------
 
