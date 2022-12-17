@@ -4537,7 +4537,7 @@ ssf:
             platforms:
               provisioner:
                 salt_bootstrap_options: '-pythonVersion 3 -version 3004.1-1'
-          winrepo_ng: ['salt-minion-py3']
+          winrepo_ng: ['salt-minion']
         use_tofs: true
         yamllint:
           ignore:
